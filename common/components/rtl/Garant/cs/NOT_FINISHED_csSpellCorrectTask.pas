@@ -1,35 +1,29 @@
 unit NOT_FINISHED_csSpellCorrectTask;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/NOT_FINISHED_csSpellCorrectTask.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Tasks::TcsSpellCorrectTask
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\NOT_FINISHED_csSpellCorrectTask.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  csSpellCorrectTaskPrim
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , csSpellCorrectTaskPrim
+;
 
-{$If not defined(Nemesis)}
 type
  TcsSpellCorrectTask = class(TcsSpellCorrectTaskPrim)
  end;//TcsSpellCorrectTask
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
+
+{$If NOT Defined(Nemesis)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

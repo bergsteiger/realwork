@@ -21,10 +21,10 @@ type
    procedure InitFields; override;
   public
    function GetTypeInfo(const aModifiers: TtfwWordInfoRec): TtfwWordInfo;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TtfwWordInfoCache;
     {* Метод получения экземпляра синглетона TtfwWordInfoCache }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TtfwWordInfoCache
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -72,12 +72,6 @@ begin
 //#UC END# *559F82A60110_559F828102D8_impl*
 end;//TtfwWordInfoCache.GetTypeInfo
 
-class function TtfwWordInfoCache.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TtfwWordInfoCache <> nil;
-end;//TtfwWordInfoCache.Exists
-
 class function TtfwWordInfoCache.Instance: TtfwWordInfoCache;
  {* Метод получения экземпляра синглетона TtfwWordInfoCache }
 begin
@@ -88,6 +82,12 @@ begin
  end;
  Result := g_TtfwWordInfoCache;
 end;//TtfwWordInfoCache.Instance
+
+class function TtfwWordInfoCache.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TtfwWordInfoCache <> nil;
+end;//TtfwWordInfoCache.Exists
 
 procedure TtfwWordInfoCache.InitFields;
 //#UC START# *47A042E100E2_559F828102D8_var*

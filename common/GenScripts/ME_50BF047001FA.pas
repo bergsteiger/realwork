@@ -40,10 +40,10 @@ type
    procedure WaitForAllThreads;
    procedure AddAndResumeThread(const aContext: TtfwContext;
     const aWord: TtfwWord);
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TseWorkThreadList;
     {* Метод получения экземпляра синглетона TseWorkThreadList }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TseWorkThreadList
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -135,12 +135,6 @@ begin
 //#UC END# *50BF1E9C001F_50BF049002DB_impl*
 end;//TseWorkThreadList.AddAndResumeThread
 
-class function TseWorkThreadList.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TseWorkThreadList <> nil;
-end;//TseWorkThreadList.Exists
-
 class function TseWorkThreadList.Instance: TseWorkThreadList;
  {* Метод получения экземпляра синглетона TseWorkThreadList }
 begin
@@ -151,6 +145,12 @@ begin
  end;
  Result := g_TseWorkThreadList;
 end;//TseWorkThreadList.Instance
+
+class function TseWorkThreadList.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TseWorkThreadList <> nil;
+end;//TseWorkThreadList.Exists
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

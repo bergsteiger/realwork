@@ -16,10 +16,10 @@ uses
 type
  TtfwAxiomaticsResNameGetters = class(TtfwAxiomaticsResNameGetterList)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TtfwAxiomaticsResNameGetters;
     {* Метод получения экземпляра синглетона TtfwAxiomaticsResNameGetters }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TtfwAxiomaticsResNameGetters
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -41,12 +41,6 @@ begin
  l3Free(g_TtfwAxiomaticsResNameGetters);
 end;//TtfwAxiomaticsResNameGettersFree
 
-class function TtfwAxiomaticsResNameGetters.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TtfwAxiomaticsResNameGetters <> nil;
-end;//TtfwAxiomaticsResNameGetters.Exists
-
 class function TtfwAxiomaticsResNameGetters.Instance: TtfwAxiomaticsResNameGetters;
  {* Метод получения экземпляра синглетона TtfwAxiomaticsResNameGetters }
 begin
@@ -57,6 +51,12 @@ begin
  end;
  Result := g_TtfwAxiomaticsResNameGetters;
 end;//TtfwAxiomaticsResNameGetters.Instance
+
+class function TtfwAxiomaticsResNameGetters.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TtfwAxiomaticsResNameGetters <> nil;
+end;//TtfwAxiomaticsResNameGetters.Exists
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

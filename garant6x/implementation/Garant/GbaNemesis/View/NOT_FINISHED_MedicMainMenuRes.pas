@@ -1,48 +1,40 @@
 unit NOT_FINISHED_MedicMainMenuRes;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/NOT_FINISHED_MedicMainMenuRes.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Оболочка Без Прецедентов::F1 Without Usecases::View::Main::MedicMainMenuRes
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\NOT_FINISHED_MedicMainMenuRes.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  ;
+ l3IntfUses
+ , Classes
+;
 
 type
  TdmMedicMainMenuRes = class(TDataModule)
  end;//TdmMedicMainMenuRes
 
-procedure Fake;
-{$IfEnd} //not Admin AND not Monitorings
+procedure fake;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-// unit methods
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+;
 
-procedure Fake;
+procedure fake;
 //#UC START# *4AA7E9DB02FF_4AA7E9CB034A_var*
 //#UC END# *4AA7E9DB02FF_4AA7E9CB034A_var*
 begin
 //#UC START# *4AA7E9DB02FF_4AA7E9CB034A_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4AA7E9DB02FF_4AA7E9CB034A_impl*
-end;//Fake
-{$IfEnd} //not Admin AND not Monitorings
+end;//fake
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

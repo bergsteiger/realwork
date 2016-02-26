@@ -37,12 +37,12 @@ type
    procedure pm_SetAlien(const aValue: Il3ScriptService);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    procedure EnterScript;
    procedure LeaveScript;
    class function Instance: Tl3ScriptService;
     {* Метод получения экземпляра синглетона Tl3ScriptService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: Il3ScriptService
     write pm_SetAlien;
@@ -74,12 +74,6 @@ begin
  f_Alien := aValue;
 end;//Tl3ScriptService.pm_SetAlien
 
-class function Tl3ScriptService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3ScriptService <> nil;
-end;//Tl3ScriptService.Exists
-
 procedure Tl3ScriptService.EnterScript;
 //#UC START# *97F121633B1B_5509AA5400EA_var*
 //#UC END# *97F121633B1B_5509AA5400EA_var*
@@ -110,6 +104,12 @@ begin
  end;
  Result := g_Tl3ScriptService;
 end;//Tl3ScriptService.Instance
+
+class function Tl3ScriptService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3ScriptService <> nil;
+end;//Tl3ScriptService.Exists
 
 procedure Tl3ScriptService.ClearFields;
 begin

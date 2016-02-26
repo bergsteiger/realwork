@@ -1,45 +1,30 @@
 unit NOT_FINISHED_CsQueryExecutor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/NOT_FINISHED_CsQueryExecutor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::ServerSide::TCsQueryExecutor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\NOT_FINISHED_CsQueryExecutor.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If defined(AppServerSide) AND not defined(Nemesis)}
+{$If Defined(AppServerSide) AND NOT Defined(Nemesis)}
 uses
-  CsObject
-  ;
-{$IfEnd} //AppServerSide AND not Nemesis
+ l3IntfUses
+ , CsObject
+;
 
-{$If defined(AppServerSide) AND not defined(Nemesis)}
 type
  TCsQueryExecutor = class(TCsObject)
  end;//TCsQueryExecutor
-{$IfEnd} //AppServerSide AND not Nemesis
+{$IfEnd} // Defined(AppServerSide) AND NOT Defined(Nemesis)
 
 implementation
 
-{$If defined(AppServerSide) AND not defined(Nemesis)}
+{$If Defined(AppServerSide) AND NOT Defined(Nemesis)}
 uses
-  CsReplyProcedures
-  ;
-{$IfEnd} //AppServerSide AND not Nemesis
+ l3ImplUses
+ , CsReplyProcedures
+;
+{$IfEnd} // Defined(AppServerSide) AND NOT Defined(Nemesis)
 
-{$If defined(AppServerSide) AND not defined(Nemesis)}
-
-
-{$IfEnd} //AppServerSide AND not Nemesis
 end.

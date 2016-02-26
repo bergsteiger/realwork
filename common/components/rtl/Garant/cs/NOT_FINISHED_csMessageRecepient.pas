@@ -1,48 +1,36 @@
 unit NOT_FINISHED_csMessageRecepient;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/NOT_FINISHED_csMessageRecepient.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::Tasks::TcsMessageRecepient
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\NOT_FINISHED_csMessageRecepient.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3ProtoObject,
-  ddClientMessageSortableList
-  ;
-{$IfEnd} //not Nemesis
+ l3IntfUses
+ , l3ProtoObject
+ , ddClientMessageSortableList
+;
 
-{$If not defined(Nemesis)}
 type
  TcsMessageRecepient = class(Tl3ProtoObject)
- private
- // private fields
-   f_Messages : TddClientMessageSortableList;
-    {* Поле для свойства Messages}
- public
- // public properties
+  private
+   f_Messages: TddClientMessageSortableList;
+    {* Поле для свойства Messages }
+  public
    property Messages: TddClientMessageSortableList
-     read f_Messages;
+    read f_Messages;
  end;//TcsMessageRecepient
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(Nemesis)
 
-
-{$IfEnd} //not Nemesis
 end.

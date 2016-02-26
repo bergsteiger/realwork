@@ -21,10 +21,10 @@ type
  {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  TtfwDictionaryCache = class(_l3Searcher_)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TtfwDictionaryCache;
     {* Метод получения экземпляра синглетона TtfwDictionaryCache }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
    function FindDictionary(const aFileName: Il3CString): _ItemType_; override;
    procedure Remove(const anItem: _ItemType_); override;
  end;//TtfwDictionaryCache
@@ -70,12 +70,6 @@ type _Instance_R_ = TtfwDictionaryCache;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 
-class function TtfwDictionaryCache.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TtfwDictionaryCache <> nil;
-end;//TtfwDictionaryCache.Exists
-
 class function TtfwDictionaryCache.Instance: TtfwDictionaryCache;
  {* Метод получения экземпляра синглетона TtfwDictionaryCache }
 begin
@@ -86,6 +80,12 @@ begin
  end;
  Result := g_TtfwDictionaryCache;
 end;//TtfwDictionaryCache.Instance
+
+class function TtfwDictionaryCache.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TtfwDictionaryCache <> nil;
+end;//TtfwDictionaryCache.Exists
 
 function TtfwDictionaryCache.FindDictionary(const aFileName: Il3CString): _ItemType_;
 //#UC START# *559E857A037A_55A3DF0603C6_var*

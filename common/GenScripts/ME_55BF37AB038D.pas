@@ -20,10 +20,10 @@ type
    procedure InitFields; override;
   public
    function CheckList(aValue: TtfwValueTypes): TtfwValueTypes;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TtfwValueTypesCache;
     {* Метод получения экземпляра синглетона TtfwValueTypesCache }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TtfwValueTypesCache
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -62,12 +62,6 @@ begin
 //#UC END# *55C0A4040157_55BF37AB038D_impl*
 end;//TtfwValueTypesCache.CheckList
 
-class function TtfwValueTypesCache.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TtfwValueTypesCache <> nil;
-end;//TtfwValueTypesCache.Exists
-
 class function TtfwValueTypesCache.Instance: TtfwValueTypesCache;
  {* Метод получения экземпляра синглетона TtfwValueTypesCache }
 begin
@@ -78,6 +72,12 @@ begin
  end;
  Result := g_TtfwValueTypesCache;
 end;//TtfwValueTypesCache.Instance
+
+class function TtfwValueTypesCache.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TtfwValueTypesCache <> nil;
+end;//TtfwValueTypesCache.Exists
 
 procedure TtfwValueTypesCache.InitFields;
 //#UC START# *47A042E100E2_55BF37AB038D_var*

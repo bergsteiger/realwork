@@ -18,10 +18,10 @@ type
  TkwIntegerFactory = class(TkwIntegerArray)
   public
    function MakeKW(aValue: Integer): TkwInteger;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TkwIntegerFactory;
     {* Метод получения экземпляра синглетона TkwIntegerFactory }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TkwIntegerFactory
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -69,12 +69,6 @@ begin
 //#UC END# *4F3E412801B7_4F3E401D03AF_impl*
 end;//TkwIntegerFactory.MakeKW
 
-class function TkwIntegerFactory.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TkwIntegerFactory <> nil;
-end;//TkwIntegerFactory.Exists
-
 class function TkwIntegerFactory.Instance: TkwIntegerFactory;
  {* Метод получения экземпляра синглетона TkwIntegerFactory }
 begin
@@ -85,6 +79,12 @@ begin
  end;
  Result := g_TkwIntegerFactory;
 end;//TkwIntegerFactory.Instance
+
+class function TkwIntegerFactory.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TkwIntegerFactory <> nil;
+end;//TkwIntegerFactory.Exists
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

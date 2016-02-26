@@ -15,10 +15,10 @@ uses
 type
  TtfwCStringArraySing2 = class(TtfwCStringArray)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TtfwCStringArraySing2;
     {* Метод получения экземпляра синглетона TtfwCStringArraySing2 }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TtfwCStringArraySing2
 
 implementation
@@ -38,12 +38,6 @@ begin
  l3Free(g_TtfwCStringArraySing2);
 end;//TtfwCStringArraySing2Free
 
-class function TtfwCStringArraySing2.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TtfwCStringArraySing2 <> nil;
-end;//TtfwCStringArraySing2.Exists
-
 class function TtfwCStringArraySing2.Instance: TtfwCStringArraySing2;
  {* Метод получения экземпляра синглетона TtfwCStringArraySing2 }
 begin
@@ -54,5 +48,11 @@ begin
  end;
  Result := g_TtfwCStringArraySing2;
 end;//TtfwCStringArraySing2.Instance
+
+class function TtfwCStringArraySing2.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TtfwCStringArraySing2 <> nil;
+end;//TtfwCStringArraySing2.Exists
 
 end.

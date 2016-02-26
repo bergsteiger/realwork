@@ -246,26 +246,26 @@ type
 
  EtfwContinue = class(EtfwExitOrBreak)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: EtfwContinue;
     {* Метод получения экземпляра синглетона EtfwContinue }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//EtfwContinue
 
  EtfwExit = class(EtfwExitOrBreak)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: EtfwExit;
     {* Метод получения экземпляра синглетона EtfwExit }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//EtfwExit
 
  EtfwHalt = class(EtfwExitOrBreak)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: EtfwHalt;
     {* Метод получения экземпляра синглетона EtfwHalt }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//EtfwHalt
 
  TtfwStackValue = tfwTypeInfo.TtfwStackValue;
@@ -352,10 +352,10 @@ type
 
  EtfwBreakIterator = class(EtfwExitOrBreak)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: EtfwBreakIterator;
     {* Метод получения экземпляра синглетона EtfwBreakIterator }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//EtfwBreakIterator
 
  (*
@@ -588,10 +588,10 @@ type
 
  EtfwBreak = class(EtfwExitOrBreak)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: EtfwBreak;
     {* Метод получения экземпляра синглетона EtfwBreak }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//EtfwBreak
 
  EtfwFail = class(EtfwCheck)
@@ -923,8 +923,6 @@ type
 
  TtfwWordInfoE = class(TtfwWordInfo)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function IncludeModifier(aModifier: TtfwWordModifier): TtfwWordInfo; override;
    function Empty: Boolean; override;
    function Has(aModifier: TtfwWordModifier): Boolean; override;
@@ -948,6 +946,8 @@ type
    function ToString: Il3CString; override;
    class function Instance: TtfwWordInfoE;
     {* Метод получения экземпляра синглетона TtfwWordInfoE }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TtfwWordInfoE
 
  PtfwStackValue = tfwTypeInfo.PtfwStackValue;
@@ -1289,12 +1289,6 @@ begin
 //#UC END# *5161317A0219_5596255801C5_impl*
 end;//EtfwExitOrBreak.FreeInstance
 
-class function EtfwContinue.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_EtfwContinue <> nil;
-end;//EtfwContinue.Exists
-
 class function EtfwContinue.Instance: EtfwContinue;
  {* Метод получения экземпляра синглетона EtfwContinue }
 begin
@@ -1306,11 +1300,11 @@ begin
  Result := g_EtfwContinue;
 end;//EtfwContinue.Instance
 
-class function EtfwExit.Exists: Boolean;
+class function EtfwContinue.Exists: Boolean;
  {* Проверяет создан экземпляр синглетона или нет }
 begin
- Result := g_EtfwExit <> nil;
-end;//EtfwExit.Exists
+ Result := g_EtfwContinue <> nil;
+end;//EtfwContinue.Exists
 
 class function EtfwExit.Instance: EtfwExit;
  {* Метод получения экземпляра синглетона EtfwExit }
@@ -1323,11 +1317,11 @@ begin
  Result := g_EtfwExit;
 end;//EtfwExit.Instance
 
-class function EtfwHalt.Exists: Boolean;
+class function EtfwExit.Exists: Boolean;
  {* Проверяет создан экземпляр синглетона или нет }
 begin
- Result := g_EtfwHalt <> nil;
-end;//EtfwHalt.Exists
+ Result := g_EtfwExit <> nil;
+end;//EtfwExit.Exists
 
 class function EtfwHalt.Instance: EtfwHalt;
  {* Метод получения экземпляра синглетона EtfwHalt }
@@ -1339,6 +1333,12 @@ begin
  end;
  Result := g_EtfwHalt;
 end;//EtfwHalt.Instance
+
+class function EtfwHalt.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_EtfwHalt <> nil;
+end;//EtfwHalt.Exists
 
 procedure TtfwContext.SetWordInfo(aValue: TtfwWordInfo);
 //#UC START# *55C386170161_4DB0091E033E_var*
@@ -1470,12 +1470,6 @@ begin
 //#UC END# *55EED3920052_52EA594400DD_impl*
 end;//TtfwWordPrim.PushAdditionalParams
 
-class function EtfwBreakIterator.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_EtfwBreakIterator <> nil;
-end;//EtfwBreakIterator.Exists
-
 class function EtfwBreakIterator.Instance: EtfwBreakIterator;
  {* Метод получения экземпляра синглетона EtfwBreakIterator }
 begin
@@ -1486,6 +1480,12 @@ begin
  end;
  Result := g_EtfwBreakIterator;
 end;//EtfwBreakIterator.Instance
+
+class function EtfwBreakIterator.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_EtfwBreakIterator <> nil;
+end;//EtfwBreakIterator.Exists
 
 procedure TtfwWord.pm_SetRedefines(aValue: TtfwWord);
 //#UC START# *4F41FF0C01A6_4DAEED140007set_var*
@@ -2462,12 +2462,6 @@ begin
 //#UC END# *47A869D10074_4DAEF23D00EE_impl*
 end;//TtfwKeyWord.DoSetAsPCharLen
 
-class function EtfwBreak.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_EtfwBreak <> nil;
-end;//EtfwBreak.Exists
-
 class function EtfwBreak.Instance: EtfwBreak;
  {* Метод получения экземпляра синглетона EtfwBreak }
 begin
@@ -2478,6 +2472,12 @@ begin
  end;
  Result := g_EtfwBreak;
 end;//EtfwBreak.Instance
+
+class function EtfwBreak.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_EtfwBreak <> nil;
+end;//EtfwBreak.Exists
 
 constructor TtfwWordInfoF.Create(const aModifiers: TtfwWordInfoRec);
 //#UC START# *559E663E0307_559D51430285_var*
@@ -2786,12 +2786,6 @@ begin
 end;//TtfwWordInfoF.IsCacheable
 {$IfEnd} // NOT Defined(DesignTimeLibrary)
 
-class function TtfwWordInfoE.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TtfwWordInfoE <> nil;
-end;//TtfwWordInfoE.Exists
-
 function TtfwWordInfoE.IncludeModifier(aModifier: TtfwWordModifier): TtfwWordInfo;
 //#UC START# *559D50760320_559D6D060382_var*
 //#UC END# *559D50760320_559D6D060382_var*
@@ -2994,6 +2988,12 @@ begin
  end;
  Result := g_TtfwWordInfoE;
 end;//TtfwWordInfoE.Instance
+
+class function TtfwWordInfoE.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TtfwWordInfoE <> nil;
+end;//TtfwWordInfoE.Exists
 
 class function TtfwCStringFactoryEx.ViewOf(const aString: Tl3WString): TtfwStackValue;
 //#UC START# *5602AF920360_5602AF7201EC_var*

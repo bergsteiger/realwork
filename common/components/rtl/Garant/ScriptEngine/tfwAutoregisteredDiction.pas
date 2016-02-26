@@ -33,10 +33,10 @@ type
    constructor Create; reintroduce;
    function DictionaryByWord(const aWord: Il3CString): TtfwDictionaryEx;
    function CheckDictionaryByWordAndUse(const aWord: Il3CString): Boolean;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TtfwAutoregisteredDiction;
     {* Метод получения экземпляра синглетона TtfwAutoregisteredDiction }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property AllAxiomaticsDefined: Boolean
     read f_AllAxiomaticsDefined
@@ -201,12 +201,6 @@ begin
 //#UC END# *55B22D3C019E_4DB05FF60115_impl*
 end;//TtfwAutoregisteredDiction.CheckDictionaryByWordAndUse
 
-class function TtfwAutoregisteredDiction.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TtfwAutoregisteredDiction <> nil;
-end;//TtfwAutoregisteredDiction.Exists
-
 class function TtfwAutoregisteredDiction.Instance: TtfwAutoregisteredDiction;
  {* Метод получения экземпляра синглетона TtfwAutoregisteredDiction }
 begin
@@ -217,6 +211,12 @@ begin
  end;
  Result := g_TtfwAutoregisteredDiction;
 end;//TtfwAutoregisteredDiction.Instance
+
+class function TtfwAutoregisteredDiction.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TtfwAutoregisteredDiction <> nil;
+end;//TtfwAutoregisteredDiction.Exists
 
 function TtfwAutoregisteredDiction.DoCheckWord(const aName: Il3CString): TtfwKeyWord;
 //#UC START# *4F465D580021_4DB05FF60115_var*

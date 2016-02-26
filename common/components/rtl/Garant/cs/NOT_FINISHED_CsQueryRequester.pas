@@ -1,34 +1,28 @@
 unit NOT_FINISHED_CsQueryRequester;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/NOT_FINISHED_CsQueryRequester.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For Archi::cs::ClientSide::CsQueryRequester
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\NOT_FINISHED_CsQueryRequester.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
+uses
+ l3IntfUses
+;
+
 type
- TCsQueryProc = 
-{$IfEnd} //not Nemesis
+ TCsQueryProc = procedure;
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  CsQueryRequesterTool
-  ;
+ l3ImplUses
+ , CsQueryRequesterTool
+;
+{$IfEnd} // NOT Defined(Nemesis)
 
-{$IfEnd} //not Nemesis
 end.

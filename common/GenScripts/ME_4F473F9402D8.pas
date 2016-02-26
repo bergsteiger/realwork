@@ -34,10 +34,10 @@ type
    class function CatSep(const aA: Il3CString;
     const aSep: Il3CString;
     const aB: Il3CString): Il3CString;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TtfwCStringFactory;
     {* Метод получения экземпляра синглетона TtfwCStringFactory }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TtfwCStringFactory
 
 implementation
@@ -285,12 +285,6 @@ begin
 //#UC END# *5602A7F8015D_4F473F9402D8_impl*
 end;//TtfwCStringFactory.CatSep
 
-class function TtfwCStringFactory.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TtfwCStringFactory <> nil;
-end;//TtfwCStringFactory.Exists
-
 class function TtfwCStringFactory.Instance: TtfwCStringFactory;
  {* Метод получения экземпляра синглетона TtfwCStringFactory }
 begin
@@ -301,6 +295,12 @@ begin
  end;
  Result := g_TtfwCStringFactory;
 end;//TtfwCStringFactory.Instance
+
+class function TtfwCStringFactory.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TtfwCStringFactory <> nil;
+end;//TtfwCStringFactory.Exists
 
 procedure TtfwCStringFactory.InitFields;
 //#UC START# *47A042E100E2_4F473F9402D8_var*

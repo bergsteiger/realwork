@@ -1,59 +1,55 @@
 unit NOT_FINISHED_ddServerTask;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/NOT_FINISHED_ddServerTask.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For Archi::cs::ArchiClientServer::ddServerTask
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\NOT_FINISHED_ddServerTask.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  Classes,
-  dt_Types,
-  ddTaskItemPrim
-  ;
+ l3IntfUses
+ , ddTaskItemPrim
+ , dt_Types
+ , Classes
+;
 
 type
+ TddTaskClass = class of TddTaskItem;
+
  TddTaskItem = class(TddTaskItemPrim)
- protected
- // protected methods
+  protected
    procedure DoLoadFrom(aStream: TStream;
-     aIsPipe: Boolean); virtual;
+    aIsPipe: Boolean); virtual;
    function GetDescription: AnsiString; virtual;
- public
- // public methods
+  public
    procedure AssignFrom(P: TddTaskItem);
    constructor Create(aUserID: TUserID); reintroduce; virtual;
    procedure DoSaveTo(aStream: TStream;
-     aIsPipe: Boolean); virtual;
+    aIsPipe: Boolean); virtual;
  end;//TddTaskItem
 
- TddTaskClass = class of TddTaskItem;
 procedure RegisterTaskClass;
-   {* Сигнатура метода RegisterTaskClass }
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  csTaskListening,
-  ddTaskClassManager
-  ;
+ l3ImplUses
+ , ddTaskClassManager
+ , csTaskListening
+;
 
-// start class TddTaskItem
+procedure RegisterTaskClass;
+//#UC START# *53B3D9E702BA_52FA49C7022C_var*
+//#UC END# *53B3D9E702BA_52FA49C7022C_var*
+begin
+//#UC START# *53B3D9E702BA_52FA49C7022C_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53B3D9E702BA_52FA49C7022C_impl*
+end;//RegisterTaskClass
 
 procedure TddTaskItem.AssignFrom(P: TddTaskItem);
 //#UC START# *52FA510700F0_52FA49DF00EF_var*
@@ -74,7 +70,7 @@ begin
 end;//TddTaskItem.Create
 
 procedure TddTaskItem.DoSaveTo(aStream: TStream;
-  aIsPipe: Boolean);
+ aIsPipe: Boolean);
 //#UC START# *53E481990243_52FA49DF00EF_var*
 //#UC END# *53E481990243_52FA49DF00EF_var*
 begin
@@ -84,7 +80,7 @@ begin
 end;//TddTaskItem.DoSaveTo
 
 procedure TddTaskItem.DoLoadFrom(aStream: TStream;
-  aIsPipe: Boolean);
+ aIsPipe: Boolean);
 //#UC START# *53E481DF03D1_52FA49DF00EF_var*
 //#UC END# *53E481DF03D1_52FA49DF00EF_var*
 begin
@@ -101,15 +97,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *53FB28170339_52FA49DF00EF_impl*
 end;//TddTaskItem.GetDescription
-
-procedure RegisterTaskClass;
-//#UC START# *53B3D9E702BA_52FA49C7022C_var*
-//#UC END# *53B3D9E702BA_52FA49C7022C_var*
-begin
-//#UC START# *53B3D9E702BA_52FA49C7022C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53B3D9E702BA_52FA49C7022C_impl*
-end;//RegisterTaskClass
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

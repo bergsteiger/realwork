@@ -1,28 +1,20 @@
 unit NOT_FINISHED_bsDataContainer;
+ {* Модуль содержит реализации контейнеров данных. Получение данных с адаптера
+   может занимать длительное время, поэтому вводятся контейнеры данных, которые
+   возвращают данные по первому требованию }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1DocumentProcessing"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1DocumentProcessing/NOT_FINISHED_bsDataContainer.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Core::Common::F1DocumentProcessing::DocInfo::bsDataContainer
-//
-// Модуль содержит реализации контейнеров данных. Получение данных с адаптера
-// может занимать длительное время, поэтому вводятся контейнеры данных, которые
-// возвращают данные по первому требованию
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\NOT_FINISHED_bsDataContainer.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3IntfUses
+;
+
 type
  TbsMedicFirmNodeContainer = class
  end;//TbsMedicFirmNodeContainer
@@ -32,10 +24,14 @@ type
 
  TbsDocumentContainer = class
  end;//TbsDocumentContainer
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-{$IfEnd} //not Admin AND not Monitorings
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+
 end.

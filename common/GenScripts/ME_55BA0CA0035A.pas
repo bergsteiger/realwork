@@ -16,10 +16,10 @@ uses
 type
  TtfwCompiledAxiomaticsRes = class(Tl3StringList)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TtfwCompiledAxiomaticsRes;
     {* Метод получения экземпляра синглетона TtfwCompiledAxiomaticsRes }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TtfwCompiledAxiomaticsRes
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -41,12 +41,6 @@ begin
  l3Free(g_TtfwCompiledAxiomaticsRes);
 end;//TtfwCompiledAxiomaticsResFree
 
-class function TtfwCompiledAxiomaticsRes.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TtfwCompiledAxiomaticsRes <> nil;
-end;//TtfwCompiledAxiomaticsRes.Exists
-
 class function TtfwCompiledAxiomaticsRes.Instance: TtfwCompiledAxiomaticsRes;
  {* Метод получения экземпляра синглетона TtfwCompiledAxiomaticsRes }
 begin
@@ -57,6 +51,12 @@ begin
  end;
  Result := g_TtfwCompiledAxiomaticsRes;
 end;//TtfwCompiledAxiomaticsRes.Instance
+
+class function TtfwCompiledAxiomaticsRes.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TtfwCompiledAxiomaticsRes <> nil;
+end;//TtfwCompiledAxiomaticsRes.Exists
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

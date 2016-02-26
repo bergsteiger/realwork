@@ -21,10 +21,10 @@ type
    procedure InitFields; override;
   public
    function MakeKW(const aValue: Il3CString): TkwString;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TkwStringFactory;
     {* Метод получения экземпляра синглетона TkwStringFactory }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TkwStringFactory
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -75,12 +75,6 @@ begin
 //#UC END# *4F3E41C603BC_4F3E416701E8_impl*
 end;//TkwStringFactory.MakeKW
 
-class function TkwStringFactory.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TkwStringFactory <> nil;
-end;//TkwStringFactory.Exists
-
 class function TkwStringFactory.Instance: TkwStringFactory;
  {* Метод получения экземпляра синглетона TkwStringFactory }
 begin
@@ -91,6 +85,12 @@ begin
  end;
  Result := g_TkwStringFactory;
 end;//TkwStringFactory.Instance
+
+class function TkwStringFactory.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TkwStringFactory <> nil;
+end;//TkwStringFactory.Exists
 
 procedure TkwStringFactory.InitFields;
 //#UC START# *47A042E100E2_4F3E416701E8_var*

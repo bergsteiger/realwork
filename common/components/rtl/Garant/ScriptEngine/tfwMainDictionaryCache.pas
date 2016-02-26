@@ -21,10 +21,10 @@ type
  {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  TtfwMainDictionaryCache = class(_l3Searcher_)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TtfwMainDictionaryCache;
     {* Метод получения экземпляра синглетона TtfwMainDictionaryCache }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
    function FindDictionary(const aFileName: Il3CString): _ItemType_; override;
  end;//TtfwMainDictionaryCache
 {$IfEnd} // Defined(seCacheDict) AND NOT Defined(NoScripts)
@@ -68,12 +68,6 @@ type _Instance_R_ = TtfwMainDictionaryCache;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 
-class function TtfwMainDictionaryCache.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TtfwMainDictionaryCache <> nil;
-end;//TtfwMainDictionaryCache.Exists
-
 class function TtfwMainDictionaryCache.Instance: TtfwMainDictionaryCache;
  {* Метод получения экземпляра синглетона TtfwMainDictionaryCache }
 begin
@@ -84,6 +78,12 @@ begin
  end;
  Result := g_TtfwMainDictionaryCache;
 end;//TtfwMainDictionaryCache.Instance
+
+class function TtfwMainDictionaryCache.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TtfwMainDictionaryCache <> nil;
+end;//TtfwMainDictionaryCache.Exists
 
 function TtfwMainDictionaryCache.FindDictionary(const aFileName: Il3CString): _ItemType_;
 //#UC START# *559E857A037A_55A63D300062_var*

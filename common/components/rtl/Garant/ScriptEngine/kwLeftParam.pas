@@ -90,40 +90,40 @@ type
   protected
    function GetWordInfo: TtfwWordInfo; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TkwObjRefParamWordInfo;
     {* Метод получения экземпляра синглетона TkwObjRefParamWordInfo }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TkwObjRefParamWordInfo
 
  TkwLeftWordRefParamWordInfo = class(TtfwRefParamWordInfo)
   protected
    function GetWordInfo: TtfwWordInfo; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TkwLeftWordRefParamWordInfo;
     {* Метод получения экземпляра синглетона TkwLeftWordRefParamWordInfo }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TkwLeftWordRefParamWordInfo
 
  TkwRightParamWordInfo = class(TtfwRefParamWordInfo)
   protected
    function GetWordInfo: TtfwWordInfo; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TkwRightParamWordInfo;
     {* Метод получения экземпляра синглетона TkwRightParamWordInfo }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TkwRightParamWordInfo
 
  TkwRightLiteralParamWordInfo = class(TtfwRefParamWordInfo)
   protected
    function GetWordInfo: TtfwWordInfo; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TkwRightLiteralParamWordInfo;
     {* Метод получения экземпляра синглетона TkwRightLiteralParamWordInfo }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TkwRightLiteralParamWordInfo
 
  _kwCompiledVar_Parent_ = TkwCompiledWordPrim;
@@ -403,12 +403,6 @@ begin
 //#UC END# *55EF0D4E0363_55EF0C53018A_impl*
 end;//TtfwRefParamWordInfo.WI
 
-class function TkwObjRefParamWordInfo.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TkwObjRefParamWordInfo <> nil;
-end;//TkwObjRefParamWordInfo.Exists
-
 function TkwObjRefParamWordInfo.GetWordInfo: TtfwWordInfo;
 //#UC START# *55EF0D710242_55EF0CD701A0_var*
 //#UC END# *55EF0D710242_55EF0CD701A0_var*
@@ -429,11 +423,11 @@ begin
  Result := g_TkwObjRefParamWordInfo;
 end;//TkwObjRefParamWordInfo.Instance
 
-class function TkwLeftWordRefParamWordInfo.Exists: Boolean;
+class function TkwObjRefParamWordInfo.Exists: Boolean;
  {* Проверяет создан экземпляр синглетона или нет }
 begin
- Result := g_TkwLeftWordRefParamWordInfo <> nil;
-end;//TkwLeftWordRefParamWordInfo.Exists
+ Result := g_TkwObjRefParamWordInfo <> nil;
+end;//TkwObjRefParamWordInfo.Exists
 
 function TkwLeftWordRefParamWordInfo.GetWordInfo: TtfwWordInfo;
 //#UC START# *55EF0D710242_55EF0CF00017_var*
@@ -455,11 +449,11 @@ begin
  Result := g_TkwLeftWordRefParamWordInfo;
 end;//TkwLeftWordRefParamWordInfo.Instance
 
-class function TkwRightParamWordInfo.Exists: Boolean;
+class function TkwLeftWordRefParamWordInfo.Exists: Boolean;
  {* Проверяет создан экземпляр синглетона или нет }
 begin
- Result := g_TkwRightParamWordInfo <> nil;
-end;//TkwRightParamWordInfo.Exists
+ Result := g_TkwLeftWordRefParamWordInfo <> nil;
+end;//TkwLeftWordRefParamWordInfo.Exists
 
 function TkwRightParamWordInfo.GetWordInfo: TtfwWordInfo;
 //#UC START# *55EF0D710242_55EF0D18027B_var*
@@ -481,11 +475,11 @@ begin
  Result := g_TkwRightParamWordInfo;
 end;//TkwRightParamWordInfo.Instance
 
-class function TkwRightLiteralParamWordInfo.Exists: Boolean;
+class function TkwRightParamWordInfo.Exists: Boolean;
  {* Проверяет создан экземпляр синглетона или нет }
 begin
- Result := g_TkwRightLiteralParamWordInfo <> nil;
-end;//TkwRightLiteralParamWordInfo.Exists
+ Result := g_TkwRightParamWordInfo <> nil;
+end;//TkwRightParamWordInfo.Exists
 
 function TkwRightLiteralParamWordInfo.GetWordInfo: TtfwWordInfo;
 //#UC START# *55EF0D710242_55EF1501024E_var*
@@ -506,6 +500,12 @@ begin
  end;
  Result := g_TkwRightLiteralParamWordInfo;
 end;//TkwRightLiteralParamWordInfo.Instance
+
+class function TkwRightLiteralParamWordInfo.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TkwRightLiteralParamWordInfo <> nil;
+end;//TkwRightLiteralParamWordInfo.Exists
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\kwCompiledVar.imp.pas}
 

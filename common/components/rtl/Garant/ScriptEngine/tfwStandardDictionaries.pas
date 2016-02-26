@@ -20,10 +20,10 @@ type
   public
    function CheckDictionary(const aName: Il3CString): TtfwStandardDictionary;
    function FindDictionary(const aName: Il3CString): TtfwStandardDictionary;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TtfwStandardDictionaries;
     {* Метод получения экземпляра синглетона TtfwStandardDictionaries }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TtfwStandardDictionaries
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -83,12 +83,6 @@ begin
 //#UC END# *55B1E6EC0088_55B0E7AD026B_impl*
 end;//TtfwStandardDictionaries.FindDictionary
 
-class function TtfwStandardDictionaries.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TtfwStandardDictionaries <> nil;
-end;//TtfwStandardDictionaries.Exists
-
 class function TtfwStandardDictionaries.Instance: TtfwStandardDictionaries;
  {* Метод получения экземпляра синглетона TtfwStandardDictionaries }
 begin
@@ -99,6 +93,12 @@ begin
  end;
  Result := g_TtfwStandardDictionaries;
 end;//TtfwStandardDictionaries.Instance
+
+class function TtfwStandardDictionaries.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TtfwStandardDictionaries <> nil;
+end;//TtfwStandardDictionaries.Exists
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

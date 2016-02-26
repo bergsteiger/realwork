@@ -16,10 +16,10 @@ uses
 type
  TtfwRegisteredEnums = class(TtfwRTTITypeInfoList)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TtfwRegisteredEnums;
     {* Метод получения экземпляра синглетона TtfwRegisteredEnums }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TtfwRegisteredEnums
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -41,12 +41,6 @@ begin
  l3Free(g_TtfwRegisteredEnums);
 end;//TtfwRegisteredEnumsFree
 
-class function TtfwRegisteredEnums.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TtfwRegisteredEnums <> nil;
-end;//TtfwRegisteredEnums.Exists
-
 class function TtfwRegisteredEnums.Instance: TtfwRegisteredEnums;
  {* Метод получения экземпляра синглетона TtfwRegisteredEnums }
 begin
@@ -57,6 +51,12 @@ begin
  end;
  Result := g_TtfwRegisteredEnums;
 end;//TtfwRegisteredEnums.Instance
+
+class function TtfwRegisteredEnums.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TtfwRegisteredEnums <> nil;
+end;//TtfwRegisteredEnums.Exists
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

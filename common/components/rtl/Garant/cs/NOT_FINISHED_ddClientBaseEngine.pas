@@ -1,32 +1,26 @@
 unit NOT_FINISHED_ddClientBaseEngine;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/NOT_FINISHED_ddClientBaseEngine.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For Archi::cs::ClientSide::ddClientBaseEngine
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\NOT_FINISHED_ddClientBaseEngine.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If defined(AppClientSide) AND not defined(Nemesis)}
+{$If Defined(AppClientSide) AND NOT Defined(Nemesis)}
+uses
+ l3IntfUses
+;
+
 procedure DoneClientBaseEngine;
-   {* Сигнатура метода DoneClientBaseEngine }
-{$IfEnd} //AppClientSide AND not Nemesis
+{$IfEnd} // Defined(AppClientSide) AND NOT Defined(Nemesis)
 
 implementation
 
-{$If defined(AppClientSide) AND not defined(Nemesis)}
-// unit methods
+{$If Defined(AppClientSide) AND NOT Defined(Nemesis)}
+uses
+ l3ImplUses
+;
 
 procedure DoneClientBaseEngine;
 //#UC START# *54352FD00015_54352FAB00E6_var*
@@ -36,6 +30,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *54352FD00015_54352FAB00E6_impl*
 end;//DoneClientBaseEngine
-{$IfEnd} //AppClientSide AND not Nemesis
+{$IfEnd} // Defined(AppClientSide) AND NOT Defined(Nemesis)
 
 end.

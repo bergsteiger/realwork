@@ -1,39 +1,29 @@
 unit NOT_FINISHED_CsReply;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/NOT_FINISHED_CsReply.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::cs::ServerSide::TCsReply
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\NOT_FINISHED_CsReply.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If defined(AppServerSide) AND not defined(Nemesis)}
+{$If Defined(AppServerSide) AND NOT Defined(Nemesis)}
+uses
+ l3IntfUses
+;
+
 type
  TCsReply = class
  end;//TCsReply
-{$IfEnd} //AppServerSide AND not Nemesis
+{$IfEnd} // Defined(AppServerSide) AND NOT Defined(Nemesis)
 
 implementation
 
-{$If defined(AppServerSide) AND not defined(Nemesis)}
+{$If Defined(AppServerSide) AND NOT Defined(Nemesis)}
 uses
-  CsReplyTool
-  ;
-{$IfEnd} //AppServerSide AND not Nemesis
+ l3ImplUses
+ , CsReplyTool
+;
+{$IfEnd} // Defined(AppServerSide) AND NOT Defined(Nemesis)
 
-{$If defined(AppServerSide) AND not defined(Nemesis)}
-
-
-{$IfEnd} //AppServerSide AND not Nemesis
 end.

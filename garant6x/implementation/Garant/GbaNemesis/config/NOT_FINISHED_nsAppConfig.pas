@@ -1,87 +1,70 @@
 unit NOT_FINISHED_nsAppConfig;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Config"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Config/NOT_FINISHED_nsAppConfig.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Основные прецеденты::Settings::Config::Config::nsAppConfig
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Config\NOT_FINISHED_nsAppConfig.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils,
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  bsInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  ConfigInterfaces
-  {$If not defined(NoVCL)}
-  ,
-  Dialogs
-  {$IfEnd} //not NoVCL
-  
-  {$If defined(Nemesis)}
-  ,
-  nscComboBox
-  {$IfEnd} //Nemesis
-  ,
-  ddAppConfig,
-  ddAppConfigConst,
-  nsConfiguration,
-  ddConfigStorages,
-  ddAppConfigTypes,
-  afwInterfaces
-  ;
+ l3IntfUses
+ , SysUtils
+ , ddAppConfigTypes
+ , ddConfigStorages
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If Defined(Nemesis)}
+ , nscComboBox
+ {$IfEnd} // Defined(Nemesis)
+ , ConfigInterfaces
+ , Classes
+ , ddAppConfigConst
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , ddAppConfig
+ , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsConfiguration
+ , bsInterfaces
+ , afwInterfaces
+;
+
+const
+ {* navigator form position }
+ cnfpLeftNavigator = 'fLeftNavigator';
+ cnfpRightNavigator = 'fRightNavigator';
+ cnfpNavigator = 'vcm_ztNavigator/';
+ cnfpZone = cnfpNavigator + 'Zone';
+ cnfpFloating = cnfpNavigator + 'Floating';
 
 type
+ PnsButtonCaptionArray = ^TnsButtonCaptionArray;
+
  EDuplicateConfName = class(Exception)
- private
- // private fields
-   f_ConfName : AnsiString;
-    {* Поле для свойства ConfName}
- protected
- // property methods
+  private
+   f_ConfName: AnsiString;
+    {* Поле для свойства ConfName }
+  protected
    procedure pm_SetConfName(const aValue: AnsiString);
- public
- // public properties
+  public
    property ConfName: AnsiString
-     read f_ConfName
-     write pm_SetConfName;
+    read f_ConfName
+    write pm_SetConfName;
  end;//EDuplicateConfName
 
  ECRSettingsAreEqual = class(Exception)
@@ -92,290 +75,230 @@ type
 
  TnsHistoryItemsProperty = class(TddIntegerConfigItem)
   {* количество элементов в истории }
- public
- // overridden public methods
+  public
    procedure SaveValue(const aStorage: IddConfigStorage); override;
  end;//TnsHistoryItemsProperty
 
  TnsConfInfoNode = class(TddCustomConfigNode)
   {* панель информации конфигурации }
- private
- // private fields
-   f_Frame : TCustomFrame;
-   f_ConfName : TnscComboBox;
-   f_ConfHint : TnscComboBox;
-   f_Changed : Boolean;
-   f_Config : Pointer;
- private
- // private methods
+  private
+   f_Frame: TCustomFrame;
+   f_ConfName: TnscComboBox;
+   f_ConfHint: TnscComboBox;
+   f_Changed: Boolean;
+   f_Config: Pointer;
+  private
    procedure OnResize(Sender: TObject);
-     {* подгоняем размеры полей ввода }
+    {* подгоняем размеры полей ввода }
    procedure OnChangeName(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure OnChangeHint(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure SetEditsWidth;
-     {* Сигнатура метода SetEditsWidth }
- protected
- // realized methods
+  protected
    function pm_GetChanged: Boolean;
    procedure DoClearControls; override;
    function DoCreateFrame(aOwner: TComponent;
-     aTag: Integer): TCustomFrame; override;
+    aTag: Integer): TCustomFrame; override;
    procedure DoGetControlValues; override;
    function DoIsItem(aItem: TObject): Boolean; override;
    procedure DoLoad(const aStorage: IddConfigStorage); override;
    procedure DoSave(const aStorage: IddConfigStorage); override;
    procedure DoSetControlValues(aDefault: Boolean); override;
- protected
- // overridden property methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
    function pm_GetChanged: Boolean; override;
    procedure pm_SetChanged(aValue: Boolean); override;
    function pm_GetValue: TddConfigValue; override;
    procedure pm_SetValue(const aValue: TddConfigValue); override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
    procedure DoFrameSize(aParent: TWinControl;
-     out aHeight: Integer;
-     out aWidth: Integer); override;
- public
- // public methods
+    out aHeight: Integer;
+    out aWidth: Integer); override;
+  public
    constructor Create(const aAlias: AnsiString;
-     const aCaption: AnsiString;
-     const aConfig: InsConfigSettingsInfo = nil); reintroduce;
+    const aCaption: AnsiString;
+    const aConfig: InsConfigSettingsInfo = nil); reintroduce;
  end;//TnsConfInfoNode
 
  TnsAppConfig = class(TddAppConfiguration)
- protected
- // property methods
+  protected
    function pm_GetIsNeedReinsertForms: Boolean;
- public
- // public methods
+  public
    function IsSettingsChanged: Boolean;
- public
- // public properties
+  public
    property IsNeedReinsertForms: Boolean
-     read pm_GetIsNeedReinsertForms;
+    read pm_GetIsNeedReinsertForms;
  end;//TnsAppConfig
 
  InsConfigStorage = interface(IddConfigStorage)
-   ['{ECE1E738-1242-4DEF-8A1C-41C501162923}']
-   function Get_DefaultValuesOperation: Boolean;
-   procedure Set_DefaultValuesOperation(aValue: Boolean);
-   property DefaultValuesOperation: Boolean
-     read Get_DefaultValuesOperation
-     write Set_DefaultValuesOperation;
-     {* Все операции делаются со значениями по умолчанию:
+  ['{ECE1E738-1242-4DEF-8A1C-41C501162923}']
+  function Get_DefaultValuesOperation: Boolean;
+  procedure Set_DefaultValuesOperation(aValue: Boolean);
+  property DefaultValuesOperation: Boolean
+   read Get_DefaultValuesOperation
+   write Set_DefaultValuesOperation;
+   {* Все операции делаются со значениями по умолчанию:
    Load - восстановить значения по умолчанию и загрузить
    Save - сохранить и сделать значениями по умолчанию }
  end;//InsConfigStorage
 
  TnsConfigStorage = class(TvcmCacheableBase, InsConfigStorage)
   {* производит запись, чтение настроек }
- private
- // private fields
-   f_DefaultValuesOperation : Boolean;
-   f_Settings : IvcmSettings;
- protected
- // realized methods
+  private
+   f_DefaultValuesOperation: Boolean;
+   f_Settings: IvcmSettings;
+  protected
    function ReadBool(const Alias: AnsiString;
-    Default: Boolean): Boolean; stdcall;
+    Default: Boolean): Boolean; overload; stdcall;
    function ReadDateTime(const Alias: AnsiString;
-    Default: TDateTime): TDateTime; stdcall;
+    Default: TDateTime): TDateTime; overload; stdcall;
    function ReadInteger(const Alias: AnsiString;
-    Default: Integer): Integer; stdcall;
+    Default: Integer): Integer; overload; stdcall;
    function ReadString(const Alias: AnsiString;
-    const Default: AnsiString): Il3CString; stdcall;
+    const Default: AnsiString): Il3CString; overload; stdcall;
    procedure WriteBool(const Alias: AnsiString;
-    B: Boolean); stdcall;
+    B: Boolean); overload; stdcall;
    procedure WriteDateTime(const Alias: AnsiString;
-    DT: TDateTime); stdcall;
+    DT: TDateTime); overload; stdcall;
    procedure WriteInteger(const Alias: AnsiString;
-    I: Integer); stdcall;
+    I: Integer); overload; stdcall;
    procedure WriteString(const Alias: AnsiString;
-    const S: AnsiString); stdcall;
+    const S: AnsiString); overload; stdcall;
    function Get_Section: AnsiString; stdcall;
    procedure Set_Section(const aValue: AnsiString); stdcall;
    function Get_DefaultValuesOperation: Boolean;
    procedure Set_DefaultValuesOperation(aValue: Boolean);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aSettings: IvcmSettings = nil); reintroduce;
-   function GetSection: AnsiString; stdcall;
+   function Get_Section: AnsiString; stdcall;
    function ReadBool(const Alias: AnsiString;
-     Default: Boolean): Boolean; stdcall;
+    Default: Boolean): Boolean; overload; stdcall;
    function ReadDateTime(const Alias: AnsiString;
-     Default: TDateTime): TDateTime; stdcall;
+    Default: TDateTime): TDateTime; overload; stdcall;
    function ReadInteger(const Alias: AnsiString;
-     Default: Integer): Integer; stdcall;
+    Default: Integer): Integer; overload; stdcall;
    function ReadString(const Alias: AnsiString;
-     const Default: AnsiString): Il3CString; stdcall;
-   procedure SetSection(const Value: AnsiString); stdcall;
+    const Default: AnsiString): Il3CString; overload; stdcall;
+   procedure Set_Section(const Value: AnsiString); stdcall;
    function WriteBool(const Alias: AnsiString;
-     Default: Boolean): Boolean; stdcall;
+    Default: Boolean): Boolean; overload; stdcall;
    procedure WriteDateTime(const Alias: AnsiString;
-     DT: TDateTime); stdcall;
+    DT: TDateTime); overload; stdcall;
    procedure WriteInteger(const Alias: AnsiString;
-     I: Integer); stdcall;
+    I: Integer); overload; stdcall;
    procedure WriteString(const Alias: AnsiString;
-     const S: AnsiString); stdcall;
+    const S: AnsiString); overload; stdcall;
  end;//TnsConfigStorage
 
-const
-  { navigator form position }
- cnfpLeftNavigator = 'fLeftNavigator';
- cnfpRightNavigator = 'fRightNavigator';
- cnfpNavigator = 'vcm_ztNavigator/';
- cnfpZone = cnfpNavigator + 'Zone';
- cnfpFloating = cnfpNavigator + 'Floating';
-
-type
  TstgTextSelection = class(TddComboBoxConfigItem)
- public
- // public methods
+  public
    constructor Create(aMasterItem: TddBaseConfigItem = nil); reintroduce;
  end;//TstgTextSelection
 
  TstgShowVersionComments = class(TddComboBoxConfigItem)
- public
- // public methods
+  public
    constructor Create(aMasterItem: TddBaseConfigItem = nil); reintroduce;
  end;//TstgShowVersionComments
 
  TstgShortList = class(TddComboBoxConfigItem)
- public
- // public methods
+  public
    constructor Create(aMasterItem: TddBaseConfigItem = nil); reintroduce;
  end;//TstgShortList
 
  TstgConfirmationItem = class(TddBooleanConfigItem)
   {* для работы с подтверждениями. "Всегда спрашивать", "Да" перемапируется в значения mrNone, mrOk }
- public
- // overridden public methods
+  public
+   constructor Create(const aAlias: AnsiString;
+    const aCaption: AnsiString;
+    aDefaultResult: TModalResult;
+    const aDefaultValue: TddConfigValue;
+    aMasterItem: TddBaseConfigItem = nil); reintroduce;
    procedure LoadValue(const aStorage: IddConfigStorage); override;
    procedure SaveValue(const aStorage: IddConfigStorage); override;
- public
- // public methods
-   constructor Create(const aAlias: AnsiString;
-     const aCaption: AnsiString;
-     aDefaultResult: TModalResult;
-     const aDefaultValue: TddConfigValue;
-     aMasterItem: TddBaseConfigItem = nil); reintroduce;
  end;//TstgConfirmationItem
 
  TstgNavigatorFormPosition = class(TddComboBoxConfigItem)
   {* класс для сохранения позиции форм встраиваемых в область навиагатора }
- private
- // private fields
-   f_FloatingValue : Boolean;
-    {* Поле для свойства FloatingValue}
-   f_ZoneValue : Il3CString;
-    {* Поле для свойства ZoneValue}
- protected
- // property methods
+  private
+   f_FloatingValue: Boolean;
+    {* Поле для свойства FloatingValue }
+   f_ZoneValue: Il3CString;
+    {* Поле для свойства ZoneValue }
+  protected
    procedure pm_SetFloatingValue(aValue: Boolean);
    procedure pm_SetZoneValue(const aValue: Il3CString);
    function pm_GetZoneSetting: AnsiString;
    function pm_GetFloatingSetting: AnsiString;
- protected
- // overridden protected methods
+   function GetAliasName: AnsiString; virtual;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // overridden public methods
+  public
+   constructor Create(const aFormSetting: AnsiString;
+    const aCaption: AnsiString;
+    aMasterItem: TddBaseConfigItem = nil); reintroduce;
    procedure LoadValue(const aStorage: IddConfigStorage); override;
    procedure SaveValue(const aStorage: IddConfigStorage); override;
- protected
- // protected methods
-   function GetAliasName: AnsiString; virtual;
- public
- // public methods
-   constructor Create(const aFormSetting: AnsiString;
-     const aCaption: AnsiString;
-     aMasterItem: TddBaseConfigItem = nil); reintroduce;
- public
- // public properties
+  public
    property FloatingValue: Boolean
-     read f_FloatingValue
-     write pm_SetFloatingValue;
+    read f_FloatingValue
+    write pm_SetFloatingValue;
    property ZoneValue: Il3CString
-     read f_ZoneValue
-     write pm_SetZoneValue;
+    read f_ZoneValue
+    write pm_SetZoneValue;
    property ZoneSetting: AnsiString
-     read pm_GetZoneSetting;
+    read pm_GetZoneSetting;
    property FloatingSetting: AnsiString
-     read pm_GetFloatingSetting;
+    read pm_GetFloatingSetting;
  end;//TstgNavigatorFormPosition
 
  TstgScalePicture = class(TddComboBoxConfigItem)
- private
- // private fields
-   f_SavedValue : TddConfigValue;
- private
- // private methods
+  private
+   f_SavedValue: TddConfigValue;
+  private
    function CheckValue: Boolean;
-     {* Были ли исправлены ошибки: true - ошибки были }
- protected
- // overridden protected methods
+    {* Были ли исправлены ошибки: true - ошибки были }
+  protected
    procedure DoExit; override;
-     {* Сигнатура метода DoExit }
- public
- // overridden public methods
+  public
+   constructor Create(aMasterItem: TddBaseConfigItem = nil); reintroduce;
    procedure LoadValue(const aStorage: IddConfigStorage); override;
    procedure SaveValue(const aStorage: IddConfigStorage); override;
    procedure GetValueFromControl; override;
-     {* Сигнатура метода GetValueFromControl }
- public
- // public methods
-   constructor Create(aMasterItem: TddBaseConfigItem = nil); reintroduce;
  end;//TstgScalePicture
 
  TstgFilterFormPosition = class(TstgNavigatorFormPosition)
- protected
- // overridden protected methods
+  protected
    function GetAliasName: AnsiString; override;
  end;//TstgFilterFormPosition
 
  TnsButtonCaptionArray = array [TMsgDlgBtn] of PvcmStringID;
 
- PnsButtonCaptionArray = ^TnsButtonCaptionArray;
-
  _afwSettingChanged_Parent_ = TnsEditSettingsInfo;
  {$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingChanged.imp.pas}
  TnsConfigSettingsInfo = class(_afwSettingChanged_, InsConfigNotificationSource, InsConfigSettingsInfo)
- protected
- // overridden protected methods
+  protected
    function DoSettingChanged(const aSettingId: TafwSettingId): Boolean; override;
-     {* Обработчик изменения указанной настройки }
+    {* Обработчик изменения указанной настройки }
  end;//TnsConfigSettingsInfo
 
  TstgVersionCommentLinkBehaviour = class(TddComboBoxConfigItem)
   {* [requestlink:513615258] }
- public
- // public methods
+  public
    constructor Create(aMasterItem: TddBaseConfigItem = nil); reintroduce;
  end;//TstgVersionCommentLinkBehaviour
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  afwFacade,
-  afwSettingsChangePublisher,
-  nsAppConfigRes,
-  nsConfigurationProperties
-  ;
-
-// start class EDuplicateConfName
+ l3ImplUses
+ , nsAppConfigRes
+ , nsConfigurationProperties
+ , afwFacade
+ , afwSettingsChangePublisher
+;
 
 procedure EDuplicateConfName.pm_SetConfName(const aValue: AnsiString);
 //#UC START# *523171D10106_4C4089A10092set_var*
@@ -385,7 +308,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *523171D10106_4C4089A10092set_impl*
 end;//EDuplicateConfName.pm_SetConfName
-// start class TnsHistoryItemsProperty
 
 procedure TnsHistoryItemsProperty.SaveValue(const aStorage: IddConfigStorage);
 //#UC START# *52172CA801E3_523172C0033F_var*
@@ -395,9 +317,20 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *52172CA801E3_523172C0033F_impl*
 end;//TnsHistoryItemsProperty.SaveValue
-// start class TnsConfInfoNode
+
+constructor TnsConfInfoNode.Create(const aAlias: AnsiString;
+ const aCaption: AnsiString;
+ const aConfig: InsConfigSettingsInfo = nil);
+//#UC START# *523173A40360_523172E8012E_var*
+//#UC END# *523173A40360_523172E8012E_var*
+begin
+//#UC START# *523173A40360_523172E8012E_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *523173A40360_523172E8012E_impl*
+end;//TnsConfInfoNode.Create
 
 procedure TnsConfInfoNode.OnResize(Sender: TObject);
+ {* подгоняем размеры полей ввода }
 //#UC START# *523174570251_523172E8012E_var*
 //#UC END# *523174570251_523172E8012E_var*
 begin
@@ -433,17 +366,6 @@ begin
 //#UC END# *523174880004_523172E8012E_impl*
 end;//TnsConfInfoNode.SetEditsWidth
 
-constructor TnsConfInfoNode.Create(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aConfig: InsConfigSettingsInfo = nil);
-//#UC START# *523173A40360_523172E8012E_var*
-//#UC END# *523173A40360_523172E8012E_var*
-begin
-//#UC START# *523173A40360_523172E8012E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *523173A40360_523172E8012E_impl*
-end;//TnsConfInfoNode.Create
-
 function TnsConfInfoNode.pm_GetChanged: Boolean;
 //#UC START# *5216208C03CD_523172E8012Eget_var*
 //#UC END# *5216208C03CD_523172E8012Eget_var*
@@ -463,7 +385,7 @@ begin
 end;//TnsConfInfoNode.DoClearControls
 
 function TnsConfInfoNode.DoCreateFrame(aOwner: TComponent;
-  aTag: Integer): TCustomFrame;
+ aTag: Integer): TCustomFrame;
 //#UC START# *521B28760177_523172E8012E_var*
 //#UC END# *521B28760177_523172E8012E_var*
 begin
@@ -518,6 +440,7 @@ begin
 end;//TnsConfInfoNode.DoSetControlValues
 
 procedure TnsConfInfoNode.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_523172E8012E_var*
 //#UC END# *479731C50290_523172E8012E_var*
 begin
@@ -563,8 +486,8 @@ begin
 end;//TnsConfInfoNode.pm_SetValue
 
 procedure TnsConfInfoNode.DoFrameSize(aParent: TWinControl;
-  out aHeight: Integer;
-  out aWidth: Integer);
+ out aHeight: Integer;
+ out aWidth: Integer);
 //#UC START# *521B28930009_523172E8012E_var*
 //#UC END# *521B28930009_523172E8012E_var*
 begin
@@ -572,7 +495,15 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *521B28930009_523172E8012E_impl*
 end;//TnsConfInfoNode.DoFrameSize
-// start class TnsAppConfig
+
+function TnsAppConfig.pm_GetIsNeedReinsertForms: Boolean;
+//#UC START# *523175090090_523174C5029Fget_var*
+//#UC END# *523175090090_523174C5029Fget_var*
+begin
+//#UC START# *523175090090_523174C5029Fget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *523175090090_523174C5029Fget_impl*
+end;//TnsAppConfig.pm_GetIsNeedReinsertForms
 
 function TnsAppConfig.IsSettingsChanged: Boolean;
 //#UC START# *5231753901C8_523174C5029F_var*
@@ -583,16 +514,6 @@ begin
 //#UC END# *5231753901C8_523174C5029F_impl*
 end;//TnsAppConfig.IsSettingsChanged
 
-function TnsAppConfig.pm_GetIsNeedReinsertForms: Boolean;
-//#UC START# *523175090090_523174C5029Fget_var*
-//#UC END# *523175090090_523174C5029Fget_var*
-begin
-//#UC START# *523175090090_523174C5029Fget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *523175090090_523174C5029Fget_impl*
-end;//TnsAppConfig.pm_GetIsNeedReinsertForms
-// start class TnsConfigStorage
-
 constructor TnsConfigStorage.Create(const aSettings: IvcmSettings = nil);
 //#UC START# *523179500308_5231773202A8_var*
 //#UC END# *523179500308_5231773202A8_var*
@@ -602,17 +523,17 @@ begin
 //#UC END# *523179500308_5231773202A8_impl*
 end;//TnsConfigStorage.Create
 
-function TnsConfigStorage.GetSection: AnsiString;
+function TnsConfigStorage.Get_Section: AnsiString;
 //#UC START# *52317AB50172_5231773202A8_var*
 //#UC END# *52317AB50172_5231773202A8_var*
 begin
 //#UC START# *52317AB50172_5231773202A8_impl*
  !!! Needs to be implemented !!!
 //#UC END# *52317AB50172_5231773202A8_impl*
-end;//TnsConfigStorage.GetSection
+end;//TnsConfigStorage.Get_Section
 
 function TnsConfigStorage.ReadBool(const Alias: AnsiString;
-  Default: Boolean): Boolean;
+ Default: Boolean): Boolean;
 //#UC START# *52317AC701C4_5231773202A8_var*
 //#UC END# *52317AC701C4_5231773202A8_var*
 begin
@@ -622,7 +543,7 @@ begin
 end;//TnsConfigStorage.ReadBool
 
 function TnsConfigStorage.ReadDateTime(const Alias: AnsiString;
-  Default: TDateTime): TDateTime;
+ Default: TDateTime): TDateTime;
 //#UC START# *52317AD0002A_5231773202A8_var*
 //#UC END# *52317AD0002A_5231773202A8_var*
 begin
@@ -632,7 +553,7 @@ begin
 end;//TnsConfigStorage.ReadDateTime
 
 function TnsConfigStorage.ReadInteger(const Alias: AnsiString;
-  Default: Integer): Integer;
+ Default: Integer): Integer;
 //#UC START# *52317AD901D9_5231773202A8_var*
 //#UC END# *52317AD901D9_5231773202A8_var*
 begin
@@ -642,7 +563,7 @@ begin
 end;//TnsConfigStorage.ReadInteger
 
 function TnsConfigStorage.ReadString(const Alias: AnsiString;
-  const Default: AnsiString): Il3CString;
+ const Default: AnsiString): Il3CString;
 //#UC START# *52317AE302F7_5231773202A8_var*
 //#UC END# *52317AE302F7_5231773202A8_var*
 begin
@@ -651,17 +572,17 @@ begin
 //#UC END# *52317AE302F7_5231773202A8_impl*
 end;//TnsConfigStorage.ReadString
 
-procedure TnsConfigStorage.SetSection(const Value: AnsiString);
+procedure TnsConfigStorage.Set_Section(const Value: AnsiString);
 //#UC START# *52317AF50243_5231773202A8_var*
 //#UC END# *52317AF50243_5231773202A8_var*
 begin
 //#UC START# *52317AF50243_5231773202A8_impl*
  !!! Needs to be implemented !!!
 //#UC END# *52317AF50243_5231773202A8_impl*
-end;//TnsConfigStorage.SetSection
+end;//TnsConfigStorage.Set_Section
 
 function TnsConfigStorage.WriteBool(const Alias: AnsiString;
-  Default: Boolean): Boolean;
+ Default: Boolean): Boolean;
 //#UC START# *52317B0E02E2_5231773202A8_var*
 //#UC END# *52317B0E02E2_5231773202A8_var*
 begin
@@ -671,7 +592,7 @@ begin
 end;//TnsConfigStorage.WriteBool
 
 procedure TnsConfigStorage.WriteDateTime(const Alias: AnsiString;
-  DT: TDateTime);
+ DT: TDateTime);
 //#UC START# *52317B20018F_5231773202A8_var*
 //#UC END# *52317B20018F_5231773202A8_var*
 begin
@@ -681,7 +602,7 @@ begin
 end;//TnsConfigStorage.WriteDateTime
 
 procedure TnsConfigStorage.WriteInteger(const Alias: AnsiString;
-  I: Integer);
+ I: Integer);
 //#UC START# *52317B2E02A0_5231773202A8_var*
 //#UC END# *52317B2E02A0_5231773202A8_var*
 begin
@@ -691,7 +612,7 @@ begin
 end;//TnsConfigStorage.WriteInteger
 
 procedure TnsConfigStorage.WriteString(const Alias: AnsiString;
-  const S: AnsiString);
+ const S: AnsiString);
 //#UC START# *52317B3B0388_5231773202A8_var*
 //#UC END# *52317B3B0388_5231773202A8_var*
 begin
@@ -701,7 +622,7 @@ begin
 end;//TnsConfigStorage.WriteString
 
 function TnsConfigStorage.ReadBool(const Alias: AnsiString;
-  Default: Boolean): Boolean;
+ Default: Boolean): Boolean;
 //#UC START# *51D51983016F_5231773202A8_var*
 //#UC END# *51D51983016F_5231773202A8_var*
 begin
@@ -711,7 +632,7 @@ begin
 end;//TnsConfigStorage.ReadBool
 
 function TnsConfigStorage.ReadDateTime(const Alias: AnsiString;
-  Default: TDateTime): TDateTime;
+ Default: TDateTime): TDateTime;
 //#UC START# *51D519A40189_5231773202A8_var*
 //#UC END# *51D519A40189_5231773202A8_var*
 begin
@@ -721,7 +642,7 @@ begin
 end;//TnsConfigStorage.ReadDateTime
 
 function TnsConfigStorage.ReadInteger(const Alias: AnsiString;
-  Default: Integer): Integer;
+ Default: Integer): Integer;
 //#UC START# *51D519B403D0_5231773202A8_var*
 //#UC END# *51D519B403D0_5231773202A8_var*
 begin
@@ -731,7 +652,7 @@ begin
 end;//TnsConfigStorage.ReadInteger
 
 function TnsConfigStorage.ReadString(const Alias: AnsiString;
-  const Default: AnsiString): Il3CString;
+ const Default: AnsiString): Il3CString;
 //#UC START# *51D519D00291_5231773202A8_var*
 //#UC END# *51D519D00291_5231773202A8_var*
 begin
@@ -741,7 +662,7 @@ begin
 end;//TnsConfigStorage.ReadString
 
 procedure TnsConfigStorage.WriteBool(const Alias: AnsiString;
-  B: Boolean);
+ B: Boolean);
 //#UC START# *51D519FC00D5_5231773202A8_var*
 //#UC END# *51D519FC00D5_5231773202A8_var*
 begin
@@ -751,7 +672,7 @@ begin
 end;//TnsConfigStorage.WriteBool
 
 procedure TnsConfigStorage.WriteDateTime(const Alias: AnsiString;
-  DT: TDateTime);
+ DT: TDateTime);
 //#UC START# *51D51A0D0133_5231773202A8_var*
 //#UC END# *51D51A0D0133_5231773202A8_var*
 begin
@@ -761,7 +682,7 @@ begin
 end;//TnsConfigStorage.WriteDateTime
 
 procedure TnsConfigStorage.WriteInteger(const Alias: AnsiString;
-  I: Integer);
+ I: Integer);
 //#UC START# *51D51A1E025E_5231773202A8_var*
 //#UC END# *51D51A1E025E_5231773202A8_var*
 begin
@@ -771,7 +692,7 @@ begin
 end;//TnsConfigStorage.WriteInteger
 
 procedure TnsConfigStorage.WriteString(const Alias: AnsiString;
-  const S: AnsiString);
+ const S: AnsiString);
 //#UC START# *51D51A3201BA_5231773202A8_var*
 //#UC END# *51D51A3201BA_5231773202A8_var*
 begin
@@ -817,6 +738,7 @@ begin
 end;//TnsConfigStorage.Set_DefaultValuesOperation
 
 procedure TnsConfigStorage.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5231773202A8_var*
 //#UC END# *479731C50290_5231773202A8_var*
 begin
@@ -824,7 +746,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *479731C50290_5231773202A8_impl*
 end;//TnsConfigStorage.Cleanup
-// start class TstgTextSelection
 
 constructor TstgTextSelection.Create(aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *523180FA00BB_523180E30271_var*
@@ -834,7 +755,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *523180FA00BB_523180E30271_impl*
 end;//TstgTextSelection.Create
-// start class TstgShowVersionComments
 
 constructor TstgShowVersionComments.Create(aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *5231812F0159_5231811400D7_var*
@@ -844,7 +764,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *5231812F0159_5231811400D7_impl*
 end;//TstgShowVersionComments.Create
-// start class TstgShortList
 
 constructor TstgShortList.Create(aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *5231815901FC_52318145015D_var*
@@ -854,13 +773,12 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *5231815901FC_52318145015D_impl*
 end;//TstgShortList.Create
-// start class TstgConfirmationItem
 
 constructor TstgConfirmationItem.Create(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  aDefaultResult: TModalResult;
-  const aDefaultValue: TddConfigValue;
-  aMasterItem: TddBaseConfigItem = nil);
+ const aCaption: AnsiString;
+ aDefaultResult: TModalResult;
+ const aDefaultValue: TddConfigValue;
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *5231820200C6_5231818801B4_var*
 //#UC END# *5231820200C6_5231818801B4_var*
 begin
@@ -886,27 +804,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *52172CA801E3_5231818801B4_impl*
 end;//TstgConfirmationItem.SaveValue
-// start class TstgNavigatorFormPosition
-
-constructor TstgNavigatorFormPosition.Create(const aFormSetting: AnsiString;
-  const aCaption: AnsiString;
-  aMasterItem: TddBaseConfigItem = nil);
-//#UC START# *52318340035D_523182220295_var*
-//#UC END# *52318340035D_523182220295_var*
-begin
-//#UC START# *52318340035D_523182220295_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52318340035D_523182220295_impl*
-end;//TstgNavigatorFormPosition.Create
-
-function TstgNavigatorFormPosition.GetAliasName: AnsiString;
-//#UC START# *523183550370_523182220295_var*
-//#UC END# *523183550370_523182220295_var*
-begin
-//#UC START# *523183550370_523182220295_impl*
- !!! Needs to be implemented !!!
-//#UC END# *523183550370_523182220295_impl*
-end;//TstgNavigatorFormPosition.GetAliasName
 
 procedure TstgNavigatorFormPosition.pm_SetFloatingValue(aValue: Boolean);
 //#UC START# *523182DE0307_523182220295set_var*
@@ -944,7 +841,28 @@ begin
 //#UC END# *523183B70159_523182220295get_impl*
 end;//TstgNavigatorFormPosition.pm_GetFloatingSetting
 
+constructor TstgNavigatorFormPosition.Create(const aFormSetting: AnsiString;
+ const aCaption: AnsiString;
+ aMasterItem: TddBaseConfigItem = nil);
+//#UC START# *52318340035D_523182220295_var*
+//#UC END# *52318340035D_523182220295_var*
+begin
+//#UC START# *52318340035D_523182220295_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52318340035D_523182220295_impl*
+end;//TstgNavigatorFormPosition.Create
+
+function TstgNavigatorFormPosition.GetAliasName: AnsiString;
+//#UC START# *523183550370_523182220295_var*
+//#UC END# *523183550370_523182220295_var*
+begin
+//#UC START# *523183550370_523182220295_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *523183550370_523182220295_impl*
+end;//TstgNavigatorFormPosition.GetAliasName
+
 procedure TstgNavigatorFormPosition.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_523182220295_var*
 //#UC END# *479731C50290_523182220295_var*
 begin
@@ -954,11 +872,8 @@ begin
 end;//TstgNavigatorFormPosition.Cleanup
 
 procedure TstgNavigatorFormPosition.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  ZoneValue := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TstgNavigatorFormPosition.ClearFields
 
@@ -979,9 +894,9 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *52172CA801E3_523182220295_impl*
 end;//TstgNavigatorFormPosition.SaveValue
-// start class TstgScalePicture
 
 function TstgScalePicture.CheckValue: Boolean;
+ {* Были ли исправлены ошибки: true - ошибки были }
 //#UC START# *5231842D0096_523183F100D3_var*
 //#UC END# *5231842D0096_523183F100D3_var*
 begin
@@ -1034,7 +949,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *522599F1033C_523183F100D3_impl*
 end;//TstgScalePicture.DoExit
-// start class TstgFilterFormPosition
 
 function TstgFilterFormPosition.GetAliasName: AnsiString;
 //#UC START# *523183550370_523184C702AE_var*
@@ -1044,11 +958,11 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *523183550370_523184C702AE_impl*
 end;//TstgFilterFormPosition.GetAliasName
+
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingChanged.imp.pas}
 
-// start class TnsConfigSettingsInfo
-
 function TnsConfigSettingsInfo.DoSettingChanged(const aSettingId: TafwSettingId): Boolean;
+ {* Обработчик изменения указанной настройки }
 //#UC START# *47EA863A035C_523185C200C7_var*
 //#UC END# *47EA863A035C_523185C200C7_var*
 begin
@@ -1056,7 +970,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *47EA863A035C_523185C200C7_impl*
 end;//TnsConfigSettingsInfo.DoSettingChanged
-// start class TstgVersionCommentLinkBehaviour
 
 constructor TstgVersionCommentLinkBehaviour.Create(aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *53A0448D00B6_53A0441300B9_var*
@@ -1066,6 +979,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *53A0448D00B6_53A0441300B9_impl*
 end;//TstgVersionCommentLinkBehaviour.Create
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.
