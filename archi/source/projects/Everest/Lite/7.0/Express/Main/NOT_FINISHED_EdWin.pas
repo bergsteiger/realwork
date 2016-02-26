@@ -1,31 +1,29 @@
 unit NOT_FINISHED_EdWin;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Main"
-// Модуль: "w:/archi/source/projects/Everest/Lite/7.0/Express/Main/NOT_FINISHED_EdWin.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> archi$EverestLite$NORMAL::Main::MainUnits::EdWin
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\archi\source\projects\Everest\Lite\7.0\Express\Main\NOT_FINISHED_EdWin.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
+uses
+ l3IntfUses
+;
+
 type
  TEditorWindow = class
- public
- // public methods
+  public
    function IsNeedSave: Boolean;
  end;//TEditorWindow
 
 implementation
 
-// start class TEditorWindow
+uses
+ l3ImplUses
+ , D_spell
+ {$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
+ , archiEditorWindowWordsPack
+ {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
+;
 
 function TEditorWindow.IsNeedSave: Boolean;
 //#UC START# *5146CA96020D_5146CA34003E_var*
