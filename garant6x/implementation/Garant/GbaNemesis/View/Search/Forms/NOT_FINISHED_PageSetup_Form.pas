@@ -1,211 +1,94 @@
 unit NOT_FINISHED_PageSetup_Form;
+ {* Настройка страницы }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View$For F1 and Monitorings"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Search/Forms/NOT_FINISHED_PageSetup_Form.pas"
-// Начат: 15.09.2009 16:20
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFinalForm::Class>> F1 Common For Shell And Monitoring::Search::View$For F1 and Monitorings::Search$Presentation for F1 and Monitorings::CommonSearch::PageSetup
-//
-// Настройка страницы
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\NOT_FINISHED_PageSetup_Form.pas"
+// Стереотип: "VCMFinalForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  PrimPageSetupOptions_Form,
-  vtGroupBox
-  {$If defined(Nemesis)}
-  ,
-  nscPageControl
-  {$IfEnd} //Nemesis
-  ,
-  Classes {a},
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ , PrimPageSetupOptions_Form
+;
 
-{$If not defined(Admin)}
 type
-  Ten_PageSetup = {final form} class(TPrimPageSetupOptionsForm)
-   {* Настройка страницы }
-  Entities : TvcmEntities;
-  PreviewGroupBox: TvtGroupBox;
-  SettingsPageControl: TnscPageControl;
+ Ten_PageSetup = {final} class(TPrimPageSetupOptionsForm)
+  {* Настройка страницы }
   protected
-  // realized methods
-   {$If not defined(NoVCM)}
-   procedure File_Save_Test(const aParams: IvcmTestParamsPrim);
-     {* Сохранить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_Save_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Сохранить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Result_Ok_Test(const aParams: IvcmTestParamsPrim);
-     {* OK }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Result_Ok_GetState(var State: TvcmOperationStateIndex);
-     {* OK }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* OK }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
-     {* Отмена }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Result_Cancel_GetState(var State: TvcmOperationStateIndex);
-     {* Отмена }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Отмена }
-   {$IfEnd} //not NoVCM
    procedure ReadPageFormats; override;
    procedure SetColontitulComboBoxItemIndex(aIndex: Integer); override;
    procedure ToGUIMargins; override;
-   procedure Save(SaveAsDefault: Boolean = False); override;
+   procedure Save(SaveAsDefault: Boolean); override;
    procedure SetPageFormat(aOrientation: Integer); override;
    procedure MacroAdd(const aString: AnsiString); override;
    procedure ToGUIColontituls; override;
-  end;//Ten_PageSetup
-
-  TPageSetupForm = Ten_PageSetup;
-{$IfEnd} //not Admin
+  public
+   {$If NOT Defined(NoVCM)}
+   procedure Save; override;
+    {* Сохранить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Ok; override;
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Cancel; override;
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+ end;//Ten_PageSetup
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$R *.DFM}
-
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(Admin) AND not defined(NoScripts)}
-  ,
-  PageSetupKeywordsPack
-  {$IfEnd} //not Admin AND not NoScripts
-  
-  ;
-{$IfEnd} //not Admin
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , PageSetupKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
-{$If not defined(Admin)}
-
-// start class Ten_PageSetup
-
-{$If not defined(NoVCM)}
-procedure Ten_PageSetup.File_Save_Test(const aParams: IvcmTestParamsPrim);
-//#UC START# *495235F401C0_4AAF86650309test_var*
-//#UC END# *495235F401C0_4AAF86650309test_var*
+{$If NOT Defined(NoVCM)}
+procedure Ten_PageSetup.Save;
+ {* Сохранить }
+//#UC START# *495235F401C0_4AAF86650309_var*
+//#UC END# *495235F401C0_4AAF86650309_var*
 begin
-//#UC START# *495235F401C0_4AAF86650309test_impl*
+//#UC START# *495235F401C0_4AAF86650309_impl*
  !!! Needs to be implemented !!!
-//#UC END# *495235F401C0_4AAF86650309test_impl*
-end;//Ten_PageSetup.File_Save_Test
-{$IfEnd} //not NoVCM
+//#UC END# *495235F401C0_4AAF86650309_impl*
+end;//Ten_PageSetup.Save
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
-procedure Ten_PageSetup.File_Save_Execute(const aParams: IvcmExecuteParamsPrim);
-//#UC START# *495235F401C0_4AAF86650309exec_var*
-//#UC END# *495235F401C0_4AAF86650309exec_var*
+{$If NOT Defined(NoVCM)}
+procedure Ten_PageSetup.Ok;
+ {* OK }
+//#UC START# *4A97EBE702F8_4AAF86650309_var*
+//#UC END# *4A97EBE702F8_4AAF86650309_var*
 begin
-//#UC START# *495235F401C0_4AAF86650309exec_impl*
+//#UC START# *4A97EBE702F8_4AAF86650309_impl*
  !!! Needs to be implemented !!!
-//#UC END# *495235F401C0_4AAF86650309exec_impl*
-end;//Ten_PageSetup.File_Save_Execute
-{$IfEnd} //not NoVCM
+//#UC END# *4A97EBE702F8_4AAF86650309_impl*
+end;//Ten_PageSetup.Ok
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
-procedure Ten_PageSetup.Result_Ok_Test(const aParams: IvcmTestParamsPrim);
-//#UC START# *4A97EBE702F8_4AAF86650309test_var*
-//#UC END# *4A97EBE702F8_4AAF86650309test_var*
+{$If NOT Defined(NoVCM)}
+procedure Ten_PageSetup.Cancel;
+ {* Отмена }
+//#UC START# *4AC5D61E0284_4AAF86650309_var*
+//#UC END# *4AC5D61E0284_4AAF86650309_var*
 begin
-//#UC START# *4A97EBE702F8_4AAF86650309test_impl*
+//#UC START# *4AC5D61E0284_4AAF86650309_impl*
  !!! Needs to be implemented !!!
-//#UC END# *4A97EBE702F8_4AAF86650309test_impl*
-end;//Ten_PageSetup.Result_Ok_Test
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
-procedure Ten_PageSetup.Result_Ok_GetState(var State: TvcmOperationStateIndex);
-//#UC START# *4A97EBE702F8_4AAF86650309getstate_var*
-//#UC END# *4A97EBE702F8_4AAF86650309getstate_var*
-begin
-//#UC START# *4A97EBE702F8_4AAF86650309getstate_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A97EBE702F8_4AAF86650309getstate_impl*
-end;//Ten_PageSetup.Result_Ok_GetState
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
-procedure Ten_PageSetup.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
-//#UC START# *4A97EBE702F8_4AAF86650309exec_var*
-//#UC END# *4A97EBE702F8_4AAF86650309exec_var*
-begin
-//#UC START# *4A97EBE702F8_4AAF86650309exec_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A97EBE702F8_4AAF86650309exec_impl*
-end;//Ten_PageSetup.Result_Ok_Execute
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
-procedure Ten_PageSetup.Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
-//#UC START# *4AC5D61E0284_4AAF86650309test_var*
-//#UC END# *4AC5D61E0284_4AAF86650309test_var*
-begin
-//#UC START# *4AC5D61E0284_4AAF86650309test_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AC5D61E0284_4AAF86650309test_impl*
-end;//Ten_PageSetup.Result_Cancel_Test
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
-procedure Ten_PageSetup.Result_Cancel_GetState(var State: TvcmOperationStateIndex);
-//#UC START# *4AC5D61E0284_4AAF86650309getstate_var*
-//#UC END# *4AC5D61E0284_4AAF86650309getstate_var*
-begin
-//#UC START# *4AC5D61E0284_4AAF86650309getstate_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AC5D61E0284_4AAF86650309getstate_impl*
-end;//Ten_PageSetup.Result_Cancel_GetState
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
-procedure Ten_PageSetup.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
-//#UC START# *4AC5D61E0284_4AAF86650309exec_var*
-//#UC END# *4AC5D61E0284_4AAF86650309exec_var*
-begin
-//#UC START# *4AC5D61E0284_4AAF86650309exec_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AC5D61E0284_4AAF86650309exec_impl*
-end;//Ten_PageSetup.Result_Cancel_Execute
-{$IfEnd} //not NoVCM
+//#UC END# *4AC5D61E0284_4AAF86650309_impl*
+end;//Ten_PageSetup.Cancel
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure Ten_PageSetup.ReadPageFormats;
 //#UC START# *4AC608780164_4AAF86650309_var*
@@ -234,7 +117,7 @@ begin
 //#UC END# *4AC608AC03C7_4AAF86650309_impl*
 end;//Ten_PageSetup.ToGUIMargins
 
-procedure Ten_PageSetup.Save(SaveAsDefault: Boolean = False);
+procedure Ten_PageSetup.Save(SaveAsDefault: Boolean);
 //#UC START# *4C88D996000B_4AAF86650309_var*
 //#UC END# *4C88D996000B_4AAF86650309_var*
 begin
@@ -270,12 +153,11 @@ begin
 //#UC END# *4C88DCA000DD_4AAF86650309_impl*
 end;//Ten_PageSetup.ToGUIColontituls
 
-{$IfEnd} //not Admin
-
 initialization
-{$If not defined(Admin) AND not defined(NoScripts)}
-// Регистрация PageSetup
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(Ten_PageSetup);
-{$IfEnd} //not Admin AND not NoScripts
+ {* Регистрация PageSetup }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin)
 
 end.

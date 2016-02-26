@@ -1,38 +1,32 @@
 unit NOT_FINISHED_nsQuery;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/LiteSearch/NOT_FINISHED_nsQuery.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Базовые определения предметной области::SearchLite::View::LiteSearch::nsQuery
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\NOT_FINISHED_nsQuery.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
+uses
+ l3IntfUses
+;
+
 type
- InsSearchTypeState = interface(IUnknown)
-   ['{07945683-120E-428A-B898-2AD2AA2B3D7B}']
+ InsSearchTypeState = interface
+  ['{07945683-120E-428A-B898-2AD2AA2B3D7B}']
  end;//InsSearchTypeState
+
 procedure GblAdapterDateToDateTime;
-   {* Сигнатура метода GblAdapterDateToDateTime }
 procedure CheckContext6x;
-   {* Сигнатура метода CheckContext6x }
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
-// unit methods
+{$If NOT Defined(Admin)}
+uses
+ l3ImplUses
+;
 
 procedure GblAdapterDateToDateTime;
 //#UC START# *4CF3BA7902C0_4AE8A02C03E7_var*
@@ -51,6 +45,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4CFCD294024F_4AE8A02C03E7_impl*
 end;//CheckContext6x
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 end.

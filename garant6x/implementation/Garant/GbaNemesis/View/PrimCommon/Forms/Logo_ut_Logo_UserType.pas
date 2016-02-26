@@ -1,81 +1,62 @@
 unit Logo_ut_Logo_UserType;
+ {* Logo }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/PrimCommon/Forms/Logo_ut_Logo_UserType.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> F1 Базовые определения предметной области::F1 Application Template::View::PrimCommon::Logo::ut_Logo
-//
-// Logo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\Logo_ut_Logo_UserType.pas"
+// Стереотип: "UserType"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-   { Константы для типа формы ut_Logo }
-  ut_LogoName = 'ut_Logo';
-   { Строковый идентификатор пользовательского типа "Logo" }
-  ut_Logo = TvcmUserType(0);
-   { Logo }
+ {* Константы для типа формы ut_Logo }
+ ut_LogoName = 'ut_Logo';
+  {* Строковый идентификатор пользовательского типа "Logo" }
+ ut_Logo = TvcmUserType(0);
+  {* Logo }
 
 implementation
 
-{$If not defined(NoScripts)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
 type
-  Tkw_FormUserType_ut_Logo = {final scriptword} class(TtfwInteger)
-   {* Слово словаря для типа формы ut_Logo }
+ {$If NOT Defined(NoScripts)}
+ Tkw_FormUserType_ut_Logo = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы ut_Logo }
   protected
-  // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
-  end;//Tkw_FormUserType_ut_Logo
-{$IfEnd} //not NoScripts
+ end;//Tkw_FormUserType_ut_Logo
+ {$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(NoScripts)}
-
-// start class Tkw_FormUserType_ut_Logo
-
+{$If NOT Defined(NoScripts)}
 class function Tkw_FormUserType_ut_Logo.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'тип_формы::ut_Logo';
 end;//Tkw_FormUserType_ut_Logo.GetWordNameForRegister
 
 function Tkw_FormUserType_ut_Logo.GetInteger: Integer;
- {-}
 begin
  Result := ut_Logo;
 end;//Tkw_FormUserType_ut_Logo.GetInteger
-
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация Tkw_FormUserType_ut_Logo
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_Logo.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация Tkw_FormUserType_ut_Logo }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.
