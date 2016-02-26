@@ -10,7 +10,6 @@ interface
 uses
  l3IntfUses
  , evPara_Wrap
- , TextPara_Const
 ;
 
 type

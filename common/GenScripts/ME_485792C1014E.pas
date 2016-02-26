@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , evPara_Wrap
- , BitmapPara_Const
  , l3Variant
  , k2Base
 ;

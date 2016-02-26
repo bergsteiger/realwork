@@ -11,8 +11,6 @@ interface
 uses
  l3IntfUses
  , ParaList_Const
- , Sub_Const
- , ContentsElement_Const
  , k2Handle_Const
  , k2Long_Const
  , k2Bool_Const

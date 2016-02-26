@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , evPara_Wrap
- , CommentPara_Const
  , l3Variant
 ;
 

@@ -9,7 +9,6 @@ interface
 
 uses
  l3IntfUses
- , evTextStyle_Const
 ;
 
  // TextStyleTag

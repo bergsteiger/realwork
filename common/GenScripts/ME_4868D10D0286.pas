@@ -10,7 +10,6 @@ interface
 {$If Defined(DesignTimeLibrary)}
 uses
  l3IntfUses
- , TextStyle
 ;
 
 type

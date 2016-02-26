@@ -10,7 +10,6 @@ interface
 uses
  l3IntfUses
  , evPara_Wrap
- , ReqRow_Const
  , l3Variant
  , k2Base
 ;

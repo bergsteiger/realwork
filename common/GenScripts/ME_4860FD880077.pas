@@ -9,8 +9,8 @@ interface
 
 uses
  l3IntfUses
- , evdTextStyle_Const
  , evdTypes
+ , evdTextStyle_Const
  , evdStyles
  , evdFrame_Const
  , TextPara_Const

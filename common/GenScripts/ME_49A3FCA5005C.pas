@@ -10,7 +10,6 @@ interface
 
 uses
  l3IntfUses
- , PageProperties_Const
 ;
 
  // PagePropertiesTag

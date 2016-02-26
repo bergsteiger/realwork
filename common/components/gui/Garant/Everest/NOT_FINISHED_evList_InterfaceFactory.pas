@@ -12,7 +12,6 @@ interface
 uses
  l3IntfUses
  , evPara_InterfaceFactory
- , arList_Const
 ;
 
 type

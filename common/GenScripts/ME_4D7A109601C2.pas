@@ -991,7 +991,7 @@ end;//TvcmBaseOperationsCollectionItemPrim.Create
 
 procedure TvcmBaseOperationsCollectionItemPrim.ClearFields;
 begin
- Finalize(State);
+ Finalize(f_State);
  f_SaveSecondaryShortcuts := '';
  inherited;
 end;//TvcmBaseOperationsCollectionItemPrim.ClearFields

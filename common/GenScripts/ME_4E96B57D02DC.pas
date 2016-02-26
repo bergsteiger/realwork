@@ -10,7 +10,6 @@ interface
 {$If Defined(Archi)}
 uses
  l3IntfUses
- , TextPara_Const
 ;
 
  // TextParaTag
