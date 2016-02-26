@@ -1,59 +1,42 @@
 unit NOT_FINISHED_nscContextFilter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Модуль: "w:/common/components/gui/Garant/Nemesis/NOT_FINISHED_nscContextFilter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi For F1::Nemesis::ContextFilter::TnscContextFilter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\NOT_FINISHED_nscContextFilter.pas"
+// Стереотип: "GuiControl"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  Classes
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , Classes
+;
 
-{$If defined(Nemesis)}
 type
  TnscContextFilter = class
- private
- // private fields
-   f_OnChange : TNotifyEvent;
-    {* Поле для свойства OnChange}
-   f_OnWrongContext : TNotifyEvent;
-    {* Поле для свойства OnWrongContext}
- public
- // public properties
+  private
+   f_OnChange: TNotifyEvent;
+    {* Поле для свойства OnChange }
+   f_OnWrongContext: TNotifyEvent;
+    {* Поле для свойства OnWrongContext }
+  public
    property OnChange: TNotifyEvent
-     read f_OnChange
-     write f_OnChange;
+    read f_OnChange
+    write f_OnChange;
    property OnWrongContext: TNotifyEvent
-     read f_OnWrongContext
-     write f_OnWrongContext;
+    read f_OnWrongContext
+    write f_OnWrongContext;
  end;//TnscContextFilter
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  nscContextFilterRes
-  ;
-{$IfEnd} //Nemesis
+ l3ImplUses
+ , nscContextFilterRes
+;
+{$IfEnd} // Defined(Nemesis)
 
-{$If defined(Nemesis)}
-
-
-{$IfEnd} //Nemesis
 end.

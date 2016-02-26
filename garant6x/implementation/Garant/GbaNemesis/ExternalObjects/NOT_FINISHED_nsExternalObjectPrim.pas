@@ -1,24 +1,16 @@
 unit NOT_FINISHED_nsExternalObjectPrim;
+ {* Утилитный функции для сохранения в файлы. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ExternalObjects"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/ExternalObjects/NOT_FINISHED_nsExternalObjectPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Базовые определения предметной области::LegalDomain::ExternalObjects::Implementation::nsExternalObjectPrim
-//
-// Утилитный функции для сохранения в файлы.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\ExternalObjects\NOT_FINISHED_nsExternalObjectPrim.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
+
+uses
+ l3IntfUses
+;
 
 type
  TnsExternalObjectStream = class
@@ -29,83 +21,78 @@ type
 
  TnsExternalObjectPrim = class
  end;//TnsExternalObjectPrim
-procedure NsDoShellExecute;
-   {* Сигнатура метода nsDoShellExecute }
-procedure NsExecuteExternalLink;
-   {* Сигнатура метода nsExecuteExternalLink }
-procedure NsGetFileFormatExt;
-   {* Сигнатура метода nsGetFileFormatExt }
-procedure NsMakeTemporaryFileName;
-   {* Сигнатура метода nsMakeTemporaryFileName }
-procedure NsSendAttachedFile;
-   {* Сигнатура метода nsSendAttachedFile }
-procedure NsPrepareFileName;
-   {* Сигнатура метода nsPrepareFileName }
+
+procedure nsDoShellExecute;
+procedure nsExecuteExternalLink;
+procedure nsGetFileFormatExt;
+procedure nsMakeTemporaryFileName;
+procedure nsSendAttachedFile;
+procedure nsPrepareFileName;
 
 implementation
 
 uses
-  ddHTMLWriter,
-  nsExternalObjectModelPart,
-  nsExternalObject,
-  nsBrowserInfo,
-  evPDFWriter,
-  nsDocumentStreamList
-  ;
+ l3ImplUses
+ , ddHTMLWriter
+ , nsExternalObjectModelPart
+ , nsExternalObject
+ , nsBrowserInfo
+ , evPDFWriter
+ , nsDocumentStreamList
+;
 
-// unit methods
-
-procedure NsDoShellExecute;
+procedure nsDoShellExecute;
 //#UC START# *4ABC7EA00088_47F9C7C9010E_var*
 //#UC END# *4ABC7EA00088_47F9C7C9010E_var*
 begin
 //#UC START# *4ABC7EA00088_47F9C7C9010E_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4ABC7EA00088_47F9C7C9010E_impl*
-end;//NsDoShellExecute
+end;//nsDoShellExecute
 
-procedure NsExecuteExternalLink;
+procedure nsExecuteExternalLink;
 //#UC START# *4ACF0EAE02C3_47F9C7C9010E_var*
 //#UC END# *4ACF0EAE02C3_47F9C7C9010E_var*
 begin
 //#UC START# *4ACF0EAE02C3_47F9C7C9010E_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4ACF0EAE02C3_47F9C7C9010E_impl*
-end;//NsExecuteExternalLink
+end;//nsExecuteExternalLink
 
-procedure NsGetFileFormatExt;
+procedure nsGetFileFormatExt;
 //#UC START# *4AE1B32601AE_47F9C7C9010E_var*
 //#UC END# *4AE1B32601AE_47F9C7C9010E_var*
 begin
 //#UC START# *4AE1B32601AE_47F9C7C9010E_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4AE1B32601AE_47F9C7C9010E_impl*
-end;//NsGetFileFormatExt
+end;//nsGetFileFormatExt
 
-procedure NsMakeTemporaryFileName;
+procedure nsMakeTemporaryFileName;
 //#UC START# *4C46CB7201BB_47F9C7C9010E_var*
 //#UC END# *4C46CB7201BB_47F9C7C9010E_var*
 begin
 //#UC START# *4C46CB7201BB_47F9C7C9010E_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4C46CB7201BB_47F9C7C9010E_impl*
-end;//NsMakeTemporaryFileName
+end;//nsMakeTemporaryFileName
 
-procedure NsSendAttachedFile;
+procedure nsSendAttachedFile;
 //#UC START# *4C46CCDC01F6_47F9C7C9010E_var*
 //#UC END# *4C46CCDC01F6_47F9C7C9010E_var*
 begin
 //#UC START# *4C46CCDC01F6_47F9C7C9010E_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4C46CCDC01F6_47F9C7C9010E_impl*
-end;//NsSendAttachedFile
+end;//nsSendAttachedFile
 
-procedure NsPrepareFileName;
+procedure nsPrepareFileName;
 //#UC START# *4C5305BB0005_47F9C7C9010E_var*
 //#UC END# *4C5305BB0005_47F9C7C9010E_var*
 begin
 //#UC START# *4C5305BB0005_47F9C7C9010E_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4C5305BB0005_47F9C7C9010E_impl*
-end;//NsPrepareFileName
+end;//nsPrepareFileName
+
 end.

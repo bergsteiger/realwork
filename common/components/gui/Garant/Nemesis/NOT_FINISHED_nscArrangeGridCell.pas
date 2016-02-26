@@ -1,50 +1,37 @@
 unit NOT_FINISHED_nscArrangeGridCell;
+ {* Ячейки сетки контролов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Модуль: "w:/common/components/gui/Garant/Nemesis/NOT_FINISHED_nscArrangeGridCell.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For F1::Nemesis::Grid::nscArrangeGridCell
-//
-// Ячейки сетки контролов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\NOT_FINISHED_nscArrangeGridCell.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 type
  TnscHideFieldCell = class
  end;//TnscHideFieldCell
 
  TagControlCell = class
- public
- // public methods
+  public
    constructor Create(aControl: TControl); reintroduce; virtual;
  end;//TagControlCell
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
-// start class TagControlCell
+{$If Defined(Nemesis)}
+uses
+ l3ImplUses
+;
 
 constructor TagControlCell.Create(aControl: TControl);
 //#UC START# *4ACA31830369_4ACA309200D3_var*
@@ -54,6 +41,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4ACA31830369_4ACA309200D3_impl*
 end;//TagControlCell.Create
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 end.

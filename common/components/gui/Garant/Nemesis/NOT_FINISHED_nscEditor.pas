@@ -1,57 +1,38 @@
 unit NOT_FINISHED_nscEditor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Модуль: "w:/common/components/gui/Garant/Nemesis/NOT_FINISHED_nscEditor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi For F1::Nemesis::Editor::TnscEditor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\NOT_FINISHED_nscEditor.pas"
+// Стереотип: "GuiControl"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  eeEditor
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , eeEditor
+;
 
-{$If defined(Nemesis)}
 type
  TnscEditor = class(TeeEditor)
  end;//TnscEditor
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //Nemesis
-
-{$If defined(Nemesis)}
-
-
-{$IfEnd} //Nemesis
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 initialization
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация TnscEditor
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnscEditor);
-{$IfEnd} //Nemesis AND not NoScripts
+ {* Регистрация TnscEditor }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(Nemesis)
 
 end.

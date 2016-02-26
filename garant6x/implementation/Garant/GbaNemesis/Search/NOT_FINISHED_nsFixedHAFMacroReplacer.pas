@@ -1,29 +1,28 @@
 unit NOT_FINISHED_nsFixedHAFMacroReplacer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Search"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Search/NOT_FINISHED_nsFixedHAFMacroReplacer.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Common For Shell And Monitoring::Search::Search::Search::TnsFixedHAFMacroReplacer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\NOT_FINISHED_nsFixedHAFMacroReplacer.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
+uses
+ l3IntfUses
+;
+
 type
  TnsFixedHAFMacroReplacer = class
  end;//TnsFixedHAFMacroReplacer
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
+
+{$If NOT Defined(Admin)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(Admin)
 
 end.

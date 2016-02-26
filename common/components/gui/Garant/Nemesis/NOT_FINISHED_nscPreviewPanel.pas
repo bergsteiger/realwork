@@ -1,60 +1,41 @@
 unit NOT_FINISHED_nscPreviewPanel;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Модуль: "w:/common/components/gui/Garant/Nemesis/NOT_FINISHED_nscPreviewPanel.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi For F1::Nemesis::Editor::TnscPreviewPanel
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\NOT_FINISHED_nscPreviewPanel.pas"
+// Стереотип: "GuiControl"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  eePreviewPanel
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , eePreviewPanel
+;
 
-{$If defined(Nemesis)}
 type
  TnscCustomPreviewPanel = class(TeeCustomPreviewPanel)
  end;//TnscCustomPreviewPanel
 
  TnscPreviewPanel = class
  end;//TnscPreviewPanel
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //Nemesis
-
-{$If defined(Nemesis)}
-
-
-{$IfEnd} //Nemesis
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 initialization
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация TnscCustomPreviewPanel
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnscCustomPreviewPanel);
-{$IfEnd} //Nemesis AND not NoScripts
+ {* Регистрация TnscCustomPreviewPanel }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(Nemesis)
 
 end.

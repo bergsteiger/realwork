@@ -1,30 +1,18 @@
 unit NOT_FINISHED_nscComboBox;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Модуль: "w:/common/components/gui/Garant/Nemesis/NOT_FINISHED_nscComboBox.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi For F1::Nemesis::Editor::TnscComboBox
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\NOT_FINISHED_nscComboBox.pas"
+// Стереотип: "GuiControl"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  vtComboTree
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , vtComboTree
+;
 
-{$If defined(Nemesis)}
 type
  TnscEdit = class(TnscComboBox)
  end;//TnscEdit
@@ -37,42 +25,35 @@ type
 
  TnscComboBox = class(TvtComboTree)
  end;//TnscComboBox
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //Nemesis
-
-{$If defined(Nemesis)}
-
-
-{$IfEnd} //Nemesis
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 initialization
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация TnscEdit
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnscEdit);
-{$IfEnd} //Nemesis AND not NoScripts
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация TnscEditWithoutPlusMinusShortcut
+ {* Регистрация TnscEdit }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnscEditWithoutPlusMinusShortcut);
-{$IfEnd} //Nemesis AND not NoScripts
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация TnscComboBoxWithPwdChar
+ {* Регистрация TnscEditWithoutPlusMinusShortcut }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnscComboBoxWithPwdChar);
-{$IfEnd} //Nemesis AND not NoScripts
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация TnscComboBox
+ {* Регистрация TnscComboBoxWithPwdChar }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnscComboBox);
-{$IfEnd} //Nemesis AND not NoScripts
+ {* Регистрация TnscComboBox }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(Nemesis)
 
 end.
