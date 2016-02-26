@@ -1,36 +1,24 @@
 unit afwSettings;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Модуль: "w:/common/components/gui/Garant/AFW/afwSettings.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::AFW::afwSettings::TafwSettings
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\AFW\afwSettings.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\AFW\afwDefine.inc}
+{$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  afwInterfaces,
-  afwSettingsPrimPrim,
-  afwSettingsImplPrimPrim
-  ;
+ l3IntfUses
+ , afwSettingsPrimPrim
+ , afwInterfaces
+ , afwSettingsImplPrimPrim
+;
 
 type
  TafwSettings = class(TafwSettingsPrimPrim, IafwSettings)
- private
- // private fields
-   f_State : TafwSettingsState;
- protected
- // realized methods
+  private
+   f_State: TafwSettingsState;
+  protected
    function pm_GetState: TafwSettingsState;
    procedure pm_SetState(aValue: TafwSettingsState);
    function LoadDouble(const aSettingId: TafwSettingId;
@@ -40,24 +28,19 @@ type
     aValue: Double;
     aDefault: Double = 0;
     aSetAsDefault: Boolean = False);
- protected
- // overridden protected methods
    procedure InitFields; override;
    procedure NotifySettingChanged(const aSettingID: TafwSettingId); override;
- public
- // public methods
+  public
    class function Make(const aSettingsImpl: IafwSettingsImpl): IafwSettings; reintroduce;
-     {* Сигнатура фабрики TafwSettings.Make }
  end;//TafwSettings
 
 implementation
 
 uses
-  SysUtils,
-  afwSettingsChangePublisher
-  ;
-
-// start class TafwSettings
+ l3ImplUses
+ , SysUtils
+ , afwSettingsChangePublisher
+;
 
 class function TafwSettings.Make(const aSettingsImpl: IafwSettingsImpl): IafwSettings;
 var
@@ -69,7 +52,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TafwSettings.Make
 
 function TafwSettings.pm_GetState: TafwSettingsState;
 //#UC START# *48896A7B0311_4F6C957F01E7get_var*
@@ -90,8 +73,8 @@ begin
 end;//TafwSettings.pm_SetState
 
 function TafwSettings.LoadDouble(const aSettingId: TafwSettingId;
-  aDefault: Double = 0;
-  aRestoreDefault: Boolean = False): Double;
+ aDefault: Double = 0;
+ aRestoreDefault: Boolean = False): Double;
 //#UC START# *4AB729980069_4F6C957F01E7_var*
 //#UC END# *4AB729980069_4F6C957F01E7_var*
 begin
@@ -101,9 +84,9 @@ begin
 end;//TafwSettings.LoadDouble
 
 procedure TafwSettings.SaveDouble(const aSettingId: TafwSettingId;
-  aValue: Double;
-  aDefault: Double = 0;
-  aSetAsDefault: Boolean = False);
+ aValue: Double;
+ aDefault: Double = 0;
+ aSetAsDefault: Boolean = False);
 //#UC START# *4AB729A702A2_4F6C957F01E7_var*
 //#UC END# *4AB729A702A2_4F6C957F01E7_var*
 begin

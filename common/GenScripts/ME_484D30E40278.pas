@@ -10,7 +10,6 @@ interface
 uses
  l3IntfUses
  , k2DictRec_Wrap
- , Style_Const
 ;
 
 type

@@ -1,37 +1,24 @@
 unit IafwSettingsReplaceListenerPtrList;
+ {* Список УКАЗАТЕЛЕЙ на IafwSettingsReplaceListener }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/AFW/IafwSettingsReplaceListenerPtrList.pas"
-// Начат: 07.11.2008 16:26
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::AFW::afwSettings::TIafwSettingsReplaceListenerPtrList
-//
-// Список УКАЗАТЕЛЕЙ на IafwSettingsReplaceListener
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\AFW\IafwSettingsReplaceListenerPtrList.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\AFW\afwDefine.inc}
+{$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  afwInterfaces,
-  l3ProtoDataContainer,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except,
-  Classes
-  ;
+ l3IntfUses
+ , l3ProtoDataContainer
+ , afwInterfaces
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
 type
  _ItemType_ = IafwSettingsReplaceListener;
@@ -45,11 +32,16 @@ type
 implementation
 
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
+ l3ImplUses
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
+
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
+
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
 
 type _Instance_R_ = TIafwSettingsReplaceListenerPtrList;
 

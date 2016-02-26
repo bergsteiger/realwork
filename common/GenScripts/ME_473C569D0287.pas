@@ -31,6 +31,16 @@ type
 
  TafwCommands = array of AnsiString;
 
+ TafwScrollBarType = (
+  afw_sbHorz
+  , afw_sbVert
+ );//TafwScrollBarType
+
+ TafwScrollBars = set of TafwScrollBarType;
+
+const
+ afw_sbBoth = [Low(TafwScrollBarType) .. High(TafwScrollBarType)];
+
 implementation
 
 uses

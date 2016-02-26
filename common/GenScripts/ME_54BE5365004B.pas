@@ -10,7 +10,6 @@ interface
 {$If Defined(Nemesis)}
 uses
  l3IntfUses
- , Document_Const
 ;
 
  // DocumentTag

@@ -1,110 +1,76 @@
 unit spHelpNotifyManager;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Модуль: "w:/common/components/gui/Garant/AFW/spHelpNotifyManager.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::AFW::afwFacade::TspHelpNotifyManager
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\AFW\spHelpNotifyManager.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\AFW\afwDefine.inc}
+{$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  l3SimpleDataContainer,
-  l3ProtoObject,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except,
-  Classes
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , l3SimpleDataContainer
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
 type
- IspHelpNotifyListener = interface(IUnknown)
-   ['{8BA8A002-A9CD-406C-BB04-02C173974511}']
-   procedure HelpShown;
-     {* Сигнатура метода HelpShown }
+ IspHelpNotifyListener = interface
+  ['{8BA8A002-A9CD-406C-BB04-02C173974511}']
+  procedure HelpShown;
  end;//IspHelpNotifyListener
 
  _ItemType_ = IspHelpNotifyListener;
  _l3InterfacePtrList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
-{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
  TspHelpNotifyListenerList = class(_l3InterfacePtrList_)
  end;//TspHelpNotifyListenerList
 
  TspHelpNotifyManager = class(Tl3ProtoObject)
- private
- // private fields
-   f_Listeners : TspHelpNotifyListenerList;
- private
- // private methods
+  private
+   f_Listeners: TspHelpNotifyListenerList;
+  private
    class function Exists: Boolean;
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- public
- // public methods
+  public
    class procedure AddListener(const aListener: IspHelpNotifyListener);
    class procedure RemoveListener(const aListener: IspHelpNotifyListener);
    class procedure HelpShown;
-     {* Сигнатура метода HelpShown }
- public
- // singleton factory method
    class function Instance: TspHelpNotifyManager;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TspHelpNotifyManager }
  end;//TspHelpNotifyManager
 
 implementation
 
 uses
-  l3Base {a},
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+;
 
-
-// start class TspHelpNotifyManager
-
-var g_TspHelpNotifyManager : TspHelpNotifyManager = nil;
+var g_TspHelpNotifyManager: TspHelpNotifyManager = nil;
+ {* Экземпляр синглетона TspHelpNotifyManager }
 
 procedure TspHelpNotifyManagerFree;
+ {* Метод освобождения экземпляра синглетона TspHelpNotifyManager }
 begin
  l3Free(g_TspHelpNotifyManager);
-end;
+end;//TspHelpNotifyManagerFree
 
-class function TspHelpNotifyManager.Instance: TspHelpNotifyManager;
-begin
- if (g_TspHelpNotifyManager = nil) then
- begin
-  l3System.AddExitProc(TspHelpNotifyManagerFree);
-  g_TspHelpNotifyManager := Create;
- end;
- Result := g_TspHelpNotifyManager;
-end;
+type _Instance_R_ = TspHelpNotifyListenerList;
 
-
-class function TspHelpNotifyManager.Exists: Boolean;
-//#UC START# *53763D88015E_53760B2701DD_var*
-//#UC END# *53763D88015E_53760B2701DD_var*
-begin
-//#UC START# *53763D88015E_53760B2701DD_impl*
- Result := Assigned(g_TspHelpNotifyManager);
-//#UC END# *53763D88015E_53760B2701DD_impl*
-end;//TspHelpNotifyManager.Exists
+{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
 
 class procedure TspHelpNotifyManager.AddListener(const aListener: IspHelpNotifyListener);
 //#UC START# *53760C6703AB_53760B2701DD_var*
@@ -138,13 +104,29 @@ begin
    Instance.f_Listeners[I].HelpShown;
 //#UC END# *53760DE9006D_53760B2701DD_impl*
 end;//TspHelpNotifyManager.HelpShown
-type _Instance_R_ = TspHelpNotifyListenerList;
 
-{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
+class function TspHelpNotifyManager.Exists: Boolean;
+//#UC START# *53763D88015E_53760B2701DD_var*
+//#UC END# *53763D88015E_53760B2701DD_var*
+begin
+//#UC START# *53763D88015E_53760B2701DD_impl*
+ Result := Assigned(g_TspHelpNotifyManager);
+//#UC END# *53763D88015E_53760B2701DD_impl*
+end;//TspHelpNotifyManager.Exists
 
-// start class TspHelpNotifyManager
+class function TspHelpNotifyManager.Instance: TspHelpNotifyManager;
+ {* Метод получения экземпляра синглетона TspHelpNotifyManager }
+begin
+ if (g_TspHelpNotifyManager = nil) then
+ begin
+  l3System.AddExitProc(TspHelpNotifyManagerFree);
+  g_TspHelpNotifyManager := Create;
+ end;
+ Result := g_TspHelpNotifyManager;
+end;//TspHelpNotifyManager.Instance
 
 procedure TspHelpNotifyManager.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_53760B2701DD_var*
 //#UC END# *479731C50290_53760B2701DD_var*
 begin

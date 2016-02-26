@@ -1,55 +1,53 @@
 unit afwApplication;
+ {* "Стандартная" реализация приложения AFW. }
 
-{$IfDef DesignTimeLibrary}
-{.$WEAKPACKAGEUNIT ON}
-{$EndIf DesignTimeLibrary}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/AFW/implementation/afwApplication.pas"
-// Начат: 20.12.2004 16:00
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::AFW::Standard::afwApplication
-//
-// "Стандартная" реализация приложения AFW.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\AFW\implementation\afwApplication.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  l3CacheableBase,
-  afwInterfaces,
-  afwFacade,
-  l3Core
-  ;
+ l3IntfUses
+ , l3CacheableBase
+ , afwInterfaces
+ , l3Core
+ , afwFacade
+;
+
+const
+ {* Строковые идентификаторы языков. dl - detailed LanguageId. }
+ afw_dlDefault = 'ru_RU.CP1251';
 
 type
+ TafwApplicationClass = class of TafwApplication;
+  {* Ссылка на TafwApplication. }
+
  TafwApplication = class(Tl3CacheableBase, IafwSettingsSource, IafwApplication)
   {* "Стандартная" реализация приложения AFW. }
- private
- // private fields
-   f_PrintManager : IafwPrintManager;
-   f_UserQuery : Pointer;
-   f_BaseId : AnsiString;
-   f_Settings : IafwSettings;
-   f_LocaleInfo : IafwLocaleInfo;
-   f_Data : IafwApplicationData;
-   f_PermanentSettings : IafwSettingsPrim;
- private
- // private methods
+  private
+   f_PrintManager: IafwPrintManager;
+   f_UserQuery: Pointer;
+   f_BaseId: AnsiString;
+   f_Settings: IafwSettings;
+   f_LocaleInfo: IafwLocaleInfo;
+   f_Data: IafwApplicationData;
+   f_PermanentSettings: IafwSettingsPrim;
+  private
    procedure DefineLocaleInfo;
- protected
- // realized methods
+  protected
+   function DoGetIsTrialMode: Boolean; virtual;
+   function DoGetTabInterfaceType: TafwTabInterfaceType; virtual;
+   function MakeApplicationData: IafwApplicationData; virtual;
+   function MakeSettings: IafwSettings; virtual;
+   function DoGetIsInternal: Boolean; virtual;
+   function MakeLocaleInfo: IafwLocaleInfo; virtual;
+   procedure DoApplyActiveLanguage(const aTarget: IafwResources); virtual;
+   function MakePermanentSettings: IafwSettingsPrim; virtual;
+   procedure DoLockKeyboard; virtual;
+   procedure DoUnLockKeyboard; virtual;
+   procedure GetAskClearClipboardProc(out aProc: TafwAskClearClipboardProc); virtual;
    function pm_GetBaseId: AnsiString;
    procedure pm_SetBaseId(const aValue: AnsiString);
    procedure ApplyActiveLanguage(const aTarget: IafwResources);
@@ -69,76 +67,45 @@ type
    function AskClearClipboardProc: TafwAskClearClipboardProc;
    function IsTrialMode: Boolean;
    function Get_TabInterfaceType: TafwTabInterfaceType;
- public
- // realized methods
-    {$If not defined(NoVCL)}
-   function MakeLongProcessVisualizer(const aCaption: IafwCString;
-     anAttachWnd: THandle = 0;
-     anInitialTimeout: Cardinal = afw_lpwTimeout;
-     anImageList: TafwCustomImageList = nil;
-     anImageIndex: Integer = -1): IafwLongProcessVisualizer;
-    {$IfEnd} //not NoVCL
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
-   function DoGetIsTrialMode: Boolean; virtual;
-   function DoGetTabInterfaceType: TafwTabInterfaceType; virtual;
-   function MakeApplicationData: IafwApplicationData; virtual;
-   function MakeSettings: IafwSettings; virtual;
-   function DoGetIsInternal: Boolean; virtual;
-   function MakeLocaleInfo: IafwLocaleInfo; virtual;
-   procedure DoApplyActiveLanguage(const aTarget: IafwResources); virtual;
-   function MakePermanentSettings: IafwSettingsPrim; virtual;
-   procedure DoLockKeyboard; virtual;
-   procedure DoUnLockKeyboard; virtual;
-   procedure GetAskClearClipboardProc(out aProc: TafwAskClearClipboardProc); virtual;
+  public
+   {$If NOT Defined(NoVCL)}
+   function MakeLongProcessVisualizer(const aCaption: IafwCString;
+    anAttachWnd: THandle = 0;
+    anInitialTimeout: Cardinal = afw_lpwTimeout;
+    anImageList: TafwCustomImageList = nil;
+    anImageIndex: Integer = -1): IafwLongProcessVisualizer;
+   {$IfEnd} // NOT Defined(NoVCL)
  end;//TafwApplication
-
- TafwApplicationClass = class of TafwApplication;
-  {* Ссылка на TafwApplication. }
 
  TafwImplementation = class(Tafw)
   {* Метакласс, реализующий "стандартным" образом точку входа в интерфейсы библиотеки AFW. }
- public
- // overridden public methods
-   class function Application: IafwApplication; override;
-     {* приложение AFW. }
- public
- // public methods
+  public
    class function GetApplicationClass: TafwApplicationClass; virtual;
-     {* Класс реализации приложения. }
+    {* Класс реализации приложения. }
+   class function Application: IafwApplication; override;
+    {* приложение AFW. }
  end;//TafwImplementation
 
-const
-  { Строковые идентификаторы языков. dl - detailed LanguageId. }
- afw_dlDefault = 'ru_RU.CP1251';
+var g_Application: TafwApplication;
 
 implementation
 
 uses
-  l3LocaleInfo,
-  afwLongProcessVisualizer,
-  SysUtils,
-  l3Base
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  afwSettingsImplSing,
-  afwSettingsImplemented,
-  Classes
-  ;
-
-var
-  g_Application : TafwApplication;
-
-// unit methods
+ l3ImplUses
+ , l3LocaleInfo
+ , afwLongProcessVisualizer
+ , SysUtils
+ , l3Base
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , afwSettingsImplSing
+ , afwSettingsImplemented
+ , Classes
+;
 
 procedure FreeApp;
 //#UC START# *4B72F1360176_47764DEC01A7_var*
@@ -148,7 +115,6 @@ begin
  FreeAndNil(g_Application);
 //#UC END# *4B72F1360176_47764DEC01A7_impl*
 end;//FreeApp
-// start class TafwApplication
 
 function TafwApplication.DoGetIsTrialMode: Boolean;
 //#UC START# *5232DF6F008F_47764DD601C3_var*
@@ -430,12 +396,12 @@ begin
 //#UC END# *4768DE18030F_47764DD601C3get_impl*
 end;//TafwApplication.Get_Data
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 function TafwApplication.MakeLongProcessVisualizer(const aCaption: IafwCString;
-  anAttachWnd: THandle = 0;
-  anInitialTimeout: Cardinal = afw_lpwTimeout;
-  anImageList: TafwCustomImageList = nil;
-  anImageIndex: Integer = -1): IafwLongProcessVisualizer;
+ anAttachWnd: THandle = 0;
+ anInitialTimeout: Cardinal = afw_lpwTimeout;
+ anImageList: TafwCustomImageList = nil;
+ anImageIndex: Integer = -1): IafwLongProcessVisualizer;
 //#UC START# *49E85D4A0016_47764DD601C3_var*
 //#UC END# *49E85D4A0016_47764DD601C3_var*
 begin
@@ -444,7 +410,7 @@ begin
   anImageList, anImageIndex);
 //#UC END# *49E85D4A0016_47764DD601C3_impl*
 end;//TafwApplication.MakeLongProcessVisualizer
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 function TafwApplication.Get_PermanentSettings: IafwSettingsPrim;
 //#UC START# *4AB72A090253_47764DD601C3get_var*
@@ -503,6 +469,7 @@ begin
 end;//TafwApplication.Get_TabInterfaceType
 
 procedure TafwApplication.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47764DD601C3_var*
 //#UC END# *479731C50290_47764DD601C3_var*
 begin
@@ -516,7 +483,6 @@ begin
 end;//TafwApplication.Cleanup
 
 procedure TafwApplication.ClearFields;
- {-}
 begin
  f_PrintManager := nil;
  f_Settings := nil;
@@ -524,9 +490,9 @@ begin
  f_Data := nil;
  inherited;
 end;//TafwApplication.ClearFields
-// start class TafwImplementation
 
 class function TafwImplementation.GetApplicationClass: TafwApplicationClass;
+ {* Класс реализации приложения. }
 //#UC START# *47764F8A02D1_47764F3F0064_var*
 //#UC END# *47764F8A02D1_47764F3F0064_var*
 begin
@@ -536,6 +502,7 @@ begin
 end;//TafwImplementation.GetApplicationClass
 
 class function TafwImplementation.Application: IafwApplication;
+ {* приложение AFW. }
 //#UC START# *4775153A0006_47764F3F0064_var*
 var
  l_AC : TafwApplicationClass;

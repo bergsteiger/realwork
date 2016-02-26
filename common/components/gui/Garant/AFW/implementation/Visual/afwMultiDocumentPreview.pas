@@ -1,106 +1,89 @@
 unit afwMultiDocumentPreview;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Модуль: "w:/common/components/gui/Garant/AFW/implementation/Visual/afwMultiDocumentPreview.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::AFW::Draw::TafwMultiDocumentPreview
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwMultiDocumentPreview.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  l3CacheableBase,
-  afwInterfaces,
-  afwDocumentPreviewList,
-  l3Interfaces,
-  afwTypes,
-  l3Core
-  ;
+ l3IntfUses
+ , l3CacheableBase
+ , afwInterfaces
+ , afwDocumentPreviewList
+ , afwTypes
+ , l3Interfaces
+ , l3Core
+;
 
 type
  TafwMultiDocumentPreview = class(Tl3CacheableBase, IafwDocumentPreview, IafwMultiDocumentPreview)
- private
- // private fields
-   f_Docs : TafwDocumentPreviewList;
-   f_Printer : IafwPrinter;
- protected
- // realized methods
+  private
+   f_Docs: TafwDocumentPreviewList;
+   f_Printer: IafwPrinter;
+  protected
+   function GetDocumentName: IafwCString; virtual;
    function DocumentName: IafwCString;
-     {* имя документа для preview. }
+    {* имя документа для preview. }
    function InProcess: Boolean;
-     {* идет процесс? }
+    {* идет процесс? }
    function InPagesCounting: Boolean;
-     {* сейчас в процессе подсчета страниц? }
+    {* сейчас в процессе подсчета страниц? }
    function InUpdate: Boolean;
-     {* находимся в процессе построения preview? }
+    {* находимся в процессе построения preview? }
    function InPrinting: Boolean;
-     {* находимся в процессе построения печати? }
+    {* находимся в процессе построения печати? }
    procedure Update(const aPanel: IafwPreviewPanel);
-     {* установить preview на панель для отображения. }
+    {* установить preview на панель для отображения. }
    procedure Print(anInterval: TafwPagesInterval = afw_piAll;
     const aRange: Il3RangeManager = nil;
     aCopies: Integer = 1;
     const aFileName: AnsiString = '';
     aCollate: Boolean = True);
-     {* напечатать на принтер. }
+    {* напечатать на принтер. }
    procedure Stop(aWnd: THandle = 0);
-     {* остановит процесс построение preview/печати. }
+    {* остановит процесс построение preview/печати. }
    function Stopped: Boolean;
-     {* процесс остановлен? }
+    {* процесс остановлен? }
    function CloseRequested: Boolean;
-     {* при остановке процесса был запрос на закрытие превью }
+    {* при остановке процесса был запрос на закрытие превью }
    function PreviewResetting: Boolean;
-     {* канва отсутствует, но будет передалываться }
+    {* канва отсутствует, но будет передалываться }
    procedure SetCurrentPage(const aCursor: IUnknown);
-     {* устанавливает курсор на текущую страницу. }
+    {* устанавливает курсор на текущую страницу. }
    procedure SetCurrentPagePara(aParaID: Integer);
-     {* устанавливает курсор на текущую страницу. }
+    {* устанавливает курсор на текущую страницу. }
    procedure SetCurrentPageNumber(aPageNumber: Integer);
-     {* устанавливает курсор на текущую страницу. }
+    {* устанавливает курсор на текущую страницу. }
    function CurrentPage: Integer;
-     {* текущая страница для печати. }
+    {* текущая страница для печати. }
    function HasCurrentPage: Boolean;
-     {* установлена ли текущая страница. }
+    {* установлена ли текущая страница. }
    function pm_GetPrinter: IafwPrinter;
    procedure pm_SetPrinter(const aValue: IafwPrinter);
    function pm_GetHasText: Boolean;
    procedure AddDocument(const aDocument: IafwDocumentPreview);
-     {* Добавляет документ в пачку. }
+    {* Добавляет документ в пачку. }
    function Get_DocCount: Integer;
    function pm_GetPagesInfo: TafwPagesInfo;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected methods
-   function GetDocumentName: IafwCString; virtual;
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    class function Make: IafwMultiDocumentPreview; reintroduce;
-     {* создает экземпляр класса в виде интерфейса IafwMultiDocumentPreview. }
+    {* создает экземпляр класса в виде интерфейса IafwMultiDocumentPreview. }
  end;//TafwMultiDocumentPreview
 
 implementation
 
 uses
-  l3Printer,
-  SysUtils
-  ;
-
-// start class TafwMultiDocumentPreview
+ l3ImplUses
+ , l3Printer
+ , SysUtils
+;
 
 class function TafwMultiDocumentPreview.Make: IafwMultiDocumentPreview;
+ {* создает экземпляр класса в виде интерфейса IafwMultiDocumentPreview. }
 var
  l_Inst : TafwMultiDocumentPreview;
 begin
@@ -110,7 +93,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TafwMultiDocumentPreview.Make
 
 function TafwMultiDocumentPreview.GetDocumentName: IafwCString;
 //#UC START# *480DE6420179_480DE55C0315_var*
@@ -122,6 +105,7 @@ begin
 end;//TafwMultiDocumentPreview.GetDocumentName
 
 function TafwMultiDocumentPreview.DocumentName: IafwCString;
+ {* имя документа для preview. }
 //#UC START# *473D8C450198_480DE55C0315_var*
 //#UC END# *473D8C450198_480DE55C0315_var*
 begin
@@ -131,6 +115,7 @@ begin
 end;//TafwMultiDocumentPreview.DocumentName
 
 function TafwMultiDocumentPreview.InProcess: Boolean;
+ {* идет процесс? }
 //#UC START# *473D8C5C0187_480DE55C0315_var*
 var
  l_Index : Integer;
@@ -149,6 +134,7 @@ begin
 end;//TafwMultiDocumentPreview.InProcess
 
 function TafwMultiDocumentPreview.InPagesCounting: Boolean;
+ {* сейчас в процессе подсчета страниц? }
 //#UC START# *473D8C6C0266_480DE55C0315_var*
 var
  l_Index : Integer;
@@ -167,6 +153,7 @@ begin
 end;//TafwMultiDocumentPreview.InPagesCounting
 
 function TafwMultiDocumentPreview.InUpdate: Boolean;
+ {* находимся в процессе построения preview? }
 //#UC START# *473D8C7C01B5_480DE55C0315_var*
 var
  l_Index : Integer;
@@ -185,6 +172,7 @@ begin
 end;//TafwMultiDocumentPreview.InUpdate
 
 function TafwMultiDocumentPreview.InPrinting: Boolean;
+ {* находимся в процессе построения печати? }
 //#UC START# *473D8C90022C_480DE55C0315_var*
 var
  l_Index : Integer;
@@ -203,6 +191,7 @@ begin
 end;//TafwMultiDocumentPreview.InPrinting
 
 procedure TafwMultiDocumentPreview.Update(const aPanel: IafwPreviewPanel);
+ {* установить preview на панель для отображения. }
 //#UC START# *473D8CA002D9_480DE55C0315_var*
 //#UC END# *473D8CA002D9_480DE55C0315_var*
 begin
@@ -212,10 +201,11 @@ begin
 end;//TafwMultiDocumentPreview.Update
 
 procedure TafwMultiDocumentPreview.Print(anInterval: TafwPagesInterval = afw_piAll;
-  const aRange: Il3RangeManager = nil;
-  aCopies: Integer = 1;
-  const aFileName: AnsiString = '';
-  aCollate: Boolean = True);
+ const aRange: Il3RangeManager = nil;
+ aCopies: Integer = 1;
+ const aFileName: AnsiString = '';
+ aCollate: Boolean = True);
+ {* напечатать на принтер. }
 //#UC START# *473D8CAF028B_480DE55C0315_var*
 var
  l_Index : Integer;
@@ -229,6 +219,7 @@ begin
 end;//TafwMultiDocumentPreview.Print
 
 procedure TafwMultiDocumentPreview.Stop(aWnd: THandle = 0);
+ {* остановит процесс построение preview/печати. }
 //#UC START# *473D8CE9007C_480DE55C0315_var*
 var
  l_Index : Integer;
@@ -242,6 +233,7 @@ begin
 end;//TafwMultiDocumentPreview.Stop
 
 function TafwMultiDocumentPreview.Stopped: Boolean;
+ {* процесс остановлен? }
 //#UC START# *473D8CF80037_480DE55C0315_var*
 var
  l_Index : Integer;
@@ -260,6 +252,7 @@ begin
 end;//TafwMultiDocumentPreview.Stopped
 
 function TafwMultiDocumentPreview.CloseRequested: Boolean;
+ {* при остановке процесса был запрос на закрытие превью }
 //#UC START# *473D8D0A01D7_480DE55C0315_var*
 var
  l_Index : Integer;
@@ -276,6 +269,7 @@ begin
 end;//TafwMultiDocumentPreview.CloseRequested
 
 function TafwMultiDocumentPreview.PreviewResetting: Boolean;
+ {* канва отсутствует, но будет передалываться }
 //#UC START# *473D8D1E01B8_480DE55C0315_var*
 var
  l_Index : Integer;
@@ -294,6 +288,7 @@ begin
 end;//TafwMultiDocumentPreview.PreviewResetting
 
 procedure TafwMultiDocumentPreview.SetCurrentPage(const aCursor: IUnknown);
+ {* устанавливает курсор на текущую страницу. }
 //#UC START# *473D8D3800B1_480DE55C0315_var*
 //#UC END# *473D8D3800B1_480DE55C0315_var*
 begin
@@ -303,6 +298,7 @@ begin
 end;//TafwMultiDocumentPreview.SetCurrentPage
 
 procedure TafwMultiDocumentPreview.SetCurrentPagePara(aParaID: Integer);
+ {* устанавливает курсор на текущую страницу. }
 //#UC START# *473D8D4A019D_480DE55C0315_var*
 //#UC END# *473D8D4A019D_480DE55C0315_var*
 begin
@@ -312,6 +308,7 @@ begin
 end;//TafwMultiDocumentPreview.SetCurrentPagePara
 
 procedure TafwMultiDocumentPreview.SetCurrentPageNumber(aPageNumber: Integer);
+ {* устанавливает курсор на текущую страницу. }
 //#UC START# *473D8D5D032B_480DE55C0315_var*
 //#UC END# *473D8D5D032B_480DE55C0315_var*
 begin
@@ -321,6 +318,7 @@ begin
 end;//TafwMultiDocumentPreview.SetCurrentPageNumber
 
 function TafwMultiDocumentPreview.CurrentPage: Integer;
+ {* текущая страница для печати. }
 //#UC START# *473D8D72010F_480DE55C0315_var*
 //#UC END# *473D8D72010F_480DE55C0315_var*
 begin
@@ -330,6 +328,7 @@ begin
 end;//TafwMultiDocumentPreview.CurrentPage
 
 function TafwMultiDocumentPreview.HasCurrentPage: Boolean;
+ {* установлена ли текущая страница. }
 //#UC START# *473D8D830163_480DE55C0315_var*
 //#UC END# *473D8D830163_480DE55C0315_var*
 begin
@@ -373,6 +372,7 @@ begin
 end;//TafwMultiDocumentPreview.pm_GetHasText
 
 procedure TafwMultiDocumentPreview.AddDocument(const aDocument: IafwDocumentPreview);
+ {* Добавляет документ в пачку. }
 //#UC START# *47FB296803AD_480DE55C0315_var*
 //#UC END# *47FB296803AD_480DE55C0315_var*
 begin
@@ -414,6 +414,7 @@ begin
 end;//TafwMultiDocumentPreview.pm_GetPagesInfo
 
 procedure TafwMultiDocumentPreview.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_480DE55C0315_var*
 //#UC END# *479731C50290_480DE55C0315_var*
 begin

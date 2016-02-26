@@ -618,7 +618,7 @@ type
  end;//Tl3CanvasPrim
 
 {$If Defined(nsTest)}
-var g_PrintingLineSpacing: Integer = def_PrintingLineSpacing;
+var g_PrintingLineSpacing: Integer = l3Defaults.def_PrintingLineSpacing;
 {$IfEnd} // Defined(nsTest)
 
 implementation
@@ -5759,7 +5759,7 @@ end;//Tl3CanvasPrim.InitFields
 
 procedure Tl3CanvasPrim.ClearFields;
 begin
- Finalize(SectionExtent);
+ Finalize(f_SectionExtent);
  Painter := nil;
  AbortChecker := nil;
  inherited;

@@ -10,7 +10,6 @@ interface
 uses
  l3IntfUses
  , l3String_Wrap
- , k2FontName_Const
  , l3Variant
 ;
 

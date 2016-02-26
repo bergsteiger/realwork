@@ -1,41 +1,26 @@
 {$IfNDef afwApplicationDataUpdate_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Автор: Морозов М.А.
-// Модуль: "w:/common/components/gui/Garant/AFW/implementation/afwApplicationDataUpdate.imp.pas"
-// Начат: 18.12.2007
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::AFW::afwMixIns::afwApplicationDataUpdate
-//
-// Примесь, реализующая IafwApplicationDataListener.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define afwApplicationDataUpdate_imp}
- _afwApplicationDataUpdate_ = {mixin} class(_afwApplicationDataUpdate_Parent_, IafwApplicationDataListener)
+
+ _afwApplicationDataUpdate_ = class(_afwApplicationDataUpdate_Parent_, IafwApplicationDataListener)
   {* Примесь, реализующая IafwApplicationDataListener. }
- protected
- // realized methods
-   procedure UpdateFinished;
-     {* Информирует слушателя об окончании обновления данных }
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
- protected
- // protected methods
+  protected
    procedure FinishDataUpdate; virtual;
+   procedure UpdateFinished;
+    {* Информирует слушателя об окончании обновления данных }
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
  end;//_afwApplicationDataUpdate_
 
 {$Else afwApplicationDataUpdate_imp}
 
-// start class _afwApplicationDataUpdate_
+{$IfNDef afwApplicationDataUpdate_imp_impl}
+
+{$Define afwApplicationDataUpdate_imp_impl}
 
 procedure _afwApplicationDataUpdate_.FinishDataUpdate;
 //#UC START# *47EA4E9002C6_47EA4BEF0140_var*
@@ -47,6 +32,7 @@ begin
 end;//_afwApplicationDataUpdate_.FinishDataUpdate
 
 procedure _afwApplicationDataUpdate_.UpdateFinished;
+ {* Информирует слушателя об окончании обновления данных }
 //#UC START# *4768DD730235_47EA4BEF0140_var*
 //#UC END# *4768DD730235_47EA4BEF0140_var*
 begin
@@ -56,6 +42,7 @@ begin
 end;//_afwApplicationDataUpdate_.UpdateFinished
 
 procedure _afwApplicationDataUpdate_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47EA4BEF0140_var*
 //#UC END# *479731C50290_47EA4BEF0140_var*
 begin
@@ -77,4 +64,7 @@ begin
 //#UC END# *47A042E100E2_47EA4BEF0140_impl*
 end;//_afwApplicationDataUpdate_.InitFields
 
+{$EndIf afwApplicationDataUpdate_imp_impl}
+
 {$EndIf afwApplicationDataUpdate_imp}
+

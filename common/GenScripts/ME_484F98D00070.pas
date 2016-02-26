@@ -10,7 +10,6 @@ interface
 uses
  l3IntfUses
  , k2Tag_Wrap
- , Sub_Const
 ;
 
 type

@@ -1,311 +1,212 @@
 unit afwFacade;
+ {* Метакласс, реализующий точку входа в интерфейсы библиотеки AFW. }
 
-{$IfDef DesignTimeLibrary}
-{.$WEAKPACKAGEUNIT ON}
-{$EndIf DesignTimeLibrary}
+// Модуль: "w:\common\components\gui\Garant\AFW\afwFacade.pas"
+// Стереотип: "UtilityPack"
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/AFW/afwFacade.pas"
-// Начат: 20.12.2004 16:03
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::AFW::afwFacade::afwFacade
-//
-// Метакласс, реализующий точку входа в интерфейсы библиотеки AFW.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\AFW\afwDefine.inc}
+{$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  afwInterfaces,
-  Messages
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  l3ProtoObject,
-  l3MessagesService
-  {$If not defined(NoVCL)}
-  ,
-  l3FormsService
-  {$IfEnd} //not NoVCL
-  ,
-  l3KeyboardLayoutService,
-  l3TabService,
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
-
-type
- {$If not defined(NoVCL)}
- TafwCustomForm = afwInterfaces.TafwCustomForm;
- {$IfEnd} //not NoVCL
-
-
-{$If not defined(NoVCL)}
- TafwControlFocusHook = procedure (aControl: TWinControl;
-  aGot: Boolean);
-{$IfEnd} //not NoVCL
-
-
-{$If not defined(NoVCL)}
- TafwControlMessageHook = procedure (aControl: TWinControl;
-  const aMessage: TMessage);
-{$IfEnd} //not NoVCL
-
-
-{$If not defined(NoVCL)}
- TafwIsAcceptableControlForTabNavigationHook = function (aControl: TWinControl): Boolean;
-{$IfEnd} //not NoVCL
-
-
-{$If not defined(NoVCL)}
- TafwDoTabHook = function (aControl: TControl;
-  aShift: Boolean): Boolean;
-{$IfEnd} //not NoVCL
-
- TafwMessagesService = {final} class(Tl3ProtoObject, Il3MessagesService)
- public
- // realized methods
-   procedure ProcessMessages;
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
-   class function Instance: TafwMessagesService;
-    {- возвращает экземпляр синглетона. }
- end;//TafwMessagesService
-
-
-{$If not defined(NoVCL)}
- TafwFormsService = {final} class(Tl3ProtoObject, Il3FormsService)
- public
- // realized methods
-   function GetAnotherParentForm(Component: TPersistent): TCustomForm;
-   function GetMainForm(Component: TPersistent): TCustomForm;
-   function GetParentForm(Component: TPersistent): TCustomForm;
-   function GetTopParentForm(Component: TPersistent): TCustomForm;
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
-   class function Instance: TafwFormsService;
-    {- возвращает экземпляр синглетона. }
- end;//TafwFormsService
-{$IfEnd} //not NoVCL
-
- TafwKeyboardLayoutService = {final} class(Tl3ProtoObject, Il3KeyboardLayoutService)
- public
- // realized methods
-   procedure TryActivateKeyboardLayout;
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
-   class function Instance: TafwKeyboardLayoutService;
-    {- возвращает экземпляр синглетона. }
- end;//TafwKeyboardLayoutService
-
- TafwTabService = {final} class(Tl3ProtoObject, Il3TabService)
- public
- // realized methods
-   function HasTabs: Boolean;
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
-   class function Instance: TafwTabService;
-    {- возвращает экземпляр синглетона. }
- end;//TafwTabService
-
- Tafw = class
-  {* Метакласс, реализующий точку входа в интерфейсы библиотеки AFW. }
- public
- // public methods
-    {$If not defined(DesignTimeLibrary) AND not defined(NoVCL)}
-   class function NeedFixWMSIZE(aControl: TWinControl): Boolean;
-    {$IfEnd} //not DesignTimeLibrary AND not NoVCL
-   class procedure TryActivateKeyboardLayout;
-   class function Application: IafwApplication; virtual;
-     {* приложение AFW. }
-   class procedure BeginOp; virtual;
-     {* начать операцию, внутри которой нельзя убивать контролы. }
-   class procedure EndOp; virtual;
-     {* закончить операцию, внутри которой нельзя убивать контролы. }
-   class function InOp: Boolean;
-   class function IsObjectLocked(aControl: TObject = nil): Boolean; virtual;
-   {$If not defined(NoVCL)}
-   class function GetParentForm(Component: TPersistent): TafwCustomForm;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
-   class function GetAnotherParentForm(Component: TPersistent): TafwCustomForm;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
-   class function GetTopParentForm(Component: TPersistent): TafwCustomForm;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
-   class function GetMainForm(Component: TPersistent): TafwCustomForm;
-   {$IfEnd} //not NoVCL
-   class procedure ProcessMessages;
-   class function Settings: IafwSettings;
-     {* для работы с настройками системы. }
-   class procedure LockActionUpdate;
-     {* Запретить обновление операций }
-   class procedure UnlockActionUpdate;
-     {* Разрешить обновление операций }
-   class function IsActionUpdateLocked: Boolean;
-     {* Обновление операций запрещено }
-   class function PermanentSettings: IafwSettingsPrim;
-   class function IsMenuLocked(const aControl: IafwMenuUnlockedPostBuild): Boolean; virtual;
-   class procedure ControlDestroying(const aControl: IafwMenuUnlockedPostBuild); virtual;
- end;//Tafw
-
-var
-   g_DisableMessageHook : Integer = 0;
-  {$If not defined(NoVCL)}
-var
-   g_FocusHook : TafwControlFocusHook = nil;
-  {$IfEnd} //not NoVCL
-  {$If not defined(NoVCL)}
-var
-   g_MessageHook : TafwControlMessageHook = nil;
-  {$IfEnd} //not NoVCL
-  {$If not defined(NoVCL)}
-var
-   g_IsAcceptableControlForTabNavigationHook : TafwIsAcceptableControlForTabNavigationHook = nil;
-  {$IfEnd} //not NoVCL
-  {$If not defined(NoVCL)}
-var
-   g_DoTabHook : TafwDoTabHook = nil;
-  {$IfEnd} //not NoVCL
+ l3IntfUses
+ , afwInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Messages
+ , l3ProtoObject
+ , l3MessagesService
+ {$If NOT Defined(NoVCL)}
+ , l3FormsService
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Classes
+ , l3KeyboardLayoutService
+ , l3TabService
+;
 
 type
  Rafw = class of Tafw;
   {* Ссылка на класс Tafw. }
 
-var afw : Rafw = Tafw;
- {* Экземпляр фасада.}
+ {$If NOT Defined(NoVCL)}
+ TafwCustomForm = afwInterfaces.TafwCustomForm;
+ {$IfEnd} // NOT Defined(NoVCL)
+
+ {$If NOT Defined(NoVCL)}
+ TafwControlFocusHook = procedure(aControl: TWinControl;
+  aGot: Boolean);
+ {$IfEnd} // NOT Defined(NoVCL)
+
+ {$If NOT Defined(NoVCL)}
+ TafwControlMessageHook = procedure(aControl: TWinControl;
+  const aMessage: TMessage);
+ {$IfEnd} // NOT Defined(NoVCL)
+
+ {$If NOT Defined(NoVCL)}
+ TafwIsAcceptableControlForTabNavigationHook = function(aControl: TWinControl): Boolean;
+ {$IfEnd} // NOT Defined(NoVCL)
+
+ {$If NOT Defined(NoVCL)}
+ TafwDoTabHook = function(aControl: TControl;
+  aShift: Boolean): Boolean;
+ {$IfEnd} // NOT Defined(NoVCL)
+
+ TafwMessagesService = {final} class(Tl3ProtoObject, Il3MessagesService)
+  public
+   procedure ProcessMessages;
+   class function Instance: TafwMessagesService;
+    {* Метод получения экземпляра синглетона TafwMessagesService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//TafwMessagesService
+
+ {$If NOT Defined(NoVCL)}
+ TafwFormsService = {final} class(Tl3ProtoObject, Il3FormsService)
+  public
+   function GetAnotherParentForm(Component: TPersistent): TCustomForm;
+   function GetMainForm(Component: TPersistent): TCustomForm;
+   function GetParentForm(Component: TPersistent): TCustomForm;
+   function GetTopParentForm(Component: TPersistent): TCustomForm;
+   class function Instance: TafwFormsService;
+    {* Метод получения экземпляра синглетона TafwFormsService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//TafwFormsService
+ {$IfEnd} // NOT Defined(NoVCL)
+
+ TafwKeyboardLayoutService = {final} class(Tl3ProtoObject, Il3KeyboardLayoutService)
+  public
+   procedure TryActivateKeyboardLayout;
+   class function Instance: TafwKeyboardLayoutService;
+    {* Метод получения экземпляра синглетона TafwKeyboardLayoutService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//TafwKeyboardLayoutService
+
+ TafwTabService = {final} class(Tl3ProtoObject, Il3TabService)
+  public
+   function HasTabs: Boolean;
+   class function Instance: TafwTabService;
+    {* Метод получения экземпляра синглетона TafwTabService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//TafwTabService
+
+ Tafw = class
+  {* Метакласс, реализующий точку входа в интерфейсы библиотеки AFW. }
+  public
+   {$If NOT Defined(DesignTimeLibrary) AND NOT Defined(NoVCL)}
+   class function NeedFixWMSIZE(aControl: TWinControl): Boolean;
+   {$IfEnd} // NOT Defined(DesignTimeLibrary) AND NOT Defined(NoVCL)
+   class procedure TryActivateKeyboardLayout;
+   class function Application: IafwApplication; virtual;
+    {* приложение AFW. }
+   class procedure BeginOp; virtual;
+    {* начать операцию, внутри которой нельзя убивать контролы. }
+   class procedure EndOp; virtual;
+    {* закончить операцию, внутри которой нельзя убивать контролы. }
+   class function InOp: Boolean;
+   class function IsObjectLocked(aControl: TObject = nil): Boolean; virtual;
+   {$If NOT Defined(NoVCL)}
+   class function GetParentForm(Component: TPersistent): TafwCustomForm;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   class function GetAnotherParentForm(Component: TPersistent): TafwCustomForm;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   class function GetTopParentForm(Component: TPersistent): TafwCustomForm;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   class function GetMainForm(Component: TPersistent): TafwCustomForm;
+   {$IfEnd} // NOT Defined(NoVCL)
+   class procedure ProcessMessages;
+   class function Settings: IafwSettings;
+    {* для работы с настройками системы. }
+   class procedure LockActionUpdate;
+    {* Запретить обновление операций }
+   class procedure UnlockActionUpdate;
+    {* Разрешить обновление операций }
+   class function IsActionUpdateLocked: Boolean;
+    {* Обновление операций запрещено }
+   class function PermanentSettings: IafwSettingsPrim;
+   class function IsMenuLocked(const aControl: IafwMenuUnlockedPostBuild): Boolean; virtual;
+   class procedure ControlDestroying(const aControl: IafwMenuUnlockedPostBuild); virtual;
+ end;//Tafw
+
+var g_DisableMessageHook: Integer = 0;
+{$If NOT Defined(NoVCL)}
+var g_FocusHook: TafwControlFocusHook = nil;
+{$IfEnd} // NOT Defined(NoVCL)
+{$If NOT Defined(NoVCL)}
+var g_MessageHook: TafwControlMessageHook = nil;
+{$IfEnd} // NOT Defined(NoVCL)
+{$If NOT Defined(NoVCL)}
+var g_IsAcceptableControlForTabNavigationHook: TafwIsAcceptableControlForTabNavigationHook = nil;
+{$IfEnd} // NOT Defined(NoVCL)
+{$If NOT Defined(NoVCL)}
+var g_DoTabHook: TafwDoTabHook = nil;
+{$IfEnd} // NOT Defined(NoVCL)
+var afw: Rafw = Tafw;
+ {* Экземпляр фасада. }
 
 implementation
 
 uses
-  Windows,
-  SysUtils,
-  l3Base {a},
-  afwSettingsImplSing,
-  afwSettingsImplemented
-  ;
-
-var g_InOp : Integer = 0;
- {* Счетчик вложенных операций.}
-
-var g_LockActionUpdate : Integer = 0;
-
-  {$If not defined(DesignTimeLibrary)}
-var
-   g_IsWin2000 : Boolean = false;
-  {$IfEnd} //not DesignTimeLibrary
+ l3ImplUses
+ , afwSettingsImplSing
+ , afwSettingsImplemented
+ , Windows
+ , SysUtils
+ , l3Base
+;
 
 type
-  TafwHackPersistent = class(TPersistent)
-   {* Для доступа к скрытой части TPersistent. }
-  end;//TafwHackPersistent
+ TafwHackPersistent = class(TPersistent)
+  {* Для доступа к скрытой части TPersistent. }
+ end;//TafwHackPersistent
 
-// start class Tafw
-
-{$If not defined(DesignTimeLibrary) AND not defined(NoVCL)}
-class function Tafw.NeedFixWMSIZE(aControl: TWinControl): Boolean;
-//#UC START# *4B6C58480346_477515240332_var*
-//#UC END# *4B6C58480346_477515240332_var*
-begin
-//#UC START# *4B6C58480346_477515240332_impl*
- Result := g_IsWin2000;
-//#UC END# *4B6C58480346_477515240332_impl*
-end;//Tafw.NeedFixWMSIZE
-{$IfEnd} //not DesignTimeLibrary AND not NoVCL
-
-class procedure Tafw.TryActivateKeyboardLayout;
-//#UC START# *4E2FE68C032B_477515240332_var*
-var
- i,
- l_LanguageId,
- l_LayoutsCount  : Integer;
- l_Buffer        : array [0..KL_NAMELENGTH] of Char;
- l_CurrentLayout : HKL;
- l_LayoutsArray  : array of HKL;
-//#UC END# *4E2FE68C032B_477515240332_var*
-begin
-//#UC START# *4E2FE68C032B_477515240332_impl*
- if (Application = nil) then
-  l_LanguageId := 1049
- else
-  l_LanguageId := Application.LocaleInfo.ID;
-// мы пишем так. потому как под отладчиком VC падаем с AV из-за ненулевого второго
-// параметра.
-// Ноги тут - http://mdp.garant.ru/pages/viewpage.action?pageId=227972114 .
- l_LayoutsCount := GetKeyboardLayoutList(0, (nil)^);
- if l_LayoutsCount > 1 then
- begin
-  SetLength(l_LayoutsArray, l_LayoutsCount);
-  l_LayoutsCount := GetKeyboardLayoutList(l_LayoutsCount, l_LayoutsArray[0]);
-  for i := 0 to l_LayoutsCount - 1 do
-   if ((l_LayoutsArray[i] and $FFFF) = l_LanguageId) then
-   ActivateKeyboardLayout(l_LayoutsArray[i], 0);
- end
- else
-  if l_LayoutsCount = 0 then // если ошибка при загрузке списка (в Win98 всегда)
-   ActivateKeyboardLayout(LoadKeyBoardLayout(PChar(Format('%.8x',[l_LanguageId])), 0), 0);
-//#UC END# *4E2FE68C032B_477515240332_impl*
-end;//Tafw.TryActivateKeyboardLayout
-
-// start class TafwMessagesService
-
-var g_TafwMessagesService : TafwMessagesService = nil;
+var g_TafwMessagesService: TafwMessagesService = nil;
+ {* Экземпляр синглетона TafwMessagesService }
+var g_TafwFormsService: TafwFormsService = nil;
+ {* Экземпляр синглетона TafwFormsService }
+var g_TafwKeyboardLayoutService: TafwKeyboardLayoutService = nil;
+ {* Экземпляр синглетона TafwKeyboardLayoutService }
+var g_TafwTabService: TafwTabService = nil;
+ {* Экземпляр синглетона TafwTabService }
+{$If NOT Defined(DesignTimeLibrary)}
+var g_IsWin2000: Boolean = False;
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
+var g_InOp: Integer = 0;
+ {* Счетчик вложенных операций. }
+var g_LockActionUpdate: Integer = 0;
 
 procedure TafwMessagesServiceFree;
+ {* Метод освобождения экземпляра синглетона TafwMessagesService }
 begin
  l3Free(g_TafwMessagesService);
-end;
+end;//TafwMessagesServiceFree
 
-class function TafwMessagesService.Instance: TafwMessagesService;
+procedure TafwFormsServiceFree;
+ {* Метод освобождения экземпляра синглетона TafwFormsService }
 begin
- if (g_TafwMessagesService = nil) then
- begin
-  l3System.AddExitProc(TafwMessagesServiceFree);
-  g_TafwMessagesService := Create;
- end;
- Result := g_TafwMessagesService;
-end;
+ l3Free(g_TafwFormsService);
+end;//TafwFormsServiceFree
 
-
-class function TafwMessagesService.Exists: Boolean;
- {-}
+procedure TafwKeyboardLayoutServiceFree;
+ {* Метод освобождения экземпляра синглетона TafwKeyboardLayoutService }
 begin
- Result := g_TafwMessagesService <> nil;
-end;//TafwMessagesService.Exists
+ l3Free(g_TafwKeyboardLayoutService);
+end;//TafwKeyboardLayoutServiceFree
+
+procedure TafwTabServiceFree;
+ {* Метод освобождения экземпляра синглетона TafwTabService }
+begin
+ l3Free(g_TafwTabService);
+end;//TafwTabServiceFree
 
 procedure TafwMessagesService.ProcessMessages;
 //#UC START# *B6C92677BBF7_5506D47E01D2_var*
@@ -315,35 +216,25 @@ begin
  afw.ProcessMessages;
 //#UC END# *B6C92677BBF7_5506D47E01D2_impl*
 end;//TafwMessagesService.ProcessMessages
-{$If not defined(NoVCL)}
 
-
-// start class TafwFormsService
-
-var g_TafwFormsService : TafwFormsService = nil;
-
-procedure TafwFormsServiceFree;
+class function TafwMessagesService.Instance: TafwMessagesService;
+ {* Метод получения экземпляра синглетона TafwMessagesService }
 begin
- l3Free(g_TafwFormsService);
-end;
-
-class function TafwFormsService.Instance: TafwFormsService;
-begin
- if (g_TafwFormsService = nil) then
+ if (g_TafwMessagesService = nil) then
  begin
-  l3System.AddExitProc(TafwFormsServiceFree);
-  g_TafwFormsService := Create;
+  l3System.AddExitProc(TafwMessagesServiceFree);
+  g_TafwMessagesService := Create;
  end;
- Result := g_TafwFormsService;
-end;
+ Result := g_TafwMessagesService;
+end;//TafwMessagesService.Instance
 
-
-class function TafwFormsService.Exists: Boolean;
- {-}
+class function TafwMessagesService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
- Result := g_TafwFormsService <> nil;
-end;//TafwFormsService.Exists
+ Result := g_TafwMessagesService <> nil;
+end;//TafwMessagesService.Exists
 
+{$If NOT Defined(NoVCL)}
 function TafwFormsService.GetAnotherParentForm(Component: TPersistent): TCustomForm;
 //#UC START# *1077E9580F6F_5506D5FB0019_var*
 //#UC END# *1077E9580F6F_5506D5FB0019_var*
@@ -380,33 +271,23 @@ begin
 //#UC END# *D9663D6CD433_5506D5FB0019_impl*
 end;//TafwFormsService.GetTopParentForm
 
-{$IfEnd} //not NoVCL
-
-// start class TafwKeyboardLayoutService
-
-var g_TafwKeyboardLayoutService : TafwKeyboardLayoutService = nil;
-
-procedure TafwKeyboardLayoutServiceFree;
+class function TafwFormsService.Instance: TafwFormsService;
+ {* Метод получения экземпляра синглетона TafwFormsService }
 begin
- l3Free(g_TafwKeyboardLayoutService);
-end;
-
-class function TafwKeyboardLayoutService.Instance: TafwKeyboardLayoutService;
-begin
- if (g_TafwKeyboardLayoutService = nil) then
+ if (g_TafwFormsService = nil) then
  begin
-  l3System.AddExitProc(TafwKeyboardLayoutServiceFree);
-  g_TafwKeyboardLayoutService := Create;
+  l3System.AddExitProc(TafwFormsServiceFree);
+  g_TafwFormsService := Create;
  end;
- Result := g_TafwKeyboardLayoutService;
-end;
+ Result := g_TafwFormsService;
+end;//TafwFormsService.Instance
 
-
-class function TafwKeyboardLayoutService.Exists: Boolean;
- {-}
+class function TafwFormsService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
- Result := g_TafwKeyboardLayoutService <> nil;
-end;//TafwKeyboardLayoutService.Exists
+ Result := g_TafwFormsService <> nil;
+end;//TafwFormsService.Exists
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TafwKeyboardLayoutService.TryActivateKeyboardLayout;
 //#UC START# *747558CBA739_55099AE90101_var*
@@ -417,31 +298,22 @@ begin
 //#UC END# *747558CBA739_55099AE90101_impl*
 end;//TafwKeyboardLayoutService.TryActivateKeyboardLayout
 
-// start class TafwTabService
-
-var g_TafwTabService : TafwTabService = nil;
-
-procedure TafwTabServiceFree;
+class function TafwKeyboardLayoutService.Instance: TafwKeyboardLayoutService;
+ {* Метод получения экземпляра синглетона TafwKeyboardLayoutService }
 begin
- l3Free(g_TafwTabService);
-end;
-
-class function TafwTabService.Instance: TafwTabService;
-begin
- if (g_TafwTabService = nil) then
+ if (g_TafwKeyboardLayoutService = nil) then
  begin
-  l3System.AddExitProc(TafwTabServiceFree);
-  g_TafwTabService := Create;
+  l3System.AddExitProc(TafwKeyboardLayoutServiceFree);
+  g_TafwKeyboardLayoutService := Create;
  end;
- Result := g_TafwTabService;
-end;
+ Result := g_TafwKeyboardLayoutService;
+end;//TafwKeyboardLayoutService.Instance
 
-
-class function TafwTabService.Exists: Boolean;
- {-}
+class function TafwKeyboardLayoutService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
- Result := g_TafwTabService <> nil;
-end;//TafwTabService.Exists
+ Result := g_TafwKeyboardLayoutService <> nil;
+end;//TafwKeyboardLayoutService.Exists
 
 function TafwTabService.HasTabs: Boolean;
 //#UC START# *A8AF111E1F35_550AE9D40363_var*
@@ -455,7 +327,70 @@ begin
 //#UC END# *A8AF111E1F35_550AE9D40363_impl*
 end;//TafwTabService.HasTabs
 
+class function TafwTabService.Instance: TafwTabService;
+ {* Метод получения экземпляра синглетона TafwTabService }
+begin
+ if (g_TafwTabService = nil) then
+ begin
+  l3System.AddExitProc(TafwTabServiceFree);
+  g_TafwTabService := Create;
+ end;
+ Result := g_TafwTabService;
+end;//TafwTabService.Instance
+
+class function TafwTabService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TafwTabService <> nil;
+end;//TafwTabService.Exists
+
+{$If NOT Defined(DesignTimeLibrary) AND NOT Defined(NoVCL)}
+class function Tafw.NeedFixWMSIZE(aControl: TWinControl): Boolean;
+//#UC START# *4B6C58480346_477515240332_var*
+//#UC END# *4B6C58480346_477515240332_var*
+begin
+//#UC START# *4B6C58480346_477515240332_impl*
+ Result := g_IsWin2000;
+//#UC END# *4B6C58480346_477515240332_impl*
+end;//Tafw.NeedFixWMSIZE
+{$IfEnd} // NOT Defined(DesignTimeLibrary) AND NOT Defined(NoVCL)
+
+class procedure Tafw.TryActivateKeyboardLayout;
+//#UC START# *4E2FE68C032B_477515240332_var*
+var
+ i,
+ l_LanguageId,
+ l_LayoutsCount  : Integer;
+ l_Buffer        : array [0..KL_NAMELENGTH] of Char;
+ l_CurrentLayout : HKL;
+ l_LayoutsArray  : array of HKL;
+//#UC END# *4E2FE68C032B_477515240332_var*
+begin
+//#UC START# *4E2FE68C032B_477515240332_impl*
+ if (Application = nil) then
+  l_LanguageId := 1049
+ else
+  l_LanguageId := Application.LocaleInfo.ID;
+// мы пишем так. потому как под отладчиком VC падаем с AV из-за ненулевого второго
+// параметра.
+// Ноги тут - http://mdp.garant.ru/pages/viewpage.action?pageId=227972114 .
+ l_LayoutsCount := GetKeyboardLayoutList(0, (nil)^);
+ if l_LayoutsCount > 1 then
+ begin
+  SetLength(l_LayoutsArray, l_LayoutsCount);
+  l_LayoutsCount := GetKeyboardLayoutList(l_LayoutsCount, l_LayoutsArray[0]);
+  for i := 0 to l_LayoutsCount - 1 do
+   if ((l_LayoutsArray[i] and $FFFF) = l_LanguageId) then
+   ActivateKeyboardLayout(l_LayoutsArray[i], 0);
+ end
+ else
+  if l_LayoutsCount = 0 then // если ошибка при загрузке списка (в Win98 всегда)
+   ActivateKeyboardLayout(LoadKeyBoardLayout(PChar(Format('%.8x',[l_LanguageId])), 0), 0);
+//#UC END# *4E2FE68C032B_477515240332_impl*
+end;//Tafw.TryActivateKeyboardLayout
+
 class function Tafw.Application: IafwApplication;
+ {* приложение AFW. }
 //#UC START# *4775153A0006_477515240332_var*
 //#UC END# *4775153A0006_477515240332_var*
 begin
@@ -465,6 +400,7 @@ begin
 end;//Tafw.Application
 
 class procedure Tafw.BeginOp;
+ {* начать операцию, внутри которой нельзя убивать контролы. }
 //#UC START# *4775163F024C_477515240332_var*
 //#UC END# *4775163F024C_477515240332_var*
 begin
@@ -474,6 +410,7 @@ begin
 end;//Tafw.BeginOp
 
 class procedure Tafw.EndOp;
+ {* закончить операцию, внутри которой нельзя убивать контролы. }
 //#UC START# *4775165403AE_477515240332_var*
 //#UC END# *4775165403AE_477515240332_var*
 begin
@@ -500,7 +437,7 @@ begin
 //#UC END# *47751681028E_477515240332_impl*
 end;//Tafw.IsObjectLocked
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 class function Tafw.GetParentForm(Component: TPersistent): TafwCustomForm;
 //#UC START# *4775169B0334_477515240332_var*
 //#UC END# *4775169B0334_477515240332_var*
@@ -521,9 +458,9 @@ begin
  end;{C <> nil..}
 //#UC END# *4775169B0334_477515240332_impl*
 end;//Tafw.GetParentForm
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 class function Tafw.GetAnotherParentForm(Component: TPersistent): TafwCustomForm;
 //#UC START# *477530450083_477515240332_var*
 //#UC END# *477530450083_477515240332_var*
@@ -545,9 +482,9 @@ begin
  end;
 //#UC END# *477530450083_477515240332_impl*
 end;//Tafw.GetAnotherParentForm
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 class function Tafw.GetTopParentForm(Component: TPersistent): TafwCustomForm;
 //#UC START# *4775305B0003_477515240332_var*
 var
@@ -569,9 +506,9 @@ begin
  end;//while true
 //#UC END# *4775305B0003_477515240332_impl*
 end;//Tafw.GetTopParentForm
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 class function Tafw.GetMainForm(Component: TPersistent): TafwCustomForm;
 //#UC START# *4775306A03AC_477515240332_var*
 var
@@ -584,7 +521,7 @@ begin
   Result := l_MainFormContainer.CurrentMainForm;
 //#UC END# *4775306A03AC_477515240332_impl*
 end;//Tafw.GetMainForm
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 class procedure Tafw.ProcessMessages;
 //#UC START# *4775307B00B7_477515240332_var*
@@ -638,6 +575,7 @@ begin
 end;//Tafw.ProcessMessages
 
 class function Tafw.Settings: IafwSettings;
+ {* для работы с настройками системы. }
 //#UC START# *47753A3300D9_477515240332_var*
 //#UC END# *47753A3300D9_477515240332_var*
 begin
@@ -650,6 +588,7 @@ begin
 end;//Tafw.Settings
 
 class procedure Tafw.LockActionUpdate;
+ {* Запретить обновление операций }
 //#UC START# *4A362F8A01C0_477515240332_var*
 //#UC END# *4A362F8A01C0_477515240332_var*
 begin
@@ -659,6 +598,7 @@ begin
 end;//Tafw.LockActionUpdate
 
 class procedure Tafw.UnlockActionUpdate;
+ {* Разрешить обновление операций }
 //#UC START# *4A362FB70028_477515240332_var*
 //#UC END# *4A362FB70028_477515240332_var*
 begin
@@ -668,6 +608,7 @@ begin
 end;//Tafw.UnlockActionUpdate
 
 class function Tafw.IsActionUpdateLocked: Boolean;
+ {* Обновление операций запрещено }
 //#UC START# *4A362FC603AF_477515240332_var*
 //#UC END# *4A362FC603AF_477515240332_var*
 begin
@@ -707,23 +648,20 @@ begin
 end;//Tafw.ControlDestroying
 
 initialization
-// Регистрация TafwMessagesService
  Tl3MessagesService.Instance.Alien := TafwMessagesService.Instance;
-{$If not defined(NoVCL)}
-// Регистрация TafwFormsService
- {$If not defined(NoVCL)}
+ {* Регистрация TafwMessagesService }
+{$If NOT Defined(NoVCL)}
  Tl3FormsService.Instance.Alien := TafwFormsService.Instance;
- {$IfEnd} //not NoVCL
-
-{$IfEnd} //not NoVCL
-// Регистрация TafwKeyboardLayoutService
+ {* Регистрация TafwFormsService }
+{$IfEnd} // NOT Defined(NoVCL)
  Tl3KeyboardLayoutService.Instance.Alien := TafwKeyboardLayoutService.Instance;
-// Регистрация TafwTabService
+ {* Регистрация TafwKeyboardLayoutService }
  Tl3TabService.Instance.Alien := TafwTabService.Instance;
-{$If not defined(DesignTimeLibrary)}
+ {* Регистрация TafwTabService }
+{$If NOT Defined(DesignTimeLibrary)}
 //#UC START# *4B6C57D9019A*
  g_IsWin2000 := (Win32Platform = VER_PLATFORM_WIN32_NT) and (Win32MajorVersion = 5) and (Win32MinorVersion = 0); 
 //#UC END# *4B6C57D9019A*
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 end.

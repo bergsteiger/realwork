@@ -1,29 +1,23 @@
 {$IfNDef afwSettingsPrim_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Модуль: "w:/common/components/gui/Garant/AFW/afwSettingsPrim.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::AFW::afwSettings::afwSettingsPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\AFW\afwSettingsPrim.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define afwSettingsPrim_imp}
+
  _IStringType_ = Il3CString;
  _KeyType_ = TafwSettingId;
  _BooleanType_ = Boolean;
  _nsAbstractSettingsPrim_Parent_ = _afwSettingsPrim_Parent_;
- {$Include ..\AFW\nsAbstractSettingsPrim.imp.pas}
- _afwSettingsPrim_ = {abstract mixin} class(_nsAbstractSettingsPrim_)
+ {$Include w:\common\components\gui\Garant\AFW\nsAbstractSettingsPrim.imp.pas}
+ _afwSettingsPrim_ = {abstract} class(_nsAbstractSettingsPrim_)
  end;//_afwSettingsPrim_
 
 {$Else afwSettingsPrim_imp}
 
-// start class _afwSettingsPrim_
+{$IfNDef afwSettingsPrim_imp_impl}
+
+{$Define afwSettingsPrim_imp_impl}
 
 function SettingIDtoKeyType(const aSettingID: TafwSettingId): _KeyType_; forward;
 
@@ -67,7 +61,9 @@ begin
 //#UC END# *4F6C699E009A_4F6C6DF70131_impl*
 end;//StringToPChar
 
-{$Include ..\AFW\nsAbstractSettingsPrim.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\nsAbstractSettingsPrim.imp.pas}
 
+{$EndIf afwSettingsPrim_imp_impl}
 
 {$EndIf afwSettingsPrim_imp}
+

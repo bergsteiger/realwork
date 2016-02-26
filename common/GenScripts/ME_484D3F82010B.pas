@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , k2Tag_Const
- , ObjectWithHandle_Const
  , k2String_Const
 ;
 

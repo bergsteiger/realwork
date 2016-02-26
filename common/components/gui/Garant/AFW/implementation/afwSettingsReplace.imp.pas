@@ -1,44 +1,29 @@
 {$IfNDef afwSettingsReplace_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Автор: Морозов М.А.
-// Модуль: "w:/common/components/gui/Garant/AFW/implementation/afwSettingsReplace.imp.pas"
-// Начат: 06.12.2007
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::AFW::afwMixIns::afwSettingsReplace
-//
-// Примесь, реализующая IafwSettingsReplaceListener.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\AFW\implementation\afwSettingsReplace.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define afwSettingsReplace_imp}
- _afwSettingsReplace_ = {mixin} class(_afwSettingsReplace_Parent_, IafwSettingsReplaceListener)
+
+ _afwSettingsReplace_ = class(_afwSettingsReplace_Parent_, IafwSettingsReplaceListener)
   {* Примесь, реализующая IafwSettingsReplaceListener. }
- protected
- // realized methods
-   procedure Start;
-     {* перед заменой настроек. }
-   procedure Finish;
-     {* после замены настроек. }
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
- protected
- // protected methods
+  protected
    procedure SettingsReplaceStart; virtual;
    procedure SettingsReplaceFinish; virtual;
+   procedure Start;
+    {* перед заменой настроек. }
+   procedure Finish;
+    {* после замены настроек. }
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
  end;//_afwSettingsReplace_
 
 {$Else afwSettingsReplace_imp}
 
-// start class _afwSettingsReplace_
+{$IfNDef afwSettingsReplace_imp_impl}
+
+{$Define afwSettingsReplace_imp_impl}
 
 procedure _afwSettingsReplace_.SettingsReplaceStart;
 //#UC START# *47EA8B8C03CB_47EA8AEF0077_var*
@@ -59,6 +44,7 @@ begin
 end;//_afwSettingsReplace_.SettingsReplaceFinish
 
 procedure _afwSettingsReplace_.Start;
+ {* перед заменой настроек. }
 //#UC START# *475E8D96021D_47EA8AEF0077_var*
 //#UC END# *475E8D96021D_47EA8AEF0077_var*
 begin
@@ -68,6 +54,7 @@ begin
 end;//_afwSettingsReplace_.Start
 
 procedure _afwSettingsReplace_.Finish;
+ {* после замены настроек. }
 //#UC START# *475E8DA60031_47EA8AEF0077_var*
 //#UC END# *475E8DA60031_47EA8AEF0077_var*
 begin
@@ -77,6 +64,7 @@ begin
 end;//_afwSettingsReplace_.Finish
 
 procedure _afwSettingsReplace_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47EA8AEF0077_var*
 //#UC END# *479731C50290_47EA8AEF0077_var*
 begin
@@ -97,4 +85,7 @@ begin
 //#UC END# *47A042E100E2_47EA8AEF0077_impl*
 end;//_afwSettingsReplace_.InitFields
 
+{$EndIf afwSettingsReplace_imp_impl}
+
 {$EndIf afwSettingsReplace_imp}
+

@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , k2Base
- , k2Long_Const
  , l3Variant
 ;
 

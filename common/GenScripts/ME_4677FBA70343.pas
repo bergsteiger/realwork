@@ -27,15 +27,15 @@ const
 
 const
  {*  одировки символов. }
- CS_Ansi = ANSI_CHARSET;
- CS_OEM = OEM_CHARSET;
+ CS_Ansi = Windows.ANSI_CHARSET;
+ CS_OEM = Windows.OEM_CHARSET;
  CS_Default = DEFAULT_CHARSET;
  CS_Effective = RUSSIAN_CHARSET;
  CS_Russian = RUSSIAN_CHARSET;
  {*  одовые страницы. }
- CP_ANSI = CP_ACP;
+ CP_ANSI = Windows.CP_ACP;
   {* константа представл€юща€ кодировку ANSI. }
- CP_OEM = CP_OEMCP;
+ CP_OEM = Windows.CP_OEMCP;
   {* константа представл€юща€ кодировку OEM. }
  CP_Unicode = -1;
   {* константа представл€юща€ кодировку Unicode. }

@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , SegmentWithChildren_Const
- , ObjectWithHandle_Const
  , k2String_Const
  , Address_Const
 ;

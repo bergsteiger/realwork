@@ -1,80 +1,58 @@
 unit afwComplexDocumentPreviewFactory;
+ {* Фабрика Предварительный просмотр печати с кэшем. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/common/components/gui/Garant/AFW/implementation/Visual/afwComplexDocumentPreviewFactory.pas"
-// Начат: 07.12.2006 13:10
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::AFW::Draw::TafwComplexDocumentPreviewFactory
-//
-// Фабрика Предварительный просмотр печати с кэшем.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwComplexDocumentPreviewFactory.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  l3CacheableBase,
-  afwInterfaces,
-  l3ObjectList,
-  afwComplexDocumentPreview,
-  Classes
-  ;
+ l3IntfUses
+ , l3CacheableBase
+ , afwInterfaces
+ , l3ObjectList
+ , Classes
+;
 
 type
  TafwComplexDocumentPreviewFactory = class(Tl3CacheableBase, IafwComplexDocumentPreviewFactory)
   {* Фабрика Предварительный просмотр печати с кэшем. }
- private
- // private fields
-   f_Previews : Tl3ObjectList;
-   f_Printer : IafwPrinter;
- protected
- // realized methods
+  private
+   f_Previews: Tl3ObjectList;
+   f_Printer: IafwPrinter;
+  protected
    function Make: IafwComplexDocumentPreview;
    function Count: Integer;
    procedure ResetCache(ResetInfo: Boolean);
-   function pm_GetItem(anIndex: Integer): IafwComplexDocumentPreview;
- protected
- // overridden protected methods
+   function pm_GetItem(anIndex: Integer): IafwComplexDocumentPreview; { can raise EListError }
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    class function MakeI: IafwComplexDocumentPreviewFactory; reintroduce;
  end;//TafwComplexDocumentPreviewFactory
 
 implementation
 
 uses
-  l3Printer,
-  SysUtils,
-  RTLConsts
-  ;
+ l3ImplUses
+ , afwComplexDocumentPreview
+ , l3Printer
+ , SysUtils
+ , RTLConsts
+;
 
 type
-  TafwCachedComplexDocumentPreview = class(TafwComplexDocumentPreview)
+ TafwCachedComplexDocumentPreview = class(TafwComplexDocumentPreview)
   private
-  // private fields
-   f_Factory : TafwComplexDocumentPreviewFactory;
+   f_Factory: TafwComplexDocumentPreviewFactory;
   protected
-  // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
   public
-  // public methods
    constructor Create(aFactory: TafwComplexDocumentPreviewFactory); reintroduce;
-  end;//TafwCachedComplexDocumentPreview
-
-// start class TafwCachedComplexDocumentPreview
+ end;//TafwCachedComplexDocumentPreview
 
 constructor TafwCachedComplexDocumentPreview.Create(aFactory: TafwComplexDocumentPreviewFactory);
 //#UC START# *47DF90540311_47DF8FEF0327_var*
@@ -89,6 +67,7 @@ begin
 end;//TafwCachedComplexDocumentPreview.Create
 
 procedure TafwCachedComplexDocumentPreview.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47DF8FEF0327_var*
 //#UC END# *479731C50290_47DF8FEF0327_var*
 begin
@@ -110,7 +89,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TafwComplexDocumentPreviewFactory.MakeI
 
 function TafwComplexDocumentPreviewFactory.Make: IafwComplexDocumentPreview;
 //#UC START# *473D8EAF022D_47DF8C5E01AB_var*
@@ -163,7 +142,7 @@ begin
 //#UC END# *473D8ECB001A_47DF8C5E01AB_impl*
 end;//TafwComplexDocumentPreviewFactory.ResetCache
 
-function TafwComplexDocumentPreviewFactory.pm_GetItem(anIndex: Integer): IafwComplexDocumentPreview;
+function TafwComplexDocumentPreviewFactory.pm_GetItem(anIndex: Integer): IafwComplexDocumentPreview; { can raise EListError }
 //#UC START# *473D8ED80268_47DF8C5E01ABget_var*
 //#UC END# *473D8ED80268_47DF8C5E01ABget_var*
 begin
@@ -177,6 +156,7 @@ begin
 end;//TafwComplexDocumentPreviewFactory.pm_GetItem
 
 procedure TafwComplexDocumentPreviewFactory.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47DF8C5E01AB_var*
 var
  l_IDX: Integer;

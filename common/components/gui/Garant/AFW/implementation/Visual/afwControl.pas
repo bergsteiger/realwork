@@ -1,30 +1,17 @@
 unit afwControl;
+ {* Базовый класс для управляющих элементов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/AFW/implementation/Visual/afwControl.pas"
-// Начат: 23.12.1998 12:47
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::AFW::afwControl::TafwControl
-//
-// Базовый класс для управляющих элементов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwControl.pas"
+// Стереотип: "GuiControl"
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  afwBaseControl
-  ;
+ l3IntfUses
+ , afwBaseControl
+;
 
 type
  TafwControl = class(TafwBaseControl)
@@ -34,19 +21,16 @@ type
 implementation
 
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TafwControl
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TafwControl);
-{$IfEnd} //not NoScripts
+ {* Регистрация TafwControl }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

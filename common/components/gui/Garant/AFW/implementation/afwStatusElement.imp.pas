@@ -1,58 +1,43 @@
 {$IfNDef afwStatusElement_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Модуль: "w:/common/components/gui/Garant/AFW/implementation/afwStatusElement.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::AFW::afwMixIns::afwStatusElement
-//
-// Реализация IafwStatusElement
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\AFW\implementation\afwStatusElement.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define afwStatusElement_imp}
- _afwStatusElement_ = {mixin} class(_afwStatusElement_Parent_, IafwStatusElement)
+
+ _afwStatusElement_ = class(_afwStatusElement_Parent_, IafwStatusElement)
   {* Реализация IafwStatusElement }
- private
- // private fields
-   f_Status : IafwStatus;
-    {* Поле для свойства Status}
- protected
- // realized methods
-   procedure GetStatusInfo(out theString: IafwCString;
-    out theNeedProgress: Boolean);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
+  private
+   f_Status: IafwStatus;
+    {* Поле для свойства Status }
+  protected
    procedure DoGetStatusInfo(out theString: IafwCString;
     out theNeedProgress: Boolean); virtual; abstract;
-     {* Собственно процесс получения информации }
+    {* Собственно процесс получения информации }
    function DoSubscribe: Boolean;
-     {* Подписаться к строке статуса }
+    {* Подписаться к строке статуса }
    procedure DoUnsubscribe;
-     {* Отписаться от строки статуса }
+    {* Отписаться от строки статуса }
    function NeedUpdateOnUnsubscribe: Boolean; virtual;
- private
- // private properties
+   procedure GetStatusInfo(out theString: IafwCString;
+    out theNeedProgress: Boolean);
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure ClearFields; override;
+  private
    property Status: IafwStatus
-     read f_Status;
-     {* Строка статуса к которой мы подписаны }
+    read f_Status;
+    {* Строка статуса к которой мы подписаны }
  end;//_afwStatusElement_
 
 {$Else afwStatusElement_imp}
 
-// start class _afwStatusElement_
+{$IfNDef afwStatusElement_imp_impl}
+
+{$Define afwStatusElement_imp_impl}
 
 function _afwStatusElement_.DoSubscribe: Boolean;
+ {* Подписаться к строке статуса }
 //#UC START# *49CCA29A000E_49CCA20A0092_var*
 var
  l_Status : IafwStatus;
@@ -84,6 +69,7 @@ begin
 end;//_afwStatusElement_.DoSubscribe
 
 procedure _afwStatusElement_.DoUnsubscribe;
+ {* Отписаться от строки статуса }
 //#UC START# *49CCA2C80106_49CCA20A0092_var*
 //#UC END# *49CCA2C80106_49CCA20A0092_var*
 begin
@@ -108,7 +94,7 @@ begin
 end;//_afwStatusElement_.NeedUpdateOnUnsubscribe
 
 procedure _afwStatusElement_.GetStatusInfo(out theString: IafwCString;
-  out theNeedProgress: Boolean);
+ out theNeedProgress: Boolean);
 //#UC START# *475E9466022A_49CCA20A0092_var*
 //#UC END# *475E9466022A_49CCA20A0092_var*
 begin
@@ -118,6 +104,7 @@ begin
 end;//_afwStatusElement_.GetStatusInfo
 
 procedure _afwStatusElement_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_49CCA20A0092_var*
 //#UC END# *479731C50290_49CCA20A0092_var*
 begin
@@ -128,10 +115,12 @@ begin
 end;//_afwStatusElement_.Cleanup
 
 procedure _afwStatusElement_.ClearFields;
- {-}
 begin
  f_Status := nil;
  inherited;
 end;//_afwStatusElement_.ClearFields
 
+{$EndIf afwStatusElement_imp_impl}
+
 {$EndIf afwStatusElement_imp}
+

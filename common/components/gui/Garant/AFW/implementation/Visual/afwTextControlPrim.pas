@@ -1,76 +1,56 @@
 unit afwTextControlPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Модуль: "w:/common/components/gui/Garant/AFW/implementation/Visual/afwTextControlPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::AFW::afwControl::TafwTextControlPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwTextControlPrim.pas"
+// Стереотип: "GuiControl"
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  afwInterfaces,
-  afwControl,
-  Messages
-  ;
+ l3IntfUses
+ , afwControl
+ , afwInterfaces
+ , l3Interfaces
+ , Messages
+;
 
 type
  TafwTextControlPrim = class(TafwControl)
- private
- // private fields
-   f_CCaption : IafwCString;
-    {* Поле для свойства CCaption}
- private
- // private methods
+  private
+   f_CCaption: IafwCString;
+    {* Поле для свойства CCaption }
+  private
    procedure WMGetText(var Msg: TMessage); message WM_GetText;
    procedure WMGetTextLength(var Msg: TMessage); message WM_GetTextLength;
    procedure WMSetText(var Msg: TMessage); message WM_SetText;
- protected
- // property methods
+  protected
    procedure pm_SetCCaption(const aValue: IafwCString); virtual;
    function pm_GetCaption: Tl3DString;
    procedure pm_SetCaption(aValue: Tl3DString);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public properties
+  public
    property CCaption: IafwCString
-     read f_CCaption
-     write pm_SetCCaption;
+    read f_CCaption
+    write pm_SetCCaption;
    property Caption: Tl3DString
-     read pm_GetCaption
-     write pm_SetCaption;
+    read pm_GetCaption
+    write pm_SetCaption;
  end;//TafwTextControlPrim
 
 implementation
 
 uses
-  SysUtils,
-  l3String,
-  l3Base
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TafwTextControlPrim
+ l3ImplUses
+ , SysUtils
+ , l3String
+ , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 procedure TafwTextControlPrim.pm_SetCCaption(const aValue: IafwCString);
 //#UC START# *48BBF0D70131_48BBD30803C5set_var*
@@ -139,6 +119,7 @@ begin
 end;//TafwTextControlPrim.WMSetText
 
 procedure TafwTextControlPrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48BBD30803C5_var*
 //#UC END# *479731C50290_48BBD30803C5_var*
 begin
@@ -149,16 +130,15 @@ begin
 end;//TafwTextControlPrim.Cleanup
 
 procedure TafwTextControlPrim.ClearFields;
- {-}
 begin
  CCaption := nil;
  inherited;
 end;//TafwTextControlPrim.ClearFields
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TafwTextControlPrim
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TafwTextControlPrim);
-{$IfEnd} //not NoScripts
+ {* Регистрация TafwTextControlPrim }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

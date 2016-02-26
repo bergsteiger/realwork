@@ -15,14 +15,6 @@ uses
  , Graphics
 ;
 
-const
- DefAlign = caLeft;
- DefBlinkTime = 0;
- DefCaretWd = 2;
- DefCaretHt = 10;
- DefIsGray = False;
- DefShape = csVertLine;
-
 type
  TafwCaretShape = (
   {* Форма каретки. }
@@ -142,6 +134,14 @@ type
     default DefIsGray;
     {* курсор серый? }
  end;//TafwCustomCaretType
+
+const
+ DefAlign = caLeft;
+ DefBlinkTime = 0;
+ DefCaretWd = 2;
+ DefCaretHt = 10;
+ DefIsGray = False;
+ DefShape = csVertLine;
 
 implementation
 

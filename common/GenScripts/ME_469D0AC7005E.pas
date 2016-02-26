@@ -33,46 +33,12 @@ const
   {* Ссылки с раскрывающихся блоков и т.п. Не должны передаваться на адаптер. [Requestlink:607263536] }
  ev_NullAddressType = 0;
  ev_defAddressType = CI_TOPIC;
- {* Слои меток. }
- ev_sbtNone = None;
-  {* несуществующий слой меток. }
- ev_sbtSub = Sub;
-  {* слой Sub'ов. }
- ev_sbtMarker = Marker;
-  {* слой закладок. }
- ev_sbtBookmark = Bookmark;
-  {* слой именованных закладок (зарезервированно). }
- ev_sbtMark = Mark;
-  {* слой вспомогательных значков (зарезервированно). }
- ev_sbtPara = 10;
-  {* параграф (псевдослой). }
- ev_sbtDocumentPlace = 11;
-  {* место в документе (псевдослой) см. [TevDocumentPlace]. }
- ev_sbtBySearcher = 14;
-  {* условие по Searcher'у (псевдослой). }
  ev_cUserCommentFlags = 2;
   {* Флаги пользовательских комментариев }
  ev_cCommentsFlag = 1;
   {* Флаги комментариев юристов }
  ev_cVersionCommentsFlag = 4;
   {* Флаги версионных комментариев }
- {* Слои сегментов оформления }
- ev_slSuperposition = Superposition;
-  {* слой суперпозиции сегментов. }
- ev_slView = View;
-  {* слой оформления. }
- ev_slHyperlinks = Hyperlinks;
-  {* слой гиперссылок. }
- ev_slFoundWords = FoundWords;
-  {* слой слов найденных по контексту. }
- ev_slFound = Found;
-  {* слой найденных слов (зарезервированно). }
- ev_slObjects = Objects;
-  {* слой объектов, вставленных в параграф. }
- ev_slMistakes = Mistakes;
-  {* слой сегментов для покраски опечаток. }
- ev_slDiff = Diff;
-  {* Разница двух сравниваемых документов }
  POSITION_TYPE_PARA_ID = 2147483648;
 
 type
@@ -213,8 +179,6 @@ type
   , evd_hftFirst
  );//TevHFType
 
- // Tevev_spInContents
-
  TevSegmentHandle = (
   Superposition
   , View
@@ -235,6 +199,44 @@ type
  );//TevBlockViewKind
 
  TevNormalSegLayerHandleSet = set of TevNormalSegLayerHandleP;
+
+const
+ {* Слои меток. }
+ ev_sbtNone = None;
+  {* несуществующий слой меток. }
+ ev_sbtSub = Sub;
+  {* слой Sub'ов. }
+ ev_sbtMarker = Marker;
+  {* слой закладок. }
+ ev_sbtBookmark = Bookmark;
+  {* слой именованных закладок (зарезервированно). }
+ ev_sbtMark = Mark;
+  {* слой вспомогательных значков (зарезервированно). }
+ ev_sbtPara = 10;
+  {* параграф (псевдослой). }
+ ev_sbtDocumentPlace = 11;
+  {* место в документе (псевдослой) см. [TevDocumentPlace]. }
+ ev_sbtBySearcher = 14;
+  {* условие по Searcher'у (псевдослой). }
+ {* Метка входит в оглавление }
+ ev_spInContents = [ev_spOnlyInContents, ev_spInContentsAndOnSubPanel];
+ {* Слои сегментов оформления }
+ ev_slSuperposition = Superposition;
+  {* слой суперпозиции сегментов. }
+ ev_slView = View;
+  {* слой оформления. }
+ ev_slHyperlinks = Hyperlinks;
+  {* слой гиперссылок. }
+ ev_slFoundWords = FoundWords;
+  {* слой слов найденных по контексту. }
+ ev_slFound = Found;
+  {* слой найденных слов (зарезервированно). }
+ ev_slObjects = Objects;
+  {* слой объектов, вставленных в параграф. }
+ ev_slMistakes = Mistakes;
+  {* слой сегментов для покраски опечаток. }
+ ev_slDiff = Diff;
+  {* Разница двух сравниваемых документов }
 
 implementation
 

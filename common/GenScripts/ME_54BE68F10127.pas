@@ -10,7 +10,6 @@ interface
 {$If Defined(Nemesis)}
 uses
  l3IntfUses
- , DecorTextPara_Const
  , f1TextStyle_Const
 ;
 

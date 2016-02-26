@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , Long_Wrap
- , k2Color_Const
  , l3Variant
 ;
 

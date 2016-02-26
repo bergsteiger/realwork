@@ -1,97 +1,63 @@
 unit afwPreviewPageSpy;
+ {* Следилка за TafwPreviewPage, для [RequestLink:235873282] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/AFW/implementation/Visual/afwPreviewPageSpy.pas"
-// Начат: 14.10.2010 14:50
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::AFW::Draw::TafwPreviewPageSpy
-//
-// Следилка за TafwPreviewPage, для {RequestLink:235873282}
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwPreviewPageSpy.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  afwPreviewPage,
-  l3ProtoObject
-  ;
-{$IfEnd} //nsTest
+ l3IntfUses
+ , l3ProtoObject
+ , afwPreviewPage
+;
 
-{$If defined(nsTest)}
 type
- IafwPagesLogger = interface(IUnknown)
-   ['{19361554-2DE2-4E58-B896-503677BDD13B}']
-   procedure LogPage(aPage: TafwPreviewPage;
-    aCounter: Boolean);
-   procedure IncCounterPageNumer;
+ IafwPagesLogger = interface
+  ['{19361554-2DE2-4E58-B896-503677BDD13B}']
+  procedure LogPage(aPage: TafwPreviewPage;
+   aCounter: Boolean);
+  procedure IncCounterPageNumer;
  end;//IafwPagesLogger
 
  TafwPreviewPageSpy = class(Tl3ProtoObject)
   {* Следилка за TafwPreviewPage, для [RequestLink:235873282] }
- private
- // private fields
-   f_Logger : IafwPagesLogger;
- protected
- // overridden protected methods
+  private
+   f_Logger: IafwPagesLogger;
+  protected
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    class function Exists: Boolean;
    procedure SetLogger(const aLogger: IafwPagesLogger);
    procedure RemoveLogger(const aLogger: IafwPagesLogger);
    procedure LogPage(aPage: TafwPreviewPage;
-     aCounter: Boolean);
+    aCounter: Boolean);
    procedure IncCounterNumber;
- public
- // singleton factory method
    class function Instance: TafwPreviewPageSpy;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TafwPreviewPageSpy }
  end;//TafwPreviewPageSpy
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 implementation
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  l3Base {a}
-  ;
-{$IfEnd} //nsTest
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-{$If defined(nsTest)}
-
-
-// start class TafwPreviewPageSpy
-
-var g_TafwPreviewPageSpy : TafwPreviewPageSpy = nil;
+var g_TafwPreviewPageSpy: TafwPreviewPageSpy = nil;
+ {* Экземпляр синглетона TafwPreviewPageSpy }
 
 procedure TafwPreviewPageSpyFree;
+ {* Метод освобождения экземпляра синглетона TafwPreviewPageSpy }
 begin
  l3Free(g_TafwPreviewPageSpy);
-end;
-
-class function TafwPreviewPageSpy.Instance: TafwPreviewPageSpy;
-begin
- if (g_TafwPreviewPageSpy = nil) then
- begin
-  l3System.AddExitProc(TafwPreviewPageSpyFree);
-  g_TafwPreviewPageSpy := Create;
- end;
- Result := g_TafwPreviewPageSpy;
-end;
-
+end;//TafwPreviewPageSpyFree
 
 class function TafwPreviewPageSpy.Exists: Boolean;
 //#UC START# *4CB6E34302AD_4CB6DFDE0374_var*
@@ -123,7 +89,7 @@ begin
 end;//TafwPreviewPageSpy.RemoveLogger
 
 procedure TafwPreviewPageSpy.LogPage(aPage: TafwPreviewPage;
-  aCounter: Boolean);
+ aCounter: Boolean);
 //#UC START# *4CB6E596010B_4CB6DFDE0374_var*
 //#UC END# *4CB6E596010B_4CB6DFDE0374_var*
 begin
@@ -143,15 +109,22 @@ begin
 //#UC END# *51ADB624017D_4CB6DFDE0374_impl*
 end;//TafwPreviewPageSpy.IncCounterNumber
 
-procedure TafwPreviewPageSpy.ClearFields;
- {-}
+class function TafwPreviewPageSpy.Instance: TafwPreviewPageSpy;
+ {* Метод получения экземпляра синглетона TafwPreviewPageSpy }
 begin
- {$If defined(nsTest)}
+ if (g_TafwPreviewPageSpy = nil) then
+ begin
+  l3System.AddExitProc(TafwPreviewPageSpyFree);
+  g_TafwPreviewPageSpy := Create;
+ end;
+ Result := g_TafwPreviewPageSpy;
+end;//TafwPreviewPageSpy.Instance
+
+procedure TafwPreviewPageSpy.ClearFields;
+begin
  f_Logger := nil;
- {$IfEnd} //nsTest
  inherited;
 end;//TafwPreviewPageSpy.ClearFields
-
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 end.

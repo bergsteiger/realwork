@@ -1,44 +1,30 @@
 {$IfNDef afwSettingChanged_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Автор: Морозов М.А.
-// Модуль: "w:/common/components/gui/Garant/AFW/implementation/afwSettingChanged.imp.pas"
-// Начат: 06.12.2007
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::AFW::afwMixIns::afwSettingChanged
-//
-// Примесь, реализующая IafwSettingListener.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\AFW\implementation\afwSettingChanged.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define afwSettingChanged_imp}
- _afwSettingChanged_ = {mixin} class(_afwSettingChanged_Parent_, IafwSettingListener)
+
+ _afwSettingChanged_ = class(_afwSettingChanged_Parent_, IafwSettingListener)
   {* Примесь, реализующая IafwSettingListener. }
- protected
- // realized methods
-   function SettingChanged(const aSettingId: TafwSettingId): Boolean;
-     {* настройки изменились. }
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
- protected
- // protected methods
+  protected
    function DoSettingChanged(const aSettingId: TafwSettingId): Boolean; virtual;
-     {* Обработчик изменения указанной настройки }
+    {* Обработчик изменения указанной настройки }
+   function SettingChanged(const aSettingId: TafwSettingId): Boolean;
+    {* настройки изменились. }
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
  end;//_afwSettingChanged_
 
 {$Else afwSettingChanged_imp}
 
-// start class _afwSettingChanged_
+{$IfNDef afwSettingChanged_imp_impl}
+
+{$Define afwSettingChanged_imp_impl}
 
 function _afwSettingChanged_.DoSettingChanged(const aSettingId: TafwSettingId): Boolean;
+ {* Обработчик изменения указанной настройки }
 //#UC START# *47EA863A035C_47EA85E7005B_var*
 //#UC END# *47EA863A035C_47EA85E7005B_var*
 begin
@@ -48,6 +34,7 @@ begin
 end;//_afwSettingChanged_.DoSettingChanged
 
 function _afwSettingChanged_.SettingChanged(const aSettingId: TafwSettingId): Boolean;
+ {* настройки изменились. }
 //#UC START# *475E8C33036C_47EA85E7005B_var*
 //#UC END# *475E8C33036C_47EA85E7005B_var*
 begin
@@ -57,6 +44,7 @@ begin
 end;//_afwSettingChanged_.SettingChanged
 
 procedure _afwSettingChanged_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47EA85E7005B_var*
 //#UC END# *479731C50290_47EA85E7005B_var*
 begin
@@ -77,4 +65,7 @@ begin
 //#UC END# *47A042E100E2_47EA85E7005B_impl*
 end;//_afwSettingChanged_.InitFields
 
+{$EndIf afwSettingChanged_imp_impl}
+
 {$EndIf afwSettingChanged_imp}
+

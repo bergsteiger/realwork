@@ -13,10 +13,10 @@ uses
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
+ , afwTypes
  , l3Interfaces
  , l3InternalInterfaces
  , l3Core
- , afwTypes
  , l3PrinterInterfaces
  {$If NOT Defined(NoVCL)}
  , ImgList
@@ -36,6 +36,9 @@ const
 {$IfEnd} // NOT Defined(NoVCL)
  afw_lngRussian = 'ru';
  afw_lngEnglish = 'en';
+ {* Алиасы для значений afwTypes.TafwScrollBarType }
+ afw_sbHorz = afwTypes.afw_sbHorz;
+ afw_sbVert = afwTypes.afw_sbVert;
 
 type
  IafwBase = interface(Il3Base)
@@ -679,16 +682,11 @@ type
    aSetAsDefault: Boolean = False);
  end;//IafwSettingsPrim
 
- TafwScrollBarType = (
+ TafwScrollBarType = afwTypes.TafwScrollBarType;
   {* Тип необходимых полос прокрутки. }
-  afw_sbHorz
-  , afw_sbVert
- );//TafwScrollBarType
 
- TafwScrollBars = set of TafwScrollBarType;
+ TafwScrollBars = afwTypes.TafwScrollBars;
   {* Множество необходимых полос прокрутки. }
-
- // afw_sbBoth
 
  IafwControl = interface(IafwBase)
   {* Контрол вывода. }
@@ -923,6 +921,9 @@ type
   property TabInterfaceType: TafwTabInterfaceType
    read Get_TabInterfaceType;
  end;//IafwApplication
+
+const
+ afw_sbBoth = afwTypes.afw_sbBoth;
 
 function TafwPagesInfo_E: TafwPagesInfo;
 function TafwPagesInfo_H: TafwPagesInfo;

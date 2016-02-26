@@ -1,70 +1,53 @@
 unit afwSingleCaret;
+ {* Одиночная каретка ввода. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/AFW/implementation/Visual/afwSingleCaret.pas"
-// Начат: 09.12.1998 16:25
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::AFW::Visual::TafwSingleCaret
-//
-// Одиночная каретка ввода.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwSingleCaret.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  l3Units
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  afwCustomCaretType,
-  Windows,
-  l3ProtoPersistent,
-  Classes
-  ;
+ l3IntfUses
+ , l3ProtoPersistent
+ , l3Units
+ , Windows
+ , afwCustomCaretType
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Classes
+;
 
 type
  TafwSingleCaret = class(Tl3ProtoPersistent)
   {* Одиночная каретка ввода. }
- private
- // private fields
-   f_CaretShowTimes : Integer;
-   f_OrigBlinkTime : UINT;
-    {* Blink time before linking}
-   XOffset : Integer;
-    {* X Offset of caret in cell}
-   YOffset : Integer;
-    {* Y Offset of caret in cell}
-   f_CellHeight : Integer;
-    {* Поле для свойства CellHeight}
-   f_CellWidth : Integer;
-    {* Поле для свойства CellWidth}
-   f_Linked : Boolean;
-    {* Поле для свойства Linked}
-   f_Position : Tl3SPoint;
-    {* Поле для свойства Position}
-   f_Visible : Boolean;
-    {* Поле для свойства Visible}
-   f_Hidden : Boolean;
-    {* Поле для свойства Hidden}
-   f_CaretType : TafwCustomCaretType;
-    {* Поле для свойства CaretType}
-   f_Owner : TWinControl;
-    {* Поле для свойства Owner}
- protected
- // property methods
+  private
+   f_CaretShowTimes: Integer;
+   f_OrigBlinkTime: UINT;
+    {* Blink time before linking }
+   XOffset: Integer;
+    {* X Offset of caret in cell }
+   YOffset: Integer;
+    {* Y Offset of caret in cell }
+   f_CellHeight: Integer;
+    {* Поле для свойства CellHeight }
+   f_CellWidth: Integer;
+    {* Поле для свойства CellWidth }
+   f_Linked: Boolean;
+    {* Поле для свойства Linked }
+   f_Position: Tl3SPoint;
+    {* Поле для свойства Position }
+   f_Visible: Boolean;
+    {* Поле для свойства Visible }
+   f_Hidden: Boolean;
+    {* Поле для свойства Hidden }
+   f_CaretType: TafwCustomCaretType;
+    {* Поле для свойства CaretType }
+   f_Owner: TWinControl;
+    {* Поле для свойства Owner }
+  protected
    procedure pm_SetCellHeight(aValue: Integer);
    procedure pm_SetCellWidth(aValue: Integer);
    procedure pm_SetLinked(aValue: Boolean);
@@ -73,87 +56,61 @@ type
    procedure pm_SetHidden(aValue: Boolean);
    procedure pm_SetCaretType(aValue: TafwCustomCaretType);
    procedure pm_SetOwner(aValue: TWinControl);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   function GetOwner: TPersistent; override;
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
    procedure DoShowCaret;
    procedure DoHideCaret;
    procedure CaretTypeHasChanged(Sender: TObject);
    procedure MakeShape;
    procedure Reinit;
    procedure ResetPos;
- public
- // public methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   function GetOwner: TPersistent; override;
+   procedure ClearFields; override;
+  public
    constructor Create(anOwner: TWinControl); reintroduce; virtual;
    function CheckHidden: Boolean;
    function CanHide: Boolean;
    procedure Scrolled;
- protected
- // protected properties
+  protected
    property CaretType: TafwCustomCaretType
-     read f_CaretType
-     write pm_SetCaretType;
-     {* текущий тип каретки. }
- public
- // public properties
+    read f_CaretType
+    write pm_SetCaretType;
+    {* текущий тип каретки. }
+  public
    property CellHeight: Integer
-     read f_CellHeight
-     write pm_SetCellHeight;
-     {* высота каретки. }
+    read f_CellHeight
+    write pm_SetCellHeight;
+    {* высота каретки. }
    property CellWidth: Integer
-     read f_CellWidth
-     write pm_SetCellWidth;
-     {* ширина каретки. }
+    read f_CellWidth
+    write pm_SetCellWidth;
+    {* ширина каретки. }
    property Linked: Boolean
-     read f_Linked
-     write pm_SetLinked;
-     {* каретка привязана к окну? (Т.е. окно-владелец - в данный момент отображает каретку) }
+    read f_Linked
+    write pm_SetLinked;
+    {* каретка привязана к окну? (Т.е. окно-владелец - в данный момент отображает каретку) }
    property Position: Tl3SPoint
-     read f_Position
-     write pm_SetPosition;
-     {* позиция каретки (в координатах окна-владельца). }
+    read f_Position
+    write pm_SetPosition;
+    {* позиция каретки (в координатах окна-владельца). }
    property Visible: Boolean
-     read f_Visible
-     write pm_SetVisible;
-     {* показывать каретку? }
+    read f_Visible
+    write pm_SetVisible;
+    {* показывать каретку? }
    property Hidden: Boolean
-     read f_Hidden
-     write pm_SetHidden;
-     {* флаг временной невидимости курсора (при выходе за границы окна). }
+    read f_Hidden
+    write pm_SetHidden;
+    {* флаг временной невидимости курсора (при выходе за границы окна). }
    property Owner: TWinControl
-     write pm_SetOwner;
+    write pm_SetOwner;
  end;//TafwSingleCaret
 
 implementation
 
 uses
-  l3Base
-  ;
-
-// start class TafwSingleCaret
-
-constructor TafwSingleCaret.Create(anOwner: TWinControl);
-//#UC START# *52FCEEE902D1_480DD00B02E8_var*
-//#UC END# *52FCEEE902D1_480DD00B02E8_var*
-begin
-//#UC START# *52FCEEE902D1_480DD00B02E8_impl*
- //================ Это надо до установки Owner'а ============
- F_CellHeight := 10;
- f_CellWidth := 10;
- {make our default caret type}
- f_CaretType := TafwCustomCaretType.Create;
- //===========================================================
- Owner := anOwner;
- inherited Create;
- Reinit;
-//#UC END# *52FCEEE902D1_480DD00B02E8_impl*
-end;//TafwSingleCaret.Create
+ l3ImplUses
+ , l3Base
+;
 
 procedure TafwSingleCaret.pm_SetCellHeight(aValue: Integer);
 //#UC START# *480DD07302DF_480DD00B02E8set_var*
@@ -299,6 +256,23 @@ begin
  end;//f_Owner <> Value
 //#UC END# *52FCEE200321_480DD00B02E8set_impl*
 end;//TafwSingleCaret.pm_SetOwner
+
+constructor TafwSingleCaret.Create(anOwner: TWinControl);
+//#UC START# *52FCEEE902D1_480DD00B02E8_var*
+//#UC END# *52FCEEE902D1_480DD00B02E8_var*
+begin
+//#UC START# *52FCEEE902D1_480DD00B02E8_impl*
+ //================ Это надо до установки Owner'а ============
+ F_CellHeight := 10;
+ f_CellWidth := 10;
+ {make our default caret type}
+ f_CaretType := TafwCustomCaretType.Create;
+ //===========================================================
+ Owner := anOwner;
+ inherited Create;
+ Reinit;
+//#UC END# *52FCEEE902D1_480DD00B02E8_impl*
+end;//TafwSingleCaret.Create
 
 procedure TafwSingleCaret.DoShowCaret;
 //#UC START# *480DD1C90077_480DD00B02E8_var*
@@ -505,6 +479,7 @@ begin
 end;//TafwSingleCaret.ResetPos
 
 procedure TafwSingleCaret.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_480DD00B02E8_var*
 //#UC END# *479731C50290_480DD00B02E8_var*
 begin
@@ -526,7 +501,6 @@ begin
 end;//TafwSingleCaret.GetOwner
 
 procedure TafwSingleCaret.ClearFields;
- {-}
 begin
  Finalize(f_Position);
  inherited;

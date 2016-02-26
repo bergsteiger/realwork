@@ -1,64 +1,46 @@
 unit afwStatus;
+ {* Реализация строки статуса. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/AFW/implementation/afwStatus.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::AFW::Standard::TafwStatus
-//
-// Реализация строки статуса.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\AFW\implementation\afwStatus.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  afwInterfaces,
-  l3CProtoObject,
-  IafwStatusElementPtrList
-  ;
+ l3IntfUses
+ , l3CProtoObject
+ , afwInterfaces
+ , IafwStatusElementPtrList
+;
 
 type
  TafwStatus = class(Tl3CProtoObject, IafwStatus)
   {* Реализация строки статуса. }
- private
- // private fields
-   f_MainForm : Pointer;
-   f_Elements : TIafwStatusElementPtrList;
- protected
- // realized methods
+  private
+   f_MainForm: Pointer;
+   f_Elements: TIafwStatusElementPtrList;
+  protected
    procedure AddElement(const anElement: IafwStatusElement);
    procedure RemoveElement(const anElement: IafwStatusElement);
    procedure Update;
    procedure GetStatus(out theStatus: TafwStatusInfo);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aMainForm: IafwMainForm); reintroduce;
    class function Make(const aMainForm: IafwMainForm): IafwStatus; reintroduce;
-     {* Создает экземпляр класса, в виде интерфейса IafwStatus. }
+    {* Создает экземпляр класса, в виде интерфейса IafwStatus. }
  end;//TafwStatus
 
 implementation
 
 uses
-  l3String,
-  l3Base
-  ;
-
-// start class TafwStatus
+ l3ImplUses
+ , l3String
+ , l3Base
+;
 
 constructor TafwStatus.Create(const aMainForm: IafwMainForm);
 //#UC START# *47878A1D02C4_478787DD01FE_var*
@@ -71,6 +53,7 @@ begin
 end;//TafwStatus.Create
 
 class function TafwStatus.Make(const aMainForm: IafwMainForm): IafwStatus;
+ {* Создает экземпляр класса, в виде интерфейса IafwStatus. }
 var
  l_Inst : TafwStatus;
 begin
@@ -80,7 +63,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TafwStatus.Make
 
 procedure TafwStatus.AddElement(const anElement: IafwStatusElement);
 //#UC START# *473D964C00F9_478787DD01FE_var*
@@ -161,6 +144,7 @@ begin
 end;//TafwStatus.GetStatus
 
 procedure TafwStatus.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_478787DD01FE_var*
 //#UC END# *479731C50290_478787DD01FE_var*
 begin

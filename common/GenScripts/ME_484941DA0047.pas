@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , Persistent_Wrap
- , k2Tag_Const
 ;
 
 type

@@ -10,7 +10,6 @@ interface
 uses
  l3IntfUses
  , k2Tag_Wrap
- , Task_Const
  , l3Variant
  , k2Base
 ;
@@ -28,6 +27,7 @@ implementation
 
 uses
  l3ImplUses
+ , Task_Const
  , SysUtils
  , k2String
  , Math

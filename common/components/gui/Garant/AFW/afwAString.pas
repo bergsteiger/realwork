@@ -1,61 +1,43 @@
 unit afwAString;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Модуль: "w:/common/components/gui/Garant/AFW/afwAString.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::AFW::afwSettings::TafwAString
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\AFW\afwAString.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\AFW\afwDefine.inc}
+{$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3ProtoObject
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , l3Interfaces
+;
 
 type
  TafwAString = class(Tl3ProtoObject, Il3AString)
- private
- // private fields
-   f_String : Il3CString;
-   f_Tmp : AnsiString;
- protected
- // realized methods
+  private
+   f_String: Il3CString;
+   f_Tmp: AnsiString;
+  protected
    function S: PAnsiChar;
-     {* Собственно строка. }
- protected
- // overridden protected methods
-   {$If not defined(DesignTimeLibrary)}
+    {* Собственно строка. }
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aString: Il3CString); reintroduce;
    class function Make(const aString: Il3CString): Il3AString; reintroduce;
-     {* Сигнатура фабрики TafwAString.Make }
  end;//TafwAString
 
 implementation
 
 uses
-  l3String,
-  l3Chars
-  ;
-
-// start class TafwAString
+ l3ImplUses
+ , l3String
+ , l3Chars
+;
 
 constructor TafwAString.Create(const aString: Il3CString);
 //#UC START# *4F6C7A060311_4F6C79B10165_var*
@@ -77,9 +59,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TafwAString.Make
 
 function TafwAString.S: PAnsiChar;
+ {* Собственно строка. }
 //#UC START# *46A45D0A02A1_4F6C79B10165_var*
 var
  l_S : Tl3WString;
@@ -109,8 +92,9 @@ begin
 //#UC END# *46A45D0A02A1_4F6C79B10165_impl*
 end;//TafwAString.S
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function TafwAString.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_4F6C79B10165_var*
 //#UC END# *47A6FEE600FC_4F6C79B10165_var*
 begin
@@ -118,10 +102,9 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_4F6C79B10165_impl*
 end;//TafwAString.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure TafwAString.ClearFields;
- {-}
 begin
  f_String := nil;
  inherited;

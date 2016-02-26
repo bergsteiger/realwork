@@ -1,182 +1,91 @@
 unit afwBaseControl;
+ {* Реализует интерфейс IUnknown и подсчет количества ссылок. Также предоставляет свойство Canvas для реализации процедуры рисования - Paint. Предоставляет реализацию интерфейсов для поддержки drag and drop }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/AFW/implementation/Visual/afwBaseControl.pas"
-// Начат: 01.09.2008
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::AFW::afwControl::TafwBaseControl
-//
-// Реализует интерфейс IUnknown и подсчет количества ссылок. Также предоставляет свойство Canvas
-// для реализации процедуры рисования - Paint. Предоставляет реализацию интерфейсов для поддержки
-// drag and drop
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwBaseControl.pas"
+// Стереотип: "GuiControl"
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3Types,
-  afwInterfaces,
-  l3InternalInterfaces,
-  l3Units,
-  afwTypes,
-  Messages,
-  Classes,
-  l3IID
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  afwControlPrim,
-  l3WinControlCanvas
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  l3LongintList,
-  Windows
-  ;
+ l3IntfUses
+ , afwControlPrim
+ , l3InternalInterfaces
+ , l3Interfaces
+ , afwInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3WinControlCanvas
+ , Classes
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , afwTypes
+ , l3IID
+ , Messages
+ , l3Units
+ , l3Types
+ , Windows
+ , l3LongintList
+;
 
 type
-//#UC START# *48BD1975029Bci*
-//#UC END# *48BD1975029Bci*
+ //#UC START# *48BD1975029Bci*
+ //#UC END# *48BD1975029Bci*
  _afwToolOwner_Parent_ = TafwControlPrim;
- {$Include ..\Visual\afwToolOwner.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\Visual\afwToolOwner.imp.pas}
  _afwVGSceneUpdater_Parent_ = _afwToolOwner_;
  {$Include w:\common\components\gui\Garant\AFW\implementation\afwVGSceneUpdater.imp.pas}
-//#UC START# *48BD1975029Bcit*
-//#UC END# *48BD1975029Bcit*
+ //#UC START# *48BD1975029Bcit*
+ //#UC END# *48BD1975029Bcit*
  TafwBaseControl = class(_afwVGSceneUpdater_, Il3CommandTarget, Il3DropTarget, Il3ChangeRecipient, IafwControl, IafwMenuUnlockedPostBuild)
   {* Реализует интерфейс IUnknown и подсчет количества ссылок. Также предоставляет свойство Canvas для реализации процедуры рисования - Paint. Предоставляет реализацию интерфейсов для поддержки drag and drop }
- private
- // private fields
-   fUpdateCount : Integer;
-   fStopChangeNotify : Boolean;
-   fUpdateNeed : Boolean;
-   fDoChangedCount : Integer;
-    {* флаг, используемый для разрешения коллизий вложенных вызовов DoChanged}
-   f_SetDragDrop : Boolean;
-   f_PaintCount : Integer;
-   f_LastHint : AnsiString;
-   f_LastHintPt : TPoint;
-   f_DragImageList : TDragImageList;
-    {* Поле для свойства DragImageList}
-   f_InDrop : Boolean;
-    {* Поле для свойства InDrop}
-   f_IsActiveDropSource : Boolean;
-    {* Поле для свойства IsActiveDropSource}
-   f_DrawSpecial : Boolean;
-    {* Поле для свойства DrawSpecial}
-   f_OnDrawSpecialChange : TNotifyEvent;
-    {* Поле для свойства OnDrawSpecialChange}
-   f_BorderStyle : TBorderStyle;
-    {* Поле для свойства BorderStyle}
-   f_ScrollStyle : TScrollStyle;
-    {* Поле для свойства ScrollStyle}
-   f_InPopup : Integer;
-    {* Поле для свойства InPopup}
- private
- // private methods
+  private
+   fUpdateCount: Integer;
+   fStopChangeNotify: Boolean;
+   fUpdateNeed: Boolean;
+   fDoChangedCount: Integer;
+    {* флаг, используемый для разрешения коллизий вложенных вызовов DoChanged }
+   f_SetDragDrop: Boolean;
+   f_PaintCount: Integer;
+   f_LastHint: AnsiString;
+   f_LastHintPt: TPoint;
+   f_DragImageList: TDragImageList;
+    {* Поле для свойства DragImageList }
+   f_InDrop: Boolean;
+    {* Поле для свойства InDrop }
+   f_IsActiveDropSource: Boolean;
+    {* Поле для свойства IsActiveDropSource }
+   f_DrawSpecial: Boolean;
+    {* Поле для свойства DrawSpecial }
+   f_OnDrawSpecialChange: TNotifyEvent;
+    {* Поле для свойства OnDrawSpecialChange }
+   f_BorderStyle: TBorderStyle;
+    {* Поле для свойства BorderStyle }
+   f_ScrollStyle: TScrollStyle;
+    {* Поле для свойства ScrollStyle }
+   f_InPopup: Integer;
+    {* Поле для свойства InPopup }
+  protected
+   f_Canvas: Tl3WinControlCanvas;
+  private
    procedure RevokeDragDrop;
    procedure WMDestroy(var Message: TWMDestroy); message WM_DESTROY;
    procedure CMCOLORCHANGED(var Msg: TMessage); message CM_COLORCHANGED;
    procedure CMCtl3DChanged(var Message: TMessage); message CM_CTL3DCHANGED;
    procedure WMSetFocus(var Msg: TWMSetFocus); message WM_SETFOCUS;
    procedure WMKillFocus(var Msg: TWMKillFocus); message WM_KILLFOCUS;
- protected
- // property methods
+  protected
    function pm_GetCanvas: Tl3WinControlCanvas;
    procedure pm_SetCanvas(aValue: Tl3WinControlCanvas);
    procedure pm_SetDrawSpecial(aValue: Boolean);
    procedure pm_SetBorderStyle(aValue: TBorderStyle);
    procedure pm_SetScrollStyle(aValue: TScrollStyle); virtual;
- protected
- // realized methods
-   function GetAcceptableFormats: Tl3ClipboardFormats;
-     {* Список приемлимых форматов. }
-   function DoDrop(aFormat: Tl3ClipboardFormat;
-    const aMedium: Tl3StoragePlace;
-    var dwEffect: Integer): Boolean;
-   function DoDragOver(const aData: IDataObject;
-    const aPoint: TPoint): Boolean;
-   procedure DoDragEnter(const aData: IDataObject;
-    const aPoint: TPoint);
-   procedure DoDragLeave;
-   function Keys2Effect(aKeys: Integer): Integer;
-   function ProcessCommand(Cmd: Tl3OperationCode;
-    aForce: Boolean;
-    aCount: Integer): Boolean;
-   procedure UpdateScrollRange(WhatUpdate: TafwScrollBars = afw_sbBoth);
-   procedure MenuUnlockedFixUp;
-   function IsA(anObj: TObject): Boolean;
- public
- // realized methods
-   procedure Changing;
-     {* нотификация о начале изменения состояния объекта. Для перекрытия и использования в потомках. }
-   procedure Changed;
-     {* нотификация о завершении изменения состояния объекта. Для перекрытия и использования в потомках. }
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   function QueryInterface(const IID: TGUID;
-    out Obj): HResult; override;
-   {$If not defined(NoVCL)}
-   procedure WndProc(var Message: TMessage); override;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
-   procedure CreateWindowHandle(const Params: TCreateParams); override;
-     {* Creates a Windows control to represent the control }
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
-   procedure DestroyWindowHandle; override;
-     {* Destroys the window created in the CreateWindowHandle method }
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
-   procedure PaintWindow(DC: hDC); override;
-     {* Renders the image of a windowed control }
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
-   procedure CreateParams(var Params: TCreateParams); override;
-   {$IfEnd} //not NoVCL
-   {$If defined(l3HackedVCL) AND not defined(NoVCL)}
-   function LockPainting: Boolean; override;
-   {$IfEnd} //l3HackedVCL AND not NoVCL
-    {$If defined(l3HackedVCL) AND not defined(DesignTimeLibrary) AND not defined(NoVCL)}
-   procedure SelectNext(CurControl: TWinControl;
-     GoForward: Boolean;
-     CheckTabStop: Boolean); override;
-    {$IfEnd} //l3HackedVCL AND not DesignTimeLibrary AND not NoVCL
- public
- // overridden public methods
-   constructor Create(AOwner: TComponent); override;
-   {$If not defined(NoVCL)}
-   procedure Invalidate; override;
-     {* Completely repaint control }
-   {$IfEnd} //not NoVCL
- protected
- // protected fields
-   f_Canvas : Tl3WinControlCanvas;
- protected
- // protected methods
    function GetCommands: TafwCommands; virtual;
    function ProcessMessage(var aMessage: TMessage;
     aTime: Cardinal): Boolean;
@@ -200,14 +109,14 @@ type
    function GetCaret: Il3Caret; virtual;
    procedure DoDrawSpecialChange(Sender: TObject); virtual;
    procedure Paint(const CN: Il3Canvas); virtual;
-     {* процедура рисования внешнего вида управляющего элемента }
+    {* процедура рисования внешнего вида управляющего элемента }
    function InUpdating: Boolean; virtual;
-   procedure ShowMenu(const aPoint: TPoint); overload; 
+   procedure ShowMenu(const aPoint: TPoint); overload;
    procedure AdjustColors(Bevel: TBevelCut;
     var TopColor: Tl3Color;
     var BottomColor: Tl3Color);
    function DataCodePage: Integer; virtual;
-     {* Кодировка данных в том месте, куда происходит вставка }
+    {* Кодировка данных в том месте, куда происходит вставка }
    function DropFormattedData(aFormat: Tl3ClipboardFormat;
     const aData: IDataObject): Boolean;
    function GetAcceptableFormatsFor(const aData: IDataObject): Tl3ClipboardFormats;
@@ -216,18 +125,64 @@ type
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; virtual;
    procedure CancelHint;
-   procedure ActivateHint(const aPt: TPoint); overload; 
-   procedure ActivateHint; overload; 
+   procedure ActivateHint(const aPt: TPoint); overload;
+   procedure ActivateHint; overload;
    procedure DoMenuUnlockedFixUp; virtual;
    function IsMenuLocked: Boolean;
    procedure DoAfterCreateCanvas; virtual;
-     {* Вызыввается после создания канвы для установки, например, Zoom'а в наследниках. }
- public
- // public methods
+    {* Вызыввается после создания канвы для установки, например, Zoom'а в наследниках. }
+   function GetAcceptableFormats: Tl3ClipboardFormats;
+    {* Список приемлимых форматов. }
+   function DoDrop(aFormat: Tl3ClipboardFormat;
+    const aMedium: Tl3StoragePlace;
+    var dwEffect: Integer): Boolean;
+   function DoDragOver(const aData: IDataObject;
+    const aPoint: TPoint): Boolean;
+   procedure DoDragEnter(const aData: IDataObject;
+    const aPoint: TPoint);
+   procedure DoDragLeave;
+   function Keys2Effect(aKeys: Integer): Integer;
+   function ProcessCommand(Cmd: Tl3OperationCode;
+    aForce: Boolean;
+    aCount: Integer): Boolean;
+   procedure UpdateScrollRange(WhatUpdate: TafwScrollBars = afw_sbBoth);
+   procedure MenuUnlockedFixUp;
+   function IsA(anObj: TObject): Boolean;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   function QueryInterface(const IID: TGUID;
+    out Obj): HResult; override;
+   {$If NOT Defined(NoVCL)}
+   procedure WndProc(var Message: TMessage); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure CreateWindowHandle(const Params: TCreateParams); override;
+    {* Creates a Windows control to represent the control }
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure DestroyWindowHandle; override;
+    {* Destroys the window created in the CreateWindowHandle method }
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure PaintWindow(DC: hDC); override;
+    {* Renders the image of a windowed control }
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure CreateParams(var Params: TCreateParams); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If Defined(l3HackedVCL) AND NOT Defined(NoVCL)}
+   function LockPainting: Boolean; override;
+   {$IfEnd} // Defined(l3HackedVCL) AND NOT Defined(NoVCL)
+   {$If Defined(l3HackedVCL) AND NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary)}
+   procedure SelectNext(CurControl: TWinControl;
+    GoForward: Boolean;
+    CheckTabStop: Boolean); override;
+   {$IfEnd} // Defined(l3HackedVCL) AND NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary)
+  public
    procedure ChangeNotifyOff;
-     {* заблокировать нотификацию об изменении хранилища. }
+    {* заблокировать нотификацию об изменении хранилища. }
    procedure ChangeNotifyOn(aChange: Boolean = True);
-     {* разблокировать нотификацию об изменении хранилища. }
+    {* разблокировать нотификацию об изменении хранилища. }
    function DoDragDrop(const aDataObject: IDataObject;
     anEffect: Integer;
     out theEffect: Integer): Integer;
@@ -236,81 +191,85 @@ type
     const R: Tl3Rect;
     SubType: Tl3Handle;
     aSub: TObject); virtual;
-   procedure ShowMenu; overload; 
+   procedure ShowMenu; overload;
    function PasteFromClipboard(aFormat: Tl3ClipboardFormat;
     const aData: IDataObject): Boolean; virtual;
-     {* вставить текст из буфера обмена в формате aFormat }
+    {* вставить текст из буфера обмена в формате aFormat }
    function Paste: Boolean; virtual;
-     {* вставить из буфера обмена. }
- protected
- // protected properties
+    {* вставить из буфера обмена. }
+   procedure Changing;
+    {* нотификация о начале изменения состояния объекта. Для перекрытия и использования в потомках. }
+   procedure Changed;
+    {* нотификация о завершении изменения состояния объекта. Для перекрытия и использования в потомках. }
+   constructor Create(AOwner: TComponent); override;
+   {$If NOT Defined(NoVCL)}
+   procedure Invalidate; override;
+    {* Completely repaint control }
+   {$IfEnd} // NOT Defined(NoVCL)
+  protected
    property DragImageList: TDragImageList
-     read f_DragImageList;
+    read f_DragImageList;
    property InDrop: Boolean
-     read f_InDrop;
+    read f_InDrop;
    property IsActiveDropSource: Boolean
-     read f_IsActiveDropSource;
+    read f_IsActiveDropSource;
    property InPopup: Integer
-     read f_InPopup;
- public
- // public properties
+    read f_InPopup;
+  public
    property Canvas: Tl3WinControlCanvas
-     read pm_GetCanvas
-     write pm_SetCanvas;
+    read pm_GetCanvas
+    write pm_SetCanvas;
    property DrawSpecial: Boolean
-     read f_DrawSpecial
-     write pm_SetDrawSpecial
-     default false;
+    read f_DrawSpecial
+    write pm_SetDrawSpecial
+    default False;
    property OnDrawSpecialChange: TNotifyEvent
-     read f_OnDrawSpecialChange
-     write f_OnDrawSpecialChange;
+    read f_OnDrawSpecialChange
+    write f_OnDrawSpecialChange;
    property BorderStyle: TBorderStyle
-     read f_BorderStyle
-     write pm_SetBorderStyle
-     default Forms.bsNone;
-     {* стиль рамки }
+    read f_BorderStyle
+    write pm_SetBorderStyle
+    default Forms.bsNone;
+    {* стиль рамки }
    property ScrollStyle: TScrollStyle
-     read f_ScrollStyle
-     write pm_SetScrollStyle
-     default ssNone;
-     {* какие ScrollBar'ы нужны }
-//#UC START# *48BD1975029Bpubl*
+    read f_ScrollStyle
+    write pm_SetScrollStyle
+    default StdCtrls.ssNone;
+    {* какие ScrollBar'ы нужны }
+ //#UC START# *48BD1975029Bpubl*
     protected
       property ParentFont
         default false;
         {-}    
-//#UC END# *48BD1975029Bpubl*
+ //#UC END# *48BD1975029Bpubl*
  end;//TafwBaseControl
 
 implementation
 
 uses
-  l3Operations,
-  l3Bitmap,
-  l3SysUtils,
-  l3DropTarget,
-  l3DropSource,
-  l3Base,
-  afwFacade,
-  afwVCL,
-  Graphics,
-  l3Chars,
-  afwHintManager,
-  k2OperationContainer,
-  l3CustomControlCanvas
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  SysUtils
-  ;
+ l3ImplUses
+ , l3Operations
+ , l3Bitmap
+ , l3SysUtils
+ , l3DropTarget
+ , l3DropSource
+ , l3Base
+ , afwFacade
+ , afwVCL
+ , Graphics
+ , l3Chars
+ , afwHintManager
+ , k2OperationContainer
+ , l3CustomControlCanvas
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , SysUtils
+;
 
-{$Include ..\Visual\afwToolOwner.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\Visual\afwToolOwner.imp.pas}
 
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwVGSceneUpdater.imp.pas}
-
-// start class TafwBaseControl
 
 function TafwBaseControl.pm_GetCanvas: Tl3WinControlCanvas;
 //#UC START# *48C6B5BB03B4_48BD1975029Bget_var*
@@ -398,7 +357,7 @@ begin
 end;//TafwBaseControl.GetCommands
 
 function TafwBaseControl.ProcessMessage(var aMessage: TMessage;
-  aTime: Cardinal): Boolean;
+ aTime: Cardinal): Boolean;
 //#UC START# *48BD21CE01C0_48BD1975029B_var*
 //#UC END# *48BD21CE01C0_48BD1975029B_var*
 begin
@@ -408,8 +367,8 @@ begin
 end;//TafwBaseControl.ProcessMessage
 
 function TafwBaseControl.DoProcessCommand(Cmd: Tl3OperationCode;
-  aForce: Boolean;
-  aCount: Integer): Boolean;
+ aForce: Boolean;
+ aCount: Integer): Boolean;
 //#UC START# *48BD22E601F2_48BD1975029B_var*
 //#UC END# *48BD22E601F2_48BD1975029B_var*
 begin
@@ -444,6 +403,7 @@ begin
 end;//TafwBaseControl.IsInChange
 
 procedure TafwBaseControl.ChangeNotifyOff;
+ {* заблокировать нотификацию об изменении хранилища. }
 //#UC START# *48BD632F0215_48BD1975029B_var*
 //#UC END# *48BD632F0215_48BD1975029B_var*
 begin
@@ -454,6 +414,7 @@ begin
 end;//TafwBaseControl.ChangeNotifyOff
 
 procedure TafwBaseControl.ChangeNotifyOn(aChange: Boolean = True);
+ {* разблокировать нотификацию об изменении хранилища. }
 //#UC START# *48BD634C0086_48BD1975029B_var*
 //#UC END# *48BD634C0086_48BD1975029B_var*
 begin
@@ -484,7 +445,7 @@ begin
 end;//TafwBaseControl.UpdateDragImage
 
 function TafwBaseControl.DoDoDragOver(const aData: IDataObject;
-  const aPoint: TPoint): Boolean;
+ const aPoint: TPoint): Boolean;
 //#UC START# *48BFA1300211_48BD1975029B_var*
 //#UC END# *48BFA1300211_48BD1975029B_var*
 begin
@@ -503,8 +464,8 @@ begin
 end;//TafwBaseControl.DoGetAcceptableFormats
 
 function TafwBaseControl.DoDoDrop(aFormat: Tl3ClipboardFormat;
-  const aMedium: Tl3StoragePlace;
-  var dwEffect: Integer): Boolean;
+ const aMedium: Tl3StoragePlace;
+ var dwEffect: Integer): Boolean;
 //#UC START# *48BFB6D800B3_48BD1975029B_var*
 //#UC END# *48BFB6D800B3_48BD1975029B_var*
 begin
@@ -565,8 +526,8 @@ begin
 end;//TafwBaseControl.WMDestroy
 
 function TafwBaseControl.DoDragDrop(const aDataObject: IDataObject;
-  anEffect: Integer;
-  out theEffect: Integer): Integer;
+ anEffect: Integer;
+ out theEffect: Integer): Integer;
 //#UC START# *48C685E600A1_48BD1975029B_var*
 var
  l_DropSource : IDropSource;
@@ -607,10 +568,10 @@ begin
 end;//TafwBaseControl.GetCaret
 
 procedure TafwBaseControl.DoDrawSub(aSubTarget: TObject;
-  const Canvas: Il3Canvas;
-  const R: Tl3Rect;
-  SubType: Tl3Handle;
-  aSub: TObject);
+ const Canvas: Il3Canvas;
+ const R: Tl3Rect;
+ SubType: Tl3Handle;
+ aSub: TObject);
 //#UC START# *48C6B7FF01F8_48BD1975029B_var*
 //#UC END# *48C6B7FF01F8_48BD1975029B_var*
 begin
@@ -631,6 +592,7 @@ begin
 end;//TafwBaseControl.DoDrawSpecialChange
 
 procedure TafwBaseControl.Paint(const CN: Il3Canvas);
+ {* процедура рисования внешнего вида управляющего элемента }
 //#UC START# *48C6C044025E_48BD1975029B_var*
 //#UC END# *48C6C044025E_48BD1975029B_var*
 begin
@@ -701,8 +663,8 @@ begin
 end;//TafwBaseControl.CMCtl3DChanged
 
 procedure TafwBaseControl.AdjustColors(Bevel: TBevelCut;
-  var TopColor: Tl3Color;
-  var BottomColor: Tl3Color);
+ var TopColor: Tl3Color;
+ var BottomColor: Tl3Color);
 //#UC START# *48C7B9F200D9_48BD1975029B_var*
 //#UC END# *48C7B9F200D9_48BD1975029B_var*
 begin
@@ -717,6 +679,7 @@ begin
 end;//TafwBaseControl.AdjustColors
 
 function TafwBaseControl.DataCodePage: Integer;
+ {* Кодировка данных в том месте, куда происходит вставка }
 //#UC START# *48C7BB490341_48BD1975029B_var*
 //#UC END# *48C7BB490341_48BD1975029B_var*
 begin
@@ -726,7 +689,7 @@ begin
 end;//TafwBaseControl.DataCodePage
 
 function TafwBaseControl.DropFormattedData(aFormat: Tl3ClipboardFormat;
-  const aData: IDataObject): Boolean;
+ const aData: IDataObject): Boolean;
 //#UC START# *48C7BD7B0257_48BD1975029B_var*
 var
  l_DropTarget : Tl3DropTarget;
@@ -789,7 +752,7 @@ begin
 end;//TafwBaseControl.GetAcceptableFormatsFor
 
 procedure TafwBaseControl.SetCommands(const aCommands: array of AnsiString;
-  out theCommands: TafwCommands);
+ out theCommands: TafwCommands);
 //#UC START# *48C7BFA30058_48BD1975029B_var*
 var
  l_Len   : Integer;
@@ -805,7 +768,8 @@ begin
 end;//TafwBaseControl.SetCommands
 
 function TafwBaseControl.PasteFromClipboard(aFormat: Tl3ClipboardFormat;
-  const aData: IDataObject): Boolean;
+ const aData: IDataObject): Boolean;
+ {* вставить текст из буфера обмена в формате aFormat }
 //#UC START# *48C7C15B012E_48BD1975029B_var*
 var
  l_Data : IDataObject;
@@ -827,6 +791,7 @@ begin
 end;//TafwBaseControl.PasteFromClipboard
 
 function TafwBaseControl.Paste: Boolean;
+ {* вставить из буфера обмена. }
 //#UC START# *48C7C1A2010C_48BD1975029B_var*
 var
  l_Formats : Tl3ClipboardFormats;
@@ -868,7 +833,7 @@ begin
 end;//TafwBaseControl.Paste
 
 function TafwBaseControl.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
 //#UC START# *48C7C4990287_48BD1975029B_var*
 //#UC END# *48C7C4990287_48BD1975029B_var*
 begin
@@ -942,6 +907,7 @@ begin
 end;//TafwBaseControl.IsMenuLocked
 
 procedure TafwBaseControl.DoAfterCreateCanvas;
+ {* Вызыввается после создания канвы для установки, например, Zoom'а в наследниках. }
 //#UC START# *4D3974AB02E5_48BD1975029B_var*
 //#UC END# *4D3974AB02E5_48BD1975029B_var*
 begin
@@ -972,6 +938,7 @@ begin
 end;//TafwBaseControl.WMKillFocus
 
 function TafwBaseControl.GetAcceptableFormats: Tl3ClipboardFormats;
+ {* Список приемлимых форматов. }
 //#UC START# *46A5B20202BD_48BD1975029B_var*
 //#UC END# *46A5B20202BD_48BD1975029B_var*
 begin
@@ -981,8 +948,8 @@ begin
 end;//TafwBaseControl.GetAcceptableFormats
 
 function TafwBaseControl.DoDrop(aFormat: Tl3ClipboardFormat;
-  const aMedium: Tl3StoragePlace;
-  var dwEffect: Integer): Boolean;
+ const aMedium: Tl3StoragePlace;
+ var dwEffect: Integer): Boolean;
 //#UC START# *46A5B27A01C5_48BD1975029B_var*
 //#UC END# *46A5B27A01C5_48BD1975029B_var*
 begin
@@ -992,7 +959,7 @@ begin
 end;//TafwBaseControl.DoDrop
 
 function TafwBaseControl.DoDragOver(const aData: IDataObject;
-  const aPoint: TPoint): Boolean;
+ const aPoint: TPoint): Boolean;
 //#UC START# *46A5B330031B_48BD1975029B_var*
 //#UC END# *46A5B330031B_48BD1975029B_var*
 begin
@@ -1003,7 +970,7 @@ begin
 end;//TafwBaseControl.DoDragOver
 
 procedure TafwBaseControl.DoDragEnter(const aData: IDataObject;
-  const aPoint: TPoint);
+ const aPoint: TPoint);
 //#UC START# *46A5B35A0249_48BD1975029B_var*
 var
  l_ImageSource : Il3DragImageSource;
@@ -1070,8 +1037,8 @@ begin
 end;//TafwBaseControl.Keys2Effect
 
 function TafwBaseControl.ProcessCommand(Cmd: Tl3OperationCode;
-  aForce: Boolean;
-  aCount: Integer): Boolean;
+ aForce: Boolean;
+ aCount: Integer): Boolean;
 //#UC START# *476F76A90267_48BD1975029B_var*
 //#UC END# *476F76A90267_48BD1975029B_var*
 begin
@@ -1091,6 +1058,7 @@ begin
 end;//TafwBaseControl.UpdateScrollRange
 
 procedure TafwBaseControl.Changing;
+ {* нотификация о начале изменения состояния объекта. Для перекрытия и использования в потомках. }
 //#UC START# *4A5CBFFE0157_48BD1975029B_var*
 //#UC END# *4A5CBFFE0157_48BD1975029B_var*
 begin
@@ -1111,6 +1079,7 @@ begin
 end;//TafwBaseControl.Changing
 
 procedure TafwBaseControl.Changed;
+ {* нотификация о завершении изменения состояния объекта. Для перекрытия и использования в потомках. }
 //#UC START# *4A5CC00B03D5_48BD1975029B_var*
 //#UC END# *4A5CC00B03D5_48BD1975029B_var*
 begin
@@ -1163,6 +1132,7 @@ begin
 end;//TafwBaseControl.IsA
 
 procedure TafwBaseControl.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48BD1975029B_var*
 //#UC END# *479731C50290_48BD1975029B_var*
 begin
@@ -1186,7 +1156,7 @@ begin
 end;//TafwBaseControl.Create
 
 function TafwBaseControl.QueryInterface(const IID: TGUID;
-  out Obj): HResult;
+ out Obj): HResult;
 //#UC START# *47D160620295_48BD1975029B_var*
 var
  l_Res : Tl3HResult;
@@ -1206,7 +1176,7 @@ begin
 //#UC END# *47D160620295_48BD1975029B_impl*
 end;//TafwBaseControl.QueryInterface
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TafwBaseControl.WndProc(var Message: TMessage);
 //#UC START# *47E136A80191_48BD1975029B_var*
 var
@@ -1245,10 +1215,11 @@ begin
  end;//case Message.Msg
 //#UC END# *47E136A80191_48BD1975029B_impl*
 end;//TafwBaseControl.WndProc
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TafwBaseControl.CreateWindowHandle(const Params: TCreateParams);
+ {* Creates a Windows control to represent the control }
 //#UC START# *48C67EB000EE_48BD1975029B_var*
 //#UC END# *48C67EB000EE_48BD1975029B_var*
 begin
@@ -1261,10 +1232,11 @@ begin
  end;//HandleAllocated
 //#UC END# *48C67EB000EE_48BD1975029B_impl*
 end;//TafwBaseControl.CreateWindowHandle
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TafwBaseControl.DestroyWindowHandle;
+ {* Destroys the window created in the CreateWindowHandle method }
 //#UC START# *48C67EDF01C8_48BD1975029B_var*
 //#UC END# *48C67EDF01C8_48BD1975029B_var*
 begin
@@ -1273,10 +1245,11 @@ begin
  inherited;
 //#UC END# *48C67EDF01C8_48BD1975029B_impl*
 end;//TafwBaseControl.DestroyWindowHandle
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TafwBaseControl.PaintWindow(DC: hDC);
+ {* Renders the image of a windowed control }
 //#UC START# *48C6BFF80313_48BD1975029B_var*
 var
  CN : Il3Canvas;
@@ -1314,10 +1287,11 @@ begin
  end;//try..finally
 //#UC END# *48C6BFF80313_48BD1975029B_impl*
 end;//TafwBaseControl.PaintWindow
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TafwBaseControl.Invalidate;
+ {* Completely repaint control }
 //#UC START# *48C6CC4A0395_48BD1975029B_var*
 //#UC END# *48C6CC4A0395_48BD1975029B_var*
 begin
@@ -1329,9 +1303,9 @@ begin
   inherited;
 //#UC END# *48C6CC4A0395_48BD1975029B_impl*
 end;//TafwBaseControl.Invalidate
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TafwBaseControl.CreateParams(var Params: TCreateParams);
 //#UC START# *48C7925A02E5_48BD1975029B_var*
 const
@@ -1369,9 +1343,9 @@ begin
  end;//with Params
 //#UC END# *48C7925A02E5_48BD1975029B_impl*
 end;//TafwBaseControl.CreateParams
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If defined(l3HackedVCL) AND not defined(NoVCL)}
+{$If Defined(l3HackedVCL) AND NOT Defined(NoVCL)}
 function TafwBaseControl.LockPainting: Boolean;
 //#UC START# *49CB9A6403B5_48BD1975029B_var*
 //#UC END# *49CB9A6403B5_48BD1975029B_var*
@@ -1380,12 +1354,12 @@ begin
  Result := InUpdating;
 //#UC END# *49CB9A6403B5_48BD1975029B_impl*
 end;//TafwBaseControl.LockPainting
-{$IfEnd} //l3HackedVCL AND not NoVCL
+{$IfEnd} // Defined(l3HackedVCL) AND NOT Defined(NoVCL)
 
-{$If defined(l3HackedVCL) AND not defined(DesignTimeLibrary) AND not defined(NoVCL)}
+{$If Defined(l3HackedVCL) AND NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary)}
 procedure TafwBaseControl.SelectNext(CurControl: TWinControl;
-  GoForward: Boolean;
-  CheckTabStop: Boolean);
+ GoForward: Boolean;
+ CheckTabStop: Boolean);
 //#UC START# *4D5D1505007A_48BD1975029B_var*
 //#UC END# *4D5D1505007A_48BD1975029B_var*
 begin
@@ -1394,15 +1368,15 @@ begin
   inherited;
 //#UC END# *4D5D1505007A_48BD1975029B_impl*
 end;//TafwBaseControl.SelectNext
-{$IfEnd} //l3HackedVCL AND not DesignTimeLibrary AND not NoVCL
+{$IfEnd} // Defined(l3HackedVCL) AND NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary)
 
 //#UC START# *48BD1975029Bimpl*
 //#UC END# *48BD1975029Bimpl*
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TafwBaseControl
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TafwBaseControl);
-{$IfEnd} //not NoScripts
+ {* Регистрация TafwBaseControl }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

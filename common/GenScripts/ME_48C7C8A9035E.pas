@@ -58,10 +58,10 @@ type
   public
    procedure ActivateHint(const aPt: TPoint);
    procedure CancelHint;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TafwHintManager;
     {* Метод получения экземпляра синглетона TafwHintManager }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TafwHintManager
 
 implementation
@@ -129,12 +129,6 @@ begin
 //#UC END# *48C7C9210123_48C7C8A9035E_impl*
 end;//TafwHintManager.TimerProc
 
-class function TafwHintManager.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TafwHintManager <> nil;
-end;//TafwHintManager.Exists
-
 class function TafwHintManager.Instance: TafwHintManager;
  {* Метод получения экземпляра синглетона TafwHintManager }
 begin
@@ -145,6 +139,12 @@ begin
  end;
  Result := g_TafwHintManager;
 end;//TafwHintManager.Instance
+
+class function TafwHintManager.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TafwHintManager <> nil;
+end;//TafwHintManager.Exists
 
 procedure TafwHintManager.Cleanup;
  {* Функция очистки полей объекта. }

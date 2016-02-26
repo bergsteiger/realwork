@@ -234,7 +234,7 @@ type
    property ScrollStyle: TScrollStyle
     read f_ScrollStyle
     write pm_SetScrollStyle
-    default ssNone;
+    default StdCtrls.ssNone;
     {* какие ScrollBar'ы нужны }
  //#UC START# *48BD1975029Bpubl*
     protected

@@ -1,71 +1,54 @@
 unit afwTextControl;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Модуль: "w:/common/components/gui/Garant/AFW/implementation/Visual/afwTextControl.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::AFW::afwControl::TafwTextControl
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwTextControl.pas"
+// Стереотип: "GuiControl"
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  afwInterfaces
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  afwTextControlPrim
-  ;
+ l3IntfUses
+ , afwTextControlPrim
+ , afwInterfaces
+;
 
 type
-//#UC START# *48BBF1470238ci*
-//#UC END# *48BBF1470238ci*
-//#UC START# *48BBF1470238cit*
-//#UC END# *48BBF1470238cit*
+ //#UC START# *48BBF1470238ci*
+ //#UC END# *48BBF1470238ci*
+ //#UC START# *48BBF1470238cit*
+ //#UC END# *48BBF1470238cit*
  TafwTextControl = class(TafwTextControlPrim, IafwTextControl)
- private
- // private methods
+  private
    function CaptionStored: Boolean;
- protected
- // realized methods
+  protected
    function pm_GetCCaption: IafwCString;
    procedure pm_SetCCaption(const aValue: IafwCString);
-//#UC START# *48BBF1470238publ*
+ //#UC START# *48BBF1470238publ*
     public
     // public properties
       property Caption
         stored CaptionStored;
         {-}
-//#UC END# *48BBF1470238publ*
+ //#UC END# *48BBF1470238publ*
  end;//TafwTextControl
 
 implementation
 
 uses
-  l3String
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3String
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 type
-  THackLink = class(TControlActionLink)
-  end;//THackLink
-
-// start class TafwTextControl
+ THackLink = class(TControlActionLink)
+ end;//THackLink
 
 function TafwTextControl.CaptionStored: Boolean;
 //#UC START# *48BBF3DD019D_48BBF1470238_var*
@@ -99,9 +82,9 @@ end;//TafwTextControl.pm_SetCCaption
 //#UC END# *48BBF1470238impl*
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TafwTextControl
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TafwTextControl);
-{$IfEnd} //not NoScripts
+ {* Регистрация TafwTextControl }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

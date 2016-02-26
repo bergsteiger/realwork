@@ -1,57 +1,37 @@
 unit afwCustomCommonTextControl;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Модуль: "w:/common/components/gui/Garant/AFW/implementation/Visual/afwCustomCommonTextControl.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::AFW::afwControl::TafwCustomCommonTextControl
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwCustomCommonTextControl.pas"
+// Стереотип: "GuiControl"
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  afwCustomCommonTextControlPrim,
-  l3PrinterInterfaces
-  ;
+ l3IntfUses
+ , afwCustomCommonTextControlPrim
+ , l3PrinterInterfaces
+;
 
 type
  TafwCustomCommonTextControl = class(TafwCustomCommonTextControlPrim)
- protected
- // property methods
+  protected
    function pm_GetCanvas: TCanvas;
- protected
- // realized methods
-   procedure DoPaint; override;
- protected
- // protected methods
    procedure Paint; virtual;
- protected
- // protected properties
+   procedure DoPaint; override;
+  protected
    property Canvas: TCanvas
-     read pm_GetCanvas;
+    read pm_GetCanvas;
  end;//TafwCustomCommonTextControl
 
 implementation
 
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TafwCustomCommonTextControl
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 function TafwCustomCommonTextControl.pm_GetCanvas: TCanvas;
 //#UC START# *48BBD6680379_48BBD6550261get_var*
@@ -80,9 +60,9 @@ begin
 end;//TafwCustomCommonTextControl.DoPaint
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TafwCustomCommonTextControl
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TafwCustomCommonTextControl);
-{$IfEnd} //not NoScripts
+ {* Регистрация TafwCustomCommonTextControl }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -1,59 +1,45 @@
 unit afwValueMaps;
+ {* Мапы для UI-строка <=> что-то }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Автор: Лукьянец Р. В.
-// Модуль: "w:/common/components/gui/Garant/AFW/implementation/afwValueMaps.pas"
-// Начат: 12.04.2006 13:00
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::AFW::Standard::afwValueMaps
-//
-// Мапы для UI-строка <=> что-то
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\AFW\implementation\afwValueMaps.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  afwInterfaces
-  ;
+ l3IntfUses
+ , afwInterfaces
+;
 
-function AfwIntegerMapManager: IafwIntegerValueMapManager;
-function AfwStringMapManager: IafwStringValueMapManager;
+function afwIntegerMapManager: IafwIntegerValueMapManager;
+function afwStringMapManager: IafwStringValueMapManager;
 
 implementation
 
 uses
-  l3IntegerValueMapManager,
-  l3StringValueMapManager
-  ;
+ l3ImplUses
+ , l3IntegerValueMapManager
+ , l3StringValueMapManager
+;
 
-// unit methods
-
-function AfwIntegerMapManager: IafwIntegerValueMapManager;
+function afwIntegerMapManager: IafwIntegerValueMapManager;
 //#UC START# *478E366E03B2_478E36460273_var*
 //#UC END# *478E366E03B2_478E36460273_var*
 begin
 //#UC START# *478E366E03B2_478E36460273_impl*
  Result := l3IntegerMapManager;
 //#UC END# *478E366E03B2_478E36460273_impl*
-end;//AfwIntegerMapManager
+end;//afwIntegerMapManager
 
-function AfwStringMapManager: IafwStringValueMapManager;
+function afwStringMapManager: IafwStringValueMapManager;
 //#UC START# *478E36800176_478E36460273_var*
 //#UC END# *478E36800176_478E36460273_var*
 begin
 //#UC START# *478E36800176_478E36460273_impl*
  Result := l3StringMapManager;
 //#UC END# *478E36800176_478E36460273_impl*
-end;//AfwStringMapManager
+end;//afwStringMapManager
 
 end.

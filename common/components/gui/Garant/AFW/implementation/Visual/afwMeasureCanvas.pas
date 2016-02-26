@@ -1,66 +1,46 @@
 unit afwMeasureCanvas;
+ {* Канва для измерений и вычисления позиции курсора. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Автор: Люлин А.В. 
-// Модуль: "w:/common/components/gui/Garant/AFW/implementation/Visual/afwMeasureCanvas.pas"
-// Начат: 26.02.2006 13:33
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::AFW::Draw::TafwMeasureCanvas
-//
-// Канва для измерений и вычисления позиции курсора.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwMeasureCanvas.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  afwInterfaces,
-  l3InternalInterfaces,
-  l3VirtualCanvas,
-  l3Interfaces,
-  l3Units,
-  l3Types,
-  l3Core,
-  l3PrinterInterfaces
-  ;
+ l3IntfUses
+ , l3VirtualCanvas
+ , afwInterfaces
+ , l3InternalInterfaces
+ , l3Interfaces
+;
 
 type
  TafwMeasureCanvas = class(Tl3VirtualCanvas)
   {* Канва для измерений и вычисления позиции курсора. }
- private
- // private fields
-   f_Caret : IafwCaret;
- protected
- // overridden protected methods
+  private
+   f_Caret: IafwCaret;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   function GetCaret: Il3Caret; override;
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+   function GetCaret: Il3Caret; override;
+  public
    constructor Create(const anExtent: TafwPoint;
-     const aCaret: IafwCaret); reintroduce;
+    const aCaret: IafwCaret); reintroduce;
    class function Make(const anExtent: TafwPoint;
-     const aCaret: IafwCaret): Il3Canvas; reintroduce;
-     {* Сигнатура фабрики TafwMeasureCanvas.Make }
+    const aCaret: IafwCaret): Il3Canvas; reintroduce;
  end;//TafwMeasureCanvas
 
 implementation
 
-// start class TafwMeasureCanvas
+uses
+ l3ImplUses
+;
 
 constructor TafwMeasureCanvas.Create(const anExtent: TafwPoint;
-  const aCaret: IafwCaret);
+ const aCaret: IafwCaret);
 //#UC START# *4CC69AD60087_47414D0C018A_var*
 //#UC END# *4CC69AD60087_47414D0C018A_var*
 begin
@@ -73,7 +53,7 @@ begin
 end;//TafwMeasureCanvas.Create
 
 class function TafwMeasureCanvas.Make(const anExtent: TafwPoint;
-  const aCaret: IafwCaret): Il3Canvas;
+ const aCaret: IafwCaret): Il3Canvas;
 var
  l_Inst : TafwMeasureCanvas;
 begin
@@ -83,9 +63,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TafwMeasureCanvas.Make
 
 procedure TafwMeasureCanvas.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47414D0C018A_var*
 //#UC END# *479731C50290_47414D0C018A_var*
 begin
@@ -95,20 +76,19 @@ begin
 //#UC END# *479731C50290_47414D0C018A_impl*
 end;//TafwMeasureCanvas.Cleanup
 
-function TafwMeasureCanvas.GetCaret: Il3Caret;
-//#UC START# *47DFB3CE02C5_47414D0C018A_var*
-//#UC END# *47DFB3CE02C5_47414D0C018A_var*
-begin
-//#UC START# *47DFB3CE02C5_47414D0C018A_impl*
- Result := f_Caret;
-//#UC END# *47DFB3CE02C5_47414D0C018A_impl*
-end;//TafwMeasureCanvas.GetCaret
-
 procedure TafwMeasureCanvas.ClearFields;
- {-}
 begin
  f_Caret := nil;
  inherited;
 end;//TafwMeasureCanvas.ClearFields
+
+function TafwMeasureCanvas.GetCaret: Il3Caret;
+//#UC START# *56B49F030225_47414D0C018A_var*
+//#UC END# *56B49F030225_47414D0C018A_var*
+begin
+//#UC START# *56B49F030225_47414D0C018A_impl*
+ Result := f_Caret;
+//#UC END# *56B49F030225_47414D0C018A_impl*
+end;//TafwMeasureCanvas.GetCaret
 
 end.

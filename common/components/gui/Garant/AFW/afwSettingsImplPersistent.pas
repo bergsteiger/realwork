@@ -1,56 +1,42 @@
 unit afwSettingsImplPersistent;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Модуль: "w:/common/components/gui/Garant/AFW/afwSettingsImplPersistent.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::AFW::afwSettings::TafwSettingsImplPersistent
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\AFW\afwSettingsImplPersistent.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\AFW\afwDefine.inc}
+{$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  afwSettingsImpl
-  ;
+ l3IntfUses
+ , afwSettingsImpl
+;
 
 type
  TafwSettingsImplPersistent = class(TafwSettingsImpl)
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
-   procedure BeforeRelease; override;
- protected
- // protected methods
+  protected
    procedure Load;
    procedure Save;
    function FileName: AnsiString;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
+   procedure BeforeRelease; override;
  end;//TafwSettingsImplPersistent
 
 implementation
 
 uses
-  SysUtils,
-  l3Filer,
-  l3Types,
-  l3Base,
-  l3String,
-  l3InterfacedString,
-  l3Interfaces,
-  afwSettingsImplPrimPrim
-  ;
-
-// start class TafwSettingsImplPersistent
+ l3ImplUses
+ , SysUtils
+ , l3Filer
+ , l3Types
+ , l3Base
+ , l3String
+ , l3InterfacedString
+ , l3Interfaces
+ , afwSettingsImplPrimPrim
+;
 
 procedure TafwSettingsImplPersistent.Load;
 //#UC START# *4F6C9DF8028F_4F6C9DBE03CF_var*
@@ -173,6 +159,7 @@ begin
 end;//TafwSettingsImplPersistent.FileName
 
 procedure TafwSettingsImplPersistent.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4F6C9DBE03CF_var*
 //#UC END# *479731C50290_4F6C9DBE03CF_var*
 begin

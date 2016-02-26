@@ -10,7 +10,6 @@ interface
 uses
  l3IntfUses
  , Persistent_Wrap
- , k2RawData_Const
  , l3Variant
 ;
 

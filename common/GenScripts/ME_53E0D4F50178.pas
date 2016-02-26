@@ -10,7 +10,6 @@ interface
 uses
  l3IntfUses
  , l3Variant
- , TaskResult_Const
  , k2Base
  , Classes
 ;
@@ -36,6 +35,7 @@ implementation
 
 uses
  l3ImplUses
+ , TaskResult_Const
  , SysUtils
  , evdNativeWriter
  , l3Filer

@@ -1,94 +1,78 @@
 unit afwComplexDocumentPreview;
+ {* Предварительный просмотр печати составного документа. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/AFW/implementation/Visual/afwComplexDocumentPreview.pas"
-// Начат: 10.12.2004 19:44
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::AFW::Draw::TafwComplexDocumentPreview
-//
-// Предварительный просмотр печати составного документа.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwComplexDocumentPreview.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  l3CacheableBase,
-  afwInterfaces,
-  afwPreviewNotifierPtrList,
-  l3IID,
-  l3Interfaces,
-  afwTypes,
-  l3Core
-  ;
+ l3IntfUses
+ , l3CacheableBase
+ , afwInterfaces
+ , afwPreviewNotifierPtrList
+ , afwTypes
+ , l3Interfaces
+ , l3Core
+ , l3IID
+;
 
 type
  TafwDocumentPreviewArray = array [TafwPreviewContentKind] of IafwDocumentPreview;
 
  TafwComplexDocumentPreview = class(Tl3CacheableBase, IafwDocumentPreview, IafwPreviewNotifier, IafwComplexDocumentPreview, IafwPreviewNotificationSource)
   {* Предварительный просмотр печати составного документа. }
- private
- // private fields
-   f_ContentKind : TafwPreviewContentKind;
-   f_Printer : IafwPrinter;
-   f_Previews : TafwDocumentPreviewArray;
-   f_PreviewSubscribers : TafwPreviewNotifierPtrList;
- private
- // private methods
+  private
+   f_ContentKind: TafwPreviewContentKind;
+   f_Printer: IafwPrinter;
+   f_Previews: TafwDocumentPreviewArray;
+   f_PreviewSubscribers: TafwPreviewNotifierPtrList;
+  private
    procedure CheckPrinter(aKind: TafwPreviewContentKind);
    procedure CheckContent(aKind: TafwPreviewContentKind);
    procedure SetContent(aKind: TafwPreviewContentKind;
     const aValue: IafwDocumentPreview);
- protected
- // realized methods
+  protected
    procedure ContentChanged;
-     {* Содержимое preview изменилось. }
+    {* Содержимое preview изменилось. }
    function DocumentName: IafwCString;
-     {* имя документа для preview. }
+    {* имя документа для preview. }
    function InProcess: Boolean;
-     {* идет процесс? }
+    {* идет процесс? }
    function InPagesCounting: Boolean;
-     {* сейчас в процессе подсчета страниц? }
+    {* сейчас в процессе подсчета страниц? }
    function InUpdate: Boolean;
-     {* находимся в процессе построения preview? }
+    {* находимся в процессе построения preview? }
    function InPrinting: Boolean;
-     {* находимся в процессе построения печати? }
+    {* находимся в процессе построения печати? }
    procedure Update(const aPanel: IafwPreviewPanel);
-     {* установить preview на панель для отображения. }
+    {* установить preview на панель для отображения. }
    procedure Print(anInterval: TafwPagesInterval = afw_piAll;
     const aRange: Il3RangeManager = nil;
     aCopies: Integer = 1;
     const aFileName: AnsiString = '';
     aCollate: Boolean = True);
-     {* напечатать на принтер. }
+    {* напечатать на принтер. }
    procedure Stop(aWnd: THandle = 0);
-     {* остановит процесс построение preview/печати. }
+    {* остановит процесс построение preview/печати. }
    function Stopped: Boolean;
-     {* процесс остановлен? }
+    {* процесс остановлен? }
    function CloseRequested: Boolean;
-     {* при остановке процесса был запрос на закрытие превью }
+    {* при остановке процесса был запрос на закрытие превью }
    function PreviewResetting: Boolean;
-     {* канва отсутствует, но будет передалываться }
+    {* канва отсутствует, но будет передалываться }
    procedure SetCurrentPage(const aCursor: IUnknown);
-     {* устанавливает курсор на текущую страницу. }
+    {* устанавливает курсор на текущую страницу. }
    procedure SetCurrentPagePara(aParaID: Integer);
-     {* устанавливает курсор на текущую страницу. }
+    {* устанавливает курсор на текущую страницу. }
    procedure SetCurrentPageNumber(aPageNumber: Integer);
-     {* устанавливает курсор на текущую страницу. }
+    {* устанавливает курсор на текущую страницу. }
    function CurrentPage: Integer;
-     {* текущая страница для печати. }
+    {* текущая страница для печати. }
    function HasCurrentPage: Boolean;
-     {* установлена ли текущая страница. }
+    {* установлена ли текущая страница. }
    function pm_GetPrinter: IafwPrinter;
    procedure pm_SetPrinter(const aValue: IafwPrinter);
    function pm_GetHasText: Boolean;
@@ -104,15 +88,12 @@ type
    procedure Subscribe(const aNotifier: IafwPreviewNotifier);
    procedure UnSubscribe(const aNotifier: IafwPreviewNotifier);
    function pm_GetPagesInfo: TafwPagesInfo;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
- public
- // public methods
+    {* Реализация запроса интерфейса }
+  public
    constructor Create(const aDocument: IafwDocumentPreview;
     const anInfo: IafwDocumentPreview); reintroduce;
    class function Make(const aDocument: IafwDocumentPreview;
@@ -122,12 +103,11 @@ type
 implementation
 
 uses
-  SysUtils,
-  l3Printer,
-  l3Base
-  ;
-
-// start class TafwComplexDocumentPreview
+ l3ImplUses
+ , SysUtils
+ , l3Printer
+ , l3Base
+;
 
 procedure TafwComplexDocumentPreview.CheckPrinter(aKind: TafwPreviewContentKind);
 //#UC START# *47DF9F2202FB_47DF8F0402F7_var*
@@ -150,7 +130,7 @@ begin
 end;//TafwComplexDocumentPreview.CheckContent
 
 procedure TafwComplexDocumentPreview.SetContent(aKind: TafwPreviewContentKind;
-  const aValue: IafwDocumentPreview);
+ const aValue: IafwDocumentPreview);
 //#UC START# *47DF9FF70289_47DF8F0402F7_var*
 var
  l_Source: IafwPreviewNotificationSource;
@@ -169,7 +149,7 @@ begin
 end;//TafwComplexDocumentPreview.SetContent
 
 constructor TafwComplexDocumentPreview.Create(const aDocument: IafwDocumentPreview;
-  const anInfo: IafwDocumentPreview);
+ const anInfo: IafwDocumentPreview);
 //#UC START# *47DFA16D038D_47DF8F0402F7_var*
 //#UC END# *47DFA16D038D_47DF8F0402F7_var*
 begin
@@ -184,7 +164,7 @@ begin
 end;//TafwComplexDocumentPreview.Create
 
 class function TafwComplexDocumentPreview.Make(const aDocument: IafwDocumentPreview;
-  const anInfo: IafwDocumentPreview = nil): IafwComplexDocumentPreview;
+ const anInfo: IafwDocumentPreview = nil): IafwComplexDocumentPreview;
 var
  l_Inst : TafwComplexDocumentPreview;
 begin
@@ -194,9 +174,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TafwComplexDocumentPreview.Make
 
 procedure TafwComplexDocumentPreview.ContentChanged;
+ {* Содержимое preview изменилось. }
 //#UC START# *473D8BEE007B_47DF8F0402F7_var*
 var
  l_Idx: Integer;
@@ -210,6 +191,7 @@ begin
 end;//TafwComplexDocumentPreview.ContentChanged
 
 function TafwComplexDocumentPreview.DocumentName: IafwCString;
+ {* имя документа для preview. }
 //#UC START# *473D8C450198_47DF8F0402F7_var*
 //#UC END# *473D8C450198_47DF8F0402F7_var*
 begin
@@ -222,6 +204,7 @@ begin
 end;//TafwComplexDocumentPreview.DocumentName
 
 function TafwComplexDocumentPreview.InProcess: Boolean;
+ {* идет процесс? }
 //#UC START# *473D8C5C0187_47DF8F0402F7_var*
 //#UC END# *473D8C5C0187_47DF8F0402F7_var*
 begin
@@ -234,6 +217,7 @@ begin
 end;//TafwComplexDocumentPreview.InProcess
 
 function TafwComplexDocumentPreview.InPagesCounting: Boolean;
+ {* сейчас в процессе подсчета страниц? }
 //#UC START# *473D8C6C0266_47DF8F0402F7_var*
 //#UC END# *473D8C6C0266_47DF8F0402F7_var*
 begin
@@ -246,6 +230,7 @@ begin
 end;//TafwComplexDocumentPreview.InPagesCounting
 
 function TafwComplexDocumentPreview.InUpdate: Boolean;
+ {* находимся в процессе построения preview? }
 //#UC START# *473D8C7C01B5_47DF8F0402F7_var*
 //#UC END# *473D8C7C01B5_47DF8F0402F7_var*
 begin
@@ -258,6 +243,7 @@ begin
 end;//TafwComplexDocumentPreview.InUpdate
 
 function TafwComplexDocumentPreview.InPrinting: Boolean;
+ {* находимся в процессе построения печати? }
 //#UC START# *473D8C90022C_47DF8F0402F7_var*
 //#UC END# *473D8C90022C_47DF8F0402F7_var*
 begin
@@ -270,6 +256,7 @@ begin
 end;//TafwComplexDocumentPreview.InPrinting
 
 procedure TafwComplexDocumentPreview.Update(const aPanel: IafwPreviewPanel);
+ {* установить preview на панель для отображения. }
 //#UC START# *473D8CA002D9_47DF8F0402F7_var*
 //#UC END# *473D8CA002D9_47DF8F0402F7_var*
 begin
@@ -280,10 +267,11 @@ begin
 end;//TafwComplexDocumentPreview.Update
 
 procedure TafwComplexDocumentPreview.Print(anInterval: TafwPagesInterval = afw_piAll;
-  const aRange: Il3RangeManager = nil;
-  aCopies: Integer = 1;
-  const aFileName: AnsiString = '';
-  aCollate: Boolean = True);
+ const aRange: Il3RangeManager = nil;
+ aCopies: Integer = 1;
+ const aFileName: AnsiString = '';
+ aCollate: Boolean = True);
+ {* напечатать на принтер. }
 //#UC START# *473D8CAF028B_47DF8F0402F7_var*
 //#UC END# *473D8CAF028B_47DF8F0402F7_var*
 begin
@@ -294,6 +282,7 @@ begin
 end;//TafwComplexDocumentPreview.Print
 
 procedure TafwComplexDocumentPreview.Stop(aWnd: THandle = 0);
+ {* остановит процесс построение preview/печати. }
 //#UC START# *473D8CE9007C_47DF8F0402F7_var*
 //#UC END# *473D8CE9007C_47DF8F0402F7_var*
 begin
@@ -304,6 +293,7 @@ begin
 end;//TafwComplexDocumentPreview.Stop
 
 function TafwComplexDocumentPreview.Stopped: Boolean;
+ {* процесс остановлен? }
 //#UC START# *473D8CF80037_47DF8F0402F7_var*
 //#UC END# *473D8CF80037_47DF8F0402F7_var*
 begin
@@ -316,6 +306,7 @@ begin
 end;//TafwComplexDocumentPreview.Stopped
 
 function TafwComplexDocumentPreview.CloseRequested: Boolean;
+ {* при остановке процесса был запрос на закрытие превью }
 //#UC START# *473D8D0A01D7_47DF8F0402F7_var*
 //#UC END# *473D8D0A01D7_47DF8F0402F7_var*
 begin
@@ -328,6 +319,7 @@ begin
 end;//TafwComplexDocumentPreview.CloseRequested
 
 function TafwComplexDocumentPreview.PreviewResetting: Boolean;
+ {* канва отсутствует, но будет передалываться }
 //#UC START# *473D8D1E01B8_47DF8F0402F7_var*
 //#UC END# *473D8D1E01B8_47DF8F0402F7_var*
 begin
@@ -340,6 +332,7 @@ begin
 end;//TafwComplexDocumentPreview.PreviewResetting
 
 procedure TafwComplexDocumentPreview.SetCurrentPage(const aCursor: IUnknown);
+ {* устанавливает курсор на текущую страницу. }
 //#UC START# *473D8D3800B1_47DF8F0402F7_var*
 //#UC END# *473D8D3800B1_47DF8F0402F7_var*
 begin
@@ -350,6 +343,7 @@ begin
 end;//TafwComplexDocumentPreview.SetCurrentPage
 
 procedure TafwComplexDocumentPreview.SetCurrentPagePara(aParaID: Integer);
+ {* устанавливает курсор на текущую страницу. }
 //#UC START# *473D8D4A019D_47DF8F0402F7_var*
 //#UC END# *473D8D4A019D_47DF8F0402F7_var*
 begin
@@ -360,6 +354,7 @@ begin
 end;//TafwComplexDocumentPreview.SetCurrentPagePara
 
 procedure TafwComplexDocumentPreview.SetCurrentPageNumber(aPageNumber: Integer);
+ {* устанавливает курсор на текущую страницу. }
 //#UC START# *473D8D5D032B_47DF8F0402F7_var*
 //#UC END# *473D8D5D032B_47DF8F0402F7_var*
 begin
@@ -370,6 +365,7 @@ begin
 end;//TafwComplexDocumentPreview.SetCurrentPageNumber
 
 function TafwComplexDocumentPreview.CurrentPage: Integer;
+ {* текущая страница для печати. }
 //#UC START# *473D8D72010F_47DF8F0402F7_var*
 //#UC END# *473D8D72010F_47DF8F0402F7_var*
 begin
@@ -382,6 +378,7 @@ begin
 end;//TafwComplexDocumentPreview.CurrentPage
 
 function TafwComplexDocumentPreview.HasCurrentPage: Boolean;
+ {* установлена ли текущая страница. }
 //#UC START# *473D8D830163_47DF8F0402F7_var*
 //#UC END# *473D8D830163_47DF8F0402F7_var*
 begin
@@ -552,6 +549,7 @@ begin
 end;//TafwComplexDocumentPreview.pm_GetPagesInfo
 
 procedure TafwComplexDocumentPreview.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47DF8F0402F7_var*
 var
  l_Idx: TafwPreviewContentKind;
@@ -567,7 +565,8 @@ begin
 end;//TafwComplexDocumentPreview.Cleanup
 
 function TafwComplexDocumentPreview.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_47DF8F0402F7_var*
 //#UC END# *4A60B23E00C3_47DF8F0402F7_var*
 begin

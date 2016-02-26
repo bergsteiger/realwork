@@ -13,8 +13,6 @@ uses
  {$If Defined(k2ForEditor)}
  , evTextPara_InterfaceFactory
  {$IfEnd} // Defined(k2ForEditor)
- , TextPara
- , DecorTextPara
  , l3Variant
  , l3IID
  , k2ToolPrim

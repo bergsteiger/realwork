@@ -1,28 +1,18 @@
 unit afwSettingsImplPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Модуль: "w:/common/components/gui/Garant/AFW/afwSettingsImplPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::AFW::afwSettings::TafwSettingsImplPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\AFW\afwSettingsImplPrim.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\AFW\afwDefine.inc}
+{$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  afwSettingsImplPrimPrim,
-  l3Types
-  ;
+ l3IntfUses
+ , afwSettingsImplPrimPrim
+ , l3Interfaces
+ , l3Types
+;
 
 type
  _FindDataType_ = Il3CString;
@@ -34,15 +24,20 @@ type
 implementation
 
 uses
-  l3String
-  ;
+ l3ImplUses
+ , l3String
+ , l3Memory
+;
 
-// start class TafwSettingsImplPrim
+{$If not Declared(_ItemType_)}type _ItemType_ = TafwKeyValue;{$IfEnd}
+
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
 
 function CompareItemWithData(const anItem: _ItemType_;
-  const aData: _FindDataType_;
-  aSortIndex: Tl3SortIndex;
-  aList: _l3Searcher_): Integer;
+ const aData: _FindDataType_;
+ aSortIndex: Tl3SortIndex;
+ aList: _l3Searcher_): Integer;
+ {* Сравнивает существующий элемент с искомым. }
 //#UC START# *47B9BAFD01F4_4F6C7D5F00E6_var*
 //#UC END# *47B9BAFD01F4_4F6C7D5F00E6_var*
 begin

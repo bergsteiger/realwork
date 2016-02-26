@@ -1,48 +1,38 @@
 {$IfNDef afwToolOwner_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Модуль: "w:/common/components/gui/Garant/AFW/implementation/Visual/afwToolOwner.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::AFW::afwControl::afwToolOwner
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwToolOwner.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define afwToolOwner_imp}
-//#UC START# *48BD1ABE023Dci*
-//#UC END# *48BD1ABE023Dci*
-//#UC START# *48BD1ABE023Dcit*
-//#UC END# *48BD1ABE023Dcit*
- _afwToolOwner_ = {mixin} class(_afwToolOwner_Parent_, Il3ToolOwner)
- private
- // private fields
-   f_Tools : Tl3LongintList;
- protected
- // realized methods
-   procedure AddTool(const aTool: Il3Tool);
-     {* Добавить инструмент. }
-   procedure RemoveTool(const aTool: Il3Tool);
-     {* Удалить инструмент. }
- protected
- // protected methods
+
+ //#UC START# *48BD1ABE023Dci*
+ //#UC END# *48BD1ABE023Dci*
+ //#UC START# *48BD1ABE023Dcit*
+ //#UC END# *48BD1ABE023Dcit*
+ _afwToolOwner_ = class(_afwToolOwner_Parent_, Il3ToolOwner)
+  private
+   f_Tools: Tl3LongintList;
+  protected
    procedure Cleanup; override;
-//#UC START# *48BD1ABE023Dpubl*
+   procedure AddTool(const aTool: Il3Tool);
+    {* Добавить инструмент. }
+   procedure RemoveTool(const aTool: Il3Tool);
+    {* Удалить инструмент. }
+ //#UC START# *48BD1ABE023Dpubl*
     protected
     // internal methods
       {$IfDef DesignTimeLibrary}
       function CheckStamp(const aGUID: TGUID): Boolean;
         {-}
       {$EndIf DesignTimeLibrary}
-//#UC END# *48BD1ABE023Dpubl*
+ //#UC END# *48BD1ABE023Dpubl*
  end;//_afwToolOwner_
 
 {$Else afwToolOwner_imp}
 
-// start class _afwToolOwner_
+{$IfNDef afwToolOwner_imp_impl}
+
+{$Define afwToolOwner_imp_impl}
 
 procedure _afwToolOwner_.Cleanup;
 //#UC START# *48BD1B31032C_48BD1ABE023D_var*
@@ -61,6 +51,7 @@ begin
 end;//_afwToolOwner_.Cleanup
 
 procedure _afwToolOwner_.AddTool(const aTool: Il3Tool);
+ {* Добавить инструмент. }
 //#UC START# *46A5D45903CC_48BD1ABE023D_var*
 //#UC END# *46A5D45903CC_48BD1ABE023D_var*
 begin
@@ -72,6 +63,7 @@ begin
 end;//_afwToolOwner_.AddTool
 
 procedure _afwToolOwner_.RemoveTool(const aTool: Il3Tool);
+ {* Удалить инструмент. }
 //#UC START# *46A5D47201FC_48BD1ABE023D_var*
 //#UC END# *46A5D47201FC_48BD1ABE023D_var*
 begin
@@ -91,4 +83,7 @@ end;
 {$EndIf DesignTimeLibrary}
 //#UC END# *48BD1ABE023Dimpl*
 
+{$EndIf afwToolOwner_imp_impl}
+
 {$EndIf afwToolOwner_imp}
+

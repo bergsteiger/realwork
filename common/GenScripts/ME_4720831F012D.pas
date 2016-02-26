@@ -41,8 +41,6 @@ type
  Tm3DocPartSet = set of Tm3DocPartSelector;
   {* Множество потоков документа. }
 
- // m3_AllDocParts
-
  Tm3DBDocumentInfo = record
   {* Информация о документе. }
   rIndexID: Integer;
@@ -271,6 +269,10 @@ type
  Tm3FilesProcessedEx = procedure(anID: Integer;
   aMaxID: Integer;
   aTime: TDateTime) of object;
+
+const
+ {* Все потоки документа. }
+ m3_AllDocParts = [Low(Tm3DocPartSelector) .. High(Tm3DocPartSelector)];
 
 function Tm3DBDocumentInfo_C(aIndexID: Integer): Tm3DBDocumentInfo;
 function Tm3DBStreamIndex_C(anID: Integer;

@@ -1,25 +1,29 @@
 {$IfNDef nsAbstractSettingsPrim_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Модуль: "w:/common/components/gui/Garant/AFW/nsAbstractSettingsPrim.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::AFW::afwSettings::nsAbstractSettingsPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\AFW\nsAbstractSettingsPrim.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define nsAbstractSettingsPrim_imp}
- _nsAbstractSettingsPrim_ = {abstract mixin} class(_nsAbstractSettingsPrim_Parent_)
- private
- // private fields
-   f_Settings : _SettingsClass_;
-    {* Поле для свойства Settings}
- public
- // realized methods
+
+ _nsAbstractSettingsPrim_ = {abstract} class(_nsAbstractSettingsPrim_Parent_)
+  private
+   f_Settings: _SettingsClass_;
+    {* Поле для свойства Settings }
+  protected
+   procedure NotifySettingChanged(const aSettingID: TafwSettingId); virtual;
+   function TryToRestore(const aSettingID: TafwSettingId): Boolean; virtual;
+   procedure DoSaveParam(const aTarget: _SettingsClass_;
+    const aSettingId: TafwSettingId;
+    aType: byte;
+    const aValue;
+    const aDefault;
+    aSetAsDefault: Boolean); virtual;
+   procedure DoSetAsDefault(const aTarget: _SettingsClass_;
+    const aSettingId: TafwSettingId); virtual;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
+   constructor Create(const aSettings: _SettingsClass_); reintroduce;
    function LoadInteger(const aSettingId: TafwSettingId;
     aDefault: Integer = 0;
     aRestoreDefault: Boolean = False): Integer;
@@ -39,7 +43,7 @@
     aValue: Integer;
     aDefault: Integer = 0;
     aSetAsDefault: Boolean = False);
-     {* aValue - текущее значение, aDefault - значение по умолчанию, устанавливается для восстанвления настроек. }
+    {* aValue - текущее значение, aDefault - значение по умолчанию, устанавливается для восстанвления настроек. }
    procedure SaveParam(const aSettingId: TafwSettingId;
     aType: byte;
     const aValue;
@@ -57,35 +61,17 @@
    procedure SaveStrings(const aSettingId: TafwSettingId;
     const aValue: IafwStrings;
     aSetAsDefault: Boolean = False);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected methods
-   procedure NotifySettingChanged(const aSettingID: TafwSettingId); virtual;
-   function TryToRestore(const aSettingID: TafwSettingId): Boolean; virtual;
-   procedure DoSaveParam(const aTarget: _SettingsClass_;
-    const aSettingId: TafwSettingId;
-    aType: byte;
-    const aValue;
-    const aDefault;
-    aSetAsDefault: Boolean); virtual;
-   procedure DoSetAsDefault(const aTarget: _SettingsClass_;
-    const aSettingId: TafwSettingId); virtual;
- public
- // public methods
-   constructor Create(const aSettings: _SettingsClass_); reintroduce;
- public
- // public properties
+  public
    property Settings: _SettingsClass_
-     read f_Settings
-     write f_Settings;
+    read f_Settings
+    write f_Settings;
  end;//_nsAbstractSettingsPrim_
 
 {$Else nsAbstractSettingsPrim_imp}
 
-// start class _nsAbstractSettingsPrim_
+{$IfNDef nsAbstractSettingsPrim_imp_impl}
+
+{$Define nsAbstractSettingsPrim_imp_impl}
 
 constructor _nsAbstractSettingsPrim_.Create(const aSettings: _SettingsClass_);
 //#UC START# *4AD5913102A1_4AD58B6C0289_var*
@@ -116,11 +102,11 @@ begin
 end;//_nsAbstractSettingsPrim_.TryToRestore
 
 procedure _nsAbstractSettingsPrim_.DoSaveParam(const aTarget: _SettingsClass_;
-  const aSettingId: TafwSettingId;
-  aType: byte;
-  const aValue;
-  const aDefault;
-  aSetAsDefault: Boolean);
+ const aSettingId: TafwSettingId;
+ aType: byte;
+ const aValue;
+ const aDefault;
+ aSetAsDefault: Boolean);
 //#UC START# *4AD59C2C027D_4AD58B6C0289_var*
 
  procedure PutDouble(const aValue : Double);
@@ -174,7 +160,7 @@ begin
 end;//_nsAbstractSettingsPrim_.DoSaveParam
 
 procedure _nsAbstractSettingsPrim_.DoSetAsDefault(const aTarget: _SettingsClass_;
-  const aSettingId: TafwSettingId);
+ const aSettingId: TafwSettingId);
 //#UC START# *4AD5AA940324_4AD58B6C0289_var*
 //#UC END# *4AD5AA940324_4AD58B6C0289_var*
 begin
@@ -184,8 +170,8 @@ begin
 end;//_nsAbstractSettingsPrim_.DoSetAsDefault
 
 function _nsAbstractSettingsPrim_.LoadInteger(const aSettingId: TafwSettingId;
-  aDefault: Integer = 0;
-  aRestoreDefault: Boolean = False): Integer;
+ aDefault: Integer = 0;
+ aRestoreDefault: Boolean = False): Integer;
 //#UC START# *4AD59EBE0044_4AD58B6C0289_var*
 //#UC END# *4AD59EBE0044_4AD58B6C0289_var*
 begin
@@ -195,10 +181,10 @@ begin
 end;//_nsAbstractSettingsPrim_.LoadInteger
 
 function _nsAbstractSettingsPrim_.LoadParam(const aSettingId: TafwSettingId;
-  aType: byte;
-  out aValue;
-  const aDefault;
-  aRestoreDefault: Boolean): Boolean;
+ aType: byte;
+ out aValue;
+ const aDefault;
+ aRestoreDefault: Boolean): Boolean;
 //#UC START# *4AD59EC20349_4AD58B6C0289_var*
 var
  l_Int      : Integer;
@@ -304,8 +290,8 @@ begin
 end;//_nsAbstractSettingsPrim_.LoadParam
 
 function _nsAbstractSettingsPrim_.LoadString(const aSettingId: TafwSettingId;
-  const aDefault: AnsiString = '';
-  aRestoreDefault: Boolean = False): IafwCString;
+ const aDefault: AnsiString = '';
+ aRestoreDefault: Boolean = False): IafwCString;
 //#UC START# *4AD59EC6017E_4AD58B6C0289_var*
 //#UC END# *4AD59EC6017E_4AD58B6C0289_var*
 begin
@@ -315,9 +301,9 @@ begin
 end;//_nsAbstractSettingsPrim_.LoadString
 
 procedure _nsAbstractSettingsPrim_.SaveBoolean(const aSettingId: TafwSettingId;
-  aValue: Boolean;
-  aDefault: Boolean = False;
-  aSetAsDefault: Boolean = False);
+ aValue: Boolean;
+ aDefault: Boolean = False;
+ aSetAsDefault: Boolean = False);
 //#UC START# *4AD59ECB0232_4AD58B6C0289_var*
 //#UC END# *4AD59ECB0232_4AD58B6C0289_var*
 begin
@@ -327,9 +313,10 @@ begin
 end;//_nsAbstractSettingsPrim_.SaveBoolean
 
 procedure _nsAbstractSettingsPrim_.SaveInteger(const aSettingId: TafwSettingId;
-  aValue: Integer;
-  aDefault: Integer = 0;
-  aSetAsDefault: Boolean = False);
+ aValue: Integer;
+ aDefault: Integer = 0;
+ aSetAsDefault: Boolean = False);
+ {* aValue - текущее значение, aDefault - значение по умолчанию, устанавливается для восстанвления настроек. }
 //#UC START# *4AD59ED10331_4AD58B6C0289_var*
 //#UC END# *4AD59ED10331_4AD58B6C0289_var*
 begin
@@ -339,10 +326,10 @@ begin
 end;//_nsAbstractSettingsPrim_.SaveInteger
 
 procedure _nsAbstractSettingsPrim_.SaveParam(const aSettingId: TafwSettingId;
-  aType: byte;
-  const aValue;
-  const aDefault;
-  aSetAsDefault: Boolean);
+ aType: byte;
+ const aValue;
+ const aDefault;
+ aSetAsDefault: Boolean);
 //#UC START# *4AD59ED60126_4AD58B6C0289_var*
 //#UC END# *4AD59ED60126_4AD58B6C0289_var*
 begin
@@ -355,9 +342,9 @@ begin
 end;//_nsAbstractSettingsPrim_.SaveParam
 
 procedure _nsAbstractSettingsPrim_.SaveString(const aSettingId: TafwSettingId;
-  const aValue: IafwCString;
-  const aDefault: AnsiString = '';
-  aSetAsDefault: Boolean = False);
+ const aValue: IafwCString;
+ const aDefault: AnsiString = '';
+ aSetAsDefault: Boolean = False);
 //#UC START# *4AD59EDD0244_4AD58B6C0289_var*
 //#UC END# *4AD59EDD0244_4AD58B6C0289_var*
 begin
@@ -367,8 +354,8 @@ begin
 end;//_nsAbstractSettingsPrim_.SaveString
 
 function _nsAbstractSettingsPrim_.LoadBoolean(const aSettingId: TafwSettingId;
-  aDefault: Boolean = False;
-  aRestoreDefault: Boolean = False): Boolean;
+ aDefault: Boolean = False;
+ aRestoreDefault: Boolean = False): Boolean;
 //#UC START# *4AD5A017034A_4AD58B6C0289_var*
 //#UC END# *4AD5A017034A_4AD58B6C0289_var*
 begin
@@ -378,7 +365,7 @@ begin
 end;//_nsAbstractSettingsPrim_.LoadBoolean
 
 function _nsAbstractSettingsPrim_.LoadStrings(const aSettingId: TafwSettingId;
-  aRestoreDefault: Boolean = False): IafwStrings;
+ aRestoreDefault: Boolean = False): IafwStrings;
 //#UC START# *4AD83CCF036F_4AD58B6C0289_var*
 var
  l_Delim: Il3CString;
@@ -403,8 +390,8 @@ begin
 end;//_nsAbstractSettingsPrim_.LoadStrings
 
 procedure _nsAbstractSettingsPrim_.SaveStrings(const aSettingId: TafwSettingId;
-  const aValue: IafwStrings;
-  aSetAsDefault: Boolean = False);
+ const aValue: IafwStrings;
+ aSetAsDefault: Boolean = False);
 //#UC START# *4AD83CD703C0_4AD58B6C0289_var*
 var
  l_Value: IafwCString;
@@ -424,6 +411,7 @@ begin
 end;//_nsAbstractSettingsPrim_.SaveStrings
 
 procedure _nsAbstractSettingsPrim_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4AD58B6C0289_var*
 //#UC END# *479731C50290_4AD58B6C0289_var*
 begin
@@ -433,4 +421,7 @@ begin
 //#UC END# *479731C50290_4AD58B6C0289_impl*
 end;//_nsAbstractSettingsPrim_.Cleanup
 
+{$EndIf nsAbstractSettingsPrim_imp_impl}
+
 {$EndIf nsAbstractSettingsPrim_imp}
+

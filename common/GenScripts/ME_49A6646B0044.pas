@@ -24,10 +24,6 @@ type
  Tk2StorePropertyFlags = set of Tk2StorePropertyFlag;
   {* Режимы сохранения типов тегов. }
 
- // l3_spfAll
-
- // l3_spfInner
-
  Tk2AssignMode = (
   {* Режим копирования спецзначений тегов. }
   k2_amNull
@@ -37,7 +33,13 @@ type
  Tk2AssignModes = set of Tk2AssignMode;
   {* Режимы копирования спецзначений тегов. }
 
- // k2_amAll
+const
+ {* режим сохранения всех типов тегов. }
+ l3_spfAll = [Low(Tk2StorePropertyFlag) .. High(Tk2StorePropertyFlag)];
+ {* режим сохранения всех вложенных тегов целиком. }
+ l3_spfInner = l3_spfAll;
+ {* режим копирования всех значений тегов. }
+ k2_amAll = [Low(Tk2AssignMode) .. High(Tk2AssignMode)];
 
 implementation
 

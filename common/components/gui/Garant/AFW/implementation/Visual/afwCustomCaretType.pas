@@ -1,89 +1,75 @@
 unit afwCustomCaretType;
+ {* Тип формы каретки. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/AFW/implementation/Visual/afwCustomCaretType.pas"
-// Начат: 09.12.1998 16:25
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::AFW::Visual::TafwCustomCaretType
-//
-// Тип формы каретки.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwCustomCaretType.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  l3_Base,
-  Classes,
-  Graphics
-  ;
+ l3IntfUses
+ , l3_Base
+ , Classes
+ , Graphics
+;
 
 type
  TafwCaretShape = (
   {* Форма каретки. }
-   csBlock // block over whole cell
- , csHalfBlock // block over bottom part of cell
- , csVertLine // vertical line to left of cell
- , csHorzLine // horizontal line on bottom of cell
- , csCustom // custom width/height
- , csBitmap // bitmap caret, custom width/height
+  csBlock
+   {* block over whole cell }
+  , csHalfBlock
+   {* block over bottom part of cell }
+  , csVertLine
+   {* vertical line to left of cell }
+  , csHorzLine
+   {* horizontal line on bottom of cell }
+  , csCustom
+   {* custom width/height }
+  , csBitmap
+   {* bitmap caret, custom width/height }
  );//TafwCaretShape
 
  TafwCaretAlign = (
   {* Выравнивание каретки. }
-   caLeft // left side, centered vertically
- , caTop // top side, centered horizontally
- , caRight // right side, centered vertically
- , caBottom // bottom side, centered horizontally
- , caCenter // centered vertically and horizontally
+  caLeft
+   {* left side, centered vertically }
+  , caTop
+   {* top side, centered horizontally }
+  , caRight
+   {* right side, centered vertically }
+  , caBottom
+   {* bottom side, centered horizontally }
+  , caCenter
+   {* centered vertically and horizontally }
  );//TafwCaretAlign
 
-const
-  { Defaults }
- DefAlign = caLeft;
- DefBlinkTime = 0;
- DefCaretWd = 2;
- DefCaretHt = 10;
- DefIsGray = False;
- DefShape = csVertLine;
-
-type
  TafwCustomCaretType = class(Tl3_Base)
   {* Тип формы каретки. }
- private
- // private fields
-   f_OnChange : TNotifyEvent;
-    {* Поле для свойства OnChange}
-   f_Shape : TafwCaretShape;
-    {* Поле для свойства Shape}
-   f_Bitmap : TBitmap;
-    {* Поле для свойства Bitmap}
-   f_BitmapHotSpotX : Integer;
-    {* Поле для свойства BitmapHotSpotX}
-   f_BitmapHotSpotY : Integer;
-    {* Поле для свойства BitmapHotSpotY}
-   f_Align : TafwCaretAlign;
-    {* Поле для свойства Align}
-   f_BlinkTime : Word;
-    {* Поле для свойства BlinkTime}
-   f_CaretHeight : Integer;
-    {* Поле для свойства CaretHeight}
-   f_CaretWidth : Integer;
-    {* Поле для свойства CaretWidth}
-   f_IsGray : Boolean;
-    {* Поле для свойства IsGray}
- protected
- // property methods
+  private
+   f_OnChange: TNotifyEvent;
+    {* Поле для свойства OnChange }
+   f_Shape: TafwCaretShape;
+    {* Поле для свойства Shape }
+   f_Bitmap: TBitmap;
+    {* Поле для свойства Bitmap }
+   f_BitmapHotSpotX: Integer;
+    {* Поле для свойства BitmapHotSpotX }
+   f_BitmapHotSpotY: Integer;
+    {* Поле для свойства BitmapHotSpotY }
+   f_Align: TafwCaretAlign;
+    {* Поле для свойства Align }
+   f_BlinkTime: Word;
+    {* Поле для свойства BlinkTime }
+   f_CaretHeight: Integer;
+    {* Поле для свойства CaretHeight }
+   f_CaretWidth: Integer;
+    {* Поле для свойства CaretWidth }
+   f_IsGray: Boolean;
+    {* Поле для свойства IsGray }
+  protected
    procedure pm_SetShape(aValue: TafwCaretShape);
    procedure pm_SetBitmap(aValue: TBitmap);
    procedure pm_SetBitmapHotSpotX(aValue: Integer);
@@ -93,76 +79,77 @@ type
    procedure pm_SetCaretHeight(aValue: Integer);
    procedure pm_SetCaretWidth(aValue: Integer);
    procedure pm_SetIsGray(aValue: Boolean);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected methods
    procedure NotifyChange;
- public
- // public methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
    constructor Create; reintroduce; virtual;
- public
- // public properties
+  public
    property OnChange: TNotifyEvent
-     read f_OnChange
-     write f_OnChange;
-     {* нотификация об изменении параметров каретки. }
+    read f_OnChange
+    write f_OnChange;
+    {* нотификация об изменении параметров каретки. }
    property Shape: TafwCaretShape
-     read f_Shape
-     write pm_SetShape
-     default DefShape;
-     {* форма курсора. }
+    read f_Shape
+    write pm_SetShape
+    default DefShape;
+    {* форма курсора. }
    property Bitmap: TBitmap
-     read f_Bitmap
-     write pm_SetBitmap;
-     {* картинка курсора. }
+    read f_Bitmap
+    write pm_SetBitmap;
+    {* картинка курсора. }
    property BitmapHotSpotX: Integer
-     read f_BitmapHotSpotX
-     write pm_SetBitmapHotSpotX
-     default 0;
-     {* смещение каретки относительно картинки по оси X. }
+    read f_BitmapHotSpotX
+    write pm_SetBitmapHotSpotX
+    default 0;
+    {* смещение каретки относительно картинки по оси X. }
    property BitmapHotSpotY: Integer
-     read f_BitmapHotSpotY
-     write pm_SetBitmapHotSpotY
-     default 0;
-     {* смещение каретки относительно картинки по оси Y. }
+    read f_BitmapHotSpotY
+    write pm_SetBitmapHotSpotY
+    default 0;
+    {* смещение каретки относительно картинки по оси Y. }
    property Align: TafwCaretAlign
-     read f_Align
-     write pm_SetAlign
-     default DefAlign;
-     {* выравнивание курсора. }
+    read f_Align
+    write pm_SetAlign
+    default DefAlign;
+    {* выравнивание курсора. }
    property BlinkTime: Word
-     read f_BlinkTime
-     write pm_SetBlinkTime
-     default DefBlinkTime;
-     {* период мигания курсора (в милисекундах). }
+    read f_BlinkTime
+    write pm_SetBlinkTime
+    default DefBlinkTime;
+    {* период мигания курсора (в милисекундах). }
    property CaretHeight: Integer
-     read f_CaretHeight
-     write pm_SetCaretHeight
-     default DefCaretHt;
-     {* высота курсора. }
+    read f_CaretHeight
+    write pm_SetCaretHeight
+    default DefCaretHt;
+    {* высота курсора. }
    property CaretWidth: Integer
-     read f_CaretWidth
-     write pm_SetCaretWidth
-     default DefCaretWd;
-     {* ширина курсора. }
+    read f_CaretWidth
+    write pm_SetCaretWidth
+    default DefCaretWd;
+    {* ширина курсора. }
    property IsGray: Boolean
-     read f_IsGray
-     write pm_SetIsGray
-     default DefIsGray;
-     {* курсор серый? }
+    read f_IsGray
+    write pm_SetIsGray
+    default DefIsGray;
+    {* курсор серый? }
  end;//TafwCustomCaretType
+
+const
+ DefAlign = caLeft;
+ DefBlinkTime = 0;
+ DefCaretWd = 2;
+ DefCaretHt = 10;
+ DefIsGray = False;
+ DefShape = csVertLine;
 
 implementation
 
 uses
-  SysUtils,
-  l3Bitmap
-  ;
-
-// start class TafwCustomCaretType
+ l3ImplUses
+ , SysUtils
+ , l3Bitmap
+;
 
 procedure TafwCustomCaretType.pm_SetShape(aValue: TafwCaretShape);
 //#UC START# *480DC92503DD_480DC4B90226set_var*
@@ -330,6 +317,7 @@ begin
 end;//TafwCustomCaretType.NotifyChange
 
 procedure TafwCustomCaretType.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_480DC4B90226_var*
 //#UC END# *479731C50290_480DC4B90226_var*
 begin

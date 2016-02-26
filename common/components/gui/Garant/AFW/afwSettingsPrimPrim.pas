@@ -1,55 +1,48 @@
 unit afwSettingsPrimPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Модуль: "w:/common/components/gui/Garant/AFW/afwSettingsPrimPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::AFW::afwSettings::TafwSettingsPrimPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\AFW\afwSettingsPrimPrim.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\AFW\afwDefine.inc}
+{$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  afwInterfaces,
-  l3ProtoObject,
-  afwSettingsImplPrimPrim,
-  l3Interfaces
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , afwInterfaces
+ , afwSettingsImplPrimPrim
+ , l3Interfaces
+;
 
 type
  _SettingsClass_ = IafwSettingsImpl;
  _afwSettingsPrim_Parent_ = Tl3ProtoObject;
- {$Include ..\AFW\afwSettingsPrim.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\afwSettingsPrim.imp.pas}
  TafwSettingsPrimPrim = {abstract} class(_afwSettingsPrim_, IafwSettingsPrim)
- public
- // public methods
+  public
    constructor Create(const aSettingsImpl: IafwSettingsImpl); reintroduce;
    class function Make(const aSettingsImpl: IafwSettingsImpl): IafwSettingsPrim; reintroduce;
-     {* Сигнатура фабрики TafwSettingsPrimPrim.Make }
  end;//TafwSettingsPrimPrim
 
 implementation
 
 uses
-  l3String,
-  l3Base,
-  afwAString,
-  SysUtils,
-  l3VCLStrings
-  ;
+ l3ImplUses
+ , l3String
+ , l3Base
+ , afwAString
+ , SysUtils
+ , l3VCLStrings
+;
 
-{$Include ..\AFW\afwSettingsPrim.imp.pas}
+{$If not Declared(_IStringType_)}type _IStringType_ = Il3CString;{$IfEnd}
 
-// start class TafwSettingsPrimPrim
+{$If not Declared(_KeyType_)}type _KeyType_ = TafwSettingId;{$IfEnd}
+
+{$If not Declared(_BooleanType_)}type _BooleanType_ = Boolean;{$IfEnd}
+
+{$Include w:\common\components\gui\Garant\AFW\afwSettingsPrim.imp.pas}
 
 constructor TafwSettingsPrimPrim.Create(const aSettingsImpl: IafwSettingsImpl);
 //#UC START# *4F6C7E6802B0_4F6C6E6F00CA_var*
@@ -70,6 +63,6 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TafwSettingsPrimPrim.Make
 
 end.

@@ -57,43 +57,43 @@ type
 
  TafwMessagesService = {final} class(Tl3ProtoObject, Il3MessagesService)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    procedure ProcessMessages;
    class function Instance: TafwMessagesService;
     {* Метод получения экземпляра синглетона TafwMessagesService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TafwMessagesService
 
  {$If NOT Defined(NoVCL)}
  TafwFormsService = {final} class(Tl3ProtoObject, Il3FormsService)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function GetAnotherParentForm(Component: TPersistent): TCustomForm;
    function GetMainForm(Component: TPersistent): TCustomForm;
    function GetParentForm(Component: TPersistent): TCustomForm;
    function GetTopParentForm(Component: TPersistent): TCustomForm;
    class function Instance: TafwFormsService;
     {* Метод получения экземпляра синглетона TafwFormsService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TafwFormsService
  {$IfEnd} // NOT Defined(NoVCL)
 
  TafwKeyboardLayoutService = {final} class(Tl3ProtoObject, Il3KeyboardLayoutService)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    procedure TryActivateKeyboardLayout;
    class function Instance: TafwKeyboardLayoutService;
     {* Метод получения экземпляра синглетона TafwKeyboardLayoutService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TafwKeyboardLayoutService
 
  TafwTabService = {final} class(Tl3ProtoObject, Il3TabService)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function HasTabs: Boolean;
    class function Instance: TafwTabService;
     {* Метод получения экземпляра синглетона TafwTabService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TafwTabService
 
  Tafw = class
@@ -208,12 +208,6 @@ begin
  l3Free(g_TafwTabService);
 end;//TafwTabServiceFree
 
-class function TafwMessagesService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TafwMessagesService <> nil;
-end;//TafwMessagesService.Exists
-
 procedure TafwMessagesService.ProcessMessages;
 //#UC START# *B6C92677BBF7_5506D47E01D2_var*
 //#UC END# *B6C92677BBF7_5506D47E01D2_var*
@@ -234,13 +228,13 @@ begin
  Result := g_TafwMessagesService;
 end;//TafwMessagesService.Instance
 
-{$If NOT Defined(NoVCL)}
-class function TafwFormsService.Exists: Boolean;
+class function TafwMessagesService.Exists: Boolean;
  {* Проверяет создан экземпляр синглетона или нет }
 begin
- Result := g_TafwFormsService <> nil;
-end;//TafwFormsService.Exists
+ Result := g_TafwMessagesService <> nil;
+end;//TafwMessagesService.Exists
 
+{$If NOT Defined(NoVCL)}
 function TafwFormsService.GetAnotherParentForm(Component: TPersistent): TCustomForm;
 //#UC START# *1077E9580F6F_5506D5FB0019_var*
 //#UC END# *1077E9580F6F_5506D5FB0019_var*
@@ -287,13 +281,13 @@ begin
  end;
  Result := g_TafwFormsService;
 end;//TafwFormsService.Instance
-{$IfEnd} // NOT Defined(NoVCL)
 
-class function TafwKeyboardLayoutService.Exists: Boolean;
+class function TafwFormsService.Exists: Boolean;
  {* Проверяет создан экземпляр синглетона или нет }
 begin
- Result := g_TafwKeyboardLayoutService <> nil;
-end;//TafwKeyboardLayoutService.Exists
+ Result := g_TafwFormsService <> nil;
+end;//TafwFormsService.Exists
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TafwKeyboardLayoutService.TryActivateKeyboardLayout;
 //#UC START# *747558CBA739_55099AE90101_var*
@@ -315,11 +309,11 @@ begin
  Result := g_TafwKeyboardLayoutService;
 end;//TafwKeyboardLayoutService.Instance
 
-class function TafwTabService.Exists: Boolean;
+class function TafwKeyboardLayoutService.Exists: Boolean;
  {* Проверяет создан экземпляр синглетона или нет }
 begin
- Result := g_TafwTabService <> nil;
-end;//TafwTabService.Exists
+ Result := g_TafwKeyboardLayoutService <> nil;
+end;//TafwKeyboardLayoutService.Exists
 
 function TafwTabService.HasTabs: Boolean;
 //#UC START# *A8AF111E1F35_550AE9D40363_var*
@@ -343,6 +337,12 @@ begin
  end;
  Result := g_TafwTabService;
 end;//TafwTabService.Instance
+
+class function TafwTabService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TafwTabService <> nil;
+end;//TafwTabService.Exists
 
 {$If NOT Defined(DesignTimeLibrary) AND NOT Defined(NoVCL)}
 class function Tafw.NeedFixWMSIZE(aControl: TWinControl): Boolean;

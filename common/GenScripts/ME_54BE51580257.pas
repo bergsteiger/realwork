@@ -13,7 +13,6 @@ uses
  {$If Defined(k2ForEditor)}
  , evDocument_InterfaceFactory
  {$IfEnd} // Defined(k2ForEditor)
- , Document
  , l3Variant
  , l3IID
  , k2ToolPrim

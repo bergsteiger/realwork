@@ -10,7 +10,6 @@ interface
 {$If Defined(Nemesis)}
 uses
  l3IntfUses
- , evTextStyle_Const
  , evdTypes
  , evdTextStyle_Const
  , evdStyles

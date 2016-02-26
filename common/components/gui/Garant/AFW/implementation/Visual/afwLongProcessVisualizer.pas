@@ -1,68 +1,55 @@
 unit afwLongProcessVisualizer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Модуль: "w:/common/components/gui/Garant/AFW/implementation/Visual/afwLongProcessVisualizer.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::AFW::Visual::TafwLongProcessVisualizer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwLongProcessVisualizer.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  afwInterfaces,
-  l3AsincMessageWindow,
-  l3ProtoObject
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , afwInterfaces
+ , l3AsincMessageWindow
+;
 
 type
  TafwLongProcessVisualizer = class(Tl3ProtoObject, IafwLongProcessVisualizer)
- private
- // private fields
-   f_Wnd : Tl3AsincMessageWindow;
-    {* Собственно окно с сообщением.}
- protected
- // overridden protected methods
+  private
+   f_Wnd: Tl3AsincMessageWindow;
+    {* Собственно окно с сообщением. }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aCaption: IafwCString;
     anAttachWnd: THandle = 0;
     anInitialTimeout: Cardinal = afw_lpwTimeout;
     anImageList: TafwCustomImageList = nil;
     anImageIndex: Integer = -1); reintroduce;
-     {* Создает экземпляр класса. }
+    {* Создает экземпляр класса. }
    class function Make(const aCaption: IafwCString;
     anAttachWnd: THandle = 0;
     anInitialTimeout: Cardinal = afw_lpwTimeout;
     anImageList: TafwCustomImageList = nil;
     anImageIndex: Integer = -1): IafwLongProcessVisualizer; reintroduce;
-     {* Создает экземпляр класса в виде интерфейса IafwLongProcessVisualizer. }
+    {* Создает экземпляр класса в виде интерфейса IafwLongProcessVisualizer. }
  end;//TafwLongProcessVisualizer
 
 implementation
 
 uses
-  SysUtils
-  ;
-
-// start class TafwLongProcessVisualizer
+ l3ImplUses
+ , SysUtils
+;
 
 constructor TafwLongProcessVisualizer.Create(const aCaption: IafwCString;
-  anAttachWnd: THandle = 0;
-  anInitialTimeout: Cardinal = afw_lpwTimeout;
-  anImageList: TafwCustomImageList = nil;
-  anImageIndex: Integer = -1);
+ anAttachWnd: THandle = 0;
+ anInitialTimeout: Cardinal = afw_lpwTimeout;
+ anImageList: TafwCustomImageList = nil;
+ anImageIndex: Integer = -1);
+ {* Создает экземпляр класса. }
 //#UC START# *4787FEFF02E5_47877AB8026C_var*
 //#UC END# *4787FEFF02E5_47877AB8026C_var*
 begin
@@ -74,10 +61,11 @@ begin
 end;//TafwLongProcessVisualizer.Create
 
 class function TafwLongProcessVisualizer.Make(const aCaption: IafwCString;
-  anAttachWnd: THandle = 0;
-  anInitialTimeout: Cardinal = afw_lpwTimeout;
-  anImageList: TafwCustomImageList = nil;
-  anImageIndex: Integer = -1): IafwLongProcessVisualizer;
+ anAttachWnd: THandle = 0;
+ anInitialTimeout: Cardinal = afw_lpwTimeout;
+ anImageList: TafwCustomImageList = nil;
+ anImageIndex: Integer = -1): IafwLongProcessVisualizer;
+ {* Создает экземпляр класса в виде интерфейса IafwLongProcessVisualizer. }
 var
  l_Inst : TafwLongProcessVisualizer;
 begin
@@ -87,9 +75,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TafwLongProcessVisualizer.Make
 
 procedure TafwLongProcessVisualizer.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47877AB8026C_var*
 //#UC END# *479731C50290_47877AB8026C_var*
 begin

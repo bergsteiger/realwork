@@ -1,59 +1,43 @@
 unit afwSettingsChangePublisherPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Модуль: "w:/common/components/gui/Garant/AFW/afwSettingsChangePublisherPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::AFW::afwSettings::TafwSettingsChangePublisherPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\AFW\afwSettingsChangePublisherPrim.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\AFW\afwDefine.inc}
+{$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  afwInterfaces,
-  IafwSettingListenerPtrList,
-  IafwSettingsReplaceListenerPtrList,
-  l3ProtoObject
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , afwInterfaces
+ , IafwSettingListenerPtrList
+ , IafwSettingsReplaceListenerPtrList
+;
 
 type
  TafwSettingsChangePublisherPrim = class(Tl3ProtoObject)
- private
- // private fields
-   f_SettingListeners : TIafwSettingListenerPtrList;
-   f_ReplaceListeners : TIafwSettingsReplaceListenerPtrList;
- public
- // realized methods
-   procedure AddListener(const aListener: IafwSettingListener); overload; 
-   procedure RemoveListener(const aListener: IafwSettingListener); overload; 
-   procedure AddListener(const aListener: IafwSettingsReplaceListener); overload; 
-   procedure RemoveListener(const aListener: IafwSettingsReplaceListener); overload; 
- protected
- // overridden protected methods
+  private
+   f_SettingListeners: TIafwSettingListenerPtrList;
+   f_ReplaceListeners: TIafwSettingsReplaceListenerPtrList;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    procedure NotifySettingChanged(const aSettingID: TafwSettingId);
    procedure NotifyReplace(aStart: Boolean);
+   procedure AddListener(const aListener: IafwSettingListener); overload;
+   procedure RemoveListener(const aListener: IafwSettingListener); overload;
+   procedure AddListener(const aListener: IafwSettingsReplaceListener); overload;
+   procedure RemoveListener(const aListener: IafwSettingsReplaceListener); overload;
  end;//TafwSettingsChangePublisherPrim
 
 implementation
 
 uses
-  SysUtils
-  ;
-
-// start class TafwSettingsChangePublisherPrim
+ l3ImplUses
+ , SysUtils
+;
 
 procedure TafwSettingsChangePublisherPrim.NotifySettingChanged(const aSettingID: TafwSettingId);
 //#UC START# *524303770307_5242FDD303DF_var*
@@ -136,6 +120,7 @@ begin
 end;//TafwSettingsChangePublisherPrim.RemoveListener
 
 procedure TafwSettingsChangePublisherPrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5242FDD303DF_var*
 //#UC END# *479731C50290_5242FDD303DF_var*
 begin

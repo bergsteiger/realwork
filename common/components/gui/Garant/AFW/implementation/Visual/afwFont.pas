@@ -1,37 +1,23 @@
 unit afwFont;
 
-{$IfDef DesignTimeLibrary}
-{.$WEAKPACKAGEUNIT ON}
-{$EndIf DesignTimeLibrary}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/AFW/implementation/Visual/afwFont.pas"
-// Начат: 04.12.2006 18:52
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::AFW::Visual::afwFont
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwFont.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  afwInterfaces,
-  Graphics,
-  l3Interfaces,
-  l3PureMixIns
-  ;
+ l3IntfUses
+ , Graphics
+ , l3Interfaces
+ , afwInterfaces
+ , l3PureMixIns
+;
 
 type
+ RafwFont = class of TafwFont;
+
  _l3Castable_Parent_ = TFont;
  {$Include w:\common\components\rtl\Garant\L3\l3Castable.imp.pas}
  TafwCastableFont = class(_l3Castable_)
@@ -41,12 +27,10 @@ type
  _l3Unknown_Parent_ = TafwCastableFont;
  {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  TafwFontI = class(_l3Unknown_, IafwFont)
- private
- // private fields
-   f_BackColor : TafwColor;
-   f_Index : TafwFontIndex;
- protected
- // realized methods
+  private
+   f_BackColor: TafwColor;
+   f_Index: TafwFontIndex;
+  protected
    function Get_ForeColor: Tl3Color;
    procedure Set_ForeColor(aValue: Tl3Color);
    function Get_BackColor: Tl3Color;
@@ -70,25 +54,22 @@ type
    function Get_Strikeout: Boolean;
    procedure Set_Strikeout(aValue: Boolean);
    procedure Assign2Font(aFont: TFont);
- public
- // public methods
+  public
    constructor Create; reintroduce; virtual;
    class function Make: IafwFont; reintroduce;
  end;//TafwFontI
 
-//#UC START# *47E1233D01CDci*
-//#UC END# *47E1233D01CDci*
-//#UC START# *47E1233D01CDcit*
-//#UC END# *47E1233D01CDcit*
+ //#UC START# *47E1233D01CDci*
+ //#UC END# *47E1233D01CDci*
+ //#UC START# *47E1233D01CDcit*
+ //#UC END# *47E1233D01CDcit*
  TafwFont = class(TafwFontI)
- public
- // overridden public methods
-   constructor Create; override;
- protected
- // protected methods
+  protected
    function NameStored: Boolean;
    function HeightStored: Boolean;
-//#UC START# *47E1233D01CDpubl*
+  public
+   constructor Create; override;
+ //#UC START# *47E1233D01CDpubl*
  published
  // published propreties
    property Charset
@@ -109,33 +90,28 @@ type
    property Size
      stored false;
      {-}
-//#UC END# *47E1233D01CDpubl*
+ //#UC END# *47E1233D01CDpubl*
  end;//TafwFont
-
- RafwFont = class of TafwFont;
 
 implementation
 
 uses
-  SysUtils,
-  l3Base,
-  l3Core,
-  Windows,
-  Classes,
-  l3MemUtils,
-  l3Interlocked
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+ , l3Core
+ , Windows
+ , Classes
+ , l3MemUtils
+ , l3Interlocked
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Castable.imp.pas}
 
 {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
-
-// start class TafwFontI
 
 constructor TafwFontI.Create;
 //#UC START# *47E15C42028A_47E1231D0293_var*
@@ -157,7 +133,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TafwFontI.Make
 
 function TafwFontI.Get_ForeColor: Tl3Color;
 //#UC START# *46A610780340_47E1231D0293get_var*
@@ -378,7 +354,6 @@ begin
   aFont.Assign(Self);
 //#UC END# *473DAA0F01C7_47E1231D0293_impl*
 end;//TafwFontI.Assign2Font
-// start class TafwFont
 
 function TafwFont.NameStored: Boolean;
 //#UC START# *47E15C740102_47E1233D01CD_var*

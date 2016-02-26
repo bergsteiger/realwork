@@ -10,7 +10,6 @@ interface
 uses
  l3IntfUses
  , l3Variant
- , Task_Const
  , evdTaskTypes
  , Classes
  , k2Base
@@ -94,6 +93,7 @@ implementation
 uses
  l3ImplUses
  , csTaskListening
+ , Task_Const
  , SysUtils
  , evdNativeWriter
  , l3Filer

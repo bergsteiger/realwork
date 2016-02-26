@@ -10,7 +10,6 @@ interface
 uses
  l3IntfUses
  , evdTask_Wrap
- , ProcessTask_Const
 ;
 
 type

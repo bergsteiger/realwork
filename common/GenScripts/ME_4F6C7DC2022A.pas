@@ -17,10 +17,10 @@ type
   protected
    procedure InitFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TafwSettingsImplSing;
     {* Метод получения экземпляра синглетона TafwSettingsImplSing }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TafwSettingsImplSing
 
 implementation
@@ -40,12 +40,6 @@ begin
  l3Free(g_TafwSettingsImplSing);
 end;//TafwSettingsImplSingFree
 
-class function TafwSettingsImplSing.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TafwSettingsImplSing <> nil;
-end;//TafwSettingsImplSing.Exists
-
 class function TafwSettingsImplSing.Instance: TafwSettingsImplSing;
  {* Метод получения экземпляра синглетона TafwSettingsImplSing }
 begin
@@ -56,6 +50,12 @@ begin
  end;
  Result := g_TafwSettingsImplSing;
 end;//TafwSettingsImplSing.Instance
+
+class function TafwSettingsImplSing.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TafwSettingsImplSing <> nil;
+end;//TafwSettingsImplSing.Exists
 
 procedure TafwSettingsImplSing.InitFields;
 //#UC START# *47A042E100E2_4F6C7DC2022A_var*

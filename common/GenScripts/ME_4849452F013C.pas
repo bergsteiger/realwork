@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , Enumeration_Wrap
- , k2Bool_Const
 ;
 
 type

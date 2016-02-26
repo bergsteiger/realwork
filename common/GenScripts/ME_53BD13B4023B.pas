@@ -11,12 +11,10 @@ uses
  l3IntfUses
  , l3LongintList
  , l3Interfaces
- , Address_Const
  , Classes
  , l3ProtoObject
  , l3Variant
  , k2SizedMemoryPool
- , TaskID_Const
 ;
 
  (*
@@ -199,8 +197,10 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ , Address_Const
  , k2Tags
  , l3InterfacedIntegerList
+ , TaskID_Const
 ;
 
 constructor TevdTagHelper.Create(aValue: Tl3Tag);

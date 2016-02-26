@@ -10,7 +10,6 @@ interface
 uses
  l3IntfUses
  , k2Base
- , k2Object_Const
 ;
 
 type

@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , k2OList_Const
- , ObjectWithHandle_Const
  , Sub_Const
  , evdTypes
 ;

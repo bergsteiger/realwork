@@ -1,44 +1,29 @@
 unit afwVirtualCaret;
+ {* Виртуальная каретка. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/AFW/implementation/Visual/afwVirtualCaret.pas"
-// Начат: 26.02.2006 13:49
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::AFW::Draw::TafwVirtualCaret
-//
-// Виртуальная каретка.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwVirtualCaret.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  l3CacheableBase,
-  afwInterfaces,
-  Types,
-  l3Interfaces
-  ;
+ l3IntfUses
+ , l3CacheableBase
+ , afwInterfaces
+ , Types
+ , l3Interfaces
+;
 
 type
  TafwVirtualCaret = class(Tl3CacheableBase, IafwCaret, IafwScrollCaret)
   {* Виртуальная каретка. }
- private
- // private fields
-   f_Extent : TafwSPoint;
-   f_CaretPos : TafwSPoint;
-   f_CaretExt : TPoint;
- protected
- // realized methods
+  private
+   f_Extent: TafwSPoint;
+   f_CaretPos: TafwSPoint;
+   f_CaretExt: TPoint;
+  protected
    function CheckHidden: Boolean;
    function CanHide: Boolean;
    procedure Set_Extent(const aValue: TPoint);
@@ -50,20 +35,17 @@ type
    function IsOnScreen: Boolean;
    procedure Scroll(const aOfs: Tl3_SPoint);
    procedure Reset;
- public
- // public methods
+  public
    constructor Create(const anExtent: TafwSPoint); reintroduce;
    class function Make(const anExtent: TafwSPoint): IafwScrollCaret; reintroduce;
-     {* Сигнатура фабрики TafwVirtualCaret.Make }
  end;//TafwVirtualCaret
 
 implementation
 
 uses
-  l3Units
-  ;
-
-// start class TafwVirtualCaret
+ l3ImplUses
+ , l3Units
+;
 
 constructor TafwVirtualCaret.Create(const anExtent: TafwSPoint);
 //#UC START# *4CC69A8B0337_474154CE0081_var*
@@ -86,7 +68,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TafwVirtualCaret.Make
 
 function TafwVirtualCaret.CheckHidden: Boolean;
 //#UC START# *4728CC9400ED_474154CE0081_var*

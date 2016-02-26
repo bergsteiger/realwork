@@ -1,59 +1,47 @@
 unit afwSettingsImplSing;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Модуль: "w:/common/components/gui/Garant/AFW/afwSettingsImplSing.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::AFW::afwSettings::TafwSettingsImplSing
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\AFW\afwSettingsImplSing.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\AFW\afwDefine.inc}
+{$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  afwSettingsImplPersistent
-  ;
+ l3IntfUses
+ , afwSettingsImplPersistent
+;
 
 type
  TafwSettingsImplSing = class(TafwSettingsImplPersistent)
- protected
- // overridden protected methods
+  protected
    procedure InitFields; override;
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+  public
    class function Instance: TafwSettingsImplSing;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TafwSettingsImplSing }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TafwSettingsImplSing
 
 implementation
 
 uses
-  l3Base {a}
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-
-// start class TafwSettingsImplSing
-
-var g_TafwSettingsImplSing : TafwSettingsImplSing = nil;
+var g_TafwSettingsImplSing: TafwSettingsImplSing = nil;
+ {* Экземпляр синглетона TafwSettingsImplSing }
 
 procedure TafwSettingsImplSingFree;
+ {* Метод освобождения экземпляра синглетона TafwSettingsImplSing }
 begin
  l3Free(g_TafwSettingsImplSing);
-end;
+end;//TafwSettingsImplSingFree
 
 class function TafwSettingsImplSing.Instance: TafwSettingsImplSing;
+ {* Метод получения экземпляра синглетона TafwSettingsImplSing }
 begin
  if (g_TafwSettingsImplSing = nil) then
  begin
@@ -61,11 +49,10 @@ begin
   g_TafwSettingsImplSing := Create;
  end;
  Result := g_TafwSettingsImplSing;
-end;
-
+end;//TafwSettingsImplSing.Instance
 
 class function TafwSettingsImplSing.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TafwSettingsImplSing <> nil;
 end;//TafwSettingsImplSing.Exists

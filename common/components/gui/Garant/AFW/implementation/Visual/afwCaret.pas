@@ -1,38 +1,24 @@
 unit afwCaret;
+ {* Пара кареток (для окончательного использования). }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/AFW/implementation/Visual/afwCaret.pas"
-// Начат: 09.12.1998 16:25
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::AFW::Visual::TafwCaret
-//
-// Пара кареток (для окончательного использования).
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwCaret.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  afwInterfaces,
-  afwCaretPair,
-  l3Interfaces
-  ;
+ l3IntfUses
+ , afwCaretPair
+ , afwInterfaces
+ , l3Interfaces
+;
 
 type
  TafwCaret = class(TafwCaretPair, IafwCaret)
   {* Пара кареток (для окончательного использования). }
- protected
- // realized methods
+  protected
    procedure Set_Extent(const aValue: TPoint);
    function Get_Position: Tl3_SPoint;
    procedure Set_Position(const aValue: Tl3_SPoint);
@@ -42,10 +28,9 @@ type
 implementation
 
 uses
-  l3Units
-  ;
-
-// start class TafwCaret
+ l3ImplUses
+ , l3Units
+;
 
 procedure TafwCaret.Set_Extent(const aValue: TPoint);
 //#UC START# *4728CCBC023F_480DDF270394set_var*

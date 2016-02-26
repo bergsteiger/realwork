@@ -1,44 +1,31 @@
 unit afwTypedIntegerValueMap;
+ {* реализация мапы "строка"-"число" для чистой замены array [TSomeType] of string. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Модуль: "w:/common/components/gui/Garant/AFW/implementation/afwTypedIntegerValueMap.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::AFW::Standard::afwTypedIntegerValueMap
-//
-// реализация мапы "строка"-"число" для чистой замены array [TSomeType] of string.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\AFW\implementation\afwTypedIntegerValueMap.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  afwInterfaces,
-  l3TypedIntegerValueMap
-  ;
+ l3IntfUses
+ , l3TypedIntegerValueMap
+ , afwInterfaces
+;
 
 type
  TafwSimpleTypedIntegerValueMap = class(Tl3SimpleTypedIntegerValueMap, IafwStringsSource)
- protected
- // realized methods
+  protected
    procedure FillStrings(const aStrings: IafwStrings);
  end;//TafwSimpleTypedIntegerValueMap
 
 implementation
 
 uses
-  l3Base
-  ;
-
-// start class TafwSimpleTypedIntegerValueMap
+ l3ImplUses
+ , l3Base
+;
 
 procedure TafwSimpleTypedIntegerValueMap.FillStrings(const aStrings: IafwStrings);
 //#UC START# *473D93290004_478E31250074_var*

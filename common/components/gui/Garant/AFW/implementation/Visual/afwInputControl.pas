@@ -1,71 +1,50 @@
 unit afwInputControl;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/AFW/implementation/Visual/afwInputControl.pas"
-// Начат: 28.09.1999 10:18
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::AFW::afwControl::TafwInputControl
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwInputControl.pas"
+// Стереотип: "GuiControl"
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  afwControl,
-  l3InternalInterfaces,
-  l3Units,
-  Classes,
-  Messages
-  ;
+ l3IntfUses
+ , afwControl
+ , l3InternalInterfaces
+ , l3Units
+ , l3Interfaces
+ , Classes
+ , Messages
+;
 
 type
  TafwInputControl = class(TafwControl)
- protected
- // overridden protected methods
-   {$If not defined(NoVCL)}
-   procedure WndProc(var Message: TMessage); override;
-   {$IfEnd} //not NoVCL
- protected
- // protected methods
+  protected
    function MouseAction(const aPt: Tl3Point;
     aButton: Tl3MouseButton;
     anAction: Tl3MouseAction;
     aKeys: TShiftState): Tl3MouseResult; virtual;
+   {$If NOT Defined(NoVCL)}
+   procedure WndProc(var Message: TMessage); override;
+   {$IfEnd} // NOT Defined(NoVCL)
  end;//TafwInputControl
 
 implementation
 
 uses
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TafwInputControl
+ l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 function TafwInputControl.MouseAction(const aPt: Tl3Point;
-  aButton: Tl3MouseButton;
-  anAction: Tl3MouseAction;
-  aKeys: TShiftState): Tl3MouseResult;
+ aButton: Tl3MouseButton;
+ anAction: Tl3MouseAction;
+ aKeys: TShiftState): Tl3MouseResult;
 //#UC START# *47E138F90081_47E1382301A5_var*
 //#UC END# *47E138F90081_47E1382301A5_var*
 begin
@@ -74,7 +53,7 @@ begin
 //#UC END# *47E138F90081_47E1382301A5_impl*
 end;//TafwInputControl.MouseAction
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TafwInputControl.WndProc(var Message: TMessage);
 //#UC START# *47E136A80191_47E1382301A5_var*
 
@@ -158,12 +137,12 @@ begin
 
 //#UC END# *47E136A80191_47E1382301A5_impl*
 end;//TafwInputControl.WndProc
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TafwInputControl
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TafwInputControl);
-{$IfEnd} //not NoScripts
+ {* Регистрация TafwInputControl }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

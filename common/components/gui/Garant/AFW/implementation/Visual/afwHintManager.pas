@@ -1,119 +1,85 @@
 unit afwHintManager;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Модуль: "w:/common/components/gui/Garant/AFW/implementation/Visual/afwHintManager.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::AFW::afwControl::TafwHintManager
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwHintManager.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  Classes,
-  Graphics
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  l3ProtoObject
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , l3Interfaces
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Classes
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Graphics
+;
 
 type
  THackApplication = class(TComponent)
- public
- // public fields
-   FHandle : hWnd;
-   FBiDiMode : TBiDiMode;
-   FBiDiKeyboard : AnsiString;
-   FNonBiDiKeyboard : AnsiString;
-   FObjectInstance : Pointer;
-   FMainForm : TForm;
-   FMouseControl : TControl;
-   FHelpSystem : IUnknown;
-   FHelpFile : AnsiString;
-   FHint : AnsiString;
-   FHintActive : Boolean;
-   FUpdateFormatSettings : Boolean;
-   FUpdateMetricSettings : Boolean;
-   FShowMainForm : Boolean;
-   FHintColor : TColor;
-   FHintControl : TControl;
+  public
+   FHandle: hWnd;
+   FBiDiMode: TBiDiMode;
+   FBiDiKeyboard: AnsiString;
+   FNonBiDiKeyboard: AnsiString;
+   FObjectInstance: Pointer;
+   FMainForm: TForm;
+   FMouseControl: TControl;
+   FHelpSystem: IUnknown;
+   FHelpFile: AnsiString;
+   FHint: AnsiString;
+   FHintActive: Boolean;
+   FUpdateFormatSettings: Boolean;
+   FUpdateMetricSettings: Boolean;
+   FShowMainForm: Boolean;
+   FHintColor: TColor;
+   FHintControl: TControl;
  end;//THackApplication
 
  TafwHintManager = class(Tl3ProtoObject)
- private
- // private fields
-   f_HintPos : TPoint;
-   f_Timer : TTimer;
- private
- // private methods
+  private
+   f_HintPos: TPoint;
+   f_Timer: TTimer;
+  private
    procedure TimerProc(Sender: TObject);
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- public
- // public methods
+  public
    procedure ActivateHint(const aPt: TPoint);
    procedure CancelHint;
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
    class function Instance: TafwHintManager;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TafwHintManager }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TafwHintManager
 
 implementation
 
 uses
-  l3Base {a}
-  ;
+ l3ImplUses
+ , l3Base
+ , SysUtils
+;
 
-
-// start class TafwHintManager
-
-var g_TafwHintManager : TafwHintManager = nil;
+var g_TafwHintManager: TafwHintManager = nil;
+ {* Экземпляр синглетона TafwHintManager }
 
 procedure TafwHintManagerFree;
+ {* Метод освобождения экземпляра синглетона TafwHintManager }
 begin
  l3Free(g_TafwHintManager);
-end;
-
-class function TafwHintManager.Instance: TafwHintManager;
-begin
- if (g_TafwHintManager = nil) then
- begin
-  l3System.AddExitProc(TafwHintManagerFree);
-  g_TafwHintManager := Create;
- end;
- Result := g_TafwHintManager;
-end;
-
-// start class TafwHintManager
+end;//TafwHintManagerFree
 
 procedure TafwHintManager.ActivateHint(const aPt: TPoint);
 //#UC START# *48C7C90900F9_48C7C8A9035E_var*
@@ -163,13 +129,25 @@ begin
 //#UC END# *48C7C9210123_48C7C8A9035E_impl*
 end;//TafwHintManager.TimerProc
 
+class function TafwHintManager.Instance: TafwHintManager;
+ {* Метод получения экземпляра синглетона TafwHintManager }
+begin
+ if (g_TafwHintManager = nil) then
+ begin
+  l3System.AddExitProc(TafwHintManagerFree);
+  g_TafwHintManager := Create;
+ end;
+ Result := g_TafwHintManager;
+end;//TafwHintManager.Instance
+
 class function TafwHintManager.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TafwHintManager <> nil;
 end;//TafwHintManager.Exists
 
 procedure TafwHintManager.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48C7C8A9035E_var*
 //#UC END# *479731C50290_48C7C8A9035E_var*
 begin

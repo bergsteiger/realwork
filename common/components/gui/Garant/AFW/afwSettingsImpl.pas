@@ -1,66 +1,60 @@
 unit afwSettingsImpl;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Модуль: "w:/common/components/gui/Garant/AFW/afwSettingsImpl.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::AFW::afwSettings::TafwSettingsImpl
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\AFW\afwSettingsImpl.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\AFW\afwDefine.inc}
+{$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  afwInterfaces,
-  afwSettingsImplPrimPrim,
-  afwSettingsImplPrim,
-  l3Types,
-  l3Interfaces
-  ;
+ l3IntfUses
+ , afwSettingsImplPrim
+ , afwSettingsImplPrimPrim
+ , afwInterfaces
+ , l3Interfaces
+ , l3Types
+;
 
 type
  _FindDataType_ = TafwSettingId;
  _l3Searcher_Parent_ = TafwSettingsImplPrim;
  {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  TafwSettingsImpl = class(_l3Searcher_, IafwSettingsImpl)
- protected
- // realized methods
+  protected
    function GetString(const aSettingId: TafwSettingId;
-      out theValue: Il3CString): Boolean;
+    out theValue: Il3CString): Boolean;
    function GetLong(const aSettingId: TafwSettingId;
-      out theValue: Integer): Boolean;
+    out theValue: Integer): Boolean;
    function GetBool(const aSettingId: TafwSettingId;
-      out theValue: Boolean): Boolean;
+    out theValue: Boolean): Boolean;
    procedure SetString(const aSettingId: TafwSettingId;
-      aValue: PAnsiChar);
+    aValue: PAnsiChar);
    procedure SetLong(const aSettingId: TafwSettingId;
-      aValue: Integer);
+    aValue: Integer);
    procedure SetBool(const aSettingId: TafwSettingId;
-      aValue: Boolean);
+    aValue: Boolean);
  end;//TafwSettingsImpl
 
 implementation
 
 uses
-  l3String,
-  l3Base,
-  SysUtils
-  ;
+ l3ImplUses
+ , l3String
+ , l3Base
+ , SysUtils
+ , l3Memory
+;
 
-// start class TafwSettingsImpl
+{$If not Declared(_ItemType_)}type _ItemType_ = TafwKeyValue;{$IfEnd}
+
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
 
 function CompareItemWithData(const anItem: _ItemType_;
-  const aData: _FindDataType_;
-  aSortIndex: Tl3SortIndex;
-  aList: _l3Searcher_): Integer;
+ const aData: _FindDataType_;
+ aSortIndex: Tl3SortIndex;
+ aList: _l3Searcher_): Integer;
+ {* Сравнивает существующий элемент с искомым. }
 //#UC START# *47B9BAFD01F4_4F6C8A610176_var*
 //#UC END# *47B9BAFD01F4_4F6C8A610176_var*
 begin
@@ -73,10 +67,8 @@ type _Instance_R_ = TafwSettingsImpl;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 
-// start class TafwSettingsImpl
-
 function TafwSettingsImpl.GetString(const aSettingId: TafwSettingId;
-  out theValue: Il3CString): Boolean;
+ out theValue: Il3CString): Boolean;
 //#UC START# *4F6C7F2B036B_4F6C8A610176_var*
 var
  l_Index : Integer;
@@ -94,7 +86,7 @@ begin
 end;//TafwSettingsImpl.GetString
 
 function TafwSettingsImpl.GetLong(const aSettingId: TafwSettingId;
-  out theValue: Integer): Boolean;
+ out theValue: Integer): Boolean;
 //#UC START# *4F6C7F650121_4F6C8A610176_var*
 var
  l_Index : Integer;
@@ -109,7 +101,7 @@ begin
 end;//TafwSettingsImpl.GetLong
 
 function TafwSettingsImpl.GetBool(const aSettingId: TafwSettingId;
-  out theValue: Boolean): Boolean;
+ out theValue: Boolean): Boolean;
 //#UC START# *4F6C7F9D0247_4F6C8A610176_var*
 var
  l_Index : Integer;
@@ -124,7 +116,7 @@ begin
 end;//TafwSettingsImpl.GetBool
 
 procedure TafwSettingsImpl.SetString(const aSettingId: TafwSettingId;
-  aValue: PAnsiChar);
+ aValue: PAnsiChar);
 //#UC START# *4F6C7FDF00C2_4F6C8A610176_var*
 var
  l_Index : Integer;
@@ -139,7 +131,7 @@ begin
 end;//TafwSettingsImpl.SetString
 
 procedure TafwSettingsImpl.SetLong(const aSettingId: TafwSettingId;
-  aValue: Integer);
+ aValue: Integer);
 //#UC START# *4F6C800D02AE_4F6C8A610176_var*
 var
  l_Index : Integer;
@@ -156,7 +148,7 @@ begin
 end;//TafwSettingsImpl.SetLong
 
 procedure TafwSettingsImpl.SetBool(const aSettingId: TafwSettingId;
-  aValue: Boolean);
+ aValue: Boolean);
 //#UC START# *4F6C80390209_4F6C8A610176_var*
 var
  l_Index : Integer;

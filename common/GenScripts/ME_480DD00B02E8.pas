@@ -502,7 +502,7 @@ end;//TafwSingleCaret.GetOwner
 
 procedure TafwSingleCaret.ClearFields;
 begin
- Finalize(Position);
+ Finalize(f_Position);
  inherited;
 end;//TafwSingleCaret.ClearFields
 

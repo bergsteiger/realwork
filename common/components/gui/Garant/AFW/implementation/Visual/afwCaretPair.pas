@@ -1,86 +1,65 @@
 unit afwCaretPair;
+ {* Пара кареток (для вставки и замены). }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Модуль: "w:/common/components/gui/Garant/AFW/implementation/Visual/afwCaretPair.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::AFW::Visual::TafwCaretPair
-//
-// Пара кареток (для вставки и замены).
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwCaretPair.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
 uses
-  afwSingleCaret,
-  afwInsCaretType,
-  afwOvrCaretType
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3IntfUses
+ , afwSingleCaret
+ , afwInsCaretType
+ , afwOvrCaretType
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 const
-  { Defaults }
  DefInsMode = True;
 
 type
  TafwCaretPair = class(TafwSingleCaret)
   {* Пара кареток (для вставки и замены). }
- private
- // private fields
-   f_InsertMode : Boolean;
-    {* Поле для свойства InsertMode}
-   f_InsCaretType : TafwInsCaretType;
-    {* Поле для свойства InsCaretType}
-   f_OvrCaretType : TafwOvrCaretType;
-    {* Поле для свойства OvrCaretType}
- protected
- // property methods
+  private
+   f_InsertMode: Boolean;
+    {* Поле для свойства InsertMode }
+   f_InsCaretType: TafwInsCaretType;
+    {* Поле для свойства InsCaretType }
+   f_OvrCaretType: TafwOvrCaretType;
+    {* Поле для свойства OvrCaretType }
+  protected
    procedure pm_SetInsertMode(aValue: Boolean);
    procedure pm_SetInsCaretType(aValue: TafwInsCaretType);
    procedure pm_SetOvrCaretType(aValue: TafwOvrCaretType);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(anOwner: TWinControl); override;
- public
- // public properties
+  public
    property InsertMode: Boolean
-     read f_InsertMode
-     write pm_SetInsertMode;
-     {* режим вставки? }
+    read f_InsertMode
+    write pm_SetInsertMode;
+    {* режим вставки? }
    property InsCaretType: TafwInsCaretType
-     read f_InsCaretType
-     write pm_SetInsCaretType;
-     {* тип каретки для режима вставки. }
+    read f_InsCaretType
+    write pm_SetInsCaretType;
+    {* тип каретки для режима вставки. }
    property OvrCaretType: TafwOvrCaretType
-     read f_OvrCaretType
-     write pm_SetOvrCaretType;
-     {* тип каретки для режима замены. }
+    read f_OvrCaretType
+    write pm_SetOvrCaretType;
+    {* тип каретки для режима замены. }
  end;//TafwCaretPair
 
 implementation
 
 uses
-  l3Base
-  ;
-
-// start class TafwCaretPair
+ l3ImplUses
+ , l3Base
+;
 
 procedure TafwCaretPair.pm_SetInsertMode(aValue: Boolean);
 //#UC START# *480DDA5902F7_480DD9F600F6set_var*
@@ -119,6 +98,7 @@ begin
 end;//TafwCaretPair.pm_SetOvrCaretType
 
 procedure TafwCaretPair.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_480DD9F600F6_var*
 //#UC END# *479731C50290_480DD9F600F6_var*
 begin

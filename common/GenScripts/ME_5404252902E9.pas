@@ -10,7 +10,6 @@ interface
 uses
  l3IntfUses
  , Long_Wrap
- , k2SetOf_Const
 ;
 
 type
