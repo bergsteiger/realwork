@@ -70,6 +70,7 @@ uses
  l3ImplUses
  , Classes
  , Windows
+ , l3Core
  , l3PrinterIC
  , l3InternalInterfaces
  , l3Defaults
@@ -79,7 +80,6 @@ uses
  , l3Const
  , l3Math
  , Consts
- , l3Core
  , l3MemUtils
  , l3Interlocked
 ;
