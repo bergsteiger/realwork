@@ -1,0 +1,113 @@
+// EVD$Interfacefactories 56D0740D0375 LibraryST Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_56D0740D0375
+
+: ME_56D074460007
+ CONST UID '56D074460007'
+ CONST Name 'TevParaInterfaceFactory'
+ CONST Class class_Class
+ : Stereotype st_InterfaceFactoryProxy ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_56D0740D0375 // EVD$Interfacefactories
+ ;
+ : Implements
+   Seq: ( WL 'ME_484FC278000E' '484A470100DD.pas.ms.script' // Para
+ )
+ ; // Implements
+ CONST extprop:rc:SelfName 'ParaInterfaceFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'TevParaInterfaceFactory_Proxy'
+
+ref; // ME_56D074460007 TevParaInterfaceFactory
+
+: ME_56D0745503CA
+ CONST UID '56D0745503CA'
+ CONST Name 'TevLeafParaInterfaceFactory'
+ CONST Class class_Class
+ : Stereotype st_InterfaceFactoryProxy ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_56D0740D0375 // EVD$Interfacefactories
+ ;
+ : Implements
+   Seq: ( WL 'ME_485669C9009D' '484A470100DD.pas.ms.script' // LeafPara
+ )
+ ; // Implements
+ CONST extprop:rc:SelfName 'LeafParaInterfaceFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'TevLeafParaInterfaceFactory_Proxy'
+
+ref; // ME_56D0745503CA TevLeafParaInterfaceFactory
+
+: ME_56D0746502DC
+ CONST UID '56D0746502DC'
+ CONST Name 'TevPageBreakInterfaceFactory'
+ CONST Class class_Class
+ : Stereotype st_InterfaceFactoryProxy ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_56D0740D0375 // EVD$Interfacefactories
+ ;
+ : Implements
+   Seq: ( WL 'ME_48566A8103C1' '484A470100DD.pas.ms.script' // PageBreak
+ )
+ ; // Implements
+ CONST extprop:rc:SelfName 'PageBreakInterfaceFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'TevPageBreakInterfaceFactory_Proxy'
+
+ref; // ME_56D0746502DC TevPageBreakInterfaceFactory
+
+: ME_56D0747401E4
+ CONST UID '56D0747401E4'
+ CONST Name 'TevSectionBreakInterfaceFactory'
+ CONST Class class_Class
+ : Stereotype st_InterfaceFactoryProxy ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_56D0740D0375 // EVD$Interfacefactories
+ ;
+ : Implements
+   Seq: ( WL 'ME_485673BA0364' '484A470100DD.pas.ms.script' // SectionBreak
+ )
+ ; // Implements
+ CONST extprop:rc:SelfName 'SectionBreakInterfaceFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'TevSectionBreakInterfaceFactory_Proxy'
+
+ref; // ME_56D0747401E4 TevSectionBreakInterfaceFactory
+
+: ME_56D0740D0375
+ CONST UID '56D0740D0375'
+ CONST Name 'EVD'
+ CONST Class class_Category
+ : Stereotype st_LibraryST ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4ABCC25A0322' '4ABCC25A0322.pas.ms.script' // Shared Delphi Low Level
+ ;
+ : Children
+   Seq: ( ME_56D074460007 // TevParaInterfaceFactory
+ ME_56D0745503CA // TevLeafParaInterfaceFactory
+ ME_56D0746502DC // TevPageBreakInterfaceFactory
+ ME_56D0747401E4 // TevSectionBreakInterfaceFactory
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_467A8734039C' '467A8734039C.pas.ms.script' // EVD
+ WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
+ )
+ ; // Depends
+ CONST "defines" 'evdDefine.inc'
+ CONST "ifdef" 'k2ForEditor'
+ CONST "path prefix" 'rtl/Garant'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\EVD'
+
+ref; // ME_56D0740D0375 EVD$Interfacefactories

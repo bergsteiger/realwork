@@ -1208,7 +1208,7 @@ f _CalcParentAndInclude
 	]\
 	[{%SS=TagTable}\
 	<%C<{}{%LS=Wrapper}%L#f_pas_TotalUses()>>\
-	<%C<{}{%LS=InterfaceFactory}%L#f_pas_TotalUses()>>\
+	<%C<{}{%L#f_IsInterfaceFactory()=true}%L#f_pas_TotalUses()>>\
 	<%C<{}{%LS=TagImplementator}%L%G#f_pas_TotalUses()\
 	%L#f_pas_TotalUses()>>\
 	]\
@@ -2348,7 +2348,7 @@ f _NeedFinalize
 	[{%SC=Class|%SC=Category}\
 	[{%S#f_IsMethod()!=true}\
 	[{%S#f_IsProject()=true|"%f_with_gen_id(%{GEN_ID}N,%Pd)"!="%f_with_gen_id(%{GEN_ID}N,%Sd)"}\
-	 CONST %{GEN_ID}N:PathOnly '%f_str_replace(%f_with_gen_id(%{GEN_ID}N,%Sd),/,\\)'
+	 CONST %{GEN_ID}N:PathOnly '%f_str_replace(%f_str_replace(%f_with_gen_id(%{GEN_ID}N,%Sd),/,\\),\\\\,\\)'
 	]\
 	]\
 	]\
@@ -2761,7 +2761,7 @@ f _is_default_up_value
 //	]
 
 f _IsConstants
-	[{%SS=Constants|%SS=ConstantArray|%SS=LocalConst}{\
+	[{%SS=Constants|%SS=ConstantArray|%SS=LocalConst|%SS=SetConst}{\
 	false\
 	}\
 	true\
@@ -3057,6 +3057,12 @@ f _pas_script_FileNameForLinkSafe
 	]\
 	]
 //#UC END# *5643707B0390for470F151302FD*
+
+%f _IsInterfaceFactory
+// возвращаемый результат: boolean
+//#UC START# *56D06FA10124for470F151302FD*
+	false
+//#UC END# *56D06FA10124for470F151302FD*
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

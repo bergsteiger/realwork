@@ -5871,48 +5871,21 @@ ref; // ME_4AD83CD703C0_ME_4AB728CB025C SaveStrings
 
 ref; // ME_4AB728CB025C IafwSettingsPrim
 
-FORWARD ME_46A101F802A1
-
-: ME_46A1020802EA
- CONST UID '46A1020802EA'
- CONST Name 'afw_sbHorz'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_46A101F802A1 // TafwScrollBarType
- ;
-
-ref; // ME_46A1020802EA afw_sbHorz
-
-: ME_46A10214005C
- CONST UID '46A10214005C'
- CONST Name 'afw_sbVert'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_46A101F802A1 // TafwScrollBarType
- ;
-
-ref; // ME_46A10214005C afw_sbVert
-
 : ME_46A101F802A1
  CONST UID '46A101F802A1'
  CONST Name 'TafwScrollBarType'
  CONST Class class_Class
- : Stereotype st_Enum ;
+ : Stereotype st_Typedef ;
  CONST Kind kind_NormalClass
  %SUMMARY 'Тип необходимых полос прокрутки.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  : Parent ME_467823B7002C // afwInterfaces
  ;
- : Attributes
-   Seq: ( ME_46A1020802EA // afw_sbHorz
- ME_46A10214005C // afw_sbVert
+ : Inherits
+   Seq: ( WL 'ME_56D05B910044' '473C569D0287.pas.ms.script' // TafwScrollBarType
  )
- ; // Attributes
+ ; // Inherits
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_46A101F802A1 TafwScrollBarType
@@ -5921,7 +5894,7 @@ ref; // ME_46A101F802A1 TafwScrollBarType
  CONST UID '46A1022002A8'
  CONST Name 'TafwScrollBars'
  CONST Class class_Class
- : Stereotype st_SetOf ;
+ : Stereotype st_Typedef ;
  CONST Kind kind_NormalClass
  %SUMMARY 'Множество необходимых полос прокрутки.' ;
  CONST Visibility PublicAccess
@@ -5929,7 +5902,7 @@ ref; // ME_46A101F802A1 TafwScrollBarType
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   Seq: ( ME_46A101F802A1 // TafwScrollBarType
+   Seq: ( WL 'ME_56D05BE903C1' '473C569D0287.pas.ms.script' // TafwScrollBars
  )
  ; // Inherits
 
@@ -5946,7 +5919,7 @@ ref; // ME_46A1022002A8 TafwScrollBars
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   Seq: ( ME_46A1022002A8 // TafwScrollBars
+   Seq: ( WL 'ME_56D05C220016' '473C569D0287.pas.ms.script' // afw_sbBoth
  )
  ; // Inherits
  CONST "spell names" false
@@ -7981,6 +7954,69 @@ ref; // ME_49E85D4A0016_ME_473DA1A00014 MakeLongProcessVisualizer
 
 ref; // ME_473DA1A00014 IafwApplication
 
+FORWARD ME_906B777ABEB1
+
+: ME_D6B42BD70096
+ CONST UID 'D6B42BD70096'
+ CONST Name 'afw_sbHorz'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_906B777ABEB1 // TafwScrollBarType_TafwScrollBarType_Constants
+ ;
+ CONST Value 'afw_sbHorz'
+ : ValueType WL 'ME_56D05B910044' '473C569D0287.pas.ms.script' // TafwScrollBarType
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 'afwTypes.afw_sbHorz'
+
+ref; // ME_D6B42BD70096 afw_sbHorz
+
+: ME_D4269D39E017
+ CONST UID 'D4269D39E017'
+ CONST Name 'afw_sbVert'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_906B777ABEB1 // TafwScrollBarType_TafwScrollBarType_Constants
+ ;
+ CONST Value 'afw_sbVert'
+ : ValueType WL 'ME_56D05B910044' '473C569D0287.pas.ms.script' // TafwScrollBarType
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 'afwTypes.afw_sbVert'
+
+ref; // ME_D4269D39E017 afw_sbVert
+
+: ME_906B777ABEB1
+ CONST UID '906B777ABEB1'
+ CONST Name 'TafwScrollBarType_TafwScrollBarType_Constants'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Алиасы для значений afwTypes.TafwScrollBarType' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_467823B7002C // afwInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_D6B42BD70096 // afw_sbHorz
+ ME_D4269D39E017 // afw_sbVert
+ )
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_906B777ABEB1 TafwScrollBarType_TafwScrollBarType_Constants
+
 : ME_467823B7002C
  CONST UID '467823B7002C'
  CONST Name 'afwInterfaces'
@@ -8065,7 +8101,6 @@ ref; // ME_473DA1A00014 IafwApplication
  ME_4AB728CB025C // IafwSettingsPrim
  ME_46A101F802A1 // TafwScrollBarType
  ME_46A1022002A8 // TafwScrollBars
- ME_46A1023F02D5 // afw_sbBoth
  ME_47D64DC70132 // IafwControl
  ME_47D67714034A // IafwAlwaysOnTopControl
  ME_47E0BF55002A // IafwTempStream
@@ -8097,6 +8132,8 @@ ref; // ME_473DA1A00014 IafwApplication
    Seq: ( ME_475E94F80379 // Common
  ME_475E88C10017 // Messages
  ME_475EA8840080 // Locale
+ ME_46A1023F02D5 // afw_sbBoth
+ ME_906B777ABEB1 // TafwScrollBarType_TafwScrollBarType_Constants
  )
  ; // Constants
  : Depends

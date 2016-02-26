@@ -226,7 +226,15 @@ f _collect_ifndefs
 // возвращаемый результат: boolean
 //#UC START# *56BCA508022Dfor4976EB82018C*
 	[{%S{UseNewGen}=true}{\
-	[{%S{finished}=false}{\
+	false\
+	}\
+	true\
+	]
+
+%f _UseNewGenRecPrim
+@ %SU
+	[{%S%f_UseNewGen()=true}{\
+	[{%P#f_UseNewGenRecPrim()=true}{\
 	false\
 	}\
 	true\
@@ -240,8 +248,8 @@ f _collect_ifndefs
 // возвращаемый результат: boolean
 //#UC START# *56BCA5310152for4976EB82018C*
 @ %SU
-	[{%S%f_UseNewGen()=true}{\
-	[{%P#f_UseNewGenRec()=true}{\
+	[{%S#f_UseNewGenRecPrim()=true}{\
+	[{%S{finished}=false}{\
 	false\
 	}\
 	true\

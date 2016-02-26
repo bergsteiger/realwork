@@ -2775,23 +2775,6 @@ ref; // ME_4914421A037E ItemType
 
 ref; // ME_491441E201E0 TIafwSettingsReplaceListenerPtrList
 
-: ME_116604214E91
- CONST UID '116604214E91'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4F6C7DC2022A // TafwSettingsImplSing
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_116604214E91 Exists
-
 : ME_47A042E100E2_ME_4F6C7DC2022A
  CONST UID '47A042E100E2'
  CONST Name 'InitFields'
@@ -2816,10 +2799,6 @@ ref; // ME_47A042E100E2_ME_4F6C7DC2022A InitFields
    Seq: ( ME_4F6C9DBE03CF // TafwSettingsImplPersistent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_116604214E91 // Exists
- )
- ; // Operations
  : Overridden
    Seq: ( ME_47A042E100E2_ME_4F6C7DC2022A // InitFields
  )

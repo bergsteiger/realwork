@@ -1151,6 +1151,50 @@ ref; // ME_56990E490133 DoIt
 
 ref; // ME_56990E360344 UndockFormFromTab
 
+FORWARD ME_56CEAAE901F8
+
+: ME_56CEAB0302F6
+ CONST UID '56CEAB0302F6'
+ CONST Name 'aTab'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_5555A16D0024 // Il3FormTab
+ ;
+
+ref; // ME_56CEAB0302F6 aTab
+
+: ME_56CEAAF8003A
+ CONST UID '56CEAAF8003A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56CEAAE901F8 // OpenTabAfter
+ ;
+ : Parameters
+   Seq: ( ME_56CEAB0302F6 // aTab
+ )
+ ; // Parameters
+
+ref; // ME_56CEAAF8003A DoIt
+
+: ME_56CEAAE901F8
+ CONST UID '56CEAAE901F8'
+ CONST Name 'OpenTabAfter'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_55001FD9025F // Il3TabbedContainer
+ ;
+ : Operations
+   Seq: ( ME_56CEAAF8003A // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56CEAAE901F8 OpenTabAfter
+
 : ME_55001FD9025F
  CONST UID '55001FD9025F'
  CONST GUID '95F3B29D-71D9-4A91-A2A3-F7FA6DC75511'
@@ -1188,6 +1232,7 @@ ref; // ME_56990E360344 UndockFormFromTab
  ME_55FFE5140379 // UpdateCaption
  ME_56990DDF014B // CanUndockFormFromTab
  ME_56990E360344 // UndockFormFromTab
+ ME_56CEAAE901F8 // OpenTabAfter
  )
  ; // Operations
  : Forwarded

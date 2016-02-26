@@ -438,7 +438,7 @@ ref; // ME_48C78DC303A9 BorderStyle
  CONST "needs field" true
  CONST "pm" true
  CONST "reads field" true
- CONST extprop:pas:Value 'ssNone'
+ CONST extprop:pas:Value 'StdCtrls.ssNone'
 
 ref; // ME_48C79014036C ScrollStyle
 
@@ -3699,23 +3699,6 @@ ref; // ME_48C7C925011C Sender
 
 ref; // ME_48C7C9210123 TimerProc
 
-: ME_A2B4C396DDB5
- CONST UID 'A2B4C396DDB5'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_48C7C8A9035E // TafwHintManager
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_A2B4C396DDB5 Exists
-
 : ME_48C7CCA801ED
  CONST UID '48C7CCA801ED'
  CONST Class class_Dependency
@@ -3770,7 +3753,6 @@ ref; // ME_47A042E100E2_ME_48C7C8A9035E InitFields
    Seq: ( ME_48C7C90900F9 // ActivateHint
  ME_48C7C91600A7 // CancelHint
  ME_48C7C9210123 // TimerProc
- ME_A2B4C396DDB5 // Exists
  )
  ; // Operations
  : Overridden

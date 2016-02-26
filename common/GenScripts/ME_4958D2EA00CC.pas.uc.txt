@@ -260,7 +260,7 @@ var
 //#UC START# *53A013DF03E1_4958D2EA00CC_var*
 //#UC END# *53A013DF03E1_4958D2EA00CC_var*
 //#UC START# *53AD17180374_4958D2EA00CC_impl*
- Result := OpenNewMainForm(vcm_okInNewWindow);
+ Result := OpenNewMainForm(vcm_okInNewWindow, True);
 //#UC END# *53AD17180374_4958D2EA00CC_impl*
 //#UC START# *53AD17180374_4958D2EA00CC_var*
 var
@@ -339,7 +339,7 @@ var
  Result := nil;
  // - http://mdp.garant.ru/pages/viewpage.action?pageId=600654481
  l_Cont := TvcmTabbedContainerFormDispatcher.Instance.MakeAndPlaceVCMContainer(Self As IvcmContainerMaker,
-  Self as IvcmContainer, aOpenKind, True, (aOpenKind = vcm_okInNewTab));
+  Self as IvcmContainer, aOpenKind, True, aOpenLast);
  if (l_Cont <> nil) then
  begin
   Result := l_Cont.AsForm.VCLWinControl as TvcmMainForm;
@@ -364,7 +364,7 @@ var
  l_Cont: IvcmContainer;
 //#UC END# *5566B0FA013A_4958D2EA00CC_var*
 //#UC START# *5566C7BD037F_4958D2EA00CC_impl*
- Result := OpenNewMainForm(aOpenKind) as IvcmContainedForm;
+ Result := OpenNewMainForm(aOpenKind, aOpenLast) as IvcmContainedForm;
 //#UC END# *5566C7BD037F_4958D2EA00CC_impl*
 //#UC START# *5566C7BD037F_4958D2EA00CC_var*
 //#UC END# *5566C7BD037F_4958D2EA00CC_var*

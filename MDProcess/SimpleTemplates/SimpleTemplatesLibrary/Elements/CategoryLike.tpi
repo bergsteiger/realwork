@@ -13,6 +13,7 @@
 > ElementProxy::Class
 > ClassProxy::Class
 > InterfaceProxy::Class
+> InterfaceFactoryProxy::Class
 
 = WikiPackageImpl::Category
 = PascalGenerator::Class
@@ -21,6 +22,7 @@
 // Пользовательские свойства
 
 p path prefix:s ? 
+p defines:s ? определяет файл с условиями компиляции
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Функции стереотипа
@@ -30,6 +32,7 @@ p path prefix:s ?
 
 %f _wiki_up_print
 	%S#[inherited][{"%S{path prefix}"!="%S{!path prefix}"}%f_up_prefix(%S) *path prefix* = *%S{path prefix}*
+	][{"%S{defines}"!="%S{!defines}"}%f_up_prefix(%S) *defines* = *%S{defines}* - определяет файл с условиями компиляции
 	]
 
 %f _nameForPath

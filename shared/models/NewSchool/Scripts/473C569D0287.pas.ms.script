@@ -166,6 +166,86 @@ ref; // ME_475FEDEC0200
 
 ref; // ME_475FEDD003AD TafwCommands
 
+FORWARD ME_56D05B910044
+
+: ME_46A1020802EA
+ CONST UID '46A1020802EA'
+ CONST Name 'afw_sbHorz'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56D05B910044 // TafwScrollBarType
+ ;
+
+ref; // ME_46A1020802EA afw_sbHorz
+
+: ME_46A10214005C
+ CONST UID '46A10214005C'
+ CONST Name 'afw_sbVert'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56D05B910044 // TafwScrollBarType
+ ;
+
+ref; // ME_46A10214005C afw_sbVert
+
+: ME_56D05B910044
+ CONST UID '56D05B910044'
+ CONST Name 'TafwScrollBarType'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_473C569D0287 // afwTypes
+ ;
+ : Attributes
+   Seq: ( ME_46A1020802EA // afw_sbHorz
+ ME_46A10214005C // afw_sbVert
+ )
+ ; // Attributes
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_56D05B910044 TafwScrollBarType
+
+: ME_56D05BE903C1
+ CONST UID '56D05BE903C1'
+ CONST Name 'TafwScrollBars'
+ CONST Class class_Class
+ : Stereotype st_SetOf ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_473C569D0287 // afwTypes
+ ;
+ : Inherits
+   Seq: ( ME_56D05B910044 // TafwScrollBarType
+ )
+ ; // Inherits
+
+ref; // ME_56D05BE903C1 TafwScrollBars
+
+: ME_56D05C220016
+ CONST UID '56D05C220016'
+ CONST Name 'afw_sbBoth'
+ CONST Class class_Class
+ : Stereotype st_SetConst ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_473C569D0287 // afwTypes
+ ;
+ : Inherits
+   Seq: ( ME_56D05BE903C1 // TafwScrollBars
+ )
+ ; // Inherits
+ CONST "spell names" false
+
+ref; // ME_56D05C220016 afw_sbBoth
+
 : ME_473C569D0287
  CONST UID '473C569D0287'
  CONST Name 'afwTypes'
@@ -181,8 +261,14 @@ ref; // ME_475FEDD003AD TafwCommands
  ME_473C571F02A2 // TafwPrintPagesArray
  ME_473C573902F9 // TafwPagesInterval
  ME_475FEDD003AD // TafwCommands
+ ME_56D05B910044 // TafwScrollBarType
+ ME_56D05BE903C1 // TafwScrollBars
  )
  ; // Children
+ : Constants
+   Seq: ( ME_56D05C220016 // afw_sbBoth
+ )
+ ; // Constants
  : Depends
    Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  )
