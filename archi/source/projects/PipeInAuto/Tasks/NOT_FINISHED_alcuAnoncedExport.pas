@@ -1,36 +1,30 @@
 unit NOT_FINISHED_alcuAnoncedExport;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/NOT_FINISHED_alcuAnoncedExport.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Tasks::Lists::TalcuAnoncedExport
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuAnoncedExport.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  alcuExport,
-  alcuAnoncedExportPrim
-  ;
-{$IfEnd} //ServerTasks
+ l3IntfUses
+ , alcuExport
+ , alcuAnoncedExportPrim
+;
 
-{$If defined(ServerTasks)}
 type
  TalcuAnoncedExport = class(TalcuExportTalcuAnoncedExportPrim)
  end;//TalcuAnoncedExport
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 implementation
+
+{$If Defined(ServerTasks)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(ServerTasks)
 
 end.

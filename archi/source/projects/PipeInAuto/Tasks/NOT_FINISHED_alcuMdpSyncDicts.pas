@@ -1,40 +1,31 @@
 unit NOT_FINISHED_alcuMdpSyncDicts;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/NOT_FINISHED_alcuMdpSyncDicts.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Tasks::Lists::TalcuMdpSyncDicts
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuMdpSyncDicts.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  Classes
-  {$If not defined(Nemesis)}
-  ,
-  csMdpSyncDicts
-  {$IfEnd} //not Nemesis
-  
-  ;
-{$IfEnd} //ServerTasks
+ l3IntfUses
+ {$If NOT Defined(Nemesis)}
+ , csMdpSyncDicts
+ {$IfEnd} // NOT Defined(Nemesis)
+;
 
-{$If defined(ServerTasks)}
 type
  TalcuMdpSyncDicts = class(TcsMdpSyncDicts)
  end;//TalcuMdpSyncDicts
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 implementation
+
+{$If Defined(ServerTasks)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(ServerTasks)
 
 end.

@@ -1,46 +1,31 @@
 unit NOT_FINISHED_alcuRegionAutoExportTask;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/NOT_FINISHED_alcuRegionAutoExportTask.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Tasks::Lists::TalcuRegionAutoExportTask
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuRegionAutoExportTask.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  alcuRegionAutoExportTaskPrim
-  ;
-{$IfEnd} //ServerTasks
+ l3IntfUses
+ , alcuRegionAutoExportTaskPrim
+;
 
-{$If defined(ServerTasks)}
 type
  TalcuRegionAutoExportTask = class(TalcuRegionAutoExportTaskPrim)
  end;//TalcuRegionAutoExportTask
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 implementation
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  alcuFTPBrowser,
-  alcuFTPBrowserParams
-  ;
-{$IfEnd} //ServerTasks
+ l3ImplUses
+ , alcuFTPBrowser
+ , alcuFTPBrowserParams
+;
+{$IfEnd} // Defined(ServerTasks)
 
-{$If defined(ServerTasks)}
-
-
-{$IfEnd} //ServerTasks
 end.

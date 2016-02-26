@@ -1,54 +1,38 @@
 unit NOT_FINISHED_alcuImport;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/NOT_FINISHED_alcuImport.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> archi$AutoPipeServer$Garant::Tasks::Lists::alcuImport
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuImport.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  Classes
-  {$If not defined(Nemesis)}
-  ,
-  csImport
-  {$IfEnd} //not Nemesis
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(Nemesis)}
+ , csImport
+ {$IfEnd} // NOT Defined(Nemesis)
+;
 
 type
  TalcuImport = class(TcsImportTaskItem)
- protected
- // overridden protected methods
-    {$If not defined(Nemesis)}
+  protected
+   {$If NOT Defined(Nemesis)}
    procedure GetTaskResultClass : TcsClassResultClass; override;
-     {* Сигнатура метода GetTaskResultClass : TcsClassResultClass }
-    {$IfEnd} //not Nemesis
+   {$IfEnd} // NOT Defined(Nemesis)
  end;//TalcuImport
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 implementation
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  alcuImportTaskResult
-  ;
+ l3ImplUses
+ , alcuImportTaskResult
+;
 
-// start class TalcuImport
-
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 procedure TalcuImport.GetTaskResultClass : TcsClassResultClass;
 //#UC START# *53E1CB0C03C9_5305AFFB01F5_var*
 //#UC END# *53E1CB0C03C9_5305AFFB01F5_var*
@@ -57,7 +41,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *53E1CB0C03C9_5305AFFB01F5_impl*
 end;//TalcuImport.GetTaskResultClass : TcsClassResultClass
-{$IfEnd} //not Nemesis
-{$IfEnd} //ServerTasks
+{$IfEnd} // NOT Defined(Nemesis)
 
+{$IfEnd} // Defined(ServerTasks)
 end.

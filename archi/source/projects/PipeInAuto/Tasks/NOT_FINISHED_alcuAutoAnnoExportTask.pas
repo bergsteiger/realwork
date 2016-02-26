@@ -1,47 +1,35 @@
 unit NOT_FINISHED_alcuAutoAnnoExportTask;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/NOT_FINISHED_alcuAutoAnnoExportTask.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Tasks::Lists::TalcuAutoAnnoExportTask
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuAutoAnnoExportTask.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  alcuAutoAnnoExportTaskPrim
-  ;
-{$IfEnd} //ServerTasks
+ l3IntfUses
+ , alcuAutoAnnoExportTaskPrim
+;
 
-{$If defined(ServerTasks)}
 type
  TalcuAutoAnnoExportTask = class(TalcuAutoAnnoExportTaskPrim)
- protected
- // overridden protected methods
-    {$If not defined(Nemesis)}
+  protected
+   {$If NOT Defined(Nemesis)}
    function GetDescription: AnsiString; override;
-    {$IfEnd} //not Nemesis
+   {$IfEnd} // NOT Defined(Nemesis)
  end;//TalcuAutoAnnoExportTask
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 implementation
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
+uses
+ l3ImplUses
+;
 
-// start class TalcuAutoAnnoExportTask
-
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 function TalcuAutoAnnoExportTask.GetDescription: AnsiString;
 //#UC START# *53FB28170339_53F59F6F0341_var*
 //#UC END# *53FB28170339_53F59F6F0341_var*
@@ -50,8 +38,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *53FB28170339_53F59F6F0341_impl*
 end;//TalcuAutoAnnoExportTask.GetDescription
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
-{$IfEnd} //ServerTasks
-
+{$IfEnd} // Defined(ServerTasks)
 end.

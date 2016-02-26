@@ -1,65 +1,44 @@
 unit NOT_FINISHED_AutoPipeServerForm;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Модуль: "w:/archi/source/projects/PipeInAuto/NOT_FINISHED_AutoPipeServerForm.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::AutoPipeServer::TAutoPipeServerForm
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\archi\source\projects\PipeInAuto\NOT_FINISHED_AutoPipeServerForm.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\PipeInAuto\alcuDefine.inc}
+{$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(AppServerSide)}
+{$If Defined(AppServerSide)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //AppServerSide
+ l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
-{$If defined(AppServerSide)}
 type
  TArchiServerForm = class(TForm)
  end;//TArchiServerForm
 
  TAutoPipeServerForm = class
  end;//TAutoPipeServerForm
-{$IfEnd} //AppServerSide
+{$IfEnd} // Defined(AppServerSide)
 
 implementation
 
-{$If defined(AppServerSide)}
+{$If Defined(AppServerSide)}
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  alcuServer
-  ;
-{$IfEnd} //AppServerSide
-
-{$If defined(AppServerSide)}
-
-
-{$IfEnd} //AppServerSide
+ l3ImplUses
+ , alcuServer
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 initialization
-{$If defined(AppServerSide) AND not defined(NoScripts)}
-// Регистрация TArchiServerForm
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TArchiServerForm);
-{$IfEnd} //AppServerSide AND not NoScripts
+ {* Регистрация TArchiServerForm }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(AppServerSide)
 
 end.

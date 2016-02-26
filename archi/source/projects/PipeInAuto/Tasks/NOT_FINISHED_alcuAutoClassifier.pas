@@ -1,60 +1,39 @@
 unit NOT_FINISHED_alcuAutoClassifier;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/NOT_FINISHED_alcuAutoClassifier.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> archi$AutoPipeServer$Garant::Tasks::Lists::alcuAutoClassifier
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuAutoClassifier.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  Classes
-  {$If not defined(Nemesis)}
-  ,
-  csAutoClassTask
-  {$IfEnd} //not Nemesis
-  ,
-  csTaskResult
-  ;
+ l3IntfUses
+ {$If NOT Defined(Nemesis)}
+ , csAutoClassTask
+ {$IfEnd} // NOT Defined(Nemesis)
+ , csTaskResult
+;
 
 type
  TalcuAutoClassTask = class(TcsAutoClassTask)
- protected
- // overridden property methods
-   {$If not defined(Nemesis)}
-
-   {$IfEnd} //not Nemesis
- protected
- // overridden protected methods
-    {$If not defined(Nemesis)}
+  protected
+   {$If NOT Defined(Nemesis)}
    procedure GetTaskResultClass : TcsClassResultClass; override;
-     {* Сигнатура метода GetTaskResultClass : TcsClassResultClass }
-    {$IfEnd} //not Nemesis
+   {$IfEnd} // NOT Defined(Nemesis)
  end;//TalcuAutoClassTask
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 implementation
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  alcuAutoClassTaskResult
-  ;
+ l3ImplUses
+ , alcuAutoClassTaskResult
+;
 
-// start class TalcuAutoClassTask
-
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 procedure TalcuAutoClassTask.GetTaskResultClass : TcsClassResultClass;
 //#UC START# *53E1CB0C03C9_530354C00376_var*
 //#UC END# *53E1CB0C03C9_530354C00376_var*
@@ -63,7 +42,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *53E1CB0C03C9_530354C00376_impl*
 end;//TalcuAutoClassTask.GetTaskResultClass : TcsClassResultClass
-{$IfEnd} //not Nemesis
-{$IfEnd} //ServerTasks
+{$IfEnd} // NOT Defined(Nemesis)
 
+{$IfEnd} // Defined(ServerTasks)
 end.

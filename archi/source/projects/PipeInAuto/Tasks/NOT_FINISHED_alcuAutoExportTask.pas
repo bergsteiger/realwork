@@ -1,45 +1,30 @@
 unit NOT_FINISHED_alcuAutoExportTask;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/NOT_FINISHED_alcuAutoExportTask.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Tasks::Lists::TalcuAutoExportTask
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuAutoExportTask.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  alcuAutoExportTaskPrim
-  ;
-{$IfEnd} //ServerTasks
+ l3IntfUses
+ , alcuAutoExportTaskPrim
+;
 
-{$If defined(ServerTasks)}
 type
  TalcuAutoExportTask = class(TalcuAutoExportTaskPrim)
  end;//TalcuAutoExportTask
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 implementation
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  alcuAutoExportTaskResult
-  ;
-{$IfEnd} //ServerTasks
+ l3ImplUses
+ , alcuAutoExportTaskResult
+;
+{$IfEnd} // Defined(ServerTasks)
 
-{$If defined(ServerTasks)}
-
-
-{$IfEnd} //ServerTasks
 end.

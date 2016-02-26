@@ -1,55 +1,41 @@
 unit NOT_FINISHED_alcuAutoPipeServer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Server"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Server/NOT_FINISHED_alcuAutoPipeServer.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> archi$AutoPipeServer$Garant::Server::Server::alcuAutoPipeServer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Server\NOT_FINISHED_alcuAutoPipeServer.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(AppServerSide)}
+{$If Defined(AppServerSide)}
 uses
-  l3ProtoObject,
-  alcuBaseEngineHolder
-  {$If defined(AppServerSide) AND defined(MDPSyncIntegrated)}
-  ,
-  alcuDictChangeMDPSynchronizator
-  {$IfEnd} //AppServerSide AND MDPSyncIntegrated
-  
-  {$If defined(AppServerSide) AND defined(MDPSyncIntegrated)}
-  ,
-  alcuMdpDocImporter
-  {$IfEnd} //AppServerSide AND MDPSyncIntegrated
-  
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ {$If Defined(MDPSyncIntegrated)}
+ , alcuDictChangeMDPSynchronizator
+ {$IfEnd} // Defined(MDPSyncIntegrated)
+ , alcuBaseEngineHolder
+ {$If Defined(MDPSyncIntegrated)}
+ , alcuMdpDocImporter
+ {$IfEnd} // Defined(MDPSyncIntegrated)
+;
 
 type
  TalcuServerPrim = class(Tl3ProtoObject)
- private
- // private fields
-   f_DictWatcher : TalcuDictChangeMDPSynchronizator;
-   f_BaseEngineHolder : TalcuBaseEngineHolder;
-   f_MdpDocImporter : TalcuMdpDocImporter;
+  private
+   f_DictWatcher: TalcuDictChangeMDPSynchronizator;
+   f_BaseEngineHolder: TalcuBaseEngineHolder;
+   f_MdpDocImporter: TalcuMdpDocImporter;
  end;//TalcuServerPrim
-{$IfEnd} //AppServerSide
+{$IfEnd} // Defined(AppServerSide)
 
 implementation
 
-{$If defined(AppServerSide)}
+{$If Defined(AppServerSide)}
 uses
-  alcuServerTaskManagerFactory
-  ;
+ l3ImplUses
+ , alcuServerTaskManagerFactory
+;
+{$IfEnd} // Defined(AppServerSide)
 
-{$IfEnd} //AppServerSide
 end.

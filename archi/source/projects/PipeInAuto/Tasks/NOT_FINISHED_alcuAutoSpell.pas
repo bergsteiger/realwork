@@ -1,44 +1,32 @@
 unit NOT_FINISHED_alcuAutoSpell;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/NOT_FINISHED_alcuAutoSpell.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> archi$AutoPipeServer$Garant::Tasks::Lists::alcuAutoSpell
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuAutoSpell.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  Classes
-  {$If not defined(Nemesis)}
-  ,
-  csAutoSpell
-  {$IfEnd} //not Nemesis
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(Nemesis)}
+ , csAutoSpell
+ {$IfEnd} // NOT Defined(Nemesis)
+;
 
 type
  TalcuAutoSpellTask = class(TcsAutoSpellTask)
  end;//TalcuAutoSpellTask
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 implementation
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  alcuAutoSpellTaskResult
-  ;
+ l3ImplUses
+ , alcuAutoSpellTaskResult
+;
+{$IfEnd} // Defined(ServerTasks)
 
-{$IfEnd} //ServerTasks
 end.

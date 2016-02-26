@@ -1,44 +1,32 @@
 unit NOT_FINISHED_alcuRelCorrector;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/NOT_FINISHED_alcuRelCorrector.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> archi$AutoPipeServer$Garant::Tasks::Lists::alcuRelCorrector
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuRelCorrector.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  Classes
-  {$If not defined(Nemesis)}
-  ,
-  csImport
-  {$IfEnd} //not Nemesis
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(Nemesis)}
+ , csImport
+ {$IfEnd} // NOT Defined(Nemesis)
+;
 
 type
  TalcuRelPublishTask = class(TcsImportTaskItem)
  end;//TalcuRelPublishTask
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 implementation
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  alcuRelPublishTaskResult
-  ;
+ l3ImplUses
+ , alcuRelPublishTaskResult
+;
+{$IfEnd} // Defined(ServerTasks)
 
-{$IfEnd} //ServerTasks
 end.

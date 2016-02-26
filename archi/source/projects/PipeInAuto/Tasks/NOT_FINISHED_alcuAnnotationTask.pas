@@ -1,50 +1,32 @@
 unit NOT_FINISHED_alcuAnnotationTask;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/NOT_FINISHED_alcuAnnotationTask.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi$AutoPipeServer$Garant::Tasks::Lists::TalcuAnnotationTask
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuAnnotationTask.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  Classes
-  {$If not defined(Nemesis)}
-  ,
-  csAnnotationTask
-  {$IfEnd} //not Nemesis
-  
-  ;
-{$IfEnd} //ServerTasks
+ l3IntfUses
+ {$If NOT Defined(Nemesis)}
+ , csAnnotationTask
+ {$IfEnd} // NOT Defined(Nemesis)
+;
 
-{$If defined(ServerTasks)}
 type
  TalcuAnnotationTask = class(TcsAnnotationTask)
  end;//TalcuAnnotationTask
-{$IfEnd} //ServerTasks
+{$IfEnd} // Defined(ServerTasks)
 
 implementation
 
-{$If defined(ServerTasks)}
+{$If Defined(ServerTasks)}
 uses
-  alcuAnnotationTaskResult
-  ;
-{$IfEnd} //ServerTasks
+ l3ImplUses
+ , alcuAnnotationTaskResult
+;
+{$IfEnd} // Defined(ServerTasks)
 
-{$If defined(ServerTasks)}
-
-
-{$IfEnd} //ServerTasks
 end.
