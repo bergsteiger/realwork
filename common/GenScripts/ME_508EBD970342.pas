@@ -24,8 +24,6 @@ uses
 ;
 
 type
- // c_ComboOperations
-
  TnscTasksPanelActionLink = class(TActionLink)
   private
    f_Op: Integer;
@@ -57,6 +55,9 @@ type
    property Op: InscOperationNode
     read pm_GetOp;
  end;//TnscTasksPanelActionLink
+
+const
+ c_ComboOperations = [vcm_otCombo, vcm_otButtonCombo, vcm_otMenuButtonCombo, vcm_otButtonPopup];
 {$IfEnd} // Defined(Nemesis)
 
 implementation
