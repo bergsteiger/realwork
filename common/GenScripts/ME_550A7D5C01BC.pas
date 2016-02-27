@@ -24,6 +24,7 @@
     aNeedSelect: Boolean);
    procedure DisableOthers(aSelectedForm: TForm);
    procedure DoOnNewTabRequested(aTabSet: TChromeLikeTabSetControlPrim;
+    aMenuTab: TChromeLikeTab;
     aOpenLast: Boolean);
    procedure InsertFormAfterSpecified(aForm: TForm;
     const aParams: Il3TabParams;
@@ -81,6 +82,7 @@
    procedure DoOpenNewTab(aOpenLast: Boolean); virtual;
    function DoGetCanOpenNewTab: Boolean; virtual;
    procedure DoUpdateCaption; virtual;
+   procedure DoOpenTabAfter(const aTab: Il3FormTab); virtual;
    function DockForm(aForm: TForm;
     aNeedShow: Boolean): Boolean;
    function UndockForm(aForm: TForm): Boolean;
@@ -106,6 +108,7 @@
    function Get_TabByVisibleIndex(Index: Integer): Il3FormTab;
    function CanUndockFormFromTab(aTabIndex: Integer): Boolean;
    procedure UndockFormFromTab(aTabIndex: Integer);
+   procedure OpenTabAfter(const aTab: Il3FormTab);
   public
    procedure ActivateTabByIndex(aIndex: Integer);
    procedure ActivateNextTab; virtual;
@@ -616,6 +619,7 @@ begin
 end;//_ChromeLikeTabbedContainerForm_.DoOpenNewTab
 
 procedure _ChromeLikeTabbedContainerForm_.DoOnNewTabRequested(aTabSet: TChromeLikeTabSetControlPrim;
+ aMenuTab: TChromeLikeTab;
  aOpenLast: Boolean);
 //#UC START# *558119BD02BE_550A7D5C01BC_var*
 //#UC END# *558119BD02BE_550A7D5C01BC_var*
@@ -654,6 +658,15 @@ begin
  // Ничего не делаем
 //#UC END# *55FFECF00390_550A7D5C01BC_impl*
 end;//_ChromeLikeTabbedContainerForm_.DoUpdateCaption
+
+procedure _ChromeLikeTabbedContainerForm_.DoOpenTabAfter(const aTab: Il3FormTab);
+//#UC START# *56CEB59A037B_550A7D5C01BC_var*
+//#UC END# *56CEB59A037B_550A7D5C01BC_var*
+begin
+//#UC START# *56CEB59A037B_550A7D5C01BC_impl*
+ Assert(False);
+//#UC END# *56CEB59A037B_550A7D5C01BC_impl*
+end;//_ChromeLikeTabbedContainerForm_.DoOpenTabAfter
 
 procedure _ChromeLikeTabbedContainerForm_.WMMove(var aMessage: TMessage);
 //#UC START# *550A82B90140_550A7D5C01BC_var*
@@ -917,6 +930,15 @@ begin
  TabSet.UndockTabbedForm(TabSet.Tabs[aTabIndex]);
 //#UC END# *56990E360344_550A7D5C01BC_impl*
 end;//_ChromeLikeTabbedContainerForm_.UndockFormFromTab
+
+procedure _ChromeLikeTabbedContainerForm_.OpenTabAfter(const aTab: Il3FormTab);
+//#UC START# *56CEAAE901F8_550A7D5C01BC_var*
+//#UC END# *56CEAAE901F8_550A7D5C01BC_var*
+begin
+//#UC START# *56CEAAE901F8_550A7D5C01BC_impl*
+ DoOpenTabAfter(aTab);
+//#UC END# *56CEAAE901F8_550A7D5C01BC_impl*
+end;//_ChromeLikeTabbedContainerForm_.OpenTabAfter
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 {$EndIf ChromeLikeTabbedContainerForm_imp_impl}

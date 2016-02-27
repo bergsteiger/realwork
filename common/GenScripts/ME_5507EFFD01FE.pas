@@ -327,6 +327,7 @@ type
  end;//TChromeLikeNewTabButton
 
  TChromeLikeTabSetNewTabRequested = procedure(aTabSet: TChromeLikeTabSetControlPrim;
+  aMenuTab: TChromeLikeTab;
   aOpenLast: Boolean) of object;
 
  TChromeLikeTabSetControl = class(TChromeLikeTabSetControlPrim, IChromeLikeCaptionControl)

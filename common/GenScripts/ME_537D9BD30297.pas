@@ -21,7 +21,8 @@
    procedure DoOnContainerIsClosing; virtual;
    procedure DoInitContainedForm(aForm: TvcmMainForm); virtual;
    function DoOpenNew(aOpenKind: TvcmMainFormOpenKind;
-    aOpenLast: Boolean): IvcmContainedForm; virtual;
+    aOpenLast: Boolean;
+    const aOpenAfter: IvcmEntityForm = nil): IvcmContainedForm; virtual;
    function pm_GetFormSetImageIndex: Integer;
    function pm_GetCanChangeSize: Boolean;
    function pm_GetCanBeMaximized: Boolean;
@@ -154,7 +155,8 @@ begin
 end;//_vcmContainedForm_.DoInitContainedForm
 
 function _vcmContainedForm_.DoOpenNew(aOpenKind: TvcmMainFormOpenKind;
- aOpenLast: Boolean): IvcmContainedForm;
+ aOpenLast: Boolean;
+ const aOpenAfter: IvcmEntityForm = nil): IvcmContainedForm;
 //#UC START# *5566C7BD037F_537D9BD30297_var*
 //#UC END# *5566C7BD037F_537D9BD30297_var*
 begin
