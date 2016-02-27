@@ -14,6 +14,7 @@ implementation @ <<CategoryLike>>
 //> ElementProxy::Class
 //> ClassProxy::Class
 //> InterfaceProxy::Class
+//> InterfaceFactoryProxy::Class
 
 //= WikiPackageImpl::Category
 //= PascalGenerator::Class
@@ -22,6 +23,7 @@ implementation @ <<CategoryLike>>
 // ѕользовательские свойства
 
 //p path prefix:s ? 
+//p defines:s ? определ€ет файл с услови€ми компил€ции
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ‘ункции стереотипа
@@ -41,6 +43,12 @@ implementation @ <<CategoryLike>>
  begin
   [%f] up_prefix %( %S )% ' *path prefix* = *'
   %S get_up ( 'path prefix' ) '*'
+//	][{"%S{defines}"!="%S{!defines}"}%f_up_prefix(%S) *defines* = *%S{defines}* - определ€ет файл с услови€ми компил€ции
+ end // if
+ if ( ( %S get_up ( 'defines' ) ) %!= ( %S get_up_def ( 'defines' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *defines* = *'
+  %S get_up ( 'defines' ) '* - определ€ет файл с услови€ми компил€ции'
 //	]
  end // if
 

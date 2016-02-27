@@ -3776,7 +3776,7 @@ implementation @ "Delphi интерфейсы и реализация"
        ++! l_Counter
       end // if
      end // for C
-//	<%C<{}{%LS=InterfaceFactory}%L#f_pas_TotalUses()>>\
+//	<%C<{}{%L#f_IsInterfaceFactory()=true}%L#f_pas_TotalUses()>>\
      INTEGER VAR l_Counter l_Counter := 0
      for %S%C
      begin
@@ -3790,7 +3790,7 @@ implementation @ "Delphi интерфейсы и реализация"
         for %S%L
         begin
          OBJECT IN %L
-         if ( ( %L |S ) %== 'InterfaceFactory' ) then
+         if ( ( %L %?f IsInterfaceFactory %( )% ) %==  true ) then
          begin
           %L %?f pas_TotalUses %( )% 
           ++! l_Counter
@@ -7101,10 +7101,10 @@ implementation @ "Delphi интерфейсы и реализация"
         if ( ( %S %?f IsProject %( )% ) %==  true OR 
           ( ( [%f] with_gen_id %( ( get_global_var ( 'GEN_ID' ) |N ) %, %P |d )% ) %!= ( [%f] with_gen_id %( ( get_global_var ( 'GEN_ID' ) |N ) %, %S |d )% )  ) ) then
         begin
-//	 CONST %{GEN_ID}N:PathOnly '%f_str_replace(%f_with_gen_id(%{GEN_ID}N,%Sd),/,\\)'
+//	 CONST %{GEN_ID}N:PathOnly '%f_str_replace(%f_str_replace(%f_with_gen_id(%{GEN_ID}N,%Sd),/,\\),\\\\,\\)'
          ' CONST '
          ( get_global_var ( 'GEN_ID' ) |N ) ':PathOnly '''
-         [%f] str_replace %( [%f] with_gen_id %( ( get_global_var ( 'GEN_ID' ) |N ) %, %S |d )% %, '/' %, '\' )% '''
+         [%f] str_replace %( [%f] str_replace %( [%f] with_gen_id %( ( get_global_var ( 'GEN_ID' ) |N ) %, %S |d )% %, '/' %, '\' )% %, '\\' %, '\' )% '''
 //	]\
         end // if
 //	]\
@@ -8265,10 +8265,11 @@ end. // "Delphi интерфейсы и реализация"
 ; // is_default_up_value
 
 : IsConstants OBJECT IN %S
-//	[{%SS=Constants|%SS=ConstantArray|%SS=LocalConst}{\
+//	[{%SS=Constants|%SS=ConstantArray|%SS=LocalConst|%SS=SetConst}{\
  if ( ( %S |S ) %== 'Constants' OR 
    ( ( %S |S ) %== 'ConstantArray'  ) OR 
-   ( ( %S |S ) %== 'LocalConst'  ) ) then
+   ( ( %S |S ) %== 'LocalConst'  ) OR 
+   ( ( %S |S ) %== 'SetConst'  ) ) then
  begin
 //	true\
    true 
@@ -9045,6 +9046,16 @@ implementation @ "Delphi интерфейсы и реализация"
  end // if
 //#UC END# *5643707B0390for470F151302FD*
 ; // pas_script_GenerateForwardPrim
+
+
+//%f _IsInterfaceFactory
+: IsInterfaceFactory OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *56D06FA10124for470F151302FD*
+//	false
+ false
+//#UC END# *56D06FA10124for470F151302FD*
+; // IsInterfaceFactory
 
 
 

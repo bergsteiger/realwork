@@ -409,18 +409,8 @@ implementation @ <<UserType>>
 //	%{Word_Inst}%f_set_documentation(Слово словаря для типа формы %SN\
  ( get_global_var ( 'Word_Inst' ) %f set_documentation %( 'Слово словаря для типа формы '
  %S |N 
-//	----
-
-//	*Пример использования*:
-
-//	\{code\}
-
-//	'aControl' форма::%f_str_replace(%f_N(%S), ,_) TryFocus ASSERT
-
-//	\{code\}\
 //	)\
-)% ) //	%{Word_Inst}%f_set_up(ifdef,InsiderTest)\
-
+)% ) 
 //	[{"%{TtfwInteger.GetInteger}N"=""}%f_find_element(4EE1DC8903BB,TtfwInteger.GetInteger)]\
  if ( ( ( get_global_var ( 'TtfwInteger.GetInteger' ) |N ) ) %== '' ) then
  begin
@@ -428,33 +418,31 @@ implementation @ <<UserType>>
  end // if
 //	%{Word_Inst}%f_add_override(4EE1DC8903BB)\
  ( get_global_var ( 'Word_Inst' ) %f add_override %( 4 'EE1DC8903BB' )% ) 
+//	[{%S#f_UseNewGenRec()!=true}\
+ if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+ begin
 //	%{TtfwInteger.GetInteger}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwInteger.GetInteger},%{Word_Inst})_var,\
- ( get_global_var ( 'TtfwInteger.GetInteger' ) %f set_uc_content %( 'intf.pas' %, '_'
- [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwInteger.GetInteger' ) ) %, ( get_global_var ( 'Word_Inst' ) ) )% '_var' %, 
+  ( get_global_var ( 'TtfwInteger.GetInteger' ) %f set_uc_content %( 'intf.pas' %, '_'
+  [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwInteger.GetInteger' ) ) %, ( get_global_var ( 'Word_Inst' ) ) )% '_var' %, 
 //	 {-}\
- ' {-}'
+  ' {-}'
 //	)\
 )% ) //	%{TtfwInteger.GetInteger}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwInteger.GetInteger},%{Word_Inst})_impl,\
- ( get_global_var ( 'TtfwInteger.GetInteger' ) %f set_uc_content %( 'intf.pas' %, '_'
- [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwInteger.GetInteger' ) ) %, ( get_global_var ( 'Word_Inst' ) ) )% '_impl' %, 
+  ( get_global_var ( 'TtfwInteger.GetInteger' ) %f set_uc_content %( 'intf.pas' %, '_'
+  [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwInteger.GetInteger' ) ) %, ( get_global_var ( 'Word_Inst' ) ) )% '_impl' %, 
 //	 Result := %f_N(%S);\
- ' Result := '
- [%f] N %( %S )% ';'
-//	)
-)% ) 
+  ' Result := '
+  [%f] N %( %S )% ';'
+//	)\
+)% ) //	]\
+ end // if
+
 //	%{Word_Inst}%f_set_up(NameForScript,тип_формы::%f_str_replace(%f_N(%S), ,_))\
  ( get_global_var ( 'Word_Inst' ) %f set_up %( 'NameForScript' %, 'тип_формы::'
  [%f] str_replace %( [%f] N %( %S )% %, ' ' %, '_' )% )% ) 
 //	%{Word_Inst}%f_set_abstraction_type(final)\
  ( get_global_var ( 'Word_Inst' ) %f set_abstraction_type %( 'final' )% ) 
 
-//	%{Word_Inst}%f_add_operation(%{Word_Inst}U_Ini,ini,Ini (),Op_Instance)\
-//	%{Op_Instance}%f_set_documentation(Регистрация %{Word_Inst}N)\
-//	%{Op_Instance}%f_set_abstraction_type(final)\
-//	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
-//	%{Op_Instance}%f_set_uc_content(intf.pas,,\
-//	 %{Word_Inst}N.Register('%f_loc_GetNameForScript(%{Word_Inst})');\
-//	)\
 //	%{Word_Inst}%f_set_up(NeedsKeywordDoc,true)
  ( get_global_var ( 'Word_Inst' ) %f set_up %( 'NeedsKeywordDoc' %, true )% ) 
 //#UC END# *4B2A19E3038Bfor4B0402290215*

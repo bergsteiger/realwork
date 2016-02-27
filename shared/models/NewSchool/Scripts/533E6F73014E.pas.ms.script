@@ -9737,25 +9737,35 @@ ref; // ME_5540B1BC0019 TChromeLikeNewTabButton
 
 FORWARD ME_558114600228
 
-: ME_56A21DD402A3
- CONST UID '56A21DD402A3'
+: ME_56CE9CFB0191
+ CONST UID '56CE9CFB0191'
  CONST Name 'aTabSet'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target ME_5507C0E2028F // TChromeLikeTabSetControlPrim
  ;
 
-ref; // ME_56A21DD402A3 aTabSet
+ref; // ME_56CE9CFB0191 aTabSet
 
-: ME_56A21DD402B3
- CONST UID '56A21DD402B3'
+: ME_56CE9CFB01B0
+ CONST UID '56CE9CFB01B0'
+ CONST Name 'aMenuTab'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_5507F22E0057 // TChromeLikeTab
+ ;
+
+ref; // ME_56CE9CFB01B0 aMenuTab
+
+: ME_56CE9CFB01CF
+ CONST UID '56CE9CFB01CF'
  CONST Name 'aOpenLast'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
 
-ref; // ME_56A21DD402B3 aOpenLast
+ref; // ME_56CE9CFB01CF aOpenLast
 
 : ME_5581147B0381
  CONST UID '5581147B0381'
@@ -9766,8 +9776,9 @@ ref; // ME_56A21DD402B3 aOpenLast
  : Parent ME_558114600228 // TChromeLikeTabSetNewTabRequested
  ;
  : Parameters
-   Seq: ( ME_56A21DD402A3 // aTabSet
- ME_56A21DD402B3 // aOpenLast
+   Seq: ( ME_56CE9CFB0191 // aTabSet
+ ME_56CE9CFB01B0 // aMenuTab
+ ME_56CE9CFB01CF // aOpenLast
  )
  ; // Parameters
 
@@ -16738,8 +16749,8 @@ ref; // ME_5566D7A300E6 DoOpenNewTab
 
 FORWARD ME_558119BD02BE
 
-: ME_C7D486F784D2
- CONST UID 'C7D486F784D2'
+: ME_B8A02A675450
+ CONST UID 'B8A02A675450'
  CONST Name 'aTabSet'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -16747,10 +16758,21 @@ FORWARD ME_558119BD02BE
  : Target ME_5507C0E2028F // TChromeLikeTabSetControlPrim
  ;
 
-ref; // ME_C7D486F784D2 aTabSet
+ref; // ME_B8A02A675450 aTabSet
 
-: ME_435122CEB5D3
- CONST UID '435122CEB5D3'
+: ME_9C3213C7A3DA
+ CONST UID '9C3213C7A3DA'
+ CONST Name 'aMenuTab'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_5507F22E0057 // TChromeLikeTab
+ ;
+
+ref; // ME_9C3213C7A3DA aMenuTab
+
+: ME_82F808DAEC1F
+ CONST UID '82F808DAEC1F'
  CONST Name 'aOpenLast'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -16758,7 +16780,7 @@ ref; // ME_C7D486F784D2 aTabSet
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
 
-ref; // ME_435122CEB5D3 aOpenLast
+ref; // ME_82F808DAEC1F aOpenLast
 
 : ME_4A08BFEBCF2D
  CONST UID '4A08BFEBCF2D'
@@ -16770,8 +16792,9 @@ ref; // ME_435122CEB5D3 aOpenLast
  : Parent ME_558119BD02BE // DoOnNewTabRequested
  ;
  : Parameters
-   Seq: ( ME_C7D486F784D2 // aTabSet
- ME_435122CEB5D3 // aOpenLast
+   Seq: ( ME_B8A02A675450 // aTabSet
+ ME_9C3213C7A3DA // aMenuTab
+ ME_82F808DAEC1F // aOpenLast
  )
  ; // Parameters
 
@@ -16938,6 +16961,50 @@ ref; // ME_EA5AB375C19A DoIt
  ; // Operations
 
 ref; // ME_55FFECF00390 DoUpdateCaption
+
+FORWARD ME_56CEB59A037B
+
+: ME_56CEB5C002A2
+ CONST UID '56CEB5C002A2'
+ CONST Name 'aTab'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5555A16D0024' '553213B80041.pas.ms.script' // Il3FormTab
+ ;
+
+ref; // ME_56CEB5C002A2 aTab
+
+: ME_56CEB5B8033B
+ CONST UID '56CEB5B8033B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56CEB59A037B // DoOpenTabAfter
+ ;
+ : Parameters
+   Seq: ( ME_56CEB5C002A2 // aTab
+ )
+ ; // Parameters
+
+ref; // ME_56CEB5B8033B DoIt
+
+: ME_56CEB59A037B
+ CONST UID '56CEB59A037B'
+ CONST Name 'DoOpenTabAfter'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_550A7D5C01BC // ChromeLikeTabbedContainerForm
+ ;
+ : Operations
+   Seq: ( ME_56CEB5B8033B // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56CEB59A037B DoOpenTabAfter
 
 : ME_550A839C003D
  CONST UID '550A839C003D'
@@ -17291,6 +17358,16 @@ ref; // ME_56990DDF014B_ME_550A7D5C01BC CanUndockFormFromTab
  CONST OpKind opkind_Implemented
 ref; // ME_56990E360344_ME_550A7D5C01BC UndockFormFromTab
 
+: ME_56CEAAE901F8_ME_550A7D5C01BC
+ CONST UID '56CEAAE901F8'
+ CONST Name 'OpenTabAfter'
+ : Original WL 'ME_56CEAAE901F8' '553213B80041.pas.ms.script' // OpenTabAfter
+ ;
+ : Implementor ME_550A7D5C01BC // ChromeLikeTabbedContainerForm
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_56CEAAE901F8_ME_550A7D5C01BC OpenTabAfter
+
 : ME_550A7D5C01BC
  CONST UID '550A7D5C01BC'
  CONST Name 'ChromeLikeTabbedContainerForm'
@@ -17358,6 +17435,7 @@ ref; // ME_56990E360344_ME_550A7D5C01BC UndockFormFromTab
  ME_55B5F22B0315 // DoGetCanOpenNewTab
  ME_55CB09250081 // InsertFormAfterSpecified
  ME_55FFECF00390 // DoUpdateCaption
+ ME_56CEB59A037B // DoOpenTabAfter
  ME_550A82B90140 // WMMove
  )
  ; // Operations
@@ -17384,6 +17462,7 @@ ref; // ME_56990E360344_ME_550A7D5C01BC UndockFormFromTab
  ME_569611530032_ME_550A7D5C01BC // TabByVisibleIndex
  ME_56990DDF014B_ME_550A7D5C01BC // CanUndockFormFromTab
  ME_56990E360344_ME_550A7D5C01BC // UndockFormFromTab
+ ME_56CEAAE901F8_ME_550A7D5C01BC // OpenTabAfter
  )
  ; // Implemented
  : Children

@@ -195,12 +195,12 @@ implementation @ <<ProjectGroup>>
 //R  
 //#UC START# *470F1571031Cfor561FCB1E032C*
 //P true
-//	<{}{%C{UseNewGen}!=true}%CX>
+//	<{}{%C#f_UseNewGenRec()!=true}%CX>
  INTEGER VAR l_Counter l_Counter := 0
  for %S%C
  begin
   OBJECT IN %C
-  if ( ( %C get_up ( 'UseNewGen' ) ) %!=  true ) then
+  if ( ( %C %?f UseNewGenRec %( )% ) %!=  true ) then
   begin
    %C |X 
    ++! l_Counter
@@ -303,24 +303,14 @@ implementation @ <<ProjectGroup>>
 <<generator>> spell OBJECT IN %S
 //#UC START# *4A41A13D03D5for561FCB1E032C*
 //P true
-//	%f_warning(%SN)\
-//	%f_warning(%BN)\
-//	%f_warning(%MN)\
-//	<\
+//	<%CX>
  INTEGER VAR l_Counter l_Counter := 0
  for %S%C
  begin
   OBJECT IN %C
   if true then
   begin
-//	%f_warning(%CN start)\
-   [%f] warning %( %C |N ' start' )% 
-//	%CX\
    %C |X 
-//	%f_warning(%CN finish)\
-   [%f] warning %( %C |N ' finish' )% 
-//	>
-
    ++! l_Counter
   end // if
  end // for C

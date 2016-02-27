@@ -12,12 +12,8 @@
  l_IsRedefinition := theNewContext.rPrev.rTypeInfo.Has(tfw_wmRedefinition);
  if l_IsRedefinition then
  begin
-  if theNewContext.rEngine.CascadeDict then
-  // - иначе пока отваливаетс€ чтение шаблонов и модели
-  begin
-   CompilerAssert(l_W.Word <> nil, 'Ќет слова дл€ переопределени€', theNewContext);
-   CompilerAssert(not l_W.Word.IsForwardDeclaration, 'Ќельз€ переопредел€ть предварительное описание', theNewContext);
-  end;//theNewContext.rEngine.CascadeDict
+  CompilerAssert(l_W.Word <> nil, 'Ќет слова дл€ переопределени€', theNewContext);
+  CompilerAssert(not l_W.Word.IsForwardDeclaration, 'Ќельз€ переопредел€ть предварительное описание', theNewContext);
  end;//l_IsRedefinition
  if (l_W.Word <> nil) AND not l_W.Word.IsForwardDeclaration then
  begin
@@ -26,46 +22,6 @@
   begin
    l_CanBeMerged := true;
    theNewContext.rWordCompilingNow.Redefines := l_W.Word;
-  end//theNewContext.rPrev.rTypeInfo.Has(tfw_wmRedefinition)
-  else
-  begin
-   l_Stereotype := locName;
-   CompilerAssertFmt(not l3IsNil(l_Stereotype),
-                     'Ќе задан стереотип у дублирующегос€ элемента %s: %s (%s)',
-                     [
-                      l_W.AsString,
-                      l_W.Word.ClassName,
-                      l_W.ClassName
-                     ],
-                     theNewContext.rPrev^);
-   if (l_W.Word.WordProducer <> nil) then
-   begin
-    l_StereoType2 := l_W.Word.WordProducer.Key.AsCStr;
-    if l3Same(l_Stereotype, l_StereoType2) then
-    begin
-     if l_W.Word.ResultTypeInfo[theNewContext].Has(tfw_wmCanBeMerged) then
-      l_CanBeMerged := true
-     else
-      CompilerAssertFmt(false,
-                        '—овпадают стереотипы %s и %s', [l3Str(l_Stereotype), l3Str(l_StereoType2)],
-                        theNewContext.rPrev^);
-    end;//l_Stereotype = l_StereoType2
-   end;//l_W.Word.WordProducer
-   // - хороша€ проверка, но дл€ hResult и HResult - не работает !!!
-   if l_CanBeMerged then
-   begin
-    l_W.Word.SetRefTo(theNewContext.rWordCompilingNow);
-    // - подмен€ем текущее компилируемое слово
-    theNewContext.rCompiler := theNewContext.rWordCompilingNow.GetCompiler(theNewContext.rPrev^);
-    // - подмен€ем компил€тор
-   end//tfw_wmCanBeMerged in l_W.Word.Modifiers
-   else
-   begin
-    l_N := TtfwCStringFactory.Cat([l_N, TtfwCStringFactory.C('$'), l_Stereotype]);
-    // - прибавл€ем им€ стереотипа к имени элемента и таким образом пытаемс€ разрешить коллизию
-    //   это дл€ того, чтобы нормально разобрать то, что вылили из –озы
-    l_W := l_C.CheckWord(l_N);
-   end;//tfw_wmCanBeMerged in l_W.Word.Modifiers
   end;//theNewContext.rPrev.rTypeInfo.Has(tfw_wmRedefinition)
  end;//l_W.Word <> nil
  theNewContext.rKeyWordCompilingNow := l_W;
@@ -116,11 +72,9 @@
 var
  l_N : Il3CString;
  l_W : TtfwKeyWord;
- l_Stereotype : Il3CString;
- l_Stereotype2 : Il3CString;
  l_C : TtfwNewWordDefinitor;
- l_CanBeMerged : Boolean;
  l_IsRedefinition : Boolean;
+ l_CanBeMerged : Boolean;
 //#UC END# *4DB6CDDA038B_4DB9B6D20168_var*
 //#UC START# *4DB6CE2302C9_4DB9B6D20168_impl*
  FinishDefinitionOfNewWord(theNewContext.rKeyWordCompilingNow, aCompiled, theNewContext{.rPrev^});

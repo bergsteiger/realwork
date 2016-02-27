@@ -1503,12 +1503,12 @@ implementation @ <<Library>>
 //R  
 //P
 //C %S%f_pas_LibPath()
-//	<{}{%C{UseNewGen}!=true}%CX>
+//	<{}{%C#f_UseNewGenRec()!=true}%CX>
  INTEGER VAR l_Counter l_Counter := 0
  for %S%C
  begin
   OBJECT IN %C
-  if ( ( %C get_up ( 'UseNewGen' ) ) %!=  true ) then
+  if ( ( %C %?f UseNewGenRec %( )% ) %!=  true ) then
   begin
    %C |X 
    ++! l_Counter
@@ -2823,7 +2823,9 @@ implementation @ <<Library>>
 //+ spell
 <<generator>> spell OBJECT IN %S
 //#UC START# *4A41A13D03D5for470361CD0148*
-//	<%CX>
+//	%f_warning(%SN start)\
+ [%f] warning %( %S |N ' start' )% 
+//	<%CX>\
  INTEGER VAR l_Counter l_Counter := 0
  for %S%C
  begin
@@ -2834,6 +2836,8 @@ implementation @ <<Library>>
    ++! l_Counter
   end // if
  end // for C
+//	%f_warning(%SN finish)
+ [%f] warning %( %S |N ' finish' )% 
 //#UC END# *4A41A13D03D5for470361CD0148*
 ; // spell
 

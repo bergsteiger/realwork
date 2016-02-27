@@ -145,7 +145,7 @@ implementation @ <<TagTable>>
    ++! l_Counter
   end // if
  end // for C
-//	<%C<{}{%LS=InterfaceFactory}%f_pas_PutImplToUses(%L)>>\
+//	<%C<{}{%L#f_IsInterfaceFactory()=true}%f_pas_PutImplToUses(%L)>>\
  INTEGER VAR l_Counter l_Counter := 0
  for %S%C
  begin
@@ -159,7 +159,7 @@ implementation @ <<TagTable>>
     for %S%L
     begin
      OBJECT IN %L
-     if ( ( %L |S ) %== 'InterfaceFactory' ) then
+     if ( ( %L %?f IsInterfaceFactory %( )% ) %==  true ) then
      begin
       [%f] pas_PutImplToUses %( %L )% 
       ++! l_Counter

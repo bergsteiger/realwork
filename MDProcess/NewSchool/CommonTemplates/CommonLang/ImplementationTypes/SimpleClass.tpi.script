@@ -958,57 +958,62 @@ implementation @ <<SimpleClass>>
 //	[{%S{singleton}=true}\
  if ( ( %S get_up ( 'singleton' ) ) %==  true ) then
  begin
-//	[{<{}{%CN=Exists}{C}>=0}\
-  if ( 
-   INTEGER VAR l_Counter l_Counter := 0
-   for %S%C
-   begin
-    OBJECT IN %C
-    if ( ( %C |N ) %== 'Exists' ) then
-    begin
-
-     ++! l_Counter
-    end // if
-   end // for C
-   l_Counter
-   %== 0 ) then
+//	[{%S#f_UseNewGenRec()!=true}\
+  if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
   begin
-//	[{"%{BOOLEAN}N"=""}%f_find_element(46A603BB0391,BOOLEAN)]\
-   if ( ( ( get_global_var ( 'BOOLEAN' ) |N ) ) %== '' ) then
+//	[{<{}{%CN=Exists}{C}>=0}\
+   if ( 
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |N ) %== 'Exists' ) then
+     begin
+
+      ++! l_Counter
+     end // if
+    end // for C
+    l_Counter
+    %== 0 ) then
    begin
-    [%f] find_element %( '46A603BB0391' %, 'BOOLEAN' )% 
-   end // if
+//	[{"%{BOOLEAN}N"=""}%f_find_element(46A603BB0391,BOOLEAN)]\
+    if ( ( ( get_global_var ( 'BOOLEAN' ) |N ) ) %== '' ) then
+    begin
+     [%f] find_element %( '46A603BB0391' %, 'BOOLEAN' )% 
+    end // if
 //	%S%f_add_operation(%SU_Exists,static,Exists (): %{BOOLEAN}U,Op_Instance)\
-   %S %f add_operation %( %S |U '_Exists' %, 'static' %, 'Exists (): '
-   ( get_global_var ( 'BOOLEAN' ) |U ) %, 'Op_Instance' )% 
+    %S %f add_operation %( %S |U '_Exists' %, 'static' %, 'Exists (): '
+    ( get_global_var ( 'BOOLEAN' ) |U ) %, 'Op_Instance' )% 
 //	%{Op_Instance}%f_set_documentation(Проверяет создан экземпляр синглетона или нет)\
-   ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Проверяет создан экземпляр синглетона или нет' )% ) 
+    ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Проверяет создан экземпляр синглетона или нет' )% ) 
 
 //	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%S)_var,\
-   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
-   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, %S )% '_var' %, 
+    ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+    [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, %S )% '_var' %, 
 //	 {-}\
-   ' {-}'
+    ' {-}'
 //	)\
 )% ) 
 
 //	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%S)_impl,\
-   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
-   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, %S )% '_impl' %, 
+    ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+    [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, %S )% '_impl' %, 
 //	 Result := g_%f_pas_TypeName(%S) \<\> nil;\
-   ' Result := g_'
-   [%f] pas_TypeName %( %S )% ' <> nil;'
+    ' Result := g_'
+    [%f] pas_TypeName %( %S )% ' <> nil;'
 //	)\
-)% ) 
+)% ) //	]\
+   end // if
+
 
 //	]\
   end // if
 //	]\
  end // if
 
-//	[{%SS!=Wrapper&%SS!=InterfaceFactory}\
+//	[{%SS!=Wrapper&%S#f_IsInterfaceFactory()!=true}\
  if ( ( %S |S ) %!= 'Wrapper' AND 
-   ( ( %S |S ) %!= 'InterfaceFactory'  ) ) then
+   ( ( %S %?f IsInterfaceFactory %( )% ) %!=  true  ) ) then
  begin
 //	<{}{%RS=Tag}\
   INTEGER VAR l_Counter l_Counter := 0
@@ -1299,85 +1304,90 @@ implementation @ <<SimpleClass>>
 
 //	%S%f_add_override(%{l3UnknownPrim.ClearFields}U)\
   %S %f add_override %( ( get_global_var ( 'l3UnknownPrim.ClearFields' ) |U ) )% 
+//	[{%S#f_UseNewGenRec()!=true}\
+  if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+  begin
 //	%{l3UnknownPrim.ClearFields}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{l3UnknownPrim.ClearFields},%S)_var,\
-  ( get_global_var ( 'l3UnknownPrim.ClearFields' ) %f set_uc_content %( 'intf.pas' %, '_'
-  [%f] pas_MethodOwnerID %( ( get_global_var ( 'l3UnknownPrim.ClearFields' ) ) %, %S )% '_var' %, 
+   ( get_global_var ( 'l3UnknownPrim.ClearFields' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'l3UnknownPrim.ClearFields' ) ) %, %S )% '_var' %, 
 //	 {-}\
-  ' {-}'
+   ' {-}'
 //	)\
 )% ) //	%{l3UnknownPrim.ClearFields}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{l3UnknownPrim.ClearFields},%S)_impl,\
-  ( get_global_var ( 'l3UnknownPrim.ClearFields' ) %f set_uc_content %( 'intf.pas' %, '_'
-  [%f] pas_MethodOwnerID %( ( get_global_var ( 'l3UnknownPrim.ClearFields' ) ) %, %S )% '_impl' %, 
+   ( get_global_var ( 'l3UnknownPrim.ClearFields' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'l3UnknownPrim.ClearFields' ) ) %, %S )% '_impl' %, 
 //	<{}{%C#f_IsFieldForCleanup()=true}\
-  INTEGER VAR l_Counter l_Counter := 0
-  for %S%C
-  begin
-   OBJECT IN %C
-   if ( ( %C %?f IsFieldForCleanup %( )% ) %==  true ) then
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
    begin
+    OBJECT IN %C
+    if ( ( %C %?f IsFieldForCleanup %( )% ) %==  true ) then
+    begin
 //	 \
-    ' '
+     ' '
 //	[{%C%T#f_IsStruct()=true}{\
-    if ( ( %C ->T %?f IsStruct %( )%  ) %==  true ) then
-    begin
-//	Finalize(%C%f_pas_AttrName());\
-     'Finalize('
-     %C %f pas_AttrName %( )% ');'
-//	]\n\
-    end // if
-    else
-    begin
-//	[{"%C%{clearViaProperty}N"!=""}{\
-     if ( ( %C ( get_object_var ( 'clearViaProperty' ) |N )  ) %!= '' ) then
+     if ( ( %C ->T %?f IsStruct %( )%  ) %==  true ) then
      begin
-//	[%C%{clearViaProperty}#f_open_ifdef()\n ]\
-      if NOT-EMPTY
-      begin
-       %C ( get_object_var ( 'clearViaProperty' ) )  out_indent 'f_open_ifdef()'#13#10' ' 
-      end // if
-      NOP
-//	%C%{clearViaProperty}N := nil;\
-      %C ( get_object_var ( 'clearViaProperty' ) |N )  ' := nil;'
-//	[\n %C%{clearViaProperty}#f_close_ifdef()]\
-      if NOT-EMPTY
-      begin
-       #13#10' '
-       %C ( get_object_var ( 'clearViaProperty' ) )  out_indent 'f_close_ifdef()' 
-      end // if
-      NOP
-//	]\
+//	Finalize(%C%f_pas_AttrName());\
+      'Finalize('
+      %C %f pas_AttrName %( )% ');'
+//	]\n\
      end // if
      else
      begin
+//	[{"%C%{clearViaProperty}N"!=""}{\
+      if ( ( %C ( get_object_var ( 'clearViaProperty' ) |N )  ) %!= '' ) then
+      begin
+//	[%C%{clearViaProperty}#f_open_ifdef()\n ]\
+       if NOT-EMPTY
+       begin
+        %C ( get_object_var ( 'clearViaProperty' ) )  out_indent 'f_open_ifdef()'#13#10' ' 
+       end // if
+       NOP
+//	%C%{clearViaProperty}N := nil;\
+       %C ( get_object_var ( 'clearViaProperty' ) |N )  ' := nil;'
+//	[\n %C%{clearViaProperty}#f_close_ifdef()]\
+       if NOT-EMPTY
+       begin
+        #13#10' '
+        %C ( get_object_var ( 'clearViaProperty' ) )  out_indent 'f_close_ifdef()' 
+       end // if
+       NOP
+//	]\
+      end // if
+      else
+      begin
 //	[%C#f_open_ifdef()\n ]\
-      if NOT-EMPTY
-      begin
-       %C %?f open_ifdef %( )% #13#10' ' 
-      end // if
-      NOP
+       if NOT-EMPTY
+       begin
+        %C %?f open_ifdef %( )% #13#10' ' 
+       end // if
+       NOP
 //	%C%f_pas_AttrName() := nil;\
-      %C %f pas_AttrName %( )% ' := nil;'
+       %C %f pas_AttrName %( )% ' := nil;'
 //	[\n %C#f_close_ifdef()]\
-      if NOT-EMPTY
-      begin
-       #13#10' '
-       %C %?f close_ifdef %( )% 
-      end // if
-      NOP
+       if NOT-EMPTY
+       begin
+        #13#10' '
+        %C %?f close_ifdef %( )% 
+       end // if
+       NOP
+//	}\
+      end // else
 //	}\
      end // else
-//	}\
-    end // else
-    #13#10
+     #13#10
 //	>\
 
-    ++! l_Counter
-   end // if
-  end // for C
+     ++! l_Counter
+    end // if
+   end // for C
 //	 inherited;\
-  ' inherited;'
+   ' inherited;'
 //	)\
-)% ) 
+)% ) //	]\
+  end // if
+
 
 //	]\
  end // if
@@ -1451,25 +1461,30 @@ implementation @ <<SimpleClass>>
       ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
 //	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
       ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+//	[{%S#f_UseNewGenRec()!=true}\
+      if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+      begin
 //	%{Op_Instance}%f_set_uc_content(intf.pas,,\
-      ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '' %, 
+       ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '' %, 
 //	[{%S%f_InheritsFrom("TtfwWord")=true}{\
-      if ( ( %S %f InheritsFrom %( 'TtfwWord' )% ) %==  true ) then
-      begin
+       if ( ( %S %f InheritsFrom %( 'TtfwWord' )% ) %==  true ) then
+       begin
 //	 %f_pas_TypeName(%S).RegisterClass;\
-       ' '
-       [%f] pas_TypeName %( %S )% '.RegisterClass;'
+        ' '
+        [%f] pas_TypeName %( %S )% '.RegisterClass;'
 //	]\
-      end // if
-      else
-      begin
+       end // if
+       else
+       begin
 //	 TtfwClassRef.Register(%f_pas_TypeName(%S));\
-       ' TtfwClassRef.Register('
-       [%f] pas_TypeName %( %S )% ');'
+        ' TtfwClassRef.Register('
+        [%f] pas_TypeName %( %S )% ');'
 //	}\
-      end // else
+       end // else
 //	)\
-)% ) 
+)% ) //	]\
+      end // if
+
 
 //	]\
      end // if
@@ -1530,13 +1545,18 @@ end. // <<SimpleClass>>
 //	%{Class_Inst}%f_set_up(need UC,true)\
   ( get_global_var ( 'Class_Inst' ) %f set_up %( 'need UC' %, true )% ) 
 
+//	[{%S#f_UseNewGenRec()!=true}\
+  if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+  begin
 //	%{Class_Inst}%f_set_uc_content(intf.pas,impl,\
-  ( get_global_var ( 'Class_Inst' ) %f set_uc_content %( 'intf.pas' %, 'impl' %, 
+   ( get_global_var ( 'Class_Inst' ) %f set_uc_content %( 'intf.pas' %, 'impl' %, 
 //	 \{$R %f_pas_FileName(%S).res}\
-  ' {$R '
-  [%f] pas_FileName %( %S )% '.res}'
+   ' {$R '
+   [%f] pas_FileName %( %S )% '.res}'
 //	)\
-)% ) 
+)% ) //	]\
+  end // if
+
 
 //	%{Class_Inst}%f_add_operation(%{Class_Inst}U_Reg,ini,RegAxiom (),Reg_Instance)\
   ( get_global_var ( 'Class_Inst' ) %f add_operation %( ( get_global_var ( 'Class_Inst' ) |U ) '_Reg' %, 'ini' %, 'RegAxiom ()' %, 'Reg_Instance' )% ) 
@@ -1547,13 +1567,18 @@ end. // <<SimpleClass>>
 //	%{Reg_Instance}%f_set_visibility_type(PrivateAccess)\
   ( get_global_var ( 'Reg_Instance' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
 
+//	[{%S#f_UseNewGenRec()!=true}\
+  if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+  begin
 //	%{Reg_Instance}%f_set_uc_content(intf.pas,,\
-  ( get_global_var ( 'Reg_Instance' ) %f set_uc_content %( 'intf.pas' %, '' %, 
+   ( get_global_var ( 'Reg_Instance' ) %f set_uc_content %( 'intf.pas' %, '' %, 
 //	 %f_pas_TypeName(%{Class_Inst}).Register;\
-  ' '
-  [%f] pas_TypeName %( ( get_global_var ( 'Class_Inst' ) ) )% '.Register;'
+   ' '
+   [%f] pas_TypeName %( ( get_global_var ( 'Class_Inst' ) ) )% '.Register;'
 //	)\
-)% ) 
+)% ) //	]\
+  end // if
+
 
 //	[{"%{TtfwAxiomaticsResNameGetter.ResName}N"=""}%f_find_element(55B7A3AF0359,TtfwAxiomaticsResNameGetter.ResName)]\
   if ( ( ( get_global_var ( 'TtfwAxiomaticsResNameGetter.ResName' ) |N ) ) %== '' ) then
@@ -1562,22 +1587,27 @@ end. // <<SimpleClass>>
   end // if
 
 
+//	[{%S#f_UseNewGenRec()!=true}\
+  if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+  begin
 //	%{TtfwAxiomaticsResNameGetter.ResName}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwAxiomaticsResNameGetter.ResName},%{Class_Inst})_var,\
-  ( get_global_var ( 'TtfwAxiomaticsResNameGetter.ResName' ) %f set_uc_content %( 'intf.pas' %, '_'
-  [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwAxiomaticsResNameGetter.ResName' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
+   ( get_global_var ( 'TtfwAxiomaticsResNameGetter.ResName' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwAxiomaticsResNameGetter.ResName' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
 //	 {-}\
-  ' {-}'
+   ' {-}'
 //	)\
 )% ) 
 
 //	%{TtfwAxiomaticsResNameGetter.ResName}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwAxiomaticsResNameGetter.ResName},%{Class_Inst})_impl,\
-  ( get_global_var ( 'TtfwAxiomaticsResNameGetter.ResName' ) %f set_uc_content %( 'intf.pas' %, '_'
-  [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwAxiomaticsResNameGetter.ResName' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
+   ( get_global_var ( 'TtfwAxiomaticsResNameGetter.ResName' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwAxiomaticsResNameGetter.ResName' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
 //	 Result := '%f_pas_FileName(%S)';\
-  ' Result := '''
-  [%f] pas_FileName %( %S )% ''';'
+   ' Result := '''
+   [%f] pas_FileName %( %S )% ''';'
 //	)\
-)% ) 
+)% ) //	]\
+  end // if
+
 
 //	]
  end // if
@@ -1692,13 +1722,18 @@ end. // <<SimpleClass>>
   ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
 //	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
   ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+//	[{%S#f_UseNewGenRec()!=true}\
+  if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+  begin
 //	%{Op_Instance}%f_set_uc_content(intf.pas,,\
-  ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '' %, 
+   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '' %, 
 //	 %f_pas_TypeName(%S).RegisterInEngine;\
-  ' '
-  [%f] pas_TypeName %( %S )% '.RegisterInEngine;'
+   ' '
+   [%f] pas_TypeName %( %S )% '.RegisterInEngine;'
 //	)\
-)% ) //	]
+)% ) //	]\
+  end // if
+//	]
  end // if
 
 //f _openBr
@@ -2102,14 +2137,15 @@ implementation @ <<SimpleClass>>
    [%f] end_new_file %( %S )% 
 //	}\
   end // else
-//	<{}{%f_ChildNeedOwnFile(%C)&%C%f_IsClassInner()!=true&"%CO"!=""}%CX>\
+//	<{}{%f_ChildNeedOwnFile(%C)&%C%f_IsClassInner()!=true&"%CO"!=""&%C#f_UseNewGenRec()!=true}%CX>\
   INTEGER VAR l_Counter l_Counter := 0
   for %S%C
   begin
    OBJECT IN %C
    if ( ( [%f] ChildNeedOwnFile %( %C )% ) AND 
     ( ( %C %f IsClassInner %( )% ) %!=  true  ) AND 
-    ( ( %C |O ) %!= ''  ) ) then
+    ( ( %C |O ) %!= ''  ) AND 
+    ( ( %C %?f UseNewGenRec %( )% ) %!=  true  ) ) then
    begin
     %C |X 
     ++! l_Counter

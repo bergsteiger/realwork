@@ -1430,12 +1430,12 @@ implementation @ <<Atom>>
   end // if
  end // for L
 
-//	<{}{%LS=InterfaceFactory}\
+//	<{}{%L#f_IsInterfaceFactory()=true}\
  INTEGER VAR l_Counter l_Counter := 0
  for %S%L
  begin
   OBJECT IN %L
-  if ( ( %L |S ) %== 'InterfaceFactory' ) then
+  if ( ( %L %?f IsInterfaceFactory %( )% ) %==  true ) then
   begin
 //	[\n# %L#f_open_ifdef()]\
    if NOT-EMPTY

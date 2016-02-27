@@ -345,12 +345,12 @@ implementation @ <<Project>>
 //R  
 //P
 //C %f_pas_PrjPath(%S)
-//	<{}{%C{UseNewGen}!=true}%CX>
+//	<{}{%C#f_UseNewGenRec()!=true}%CX>
  INTEGER VAR l_Counter l_Counter := 0
  for %S%C
  begin
   OBJECT IN %C
-  if ( ( %C get_up ( 'UseNewGen' ) ) %!=  true ) then
+  if ( ( %C %?f UseNewGenRec %( )% ) %!=  true ) then
   begin
    %C |X 
    ++! l_Counter
@@ -2266,7 +2266,9 @@ end. // <<Project>>
 implementation @ <<Project>>
 <<generator>> spell OBJECT IN %S
 //#UC START# *4A41A13D03D5for46E13AC200BB*
-//	<%CX>
+//	%f_warning(%SN start)\
+ [%f] warning %( %S |N ' start' )% 
+//	<%CX>\
  INTEGER VAR l_Counter l_Counter := 0
  for %S%C
  begin
@@ -2277,6 +2279,8 @@ implementation @ <<Project>>
    ++! l_Counter
   end // if
  end // for C
+//	%f_warning(%SN finish)
+ [%f] warning %( %S |N ' finish' )% 
 //#UC END# *4A41A13D03D5for46E13AC200BB*
 ; // spell
 

@@ -185,12 +185,12 @@ implementation @ <<Unit>>
  begin
   %S %f pas_OutUnitFile %( )% 
  end // if
-//	<{}{%C{UseNewGen}!=true}%CX>
+//	<{}{%C#f_UseNewGenRec()!=true}%CX>
  INTEGER VAR l_Counter l_Counter := 0
  for %S%C
  begin
   OBJECT IN %C
-  if ( ( %C get_up ( 'UseNewGen' ) ) %!=  true ) then
+  if ( ( %C %?f UseNewGenRec %( )% ) %!=  true ) then
   begin
    %C |X 
    ++! l_Counter

@@ -829,6 +829,93 @@ end. // <<Ifdef>>
 ; // collect_ifndefs
 
 
+//%f _UseNewGen
+implementation @ <<Ifdef>>
+: UseNewGen OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *56BCA508022Dfor4976EB82018C*
+//	[{%S{UseNewGen}=true}{\
+ if ( ( %S get_up ( 'UseNewGen' ) ) %==  true ) then
+ begin
+//	true\
+   true 
+//	]
+ end // if
+ else
+ begin
+//	false\
+   false 
+//	}\
+ end // else
+
+//%f _UseNewGenRecPrim
+; // UseNewGen
+
+: UseNewGenRecPrim OBJECT IN %S
+//@ %SU
+//	[{%S%f_UseNewGen()=true}{\
+ if ( ( %S %f UseNewGen %( )% ) %==  true ) then
+ begin
+//	true\
+   true 
+//	]
+ end // if
+ else
+ begin
+//	[{%P#f_UseNewGenRecPrim()=true}{\
+  if ( ( %P %?f UseNewGenRecPrim %( )% ) %==  true ) then
+  begin
+//	true\
+    true 
+//	]\
+  end // if
+  else
+  begin
+//	false\
+    false 
+//	}\
+  end // else
+//	}\
+ end // else
+//#UC END# *56BCA508022Dfor4976EB82018C*
+; // UseNewGenRecPrim
+
+
+//%f _UseNewGenRec
+: UseNewGenRec OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *56BCA5310152for4976EB82018C*
+//@ %SU
+//	[{%S#f_UseNewGenRecPrim()=true}{\
+ if ( ( %S %?f UseNewGenRecPrim %( )% ) %==  true ) then
+ begin
+//	true\
+   true 
+//	]
+ end // if
+ else
+ begin
+//	[{%S{finished}=false}{\
+  if ( ( %S get_up ( 'finished' ) ) %==  false ) then
+  begin
+//	true\
+    true 
+//	]\
+  end // if
+  else
+  begin
+//	false\
+    false 
+//	}\
+  end // else
+//	}\
+ end // else
+//#UC END# *56BCA5310152for4976EB82018C*
+; // UseNewGenRec
+
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<Ifdef>>
 

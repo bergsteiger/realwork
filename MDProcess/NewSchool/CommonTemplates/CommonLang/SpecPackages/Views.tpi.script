@@ -119,12 +119,12 @@ implementation @ <<Views>>
 //#UC START# *470F1571031Cfor47048F1701F4*
 //C %S%f_pas_UnitPath()
 //R  
-//	<%CX>
+//	<{}{%C#f_UseNewGenRec()!=true}%CX>
  INTEGER VAR l_Counter l_Counter := 0
  for %S%C
  begin
   OBJECT IN %C
-  if true then
+  if ( ( %C %?f UseNewGenRec %( )% ) %!=  true ) then
   begin
    %C |X 
    ++! l_Counter

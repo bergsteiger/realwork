@@ -306,13 +306,18 @@ implementation @ <<ScriptKeywordsPack>>
 //	%f_warning(%CN)\
 
 
+//	[{%S#f_UseNewGenRec()!=true}\
+     if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+     begin
 //	%{Reg_Instance}%f_set_uc_content(intf.pas,,\
-     ( get_global_var ( 'Reg_Instance' ) %f set_uc_content %( 'intf.pas' %, '' %, 
+      ( get_global_var ( 'Reg_Instance' ) %f set_uc_content %( 'intf.pas' %, '' %, 
 //	 TtfwTypeRegistrator.RegisterType(%t_TypeInfo(%C));\
-     ' TtfwTypeRegistrator.RegisterType('
-     [%t] TypeInfo %( %C )% ');'
+      ' TtfwTypeRegistrator.RegisterType('
+      [%t] TypeInfo %( %C )% ');'
 //	)\
-)% ) //	>\
+)% ) //	]\
+     end // if
+//	>\
 
      ++! l_Counter
     end // if
@@ -742,8 +747,14 @@ end. // <<ScriptKeywordsPack>>
 
 //	%{Class_Inst}%f_make_accessable(%{TtfwContext}U)\
  ( get_global_var ( 'Class_Inst' ) %f make_accessable %( ( get_global_var ( 'TtfwContext' ) |U ) )% ) 
+
+//	[{%S#f_UseNewGenRec()!=true}\
+ if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+ begin
 //	%f_addCDep(%{Class_Inst},%{TtfwContext})\
- [%f] addCDep %( ( get_global_var ( 'Class_Inst' ) ) %, ( get_global_var ( 'TtfwContext' ) ) )% 
+  [%f] addCDep %( ( get_global_var ( 'Class_Inst' ) ) %, ( get_global_var ( 'TtfwContext' ) ) )% 
+//	]\
+ end // if
 
 //	[{%1{SupressNextImmediate}!=None&"%1{SupressNextImmediate}"!=""}\
  if ( ( %1 get_up ( 'SupressNextImmediate' ) ) %!= 'None' AND 
@@ -757,22 +768,27 @@ end. // <<ScriptKeywordsPack>>
 //	%{Class_Inst}%f_add_override(%{TtfwCompilingWord.SupressNextImmediate}U)\
   ( get_global_var ( 'Class_Inst' ) %f add_override %( ( get_global_var ( 'TtfwCompilingWord.SupressNextImmediate' ) |U ) )% ) 
 
+//	[{%S#f_UseNewGenRec()!=true}\
+  if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+  begin
 //	%{TtfwCompilingWord.SupressNextImmediate}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwCompilingWord.SupressNextImmediate},%{Class_Inst})_var,\
-  ( get_global_var ( 'TtfwCompilingWord.SupressNextImmediate' ) %f set_uc_content %( 'intf.pas' %, '_'
-  [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwCompilingWord.SupressNextImmediate' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
+   ( get_global_var ( 'TtfwCompilingWord.SupressNextImmediate' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwCompilingWord.SupressNextImmediate' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
 //	 {-}\
-  ' {-}'
+   ' {-}'
 //	)\
 )% ) 
 
 //	%{TtfwCompilingWord.SupressNextImmediate}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwCompilingWord.SupressNextImmediate},%{Class_Inst})_impl,\
-  ( get_global_var ( 'TtfwCompilingWord.SupressNextImmediate' ) %f set_uc_content %( 'intf.pas' %, '_'
-  [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwCompilingWord.SupressNextImmediate' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
+   ( get_global_var ( 'TtfwCompilingWord.SupressNextImmediate' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwCompilingWord.SupressNextImmediate' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
 //	 Result := tfw_sni%1{SupressNextImmediate};\
-  ' Result := tfw_sni'
-  %1 get_up ( 'SupressNextImmediate' ) ';'
+   ' Result := tfw_sni'
+   %1 get_up ( 'SupressNextImmediate' ) ';'
 //	)\
-)% ) 
+)% ) //	]\
+  end // if
+
 
 //	]\
  end // if
@@ -793,34 +809,40 @@ end. // <<ScriptKeywordsPack>>
 //	%{Class_Inst}%f_add_override(%{TtfwWord.GetResultTypeInfo}U)\
  ( get_global_var ( 'Class_Inst' ) %f add_override %( ( get_global_var ( 'TtfwWord.GetResultTypeInfo' ) |U ) )% ) 
 
+//	[{%S#f_UseNewGenRec()!=true}\
+ if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+ begin
 //	%{TtfwWord.GetResultTypeInfo}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.GetResultTypeInfo},%{Class_Inst})_var,\
- ( get_global_var ( 'TtfwWord.GetResultTypeInfo' ) %f set_uc_content %( 'intf.pas' %, '_'
- [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.GetResultTypeInfo' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
+  ( get_global_var ( 'TtfwWord.GetResultTypeInfo' ) %f set_uc_content %( 'intf.pas' %, '_'
+  [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.GetResultTypeInfo' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
 //	 {-}\
- ' {-}'
+  ' {-}'
 //	)\
 )% ) 
+
 //	%{TtfwWord.GetResultTypeInfo}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.GetResultTypeInfo},%{Class_Inst})_impl,\
- ( get_global_var ( 'TtfwWord.GetResultTypeInfo' ) %f set_uc_content %( 'intf.pas' %, '_'
- [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.GetResultTypeInfo' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
+  ( get_global_var ( 'TtfwWord.GetResultTypeInfo' ) %f set_uc_content %( 'intf.pas' %, '_'
+  [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.GetResultTypeInfo' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
 //	[{%1#f_IsCreator()=true&"%{GEN}N"!=""}{\
- if ( ( %1 %?f IsCreator %( )% ) %==  true AND 
-   ( ( ( get_global_var ( 'GEN' ) |N ) ) %!= ''  ) ) then
- begin
+  if ( ( %1 %?f IsCreator %( )% ) %==  true AND 
+    ( ( ( get_global_var ( 'GEN' ) |N ) ) %!= ''  ) ) then
+  begin
 //	 Result := %t_TypeInfo(%{GEN});\
-  ' Result := '
-  [%t] TypeInfo %( ( get_global_var ( 'GEN' ) ) )% ';'
+   ' Result := '
+   [%t] TypeInfo %( ( get_global_var ( 'GEN' ) ) )% ';'
 //	]\
- end // if
- else
- begin
+  end // if
+  else
+  begin
 //	 Result := %t_TypeInfo(%1%T);\
-  ' Result := '
-  [%t] TypeInfo %( %1 ->T  )% ';'
+   ' Result := '
+   [%t] TypeInfo %( %1 ->T  )% ';'
 //	}\
- end // else
+  end // else
 //	)\
-)% ) 
+)% ) //	]\
+ end // if
+
 //	%f_set_var(Op_Instance,"")\
  [%f] set_var %( 'Op_Instance' %, '' )% 
 
@@ -1054,55 +1076,60 @@ end. // <<ScriptKeywordsPack>>
 //	%{Class_Inst}%f_add_override(%{TtfwWord.GetAllParamsCount}U)\
   ( get_global_var ( 'Class_Inst' ) %f add_override %( ( get_global_var ( 'TtfwWord.GetAllParamsCount' ) |U ) )% ) 
 
+//	[{%S#f_UseNewGenRec()!=true}\
+  if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+  begin
 //	%{TtfwWord.GetAllParamsCount}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.GetAllParamsCount},%{Class_Inst})_var,\
-  ( get_global_var ( 'TtfwWord.GetAllParamsCount' ) %f set_uc_content %( 'intf.pas' %, '_'
-  [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.GetAllParamsCount' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
+   ( get_global_var ( 'TtfwWord.GetAllParamsCount' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.GetAllParamsCount' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
 //	 {-}\
-  ' {-}'
+   ' {-}'
 //	)\
 )% ) 
 
 //	%{TtfwWord.GetAllParamsCount}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.GetAllParamsCount},%{Class_Inst})_impl,\
-  ( get_global_var ( 'TtfwWord.GetAllParamsCount' ) %f set_uc_content %( 'intf.pas' %, '_'
-  [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.GetAllParamsCount' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
+   ( get_global_var ( 'TtfwWord.GetAllParamsCount' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.GetAllParamsCount' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
 //	 Result := %1<{}{%CS!=out}{%CC}>\
-  ' Result := '
-  %1
-  bind ( 
-   OBJECT VAR %S
-   INTEGER VAR l_Counter l_Counter := 0
-   for %S%C
-   begin
-    OBJECT IN %C
-    if ( ( %C |S ) %!= 'out' ) then
+   ' Result := '
+   %1
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
     begin
+     OBJECT IN %C
+     if ( ( %C |S ) %!= 'out' ) then
+     begin
 
-     ++! l_Counter
-    end // if
-   end // for C
-   l_Counter
+      ++! l_Counter
+     end // if
+    end // for C
+    l_Counter
 
-  ) // bind
+   ) // bind
  //	[{"%{GEN}N"!=""}\
-  if ( ( ( get_global_var ( 'GEN' ) |N ) ) %!= '' ) then
-  begin
+   if ( ( ( get_global_var ( 'GEN' ) |N ) ) %!= '' ) then
+   begin
 //	 + 1\
-   ' + 1'
+    ' + 1'
 //	]\
-  end // if
+   end // if
 
 
 //	[{%1#f_IsVarWorker()=true}\
-  if ( ( %1 %?f IsVarWorker %( )% ) %==  true ) then
-  begin
+   if ( ( %1 %?f IsVarWorker %( )% ) %==  true ) then
+   begin
 //	 + 1\
-   ' + 1'
+    ' + 1'
 //	]\
-  end // if
+   end // if
 //	;\
-  ';'
+   ';'
 //	)\
-)% ) 
+)% ) //	]\
+  end // if
+
 
 //	[{%1#f_IsVarWorker()=true}\
   if ( ( %1 %?f IsVarWorker %( )% ) %==  true ) then
@@ -1117,21 +1144,26 @@ end. // <<ScriptKeywordsPack>>
 //	%{Class_Inst}%f_add_override(%{TtfwWord.RightParamsCount}U)\
    ( get_global_var ( 'Class_Inst' ) %f add_override %( ( get_global_var ( 'TtfwWord.RightParamsCount' ) |U ) )% ) 
 
+//	[{%S#f_UseNewGenRec()!=true}\
+   if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+   begin
 //	%{TtfwWord.RightParamsCount}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.RightParamsCount},%{Class_Inst})_var,\
-   ( get_global_var ( 'TtfwWord.RightParamsCount' ) %f set_uc_content %( 'intf.pas' %, '_'
-   [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.RightParamsCount' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
+    ( get_global_var ( 'TtfwWord.RightParamsCount' ) %f set_uc_content %( 'intf.pas' %, '_'
+    [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.RightParamsCount' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
 //	 {-}\
-   ' {-}'
+    ' {-}'
 //	)\
 )% ) 
 
 //	%{TtfwWord.RightParamsCount}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.RightParamsCount},%{Class_Inst})_impl,\
-   ( get_global_var ( 'TtfwWord.RightParamsCount' ) %f set_uc_content %( 'intf.pas' %, '_'
-   [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.RightParamsCount' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
+    ( get_global_var ( 'TtfwWord.RightParamsCount' ) %f set_uc_content %( 'intf.pas' %, '_'
+    [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.RightParamsCount' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
 //	 Result := 1;\
-   ' Result := 1;'
+    ' Result := 1;'
 //	)\
-)% ) 
+)% ) //	]\
+   end // if
+
 
 //	]\
   end // if
@@ -1150,21 +1182,26 @@ end. // <<ScriptKeywordsPack>>
 //	%{Class_Inst}%f_add_override(%{TtfwClassLike.BindParams}U)\
    ( get_global_var ( 'Class_Inst' ) %f add_override %( ( get_global_var ( 'TtfwClassLike.BindParams' ) |U ) )% ) 
 
+//	[{%S#f_UseNewGenRec()!=true}\
+   if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+   begin
 //	%{TtfwClassLike.BindParams}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwClassLike.BindParams},%{Class_Inst})_var,\
-   ( get_global_var ( 'TtfwClassLike.BindParams' ) %f set_uc_content %( 'intf.pas' %, '_'
-   [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwClassLike.BindParams' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
+    ( get_global_var ( 'TtfwClassLike.BindParams' ) %f set_uc_content %( 'intf.pas' %, '_'
+    [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwClassLike.BindParams' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
 //	 {-}\
-   ' {-}'
+    ' {-}'
 //	)\
 )% ) 
 
 //	%{TtfwClassLike.BindParams}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwClassLike.BindParams},%{Class_Inst})_impl,\
-   ( get_global_var ( 'TtfwClassLike.BindParams' ) %f set_uc_content %( 'intf.pas' %, '_'
-   [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwClassLike.BindParams' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
+    ( get_global_var ( 'TtfwClassLike.BindParams' ) %f set_uc_content %( 'intf.pas' %, '_'
+    [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwClassLike.BindParams' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
 //	 Result := true;\
-   ' Result := true;'
+    ' Result := true;'
 //	)\
-)% ) 
+)% ) //	]\
+   end // if
+
 
 
 //	[{"%{TtfwWord.LeftWordRefParamsCount}N"=""}%f_find_element(53E4914101D2,TtfwWord.LeftWordRefParamsCount)]\
@@ -1218,335 +1255,350 @@ end. // <<ScriptKeywordsPack>>
 //	%{Class_Inst}%f_add_override(%{TtfwWord.LeftParamsTypes}U)\
    ( get_global_var ( 'Class_Inst' ) %f add_override %( ( get_global_var ( 'TtfwWord.LeftParamsTypes' ) |U ) )% ) 
 
+//	[{%S#f_UseNewGenRec()!=true}\
+   if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+   begin
 //	%{TtfwWord.LeftParamsTypes}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.LeftParamsTypes},%{Class_Inst})_var,\
-   ( get_global_var ( 'TtfwWord.LeftParamsTypes' ) %f set_uc_content %( 'intf.pas' %, '_'
-   [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.LeftParamsTypes' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
+    ( get_global_var ( 'TtfwWord.LeftParamsTypes' ) %f set_uc_content %( 'intf.pas' %, '_'
+    [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.LeftParamsTypes' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
 //	 {-}\
-   ' {-}'
+    ' {-}'
 //	)\
 )% ) 
 
 //	%{TtfwWord.LeftParamsTypes}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.LeftParamsTypes},%{Class_Inst})_impl,\
-   ( get_global_var ( 'TtfwWord.LeftParamsTypes' ) %f set_uc_content %( 'intf.pas' %, '_'
-   [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.LeftParamsTypes' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
+    ( get_global_var ( 'TtfwWord.LeftParamsTypes' ) %f set_uc_content %( 'intf.pas' %, '_'
+    [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.LeftParamsTypes' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
 //	 Result := OpenTypesToTypes(\[%{Op_Instance}<{, }{%CS!=out}{+%C}%t_TypeInfo(%C%T)>\]);\
-   ' Result := OpenTypesToTypes(['
-   ( get_global_var ( 'Op_Instance' ) ) 
-   bind ( 
-    OBJECT VAR %S
-    INTEGER VAR l_Counter l_Counter := 0
-    for %S%C
-    begin
-     OBJECT IN %C
-     if ( ( %C |S ) %!= 'out' ) then
+    ' Result := OpenTypesToTypes(['
+    ( get_global_var ( 'Op_Instance' ) ) 
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
      begin
-      if ( l_Counter >0 ) then ( ', ' )
-      if ( l_Counter >0 ) then
+      OBJECT IN %C
+      if ( ( %C |S ) %!= 'out' ) then
       begin
-       [%t] TypeInfo %( %C ->T  )% 
-      end
-      ++! l_Counter
-     end // if
-    end // for C
+       if ( l_Counter >0 ) then ( ', ' )
+       if ( l_Counter >0 ) then
+       begin
+        [%t] TypeInfo %( %C ->T  )% 
+       end
+       ++! l_Counter
+      end // if
+     end // for C
 
-   ) // bind
-   ']);'
+    ) // bind
+    ']);'
 //	)\
 )% ) //	]\
-  end // if
-
-
-//	%{MyDo}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{MyDo},%{Class_Inst})_var,\
-  ( get_global_var ( 'MyDo' ) %f set_uc_content %( 'intf.pas' %, '_'
-  [%f] pas_MethodOwnerID %( ( get_global_var ( 'MyDo' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
-//	 {-}\
-  ' {-}'
-//	[{%{Op_Instance}<{}{}{+%CC}>!=0}\
-  if ( ( ( get_global_var ( 'Op_Instance' ) ) 
-   bind ( 
-    OBJECT VAR %S
-    INTEGER VAR l_Counter l_Counter := 0
-    for %S%C
-    begin
-     OBJECT IN %C
-     if true then
-     begin
-      if ( l_Counter >0 ) then
-      begin
-
-      end
-      ++! l_Counter
-     end // if
-    end // for C
-    l_Counter
-
-   ) // bind
-)    %!= 0 ) then
-  begin
-//	\n\
-   #13#10
-//	var\
-   'var'
-//	%{Op_Instance}<{}{}{+%C}\n l_%CN : %f_pas_TypeName(%C%T);>\
-   ( get_global_var ( 'Op_Instance' ) ) 
-   bind ( 
-    OBJECT VAR %S
-    INTEGER VAR l_Counter l_Counter := 0
-    for %S%C
-    begin
-     OBJECT IN %C
-     if true then
-     begin
-      if ( l_Counter >0 ) then
-      begin
-       #13#10' l_'
-       %C |N ' : '
-       [%f] pas_TypeName %( %C ->T  )% ';' 
-      end
-      ++! l_Counter
-     end // if
-    end // for C
-
-   ) // bind
+   end // if
 //	]\
   end // if
+
+
+//	[{%S#f_UseNewGenRec()!=true}\
+  if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+  begin
+//	%{MyDo}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{MyDo},%{Class_Inst})_var,\
+   ( get_global_var ( 'MyDo' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'MyDo' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
+//	 {-}\
+   ' {-}'
+//	[{%{Op_Instance}<{}{}{+%CC}>!=0}\
+   if ( ( ( get_global_var ( 'Op_Instance' ) ) 
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if true then
+      begin
+       if ( l_Counter >0 ) then
+       begin
+
+       end
+       ++! l_Counter
+      end // if
+     end // for C
+     l_Counter
+
+    ) // bind
+)     %!= 0 ) then
+   begin
+//	\n\
+    #13#10
+//	var\
+    'var'
+//	%{Op_Instance}<{}{}{+%C}\n l_%CN : %f_pas_TypeName(%C%T);>\
+    ( get_global_var ( 'Op_Instance' ) ) 
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if true then
+      begin
+       if ( l_Counter >0 ) then
+       begin
+        #13#10' l_'
+        %C |N ' : '
+        [%f] pas_TypeName %( %C ->T  )% ';' 
+       end
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+//	]\
+   end // if
 //	)\
 )% ) 
 
 //	%{MyDo}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{MyDo},%{Class_Inst})_impl,\
-  ( get_global_var ( 'MyDo' ) %f set_uc_content %( 'intf.pas' %, '_'
-  [%f] pas_MethodOwnerID %( ( get_global_var ( 'MyDo' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
+   ( get_global_var ( 'MyDo' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'MyDo' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
 //	%{Op_Instance}<{}{}{+%C}\
-  ( get_global_var ( 'Op_Instance' ) ) 
-  bind ( 
-   OBJECT VAR %S
-   INTEGER VAR l_Counter l_Counter := 0
-   for %S%C
-   begin
-    OBJECT IN %C
-    if true then
+   ( get_global_var ( 'Op_Instance' ) ) 
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
     begin
-     if ( l_Counter >0 ) then
+     OBJECT IN %C
+     if true then
      begin
-//	[{%CS!=out}\
-      if ( ( %C |S ) %!= 'out' ) then
+      if ( l_Counter >0 ) then
       begin
-//	 try
-       ' try'
-//	  l_%CN := \
-       '  l_'
-       %C |N ' := '
-//	[{"%t_CastSig(%C%T)"=""}{\
-       if ( ( [%t] CastSig %( %C ->T  )% ) %== '' ) then
+//	[{%CS!=out}\
+       if ( ( %C |S ) %!= 'out' ) then
        begin
+//	 try
+        ' try'
+//	  l_%CN := \
+        '  l_'
+        %C |N ' := '
+//	[{"%t_CastSig(%C%T)"=""}{\
+        if ( ( [%t] CastSig %( %C ->T  )% ) %== '' ) then
+        begin
 //	aCtx.rEngine.%f_PopSig(%C%T,%C)\
-        'aCtx.rEngine.'
-        [%f] PopSig %( %C ->T  %, %C )% 
+         'aCtx.rEngine.'
+         [%f] PopSig %( %C ->T  %, %C )% 
+//	]\
+        end // if
+        else
+        begin
+//	%t_CastSig(%C%T)\
+         [%t] CastSig %( %C ->T  )% 
+//	(aCtx.rEngine.%f_PopSig(%C%T,%C))\
+         '(aCtx.rEngine.'
+         [%f] PopSig %( %C ->T  %, %C )% ')'
+//	}\
+        end // else
+//	;
+        ';'
+//	 except
+        ' except'
+//	  on E: Exception do
+        '  on E: Exception do'
+//	  begin
+        '  begin'
+//	   RunnerError('Ошибка при получении параметра %CN: %f_pas_TypeName(%C%T) : ' + E.Message, aCtx);
+        '   RunnerError(''Ошибка при получении параметра '
+        %C |N ': '
+        [%f] pas_TypeName %( %C ->T  )% ' : '' + E.Message, aCtx);'
+//	   Exit;
+        '   Exit;'
+//	  end;//on E: Exception
+        '  end;//on E: Exception'
+//	 end;//try..except
+        ' end;//try..except'
 //	]\
        end // if
-       else
-       begin
-//	%t_CastSig(%C%T)\
-        [%t] CastSig %( %C ->T  )% 
-//	(aCtx.rEngine.%f_PopSig(%C%T,%C))\
-        '(aCtx.rEngine.'
-        [%f] PopSig %( %C ->T  %, %C )% ')'
-//	}\
-       end // else
-//	;
-       ';'
-//	 except
-       ' except'
-//	  on E: Exception do
-       '  on E: Exception do'
-//	  begin
-       '  begin'
-//	   RunnerError('Ошибка при получении параметра %CN: %f_pas_TypeName(%C%T) : ' + E.Message, aCtx);
-       '   RunnerError(''Ошибка при получении параметра '
-       %C |N ': '
-       [%f] pas_TypeName %( %C ->T  )% ' : '' + E.Message, aCtx);'
-//	   Exit;
-       '   Exit;'
-//	  end;//on E: Exception
-       '  end;//on E: Exception'
-//	 end;//try..except
-       ' end;//try..except'
+//	>\
+
+      end
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+//	 \
+   ' '
+//	[{%{Op_Instance}%TN!=void}\
+   if ( ( ( get_global_var ( 'Op_Instance' )  ->T |N ) ) %!= 'void' ) then
+   begin
+//	aCtx.rEngine.%t_PushSig(%{Op_Instance}%T)\
+    'aCtx.rEngine.'
+    [%t] PushSig %( ( get_global_var ( 'Op_Instance' )  ->T ) )% 
+//	(%t_UnCastSig(%{Op_Instance}%T)(\
+    '('
+    [%t] UnCastSig %( ( get_global_var ( 'Op_Instance' )  ->T ) )% '('
+//	]\
+   end // if
+//	%f_to_borland(%{Op_Instance}N)(aCtx%{Op_Instance}<{}{}{+%C}, l_%CN>)\
+   [%f] to_borland %( ( get_global_var ( 'Op_Instance' ) |N ) )% '(aCtx'
+   ( get_global_var ( 'Op_Instance' ) ) 
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if true then
+     begin
+      if ( l_Counter >0 ) then
+      begin
+       ', l_'
+       %C |N 
+      end
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+   ')'
+//	[{%{Op_Instance}%TN!=void}\
+   if ( ( ( get_global_var ( 'Op_Instance' )  ->T |N ) ) %!= 'void' ) then
+   begin
+//	)%t_PushType(%{Op_Instance}%T))\
+    ')'
+    [%t] PushType %( ( get_global_var ( 'Op_Instance' )  ->T ) )% ')'
+//	]\
+   end // if
+//	;\
+   ';'
+//	%{Op_Instance}<{}{}{%Cr}\
+   ( get_global_var ( 'Op_Instance' ) ) 
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for downto %S%C
+    begin
+     OBJECT IN %C
+     if true then
+     begin
+
+//	%f_warning(%CS %CN)\
+//	[{%CS=out}\
+      if ( ( %C |S ) %== 'out' ) then
+      begin
+//	\n aCtx.rEngine.%t_PushSig(%C%T)(l_%CN%t_PushType(%C%T));\
+       #13#10' aCtx.rEngine.'
+       [%t] PushSig %( %C ->T  )% '(l_'
+       %C |N [%t] PushType %( %C ->T  )% ');'
 //	]\
       end // if
 //	>\
 
-     end
-     ++! l_Counter
-    end // if
-   end // for C
-
-  ) // bind
-//	 \
-  ' '
-//	[{%{Op_Instance}%TN!=void}\
-  if ( ( ( get_global_var ( 'Op_Instance' )  ->T |N ) ) %!= 'void' ) then
-  begin
-//	aCtx.rEngine.%t_PushSig(%{Op_Instance}%T)\
-   'aCtx.rEngine.'
-   [%t] PushSig %( ( get_global_var ( 'Op_Instance' )  ->T ) )% 
-//	(%t_UnCastSig(%{Op_Instance}%T)(\
-   '('
-   [%t] UnCastSig %( ( get_global_var ( 'Op_Instance' )  ->T ) )% '('
-//	]\
-  end // if
-//	%f_to_borland(%{Op_Instance}N)(aCtx%{Op_Instance}<{}{}{+%C}, l_%CN>)\
-  [%f] to_borland %( ( get_global_var ( 'Op_Instance' ) |N ) )% '(aCtx'
-  ( get_global_var ( 'Op_Instance' ) ) 
-  bind ( 
-   OBJECT VAR %S
-   INTEGER VAR l_Counter l_Counter := 0
-   for %S%C
-   begin
-    OBJECT IN %C
-    if true then
-    begin
-     if ( l_Counter >0 ) then
-     begin
-      ', l_'
-      %C |N 
-     end
-     ++! l_Counter
-    end // if
-   end // for C
-
-  ) // bind
-  ')'
-//	[{%{Op_Instance}%TN!=void}\
-  if ( ( ( get_global_var ( 'Op_Instance' )  ->T |N ) ) %!= 'void' ) then
-  begin
-//	)%t_PushType(%{Op_Instance}%T))\
-   ')'
-   [%t] PushType %( ( get_global_var ( 'Op_Instance' )  ->T ) )% ')'
-//	]\
-  end // if
-//	;\
-  ';'
-//	%{Op_Instance}<{}{}{%Cr}\
-  ( get_global_var ( 'Op_Instance' ) ) 
-  bind ( 
-   OBJECT VAR %S
-   INTEGER VAR l_Counter l_Counter := 0
-   for downto %S%C
-   begin
-    OBJECT IN %C
-    if true then
-    begin
-
-//	%f_warning(%CS %CN)\
-//	[{%CS=out}\
-     if ( ( %C |S ) %== 'out' ) then
-     begin
-//	\n aCtx.rEngine.%t_PushSig(%C%T)(l_%CN%t_PushType(%C%T));\
-      #13#10' aCtx.rEngine.'
-      [%t] PushSig %( %C ->T  )% '(l_'
-      %C |N [%t] PushType %( %C ->T  )% ');'
-//	]\
+      ++! l_Counter
      end // if
-//	>\
+    end // for C
 
-     ++! l_Counter
-    end // if
-   end // for C
-
-  ) // bind
+   ) // bind
 //	)\
-)% ) 
+)% ) //	]\
+  end // if
+
 
 //	[{%1{mapped}=true}\
   if ( ( %1 get_up ( 'mapped' ) ) %==  true ) then
   begin
 
 
+//	[{%S#f_UseNewGenRec()!=true}\
+   if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+   begin
 //	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Class_Inst})_var,\
-   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
-   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
+    ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+    [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
 //	 {-}\
-   ' {-}'
+    ' {-}'
 //	)\
 )% ) 
 
 //	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Class_Inst})_impl,\
-   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
-   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
+    ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+    [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
 //	 [{%{Op_Instance}%TN!=void}Result := ]\
-   ' '
-   if ( ( ( get_global_var ( 'Op_Instance' )  ->T |N ) ) %!= 'void' ) then
-   begin
-    'Result := ' 
-   end // if
-//	a%t_SelfName(%{GEN}).\
-   'a'
-   [%t] SelfName %( ( get_global_var ( 'GEN' ) ) )% '.'
-//	[{}{%{Op_Instance}N}%1{prop_name}]\
-   if NOT-EMPTY
-   begin
-    %1 get_up ( 'prop_name' ) 
-   end // if
-   NOP
-   else
-   begin
-    ( get_global_var ( 'Op_Instance' ) |N ) 
-   end // else
-//	[{%1{is_setter}=true}{\
-   if ( ( %1 get_up ( 'is_setter' ) ) %==  true ) then
-   begin
-//	 := aValue\
-    ' := aValue'
-//	]\
-   end // if
-   else
-   begin
-//	[{%1<{}{}{C%C}>!=0}\
-    if ( ( %1
-     bind ( 
-      OBJECT VAR %S
-      INTEGER VAR l_Counter l_Counter := 0
-      for %S%C
-      begin
-       OBJECT IN %C
-       if true then
-       begin
-
-        ++! l_Counter
-       end // if
-      end // for C
-      l_Counter
-
-     ) // bind
- )      %!= 0 ) then
+    ' '
+    if ( ( ( get_global_var ( 'Op_Instance' )  ->T |N ) ) %!= 'void' ) then
     begin
-//	(%1<{, }{}%CN>)\
-     '('
-     %1
-     bind ( 
-      OBJECT VAR %S
-      INTEGER VAR l_Counter l_Counter := 0
-      for %S%C
-      begin
-       OBJECT IN %C
-       if true then
-       begin
-        if ( l_Counter >0 ) then ( ', ' )
-        %C |N 
-        ++! l_Counter
-       end // if
-      end // for C
-
-     ) // bind
-      ')'
+     'Result := ' 
+    end // if
+//	a%t_SelfName(%{GEN}).\
+    'a'
+    [%t] SelfName %( ( get_global_var ( 'GEN' ) ) )% '.'
+//	[{}{%{Op_Instance}N}%1{prop_name}]\
+    if NOT-EMPTY
+    begin
+     %1 get_up ( 'prop_name' ) 
+    end // if
+    NOP
+    else
+    begin
+     ( get_global_var ( 'Op_Instance' ) |N ) 
+    end // else
+//	[{%1{is_setter}=true}{\
+    if ( ( %1 get_up ( 'is_setter' ) ) %==  true ) then
+    begin
+//	 := aValue\
+     ' := aValue'
 //	]\
     end // if
+    else
+    begin
+//	[{%1<{}{}{C%C}>!=0}\
+     if ( ( %1
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%C
+       begin
+        OBJECT IN %C
+        if true then
+        begin
+
+         ++! l_Counter
+        end // if
+       end // for C
+       l_Counter
+
+      ) // bind
+ )       %!= 0 ) then
+     begin
+//	(%1<{, }{}%CN>)\
+      '('
+      %1
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%C
+       begin
+        OBJECT IN %C
+        if true then
+        begin
+         if ( l_Counter >0 ) then ( ', ' )
+         %C |N 
+         ++! l_Counter
+        end // if
+       end // for C
+
+      ) // bind
+       ')'
+//	]\
+     end // if
 //	}\
-   end // else
+    end // else
 //	;\
-   ';'
+    ';'
 //	)\
-)% ) 
+)% ) //	]\
+   end // if
+
 
 //	]\
   end // if
@@ -1625,166 +1677,29 @@ end. // <<ScriptKeywordsPack>>
 //	%{Class_Inst}%f_add_override(%{TtfwWord.SetValue}U)\
     ( get_global_var ( 'Class_Inst' ) %f add_override %( ( get_global_var ( 'TtfwWord.SetValue' ) |U ) )% ) 
 
+//	[{%S#f_UseNewGenRec()!=true}\
+    if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+    begin
 //	%{TtfwWord.SetValue}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.SetValue},%{Class_Inst})_var,\
-    ( get_global_var ( 'TtfwWord.SetValue' ) %f set_uc_content %( 'intf.pas' %, '_'
-    [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.SetValue' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
+     ( get_global_var ( 'TtfwWord.SetValue' ) %f set_uc_content %( 'intf.pas' %, '_'
+     [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.SetValue' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
 //	[{"%1{prop_stereo}"="readonly"}{\
-    if ( ( %1 get_up ( 'prop_stereo' ) ) %== 'readonly' ) then
-    begin
-//	 {-}\
-     ' {-}'
-//	]\
-    end // if
-    else
-    begin
-//	var
-     'var'
-//	 l_%t_SelfName(%{GEN}): %f_pas_TypeName(%{GEN});\
-     ' l_'
-     [%t] SelfName %( ( get_global_var ( 'GEN' ) ) )% ': '
-     [%f] pas_TypeName %( ( get_global_var ( 'GEN' ) ) )% ';'
-//	%1<{}{}{%C}\n l_%CN : %f_pas_TypeName(%C%T);>\
-     %1
-     bind ( 
-      OBJECT VAR %S
-      INTEGER VAR l_Counter l_Counter := 0
-      for %S%C
-      begin
-       OBJECT IN %C
-       if true then
-       begin
-        #13#10' l_'
-        %C |N ' : '
-        [%f] pas_TypeName %( %C ->T  )% ';' 
-        ++! l_Counter
-       end // if
-      end // for C
-
-     ) // bind
- //	}\
-    end // else
-//	)\
-)% ) 
-
-//	%{TtfwWord.SetValue}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.SetValue},%{Class_Inst})_impl,\
-    ( get_global_var ( 'TtfwWord.SetValue' ) %f set_uc_content %( 'intf.pas' %, '_'
-    [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.SetValue' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
-//	[{"%1{prop_stereo}"="readonly"}{\
-    if ( ( %1 get_up ( 'prop_stereo' ) ) %== 'readonly' ) then
-    begin
-//	 RunnerError('Нельзя присваивать значение readonly свойству %1{prop_name}'%f_comma(%S) aCtx);\
-     ' RunnerError(''Нельзя присваивать значение readonly свойству '
-     %1 get_up ( 'prop_name' ) ''''
-     [%f] comma %( %S )% ' aCtx);'
-//	]\
-    end // if
-    else
-    begin
-//	 try
-     ' try'
-//	  l_%t_SelfName(%{GEN}) := %t_CastSig(%{GEN})(aCtx.rEngine.%f_PopSig(%{GEN}));
-     '  l_'
-     [%t] SelfName %( ( get_global_var ( 'GEN' ) ) )% ' := '
-     [%t] CastSig %( ( get_global_var ( 'GEN' ) ) )% '(aCtx.rEngine.'
-     [%f] PopSig %( ( get_global_var ( 'GEN' ) ) )% ');'
-//	 except
-     ' except'
-//	  on E: Exception do
-     '  on E: Exception do'
-//	  begin
-     '  begin'
-//	   RunnerError('Ошибка при получении параметра l_%t_SelfName(%{GEN}): %f_pas_TypeName(%{GEN}) : ' + E.Message, aCtx);
-     '   RunnerError(''Ошибка при получении параметра l_'
-     [%t] SelfName %( ( get_global_var ( 'GEN' ) ) )% ': '
-     [%f] pas_TypeName %( ( get_global_var ( 'GEN' ) ) )% ' : '' + E.Message, aCtx);'
-//	   Exit;
-     '   Exit;'
-//	  end;//on E: Exception
-     '  end;//on E: Exception'
-//	 end;//try..except
-     ' end;//try..except'
-
-
-//	%1<{}{}{%C}\
-     %1
-     bind ( 
-      OBJECT VAR %S
-      INTEGER VAR l_Counter l_Counter := 0
-      for %S%C
-      begin
-       OBJECT IN %C
-       if true then
-       begin
-//	[{%CS!=out}\
-        if ( ( %C |S ) %!= 'out' ) then
-        begin
-//	 try
-         ' try'
-//	  l_%CN := \
-         '  l_'
-         %C |N ' := '
-//	[{"%t_CastSig(%C%T)"=""}{\
-         if ( ( [%t] CastSig %( %C ->T  )% ) %== '' ) then
-         begin
-//	aCtx.rEngine.%f_PopSig(%C%T,%C)\
-          'aCtx.rEngine.'
-          [%f] PopSig %( %C ->T  %, %C )% 
-//	]\
-         end // if
-         else
-         begin
-//	%t_CastSig(%C%T)\
-          [%t] CastSig %( %C ->T  )% 
-//	(aCtx.rEngine.%f_PopSig(%C%T,%C))\
-          '(aCtx.rEngine.'
-          [%f] PopSig %( %C ->T  %, %C )% ')'
-//	}\
-         end // else
-//	;
-         ';'
-//	 except
-         ' except'
-//	  on E: Exception do
-         '  on E: Exception do'
-//	  begin
-         '  begin'
-//	   RunnerError('Ошибка при получении параметра %CN: %f_pas_TypeName(%C%T) : ' + E.Message, aCtx);
-         '   RunnerError(''Ошибка при получении параметра '
-         %C |N ': '
-         [%f] pas_TypeName %( %C ->T  )% ' : '' + E.Message, aCtx);'
-//	   Exit;
-         '   Exit;'
-//	  end;//on E: Exception
-         '  end;//on E: Exception'
-//	 end;//try..except
-         ' end;//try..except'
-//	]\
-        end // if
-//	>\
-
-        ++! l_Counter
-       end // if
-      end // for C
-
-     ) // bind
- 
-
-//	[{%1{mapped}=true}{\
-     if ( ( %1 get_up ( 'mapped' ) ) %==  true ) then
+     if ( ( %1 get_up ( 'prop_stereo' ) ) %== 'readonly' ) then
      begin
-//	 l_%t_SelfName(%{GEN}).%1{prop_name} := %t_CastValue(%1%T)(aValue%t_TypeValue(%1%T));\
-      ' l_'
-      [%t] SelfName %( ( get_global_var ( 'GEN' ) ) )% '.'
-      %1 get_up ( 'prop_name' ) ' := '
-      [%t] CastValue %( %1 ->T  )% '(aValue'
-      [%t] TypeValue %( %1 ->T  )% ');'
+//	 {-}\
+      ' {-}'
 //	]\
      end // if
      else
      begin
-//	 DoSetValue(l_%t_SelfName(%{GEN})%1<{}{}{%C}%f_comma(%S) l_%CN>%f_comma(%S) %t_CastValue(%1%T)(aValue%t_TypeValue(%1%T)));\
-      ' DoSetValue(l_'
-      [%t] SelfName %( ( get_global_var ( 'GEN' ) ) )% %1
+//	var
+      'var'
+//	 l_%t_SelfName(%{GEN}): %f_pas_TypeName(%{GEN});\
+      ' l_'
+      [%t] SelfName %( ( get_global_var ( 'GEN' ) ) )% ': '
+      [%f] pas_TypeName %( ( get_global_var ( 'GEN' ) ) )% ';'
+//	%1<{}{}{%C}\n l_%CN : %f_pas_TypeName(%C%T);>\
+      %1
       bind ( 
        OBJECT VAR %S
        INTEGER VAR l_Counter l_Counter := 0
@@ -1793,22 +1708,164 @@ end. // <<ScriptKeywordsPack>>
         OBJECT IN %C
         if true then
         begin
-         [%f] comma %( %S )% ' l_'
-         %C |N 
+         #13#10' l_'
+         %C |N ' : '
+         [%f] pas_TypeName %( %C ->T  )% ';' 
          ++! l_Counter
         end // if
        end // for C
 
       ) // bind
-       [%f] comma %( %S )% ' '
-      [%t] CastValue %( %1 ->T  )% '(aValue'
-      [%t] TypeValue %( %1 ->T  )% '));'
-//	}\
+ //	}\
      end // else
-//	}\
-    end // else
 //	)\
 )% ) 
+
+//	%{TtfwWord.SetValue}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.SetValue},%{Class_Inst})_impl,\
+     ( get_global_var ( 'TtfwWord.SetValue' ) %f set_uc_content %( 'intf.pas' %, '_'
+     [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.SetValue' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
+//	[{"%1{prop_stereo}"="readonly"}{\
+     if ( ( %1 get_up ( 'prop_stereo' ) ) %== 'readonly' ) then
+     begin
+//	 RunnerError('Нельзя присваивать значение readonly свойству %1{prop_name}'%f_comma(%S) aCtx);\
+      ' RunnerError(''Нельзя присваивать значение readonly свойству '
+      %1 get_up ( 'prop_name' ) ''''
+      [%f] comma %( %S )% ' aCtx);'
+//	]\
+     end // if
+     else
+     begin
+//	 try
+      ' try'
+//	  l_%t_SelfName(%{GEN}) := %t_CastSig(%{GEN})(aCtx.rEngine.%f_PopSig(%{GEN}));
+      '  l_'
+      [%t] SelfName %( ( get_global_var ( 'GEN' ) ) )% ' := '
+      [%t] CastSig %( ( get_global_var ( 'GEN' ) ) )% '(aCtx.rEngine.'
+      [%f] PopSig %( ( get_global_var ( 'GEN' ) ) )% ');'
+//	 except
+      ' except'
+//	  on E: Exception do
+      '  on E: Exception do'
+//	  begin
+      '  begin'
+//	   RunnerError('Ошибка при получении параметра l_%t_SelfName(%{GEN}): %f_pas_TypeName(%{GEN}) : ' + E.Message, aCtx);
+      '   RunnerError(''Ошибка при получении параметра l_'
+      [%t] SelfName %( ( get_global_var ( 'GEN' ) ) )% ': '
+      [%f] pas_TypeName %( ( get_global_var ( 'GEN' ) ) )% ' : '' + E.Message, aCtx);'
+//	   Exit;
+      '   Exit;'
+//	  end;//on E: Exception
+      '  end;//on E: Exception'
+//	 end;//try..except
+      ' end;//try..except'
+
+
+//	%1<{}{}{%C}\
+      %1
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%C
+       begin
+        OBJECT IN %C
+        if true then
+        begin
+//	[{%CS!=out}\
+         if ( ( %C |S ) %!= 'out' ) then
+         begin
+//	 try
+          ' try'
+//	  l_%CN := \
+          '  l_'
+          %C |N ' := '
+//	[{"%t_CastSig(%C%T)"=""}{\
+          if ( ( [%t] CastSig %( %C ->T  )% ) %== '' ) then
+          begin
+//	aCtx.rEngine.%f_PopSig(%C%T,%C)\
+           'aCtx.rEngine.'
+           [%f] PopSig %( %C ->T  %, %C )% 
+//	]\
+          end // if
+          else
+          begin
+//	%t_CastSig(%C%T)\
+           [%t] CastSig %( %C ->T  )% 
+//	(aCtx.rEngine.%f_PopSig(%C%T,%C))\
+           '(aCtx.rEngine.'
+           [%f] PopSig %( %C ->T  %, %C )% ')'
+//	}\
+          end // else
+//	;
+          ';'
+//	 except
+          ' except'
+//	  on E: Exception do
+          '  on E: Exception do'
+//	  begin
+          '  begin'
+//	   RunnerError('Ошибка при получении параметра %CN: %f_pas_TypeName(%C%T) : ' + E.Message, aCtx);
+          '   RunnerError(''Ошибка при получении параметра '
+          %C |N ': '
+          [%f] pas_TypeName %( %C ->T  )% ' : '' + E.Message, aCtx);'
+//	   Exit;
+          '   Exit;'
+//	  end;//on E: Exception
+          '  end;//on E: Exception'
+//	 end;//try..except
+          ' end;//try..except'
+//	]\
+         end // if
+//	>\
+
+         ++! l_Counter
+        end // if
+       end // for C
+
+      ) // bind
+ 
+
+//	[{%1{mapped}=true}{\
+      if ( ( %1 get_up ( 'mapped' ) ) %==  true ) then
+      begin
+//	 l_%t_SelfName(%{GEN}).%1{prop_name} := %t_CastValue(%1%T)(aValue%t_TypeValue(%1%T));\
+       ' l_'
+       [%t] SelfName %( ( get_global_var ( 'GEN' ) ) )% '.'
+       %1 get_up ( 'prop_name' ) ' := '
+       [%t] CastValue %( %1 ->T  )% '(aValue'
+       [%t] TypeValue %( %1 ->T  )% ');'
+//	]\
+      end // if
+      else
+      begin
+//	 DoSetValue(l_%t_SelfName(%{GEN})%1<{}{}{%C}%f_comma(%S) l_%CN>%f_comma(%S) %t_CastValue(%1%T)(aValue%t_TypeValue(%1%T)));\
+       ' DoSetValue(l_'
+       [%t] SelfName %( ( get_global_var ( 'GEN' ) ) )% %1
+       bind ( 
+        OBJECT VAR %S
+        INTEGER VAR l_Counter l_Counter := 0
+        for %S%C
+        begin
+         OBJECT IN %C
+         if true then
+         begin
+          [%f] comma %( %S )% ' l_'
+          %C |N 
+          ++! l_Counter
+         end // if
+        end // for C
+
+       ) // bind
+        [%f] comma %( %S )% ' '
+       [%t] CastValue %( %1 ->T  )% '(aValue'
+       [%t] TypeValue %( %1 ->T  )% '));'
+//	}\
+      end // else
+//	}\
+     end // else
+//	)\
+)% ) //	]\
+    end // if
+
 
 //	]\
    end // if
