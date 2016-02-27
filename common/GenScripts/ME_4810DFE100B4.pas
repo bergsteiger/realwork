@@ -37,8 +37,6 @@ type
  TnevRenderingInfoParts = set of TnevRenderingInfoPart;
   {* Информация о форматировании. }
 
- // nev_ripAll
-
  TnevCachedControlImageInfo = record
   rInfo: TnevControlImageInfo;
   rIsCached: Boolean;
@@ -207,6 +205,9 @@ type
    property Obj: InevObjectPrim
     read f_Obj;
  end;//TnevFormatInfo
+
+const
+ nev_ripAll = [Low(TnevRenderingInfoPart) .. High(TnevRenderingInfoPart)];
 
 implementation
 
