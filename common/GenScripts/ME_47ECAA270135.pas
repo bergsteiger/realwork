@@ -105,9 +105,6 @@ implementation
 uses
  l3ImplUses
  , k2VariantImpl
- {$If NOT Defined(NoScripts)}
- , kwFiltersAndGeneratorsPack
- {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 procedure Tk2TagGenerator.AddAtom(AtomIndex: Integer;
