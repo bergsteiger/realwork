@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , csTaskResult
- , AutoClassTaskResult_Const
  , evdTasksHelpers
  , k2Base
 ;
@@ -43,6 +42,7 @@ implementation
 {$If Defined(ServerTasks)}
 uses
  l3ImplUses
+ , AutoClassTaskResult_Const
 ;
 
 function TalcuAutoClassTaskResult.pm_GetReportMessage: AnsiString;

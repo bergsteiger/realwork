@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , csTaskResult
- , ImportTaskResult_Const
  , evdTasksHelpers
  , k2Base
 ;
@@ -53,6 +52,7 @@ implementation
 {$If Defined(ServerTasks)}
 uses
  l3ImplUses
+ , ImportTaskResult_Const
 ;
 
 function TalcuImportTaskResult.pm_GetMailBody: AnsiString;

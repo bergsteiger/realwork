@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , csProcessTask
- , RemoteDictEditQuery_Const
  , k2Base
 ;
 
@@ -27,6 +26,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , RemoteDictEditQuery_Const
 ;
 
 class function TcsRemoteDictEditQueryPrim.GetTaggedDataType: Tk2Type;

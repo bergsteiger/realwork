@@ -10,7 +10,6 @@ interface
 uses
  l3IntfUses
  , l3Variant
- , FTPBrowser_Const
  , k2Base
  , Classes
 ;
@@ -66,6 +65,7 @@ implementation
 uses
  l3ImplUses
  , IdAssignedNumbers
+ , FTPBrowser_Const
  , SysUtils
  , evdNativeWriter
  , l3Filer

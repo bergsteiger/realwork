@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , csProcessTask
- , mdpImportDocs_Const
  , k2Base
 ;
 
@@ -44,6 +43,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , mdpImportDocs_Const
 ;
 
 function TcsMdpImportDocs.pm_GetMail: AnsiString;

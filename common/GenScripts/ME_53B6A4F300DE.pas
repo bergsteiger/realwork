@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , csProcessTask
- , AnnotationTask_Const
  , evdTasksHelpers
  , k2Base
 ;
@@ -113,6 +112,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , AnnotationTask_Const
 ;
 
 function TcsAnnotationTask.pm_GetNeedAnalyzeLog: Boolean;

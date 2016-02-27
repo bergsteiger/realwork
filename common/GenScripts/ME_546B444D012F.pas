@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , ncsMessage
- , csGetTaskDescription_Const
  , k2Base
 ;
 
@@ -34,6 +33,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , csGetTaskDescription_Const
 ;
 
 function TncsGetTaskDescription.pm_GetTaskID: AnsiString;

@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , alcuImportTaskResult
- , RegionImportTaskResult_Const
  , k2Base
 ;
 
@@ -34,6 +33,7 @@ implementation
 {$If Defined(ServerTasks)}
 uses
  l3ImplUses
+ , RegionImportTaskResult_Const
 ;
 
 function TalcuRegionImportTaskResult.pm_GetHasMoreFilesToProcess: Boolean;

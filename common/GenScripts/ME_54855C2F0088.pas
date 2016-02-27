@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , ncsMessage
- , csSendTask_Const
  , k2SizedMemoryPool
  , k2Base
 ;
@@ -35,6 +34,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , csSendTask_Const
 ;
 
 function TncsSendTask.pm_GetData: Tk2RawData;

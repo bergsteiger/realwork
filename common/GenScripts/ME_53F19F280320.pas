@@ -10,7 +10,6 @@ interface
 {$If NOT Defined(Nemesis)}
 uses
  l3IntfUses
- , CourtDescription_Const
  , l3Variant
  , evdTasksHelpers
 ;
@@ -42,6 +41,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , CourtDescription_Const
 ;
 
 class function TCourtsListHelper.Make(aValue: Tl3Tag): CourtsListHelper;

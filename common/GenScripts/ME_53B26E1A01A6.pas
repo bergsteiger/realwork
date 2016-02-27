@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , csProcessTask
- , UserDefinedExportTask_Const
  , k2Base
 ;
 
@@ -39,6 +38,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , UserDefinedExportTask_Const
 ;
 
 function TcsUserDefinedExportTaskPrim.pm_GetQueryFile: AnsiString;

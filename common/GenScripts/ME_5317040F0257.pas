@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , csImport
- , AACImport_Const
  , evdTasksHelpers
  , l3Variant
  , k2Base
@@ -143,6 +142,7 @@ implementation
 uses
  l3ImplUses
  , ddServerTask
+ , AACImport_Const
 ;
 
 function TcsAACImport.pm_GetManualMode: Boolean;

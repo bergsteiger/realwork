@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , csTaskResult
- , AACImportTaskResult_Const
  , k2Base
 ;
 
@@ -49,6 +48,7 @@ implementation
 {$If Defined(ServerTasks)}
 uses
  l3ImplUses
+ , AACImportTaskResult_Const
 ;
 
 function TalcuAACImportTaskResult.pm_GetIsSuccess: Boolean;

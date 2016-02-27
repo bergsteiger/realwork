@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , alcuExport
- , AnoncedExportTask_Const
  , evdTasksHelpers
  , k2Base
 ;
@@ -49,6 +48,7 @@ implementation
 {$If Defined(ServerTasks)}
 uses
  l3ImplUses
+ , AnoncedExportTask_Const
 ;
 
 function TalcuAnoncedExportPrim.pm_GetOnThursdayMode: Boolean;

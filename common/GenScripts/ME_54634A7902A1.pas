@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , ncsMessage
- , csLoginReply_Const
  , k2Base
 ;
 
@@ -27,6 +26,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , csLoginReply_Const
 ;
 
 class function TncsLoginReply.GetTaggedDataType: Tk2Type;

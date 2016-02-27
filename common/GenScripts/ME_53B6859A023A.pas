@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , askRequest
- , GetTaskRequest_Const
  , k2Base
 ;
 
@@ -28,6 +27,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , GetTaskRequest_Const
  , SysUtils
  , StrUtils
  , DateUtils

@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , evdTasksHelpers
- , CourtDecisionPhrase_Const
  , Classes
  , l3Variant
 ;
@@ -35,6 +34,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , CourtDecisionPhrase_Const
 ;
 
 class function TDecisionPhrasesHelper.Make(aValue: Tl3Tag): DecisionPhrasesHelper;

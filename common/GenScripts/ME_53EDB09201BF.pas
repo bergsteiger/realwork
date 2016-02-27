@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , l3Variant
- , CourtDecisionSabCheckerParams_Const
  , csCourtsListHelper
  , k2Base
  , Classes
@@ -62,6 +61,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , CourtDecisionSabCheckerParams_Const
  , SysUtils
  , evdNativeWriter
  , l3Filer

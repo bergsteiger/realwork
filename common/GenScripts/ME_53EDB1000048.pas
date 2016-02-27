@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , l3Variant
- , CourtDescription_Const
  , csDecisionPhrasesHelper
  , k2Base
  , Classes
@@ -52,6 +51,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , CourtDescription_Const
  , SysUtils
  , evdNativeWriter
  , l3Filer

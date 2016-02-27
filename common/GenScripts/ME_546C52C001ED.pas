@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , l3Variant
- , FileDesc_Const
  , k2Base
  , Classes
 ;
@@ -52,6 +51,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , FileDesc_Const
  , SysUtils
  , evdNativeWriter
  , l3Filer

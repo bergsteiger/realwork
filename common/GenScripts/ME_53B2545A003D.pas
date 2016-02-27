@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , csProcessTask
- , SpellCorrectTask_Const
  , csTasksHelpers
  , k2Base
 ;
@@ -33,6 +32,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , SpellCorrectTask_Const
 ;
 
 function TcsSpellCorrectTaskPrim.pm_GetReplacementFile: ReplacementFileHelper;

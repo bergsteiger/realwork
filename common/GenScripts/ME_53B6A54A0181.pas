@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , csProcessTask
- , DeleteDocsQuery_Const
  , k2Base
 ;
 
@@ -27,6 +26,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , DeleteDocsQuery_Const
 ;
 
 class function TcsDeleteDocsQueryPrim.GetTaggedDataType: Tk2Type;

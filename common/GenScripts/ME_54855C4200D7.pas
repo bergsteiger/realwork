@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , ncsMessage
- , csSendTaskReply_Const
  , k2Base
 ;
 
@@ -34,6 +33,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , csSendTaskReply_Const
 ;
 
 function TncsSendTaskReply.pm_GetIsSuccess: Boolean;

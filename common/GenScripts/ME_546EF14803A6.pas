@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , ncsFileDesc
- , TaskedFileDesc_Const
  , k2Base
 ;
 
@@ -39,6 +38,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , TaskedFileDesc_Const
 ;
 
 function TncsTaskedFileDesc.pm_GetTaskID: AnsiString;

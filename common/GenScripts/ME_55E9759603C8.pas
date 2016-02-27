@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , csProcessTask
- , mdpSyncDicts_Const
  , k2Base
 ;
 
@@ -69,6 +68,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , mdpSyncDicts_Const
 ;
 
 function TcsMdpSyncDicts.pm_GetSyncFolderMask: AnsiString;

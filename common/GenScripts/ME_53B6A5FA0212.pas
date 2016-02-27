@@ -13,7 +13,6 @@ uses
  {$If NOT Defined(Nemesis)}
  , csProcessTask
  {$IfEnd} // NOT Defined(Nemesis)
- , AutoExportTask_Const
  , evdDTTypes
  , evdTasksHelpers
  , k2Base
@@ -220,6 +219,7 @@ implementation
 {$If Defined(ServerTasks)}
 uses
  l3ImplUses
+ , AutoExportTask_Const
 ;
 
 function TalcuAutoExportTaskPrim.pm_GetToday: TDateTime;

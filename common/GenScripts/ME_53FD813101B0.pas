@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , csTaskResult
- , AutoSpellTaskResult_Const
  , k2Base
 ;
 
@@ -39,6 +38,7 @@ implementation
 {$If Defined(ServerTasks)}
 uses
  l3ImplUses
+ , AutoSpellTaskResult_Const
 ;
 
 function TalcuAutoSpellTaskResult.pm_GetReportMessage: AnsiString;

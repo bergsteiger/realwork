@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , csTaskResult
- , AnnotationTaskResult_Const
  , k2Base
 ;
 
@@ -74,6 +73,7 @@ implementation
 {$If Defined(ServerTasks)}
 uses
  l3ImplUses
+ , AnnotationTaskResult_Const
 ;
 
 function TalcuAnnotationTaskResult.pm_GetNeedReport: Boolean;

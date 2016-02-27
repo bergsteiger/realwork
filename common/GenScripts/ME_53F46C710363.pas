@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , csProcessTask
- , AutoClassTask_Const
  , k2Base
  , dt_Types
 ;
@@ -56,6 +55,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , AutoClassTask_Const
 ;
 
 function TcsAutoClassTask.pm_GetBuilderFileName: AnsiString;

@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , ncsMessage
- , csLogin_Const
  , k2Base
 ;
 
@@ -49,6 +48,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , csLogin_Const
 ;
 
 function TncsLoginMessage.pm_GetServerHost: AnsiString;

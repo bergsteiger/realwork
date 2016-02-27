@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , alcuAutoExportTask
- , RegionAutoExportTask_Const
  , l3Variant
  , k2Base
 ;
@@ -50,6 +49,7 @@ implementation
 {$If Defined(ServerTasks)}
 uses
  l3ImplUses
+ , RegionAutoExportTask_Const
 ;
 
 function TalcuRegionAutoExportTaskPrim.pm_GetRegionIndex: Integer;

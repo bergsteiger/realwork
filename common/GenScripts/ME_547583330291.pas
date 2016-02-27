@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , ncsMessage
- , csGetFilePart_Const
  , k2Base
 ;
 
@@ -50,6 +49,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , csGetFilePart_Const
 ;
 
 function TncsGetFilePart.pm_GetTaskID: AnsiString;

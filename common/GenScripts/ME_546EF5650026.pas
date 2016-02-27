@@ -10,7 +10,6 @@ interface
 {$If NOT Defined(Nemesis)}
 uses
  l3IntfUses
- , FileDesc_Const
  , l3Variant
  , evdTasksHelpers
 ;
@@ -42,6 +41,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , FileDesc_Const
 ;
 
 class function TFileDescHelper.Make(aValue: Tl3Tag): FileDescHelper;

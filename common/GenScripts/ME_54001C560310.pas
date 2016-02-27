@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , csTaskResult
- , AutoExportTaskResult_Const
  , k2Base
 ;
 
@@ -39,6 +38,7 @@ implementation
 {$If Defined(ServerTasks)}
 uses
  l3ImplUses
+ , AutoExportTaskResult_Const
 ;
 
 function TalcuAutoExportTaskResult.pm_GetReportMessage: AnsiString;

@@ -3,6 +3,8 @@ unit NOT_FINISHED_JclGraphics;
 // Модуль: "w:\common\components\rtl\external\JEDI\source\vcl\NOT_FINISHED_JclGraphics.pas"
 // Стереотип: "UtilityPack"
 
+{$Include w:\common\components\l3Define.inc}
+
 interface
 
 uses

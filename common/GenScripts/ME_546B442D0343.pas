@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , ncsMessage
- , csGetTaskDescriptionReply_Const
  , ncsFileDescHelper
  , k2Base
 ;
@@ -43,6 +42,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , csGetTaskDescriptionReply_Const
 ;
 
 function TncsGetTaskDescriptionReply.pm_GetLocalFolder: AnsiString;

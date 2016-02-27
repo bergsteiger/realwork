@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , askRequest
- , TaskResultRequest_Const
  , k2Base
 ;
 
@@ -27,6 +26,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , TaskResultRequest_Const
 ;
 
 class function TddTaskResultRequestPrim.GetTaggedDataType: Tk2Type;

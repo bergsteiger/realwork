@@ -11,12 +11,9 @@ interface
 uses
  l3IntfUses
  , l3Variant
- , csMessage_Const
  , evdNcsTypes
  , k2Base
  , Classes
- , csDIsconnect_Const
- , csDIsconnectReply_Const
 ;
 
 type
@@ -75,6 +72,7 @@ implementation
 uses
  l3ImplUses
  , l3Utils
+ , csMessage_Const
  , SysUtils
  , evdNativeWriter
  , l3Filer
@@ -82,6 +80,8 @@ uses
  , k2TagGen
  , evdNativeReader
  , k2DocumentBuffer
+ , csDIsconnect_Const
+ , csDIsconnectReply_Const
 ;
 
 {$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}

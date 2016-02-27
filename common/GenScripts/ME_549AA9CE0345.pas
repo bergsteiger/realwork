@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , ncsMessage
- , csCorrectFolder_Const
  , k2Base
 ;
 
@@ -39,6 +38,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , csCorrectFolder_Const
 ;
 
 function TncsCorrectFolder.pm_GetTaskID: AnsiString;

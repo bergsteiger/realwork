@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , csProcessTask
- , RunCommandTask_Const
  , k2Base
  , dt_Types
 ;
@@ -30,6 +29,7 @@ implementation
 uses
  l3ImplUses
  , evdTaskTypes
+ , RunCommandTask_Const
 ;
 
 class function TddRunCommandTaskPrim.GetTaggedDataType: Tk2Type;

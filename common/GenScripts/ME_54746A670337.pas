@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , ncsMessage
- , csTaskProgress_Const
  , k2Base
 ;
 
@@ -44,6 +43,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , csTaskProgress_Const
 ;
 
 function TncsTaskProgress.pm_GetTaskID: AnsiString;

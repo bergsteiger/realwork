@@ -10,9 +10,7 @@ interface
 {$If NOT Defined(Nemesis)}
 uses
  l3IntfUses
- , File_Const
  , evdTasksHelpers
- , PlainFile_Const
  , Classes
  , l3Variant
 ;
@@ -77,6 +75,8 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , PlainFile_Const
+ , File_Const
  , evNSRCConst
  , l3Base
  , l3Stream

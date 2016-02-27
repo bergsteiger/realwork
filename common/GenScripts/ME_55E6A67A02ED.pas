@@ -38,9 +38,9 @@ type
   , ssoUpd
  );//TmssOperation
 
- TShortNameIndex = 1 .. cSourceShortNameLen;
+ TShortNameIndex = 1 .. dt_DictConst.cSourceShortNameLen;
 
- TSynonimsIndex = 1 .. cSourceSynonimsLen;
+ TSynonimsIndex = 1 .. dt_DictConst.cSourceSynonimsLen;
 
  TShortNameArray = array [TShortNameIndex] of AnsiChar;
 

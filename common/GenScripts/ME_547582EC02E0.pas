@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , ncsMessage
- , csDeliveryResult_Const
  , evdNcsTypes
  , k2Base
 ;
@@ -40,6 +39,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , csDeliveryResult_Const
 ;
 
 function TncsDeliveryResult.pm_GetTaskID: AnsiString;

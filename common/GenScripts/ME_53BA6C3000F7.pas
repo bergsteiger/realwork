@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , csExport
- , CaseCodeTask_Const
  , k2Base
 ;
 
@@ -27,6 +26,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , CaseCodeTask_Const
 ;
 
 class function TddCaseCodeTaskPrim.GetTaggedDataType: Tk2Type;

@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , ncsMessage
- , csGetReadyToDeliveryTasksReply_Const
  , evdTasksHelpers
  , k2Base
 ;
@@ -33,6 +32,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , csGetReadyToDeliveryTasksReply_Const
 ;
 
 function TncsGetReadyToDeliveryTasksReply.pm_GetTasksIDList: TasksIDListHelper;

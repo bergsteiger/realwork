@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , alcuExport
- , AutoAnnoExportTask_Const
  , evdTasksHelpers
  , k2Base
 ;
@@ -46,6 +45,7 @@ implementation
 {$If Defined(ServerTasks)}
 uses
  l3ImplUses
+ , AutoAnnoExportTask_Const
 ;
 
 function TalcuAutoAnnoExportTaskPrim.pm_GetStartDate: TDateTime;

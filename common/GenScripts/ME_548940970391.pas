@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , ncsMessage
- , csPushFilePart_Const
  , k2SizedMemoryPool
  , k2Base
 ;
@@ -55,6 +54,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , csPushFilePart_Const
 ;
 
 function TncsPushFilePart.pm_GetTaskID: AnsiString;

@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , csTaskResult
- , RelPublishTaskResult_Const
  , k2Base
 ;
 
@@ -39,6 +38,7 @@ implementation
 {$If Defined(ServerTasks)}
 uses
  l3ImplUses
+ , RelPublishTaskResult_Const
 ;
 
 function TalcuRelPublishTaskResult.pm_GetMailBody: AnsiString;

@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , alcuExport
- , HavanskyExportTask_Const
  , k2Base
 ;
 
@@ -27,6 +26,7 @@ implementation
 {$If Defined(ServerTasks) AND Defined(HavanskyExport)}
 uses
  l3ImplUses
+ , HavanskyExportTask_Const
 ;
 
 class function TalcuHavanskyExportTaskPrim.GetTaggedDataType: Tk2Type;
