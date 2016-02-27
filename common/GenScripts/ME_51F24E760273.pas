@@ -20,9 +20,6 @@ implementation
 {$If NOT Defined(NoVCL)}
 uses
  l3ImplUses
- {$If NOT Defined(NoScripts)}
- , CheckListBoxWordsPack
- {$IfEnd} // NOT Defined(NoScripts)
 ;
 {$IfEnd} // NOT Defined(NoVCL)
 
