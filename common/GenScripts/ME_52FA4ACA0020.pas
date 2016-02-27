@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , ddServerTask
- , RequestTask_Const
  , CsDataPipe
  , k2Base
  , dt_Types
@@ -37,6 +36,7 @@ implementation
 uses
  l3ImplUses
  , evdTaskTypes
+ , RequestTask_Const
  , l3Memory
  , SysUtils
 ;

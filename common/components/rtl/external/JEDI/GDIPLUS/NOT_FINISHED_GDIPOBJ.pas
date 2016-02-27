@@ -3,6 +3,8 @@ unit NOT_FINISHED_GDIPOBJ;
 // Модуль: "w:\common\components\rtl\external\JEDI\GDIPLUS\NOT_FINISHED_GDIPOBJ.pas"
 // Стереотип: "UtilityPack"
 
+{$Include w:\common\components\l3Define.inc}
+
 interface
 
 uses

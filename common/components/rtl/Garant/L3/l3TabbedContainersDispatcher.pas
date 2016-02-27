@@ -86,6 +86,7 @@ type
   procedure UpdateCaption;
   function CanUndockFormFromTab(aTabIndex: Integer): Boolean;
   procedure UndockFormFromTab(aTabIndex: Integer);
+  procedure OpenTabAfter(const aTab: Il3FormTab);
   property AsForm: TForm
    read pm_GetAsForm;
   property Tabs[Index: Integer]: Il3FormTab

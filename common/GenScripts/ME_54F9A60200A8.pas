@@ -10,7 +10,6 @@ interface
 uses
  l3IntfUses
  , l3Variant
- , DataProviderParams_Const
  , daTypes
  , Classes
  , l3IniFile
@@ -92,6 +91,7 @@ uses
  l3ImplUses
  , l3FileUtils
  , daUtils
+ , DataProviderParams_Const
  , SysUtils
  , evdNativeWriter
  , l3Filer

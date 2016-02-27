@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , csRequestTask
- , CommonDataRequest_Const
  , k2Base
  , dt_Types
 ;
@@ -30,6 +29,7 @@ implementation
 uses
  l3ImplUses
  , evdTaskTypes
+ , CommonDataRequest_Const
 ;
 
 class function TddCommonDataRequestPrim.GetTaggedDataType: Tk2Type;

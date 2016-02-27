@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , csProcessTask
- , AutoSpellTask_Const
  , k2Base
 ;
 
@@ -27,6 +26,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , AutoSpellTask_Const
 ;
 
 class function TcsAutoSpellTaskPrim.GetTaggedDataType: Tk2Type;

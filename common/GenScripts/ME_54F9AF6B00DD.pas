@@ -10,7 +10,6 @@ interface
 uses
  l3IntfUses
  , daDataProviderParams
- , HyTechProviderParams_Const
  , dt_Types
  , k2Base
 ;
@@ -53,6 +52,7 @@ uses
  , l3FileUtils
  , ddUtils
  , SysUtils
+ , HyTechProviderParams_Const
 ;
 
 function ThtDataProviderParams.pm_GetStationName: AnsiString;

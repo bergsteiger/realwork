@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , csRequestTask
- , LineRequest_Const
  , k2Base
 ;
 
@@ -27,6 +26,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , LineRequest_Const
 ;
 
 class function TcsLineRequestPrim.GetTaggedDataType: Tk2Type;

@@ -3,6 +3,8 @@ unit NOT_FINISHED_orb_int;
 // Модуль: "w:\common\components\rtl\external\MTDOrb\src\orbint\NOT_FINISHED_orb_int.pas"
 // Стереотип: "Interfaces"
 
+{$Include w:\common\components\l3Define.inc}
+
 interface
 
 {$If Defined(nsTest) AND Defined(MTDORB) AND NOT Defined(NotTunedDUnit)}

@@ -1,50 +1,38 @@
 {$IfNDef afwShortcutsHandler_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW$Core"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/AFW/implementation/afwShortcutsHandler.imp.pas"
-// Начат: 22.04.2009 19:15
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::AFW$Core::ControlsMixIns::afwShortcutsHandler
-//
-// Обработчик ShortCut'ов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\AFW\implementation\afwShortcutsHandler.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define afwShortcutsHandler_imp}
-{$If not defined(DesignTimeLibrary)}
- _afwShortcutsHandler_ = {mixin} class(_afwShortcutsHandler_Parent_)
+
+{$If NOT Defined(DesignTimeLibrary)}
+ _afwShortcutsHandler_ = class(_afwShortcutsHandler_Parent_)
   {* Обработчик ShortCut'ов }
- protected
- // protected methods
+  protected
    function IsHandledShortcut(var Msg: TMessage): Boolean;
-     {* Обработчик ShortCut'ов }
+    {* Обработчик ShortCut'ов }
    function IsSomePopupWasClosed: Boolean; virtual;
    procedure WndProc(var Message: TMessage); override;
-     {* Оконная процедура }
+    {* Оконная процедура }
  end;//_afwShortcutsHandler_
-{$Else}
 
- _afwShortcutsHandler_ = _afwShortcutsHandler_Parent_;
+{$Else NOT Defined(DesignTimeLibrary)}
 
-{$IfEnd} //not DesignTimeLibrary
+_afwShortcutsHandler_ = _afwShortcutsHandler_Parent_;
 
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 {$Else afwShortcutsHandler_imp}
 
-{$If not defined(DesignTimeLibrary)}
+{$IfNDef afwShortcutsHandler_imp_impl}
 
-// start class _afwShortcutsHandler_
+{$Define afwShortcutsHandler_imp_impl}
 
+{$If NOT Defined(DesignTimeLibrary)}
 function _afwShortcutsHandler_.IsHandledShortcut(var Msg: TMessage): Boolean;
+ {* Обработчик ShortCut'ов }
+var l_Controller: TOvcController;
 //#UC START# *49EF3805033D_49EF346400A4_var*
 //#UC END# *49EF3805033D_49EF346400A4_var*
-var
- l_Controller : TOvcController;
 begin
 //#UC START# *49EF3805033D_49EF346400A4_impl*
  Result := false;
@@ -69,6 +57,7 @@ begin
 end;//_afwShortcutsHandler_.IsSomePopupWasClosed
 
 procedure _afwShortcutsHandler_.WndProc(var Message: TMessage);
+ {* Оконная процедура }
 //#UC START# *49EF38CC0345_49EF346400A4_var*
 var
  Msg : TMessage;
@@ -103,7 +92,9 @@ begin
  inherited;
 //#UC END# *49EF38CC0345_49EF346400A4_impl*
 end;//_afwShortcutsHandler_.WndProc
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
-{$IfEnd} //not DesignTimeLibrary
+{$EndIf afwShortcutsHandler_imp_impl}
 
 {$EndIf afwShortcutsHandler_imp}
+

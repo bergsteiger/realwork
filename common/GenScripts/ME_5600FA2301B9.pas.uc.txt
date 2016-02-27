@@ -1,18 +1,93 @@
 //#UC START# *479731C50290_5600FA2301B9_impl*
- f_Table := nil;
+ FreeAndNil(f_Tables);
  f_WhereCondition := nil;
  FreeAndNil(f_SelectFields);
- FreeAndNil(f_OrderBy);
+ FreeAndNil(f_Params);
+ f_DataConverter := nil;
  inherited;
 //#UC END# *479731C50290_5600FA2301B9_impl*
 //#UC START# *479731C50290_5600FA2301B9_var*
 //#UC END# *479731C50290_5600FA2301B9_var*
+//#UC START# *49BFC98902FF_5600FA2301B9_impl*
+ UnPrepareTables;
+ inherited;
+//#UC END# *49BFC98902FF_5600FA2301B9_impl*
+//#UC START# *49BFC98902FF_5600FA2301B9_var*
+//#UC END# *49BFC98902FF_5600FA2301B9_var*
+//#UC START# *5549C42400DA_5600FA2301B9_impl*
+ Result := MakeResultSet(Unidirectional);
+//#UC END# *5549C42400DA_5600FA2301B9_impl*
+//#UC START# *5549C42400DA_5600FA2301B9_var*
+//#UC END# *5549C42400DA_5600FA2301B9_var*
+//#UC START# *5551BB340256_5600FA2301B9_impl*
+ if not f_Prepared then
+ begin
+  Assert(f_Tables.Count = 1);
+  Assert(f_SelectFields.Count > 0);
+  for l_IDX := 0 to f_SelectFields.Count - 1 do
+   if Supports(f_SelectFields[l_IDX], IdaFieldFromTable, l_Field) then
+    Assert(l_Field.Field.Table = f_Tables[0].Table);
+  if Supports(f_WhereCondition, IdaFieldFromTable, l_Field) then
+   Assert(l_Field.Field.Table = f_Tables[0].Table);
+  if Supports(f_WhereCondition, IdaParamDescription, l_ParamDescription) then
+   AddParam(l_ParamDescription);
+  PrepareTables;
+  f_Prepared := True;
+ end;
+//#UC END# *5551BB340256_5600FA2301B9_impl*
+//#UC START# *5551BB340256_5600FA2301B9_var*
+var
+ l_Field: IdaFieldFromTable;
+ l_ParamDescription: IdaParamDescription;
+ l_IDX: Integer;
+//#UC END# *5551BB340256_5600FA2301B9_var*
+//#UC START# *5551BEA500AE_5600FA2301B9get_impl*
+ if f_Params.FindData(aName, l_IDX) then
+  Result := f_Params[l_IDX]
+ else
+  Result := nil;
+//#UC END# *5551BEA500AE_5600FA2301B9get_impl*
+//#UC START# *5551BEA500AE_5600FA2301B9get_var*
+var
+ l_IDX: Integer;
+//#UC END# *5551BEA500AE_5600FA2301B9get_var*
 //#UC START# *5551DC42038C_5600FA2301B9_impl*
  f_SelectFields.Add(aField);
  UnPrepare;
 //#UC END# *5551DC42038C_5600FA2301B9_impl*
 //#UC START# *5551DC42038C_5600FA2301B9_var*
 //#UC END# *5551DC42038C_5600FA2301B9_var*
+//#UC START# *5553039D016A_5600FA2301B9_impl*
+ f_Tables.Add(aTable);
+ UnPrepare;
+//#UC END# *5553039D016A_5600FA2301B9_impl*
+//#UC START# *5553039D016A_5600FA2301B9_var*
+//#UC END# *5553039D016A_5600FA2301B9_var*
+//#UC START# *555334DD023B_5600FA2301B9_impl*
+ if f_Prepared then
+ begin
+  UnPrepareTables;
+  f_Params.Clear;
+// !!! Needs to be implemented !!!
+  f_Prepared := False;
+ end;
+//#UC END# *555334DD023B_5600FA2301B9_impl*
+//#UC START# *555334DD023B_5600FA2301B9_var*
+//#UC END# *555334DD023B_5600FA2301B9_var*
+//#UC START# *55FFDEC4037F_5600FA2301B9_impl*
+ l_Param := Get_Param(aParamDesc.Name);
+ if Assigned(l_Param) then
+ begin
+  if not l_Param.IsSameType(aParamDesc) then
+   raise EdaError.CreateFmt('Ќе совпадают типы данных дл€ параметра %s', [aParamDesc.Name]);
+ end
+ else
+  f_Params.Add(TdaParam.Make(f_DataConverter, aParamDesc));
+//#UC END# *55FFDEC4037F_5600FA2301B9_impl*
+//#UC START# *55FFDEC4037F_5600FA2301B9_var*
+var
+ l_Param: IdaParam;
+//#UC END# *55FFDEC4037F_5600FA2301B9_var*
 //#UC START# *5600FAC103DE_5600FA2301B9set_impl*
  f_WhereCondition := aValue;
  UnPrepare;
@@ -20,11 +95,12 @@
 //#UC START# *5600FAC103DE_5600FA2301B9set_var*
 //#UC END# *5600FAC103DE_5600FA2301B9set_var*
 //#UC START# *5600FB3903DE_5600FA2301B9_impl*
- inherited Create(aDataConverter);
- f_Table := MakeFromTable(aTable, anAlias);
- UnPrepare;
+ inherited Create;
+ f_Tables := TdaFromTableList.Make;
+ AddFromTable(MakeFromTable(aTable, anAlias));
  f_SelectFields := TdaSelectFieldList.Make;
- f_OrderBy := TdaSortFieldList.Create;
+ f_Params := MakeParamList;
+ f_DataConverter := aDataConverter;
 //#UC END# *5600FB3903DE_5600FA2301B9_impl*
 //#UC START# *5600FB3903DE_5600FA2301B9_var*
 //#UC END# *5600FB3903DE_5600FA2301B9_var*
@@ -96,6 +172,11 @@ var
 //#UC END# *56050F510228_5600FA2301B9_impl*
 //#UC START# *56050F510228_5600FA2301B9_var*
 //#UC END# *56050F510228_5600FA2301B9_var*
+//#UC START# *560B861302E9_5600FA2301B9_impl*
+ Result := TdaParamList.Make;
+//#UC END# *560B861302E9_5600FA2301B9_impl*
+//#UC START# *560B861302E9_5600FA2301B9_var*
+//#UC END# *560B861302E9_5600FA2301B9_var*
 //#UC START# *563B18FB0212_5600FA2301B9get_impl*
  Result := f_WhereCondition;
 //#UC END# *563B18FB0212_5600FA2301B9get_impl*

@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , csProcessTask
- , ImportTask_Const
  , csTasksHelpers
  , evdTasksHelpers
  , k2Base
@@ -67,6 +66,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , ImportTask_Const
 ;
 
 function TcsImportTaskPrim.pm_GetDeleteIncluded: Boolean;

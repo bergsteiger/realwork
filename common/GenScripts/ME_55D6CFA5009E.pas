@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , daDataProviderParams
- , PostgresProviderParams_Const
  , k2Base
 ;
 
@@ -40,6 +39,7 @@ implementation
 {$If Defined(UsePostgres)}
 uses
  l3ImplUses
+ , PostgresProviderParams_Const
 ;
 
 function TpgDataProviderParams.pm_GetDataServerHostName: AnsiString;

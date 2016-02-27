@@ -3,6 +3,8 @@ unit NOT_FINISHED_pi_int;
 // Модуль: "w:\common\components\rtl\external\MTDOrb\src\idl\NOT_FINISHED_pi_int.pas"
 // Стереотип: "Interfaces"
 
+{$Include w:\common\components\l3Define.inc}
+
 interface
 
 {$If Defined(nsTest) AND Defined(MTDORB) AND NOT Defined(NotTunedDUnit)}

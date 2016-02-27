@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , htDataProviderParams
- , ComboAccessProviderParams_Const
  , pgDataProviderParams
  , k2Base
  , daDataProviderParams
@@ -59,6 +58,7 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ , ComboAccessProviderParams_Const
 ;
 
 function TcaDataProviderParams.pm_GetDataServerHostName: AnsiString;

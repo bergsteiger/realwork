@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , ddServerTask
- , ProcessTask_Const
  , evdTaskTypes
  , evdTasksHelpers
  , k2Base
@@ -57,6 +56,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , ProcessTask_Const
 ;
 
 function TddRunContext_C(aProgressor: TddProgressObject): TddRunContext;

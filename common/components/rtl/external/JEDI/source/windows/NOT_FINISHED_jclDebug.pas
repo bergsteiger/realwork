@@ -3,6 +3,8 @@ unit NOT_FINISHED_jclDebug;
 // Модуль: "w:\common\components\rtl\external\JEDI\source\windows\NOT_FINISHED_jclDebug.pas"
 // Стереотип: "UtilityPack"
 
+{$Include w:\common\components\l3Define.inc}
+
 interface
 
 {$If NOT Defined(notDebugStackTrace)}

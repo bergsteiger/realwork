@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , csProcessTask
- , ExportTask_Const
  , evdDTTypes
  , evdTasksHelpers
  , k2Base
@@ -172,6 +171,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , ExportTask_Const
 ;
 
 function TcsExportTaskPrim.pm_GetAnnoTopicFileName: AnsiString;

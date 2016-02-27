@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , csProcessTask
- , DictEditQuery_Const
  , k2Base
 ;
 
@@ -59,6 +58,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , DictEditQuery_Const
 ;
 
 function TcsDictEditQueryPrim.pm_GetFamily: Integer;

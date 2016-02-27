@@ -3,6 +3,8 @@ unit NOT_FINISHED_JclMiscel;
 // Модуль: "w:\common\components\rtl\external\JEDI\source\windows\NOT_FINISHED_JclMiscel.pas"
 // Стереотип: "UtilityPack"
 
+{$Include w:\common\components\l3Define.inc}
+
 interface
 
 uses

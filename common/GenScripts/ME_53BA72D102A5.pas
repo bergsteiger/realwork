@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , csExport
- , AutoAnnoExportTask_Const
  , evdTasksHelpers
  , k2Base
 ;
@@ -44,6 +43,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , AutoAnnoExportTask_Const
 ;
 
 function TcsAutoAnnoExportPrim.pm_GetStartDate: TDateTime;

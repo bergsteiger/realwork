@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , csRequestTask
- , ClientMessage_Const
  , evdTaskTypes
  , k2Base
  , dt_Types
@@ -47,6 +46,7 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ , ClientMessage_Const
 ;
 
 function TddClientMessagePrim.pm_GetNotifyType: TCsNotificationType;
