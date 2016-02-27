@@ -194,10 +194,6 @@ type
    read Get_Processor;
  end;//IedProcessorObject
 
- // edGridFrame
-
- // edBoxFrame
-
  IedEditableObject = interface(IedProcessorObject)
   ['{3D9193F4-9BA4-4C21-B9A4-444DCC0A605B}']
  end;//IedEditableObject
@@ -625,6 +621,10 @@ type
   , ed_bcLeftEqual
   , ed_bcEqual
  );//TedBoundaryCorrespondence
+
+const
+ edGridFrame = [Low(TedFramePartIndex) .. High(TedFramePartIndex)];
+ edBoxFrame = [Low(TedNeighbourIndex) .. High(TedNeighbourIndex)];
 
 function L2IedRangeIterateLeafParagraphsAction(anAction: pointer): IedRange_IterateLeafParagraphs_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для IedRange.IterateLeafParagraphs }

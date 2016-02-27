@@ -11,39 +11,33 @@ interface
 {$If NOT Defined(NoVCM)}
 uses
  l3IntfUses
- , vcmBaseTypes
  , vcmExternalInterfaces
  , vcmUserControls
+ , vcmBaseTypes
 ;
 
 const
  {* »дентификаторы форм }
  fm_Any: TvcmFormID = (rName : ''; rID : 0);
 
-type
- // vcmToolbarOpTypes
-
- // vcm_AllOperationOptions
-
- // vcm_ComboOperations
-
- // vcm_ComboBoxOperations
-
- // vcm_UseCaptionFromOperation
-
- // vcmOperationsWithIcon
-
- // vcm_InternalOperations
-
- // vcm_HiddenOperations
-
- // vcm_SimpleOperations
-
- // vcmVisualOperations
-
- // vcm_NotContainedForm
-
- // vcm_omExecutes
+const
+ vcmToolbarOpTypes = [vcm_otButton, vcm_otButtonCombo, vcm_otMenuButtonCombo, vcm_otButtonPopup, vcm_otTextButton, vcm_otCheck, vcm_otRadio, vcm_otEdit, vcm_otTyper, vcm_otCombo, vcm_otEditCombo, vcm_otDate];
+ vcm_AllOperationOptions = [Low(TvcmOperationOption) .. High(TvcmOperationOption)];
+ vcm_ComboOperations = [vcm_otButtonCombo, vcm_otMenuButtonCombo, vcm_otButtonPopup];
+ vcm_ComboBoxOperations = [vcm_otCombo, vcm_otEditCombo];
+ {* “ипы операций, у которых, при создании пункта меню, Caption нужно брать
+     из операции, а не Action. ѕри открытии в новом окне, Action.Caption
+     может содержать текущее выбранное значение (например, дл€ операции
+     "—ортировать" и Caption может содержать значени€ "по юр. силе; дате
+     издани€ и т.д."), поэтому название нужно брать из операции }
+ vcm_UseCaptionFromOperation = [vcm_otButtonCombo, vcm_otMenuButtonCombo, vcm_otButtonPopup, vcm_otCombo];
+ vcmOperationsWithIcon = [vcm_otButton, vcm_otCheck, vcm_otTextButton, vcm_otButtonPopup];
+ vcm_InternalOperations = [vcm_otInternal];
+ vcm_HiddenOperations = [vcm_otHidden];
+ vcm_SimpleOperations = [vcm_otEdit, vcm_otTyper, vcm_otFontName, vcm_otFontSize, vcm_otDate];
+ vcmVisualOperations = [vcm_otButton, vcm_otCheck, vcm_otMenuButtonCombo, vcm_otButtonCombo, vcm_otTextButton, vcm_otCombo, vcm_otTyper, vcm_otEditCombo, vcm_otEdit, vcm_otDate, vcm_otButtonPopup];
+ vcm_NotContainedForm = [vcm_ztFloating, vcm_ztModal, vcm_ztManualModal, vcm_ztSimpleFloat];
+ vcm_omExecutes = [vcm_omExecute, vcm_omAggregateExecute];
 {$IfEnd} // NOT Defined(NoVCM)
 
 implementation
