@@ -102,10 +102,6 @@ begin
 //#UC END# *54DDD6F2017F_54DDD5B90290get_impl*
 end;//TddColorEntry.pm_GetColor
 
-{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
-
-{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
-
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
 {$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}

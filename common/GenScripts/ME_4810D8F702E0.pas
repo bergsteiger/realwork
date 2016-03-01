@@ -73,10 +73,6 @@ begin
 //#UC END# *4815D47402E8_4815D4350242_impl*
 end;//TnevRootFormatInfoKey_C
 
-{$If not Declared(_ItemType_)}type _ItemType_ = TnevRootFormatInfo;{$IfEnd}
-
-{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
-
 function CompareItemWithData(const anItem: _ItemType_;
  const aData: _FindDataType_;
  aSortIndex: Tl3SortIndex;

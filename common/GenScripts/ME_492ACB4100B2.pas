@@ -28,8 +28,6 @@ _vcmFormDataSource_ = _vcmFormDataSourceWithData_;
 {$Define vcmFormDataSource_imp_impl}
 
 {$If NOT Defined(NoVCM)}
-{$If not Declared(_UseCaseControllerType_)}type _UseCaseControllerType_ = IvcmFormSetDataSource;{$IfEnd}
-
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourceWithData.imp.pas}

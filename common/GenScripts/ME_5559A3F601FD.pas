@@ -148,10 +148,6 @@ begin
 //#UC END# *5559A53B02B4_5559A50B0336_impl*
 end;//TvcmFormSetContainerMapItem.EQ
 
-{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
-
-{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
-
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
 {$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}

@@ -127,10 +127,6 @@ begin
 //#UC END# *47A042E100E2_55BB29ED03B6_impl*
 end;//TddBlockInfo.InitFields
 
-{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
-
-{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
-
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
 {$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}

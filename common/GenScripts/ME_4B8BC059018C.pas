@@ -45,16 +45,6 @@ uses
  , l3Memory
 ;
 
-{$If not Declared(_ItemType_)}type _ItemType_ = Tl3PrimString;{$IfEnd}
-
-{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
-
-{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
-
-{$If not Declared(_StringType_)}type _StringType_ = _ItemType_;{$IfEnd}
-
-{$If not Declared(_IDIndexType_)}type _IDIndexType_ = Tl3IDIndex;{$IfEnd}
-
 type _Instance_R_ = Tl3StringMap;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Dictionary.imp.pas}

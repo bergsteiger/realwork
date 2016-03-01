@@ -28,8 +28,6 @@ _vcmTinyUseCaseController_ = _vcmFormSetDataSourceWithoutData_;
 {$Define vcmTinyUseCaseController_imp_impl}
 
 {$If NOT Defined(NoVCM)}
-{$If not Declared(_SetDataType_)}type _SetDataType_ = IvcmData;{$IfEnd}
-
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
 
 constructor _vcmTinyUseCaseController_.Create;
