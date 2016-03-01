@@ -60,8 +60,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
-{$If not Declared(_FormClass_)}type _FormClass_ = TFromWithPanelForm;{$IfEnd}
-
 {$Include w:\common\components\rtl\Garant\Daily\AppConfigTestMixin.imp.pas}
 
 {$If NOT Defined(NoVCM)}
