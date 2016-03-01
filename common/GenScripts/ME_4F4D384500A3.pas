@@ -28,10 +28,6 @@ uses
  , l3Memory
 ;
 
-{$If not Declared(_FindDataType_)}type _FindDataType_ = Tl3WString;{$IfEnd}
-
-{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
-
 type _Instance_R_ = TtfwCStringArray;
 
 {$Include w:\common\components\rtl\Garant\L3\l3OpenArray.imp.pas}
