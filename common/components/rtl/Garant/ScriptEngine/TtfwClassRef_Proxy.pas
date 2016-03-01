@@ -3,6 +3,8 @@ unit TtfwClassRef_Proxy;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\TtfwClassRef_Proxy.pas"
 // Стереотип: "ClassProxy"
 
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
+
 interface
 
 {$If NOT Defined(NoScripts)}

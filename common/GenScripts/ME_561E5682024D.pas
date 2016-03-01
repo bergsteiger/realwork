@@ -3,6 +3,8 @@ unit Il3CString_Proxy;
 // Модуль: "w:\common\components\rtl\Garant\L3\Il3CString_Proxy.pas"
 // Стереотип: "InterfaceProxy"
 
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
+
 interface
 
 uses

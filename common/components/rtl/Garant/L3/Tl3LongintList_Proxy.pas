@@ -3,6 +3,8 @@ unit Tl3LongintList_Proxy;
 // Модуль: "w:\common\components\rtl\Garant\L3\Tl3LongintList_Proxy.pas"
 // Стереотип: "ClassProxy"
 
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
+
 interface
 
 uses

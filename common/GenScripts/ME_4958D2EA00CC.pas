@@ -118,7 +118,8 @@ type
    function GetCurrentOpenedWindowsCount: Integer; override;
    {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
    function DoOpenNew(aOpenKind: TvcmMainFormOpenKind;
-    aOpenLast: Boolean): IvcmContainedForm; override;
+    aOpenLast: Boolean;
+    const aOpenAfter: IvcmEntityForm): IvcmContainedForm; override;
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
   public
    function Load: Boolean; override;
@@ -695,7 +696,8 @@ end;//TNemesisMainForm.GetCurrentOpenedWindowsCount
 
 {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 function TNemesisMainForm.DoOpenNew(aOpenKind: TvcmMainFormOpenKind;
- aOpenLast: Boolean): IvcmContainedForm;
+ aOpenLast: Boolean;
+ const aOpenAfter: IvcmEntityForm): IvcmContainedForm;
 //#UC START# *5566C7BD037F_4958D2EA00CC_var*
 //#UC END# *5566C7BD037F_4958D2EA00CC_var*
 begin
