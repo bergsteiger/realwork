@@ -73,8 +73,6 @@ const
  str_cnevChangesBetweenEditions: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cnevChangesBetweenEditions'; rValue : 'Обзор изменений документа: ');
   {* 'Обзор изменений документа: ' }
 
-{$If not Declared(_UseCaseControllerType_)}type _UseCaseControllerType_ = IvcmFormSetDataSource;{$IfEnd}
-
 type _Instance_R_ = TdsChangesBetweenEditions;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
