@@ -53,8 +53,6 @@ uses
  , l3Base
 ;
 
-{$If not Declared(_UseCaseControllerType_)}type _UseCaseControllerType_ = IvcmFormSetDataSource;{$IfEnd}
-
 type _Instance_R_ = TdsEditionsContainerData;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\dsEdition.imp.pas}

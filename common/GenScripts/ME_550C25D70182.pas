@@ -125,26 +125,6 @@ OBJECT VAR l_TtfwWord
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopWordGetParam
 
- TkwPopWordPublicateInMainDictionary = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Word:PublicateInMainDictionary
-[panel]Публикует вложенное слово в основном словаре. Если такое слово там уже есть, то создаётся переопределение (Redifinition)[panel]
-*Пример:*
-[code]
- aWord pop:Word:PublicateInMainDictionary
-[code]  }
-  private
-   procedure PublicateInMainDictionary(const aCtx: TtfwContext;
-    aWord: TtfwWord);
-    {* Реализация слова скрипта pop:Word:PublicateInMainDictionary }
-  protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
-   class function GetWordNameForRegister: AnsiString; override;
-  public
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopWordPublicateInMainDictionary
-
  TkwPopWordSetProducer = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Word:SetProducer
 *Пример:*
@@ -882,75 +862,6 @@ function TkwPopWordGetParam.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwWord), TypeInfo(Integer)]);
 end;//TkwPopWordGetParam.ParamsTypes
-
-procedure TkwPopWordPublicateInMainDictionary.PublicateInMainDictionary(const aCtx: TtfwContext;
- aWord: TtfwWord);
- {* Реализация слова скрипта pop:Word:PublicateInMainDictionary }
-//#UC START# *9AE555BD5A21_F598008DBB04_var*
-var
- l_KW : TtfwKeyword;
- l_Key : TtfwKeyWord;
- l_PrevWord : TtfwWord;
- l_PrevWordKW : TtfwKeyWord;
-//#UC END# *9AE555BD5A21_F598008DBB04_var*
-begin
-//#UC START# *9AE555BD5A21_F598008DBB04_impl*
- l_Key := TtfwKeyWord(aWord.Key);
- l_KW := aCtx.rEngine.KeywordFinder(aCtx).CheckWord(l_Key.AsCStr);
- Assert(aWord <> l_KW.Word);
- try
-  l_PrevWord := l_KW.Word;
-  if (l_PrevWord <> nil) then
-   l_PrevWordKW := TtfwKeyWord(l_PrevWord.Key)
-  else
-   l_PrevWordKW := nil;
-  aWord.Redefines := l_PrevWord;
-  // - говорим, что слово (наверное) имеет переопределение
-  l_KW.SetWord(aCtx, aWord);
-  // - регистрируем алиас слова в словаре
-  if (l_PrevWord <> nil) then
-   l_PrevWord.Key := l_PrevWordKW;
- finally
-  aWord.Key := l_Key;
-  // - восстанавливаем слову предыдущее значение ключа
- end;//try..finally
-//#UC END# *9AE555BD5A21_F598008DBB04_impl*
-end;//TkwPopWordPublicateInMainDictionary.PublicateInMainDictionary
-
-procedure TkwPopWordPublicateInMainDictionary.DoDoIt(const aCtx: TtfwContext);
-var l_aWord: TtfwWord;
-begin
- try
-  l_aWord := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aWord: TtfwWord : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- PublicateInMainDictionary(aCtx, l_aWord);
-end;//TkwPopWordPublicateInMainDictionary.DoDoIt
-
-class function TkwPopWordPublicateInMainDictionary.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Word:PublicateInMainDictionary';
-end;//TkwPopWordPublicateInMainDictionary.GetWordNameForRegister
-
-function TkwPopWordPublicateInMainDictionary.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiVoid;
-end;//TkwPopWordPublicateInMainDictionary.GetResultTypeInfo
-
-function TkwPopWordPublicateInMainDictionary.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 1;
-end;//TkwPopWordPublicateInMainDictionary.GetAllParamsCount
-
-function TkwPopWordPublicateInMainDictionary.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(TtfwWord)]);
-end;//TkwPopWordPublicateInMainDictionary.ParamsTypes
 
 procedure TkwPopWordSetProducer.SetProducer(const aCtx: TtfwContext;
  aWord: TtfwWord;
@@ -2423,8 +2334,6 @@ initialization
  {* Регистрация pop_Word_GetLeftWordRefValue }
  TkwPopWordGetParam.RegisterInEngine;
  {* Регистрация pop_Word_GetParam }
- TkwPopWordPublicateInMainDictionary.RegisterInEngine;
- {* Регистрация pop_Word_PublicateInMainDictionary }
  TkwPopWordSetProducer.RegisterInEngine;
  {* Регистрация pop_Word_SetProducer }
  TkwPopWordFindMember.RegisterInEngine;

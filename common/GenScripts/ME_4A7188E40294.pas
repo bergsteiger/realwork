@@ -61,8 +61,6 @@ _dsEditionDiff_ = _ucpHAFMacroReplacerFactory_;
 {$Define dsEditionDiff_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$If not Declared(_UseCaseControllerType_)}type _UseCaseControllerType_ = IvcmFormSetDataSource;{$IfEnd}
-
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\dsEdition.imp.pas}
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\UnderControl\UnderControlBehaviour.imp.pas}

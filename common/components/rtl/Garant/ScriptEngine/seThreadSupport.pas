@@ -87,10 +87,6 @@ begin
 //#UC END# *48077504027E_4FFFDE6C016C_impl*
 end;//TWordThread.Destroy
 
-{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
-
-{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
-
 type _Instance_R_ = TseWorkThreadList;
 
 {$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
