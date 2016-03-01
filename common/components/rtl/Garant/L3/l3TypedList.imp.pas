@@ -27,8 +27,6 @@
 
 {$Define l3TypedList_imp_impl}
 
-{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
-
 procedure MoveItems(Dst: Integer;
  Src: Integer;
  aSize: Cardinal;

@@ -105,8 +105,6 @@ type
  PLong = ^Integer;
   {* ”казатель на целое. }
 
-{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
-
 function GetCapacity(aList: _l3Items_): Integer; forward;
 
 function GetItemSlot(anIndex: Integer;

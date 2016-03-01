@@ -46,6 +46,18 @@ type
    {* centered vertically and horizontally }
  );//TafwCaretAlign
 
+ //#UC START# *480DC4B90226ci*
+ //#UC END# *480DC4B90226ci*
+ //#UC START# *480DC4B90226cit*
+const
+ DefAlign = caLeft;
+ DefBlinkTime = 0;
+ DefCaretWd = 2;
+ DefCaretHt = 10;
+ DefIsGray = False;
+ DefShape = csVertLine;
+type 
+ //#UC END# *480DC4B90226cit*
  TafwCustomCaretType = class(Tl3_Base)
   {* Тип формы каретки. }
   private
@@ -133,15 +145,9 @@ type
     write pm_SetIsGray
     default DefIsGray;
     {* курсор серый? }
+ //#UC START# *480DC4B90226publ*
+ //#UC END# *480DC4B90226publ*
  end;//TafwCustomCaretType
-
-const
- DefAlign = caLeft;
- DefBlinkTime = 0;
- DefCaretWd = 2;
- DefCaretHt = 10;
- DefIsGray = False;
- DefShape = csVertLine;
 
 implementation
 
@@ -326,5 +332,8 @@ begin
  inherited;
 //#UC END# *479731C50290_480DC4B90226_impl*
 end;//TafwCustomCaretType.Cleanup
+
+//#UC START# *480DC4B90226impl*
+//#UC END# *480DC4B90226impl*
 
 end.

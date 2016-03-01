@@ -36,12 +36,6 @@ uses
  , l3VCLStrings
 ;
 
-{$If not Declared(_IStringType_)}type _IStringType_ = Il3CString;{$IfEnd}
-
-{$If not Declared(_KeyType_)}type _KeyType_ = TafwSettingId;{$IfEnd}
-
-{$If not Declared(_BooleanType_)}type _BooleanType_ = Boolean;{$IfEnd}
-
 {$Include w:\common\components\gui\Garant\AFW\afwSettingsPrim.imp.pas}
 
 constructor TafwSettingsPrimPrim.Create(const aSettingsImpl: IafwSettingsImpl);

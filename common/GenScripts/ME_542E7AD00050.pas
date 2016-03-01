@@ -47,12 +47,6 @@ begin
  l3Free(g_Tm3StorageHolderList);
 end;//Tm3StorageHolderListFree
 
-{$If not Declared(_FindDataType_)}type _FindDataType_ = WideString;{$IfEnd}
-
-{$If not Declared(_ItemType_)}type _ItemType_ = Tm3StorageHolder;{$IfEnd}
-
-{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
-
 {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
 
 class function Tm3StorageHolderList.Exists: Boolean;

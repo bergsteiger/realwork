@@ -652,8 +652,8 @@ initialization
  {* Регистрация TafwMessagesService }
 {$If NOT Defined(NoVCL)}
  Tl3FormsService.Instance.Alien := TafwFormsService.Instance;
- {* Регистрация TafwFormsService }
 {$IfEnd} // NOT Defined(NoVCL)
+ {* Регистрация TafwFormsService }
  Tl3KeyboardLayoutService.Instance.Alien := TafwKeyboardLayoutService.Instance;
  {* Регистрация TafwKeyboardLayoutService }
  Tl3TabService.Instance.Alien := TafwTabService.Instance;

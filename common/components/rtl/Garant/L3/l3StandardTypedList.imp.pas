@@ -25,8 +25,6 @@
 
 {$Define l3StandardTypedList_imp_impl}
 
-{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
-
 {$Include w:\common\components\rtl\Garant\L3\l3FourByteItemList.imp.pas}
 
 {$If NOT Defined(l3Items_NoSort)}
