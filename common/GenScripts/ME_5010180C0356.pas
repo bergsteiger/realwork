@@ -129,10 +129,6 @@ uses
  , afwSettingsChangePublisher
 ;
 
-{$If not Declared(_SetDataType_)}type _SetDataType_ = IdDocument;{$IfEnd}
-
-{$If not Declared(_InitDataType_)}type _InitDataType_ = IdeDocInfo;{$IfEnd}
-
 type _Instance_R_ = TsdsDocument;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Document\sdsDocument.imp.pas}
