@@ -25,6 +25,7 @@ type
    constructor Create; reintroduce;
    procedure RegisterEvent(const aEvent: InsDefferedEvent);
    procedure RequestWriteCache;
+   procedure ForceWriteCache;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -96,6 +97,15 @@ begin
  end;
 //#UC END# *4B139E860009_4B139F5C025B_impl*
 end;//TnsPrimCachedEventsProcessor.RequestWriteCache
+
+procedure TnsPrimCachedEventsProcessor.ForceWriteCache;
+//#UC START# *56D435B2018B_4B139F5C025B_var*
+//#UC END# *56D435B2018B_4B139F5C025B_var*
+begin
+//#UC START# *56D435B2018B_4B139F5C025B_impl*
+ Notify;
+//#UC END# *56D435B2018B_4B139F5C025B_impl*
+end;//TnsPrimCachedEventsProcessor.ForceWriteCache
 
 procedure TnsPrimCachedEventsProcessor.Cleanup;
  {* Функция очистки полей объекта. }
