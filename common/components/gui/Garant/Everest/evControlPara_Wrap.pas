@@ -1,38 +1,23 @@
 unit evControlPara_Wrap;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evControlPara_Wrap.pas"
-// Начат: 02.11.2004 16:59
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Wrapper::Class>> Shared Delphi::Everest::EVDTuning::WevControlPara
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evControlPara_Wrap.pas"
+// Стереотип: "Wrapper"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  evTextPara_Wrap,
-  k2Base,
-  l3Variant
-  ;
-{$IfEnd} //k2ForEditor
+ l3IntfUses
+ , evTextPara_Wrap
+ , l3Variant
+ , k2Base
+;
 
-{$If defined(k2ForEditor)}
 type
  WevControlPara = class(WevTextPara)
- protected
- // overridden protected methods
+  protected
    function GetAtomData(AE: Tl3Variant;
     aProp: Tk2CustomProperty;
     out Data: Tl3Variant): Boolean; override;
@@ -40,33 +25,29 @@ type
     aProp: Tk2CustomProperty;
     out Data: Tl3Variant): Boolean; override;
  end;//WevControlPara
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  evdTypes,
-  nevTools,
-  k2Tags,
-  evControlParaConst,
-  l3Const,
-  evQueryCardInt,
-  ReqRow_Const,
-  l3TreeInterfaces,
-  evParaTools,
-  SysUtils,
-  ReqGroup_Const
-  ;
-{$IfEnd} //k2ForEditor
-
-{$If defined(k2ForEditor)}
-
-// start class WevControlPara
+ l3ImplUses
+ , evdTypes
+ , nevTools
+ , k2Tags
+ , evControlParaConst
+ , l3Const
+ , evQueryCardInt
+ , ReqRow_Const
+ , l3TreeInterfaces
+ , evParaTools
+ , SysUtils
+ , ReqGroup_Const
+;
 
 function WevControlPara.GetAtomData(AE: Tl3Variant;
-  aProp: Tk2CustomProperty;
-  out Data: Tl3Variant): Boolean;
+ aProp: Tk2CustomProperty;
+ out Data: Tl3Variant): Boolean;
 //#UC START# *4857A995029E_4857FECB0092_var*
 var
  l_Container : InevDocumentContainer;
@@ -168,8 +149,8 @@ begin
 end;//WevControlPara.GetAtomData
 
 function WevControlPara.PreGetAtomData(AE: Tl3Variant;
-  aProp: Tk2CustomProperty;
-  out Data: Tl3Variant): Boolean;
+ aProp: Tk2CustomProperty;
+ out Data: Tl3Variant): Boolean;
 //#UC START# *48DD0CE60313_4857FECB0092_var*
 var  
  l_Type : TevControlType;
@@ -279,7 +260,6 @@ begin
  end;//case aProp.TagIndex of
 //#UC END# *48DD0CE60313_4857FECB0092_impl*
 end;//WevControlPara.PreGetAtomData
-
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 end.
