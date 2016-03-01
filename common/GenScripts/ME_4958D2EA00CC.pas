@@ -65,7 +65,8 @@ type
   private
    procedure UpdateCarrierHint;
    function OpenNewMainForm(aOpenKind: TvcmMainFormOpenKind;
-    aOpenLast: Boolean): TvcmMainForm;
+    aOpenLast: Boolean;
+    const aOpenAfter: IvcmEntityForm = nil): TvcmMainForm;
   protected
    procedure CheckConsultationConnection;
    procedure ChangeDefaultFontSize(aInc: Boolean = True);
@@ -363,7 +364,8 @@ begin
 end;//TNemesisMainForm.UpdateCarrierHint
 
 function TNemesisMainForm.OpenNewMainForm(aOpenKind: TvcmMainFormOpenKind;
- aOpenLast: Boolean): TvcmMainForm;
+ aOpenLast: Boolean;
+ const aOpenAfter: IvcmEntityForm = nil): TvcmMainForm;
 //#UC START# *5566B0FA013A_4958D2EA00CC_var*
 var
  l_TabCont: TvcmTabbedContainerForm;
