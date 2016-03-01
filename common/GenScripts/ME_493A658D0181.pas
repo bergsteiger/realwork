@@ -98,8 +98,6 @@ uses
  , l3Base
 ;
 
-{$If not Declared(_InitDataType_)}type _InitDataType_ = IdeDocInfo;{$IfEnd}
-
 type _Instance_R_ = TsdsMedicFirmList;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Medic\sdsMedicFirmDocument.imp.pas}

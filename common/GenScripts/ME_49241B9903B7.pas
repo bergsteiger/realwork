@@ -70,8 +70,6 @@ uses
  , l3InterfacesMisc
 ;
 
-{$If not Declared(_UseCaseControllerType_)}type _UseCaseControllerType_ = IvcmFormSetDataSource;{$IfEnd}
-
 type _Instance_R_ = TdsSelectedAttributes;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Search\dsTagSimpleTree.imp.pas}

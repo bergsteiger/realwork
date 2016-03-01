@@ -23,8 +23,6 @@ uses
  l3ImplUses
 ;
 
-{$If not Declared(_InterfaceListElement_)}type _InterfaceListElement_ = _HistoryStoredObject_;{$IfEnd}
-
 {$Include w:\quality\test\garant6x\AdapterTest\OperationsFramework\atObjectHistory.imp.pas}
 
 end.

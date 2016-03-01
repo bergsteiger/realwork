@@ -29,12 +29,6 @@ uses
  , l3Memory
 ;
 
-{$If not Declared(_ItemType_)}type _ItemType_ = Tl3ProtoObject;{$IfEnd}
-
-{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
-
-{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
-
 type _Instance_R_ = Tl3ObjectRefArray;
 
 {$Include w:\common\components\rtl\Garant\L3\l3OpenArray.imp.pas}

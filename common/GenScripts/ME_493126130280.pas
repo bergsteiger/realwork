@@ -169,8 +169,6 @@ uses
  , dsBasesAccess
 ;
 
-{$If not Declared(_SetDataType_)}type _SetDataType_ = IvcmData;{$IfEnd}
-
 type _Instance_R_ = TsdsAdmin;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}

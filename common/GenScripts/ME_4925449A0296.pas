@@ -57,8 +57,6 @@ _dsCommonDiction_ = _dsSimpleTree_;
 {$Define dsCommonDiction_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$If not Declared(_UseCaseControllerType_)}type _UseCaseControllerType_ = IvcmFormSetDataSource;{$IfEnd}
-
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
 
 procedure _dsCommonDiction_.DictionNotify(const aNotifier: IbsCommonDictionListener);

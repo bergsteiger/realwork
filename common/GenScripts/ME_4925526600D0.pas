@@ -102,8 +102,6 @@ uses
  , l3InterfacesMisc
 ;
 
-{$If not Declared(_UseCaseControllerType_)}type _UseCaseControllerType_ = IvcmFormSetDataSource;{$IfEnd}
-
 type _Instance_R_ = TdsDiction;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\dsCommonDiction.imp.pas}

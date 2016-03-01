@@ -56,8 +56,6 @@ type
 
 {$Define l3UntypedList_imp_impl}
 
-{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
-
 procedure ReAllocList(NewCapacity: Integer;
  aList: _l3Items_); forward;
 

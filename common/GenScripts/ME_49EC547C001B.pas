@@ -90,8 +90,6 @@ uses
  , l3InterfacesMisc
 ;
 
-{$If not Declared(_UseCaseControllerType_)}type _UseCaseControllerType_ = IvcmFormSetDataSource;{$IfEnd}
-
 type _Instance_R_ = TdsGroupsList;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}

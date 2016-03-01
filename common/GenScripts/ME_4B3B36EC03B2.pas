@@ -175,10 +175,6 @@ begin
 //#UC END# *4B3B4D0A0026_4B3B3728004C_impl*
 end;//Tl3StringIDEx.Init
 
-{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
-
-{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
-
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
  {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_4BA223D801B3_var*

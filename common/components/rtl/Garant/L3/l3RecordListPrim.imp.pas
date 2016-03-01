@@ -17,10 +17,6 @@
 
 {$Define l3RecordListPrim_imp_impl}
 
-{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
-
-{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
-
 procedure FreeItem(var aPlace: _ItemType_
 {$If Defined(l3Items_FreeItem_NeedsList)};
  aList: _l3Items_

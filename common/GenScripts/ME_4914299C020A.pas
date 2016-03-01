@@ -18,8 +18,6 @@
 
 {$Define l3StandardMemTypedList_imp_impl}
 
-{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
-
 {$Include w:\common\components\rtl\Garant\L3\l3TypedList.imp.pas}
 
 {$EndIf l3StandardMemTypedList_imp_impl}

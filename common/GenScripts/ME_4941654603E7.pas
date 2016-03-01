@@ -72,8 +72,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
-{$If not Declared(_InitDataType_)}type _InitDataType_ = IdeDocInfo;{$IfEnd}
-
 type _Instance_R_ = TsdsCommonDiction;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\sdsCommonDiction.imp.pas}

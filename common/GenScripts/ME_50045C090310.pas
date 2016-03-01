@@ -39,10 +39,6 @@ begin
  l3Free(g_TatQueryLogicOperationConverter);
 end;//TatQueryLogicOperationConverterFree
 
-{$If not Declared(_SecondType_)}type _SecondType_ = _EnumType_;{$IfEnd}
-
-{$If not Declared(_FirstType_)}type _FirstType_ = AnsiString;{$IfEnd}
-
 {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas}
 
 class function TatQueryLogicOperationConverter.Exists: Boolean;

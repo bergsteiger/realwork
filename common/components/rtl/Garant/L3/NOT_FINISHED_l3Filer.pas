@@ -30,6 +30,10 @@ type
  Tl3DOSFiler = class(Tl3CustomDosFiler)
  end;//Tl3DOSFiler
 
+ Il3FilerSource = interface
+  ['{B20273DF-48CC-4A83-ADA7-E2CC912A6F62}']
+ end;//Il3FilerSource
+
 implementation
 
 uses

@@ -41,8 +41,6 @@ begin
  l3Free(g_TatNonATQueryLogicOperationConverter);
 end;//TatNonATQueryLogicOperationConverterFree
 
-{$If not Declared(_FirstType_)}type _FirstType_ = AnsiString;{$IfEnd}
-
 {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringConverter.imp.pas}
 
 class function TatNonATQueryLogicOperationConverter.Exists: Boolean;

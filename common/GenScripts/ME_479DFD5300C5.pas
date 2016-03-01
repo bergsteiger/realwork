@@ -45,10 +45,6 @@ uses
  , l3MinMax
 ;
 
-{$If not Declared(_ItemType_)}type _ItemType_ = VOID;{$IfEnd}
-
-{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
-
 type _Instance_R_ = Tl3DynamicArray;
 
 {$Include w:\common\components\rtl\Garant\L3\l3UntypedList.imp.pas}

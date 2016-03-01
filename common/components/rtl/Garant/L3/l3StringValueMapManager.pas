@@ -82,10 +82,6 @@ begin
 //#UC END# *47A1E96201B4_478E359802F6_impl*
 end;//l3StringMapManager
 
-{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
-
-{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
-
 type _Instance_R_ = Tl3StringValueMapFactories;
 
 {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}

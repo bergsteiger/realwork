@@ -126,8 +126,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
-{$If not Declared(_SetDataType_)}type _SetDataType_ = IvcmData;{$IfEnd}
-
 type _Instance_R_ = TsdsConsultation;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}

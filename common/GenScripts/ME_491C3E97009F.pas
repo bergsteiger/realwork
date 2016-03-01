@@ -84,10 +84,6 @@ uses
  , IOUnit
 ;
 
-{$If not Declared(_InitDataType_)}type _InitDataType_ = IdeDocInfo;{$IfEnd}
-
-{$If not Declared(_UseCaseControllerType_)}type _UseCaseControllerType_ = IvcmFormSetDataSource;{$IfEnd}
-
 type _Instance_R_ = TdsConsultation;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocumentPrim.imp.pas}

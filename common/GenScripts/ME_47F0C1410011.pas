@@ -97,8 +97,6 @@ const
  ns_UpdateTime = 100;
   {* время с момента обновления текущего после которого можно снова обновлять связанное представление }
 
-{$If not Declared(_UseCaseControllerType_)}type _UseCaseControllerType_ = IvcmFormSetDataSource;{$IfEnd}
-
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
 
 function _dsSimpleTree_.pm_GetUpdateCurrentTimer: TTimer;

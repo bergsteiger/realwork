@@ -59,8 +59,6 @@ uses
 const
  c_MaxLength = 50;
 
-{$If not Declared(_UseCaseControllerType_)}type _UseCaseControllerType_ = IvcmFormSetDataSource;{$IfEnd}
-
 type _Instance_R_ = TdsForbidAutoregistration;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}

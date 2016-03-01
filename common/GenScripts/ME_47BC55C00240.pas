@@ -34,10 +34,6 @@ uses
  , l3Memory
 ;
 
-{$If not Declared(_ItemType_)}type _ItemType_ = TdtCustomDictItem;{$IfEnd}
-
-{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
-
 function CompareItemWithData(const anItem: _ItemType_;
  const aData: _FindDataType_;
  aSortIndex: Tl3SortIndex;

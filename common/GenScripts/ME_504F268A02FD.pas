@@ -30,10 +30,6 @@ uses
  , SysUtils
 ;
 
-{$If not Declared(_SecondType_)}type _SecondType_ = _BitMaskType_;{$IfEnd}
-
-{$If not Declared(_FirstType_)}type _FirstType_ = _BitMaskValueType_;{$IfEnd}
-
 {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atBitMaskConverter.imp.pas}
 
 {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringConverterImp.imp.pas}

@@ -17,10 +17,6 @@
 
 {$Define l3RecordWithEQList_imp_impl}
 
-{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
-
-{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
-
 {$If NOT Defined(l3Items_IsAtomic)}
 function IsSameItems(const A: _ItemType_;
  const B: _ItemType_): Boolean;
