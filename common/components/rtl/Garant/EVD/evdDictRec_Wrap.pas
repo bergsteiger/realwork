@@ -1,31 +1,25 @@
 unit evdDictRec_Wrap;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EVD"
-// Модуль: "w:/common/components/rtl/Garant/EVD/evdDictRec_Wrap.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Wrapper::Class>> Shared Delphi::EVD::Standard::WevdDictRec
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\EVD\evdDictRec_Wrap.pas"
+// Стереотип: "Wrapper"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\EVD\evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 
 uses
-  k2DictRec_Wrap
-  ;
+ l3IntfUses
+ , k2DictRec_Wrap
+;
 
 type
  WevdDictRec = class(Wk2DictRec)
  end;//WevdDictRec
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

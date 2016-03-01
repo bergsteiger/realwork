@@ -1,44 +1,32 @@
 unit k2RawData_Wrap;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Модуль: "w:/common/components/rtl/Garant/K2/k2RawData_Wrap.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Wrapper::Class>> Shared Delphi::K2::Standard::Wk2RawData
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2RawData_Wrap.pas"
+// Стереотип: "Wrapper"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  Persistent_Wrap,
-  l3Variant
-  ;
+ l3IntfUses
+ , Persistent_Wrap
+ , l3Variant
+;
 
 type
  Wk2RawData = class(WPersistent)
- protected
- // overridden protected methods
+  protected
    function ObjToTag(aValue: TObject): Il3TagRef; override;
  end;//Wk2RawData
 
 implementation
 
 uses
-  l3Stream,
-  SysUtils,
-  k2SizedMemoryPool
-  ;
-
-// start class Wk2RawData
+ l3ImplUses
+ , l3Stream
+ , SysUtils
+ , k2SizedMemoryPool
+;
 
 function Wk2RawData.ObjToTag(aValue: TObject): Il3TagRef;
 //#UC START# *484CEAD301AE_53C0068E01BC_var*

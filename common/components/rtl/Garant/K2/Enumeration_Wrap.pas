@@ -1,37 +1,23 @@
 unit Enumeration_Wrap;
+ {* WEnumeration }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/K2/Enumeration_Wrap.pas"
-// Начат: 07.09.1998 12:46
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Wrapper::Class>> Shared Delphi::K2::Standard::WEnumeration
-//
-// WEnumeration
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\Enumeration_Wrap.pas"
+// Стереотип: "Wrapper"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  Long_Wrap,
-  l3Variant
-  ;
+ l3IntfUses
+ , Long_Wrap
+ , l3Variant
+;
 
 type
  WEnumeration = class(WLong)
   {* WEnumeration }
- protected
- // overridden protected methods
+  protected
    function AsString(A: Tl3Variant): AnsiString; override;
    function StrToTag(const aValue: AnsiString): Tl3Tag; override;
  end;//WEnumeration
@@ -39,12 +25,11 @@ type
 implementation
 
 uses
-  TypInfo,
-  k2Base,
-  SysUtils
-  ;
-
-// start class WEnumeration
+ l3ImplUses
+ , TypInfo
+ , k2Base
+ , SysUtils
+;
 
 function WEnumeration.AsString(A: Tl3Variant): AnsiString;
 //#UC START# *484CCE970073_484944E301AF_var*

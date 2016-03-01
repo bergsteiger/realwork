@@ -1,48 +1,35 @@
 unit evFont_Wrap;
+ {* Обёртка шрифта. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EVD"
-// Модуль: "w:/common/components/rtl/Garant/EVD/evFont_Wrap.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Wrapper::Class>> Shared Delphi::EVD::Standard::WevFont
-//
-// Обёртка шрифта.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\EVD\evFont_Wrap.pas"
+// Стереотип: "Wrapper"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\EVD\evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 
 uses
-  k2Tag_Wrap,
-  l3Variant
-  ;
+ l3IntfUses
+ , k2Tag_Wrap
+ , l3Variant
+;
 
 type
  WevFont = class(Wk2Tag)
   {* Обёртка шрифта. }
- protected
- // overridden protected methods
+  protected
    function ObjToTag(aValue: TObject): Il3TagRef; override;
  end;//WevFont
 
 implementation
 
 uses
-  Graphics,
-  k2Interfaces,
-  k2Tags,
-  k2FontName_Const
-  ;
-
-// start class WevFont
+ l3ImplUses
+ , Graphics
+ , k2Interfaces
+ , k2Tags
+ , k2FontName_Const
+;
 
 function WevFont.ObjToTag(aValue: TObject): Il3TagRef;
 //#UC START# *484CEAD301AE_484CEEC803AD_var*

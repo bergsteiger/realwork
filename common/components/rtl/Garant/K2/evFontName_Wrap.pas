@@ -1,32 +1,21 @@
 unit evFontName_Wrap;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Модуль: "w:/common/components/rtl/Garant/K2/evFontName_Wrap.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Wrapper::Class>> Shared Delphi::K2::Standard::WevFontName
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\evFontName_Wrap.pas"
+// Стереотип: "Wrapper"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  l3String_Wrap,
-  l3Variant
-  ;
+ l3IntfUses
+ , l3String_Wrap
+ , l3Variant
+;
 
 type
  WevFontName = class(Wl3String)
- protected
- // overridden protected methods
+  protected
    function StrToTag(const aValue: AnsiString): Tl3Tag; override;
    function ObjToTag(aValue: TObject): Il3TagRef; override;
  end;//WevFontName
@@ -34,16 +23,15 @@ type
 implementation
 
 uses
-  l3Base,
-  SysUtils,
-  k2Base,
-  l3FontManagerEx,
-  k2FontName,
-  l3LogFont,
-  k2FontManager
-  ;
-
-// start class WevFontName
+ l3ImplUses
+ , l3Base
+ , SysUtils
+ , k2Base
+ , l3FontManagerEx
+ , k2FontName
+ , l3LogFont
+ , k2FontManager
+;
 
 function WevFontName.StrToTag(const aValue: AnsiString): Tl3Tag;
 //#UC START# *484CCEBC00DC_484CEA1E0104_var*

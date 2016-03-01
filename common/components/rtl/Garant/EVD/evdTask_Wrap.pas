@@ -1,52 +1,38 @@
 unit evdTask_Wrap;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EVD"
-// Модуль: "w:/common/components/rtl/Garant/EVD/evdTask_Wrap.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Wrapper::Class>> Shared Delphi::EVD::Standard::WevdTask
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\EVD\evdTask_Wrap.pas"
+// Стереотип: "Wrapper"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\EVD\evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 
 uses
-  k2Tag_Wrap,
-  k2Base,
-  l3Variant
-  ;
+ l3IntfUses
+ , k2Tag_Wrap
+ , l3Variant
+ , k2Base
+;
 
 type
  WevdTask = class(Wk2Tag)
- protected
- // overridden protected methods
+  protected
+   function GetDescription: AnsiString; virtual;
    function GetAtomData(AE: Tl3Variant;
     aProp: Tk2CustomProperty;
     out Data: Tl3Variant): Boolean; override;
- protected
- // protected methods
-   function GetDescription: AnsiString; virtual;
  end;//WevdTask
 
 implementation
 
 uses
-  k2Tags,
-  Task_Const,
-  SysUtils,
-  k2String,
-  Math
-  ;
-
-// start class WevdTask
+ l3ImplUses
+ , Task_Const
+ , SysUtils
+ , k2String
+ , Math
+ , k2Tags
+;
 
 function WevdTask.GetDescription: AnsiString;
 //#UC START# *53C3E6AF0130_53C3E67C0258_var*
@@ -58,8 +44,8 @@ begin
 end;//WevdTask.GetDescription
 
 function WevdTask.GetAtomData(AE: Tl3Variant;
-  aProp: Tk2CustomProperty;
-  out Data: Tl3Variant): Boolean;
+ aProp: Tk2CustomProperty;
+ out Data: Tl3Variant): Boolean;
 //#UC START# *4857A995029E_53C3E67C0258_var*
 var
  l_D : String;

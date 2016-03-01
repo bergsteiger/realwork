@@ -1,51 +1,36 @@
 unit k2DictRec_Wrap;
+ {* Обёртка для словарных записей }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/K2/k2DictRec_Wrap.pas"
-// Начат: 07.09.1998 12:46
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Wrapper::Class>> Shared Delphi::K2::Standard::Wk2DictRec
-//
-// Обёртка для словарных записей
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2DictRec_Wrap.pas"
+// Стереотип: "Wrapper"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  Persistent_Wrap,
-  l3Variant
-  ;
+ l3IntfUses
+ , Persistent_Wrap
+ , l3Variant
+;
 
 type
  Wk2DictRec = class(WPersistent)
   {* Обёртка для словарных записей }
- protected
- // overridden protected methods
+  protected
    function StrToTag(const aValue: AnsiString): Tl3Tag; override;
  end;//Wk2DictRec
 
 implementation
 
 uses
-  k2DictRec,
-  k2Tags,
-  l3CustomString,
-  k2Dictionary,
-  k2Base
-  ;
-
-// start class Wk2DictRec
+ l3ImplUses
+ , k2DictRec
+ , k2Tags
+ , l3CustomString
+ , k2Dictionary
+ , k2Base
+;
 
 function Wk2DictRec.StrToTag(const aValue: AnsiString): Tl3Tag;
 //#UC START# *484CCEBC00DC_484D10530133_var*

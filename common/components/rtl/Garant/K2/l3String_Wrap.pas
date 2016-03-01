@@ -1,30 +1,17 @@
 unit l3String_Wrap;
+ {* Wl3String }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/K2/l3String_Wrap.pas"
-// Начат: 07.09.1998 12:46
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Wrapper::Class>> Shared Delphi::K2::Standard::Wl3String
-//
-// Wl3String
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\l3String_Wrap.pas"
+// Стереотип: "Wrapper"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  Persistent_Wrap
-  ;
+ l3IntfUses
+ , Persistent_Wrap
+;
 
 type
  Wl3String = class(WPersistent)
@@ -34,10 +21,11 @@ type
 implementation
 
 uses
-  l3_String,
-  l3CustomString,
-  SysUtils,
-  k2String
-  ;
+ l3ImplUses
+ , l3_String
+ , l3CustomString
+ , SysUtils
+ , k2String
+;
 
 end.
