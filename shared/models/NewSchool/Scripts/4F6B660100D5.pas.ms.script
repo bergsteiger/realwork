@@ -277,6 +277,20 @@ ref; // ME_4F7B111C0282 BaseSearchPanel
 
 ref; // ME_4F6B38AA020C LeftNavigator
 
+: ME_4F95323901CA
+ CONST UID '4F95323901CA'
+ CONST Class class_Attribute
+ : Stereotype st_after::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4F6B38BE03C7 // RightNavigator
+ ;
+ : Target ME_4F6B38AA020C // LeftNavigator
+ ;
+
+ref; // ME_4F95323901CA 
+
 : ME_4F6B38BE03C7
  CONST UID '4F6B38BE03C7'
  CONST Name 'RightNavigator'
@@ -291,6 +305,10 @@ ref; // ME_4F6B38AA020C LeftNavigator
    Seq: ( WL 'ME_499ABF3D031B' '499ABF2A0338.pas.ms.script' // TnscNavigator
  )
  ; // Inherits
+ : Attributes
+   Seq: ( ME_4F95323901CA // 
+ )
+ ; // Attributes
  CONST "ControlClass" 'none'
  CONST "ifdef" 'HasRightNavigator'
  CONST "need Caption" 'undefined'

@@ -1469,6 +1469,41 @@ ref; // ME_56B1F66002F7 l3GlyphFontName
 
 ref; // ME_56B1F6580292 Font Names
 
+FORWARD ME_56D5A8130151
+
+: ME_56D5A823003C
+ CONST UID '56D5A823003C'
+ CONST Name 'l3_siNative'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56D5A8130151 // SortIndexes
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_56D5A823003C l3_siNative
+
+: ME_56D5A8130151
+ CONST UID '56D5A8130151'
+ CONST Name 'SortIndexes'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4678193C009C // l3Types
+ ;
+ : Attributes
+   Seq: ( ME_56D5A823003C // l3_siNative
+ )
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_56D5A8130151 SortIndexes
+
 : ME_4678193C009C
  CONST UID '4678193C009C'
  CONST Name 'l3Types'
@@ -1518,6 +1553,7 @@ ref; // ME_56B1F6580292 Font Names
  ME_47F0B9190003 // Notify Consts
  ME_48EA3BDD0023 // ActiveXConsts
  ME_56B1F6580292 // Font Names
+ ME_56D5A8130151 // SortIndexes
  )
  ; // Constants
  : Depends

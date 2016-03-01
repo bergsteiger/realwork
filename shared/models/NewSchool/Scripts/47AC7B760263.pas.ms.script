@@ -15,11 +15,11 @@ FORWARD ME_47AC7BD90281
  CONST LinkType lt_agr
  : Parent ME_47AC7BD90281 // Tag Consts
  ;
- CONST Value 'Pred(High(Long))'
+ CONST Value 'Pred(High(Integer))'
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
- CONST extprop:pas:Value 'Pred(High(Long))'
+ CONST extprop:pas:Value 'Pred(High(Integer))'
 
 ref; // ME_47AC7BED00B6 k2_TransparentValue
 
@@ -32,11 +32,14 @@ ref; // ME_47AC7BED00B6 k2_TransparentValue
  CONST LinkType lt_agr
  : Parent ME_47AC7BD90281 // Tag Consts
  ;
- CONST Value 'Succ(l3_siNative)'
+ CONST Value 'l3_siNative'
+ : ValueType WL 'ME_56D5A8130151' '4678193C009C.pas.ms.script' // SortIndexes
+ ;
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
- CONST extprop:pas:Value 'Succ(l3_siNative)'
+ CONST "suffix expr" '+ 1'
+ CONST extprop:pas:Value 'l3Types.l3_siNative + 1'
 
 ref; // ME_47AC7BF501F2 k2_tiByIndex
 
@@ -149,6 +152,7 @@ ref; // ME_47AC7BD90281 Tag Consts
  WL 'ME_47A1D4C201E8' '47A1D4C201E8.pas.ms.script' // l3Const
  )
  ; // Depends
+ CONST "UseNewGen" true
  CONST "author" 'Ëþëèí À.Â.'
  CONST "is namespace" true
  CONST "no hands" true

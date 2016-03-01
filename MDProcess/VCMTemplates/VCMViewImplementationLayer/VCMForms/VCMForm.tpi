@@ -227,7 +227,7 @@ p restrict form def:tribool=undefined ?
 	%{Op_Instance}%f_set_abstraction_type(final)\
 	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
 	%{Op_Instance}%f_set_var(SpelledFor,S)\
-	[{%S#f_UseNewGenRec()!=true}\
+	[{%S{finished}!=true|%S#f_UseNewGenRec()!=true}\
 	%{Op_Instance}%f_set_uc_content(intf.pas,,\
 	 fm_%f_cut_prefix(%f_pas_TypeName(%S),T).SetFactory(%f_pas_TypeName(%S).Make);\
 	)\

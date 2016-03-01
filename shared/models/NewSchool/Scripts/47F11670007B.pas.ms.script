@@ -6,15 +6,18 @@ FORWARD ME_47F11670007B
 
 : ME_47F116A600A9
  CONST UID '47F116A600A9'
- CONST GUID 'DA643083-CC48-4A4A-A2AC-82187E5BEE79'
  CONST Name 'Ik2FilerSource'
  CONST Class class_Class
- : Stereotype st_Facet ;
+ : Stereotype st_Typedef ;
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  : Parent ME_47F11670007B // k2InternalInterfaces
  ;
+ : Inherits
+   Seq: ( WL 'ME_56D5B5CE004F' '47913B47006E.pas.ms.script' // Il3FilerSource
+ )
+ ; // Inherits
  CONST extprop:rc:SelfName 'FilerSource'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -55,11 +58,15 @@ ref; // ME_4A25410C0355 Ik2FilerSource2
  ME_4A25410C0355 // Ik2FilerSource2
  )
  ; // Children
+ : Depends
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ )
+ ; // Depends
+ CONST "UseNewGen" true
  CONST "author" 'Ëþëèí À.Â.'
- CONST "finished" false
  CONST "is namespace" true
  CONST "no hands" false
  CONST "started" '27.09.1999 12:58'
- CONST intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2InternalInterfaces.pas'
+ CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2InternalInterfaces.pas'
 
 ref; // ME_47F11670007B k2InternalInterfaces

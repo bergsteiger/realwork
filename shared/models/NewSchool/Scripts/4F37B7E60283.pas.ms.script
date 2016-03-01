@@ -720,196 +720,6 @@ ref; // ME_5617F4D00243_ME_18E1A6E1AA33 ParamsTypes
 
 ref; // ME_18E1A6E1AA33 pop_Word_GetParam
 
-FORWARD ME_550C289300FB
-
-FORWARD ME_9AE555BD5A21
-
-FORWARD ME_F598008DBB04
-
-: ME_7D2C73B6D58D
- CONST UID '7D2C73B6D58D'
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_7D2C73B6D58D aCtx
-
-: ME_7D2C73B6D58E
- CONST UID '7D2C73B6D58E'
- CONST Name 'aWord'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
- ;
-
-ref; // ME_7D2C73B6D58E aWord
-
-: ME_9AE555BD5A21
- CONST UID '9AE555BD5A21'
- CONST Name 'PublicateInMainDictionary'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Word:PublicateInMainDictionary' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_F598008DBB04 // pop_Word_PublicateInMainDictionary
- ;
- : Parameters
-   Seq: ( ME_7D2C73B6D58D // aCtx
- ME_7D2C73B6D58E // aWord
- )
- ; // Parameters
- : SpelledFor ME_550C289300FB // PublicateInMainDictionary
- ;
-
-ref; // ME_9AE555BD5A21 PublicateInMainDictionary
-
-: ME_C9FF80928942
- CONST UID 'C9FF80928942'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация pop_Word_PublicateInMainDictionary' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_F598008DBB04 // pop_Word_PublicateInMainDictionary
- ;
-
-ref; // ME_C9FF80928942 Ini_Reg
-
-: ME_C4DC253E5E95
- CONST UID 'C4DC253E5E95'
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_F598008DBB04 // pop_Word_PublicateInMainDictionary
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_C4DC253E5E95 
-
-: ME_47453B215629
- CONST UID '47453B215629'
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_F598008DBB04 // pop_Word_PublicateInMainDictionary
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_47453B215629 
-
-: ME_4DAEEDE10285_ME_F598008DBB04
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- : Implementor ME_F598008DBB04 // pop_Word_PublicateInMainDictionary
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4DAEEDE10285_ME_F598008DBB04 DoDoIt
-
-: ME_4DB0614603C8_ME_F598008DBB04
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_F598008DBB04 // pop_Word_PublicateInMainDictionary
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_F598008DBB04 GetWordNameForRegister
-
-: ME_551544E2001A_ME_F598008DBB04
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_F598008DBB04 // pop_Word_PublicateInMainDictionary
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_F598008DBB04 GetResultTypeInfo
-
-: ME_559687E6025A_ME_F598008DBB04
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- : Implementor ME_F598008DBB04 // pop_Word_PublicateInMainDictionary
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_F598008DBB04 GetAllParamsCount
-
-: ME_5617F4D00243_ME_F598008DBB04
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_F598008DBB04 // pop_Word_PublicateInMainDictionary
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_F598008DBB04 ParamsTypes
-
-: ME_F598008DBB04
- CONST UID 'F598008DBB04'
- CONST Name 'pop_Word_PublicateInMainDictionary'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Word:PublicateInMainDictionary'#13#10'{panel}Публикует вложенное слово в основном словаре. Если такое слово там уже есть, то создаётся переопределение (Redifinition){panel}'#13#10'*Пример:*'#13#10'{code}'#13#10' aWord pop:Word:PublicateInMainDictionary'#13#10'{code} ' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_550C25D70182 // WordsRTTIPack
- ;
- : Inherits
-   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_9AE555BD5A21 // PublicateInMainDictionary
- ME_C9FF80928942 // Ini_Reg
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_4DAEEDE10285_ME_F598008DBB04 // DoDoIt
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_F598008DBB04 // GetWordNameForRegister
- ME_551544E2001A_ME_F598008DBB04 // GetResultTypeInfo
- ME_559687E6025A_ME_F598008DBB04 // GetAllParamsCount
- ME_5617F4D00243_ME_F598008DBB04 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_C4DC253E5E95 // 
- ME_47453B215629 // 
- )
- ; // Dependencies
- CONST "NameForScript" 'pop:Word:PublicateInMainDictionary'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:pas:TypeName 'TkwPopWordPublicateInMainDictionary'
- CONST extprop:rc:SelfName 'PopWordPublicateInMainDictionary'
- CONST extprop:rc:isAcceptableForScripts true
- : Speller WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
- ;
- : SpelledFor ME_550C289300FB // PublicateInMainDictionary
- ;
- : Stub ME_9AE555BD5A21 // PublicateInMainDictionary
- ;
-
-ref; // ME_F598008DBB04 pop_Word_PublicateInMainDictionary
-
 FORWARD ME_558ABFC70287
 
 FORWARD ME_76D0ECD79670
@@ -6407,24 +6217,6 @@ ref; // ME_550C27CC0189 anIndex
 
 ref; // ME_550C27BB0382 GetParam
 
-: ME_550C289300FB
- CONST UID '550C289300FB'
- CONST Name 'PublicateInMainDictionary'
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Публикует вложенное слово в основном словаре. Если такое слово там уже есть, то создаётся переопределение (Redifinition)' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_550C25D70182 // WordsRTTIPack
- ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
- : Speller ME_F598008DBB04 // pop_Word_PublicateInMainDictionary
- ;
-
-ref; // ME_550C289300FB PublicateInMainDictionary
-
 : ME_558ABFE60121
  CONST UID '558ABFE60121'
  CONST Name 'aProducer'
@@ -7450,7 +7242,6 @@ ref; // ME_4DAEEDE10285_ME_550C25D70182 DoDoIt
  : Operations
    Seq: ( ME_550C278901A4 // GetLeftWordRefValue
  ME_550C27BB0382 // GetParam
- ME_550C289300FB // PublicateInMainDictionary
  ME_558ABFC70287 // SetProducer
  ME_558D53EF03DB // FindMember
  ME_558D76DE02E9 // GetRef
@@ -7502,7 +7293,6 @@ ref; // ME_4DAEEDE10285_ME_550C25D70182 DoDoIt
  ME_BD54BA1C4F00 // TWordsRTTIPackResNameGetter
  ME_082046A8DE7B // pop_Word_GetLeftWordRefValue
  ME_18E1A6E1AA33 // pop_Word_GetParam
- ME_F598008DBB04 // pop_Word_PublicateInMainDictionary
  ME_8EA9132CC57C // pop_Word_SetProducer
  ME_289A2FC7F4D3 // pop_Word_FindMember
  ME_A74A73E17FB3 // pop_Word_GetRef
@@ -13512,10 +13302,6 @@ ref; // ME_5617F4D00243_ME_880CCE28EDF4 ParamsTypes
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- CONST cpp:Path 'common\components\\Ctx_ResolveIncludedFilePath.cpp'
- CONST cpp:PathOnly '\common\components\'
- CONST h:Path 'common\components\\Ctx_ResolveIncludedFilePath.h'
- CONST h:PathOnly '\common\components\'
  CONST extprop:pas:TypeName 'TkwCtxResolveIncludedFilePath'
  CONST extprop:rc:SelfName 'CtxResolveIncludedFilePath'
  CONST extprop:rc:isAcceptableForScripts true

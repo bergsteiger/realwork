@@ -505,23 +505,6 @@ ref; // ME_53A991FB03DB DoIt
 
 ref; // ME_53A991E60226 CheckIDByName
 
-: ME_5B05A103F26F
- CONST UID '5B05A103F26F'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_53A963F700CD // Tk2Attributes
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_5B05A103F26F Exists
-
 : ME_53A9642F03D3
  CONST UID '53A9642F03D3'
  CONST Class class_Dependency
@@ -600,7 +583,6 @@ ref; // ME_47A042E100E2_ME_53A963F700CD InitFields
    Seq: ( ME_53A9843302D9 // IDByName
  ME_53A9847000CA // NameByID
  ME_53A991E60226 // CheckIDByName
- ME_5B05A103F26F // Exists
  )
  ; // Operations
  : Implemented
@@ -653,5 +635,6 @@ ref; // ME_53A963F700CD Tk2Attributes
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  )
  ; // Depends
+ CONST "UseNewGen" true
 
 ref; // ME_53A963DD0356 TagAttributes

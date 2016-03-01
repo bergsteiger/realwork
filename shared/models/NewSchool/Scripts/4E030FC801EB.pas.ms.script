@@ -8,20 +8,6 @@ FORWARD ME_5507FDD203E1
 
 FORWARD ME_5509AAAC0313
 
-: ME_A4D9717C3DE6
- CONST UID 'A4D9717C3DE6'
- CONST Name 'bind'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Tl3BatchScriptService' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5509AAAC0313 // Tl3BatchScriptService
- ;
-
-ref; // ME_A4D9717C3DE6 bind
-
 : ME_5509AAC00331
  CONST UID '5509AAC00331'
  CONST Class class_Dependency
@@ -71,10 +57,6 @@ ref; // ME_BA3808340B4E_ME_5509AAAC0313 LeaveScript
    Seq: ( WL 'ME_DAC1F2DB132D' '4F7338A800A7.pas.ms.script' // Il3ScriptService
  )
  ; // Implements
- : Operations
-   Seq: ( ME_A4D9717C3DE6 // bind
- )
- ; // Operations
  : Implemented
    Seq: ( ME_97F121633B1B_ME_5509AAAC0313 // EnterScript
  ME_BA3808340B4E_ME_5509AAAC0313 // LeaveScript
@@ -782,20 +764,6 @@ ref; // ME_55099BAF026D f_BatchMode
 
 ref; // ME_553F4303012B f_WasDialog
 
-: ME_8CA213802B1D
- CONST UID '8CA213802B1D'
- CONST Name 'bind'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TafwBatchService' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5507FE0A0095 // TafwBatchService
- ;
-
-ref; // ME_8CA213802B1D bind
-
 : ME_5507FE1D0222
  CONST UID '5507FE1D0222'
  CONST Class class_Dependency
@@ -910,10 +878,6 @@ ref; // ME_FE46A80B1DA3_ME_5507FE0A0095 LeaveBatchMode
  ME_553F4303012B // f_WasDialog
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_8CA213802B1D // bind
- )
- ; // Operations
  : Implemented
    Seq: ( ME_194C97B8A2DF_ME_5507FE0A0095 // PushAnswer
  ME_217998C234EE_ME_5507FE0A0095 // CheckWasDialog

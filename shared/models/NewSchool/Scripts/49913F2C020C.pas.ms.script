@@ -122,6 +122,17 @@ ref; // ME_4B139E6B00C1 RegisterEvent
 
 ref; // ME_4B139E860009 RequestWriteCache
 
+: ME_56D435B2018B
+ CONST UID '56D435B2018B'
+ CONST Name 'ForceWriteCache'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4B139E41024C // InsCachedEventsProcessor
+ ;
+
+ref; // ME_56D435B2018B ForceWriteCache
+
 : ME_4B139E41024C
  CONST UID '4B139E41024C'
  CONST GUID 'A5A50743-4275-4C7F-AD87-945799C7EF03'
@@ -136,6 +147,7 @@ ref; // ME_4B139E860009 RequestWriteCache
  : Operations
    Seq: ( ME_4B139E6B00C1 // RegisterEvent
  ME_4B139E860009 // RequestWriteCache
+ ME_56D435B2018B // ForceWriteCache
  )
  ; // Operations
  CONST extprop:rc:SelfName 'CachedEventsProcessor'

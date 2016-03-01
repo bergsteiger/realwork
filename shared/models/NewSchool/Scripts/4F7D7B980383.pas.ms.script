@@ -988,25 +988,39 @@ ref; // ME_4BCDABAC037C UpdateCarrierHint
 
 FORWARD ME_5566B0FA013A
 
-: ME_56A5E9670284
- CONST UID '56A5E9670284'
+: ME_56CECDBC01B8
+ CONST UID '56CECDBC01B8'
  CONST Name 'aOpenKind'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_53A410AA031B' '4683F37902CF.pas.ms.script' // TvcmMainFormOpenKind
  ;
 
-ref; // ME_56A5E9670284 aOpenKind
+ref; // ME_56CECDBC01B8 aOpenKind
 
-: ME_56A5E96702A3
- CONST UID '56A5E96702A3'
+: ME_56CECDBC01D7
+ CONST UID '56CECDBC01D7'
  CONST Name 'aOpenLast'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
 
-ref; // ME_56A5E96702A3 aOpenLast
+ref; // ME_56CECDBC01D7 aOpenLast
+
+: ME_56CECDBC01F6
+ CONST UID '56CECDBC01F6'
+ CONST Name 'aOpenAfter'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+ CONST Value 'nil'
+ : ValueType WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+ CONST extprop:pas:Value 'nil'
+
+ref; // ME_56CECDBC01F6 aOpenAfter
 
 : ME_5566B11501AD
  CONST UID '5566B11501AD'
@@ -1019,8 +1033,9 @@ ref; // ME_56A5E96702A3 aOpenLast
  : Target WL 'ME_49525C7A0114' '4AADF9450143.pas.ms.script' // TvcmMainForm
  ;
  : Parameters
-   Seq: ( ME_56A5E9670284 // aOpenKind
- ME_56A5E96702A3 // aOpenLast
+   Seq: ( ME_56CECDBC01B8 // aOpenKind
+ ME_56CECDBC01D7 // aOpenLast
+ ME_56CECDBC01F6 // aOpenAfter
  )
  ; // Parameters
 
@@ -9580,18 +9595,6 @@ ref; // ME_1C5A33F09604 remOnlineDead
 
 ref; // ME_B44D57490C0C Ini_Reg
 
-: ME_DB9679000040
- CONST UID 'DB9679000040'
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_82B2BCF3102B // MainWindow_remOnlineDead
- ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_DB9679000040 
-
 : ME_94D66C6E9645
  CONST UID '94D66C6E9645'
  CONST IsSummoned true
@@ -9710,8 +9713,7 @@ ref; // ME_5617F4D00243_ME_82B2BCF3102B ParamsTypes
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_DB9679000040 // 
- ME_94D66C6E9645 // 
+   Seq: ( ME_94D66C6E9645 // 
  ME_5701262CD5E3 // 
  )
  ; // Dependencies
@@ -9795,18 +9797,6 @@ ref; // ME_F6B99AF78964 remNewChatMessages
  ;
 
 ref; // ME_D5CA85C7D111 Ini_Reg
-
-: ME_8BB7BC2050B3
- CONST UID '8BB7BC2050B3'
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_F316F76D2AFC // MainWindow_remNewChatMessages
- ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_8BB7BC2050B3 
 
 : ME_81FC67F99A77
  CONST UID '81FC67F99A77'
@@ -9926,8 +9916,7 @@ ref; // ME_5617F4D00243_ME_F316F76D2AFC ParamsTypes
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_8BB7BC2050B3 // 
- ME_81FC67F99A77 // 
+   Seq: ( ME_81FC67F99A77 // 
  ME_22F14B864A5E // 
  )
  ; // Dependencies
@@ -10011,18 +10000,6 @@ ref; // ME_0B1B7A5F10C8 TrialModeWarning
  ;
 
 ref; // ME_02392E826D46 Ini_Reg
-
-: ME_086895A44951
- CONST UID '086895A44951'
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_116178A120B3 // MainWindow_TrialModeWarning
- ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_086895A44951 
 
 : ME_2794A290A2A5
  CONST UID '2794A290A2A5'
@@ -10142,8 +10119,7 @@ ref; // ME_5617F4D00243_ME_116178A120B3 ParamsTypes
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_086895A44951 // 
- ME_2794A290A2A5 // 
+   Seq: ( ME_2794A290A2A5 // 
  ME_0FB5D7D61A5F // 
  )
  ; // Dependencies
@@ -10227,18 +10203,6 @@ ref; // ME_482F7F78FAC4 OldBaseWarning
  ;
 
 ref; // ME_B8D9465734E0 Ini_Reg
-
-: ME_F0DCBA47CACE
- CONST UID 'F0DCBA47CACE'
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_59D50D49582B // MainWindow_OldBaseWarning
- ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_F0DCBA47CACE 
 
 : ME_4F5014A95BC3
  CONST UID '4F5014A95BC3'
@@ -10358,8 +10322,7 @@ ref; // ME_5617F4D00243_ME_59D50D49582B ParamsTypes
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_F0DCBA47CACE // 
- ME_4F5014A95BC3 // 
+   Seq: ( ME_4F5014A95BC3 // 
  ME_8667EACFBAE1 // 
  )
  ; // Dependencies
@@ -10443,18 +10406,6 @@ ref; // ME_F8AED6F6CFD7 RemindersLine
  ;
 
 ref; // ME_E199B235F4D4 Ini_Reg
-
-: ME_22B17F3D47BE
- CONST UID '22B17F3D47BE'
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_3F3A50436E8F // MainWindow_RemindersLine
- ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_22B17F3D47BE 
 
 : ME_52A5B8FF7971
  CONST UID '52A5B8FF7971'
@@ -10574,8 +10525,7 @@ ref; // ME_5617F4D00243_ME_3F3A50436E8F ParamsTypes
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_22B17F3D47BE // 
- ME_52A5B8FF7971 // 
+   Seq: ( ME_52A5B8FF7971 // 
  ME_ED026927DE5D // 
  )
  ; // Dependencies
@@ -10659,18 +10609,6 @@ ref; // ME_5A562B6AB425 ControlledChangingWarning
  ;
 
 ref; // ME_CFD672E42E84 Ini_Reg
-
-: ME_8CC0009ED955
- CONST UID '8CC0009ED955'
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_FCB9DBB9A96D // MainWindow_ControlledChangingWarning
- ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_8CC0009ED955 
 
 : ME_DDEB50A55B73
  CONST UID 'DDEB50A55B73'
@@ -10790,8 +10728,7 @@ ref; // ME_5617F4D00243_ME_FCB9DBB9A96D ParamsTypes
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_8CC0009ED955 // 
- ME_DDEB50A55B73 // 
+   Seq: ( ME_DDEB50A55B73 // 
  ME_1E2424E702E9 // 
  )
  ; // Dependencies
@@ -10875,18 +10812,6 @@ ref; // ME_5AC6608233EB remUnreadConsultations
  ;
 
 ref; // ME_32594DE92A54 Ini_Reg
-
-: ME_5C66EEC6F3C7
- CONST UID '5C66EEC6F3C7'
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_797CD35061B7 // MainWindow_remUnreadConsultations
- ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_5C66EEC6F3C7 
 
 : ME_E811E2B6BCE6
  CONST UID 'E811E2B6BCE6'
@@ -11006,8 +10931,7 @@ ref; // ME_5617F4D00243_ME_797CD35061B7 ParamsTypes
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_5C66EEC6F3C7 // 
- ME_E811E2B6BCE6 // 
+   Seq: ( ME_E811E2B6BCE6 // 
  ME_AFF6C265FA94 // 
  )
  ; // Dependencies
@@ -11091,18 +11015,6 @@ ref; // ME_7D34C7D8B1E6 StatusBar
  ;
 
 ref; // ME_14ECA33296EC Ini_Reg
-
-: ME_BB0B771105BE
- CONST UID 'BB0B771105BE'
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_CE0BB644ECC0 // MainWindow_StatusBar
- ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_BB0B771105BE 
 
 : ME_8FECF767D163
  CONST UID '8FECF767D163'
@@ -11222,8 +11134,7 @@ ref; // ME_5617F4D00243_ME_CE0BB644ECC0 ParamsTypes
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_BB0B771105BE // 
- ME_8FECF767D163 // 
+   Seq: ( ME_8FECF767D163 // 
  ME_EAB479062CC0 // 
  )
  ; // Dependencies
@@ -11307,18 +11218,6 @@ ref; // ME_94BE93BDD48E ClientZone
  ;
 
 ref; // ME_D981600568F2 Ini_Reg
-
-: ME_6A0381A6714D
- CONST UID '6A0381A6714D'
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_FE6607BEAD6E // MainWindow_ClientZone
- ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_6A0381A6714D 
 
 : ME_2351FDE6C20E
  CONST UID '2351FDE6C20E'
@@ -11438,8 +11337,7 @@ ref; // ME_5617F4D00243_ME_FE6607BEAD6E ParamsTypes
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_6A0381A6714D // 
- ME_2351FDE6C20E // 
+   Seq: ( ME_2351FDE6C20E // 
  ME_8E05BFCE873C // 
  )
  ; // Dependencies
@@ -11523,18 +11421,6 @@ ref; // ME_ABD85089DCD3 MainZone
  ;
 
 ref; // ME_59376F16E0AE Ini_Reg
-
-: ME_4BAB407237ED
- CONST UID '4BAB407237ED'
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_A864C41E05F1 // MainWindow_MainZone
- ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_4BAB407237ED 
 
 : ME_28A04A073CA4
  CONST UID '28A04A073CA4'
@@ -11654,8 +11540,7 @@ ref; // ME_5617F4D00243_ME_A864C41E05F1 ParamsTypes
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_4BAB407237ED // 
- ME_28A04A073CA4 // 
+   Seq: ( ME_28A04A073CA4 // 
  ME_F97E3CB93C83 // 
  )
  ; // Dependencies
@@ -11739,18 +11624,6 @@ ref; // ME_7FBB821426B4 ParentZonePanel
  ;
 
 ref; // ME_4BC8606C355C Ini_Reg
-
-: ME_9516F6E1B9E4
- CONST UID '9516F6E1B9E4'
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_42983EB4E606 // MainWindow_ParentZonePanel
- ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_9516F6E1B9E4 
 
 : ME_E938A60B4D85
  CONST UID 'E938A60B4D85'
@@ -11870,8 +11743,7 @@ ref; // ME_5617F4D00243_ME_42983EB4E606 ParamsTypes
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_9516F6E1B9E4 // 
- ME_E938A60B4D85 // 
+   Seq: ( ME_E938A60B4D85 // 
  ME_D472A6F32F32 // 
  )
  ; // Dependencies
@@ -11955,18 +11827,6 @@ ref; // ME_35D0EA46C2E7 ChildZonePanel
  ;
 
 ref; // ME_55EB32067831 Ini_Reg
-
-: ME_2D73907438E9
- CONST UID '2D73907438E9'
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_815BB0E77000 // MainWindow_ChildZonePanel
- ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_2D73907438E9 
 
 : ME_46A4EF7751E7
  CONST UID '46A4EF7751E7'
@@ -12086,8 +11946,7 @@ ref; // ME_5617F4D00243_ME_815BB0E77000 ParamsTypes
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_2D73907438E9 // 
- ME_46A4EF7751E7 // 
+   Seq: ( ME_46A4EF7751E7 // 
  ME_FE56800B40B6 // 
  )
  ; // Dependencies
@@ -12171,18 +12030,6 @@ ref; // ME_6C03BAF08409 BaseSearchPanel
  ;
 
 ref; // ME_15D302AF7EE2 Ini_Reg
-
-: ME_6CD48D0B959C
- CONST UID '6CD48D0B959C'
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_0BBD18013246 // MainWindow_BaseSearchPanel
- ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_6CD48D0B959C 
 
 : ME_E7C26CBBD8A4
  CONST UID 'E7C26CBBD8A4'
@@ -12302,8 +12149,7 @@ ref; // ME_5617F4D00243_ME_0BBD18013246 ParamsTypes
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_6CD48D0B959C // 
- ME_E7C26CBBD8A4 // 
+   Seq: ( ME_E7C26CBBD8A4 // 
  ME_62AF8703ADEB // 
  )
  ; // Dependencies
@@ -12387,18 +12233,6 @@ ref; // ME_44132250FA6E LeftNavigator
  ;
 
 ref; // ME_7AEBAF09223D Ini_Reg
-
-: ME_06FE5AAA8DFF
- CONST UID '06FE5AAA8DFF'
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_BDCC906B453B // MainWindow_LeftNavigator
- ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_06FE5AAA8DFF 
 
 : ME_E0D06B4E1C8B
  CONST UID 'E0D06B4E1C8B'
@@ -12518,8 +12352,7 @@ ref; // ME_5617F4D00243_ME_BDCC906B453B ParamsTypes
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_06FE5AAA8DFF // 
- ME_E0D06B4E1C8B // 
+   Seq: ( ME_E0D06B4E1C8B // 
  ME_483061EDD95D // 
  )
  ; // Dependencies
@@ -12603,18 +12436,6 @@ ref; // ME_A3B067FF2276 RightNavigator
  ;
 
 ref; // ME_4A96E8EBC543 Ini_Reg
-
-: ME_7877667C74D7
- CONST UID '7877667C74D7'
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_E38152ED8F57 // MainWindow_RightNavigator
- ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_7877667C74D7 
 
 : ME_EC34B75D50F3
  CONST UID 'EC34B75D50F3'
@@ -12734,8 +12555,7 @@ ref; // ME_5617F4D00243_ME_E38152ED8F57 ParamsTypes
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_7877667C74D7 // 
- ME_EC34B75D50F3 // 
+   Seq: ( ME_EC34B75D50F3 // 
  ME_D34CA8277FCE // 
  )
  ; // Dependencies

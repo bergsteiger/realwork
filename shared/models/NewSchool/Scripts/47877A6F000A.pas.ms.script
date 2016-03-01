@@ -1473,137 +1473,6 @@ ref; // ME_480DC5E901E5 caCenter
 
 ref; // ME_480DC5B20390 TafwCaretAlign
 
-FORWARD ME_480DC6620108
-
-: ME_480DC672036B
- CONST UID '480DC672036B'
- CONST Name 'DefAlign'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_480DC6620108 // Defaults
- ;
- CONST Value 'caLeft'
- : ValueType ME_480DC5B20390 // TafwCaretAlign
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value 'caLeft'
-
-ref; // ME_480DC672036B DefAlign
-
-: ME_480DC67F02FD
- CONST UID '480DC67F02FD'
- CONST Name 'DefBlinkTime'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_480DC6620108 // Defaults
- ;
- CONST Value 0
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value 0
-
-ref; // ME_480DC67F02FD DefBlinkTime
-
-: ME_480DC686014C
- CONST UID '480DC686014C'
- CONST Name 'DefCaretWd'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_480DC6620108 // Defaults
- ;
- CONST Value 2
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value 2
-
-ref; // ME_480DC686014C DefCaretWd
-
-: ME_480DC68D02FF
- CONST UID '480DC68D02FF'
- CONST Name 'DefCaretHt'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_480DC6620108 // Defaults
- ;
- CONST Value 10
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value 10
-
-ref; // ME_480DC68D02FF DefCaretHt
-
-: ME_480DC6A501AE
- CONST UID '480DC6A501AE'
- CONST Name 'DefIsGray'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_480DC6620108 // Defaults
- ;
- CONST Value false
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value false
-
-ref; // ME_480DC6A501AE DefIsGray
-
-: ME_480DC6AE01D5
- CONST UID '480DC6AE01D5'
- CONST Name 'DefShape'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_480DC6620108 // Defaults
- ;
- CONST Value 'csVertLine'
- : ValueType ME_480DC52E02C6 // TafwCaretShape
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value 'csVertLine'
-
-ref; // ME_480DC6AE01D5 DefShape
-
-: ME_480DC6620108
- CONST UID '480DC6620108'
- CONST Name 'Defaults'
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_480DC4B90226 // TafwCustomCaretType
- ;
- : Attributes
-   Seq: ( ME_480DC672036B // DefAlign
- ME_480DC67F02FD // DefBlinkTime
- ME_480DC686014C // DefCaretWd
- ME_480DC68D02FF // DefCaretHt
- ME_480DC6A501AE // DefIsGray
- ME_480DC6AE01D5 // DefShape
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_480DC6620108 Defaults
-
 : ME_480DC903031B
  CONST UID '480DC903031B'
  CONST Name 'OnChange'
@@ -2104,16 +1973,13 @@ ref; // ME_479731C50290_ME_480DC4B90226 Cleanup
  ME_480DC5B20390 // TafwCaretAlign
  )
  ; // Children
- : Constants
-   Seq: ( ME_480DC6620108 // Defaults
- )
- ; // Constants
  : Dependencies
    Seq: ( ME_480DC94C02AC // 
  ME_480DCDB10260 // 
  )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
+ CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" true

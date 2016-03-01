@@ -586,20 +586,6 @@ ref; // ME_4F21634F01C7 CodeFlowWordsPack
 
 FORWARD ME_553F737A02D6
 
-: ME_AED6715B9AC0
- CONST UID 'AED6715B9AC0'
- CONST Name 'bind'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TseModalService' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_553F737A02D6 // TseModalService
- ;
-
-ref; // ME_AED6715B9AC0 bind
-
 : ME_553F7384030B
  CONST UID '553F7384030B'
  CONST Class class_Dependency
@@ -649,10 +635,6 @@ ref; // ME_553F8EA30300_ME_553F737A02D6 ExecuteCurrentModalWorker
    Seq: ( WL 'ME_09072C2825F1' '4E030FC801EB.pas.ms.script' // Il3ModalService
  )
  ; // Implements
- : Operations
-   Seq: ( ME_AED6715B9AC0 // bind
- )
- ; // Operations
  : Implemented
    Seq: ( ME_553F7345032E_ME_553F737A02D6 // HasModalWorker
  ME_553F8EA30300_ME_553F737A02D6 // ExecuteCurrentModalWorker

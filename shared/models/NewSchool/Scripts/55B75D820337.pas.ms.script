@@ -483,6 +483,149 @@ ref; // ME_5617F4D00243_ME_4FDD3D4A4771 ParamsTypes
 
 ref; // ME_4FDD3D4A4771 logging_GetLogRecords
 
+FORWARD ME_56D4147C0385
+
+FORWARD ME_03C2482A3269
+
+: ME_7F244DCB6ECC
+ CONST UID '7F244DCB6ECC'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация logging_WriteCachedEvents' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_03C2482A3269 // logging_WriteCachedEvents
+ ;
+
+ref; // ME_7F244DCB6ECC Ini_Reg
+
+: ME_7F56F5D33AD1
+ CONST UID '7F56F5D33AD1'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_03C2482A3269 // logging_WriteCachedEvents
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_7F56F5D33AD1 
+
+: ME_A1B4F3844B8F
+ CONST UID 'A1B4F3844B8F'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_03C2482A3269 // logging_WriteCachedEvents
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_A1B4F3844B8F 
+
+: ME_B4CC425A789B
+ CONST UID 'B4CC425A789B'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_03C2482A3269 // logging_WriteCachedEvents
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_B4CC425A789B 
+
+: ME_4DAEEDE10285_ME_03C2482A3269
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_03C2482A3269 // logging_WriteCachedEvents
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_03C2482A3269 DoDoIt
+
+: ME_4DB0614603C8_ME_03C2482A3269
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_03C2482A3269 // logging_WriteCachedEvents
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_03C2482A3269 GetWordNameForRegister
+
+: ME_551544E2001A_ME_03C2482A3269
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_03C2482A3269 // logging_WriteCachedEvents
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_551544E2001A_ME_03C2482A3269 GetResultTypeInfo
+
+: ME_559687E6025A_ME_03C2482A3269
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_03C2482A3269 // logging_WriteCachedEvents
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_559687E6025A_ME_03C2482A3269 GetAllParamsCount
+
+: ME_03C2482A3269
+ CONST UID '03C2482A3269'
+ CONST Name 'logging_WriteCachedEvents'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта logging:WriteCachedEvents'#13#10'*Пример:*'#13#10'{code}'#13#10' logging:WriteCachedEvents'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55B75D980276 // LoggingWordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_7F244DCB6ECC // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_03C2482A3269 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_03C2482A3269 // GetWordNameForRegister
+ ME_551544E2001A_ME_03C2482A3269 // GetResultTypeInfo
+ ME_559687E6025A_ME_03C2482A3269 // GetAllParamsCount
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_7F56F5D33AD1 // 
+ ME_A1B4F3844B8F // 
+ ME_B4CC425A789B // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'logging:WriteCachedEvents'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwLoggingWriteCachedEvents'
+ CONST extprop:rc:SelfName 'LoggingWriteCachedEvents'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_56D4147C0385 // logging_WriteCachedEvents
+ ;
+
+ref; // ME_03C2482A3269 logging_WriteCachedEvents
+
 : ME_55B75DC003BF
  CONST UID '55B75DC003BF'
  CONST Name 'logging_StartListening'
@@ -526,6 +669,20 @@ ref; // ME_55B75DD7013D logging_FinishListening
  ;
 
 ref; // ME_55B75E0E039F logging_GetLogRecords
+
+: ME_56D4147C0385
+ CONST UID '56D4147C0385'
+ CONST Name 'logging_WriteCachedEvents'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55B75D980276 // LoggingWordsPack
+ ;
+ : Speller ME_03C2482A3269 // logging_WriteCachedEvents
+ ;
+
+ref; // ME_56D4147C0385 logging_WriteCachedEvents
 
 : ME_ED0C5EEBDCF9
  CONST UID 'ED0C5EEBDCF9'
@@ -581,6 +738,17 @@ ref; // ME_55BA026201A4
 
 ref; // ME_55BA0271031A 
 
+: ME_56D4155A01AF
+ CONST UID '56D4155A01AF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55B75D980276 // LoggingWordsPack
+ ;
+ : Target WL 'ME_4B139FB1009B' '4B0A60DF01F2.pas.ms.script' // TnsCachedEventsProcessor
+ ;
+
+ref; // ME_56D4155A01AF 
+
 : ME_3610CEC90F91
  CONST UID '3610CEC90F91'
  CONST IsSummoned true
@@ -619,6 +787,7 @@ ref; // ME_AEDD7F920897
    Seq: ( ME_55B75DC003BF // logging_StartListening
  ME_55B75DD7013D // logging_FinishListening
  ME_55B75E0E039F // logging_GetLogRecords
+ ME_56D4147C0385 // logging_WriteCachedEvents
  ME_ED0C5EEBDCF9 // Reg_Type_TtfwContext
  ME_27D13676FA49 // Reg_Type_String
  )
@@ -627,11 +796,13 @@ ref; // ME_AEDD7F920897
    Seq: ( ME_66D69322DA0D // logging_StartListening
  ME_961A18770456 // logging_FinishListening
  ME_4FDD3D4A4771 // logging_GetLogRecords
+ ME_03C2482A3269 // logging_WriteCachedEvents
  )
  ; // Children
  : Dependencies
    Seq: ( ME_55BA026201A4 // 
  ME_55BA0271031A // 
+ ME_56D4155A01AF // 
  ME_3610CEC90F91 // 
  ME_AEDD7F920897 // 
  )

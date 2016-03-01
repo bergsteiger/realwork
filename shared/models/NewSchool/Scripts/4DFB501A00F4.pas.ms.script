@@ -238,25 +238,6 @@ ref; // ME_4F8D618800E7 D_TxSrch
 
 FORWARD ME_55C8D80A0304
 
-FORWARD ME_4F22A92D007F
-
-: ME_68077EECBAC4
- CONST UID '68077EECBAC4'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4F22A92D007F // TSpellCheckDlg
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_68077EECBAC4 Exists
-
 : ME_4F22A92D007F
  CONST UID '4F22A92D007F'
  CONST Name 'TSpellCheckDlg'
@@ -267,10 +248,6 @@ ref; // ME_68077EECBAC4 Exists
  CONST Abstraction at_regular
  : Parent ME_55C8D80A0304 // D_spell
  ;
- : Operations
-   Seq: ( ME_68077EECBAC4 // Exists
- )
- ; // Operations
  : Injected
    Seq: ( WL 'ME_4105AC7A06B5' '55C8CD14003A.pas.ms.script' // 
  )
@@ -325,8 +302,7 @@ ref; // ME_55C8D80A0304 D_spell
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- WL 'ME_4F697D3801F2' '4F697D3801F2.pas.ms.script' // Meta
+   Seq: ( WL 'ME_4F697D3801F2' '4F697D3801F2.pas.ms.script' // Meta
  )
  ; // Depends
  CONST "finished" false

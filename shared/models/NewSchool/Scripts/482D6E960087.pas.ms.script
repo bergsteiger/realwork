@@ -201,8 +201,6 @@ ref; // ME_6A9002DE6C1A MakeReader
  ME_6A9002DE6C1A // MakeReader
  )
  ; // Operations
- CONST mda:PathOnly '\'
- CONST mda.inc:PathOnly '\'
 
 ref; // ME_30860C64BDA8 Mk2EVDReaderService
 
@@ -250,8 +248,6 @@ ref; // ME_9F46A5A9DAF5_ME_4EE7B78D5AA0 GetReader
  ME_9F46A5A9DAF5_ME_4EE7B78D5AA0 // GetReader
  )
  ; // Implemented
- CONST mda:PathOnly '\'
- CONST mda.inc:PathOnly '\'
  CONST extprop:rc:SelfName 'EVDReaderService'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -346,23 +342,6 @@ ref; // ME_55701AA6037A aFilter
 
 ref; // ME_55701A7A01B4 MakeReader
 
-: ME_EF20453ACC1B
- CONST UID 'EF20453ACC1B'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_555DB43B00BD // Tk2EVDReaderService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_EF20453ACC1B Exists
-
 : ME_6A9002DE6C1A_ME_555DB43B00BD
  CONST UID '6A9002DE6C1A'
  CONST Name 'MakeReader'
@@ -419,7 +398,6 @@ ref; // ME_5000565C019C_ME_555DB43B00BD ClearFields
  : Operations
    Seq: ( ME_555DB53301DC // GetReader
  ME_55701A7A01B4 // MakeReader
- ME_EF20453ACC1B // Exists
  )
  ; // Operations
  : Implemented
@@ -642,23 +620,6 @@ ref; // ME_55701AF401C9 aFileName
 
 ref; // ME_55701AE20388 MakeWriter
 
-: ME_49CF7F750647
- CONST UID '49CF7F750647'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_555DCEA8017E // Tk2EVDWriterService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_49CF7F750647 Exists
-
 : ME_26782C1B9519_ME_555DCEA8017E
  CONST UID '26782C1B9519'
  CONST Name 'GetWriter'
@@ -715,7 +676,6 @@ ref; // ME_5000565C019C_ME_555DCEA8017E ClearFields
  : Operations
    Seq: ( ME_555DCEC1021B // GetWriter
  ME_55701AE20388 // MakeWriter
- ME_49CF7F750647 // Exists
  )
  ; // Operations
  : Implemented
@@ -768,5 +728,6 @@ ref; // ME_555DCEA8017E Tk2EVDWriterService
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  )
  ; // Depends
+ CONST "UseNewGen" true
 
 ref; // ME_482D6E960087 Readers

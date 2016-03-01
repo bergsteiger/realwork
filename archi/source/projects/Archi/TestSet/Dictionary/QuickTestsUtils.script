@@ -1259,3 +1259,41 @@ PROCEDURE "Разбивка на блоки 'Больше пяти уровней'"
 	"Контрол по имени {('BitBtn1')}" pop:Control:Click 
 	)
 ;
+
+STRING FUNCTION "Получить полный путь к исполняемому файлу"
+	application:ExeName >>> Result
+;
+
+STRING FUNCTION "Извлечь путь из полного пути" STRING IN aFullFileName 
+	aFullFileName sysutils:ExtractFilePath >>> Result
+;
+
+STRING FUNCTION "Сформировать путь к новому каталогу" STRING IN aPath
+	STRING VAR aSubDir
+	script:FileName '' sysutils:ChangeFileExt sysutils:ExtractFileName >>> aSubDir 
+	[ aPath aSubDir ] strings:Cat >>> Result	
+;
+
+STRING FUNCTION "Получить имя ini-файла" STRING IN aPath
+	STRING VAR aFileName
+	aPath '.ini' sysutils:ChangeFileExt sysutils:ExtractFileName >>> aFileName
+	aFileName >>> Result	
+;
+
+STRING FUNCTION "Получить имя map-файла" STRING IN aPath
+	STRING VAR aFileName
+	aPath '.map' sysutils:ChangeFileExt sysutils:ExtractFileName >>> aFileName
+	aFileName >>> Result	
+;
+
+STRING FUNCTION "Получить имя exe-файла" STRING IN aPath
+	STRING VAR aFileName
+	aPath '.exe' sysutils:ChangeFileExt sysutils:ExtractFileName >>> aFileName
+	aFileName >>> Result	
+;
+
+STRING FUNCTION "Прибавить к имени ini-файла '_2.ini'" STRING IN aPath
+	STRING VAR aFileName
+	aPath '_2.ini' sysutils:ChangeFileExt sysutils:ExtractFileName >>> aFileName
+	aFileName >>> Result	
+;
