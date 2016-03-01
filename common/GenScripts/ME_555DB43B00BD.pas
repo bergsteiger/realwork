@@ -41,13 +41,13 @@ type
    procedure pm_SetAlien(const aValue: Ik2EVDReaderService);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function MakeReader(const aFileName: AnsiString;
     const aFilter: Ik2TagGenerator): Il3Reader;
    function GetReader: Tk2CustomFileReader;
    class function Instance: Tk2EVDReaderService;
     {* Метод получения экземпляра синглетона Tk2EVDReaderService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: Ik2EVDReaderService
     write pm_SetAlien;
@@ -76,12 +76,6 @@ begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tk2EVDReaderService.pm_SetAlien
-
-class function Tk2EVDReaderService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tk2EVDReaderService <> nil;
-end;//Tk2EVDReaderService.Exists
 
 function Tk2EVDReaderService.MakeReader(const aFileName: AnsiString;
  const aFilter: Ik2TagGenerator): Il3Reader;
@@ -118,6 +112,12 @@ begin
  end;
  Result := g_Tk2EVDReaderService;
 end;//Tk2EVDReaderService.Instance
+
+class function Tk2EVDReaderService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tk2EVDReaderService <> nil;
+end;//Tk2EVDReaderService.Exists
 
 procedure Tk2EVDReaderService.ClearFields;
 begin

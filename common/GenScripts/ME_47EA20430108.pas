@@ -109,8 +109,6 @@ _dsBaseDocumentPrim_ = _UnderControlBehaviour_;
 {$Define dsBaseDocumentPrim_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$If not Declared(_UseCaseControllerType_)}type _UseCaseControllerType_ = IvcmFormSetDataSource;{$IfEnd}
-
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\UnderControl\UnderControlBehaviour.imp.pas}

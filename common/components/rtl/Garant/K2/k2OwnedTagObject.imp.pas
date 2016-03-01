@@ -1,42 +1,29 @@
 {$IfNDef k2OwnedTagObject_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/K2/k2OwnedTagObject.imp.pas"
-// Начат: 02.12.2005 17:16
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::K2::k2CoreMixins::k2OwnedTagObject
-//
-// Тег имеющий ссылку на владельца
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2OwnedTagObject.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define k2OwnedTagObject_imp}
- _k2OwnedTagObject_ = {mixin} class(_k2OwnedTagObject_Parent_)
+
+ _k2OwnedTagObject_ = class(_k2OwnedTagObject_Parent_)
   {* Тег имеющий ссылку на владельца }
- private
- // private fields
-   f_Owner : Tl3Variant;
- protected
- // overridden property methods
+  private
+   f_Owner: Tl3Variant;
+  protected
+   procedure BeforeAddToCache; override;
+    {* функция, вызываемая перед добавлением объекта в кэш повторного использования. }
    function pm_GetTagOwner: Tl3Variant; override;
    procedure pm_SetTagOwner(aValue: Tl3Variant); override;
- protected
- // overridden protected methods
-   procedure BeforeAddToCache; override;
-     {* функция, вызываемая перед добавлением объекта в кэш повторного использования. }
  end;//_k2OwnedTagObject_
 
 {$Else k2OwnedTagObject_imp}
 
-// start class _k2OwnedTagObject_
+{$IfNDef k2OwnedTagObject_imp_impl}
+
+{$Define k2OwnedTagObject_imp_impl}
 
 procedure _k2OwnedTagObject_.BeforeAddToCache;
+ {* функция, вызываемая перед добавлением объекта в кэш повторного использования. }
 //#UC START# *479F2B3302C1_47AC6AEE0094_var*
 //#UC END# *479F2B3302C1_47AC6AEE0094_var*
 begin
@@ -77,4 +64,7 @@ begin
 //#UC END# *53343980014A_47AC6AEE0094set_impl*
 end;//_k2OwnedTagObject_.pm_SetTagOwner
 
+{$EndIf k2OwnedTagObject_imp_impl}
+
 {$EndIf k2OwnedTagObject_imp}
+

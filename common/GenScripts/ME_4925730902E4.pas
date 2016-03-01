@@ -82,10 +82,6 @@ uses
  {$IfEnd} // Defined(Nemesis)
 ;
 
-{$If not Declared(_InitDataType_)}type _InitDataType_ = IdeSimpleTree;{$IfEnd}
-
-{$If not Declared(_UseCaseControllerType_)}type _UseCaseControllerType_ = IvcmFormSetDataSource;{$IfEnd}
-
 type _Instance_R_ = TdsContents;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseContents.imp.pas}

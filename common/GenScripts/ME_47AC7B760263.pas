@@ -9,11 +9,12 @@ interface
 
 uses
  l3IntfUses
+ , l3Types
 ;
 
 const
- k2_TransparentValue = Pred(High(Long));
- k2_tiByIndex = Succ(l3_siNative);
+ k2_TransparentValue = Pred(High(Integer));
+ k2_tiByIndex = l3Types.l3_siNative + 1;
  k2_tiSelfID = Succ(k2_tiByIndex);
  k2_tiVoid = k2_tiSelfID;
  k2_tiMask = Succ(k2_tiSelfID);

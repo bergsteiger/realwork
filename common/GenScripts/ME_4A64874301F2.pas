@@ -37,8 +37,6 @@ uses
  , l3BitArr
 ;
 
-{$If not Declared(_HashType_)}type _HashType_ = Tl3OneBytePtrHash;{$IfEnd}
-
 {$Include w:\common\components\rtl\Garant\K2\k2ParentedTagObject.imp.pas}
 
 //#UC START# *4A64874301F2impl*

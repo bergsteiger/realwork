@@ -97,12 +97,6 @@ uses
  , l3VCLStrings
 ;
 
-{$If not Declared(_IStringType_)}type _IStringType_ = IString;{$IfEnd}
-
-{$If not Declared(_KeyType_)}type _KeyType_ = PAnsiChar;{$IfEnd}
-
-{$If not Declared(_BooleanType_)}type _BooleanType_ = ByteBool;{$IfEnd}
-
 {$Include w:\common\components\rtl\Garant\L3\l3COMQueryInterface.imp.pas}
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Settings\nsSettings.imp.pas}

@@ -1,116 +1,77 @@
 unit k2EVDWriterService;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Модуль: "w:/common/components/rtl/Garant/K2/k2EVDWriterService.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Service::Class>> Shared Delphi::K2::Readers::Tk2EVDWriterService
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2EVDWriterService.pas"
+// Стереотип: "Service"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  k2CustomFileGenerator,
-  l3ProtoObject,
-  l3Variant
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , k2CustomFileGenerator
+ , l3Variant
+;
 
-(*
- Mk2EVDWriterService = PureMixIn
+ (*
+ Mk2EVDWriterService = interface
   {* Контракт сервиса Tk2EVDWriterService }
-   function GetWriter: Tk2CustomFileGenerator;
-   function MakeWriter(const aFileName: AnsiString): Ik2TagGenerator;
+  function GetWriter: Tk2CustomFileGenerator;
+  function MakeWriter(const aFileName: AnsiString): Ik2TagGenerator;
  end;//Mk2EVDWriterService
-*)
+ *)
 
 type
- Ik2EVDWriterService = interface(IUnknown)
+ Ik2EVDWriterService = interface
   {* Интерфейс сервиса Tk2EVDWriterService }
-   ['{B93031D3-1115-441C-B788-BC5802B50265}']
-  // Mk2EVDWriterService
-   function GetWriter: Tk2CustomFileGenerator;
-   function MakeWriter(const aFileName: AnsiString): Ik2TagGenerator;
+  ['{B93031D3-1115-441C-B788-BC5802B50265}']
+  function GetWriter: Tk2CustomFileGenerator;
+  function MakeWriter(const aFileName: AnsiString): Ik2TagGenerator;
  end;//Ik2EVDWriterService
 
  Tk2EVDWriterService = {final} class(Tl3ProtoObject)
- private
- // private fields
-   f_Alien : Ik2EVDWriterService;
-    {* Поле для свойства Alien}
- protected
- // property methods
+  private
+   f_Alien: Ik2EVDWriterService;
+    {* Поле для свойства Alien }
+  protected
    procedure pm_SetAlien(const aValue: Ik2EVDWriterService);
- public
- // realized methods
+   procedure ClearFields; override;
+  public
    function GetWriter: Tk2CustomFileGenerator;
    function MakeWriter(const aFileName: AnsiString): Ik2TagGenerator;
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property Alien: Ik2EVDWriterService
-     write pm_SetAlien;
-     {* Внешняя реализация сервиса Ik2EVDWriterService }
- public
- // singleton factory method
    class function Instance: Tk2EVDWriterService;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tk2EVDWriterService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+  public
+   property Alien: Ik2EVDWriterService
+    write pm_SetAlien;
+    {* Внешняя реализация сервиса Ik2EVDWriterService }
  end;//Tk2EVDWriterService
 
 implementation
 
 uses
-  l3Base {a}
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-
-// start class Tk2EVDWriterService
-
-var g_Tk2EVDWriterService : Tk2EVDWriterService = nil;
+var g_Tk2EVDWriterService: Tk2EVDWriterService = nil;
+ {* Экземпляр синглетона Tk2EVDWriterService }
 
 procedure Tk2EVDWriterServiceFree;
+ {* Метод освобождения экземпляра синглетона Tk2EVDWriterService }
 begin
  l3Free(g_Tk2EVDWriterService);
-end;
-
-class function Tk2EVDWriterService.Instance: Tk2EVDWriterService;
-begin
- if (g_Tk2EVDWriterService = nil) then
- begin
-  l3System.AddExitProc(Tk2EVDWriterServiceFree);
-  g_Tk2EVDWriterService := Create;
- end;
- Result := g_Tk2EVDWriterService;
-end;
-
+end;//Tk2EVDWriterServiceFree
 
 procedure Tk2EVDWriterService.pm_SetAlien(const aValue: Ik2EVDWriterService);
- {-}
 begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tk2EVDWriterService.pm_SetAlien
-
-class function Tk2EVDWriterService.Exists: Boolean;
- {-}
-begin
- Result := g_Tk2EVDWriterService <> nil;
-end;//Tk2EVDWriterService.Exists
 
 function Tk2EVDWriterService.GetWriter: Tk2CustomFileGenerator;
 //#UC START# *26782C1B9519_555DCEA8017E_var*
@@ -136,8 +97,24 @@ begin
 //#UC END# *F7BF6A35E2B1_555DCEA8017E_impl*
 end;//Tk2EVDWriterService.MakeWriter
 
+class function Tk2EVDWriterService.Instance: Tk2EVDWriterService;
+ {* Метод получения экземпляра синглетона Tk2EVDWriterService }
+begin
+ if (g_Tk2EVDWriterService = nil) then
+ begin
+  l3System.AddExitProc(Tk2EVDWriterServiceFree);
+  g_Tk2EVDWriterService := Create;
+ end;
+ Result := g_Tk2EVDWriterService;
+end;//Tk2EVDWriterService.Instance
+
+class function Tk2EVDWriterService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tk2EVDWriterService <> nil;
+end;//Tk2EVDWriterService.Exists
+
 procedure Tk2EVDWriterService.ClearFields;
- {-}
 begin
  Alien := nil;
  inherited;

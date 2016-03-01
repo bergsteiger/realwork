@@ -65,12 +65,6 @@ begin
  l3Free(g_TnsAttributeTreeCacheNew);
 end;//TnsAttributeTreeCacheNewFree
 
-{$If not Declared(_FindDataType_)}type _FindDataType_ = Tl3WString;{$IfEnd}
-
-{$If not Declared(_ItemType_)}type _ItemType_ = Tl3PrimString;{$IfEnd}
-
-{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
-
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 
 function TnsAttributeTreeCacheNew.pm_GetAttributeRoot(const aTag: Il3CString): INodeBase;

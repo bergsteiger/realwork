@@ -1,123 +1,84 @@
 unit k2EVDReaderService;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Модуль: "w:/common/components/rtl/Garant/K2/k2EVDReaderService.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Service::Class>> Shared Delphi::K2::Readers::Tk2EVDReaderService
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2EVDReaderService.pas"
+// Стереотип: "Service"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  k2CustomFileReader,
-  l3ProtoObject,
-  l3Variant
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , k2CustomFileReader
+ , l3Interfaces
+ , l3Variant
+;
 
-(*
- Mk2EVDReaderService = PureMixIn
+ (*
+ Mk2EVDReaderService = interface
   {* Контракт сервиса Tk2EVDReaderService }
-   function GetReader: Tk2CustomFileReader;
-   function MakeReader(const aFileName: AnsiString;
-    const aFilter: Ik2TagGenerator): Il3Reader;
+  function GetReader: Tk2CustomFileReader;
+  function MakeReader(const aFileName: AnsiString;
+   const aFilter: Ik2TagGenerator): Il3Reader;
  end;//Mk2EVDReaderService
-*)
+ *)
 
 type
- Ik2EVDReaderService = interface(IUnknown)
+ Ik2EVDReaderService = interface
   {* Интерфейс сервиса Tk2EVDReaderService }
-   ['{0D7649DC-496C-4118-A5C9-0D36658FB2DC}']
-  // Mk2EVDReaderService
-   function GetReader: Tk2CustomFileReader;
-   function MakeReader(const aFileName: AnsiString;
-    const aFilter: Ik2TagGenerator): Il3Reader;
+  ['{0D7649DC-496C-4118-A5C9-0D36658FB2DC}']
+  function GetReader: Tk2CustomFileReader;
+  function MakeReader(const aFileName: AnsiString;
+   const aFilter: Ik2TagGenerator): Il3Reader;
  end;//Ik2EVDReaderService
 
  Tk2EVDReaderService = {final} class(Tl3ProtoObject)
- private
- // private fields
-   f_Alien : Ik2EVDReaderService;
-    {* Поле для свойства Alien}
- protected
- // property methods
+  private
+   f_Alien: Ik2EVDReaderService;
+    {* Поле для свойства Alien }
+  protected
    procedure pm_SetAlien(const aValue: Ik2EVDReaderService);
- public
- // realized methods
-   function MakeReader(const aFileName: AnsiString;
-     const aFilter: Ik2TagGenerator): Il3Reader;
-   function GetReader: Tk2CustomFileReader;
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property Alien: Ik2EVDReaderService
-     write pm_SetAlien;
-     {* Внешняя реализация сервиса Ik2EVDReaderService }
- public
- // singleton factory method
+  public
+   function MakeReader(const aFileName: AnsiString;
+    const aFilter: Ik2TagGenerator): Il3Reader;
+   function GetReader: Tk2CustomFileReader;
    class function Instance: Tk2EVDReaderService;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tk2EVDReaderService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+  public
+   property Alien: Ik2EVDReaderService
+    write pm_SetAlien;
+    {* Внешняя реализация сервиса Ik2EVDReaderService }
  end;//Tk2EVDReaderService
 
 implementation
 
 uses
-  l3Base {a}
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-
-// start class Tk2EVDReaderService
-
-var g_Tk2EVDReaderService : Tk2EVDReaderService = nil;
+var g_Tk2EVDReaderService: Tk2EVDReaderService = nil;
+ {* Экземпляр синглетона Tk2EVDReaderService }
 
 procedure Tk2EVDReaderServiceFree;
+ {* Метод освобождения экземпляра синглетона Tk2EVDReaderService }
 begin
  l3Free(g_Tk2EVDReaderService);
-end;
-
-class function Tk2EVDReaderService.Instance: Tk2EVDReaderService;
-begin
- if (g_Tk2EVDReaderService = nil) then
- begin
-  l3System.AddExitProc(Tk2EVDReaderServiceFree);
-  g_Tk2EVDReaderService := Create;
- end;
- Result := g_Tk2EVDReaderService;
-end;
-
+end;//Tk2EVDReaderServiceFree
 
 procedure Tk2EVDReaderService.pm_SetAlien(const aValue: Ik2EVDReaderService);
- {-}
 begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tk2EVDReaderService.pm_SetAlien
 
-class function Tk2EVDReaderService.Exists: Boolean;
- {-}
-begin
- Result := g_Tk2EVDReaderService <> nil;
-end;//Tk2EVDReaderService.Exists
-
 function Tk2EVDReaderService.MakeReader(const aFileName: AnsiString;
-  const aFilter: Ik2TagGenerator): Il3Reader;
+ const aFilter: Ik2TagGenerator): Il3Reader;
 //#UC START# *6A9002DE6C1A_555DB43B00BD_var*
 //#UC END# *6A9002DE6C1A_555DB43B00BD_var*
 begin
@@ -141,8 +102,24 @@ begin
 //#UC END# *9F46A5A9DAF5_555DB43B00BD_impl*
 end;//Tk2EVDReaderService.GetReader
 
+class function Tk2EVDReaderService.Instance: Tk2EVDReaderService;
+ {* Метод получения экземпляра синглетона Tk2EVDReaderService }
+begin
+ if (g_Tk2EVDReaderService = nil) then
+ begin
+  l3System.AddExitProc(Tk2EVDReaderServiceFree);
+  g_Tk2EVDReaderService := Create;
+ end;
+ Result := g_Tk2EVDReaderService;
+end;//Tk2EVDReaderService.Instance
+
+class function Tk2EVDReaderService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tk2EVDReaderService <> nil;
+end;//Tk2EVDReaderService.Exists
+
 procedure Tk2EVDReaderService.ClearFields;
- {-}
 begin
  Alien := nil;
  inherited;

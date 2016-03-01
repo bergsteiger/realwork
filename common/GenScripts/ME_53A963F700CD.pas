@@ -42,10 +42,10 @@ type
    function IDByName(const aName: AnsiString): Integer;
    function NameByID(anID: Integer): AnsiString;
    function CheckIDByName(const aName: AnsiString): Integer;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tk2Attributes;
     {* Метод получения экземпляра синглетона Tk2Attributes }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tk2Attributes
 
 function Tk2Attribute_C(aTagID: Tk2TagID): Tk2Attribute; overload;
@@ -138,10 +138,6 @@ begin
  Result := ANSICompareText(rName, anOther.rName);
 //#UC END# *53A965100324_53A9648F013C_impl*
 end;//Tk2Attribute.Compare
-
-{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
-
-{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
 
 {$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
@@ -239,12 +235,6 @@ begin
 //#UC END# *53A991E60226_53A963F700CD_impl*
 end;//Tk2Attributes.CheckIDByName
 
-class function Tk2Attributes.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tk2Attributes <> nil;
-end;//Tk2Attributes.Exists
-
 class function Tk2Attributes.Instance: Tk2Attributes;
  {* Метод получения экземпляра синглетона Tk2Attributes }
 begin
@@ -255,6 +245,12 @@ begin
  end;
  Result := g_Tk2Attributes;
 end;//Tk2Attributes.Instance
+
+class function Tk2Attributes.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tk2Attributes <> nil;
+end;//Tk2Attributes.Exists
 
 procedure Tk2Attributes.InitFields;
 //#UC START# *47A042E100E2_53A963F700CD_var*

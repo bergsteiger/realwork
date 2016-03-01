@@ -55,6 +55,7 @@ const
  ntResortChild = 17;
   {* Дочерние элементы изменили взаимное расположение. }
  l3GlyphFontName = '__Glyph__';
+ l3_siNative = ;
 
 type
  PIUnknown = ^IUnknown;

@@ -134,10 +134,6 @@ uses
  , l3InterfacesMisc
 ;
 
-{$If not Declared(_FormDataSourceType_)}type _FormDataSourceType_ = IdsDocumentList;{$IfEnd}
-
-{$If not Declared(_UseCaseControllerType_)}type _UseCaseControllerType_ = IvcmFormSetDataSource;{$IfEnd}
-
 type _Instance_R_ = TdsDocumentList;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\List\dsDocumentList.imp.pas}

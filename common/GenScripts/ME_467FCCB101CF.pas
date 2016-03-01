@@ -86,8 +86,6 @@ uses
  , l3BitArr
 ;
 
-{$If not Declared(_HashType_)}type _HashType_ = Tl3PtrHash;{$IfEnd}
-
 type _Instance_R_ = TnsTagNodePrim;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\StyleParser.imp.pas}

@@ -38,12 +38,6 @@ uses
  , l3Memory
 ;
 
-{$If not Declared(_ItemType_)}type _ItemType_ = Tl3Variant;{$IfEnd}
-
-{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
-
-{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
-
 function ItemToWStr(const anItem: _ItemType_): Tl3WString;
 //#UC START# *5304D6C5002B_4860AF86034F_var*
 //#UC END# *5304D6C5002B_4860AF86034F_var*

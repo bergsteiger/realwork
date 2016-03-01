@@ -28,12 +28,6 @@ uses
  , l3Memory
 ;
 
-{$If not Declared(_ItemType_)}type _ItemType_ = Tl3Variant;{$IfEnd}
-
-{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
-
-{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
-
 type _Instance_R_ = Tk2TagList;
 
 {$Include w:\common\components\rtl\Garant\K2\k2TagByIntegerSearcher.imp.pas}

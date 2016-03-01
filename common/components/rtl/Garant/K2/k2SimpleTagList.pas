@@ -1,64 +1,52 @@
 unit k2SimpleTagList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Модуль: "w:/common/components/rtl/Garant/K2/k2SimpleTagList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::K2::k2Containers::Tk2SimpleTagList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2SimpleTagList.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  k2TagList,
-  l3DataContainerWithoutIUnknownPrim,
-  l3Variant,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except,
-  Classes
-  ;
+ l3IntfUses
+ , l3DataContainerWithoutIUnknownPrim
+ , k2TagList
+ , l3Variant
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
  {$Define l3Items_NoSort}
 
 type
  _k2SimpleTagListPrim_Parent_ = Tl3DataContainerWithoutIUnknownPrim;
  {$Define l3Items_IsProto}
- {$Include ..\K2\k2SimpleTagListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2SimpleTagListPrim.imp.pas}
  Tk2SimpleTagList = class(_k2SimpleTagListPrim_)
- public
- // public methods
-   procedure JoinWith(anOther: Tk2TagList); overload; 
+  public
+   procedure JoinWith(anOther: Tk2TagList); overload;
  end;//Tk2SimpleTagList
 
 implementation
 
 uses
-  k2BaseTypes,
-  SysUtils,
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  l3IID,
-  l3InterfacesMisc
-  ;
+ l3ImplUses
+ , k2BaseTypes
+ , SysUtils
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , l3IID
+ , l3InterfacesMisc
+;
 
 type _Instance_R_ = Tk2SimpleTagList;
 
-{$Include ..\K2\k2SimpleTagListPrim.imp.pas}
-
-// start class Tk2SimpleTagList
+{$Include w:\common\components\rtl\Garant\K2\k2SimpleTagListPrim.imp.pas}
 
 procedure Tk2SimpleTagList.JoinWith(anOther: Tk2TagList);
 //#UC START# *5319D72D03D1_5319CECC039A_var*

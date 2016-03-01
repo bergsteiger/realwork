@@ -1,28 +1,16 @@
 unit k2Except;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/K2/k2Except.pas"
-// Начат: 13.04.1998 10:17
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi::K2::k2Except
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2Except.pas"
+// Стереотип: "Interfaces"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  l3Except
-  ;
+ l3IntfUses
+ , l3Except
+;
 
 type
  Ek2Error = class(El3Error)
@@ -65,5 +53,9 @@ type
  end;//Ek2LimitReached
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

@@ -38,12 +38,12 @@ type
    procedure pm_SetAlien(const aValue: Ik2EVDWriterService);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function GetWriter: Tk2CustomFileGenerator;
    function MakeWriter(const aFileName: AnsiString): Ik2TagGenerator;
    class function Instance: Tk2EVDWriterService;
     {* Метод получения экземпляра синглетона Tk2EVDWriterService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: Ik2EVDWriterService
     write pm_SetAlien;
@@ -72,12 +72,6 @@ begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tk2EVDWriterService.pm_SetAlien
-
-class function Tk2EVDWriterService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tk2EVDWriterService <> nil;
-end;//Tk2EVDWriterService.Exists
 
 function Tk2EVDWriterService.GetWriter: Tk2CustomFileGenerator;
 //#UC START# *26782C1B9519_555DCEA8017E_var*
@@ -113,6 +107,12 @@ begin
  end;
  Result := g_Tk2EVDWriterService;
 end;//Tk2EVDWriterService.Instance
+
+class function Tk2EVDWriterService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tk2EVDWriterService <> nil;
+end;//Tk2EVDWriterService.Exists
 
 procedure Tk2EVDWriterService.ClearFields;
 begin

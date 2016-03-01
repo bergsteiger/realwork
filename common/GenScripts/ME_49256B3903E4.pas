@@ -47,8 +47,6 @@ _dsBaseContents_ = _nsContextFilter_;
 {$Define dsBaseContents_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$If not Declared(_UseCaseControllerType_)}type _UseCaseControllerType_ = IvcmFormSetDataSource;{$IfEnd}
-
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\nsContextFilter.imp.pas}
