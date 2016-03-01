@@ -32,8 +32,6 @@ _nevAnchor_ = _nevDiff_;
 {$Define nevAnchor_imp_impl}
 
 {$If Defined(k2ForEditor)}
-{$If not Declared(_X_)}type _X_ = InevPara;{$IfEnd}
-
 {$Include w:\common\components\gui\Garant\Everest\nevBasePoint.imp.pas}
 
 {$Include w:\common\components\gui\Garant\Everest\nevParentPointFactoryEx.imp.pas}

@@ -28,8 +28,6 @@ _nevPrimPoint_ = _nevParentPointFactoryExVOID_;
 {$Define nevPrimPoint_imp_impl}
 
 {$If Defined(evUseVisibleCursors)}
-{$If not Declared(_X_)}type _X_ = InevPara;{$IfEnd}
-
 {$Include w:\common\components\gui\Garant\Everest\nevBasePoint.imp.pas}
 
 {$Include w:\common\components\gui\Garant\Everest\nevParentPointFactoryExVOID.imp.pas}

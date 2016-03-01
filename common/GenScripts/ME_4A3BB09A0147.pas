@@ -30,8 +30,6 @@ uses
  l3ImplUses
 ;
 
-{$If not Declared(_X_)}type _X_ = InevPara;{$IfEnd}
-
 {$Include w:\common\components\gui\Garant\Everest\nevBreakParaAnchorModify.imp.pas}
 {$IfEnd} // Defined(k2ForEditor)
 

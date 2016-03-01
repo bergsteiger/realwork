@@ -66,8 +66,6 @@ _nevBasePoint_ = _nevViewBounds_;
 {$Define nevBasePoint_imp_impl}
 
 {$If Defined(evUseVisibleCursors)}
-{$If not Declared(_X_)}type _X_ = InevPara;{$IfEnd}
-
 {$Include w:\common\components\gui\Garant\Everest\new\nevParaTool.imp.pas}
 
 {$Include w:\common\components\gui\Garant\Everest\nevParentPointFactory.imp.pas}

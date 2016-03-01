@@ -168,8 +168,6 @@ _nevTableRowBaseLineCommon_ = _nevPrimPoint_;
 {$Define nevTableRowBaseLineCommon_imp_impl}
 
 {$If Defined(evUseVisibleCursors)}
-{$If not Declared(_X_)}type _X_ = InevPara;{$IfEnd}
-
 {$Include w:\common\components\gui\Garant\Everest\nevPrimPoint.imp.pas}
 
 procedure _nevTableRowBaseLineCommon_.InitHeadCells(const aView: InevView);

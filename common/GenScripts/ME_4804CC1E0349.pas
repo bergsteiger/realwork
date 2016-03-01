@@ -61,8 +61,6 @@ uses
  , nevTools
 ;
 
-{$If not Declared(_X_)}type _X_ = InevTextPara;{$IfEnd}
-
 {$Include w:\common\components\gui\Garant\Everest\AACSpaceDrawing.imp.pas}
 
 {$Include w:\common\components\gui\Garant\Everest\evCollapsedStylePainter.imp.pas}

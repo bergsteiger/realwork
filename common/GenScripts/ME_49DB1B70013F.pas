@@ -94,8 +94,6 @@ const
  cDeltaText = cPlusSize + cPlusFrameWidth;
   {* Смещение текста после него (иначе получается некрасиво). }
 
-{$If not Declared(_X_)}type _X_ = InevParaList;{$IfEnd}
-
 {$Include w:\common\components\gui\Garant\Everest\AACSpaceDrawing.imp.pas}
 
 procedure TevDocumentPartPainter.CorrectFrameBounds;
