@@ -55,8 +55,6 @@ uses
  , l3Base
 ;
 
-{$If not Declared(_FormClass_)}type _FormClass_ = TPrimTextLoadForm;{$IfEnd}
-
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
 
 function TK228692531.TextForInsert: AnsiString;

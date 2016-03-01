@@ -58,8 +58,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$If not Declared(_FormClass_)}type _FormClass_ = TPrimTextLoadForm;{$IfEnd}
-
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\ColumnResizeByMouse.imp.pas}
 
 {$If NOT Defined(NoVCM)}

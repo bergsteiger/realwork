@@ -33,8 +33,6 @@
 
 {$Define dsTagSimpleTree_imp_impl}
 
-{$If not Declared(_UseCaseControllerType_)}type _UseCaseControllerType_ = IvcmFormSetDataSource;{$IfEnd}
-
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
 
 procedure _dsTagSimpleTree_.UpdateOperations;
