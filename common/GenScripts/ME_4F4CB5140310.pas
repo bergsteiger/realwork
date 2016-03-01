@@ -66,10 +66,6 @@ begin
 //#UC END# *4F4CB697008D_4F4CB52A039F_impl*
 end;//Tm3EndingReplaceItem_C
 
-{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
-
-{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
-
 {$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
  const aFrom: _ItemType_); forward;

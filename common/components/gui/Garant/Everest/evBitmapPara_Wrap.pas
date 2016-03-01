@@ -1,79 +1,60 @@
 unit evBitmapPara_Wrap;
+ {* Wrapper для параграфов с картинками. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evBitmapPara_Wrap.pas"
-// Начат: 25.02.2000 10:40
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Wrapper::Class>> Shared Delphi::Everest::Standard::WevBitmapPara
-//
-// Wrapper для параграфов с картинками.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evBitmapPara_Wrap.pas"
+// Стереотип: "Wrapper"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  k2Base,
-  evPara_Wrap,
-  l3Variant
-  ;
+ l3IntfUses
+ , evPara_Wrap
+ , l3Variant
+ , k2Base
+;
 
 type
- TevBitmapParaPictureGetter = class
- public
- // public methods
-   class function GetPicture(aTag: Tl3Variant;
-     aProp: Tk2Prop;
-     out Data: Tl3Variant): Boolean; virtual;
- end;//TevBitmapParaPictureGetter
-
  RevBitmapParaPictureGetter = class of TevBitmapParaPictureGetter;
+
+ TevBitmapParaPictureGetter = class
+  public
+   class function GetPicture(aTag: Tl3Variant;
+    aProp: Tk2Prop;
+    out Data: Tl3Variant): Boolean; virtual;
+ end;//TevBitmapParaPictureGetter
 
  WevBitmapPara = class(WevPara)
   {* Wrapper для параграфов с картинками. }
- protected
- // overridden protected methods
-   function GetAtomData(AE: Tl3Variant;
-    aProp: Tk2CustomProperty;
-    out Data: Tl3Variant): Boolean; override;
- protected
- // protected methods
+  protected
    function DoGetAtomData(AE: Tl3Variant;
     aProp: Tk2CustomProperty;
     out theData: Tl3Variant): Boolean; virtual;
+   function GetAtomData(AE: Tl3Variant;
+    aProp: Tk2CustomProperty;
+    out Data: Tl3Variant): Boolean; override;
  end;//WevBitmapPara
 
-var
-   g_BitmapParaPictureGetter : RevBitmapParaPictureGetter = nil;
+var g_BitmapParaPictureGetter: RevBitmapParaPictureGetter = nil;
 
 implementation
 
 uses
-  k2Tags,
-  SysUtils,
-  evBitmapParaBitmapContainer,
-  l3Interfaces,
-  Classes,
-  l3Base,
-  l3InternalInterfaces,
-  l3Stream
-  ;
-
-// start class TevBitmapParaPictureGetter
+ l3ImplUses
+ , k2Tags
+ , SysUtils
+ , evBitmapParaBitmapContainer
+ , l3Interfaces
+ , Classes
+ , l3Base
+ , l3InternalInterfaces
+ , l3Stream
+;
 
 class function TevBitmapParaPictureGetter.GetPicture(aTag: Tl3Variant;
-  aProp: Tk2Prop;
-  out Data: Tl3Variant): Boolean;
+ aProp: Tk2Prop;
+ out Data: Tl3Variant): Boolean;
 //#UC START# *4F4B9CB401AF_4F4B991C00A3_var*
 //#UC END# *4F4B9CB401AF_4F4B991C00A3_var*
 begin
@@ -84,8 +65,8 @@ begin
 end;//TevBitmapParaPictureGetter.GetPicture
 
 function WevBitmapPara.DoGetAtomData(AE: Tl3Variant;
-  aProp: Tk2CustomProperty;
-  out theData: Tl3Variant): Boolean;
+ aProp: Tk2CustomProperty;
+ out theData: Tl3Variant): Boolean;
 //#UC START# *48DD1AB50143_485792C1014E_var*
 var
  l_BitmapData      : Tl3Variant;
@@ -155,8 +136,8 @@ begin
 end;//WevBitmapPara.DoGetAtomData
 
 function WevBitmapPara.GetAtomData(AE: Tl3Variant;
-  aProp: Tk2CustomProperty;
-  out Data: Tl3Variant): Boolean;
+ aProp: Tk2CustomProperty;
+ out Data: Tl3Variant): Boolean;
 //#UC START# *4857A995029E_485792C1014E_var*
 //#UC END# *4857A995029E_485792C1014E_var*
 begin

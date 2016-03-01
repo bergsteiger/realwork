@@ -1,35 +1,22 @@
 unit evDocument_Wrap;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evDocument_Wrap.pas"
-// Начат: 16.04.1998 10:29
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Wrapper::Class>> Shared Delphi::Everest::Standard::WevDocument
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evDocument_Wrap.pas"
+// Стереотип: "Wrapper"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evPara_Wrap,
-  k2Base,
-  l3Variant
-  ;
+ l3IntfUses
+ , evPara_Wrap
+ , l3Variant
+ , k2Base
+;
 
 type
  WevDocument = class(WevPara)
- protected
- // overridden protected methods
+  protected
    function GetAtomData(AE: Tl3Variant;
     aProp: Tk2CustomProperty;
     out Data: Tl3Variant): Boolean; override;
@@ -38,16 +25,15 @@ type
 implementation
 
 uses
-  k2Tags,
-  evdTypes,
-  Para_Const
-  ;
-
-// start class WevDocument
+ l3ImplUses
+ , k2Tags
+ , evdTypes
+ , Para_Const
+;
 
 function WevDocument.GetAtomData(AE: Tl3Variant;
-  aProp: Tk2CustomProperty;
-  out Data: Tl3Variant): Boolean;
+ aProp: Tk2CustomProperty;
+ out Data: Tl3Variant): Boolean;
 //#UC START# *4857A995029E_4857B5D901D7_var*
 //#UC END# *4857A995029E_4857B5D901D7_var*
 begin

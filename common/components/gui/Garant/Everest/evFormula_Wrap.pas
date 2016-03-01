@@ -1,28 +1,16 @@
 unit evFormula_Wrap;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evFormula_Wrap.pas"
-// Начат: 15.12.2002 17:34
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Wrapper::Class>> Shared Delphi::Everest::Standard::WevFormula
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evFormula_Wrap.pas"
+// Стереотип: "Wrapper"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evPara_Wrap
-  ;
+ l3IntfUses
+ , evPara_Wrap
+;
 
 type
  WevFormula = class(WevPara)
@@ -31,13 +19,14 @@ type
 implementation
 
 uses
-  ExprDraw,
-  ExprMake,
-  k2Tags,
-  l3GraphicContainer,
-  l3Base,
-  l3InternalInterfaces,
-  SysUtils
-  ;
+ l3ImplUses
+ , ExprDraw
+ , ExprMake
+ , k2Tags
+ , l3GraphicContainer
+ , l3Base
+ , l3InternalInterfaces
+ , SysUtils
+;
 
 end.

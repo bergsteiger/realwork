@@ -1,28 +1,16 @@
 unit evTextPara_Wrap;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evTextPara_Wrap.pas"
-// Начат: 02.11.2004 16:53
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Wrapper::Class>> Shared Delphi::Everest::Standard::WevTextPara
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evTextPara_Wrap.pas"
+// Стереотип: "Wrapper"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evPara_Wrap
-  ;
+ l3IntfUses
+ , evPara_Wrap
+;
 
 type
  WevTextPara = class(WevPara)
@@ -31,8 +19,9 @@ type
 implementation
 
 uses
-  k2Tags,
-  k2Base
-  ;
+ l3ImplUses
+ , k2Tags
+ , k2Base
+;
 
 end.

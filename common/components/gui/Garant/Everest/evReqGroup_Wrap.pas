@@ -1,35 +1,22 @@
 unit evReqGroup_Wrap;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evReqGroup_Wrap.pas"
-// Начат: 22.02.2011 21:17
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Wrapper::Class>> Shared Delphi::Everest::Standard::WevReqGroup
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evReqGroup_Wrap.pas"
+// Стереотип: "Wrapper"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evPara_Wrap,
-  k2Base,
-  l3Variant
-  ;
+ l3IntfUses
+ , evPara_Wrap
+ , l3Variant
+ , k2Base
+;
 
 type
  WevReqGroup = class(WevPara)
- protected
- // overridden protected methods
+  protected
    function PreGetAtomData(AE: Tl3Variant;
     aProp: Tk2CustomProperty;
     out Data: Tl3Variant): Boolean; override;
@@ -38,15 +25,14 @@ type
 implementation
 
 uses
-  Graphics,
-  k2Tags
-  ;
-
-// start class WevReqGroup
+ l3ImplUses
+ , Graphics
+ , k2Tags
+;
 
 function WevReqGroup.PreGetAtomData(AE: Tl3Variant;
-  aProp: Tk2CustomProperty;
-  out Data: Tl3Variant): Boolean;
+ aProp: Tk2CustomProperty;
+ out Data: Tl3Variant): Boolean;
 //#UC START# *48DD0CE60313_4D63FD5001D5_var*
 //#UC END# *48DD0CE60313_4D63FD5001D5_var*
 begin

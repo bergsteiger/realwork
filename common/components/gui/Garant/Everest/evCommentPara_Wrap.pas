@@ -1,63 +1,48 @@
 unit evCommentPara_Wrap;
+ {* Обёртка для CommentPara }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evCommentPara_Wrap.pas"
-// Начат: 24.11.2010 18:32
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Wrapper::Class>> Shared Delphi::Everest::Standard::WevCommentPara
-//
-// Обёртка для CommentPara
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCommentPara_Wrap.pas"
+// Стереотип: "Wrapper"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evPara_Wrap,
-  l3Variant
-  ;
+ l3IntfUses
+ , evPara_Wrap
+ , l3Variant
+;
 
 type
+ RevCommentStorer = class of TevCommentStorer;
+
+ RevCommentModifier = class of TevCommentModifier;
+
  TevCommentStorer = class
   {* Объект умеющий сохранять комментарии }
- protected
- // protected methods
+  protected
    class procedure ForceStore(aTag: Tl3Variant); virtual;
  end;//TevCommentStorer
-
- RevCommentStorer = class of TevCommentStorer;
 
  TevCommentModifier = class(TevdParaModifier)
  end;//TevCommentModifier
 
- RevCommentModifier = class of TevCommentModifier;
-
  WevCommentPara = class(WevPara)
   {* Обёртка для CommentPara }
- public
- // overridden public methods
+  public
    procedure ForceStore(aTag: Tl3Variant); override;
    function MarkModified(aTag: Tl3Variant): Boolean; override;
  end;//WevCommentPara
 
-var
-   g_CommentStorer : RevCommentStorer = nil;
-var
-   g_CommentModifier : RevCommentModifier = nil;
+var g_CommentStorer: RevCommentStorer = nil;
+var g_CommentModifier: RevCommentModifier = nil;
 
 implementation
 
-// start class TevCommentStorer
+uses
+ l3ImplUses
+;
 
 class procedure TevCommentStorer.ForceStore(aTag: Tl3Variant);
 //#UC START# *4CED30D901C7_4CED304B0270_var*
@@ -67,7 +52,6 @@ begin
  // - ничего не делаем, полагаемся на потомков
 //#UC END# *4CED30D901C7_4CED304B0270_impl*
 end;//TevCommentStorer.ForceStore
-// start class WevCommentPara
 
 procedure WevCommentPara.ForceStore(aTag: Tl3Variant);
 //#UC START# *4CED2E7E010A_4CED2FED0255_var*
