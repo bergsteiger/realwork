@@ -14,10 +14,10 @@ uses
 type
  TSpellCheckDlg = class
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TSpellCheckDlg;
     {* Метод получения экземпляра синглетона TSpellCheckDlg }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TSpellCheckDlg
 
 implementation
@@ -40,12 +40,6 @@ begin
  l3Free(g_TSpellCheckDlg);
 end;//TSpellCheckDlgFree
 
-class function TSpellCheckDlg.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TSpellCheckDlg <> nil;
-end;//TSpellCheckDlg.Exists
-
 class function TSpellCheckDlg.Instance: TSpellCheckDlg;
  {* Метод получения экземпляра синглетона TSpellCheckDlg }
 begin
@@ -56,5 +50,11 @@ begin
  end;
  Result := g_TSpellCheckDlg;
 end;//TSpellCheckDlg.Instance
+
+class function TSpellCheckDlg.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TSpellCheckDlg <> nil;
+end;//TSpellCheckDlg.Exists
 
 end.
