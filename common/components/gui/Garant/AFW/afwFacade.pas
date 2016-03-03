@@ -171,8 +171,10 @@ type
 
 var g_TafwMessagesService: TafwMessagesService = nil;
  {* Экземпляр синглетона TafwMessagesService }
+{$If NOT Defined(NoVCL)}
 var g_TafwFormsService: TafwFormsService = nil;
  {* Экземпляр синглетона TafwFormsService }
+{$IfEnd} // NOT Defined(NoVCL)
 var g_TafwKeyboardLayoutService: TafwKeyboardLayoutService = nil;
  {* Экземпляр синглетона TafwKeyboardLayoutService }
 var g_TafwTabService: TafwTabService = nil;
@@ -190,11 +192,13 @@ begin
  l3Free(g_TafwMessagesService);
 end;//TafwMessagesServiceFree
 
+{$If NOT Defined(NoVCL)}
 procedure TafwFormsServiceFree;
  {* Метод освобождения экземпляра синглетона TafwFormsService }
 begin
  l3Free(g_TafwFormsService);
 end;//TafwFormsServiceFree
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TafwKeyboardLayoutServiceFree;
  {* Метод освобождения экземпляра синглетона TafwKeyboardLayoutService }
