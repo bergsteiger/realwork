@@ -5296,15 +5296,35 @@ ref; // ME_54EDC87C00B5 IdaDataProvider
 
 FORWARD ME_56BC63EF028D
 
-: ME_56BC64310348
- CONST UID '56BC64310348'
+: ME_56D822ED0393
+ CONST UID '56D822ED0393'
+ CONST Name 'aFamilyID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_551E7DD302E0' '5432448401BC.pas.ms.script' // TdaFamilyID
+ ;
+
+ref; // ME_56D822ED0393 aFamilyID
+
+: ME_56D822ED03C2
+ CONST UID '56D822ED03C2'
+ CONST Name 'aKey'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_56D822ED03C2 aKey
+
+: ME_56D822EE0019
+ CONST UID '56D822EE0019'
  CONST Name 'anID'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_551E7DC1024B' '5432448401BC.pas.ms.script' // TdaDocID
  ;
 
-ref; // ME_56BC64310348 anID
+ref; // ME_56D822EE0019 anID
 
 : ME_56BC642200D0
  CONST UID '56BC642200D0'
@@ -5314,22 +5334,46 @@ ref; // ME_56BC64310348 anID
  CONST Abstraction at_abstract
  : Parent ME_56BC63EF028D // IdaComboAccessDataProviderHelper
  ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
  : Parameters
-   Seq: ( ME_56BC64310348 // anID
+   Seq: ( ME_56D822ED0393 // aFamilyID
+ ME_56D822ED03C2 // aKey
+ ME_56D822EE0019 // anID
  )
  ; // Parameters
 
 ref; // ME_56BC642200D0 RegisterFreeExtObjID
 
-: ME_56BC64410225
- CONST UID '56BC64410225'
+: ME_56D822E60025
+ CONST UID '56D822E60025'
+ CONST Name 'aFamilyID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_551E7DD302E0' '5432448401BC.pas.ms.script' // TdaFamilyID
+ ;
+
+ref; // ME_56D822E60025 aFamilyID
+
+: ME_56D822E60054
+ CONST UID '56D822E60054'
+ CONST Name 'aKey'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_56D822E60054 aKey
+
+: ME_56D822E60083
+ CONST UID '56D822E60083'
  CONST Name 'anID'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_551E7DC1024B' '5432448401BC.pas.ms.script' // TdaDocID
  ;
 
-ref; // ME_56BC64410225 anID
+ref; // ME_56D822E60083 anID
 
 : ME_56BC6437030F
  CONST UID '56BC6437030F'
@@ -5339,8 +5383,12 @@ ref; // ME_56BC64410225 anID
  CONST Abstraction at_abstract
  : Parent ME_56BC63EF028D // IdaComboAccessDataProviderHelper
  ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
  : Parameters
-   Seq: ( ME_56BC64410225 // anID
+   Seq: ( ME_56D822E60025 // aFamilyID
+ ME_56D822E60054 // aKey
+ ME_56D822E60083 // anID
  )
  ; // Parameters
 

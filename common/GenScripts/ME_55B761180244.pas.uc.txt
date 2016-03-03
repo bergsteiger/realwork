@@ -1,19 +1,21 @@
 //#UC START# *479731C50290_55B761180244_impl*
  f_LogManager := nil;
+ f_LoggingTestService := nil;
  inherited;
 //#UC END# *479731C50290_55B761180244_impl*
 //#UC START# *479731C50290_55B761180244_var*
 //#UC END# *479731C50290_55B761180244_var*
 //#UC START# *47A042E100E2_55B761180244_impl*
  inherited;
- f_LogManager := DefDataAdapter.LogManager;
+ f_LogManager := nil;
+ f_LoggingTestService := TnsLoggingTestService.Instance;
 //#UC END# *47A042E100E2_55B761180244_impl*
 //#UC START# *47A042E100E2_55B761180244_var*
 //#UC END# *47A042E100E2_55B761180244_var*
 //#UC START# *55B760550256_55B761180244_impl*
  l_LogString := GetEnumName(TypeInfo(TLogEvent), Ord(aLogEvent)) + aData.AsString;
- TnsLoggingTestService.Instance.AddLogString(l_LogString);
- f_LogManager.AddEvent(aLogEvent, aData.AsLogEventData);
+ f_LoggingTestService.AddLogString(l_LogString);
+ LogManager.AddEvent(aLogEvent, aData.AsLogEventData);
 //#UC END# *55B760550256_55B761180244_impl*
 //#UC START# *55B760550256_55B761180244_var*
 var

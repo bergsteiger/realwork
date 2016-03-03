@@ -107,36 +107,40 @@ FORWARD ME_476BEEFC018E
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_476BEEFC018E // StoreDefaults
+ : Parent ME_476BEEFC018E // evd_DefaultStoreFlags
  ;
- CONST Value '[evd_sfStoreParaEnd]'
+ CONST Value 'evd_sfStoreParaEnd'
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
- CONST extprop:pas:Value '[evd_sfStoreParaEnd]'
+ CONST extprop:pas:Value 'evd_sfStoreParaEnd'
 
 ref; // ME_476BEF0F0117 DefaultStoreFlags
 
 : ME_476BEEFC018E
  CONST UID '476BEEFC018E'
- CONST Name 'StoreDefaults'
+ CONST Name 'evd_DefaultStoreFlags'
  CONST Class class_Class
- : Stereotype st_Constants ;
+ : Stereotype st_SetConst ;
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  : Parent ME_48F4E61C0060 // Interfaces
  ;
+ : Inherits
+   Seq: ( ME_476BED2603D7 // StoreFlags
+ )
+ ; // Inherits
  : Attributes
    Seq: ( ME_476BEF0F0117 // DefaultStoreFlags
  )
  ; // Attributes
  CONST "spell names" false
- CONST extprop:pas:TypeName 'TevdStoreDefaults'
+ CONST extprop:pas:TypeName 'Tevdevd_DefaultStoreFlags'
  CONST extprop:pas:ElementPrefixBase 'evd'
  CONST extprop:pas:ElementPrefix 'evd_'
 
-ref; // ME_476BEEFC018E StoreDefaults
+ref; // ME_476BEEFC018E evd_DefaultStoreFlags
 
 : ME_48F5CC20002B
  CONST UID '48F5CC20002B'
@@ -219,10 +223,10 @@ ref; // ME_48F5D10D0007 aFilters
  : Stereotype st_in ;
  : Target ME_476BED2603D7 // StoreFlags
  ;
- CONST Value 'DefaultStoreFlags'
- : ValueType ME_476BEEFC018E // StoreDefaults
+ CONST Value '[evd_sfStoreParaEnd]'
+ : ValueType ME_476BED2603D7 // StoreFlags
  ;
- CONST extprop:pas:Value 'evd_DefaultStoreFlags'
+ CONST extprop:pas:Value '[evd_sfStoreParaEnd]'
 
 ref; // ME_48F5D10D008B aFlags
 
@@ -541,7 +545,7 @@ ref; // ME_4CDD38560217 HyperlinkInfo
  )
  ; // Children
  : Constants
-   Seq: ( ME_476BEEFC018E // StoreDefaults
+   Seq: ( ME_476BEEFC018E // evd_DefaultStoreFlags
  )
  ; // Constants
  : Depends
@@ -551,6 +555,7 @@ ref; // ME_4CDD38560217 HyperlinkInfo
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  )
  ; // Depends
+ CONST "UseNewGen" true
  CONST "author" 'Ëþëèí À.Â.'
  CONST "is namespace" true
  CONST "no hands" true

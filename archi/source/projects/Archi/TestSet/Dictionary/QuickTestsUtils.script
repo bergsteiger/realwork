@@ -1260,6 +1260,18 @@ PROCEDURE "Разбивка на блоки 'Больше пяти уровней'"
 	)
 ;
 
+PROCEDURE "Создать каталог, если он не существует" STRING IN aNameDir 
+	aNameDir sysutils:ForceDirectories ASSERT
+;
+
+PROCEDURE "Очистить каталог" STRING IN aPath
+	aPath PureDir
+;
+
+PROCEDURE "Копировать файл" INTEGER IN aCopyMode STRING IN aDestFile STRING IN aSourceFile
+	aCopyMode aDestFile aSourceFile CopyFile
+;
+
 STRING FUNCTION "Получить полный путь к исполняемому файлу"
 	application:ExeName >>> Result
 ;
@@ -1269,31 +1281,61 @@ STRING FUNCTION "Извлечь путь из полного пути" STRING IN aFullFileName
 ;
 
 STRING FUNCTION "Сформировать путь к новому каталогу" STRING IN aPath
-	STRING VAR aSubDir
-	script:FileName '' sysutils:ChangeFileExt sysutils:ExtractFileName >>> aSubDir 
-	[ aPath aSubDir ] strings:Cat >>> Result	
+	STRING VAR l_SubDir
+	script:FileName '' sysutils:ChangeFileExt sysutils:ExtractFileName >>> l_SubDir 
+	[ aPath l_SubDir ] strings:Cat >>> Result	
 ;
 
 STRING FUNCTION "Получить имя ini-файла" STRING IN aPath
-	STRING VAR aFileName
-	aPath '.ini' sysutils:ChangeFileExt sysutils:ExtractFileName >>> aFileName
-	aFileName >>> Result	
+	STRING VAR l_FileName
+	aPath '.ini' sysutils:ChangeFileExt sysutils:ExtractFileName >>> l_FileName
+	l_FileName >>> Result	
 ;
 
 STRING FUNCTION "Получить имя map-файла" STRING IN aPath
-	STRING VAR aFileName
-	aPath '.map' sysutils:ChangeFileExt sysutils:ExtractFileName >>> aFileName
-	aFileName >>> Result	
+	STRING VAR l_FileName
+	aPath '.map' sysutils:ChangeFileExt sysutils:ExtractFileName >>> l_FileName
+	l_FileName >>> Result	
 ;
 
 STRING FUNCTION "Получить имя exe-файла" STRING IN aPath
-	STRING VAR aFileName
-	aPath '.exe' sysutils:ChangeFileExt sysutils:ExtractFileName >>> aFileName
-	aFileName >>> Result	
+	STRING VAR l_FileName
+	aPath '.exe' sysutils:ChangeFileExt sysutils:ExtractFileName >>> l_FileName
+	l_FileName >>> Result	
 ;
 
 STRING FUNCTION "Прибавить к имени ini-файла '_2.ini'" STRING IN aPath
-	STRING VAR aFileName
-	aPath '_2.ini' sysutils:ChangeFileExt sysutils:ExtractFileName >>> aFileName
-	aFileName >>> Result	
+	STRING VAR l_FileName
+	aPath '_2.ini' sysutils:ChangeFileExt sysutils:ExtractFileName >>> l_FileName
+	l_FileName >>> Result	
+;
+
+PROCEDURE "Копировать в каталог для теста ArchiTest.ini" STRING IN aPath STRING IN aPathOldIni STRING IN aPathNewIni  
+	STRING VAR l_IniFileOld
+	STRING VAR l_IniFileNew
+	"Получить имя ini-файла {(aPath)}" >>> l_IniFileOld
+	"Получить имя ini-файла {(aPath)}" >>> l_IniFileNew	
+	[ aPathOldIni l_IniFileOld ] strings:Cat >>> l_IniFileOld
+	[ aPathNewIni '\' l_IniFileNew ] strings:Cat >>> l_IniFileNew
+	"Копировать файл {("Не создавать копию перезаписываемого файла")} {(l_IniFileNew)} {(l_IniFileOld)}"
+;
+
+PROCEDURE "Копировать в каталог для теста ArchiTest.exe" STRING IN aPath STRING IN aPathOldExe STRING IN aPathNewExe
+	STRING VAR l_ExeFileOld
+	STRING VAR l_ExeFileNew
+	"Получить имя exe-файла {(aPath)}" >>> l_ExeFileOld
+	"Получить имя exe-файла {(aPath)}" >>> l_ExeFileNew
+	[ aPathOldExe l_ExeFileOld ] strings:Cat >>> l_ExeFileOld
+	[ aPathNewExe '\' l_ExeFileNew ] strings:Cat >>> l_ExeFileNew
+	"Копировать файл {("Не создавать копию перезаписываемого файла")} {(l_ExeFileNew)} {(l_ExeFileOld)}"
+;
+
+PROCEDURE "Копировать в каталог для теста ArchiTest.map" STRING IN aPath STRING IN aPathOldMap STRING IN aPathNewMap
+	STRING VAR l_MapFileOld
+	STRING VAR l_MapFileNew
+	"Получить имя map-файла {(aPath)}" >>> l_MapFileOld
+	"Получить имя map-файла {(aPath)}" >>> l_MapFileNew
+	[ aPathOldMap l_MapFileOld ] strings:Cat >>> l_MapFileOld
+	[ aPathNewMap '\' l_MapFileNew ] strings:Cat >>> l_MapFileNew
+	"Копировать файл {("Не создавать копию перезаписываемого файла")} {(l_MapFileNew)} {(l_MapFileOld)}"
 ;

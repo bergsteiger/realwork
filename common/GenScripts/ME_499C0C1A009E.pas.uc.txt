@@ -1,0 +1,30 @@
+//#UC START# *499C0C240318_499C0C1A009Eget_impl*
+  Result := TreeStruct.GetLevel(GetCurrentNode);
+//#UC END# *499C0C240318_499C0C1A009Eget_impl*
+//#UC START# *499C0C240318_499C0C1A009Eget_var*
+//#UC END# *499C0C240318_499C0C1A009Eget_var*
+//#UC START# *499C0C3600B4_499C0C1A009Eget_impl*
+ Result := TreeStruct.GetIndex(GetCurrentNode);
+//#UC END# *499C0C3600B4_499C0C1A009Eget_impl*
+//#UC START# *499C0C3600B4_499C0C1A009Eget_var*
+//#UC END# *499C0C3600B4_499C0C1A009Eget_var*
+//#UC START# *499C0C420199_499C0C1A009Eget_impl*
+  Result := TreeStruct.IsExpanded(GetCurrentNode);
+//#UC END# *499C0C420199_499C0C1A009Eget_impl*
+//#UC START# *499C0C420199_499C0C1A009Eget_var*
+//#UC END# *499C0C420199_499C0C1A009Eget_var*
+//#UC START# *499C1DC600BD_499C0C1A009Eget_impl*
+  Result := False;
+  try
+   if Supports(GetCurrentNode, InscOperationNode, l_Op) then
+    Result := l_Op.Op.RepOp.Action.Enabled
+   else
+    Result := false;
+  except
+    // гасим исключения
+  end;
+//#UC END# *499C1DC600BD_499C0C1A009Eget_impl*
+//#UC START# *499C1DC600BD_499C0C1A009Eget_var*
+var
+  l_Op: InscOperationNode;
+//#UC END# *499C1DC600BD_499C0C1A009Eget_var*

@@ -5243,23 +5243,6 @@ ref; // ME_53189C4D01EE DoIt
 
 ref; // ME_53189C3D034E FontByName
 
-: ME_2BF624D6179C
- CONST UID '2BF624D6179C'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5318974F0065 // Tk2FontManager
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_2BF624D6179C Exists
-
 : ME_53189FEB0186
  CONST UID '53189FEB0186'
  CONST Class class_Dependency
@@ -5319,7 +5302,6 @@ ref; // ME_47A042E100E2_ME_5318974F0065 InitFields
  ; // Inherits
  : Operations
    Seq: ( ME_53189C3D034E // FontByName
- ME_2BF624D6179C // Exists
  )
  ; // Operations
  : Overridden
@@ -6389,5 +6371,6 @@ ref; // ME_53AAF9330342 Tk2TypedHugeLeafTag
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  )
  ; // Depends
+ CONST "UseNewGen" true
 
 ref; // ME_467FC43F01F9 k2CoreObjects

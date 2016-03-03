@@ -2077,23 +2077,6 @@ ref; // ME_53C7DA940208 DoIt
 
 ref; // ME_53C7DA8400D6 NotifyListeners
 
-: ME_FAF791E82CD2
- CONST UID 'FAF791E82CD2'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_53C7D8AB0282 // Tk2TypeTableCreatedListeners
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_FAF791E82CD2 Exists
-
 : ME_47B07CF403D0_ME_53C7D8AB0282
  CONST UID '47B07CF403D0'
  CONST Name 'IsSameItems'
@@ -2169,7 +2152,6 @@ ref; // ME_47B99D4503A2_ME_53C7D8AB0282 CompareExistingItems
  : Operations
    Seq: ( ME_53C7D9E60110 // AddListener
  ME_53C7DA8400D6 // NotifyListeners
- ME_FAF791E82CD2 // Exists
  )
  ; // Operations
  : Implemented
@@ -2230,5 +2212,6 @@ ref; // ME_53C7D8AB0282 Tk2TypeTableCreatedListeners
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  )
  ; // Depends
+ CONST "UseNewGen" true
 
 ref; // ME_4A4DE16302A2 k2Core

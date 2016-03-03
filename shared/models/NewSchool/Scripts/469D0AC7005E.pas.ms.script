@@ -1806,6 +1806,192 @@ ref; // ME_5314AE7C011D Diff
 
 ref; // ME_5314ADDF0365 SegmentHandle
 
+FORWARD ME_485BA24D02FE
+
+: ME_485BA9360308
+ CONST UID '485BA9360308'
+ CONST Name 'first'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_485BA24D02FE // NormalSegLayerHandleP
+ ;
+ CONST Value 'View'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 'View'
+
+ref; // ME_485BA9360308 first
+
+: ME_485BA9470182
+ CONST UID '485BA9470182'
+ CONST Name 'second'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_485BA24D02FE // NormalSegLayerHandleP
+ ;
+ CONST Value 'Mistakes'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 'Mistakes'
+
+ref; // ME_485BA9470182 second
+
+: ME_485BA24D02FE
+ CONST UID '485BA24D02FE'
+ CONST Name 'NormalSegLayerHandleP'
+ CONST Class class_Class
+ : Stereotype st_Range ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_469D0AC7005E // Types
+ ;
+ : Inherits
+   Seq: ( ME_5314ADDF0365 // SegmentHandle
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_485BA9360308 // first
+ ME_485BA9470182 // second
+ )
+ ; // Attributes
+ CONST "spell names" false
+ CONST extprop:pas:TypeName 'TevNormalSegLayerHandleP'
+ CONST extprop:pas:ElementPrefixBase 'ev'
+ CONST extprop:pas:ElementPrefix 'ev_'
+
+ref; // ME_485BA24D02FE NormalSegLayerHandleP
+
+: ME_485BA26000C8
+ CONST UID '485BA26000C8'
+ CONST Name 'NormalSegLayerHandleSet'
+ CONST Class class_Class
+ : Stereotype st_SetOf ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_469D0AC7005E // Types
+ ;
+ : Inherits
+   Seq: ( ME_485BA24D02FE // NormalSegLayerHandleP
+ )
+ ; // Inherits
+ CONST extprop:pas:TypeName 'TevNormalSegLayerHandleSet'
+ CONST extprop:pas:ElementPrefixBase 'ev'
+
+ref; // ME_485BA26000C8 NormalSegLayerHandleSet
+
+FORWARD ME_4A8D2711030C
+
+: ME_4A8D271F0207
+ CONST UID '4A8D271F0207'
+ CONST Name 'POSITION_TYPE_PARA_ID'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A8D2711030C // Sub Const
+ ;
+ CONST Value 2147483648
+ CONST "AutoInc" false
+ CONST "forced type" 'unsigned long'
+ CONST "is define" false
+ CONST extprop:pas:Value 2147483648
+
+ref; // ME_4A8D271F0207 POSITION_TYPE_PARA_ID
+
+: ME_4A8D2711030C
+ CONST UID '4A8D2711030C'
+ CONST Name 'Sub Const'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_469D0AC7005E // Types
+ ;
+ : Attributes
+   Seq: ( ME_4A8D271F0207 // POSITION_TYPE_PARA_ID
+ )
+ ; // Attributes
+ CONST "elements prefix" '<none>'
+ CONST "spell names" false
+ CONST extprop:pas:TypeName 'TevSub Const'
+
+ref; // ME_4A8D2711030C Sub Const
+
+FORWARD ME_4FBE15CD02C7
+
+: ME_4FBE15FC02A0
+ CONST UID '4FBE15FC02A0'
+ CONST Name 'None'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4FBE15CD02C7 // BlockViewKind
+ ;
+
+ref; // ME_4FBE15FC02A0 None
+
+: ME_4FBE16030368
+ CONST UID '4FBE16030368'
+ CONST Name 'Left'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4FBE15CD02C7 // BlockViewKind
+ ;
+
+ref; // ME_4FBE16030368 Left
+
+: ME_4FBE160A0283
+ CONST UID '4FBE160A0283'
+ CONST Name 'Right'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4FBE15CD02C7 // BlockViewKind
+ ;
+
+ref; // ME_4FBE160A0283 Right
+
+: ME_4FBE15CD02C7
+ CONST UID '4FBE15CD02C7'
+ CONST Name 'BlockViewKind'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_469D0AC7005E // Types
+ ;
+ : Implements
+   Seq: ( WL 'ME_4FBE1CBF01A8' '4E57B8C2010F.pas.ms.script' // У блоков и документов должен быть тег ViewKind
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_4FBE15FC02A0 // None
+ ME_4FBE16030368 // Left
+ ME_4FBE160A0283 // Right
+ )
+ ; // Attributes
+ CONST "children prefix" 'bvk'
+ CONST extprop:pas:TypeName 'TevBlockViewKind'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:ElementPrefixBase 'ev'
+ CONST extprop:pas:ElementPrefix 'ev_bvk'
+
+ref; // ME_4FBE15CD02C7 BlockViewKind
+
 FORWARD ME_47F24AFB0308
 
 : ME_47F24B140259
@@ -1998,192 +2184,6 @@ ref; // ME_4A6DBA9802DE Diff
 
 ref; // ME_47F24AFB0308 Layers
 
-FORWARD ME_485BA24D02FE
-
-: ME_485BA9360308
- CONST UID '485BA9360308'
- CONST Name 'first'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_485BA24D02FE // NormalSegLayerHandleP
- ;
- CONST Value 'View'
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value 'View'
-
-ref; // ME_485BA9360308 first
-
-: ME_485BA9470182
- CONST UID '485BA9470182'
- CONST Name 'second'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_485BA24D02FE // NormalSegLayerHandleP
- ;
- CONST Value 'Mistakes'
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value 'Mistakes'
-
-ref; // ME_485BA9470182 second
-
-: ME_485BA24D02FE
- CONST UID '485BA24D02FE'
- CONST Name 'NormalSegLayerHandleP'
- CONST Class class_Class
- : Stereotype st_Range ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_469D0AC7005E // Types
- ;
- : Inherits
-   Seq: ( ME_47F24AFB0308 // Layers
- )
- ; // Inherits
- : Attributes
-   Seq: ( ME_485BA9360308 // first
- ME_485BA9470182 // second
- )
- ; // Attributes
- CONST "spell names" false
- CONST extprop:pas:TypeName 'TevNormalSegLayerHandleP'
- CONST extprop:pas:ElementPrefixBase 'ev'
- CONST extprop:pas:ElementPrefix 'ev_'
-
-ref; // ME_485BA24D02FE NormalSegLayerHandleP
-
-FORWARD ME_4A8D2711030C
-
-: ME_4A8D271F0207
- CONST UID '4A8D271F0207'
- CONST Name 'POSITION_TYPE_PARA_ID'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4A8D2711030C // Sub Const
- ;
- CONST Value 2147483648
- CONST "AutoInc" false
- CONST "forced type" 'unsigned long'
- CONST "is define" false
- CONST extprop:pas:Value 2147483648
-
-ref; // ME_4A8D271F0207 POSITION_TYPE_PARA_ID
-
-: ME_4A8D2711030C
- CONST UID '4A8D2711030C'
- CONST Name 'Sub Const'
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_469D0AC7005E // Types
- ;
- : Attributes
-   Seq: ( ME_4A8D271F0207 // POSITION_TYPE_PARA_ID
- )
- ; // Attributes
- CONST "elements prefix" '<none>'
- CONST "spell names" false
- CONST extprop:pas:TypeName 'TevSub Const'
-
-ref; // ME_4A8D2711030C Sub Const
-
-FORWARD ME_4FBE15CD02C7
-
-: ME_4FBE15FC02A0
- CONST UID '4FBE15FC02A0'
- CONST Name 'None'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4FBE15CD02C7 // BlockViewKind
- ;
-
-ref; // ME_4FBE15FC02A0 None
-
-: ME_4FBE16030368
- CONST UID '4FBE16030368'
- CONST Name 'Left'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4FBE15CD02C7 // BlockViewKind
- ;
-
-ref; // ME_4FBE16030368 Left
-
-: ME_4FBE160A0283
- CONST UID '4FBE160A0283'
- CONST Name 'Right'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4FBE15CD02C7 // BlockViewKind
- ;
-
-ref; // ME_4FBE160A0283 Right
-
-: ME_4FBE15CD02C7
- CONST UID '4FBE15CD02C7'
- CONST Name 'BlockViewKind'
- CONST Class class_Class
- : Stereotype st_Enum ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_469D0AC7005E // Types
- ;
- : Implements
-   Seq: ( WL 'ME_4FBE1CBF01A8' '4E57B8C2010F.pas.ms.script' // У блоков и документов должен быть тег ViewKind
- )
- ; // Implements
- : Attributes
-   Seq: ( ME_4FBE15FC02A0 // None
- ME_4FBE16030368 // Left
- ME_4FBE160A0283 // Right
- )
- ; // Attributes
- CONST "children prefix" 'bvk'
- CONST extprop:pas:TypeName 'TevBlockViewKind'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:ElementPrefixBase 'ev'
- CONST extprop:pas:ElementPrefix 'ev_bvk'
-
-ref; // ME_4FBE15CD02C7 BlockViewKind
-
-: ME_485BA26000C8
- CONST UID '485BA26000C8'
- CONST Name 'NormalSegLayerHandleSet'
- CONST Class class_Class
- : Stereotype st_SetOf ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_469D0AC7005E // Types
- ;
- : Inherits
-   Seq: ( ME_485BA24D02FE // NormalSegLayerHandleP
- )
- ; // Inherits
- CONST extprop:pas:TypeName 'TevNormalSegLayerHandleSet'
- CONST extprop:pas:ElementPrefixBase 'ev'
-
-ref; // ME_485BA26000C8 NormalSegLayerHandleSet
-
 : ME_469D0AC7005E
  CONST UID '469D0AC7005E'
  CONST Name 'Types'
@@ -2208,8 +2208,8 @@ ref; // ME_485BA26000C8 NormalSegLayerHandleSet
  ME_4857A355014D // HFType
  ME_5314ADDF0365 // SegmentHandle
  ME_485BA24D02FE // NormalSegLayerHandleP
- ME_4FBE15CD02C7 // BlockViewKind
  ME_485BA26000C8 // NormalSegLayerHandleSet
+ ME_4FBE15CD02C7 // BlockViewKind
  )
  ; // Children
  : Constants
@@ -2218,14 +2218,15 @@ ref; // ME_485BA26000C8 NormalSegLayerHandleSet
  ME_484CDAC302F7 // Sub Layers
  ME_484D1C0700AF // Sub Flags
  ME_485A06830323 // ev_spInContents
- ME_47F24AFB0308 // Layers
  ME_4A8D2711030C // Sub Const
+ ME_47F24AFB0308 // Layers
  )
  ; // Constants
  : Depends
    Seq: ( WL 'ME_4E57B8C2010F' '4E57B8C2010F.pas.ms.script' // Требования к схеме документа EVD
  )
  ; // Depends
+ CONST "UseNewGen" true
  CONST "author" 'Люлин А.В.'
  CONST "elements prefix" 'ev'
  CONST "no hands" true

@@ -54,37 +54,6 @@ ref; // ME_483E80FA0312 TevdNativeReader
 
 FORWARD ME_555DB62E036B
 
-: ME_294A1A2FC2B0
- CONST UID '294A1A2FC2B0'
- CONST Name 'bind'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TevdEVDReaderService' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_555DB62E036B // TevdEVDReaderService
- ;
-
-ref; // ME_294A1A2FC2B0 bind
-
-: ME_06EA3FBD29CB
- CONST UID '06EA3FBD29CB'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_555DB62E036B // TevdEVDReaderService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_06EA3FBD29CB Exists
-
 : ME_555DB6380224
  CONST UID '555DB6380224'
  CONST Class class_Dependency
@@ -156,11 +125,6 @@ ref; // ME_9F46A5A9DAF5_ME_555DB62E036B GetReader
    Seq: ( WL 'ME_4EE7B78D5AA0' '482D6E960087.pas.ms.script' // Ik2EVDReaderService
  )
  ; // Implements
- : Operations
-   Seq: ( ME_294A1A2FC2B0 // bind
- ME_06EA3FBD29CB // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_6A9002DE6C1A_ME_555DB62E036B // MakeReader
  ME_9F46A5A9DAF5_ME_555DB62E036B // GetReader
@@ -224,6 +188,7 @@ ref; // ME_555DB607006F evdNativeReaderServices
  WL 'ME_4C1B915E0261' '4C1B915E0261.pas.ms.script' // Version Info
  )
  ; // Depends
+ CONST "UseNewGen" true
  CONST "elements prefix" '<none>'
 
 ref; // ME_483E80C9025F Readers

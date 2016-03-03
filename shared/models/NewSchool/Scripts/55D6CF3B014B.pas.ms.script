@@ -6734,6 +6734,26 @@ ref; // ME_5657FB2B0068
 
 ref; // ME_56582DC90364 
 
+: ME_56BC642200D0_ME_56556EF3017C
+ CONST UID '56BC642200D0'
+ CONST Name 'RegisterFreeExtObjID'
+ : Original WL 'ME_56BC642200D0' '5432518A0316.pas.ms.script' // RegisterFreeExtObjID
+ ;
+ : Implementor ME_56556EF3017C // TpgFreeIDHelper
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_56BC642200D0_ME_56556EF3017C RegisterFreeExtObjID
+
+: ME_56BC6437030F_ME_56556EF3017C
+ CONST UID '56BC6437030F'
+ CONST Name 'RegisterFreeExtDocID'
+ : Original WL 'ME_56BC6437030F' '5432518A0316.pas.ms.script' // RegisterFreeExtDocID
+ ;
+ : Implementor ME_56556EF3017C // TpgFreeIDHelper
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_56BC6437030F_ME_56556EF3017C RegisterFreeExtDocID
+
 : ME_479731C50290_ME_56556EF3017C
  CONST UID '479731C50290'
  CONST Name 'Cleanup'
@@ -6758,6 +6778,10 @@ ref; // ME_479731C50290_ME_56556EF3017C Cleanup
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_56BC63EF028D' '5432518A0316.pas.ms.script' // IdaComboAccessDataProviderHelper
+ )
+ ; // Implements
  : Attributes
    Seq: ( ME_5656EFBD03B4 // f_IntervalQuery
  ME_5657FB080139 // f_FamilyID
@@ -6779,6 +6803,11 @@ ref; // ME_479731C50290_ME_56556EF3017C Cleanup
  ME_56558EF30265 // AnyRangesPresent
  )
  ; // Operations
+ : Implemented
+   Seq: ( ME_56BC642200D0_ME_56556EF3017C // RegisterFreeExtObjID
+ ME_56BC6437030F_ME_56556EF3017C // RegisterFreeExtDocID
+ )
+ ; // Implemented
  : Overridden
    Seq: ( ME_479731C50290_ME_56556EF3017C // Cleanup
  )

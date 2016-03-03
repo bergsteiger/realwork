@@ -2242,37 +2242,6 @@ ref; // ME_541A7EEC0051 TevdPDFHyperLinkEliminator
 
 FORWARD ME_555DCF5A0060
 
-: ME_C61A798DCFCA
- CONST UID 'C61A798DCFCA'
- CONST Name 'bind'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TevdEVDWriterService' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_555DCF5A0060 // TevdEVDWriterService
- ;
-
-ref; // ME_C61A798DCFCA bind
-
-: ME_46F7BF1ADE7A
- CONST UID '46F7BF1ADE7A'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_555DCF5A0060 // TevdEVDWriterService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_46F7BF1ADE7A Exists
-
 : ME_555DCF650257
  CONST UID '555DCF650257'
  CONST Class class_Dependency
@@ -2344,11 +2313,6 @@ ref; // ME_F7BF6A35E2B1_ME_555DCF5A0060 MakeWriter
    Seq: ( WL 'ME_45A65DABCE57' '482D6E960087.pas.ms.script' // Ik2EVDWriterService
  )
  ; // Implements
- : Operations
-   Seq: ( ME_C61A798DCFCA // bind
- ME_46F7BF1ADE7A // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_26782C1B9519_ME_555DCF5A0060 // GetWriter
  ME_F7BF6A35E2B1_ME_555DCF5A0060 // MakeWriter
@@ -2455,6 +2419,7 @@ ref; // ME_555DCF340385 evdCustomNativeWriterServices
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  )
  ; // Depends
+ CONST "UseNewGen" true
  CONST "elements prefix" '<none>'
 
 ref; // ME_47ECB8BD00A8 Generators

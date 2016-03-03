@@ -12983,6 +12983,64 @@ ref; // ME_56A9F17B003C TdestBookmark
 
 FORWARD ME_56BB14F503A0
 
+FORWARD ME_56D80DFA0207
+
+: ME_56D80E060044
+ CONST UID '56D80E060044'
+ CONST Name 'dd_spNone'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56D80DFA0207 // TddSplitPara
+ ;
+
+ref; // ME_56D80E060044 dd_spNone
+
+: ME_56D80E140254
+ CONST UID '56D80E140254'
+ CONST Name 'dd_spNumber'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56D80DFA0207 // TddSplitPara
+ ;
+
+ref; // ME_56D80E140254 dd_spNumber
+
+: ME_56D80E22036B
+ CONST UID '56D80E22036B'
+ CONST Name 'dd_spHypen'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56D80DFA0207 // TddSplitPara
+ ;
+
+ref; // ME_56D80E22036B dd_spHypen
+
+: ME_56D80DFA0207
+ CONST UID '56D80DFA0207'
+ CONST Name 'TddSplitPara'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56BB14F503A0 // TdestNormSpec
+ ;
+ : Attributes
+   Seq: ( ME_56D80E060044 // dd_spNone
+ ME_56D80E140254 // dd_spNumber
+ ME_56D80E22036B // dd_spHypen
+ )
+ ; // Attributes
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_56D80DFA0207 TddSplitPara
+
 : ME_56BD710803AE
  CONST UID '56BD710803AE'
  CONST Name 'f_PrevColsWidth'
@@ -13161,6 +13219,21 @@ ref; // ME_56C6FC1A013D f_TabIndex
  ;
 
 ref; // ME_56C6FC490288 f_Table
+
+: ME_56D80E79020F
+ CONST UID '56D80E79020F'
+ CONST Name 'f_SplitPara'
+ CONST Class class_Attribute
+ %SUMMARY 'Как разбивать оставшуюся часть параграфа.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56BB14F503A0 // TdestNormSpec
+ ;
+ : Target ME_56D80DFA0207 // TddSplitPara
+ ;
+
+ref; // ME_56D80E79020F f_SplitPara
 
 FORWARD ME_56BB3E570128
 
@@ -13717,6 +13790,50 @@ ref; // ME_56C8463B03DF DoIt
 
 ref; // ME_56C846290255 ClearTextPara4Table
 
+FORWARD ME_56D81BA40350
+
+: ME_56D826370112
+ CONST UID '56D826370112'
+ CONST Name 'aPAP'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_51DBBDD6011E' '4F6843C101D1.pas.ms.script' // TddParagraphProperty
+ ;
+
+ref; // ME_56D826370112 aPAP
+
+: ME_56D81BB70160
+ CONST UID '56D81BB70160'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56D81BA40350 // AddNewRow
+ ;
+ : Parameters
+   Seq: ( ME_56D826370112 // aPAP
+ )
+ ; // Parameters
+
+ref; // ME_56D81BB70160 DoIt
+
+: ME_56D81BA40350
+ CONST UID '56D81BA40350'
+ CONST Name 'AddNewRow'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56BB14F503A0 // TdestNormSpec
+ ;
+ : Operations
+   Seq: ( ME_56D81BB70160 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56D81BA40350 AddNewRow
+
 : ME_56BD936A00AC
  CONST UID '56BD936A00AC'
  CONST Class class_Dependency
@@ -13974,6 +14091,7 @@ ref; // ME_56C574EA022E_ME_56BB14F503A0 DoAddTabStop
  ME_56C6FBE90053 // f_SaveInColumns
  ME_56C6FC1A013D // f_TabIndex
  ME_56C6FC490288 // f_Table
+ ME_56D80E79020F // f_SplitPara
  )
  ; // Attributes
  : Operations
@@ -13990,6 +14108,7 @@ ref; // ME_56C574EA022E_ME_56BB14F503A0 DoAddTabStop
  ME_56C6FD0C03C4 // NeedNewCell
  ME_56C6FD3B01A5 // AddNewCell
  ME_56C846290255 // ClearTextPara4Table
+ ME_56D81BA40350 // AddNewRow
  )
  ; // Operations
  : Overridden
@@ -14010,6 +14129,10 @@ ref; // ME_56C574EA022E_ME_56BB14F503A0 DoAddTabStop
  ME_56C574EA022E_ME_56BB14F503A0 // DoAddTabStop
  )
  ; // Overridden
+ : Children
+   Seq: ( ME_56D80DFA0207 // TddSplitPara
+ )
+ ; // Children
  : Dependencies
    Seq: ( ME_56BD936A00AC // 
  ME_56BD9AC301D6 // 
