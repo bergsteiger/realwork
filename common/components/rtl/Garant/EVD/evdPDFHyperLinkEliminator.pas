@@ -1,35 +1,23 @@
 unit evdPDFHyperLinkEliminator;
+ {* Фильтр, удаляющий ссылки для PDF. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EVD"
-// Модуль: "w:/common/components/rtl/Garant/EVD/evdPDFHyperLinkEliminator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::EVD::Generators::TevdPDFHyperLinkEliminator
-//
-// Фильтр, удаляющий ссылки для PDF.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\EVD\evdPDFHyperLinkEliminator.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\EVD\evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 
 uses
-  evdHyperlinkEliminator,
-  l3Variant
-  ;
+ l3IntfUses
+ , evdHyperlinkEliminator
+ , l3Variant
+;
 
 type
  TevdPDFHyperLinkEliminator = class(TevdHyperlinkEliminator)
   {* Фильтр, удаляющий ссылки для PDF. }
- protected
- // overridden protected methods
+  protected
    procedure AddAtomEx(AtomIndex: Integer;
     const Value: Ik2Variant); override;
  end;//TevdPDFHyperLinkEliminator
@@ -37,16 +25,15 @@ type
 implementation
 
 uses
-  k2Tags,
-  k2VariantImpl,
-  k2Types,
-  evdStyles
-  ;
-
-// start class TevdPDFHyperLinkEliminator
+ l3ImplUses
+ , k2Tags
+ , k2VariantImpl
+ , k2Types
+ , evdStyles
+;
 
 procedure TevdPDFHyperLinkEliminator.AddAtomEx(AtomIndex: Integer;
-  const Value: Ik2Variant);
+ const Value: Ik2Variant);
 //#UC START# *4836D52400D9_541A7EEC0051_var*
 var
  l_Value: Tk2Variant;

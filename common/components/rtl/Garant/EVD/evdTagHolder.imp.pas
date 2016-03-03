@@ -1,40 +1,32 @@
 {$IfNDef evdTagHolder_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EVD"
-// Модуль: "w:/common/components/rtl/Garant/EVD/evdTagHolder.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::EVD::TagHolder::evdTagHolder
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define evdTagHolder_imp}
+
  _k2TaggedDataHolder_Parent_ = _evdTagHolder_Parent_;
  {$Include w:\common\components\rtl\Garant\K2\k2TaggedDataHolder.imp.pas}
- _evdTagHolder_ = {mixin} class(_k2TaggedDataHolder_)
- protected
- // protected methods
+ _evdTagHolder_ = class(_k2TaggedDataHolder_)
+  protected
    function NeedSendRawDataAsBinary: Boolean; virtual;
- public
- // public methods
+  public
    procedure SaveToEVD(aStream: TStream;
-     const aFilter: Ik2TagGenerator);
+    const aFilter: Ik2TagGenerator);
    class function CreateTaggedDataFromEVD(aStream: TStream): Tl3Tag;
    procedure LoadFromEVD(aStream: TStream);
  end;//_evdTagHolder_
 
 {$Else evdTagHolder_imp}
 
+{$IfNDef evdTagHolder_imp_impl}
+
+{$Define evdTagHolder_imp_impl}
+
 {$Include w:\common\components\rtl\Garant\K2\k2TaggedDataHolder.imp.pas}
 
-// start class _evdTagHolder_
-
 procedure _evdTagHolder_.SaveToEVD(aStream: TStream;
-  const aFilter: Ik2TagGenerator);
+ const aFilter: Ik2TagGenerator);
 //#UC START# *53AC1EA102D7_53AC01CD0335_var*
 var
  l_Writer : TevdNativeWriter;
@@ -167,4 +159,7 @@ begin
 //#UC END# *549413590379_53AC01CD0335_impl*
 end;//_evdTagHolder_.NeedSendRawDataAsBinary
 
+{$EndIf evdTagHolder_imp_impl}
+
 {$EndIf evdTagHolder_imp}
+

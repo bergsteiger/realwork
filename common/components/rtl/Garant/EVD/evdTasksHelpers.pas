@@ -1,129 +1,109 @@
 unit evdTasksHelpers;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EVD"
-// Модуль: "w:/common/components/rtl/Garant/EVD/evdTasksHelpers.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::EVD::Standard::evdTasksHelpers
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\EVD\evdTasksHelpers.pas"
+// Стереотип: "UtilityPack"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\EVD\evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  Classes,
-  l3LongintList,
-  l3ProtoObject,
-  l3Variant,
-  k2SizedMemoryPool
-  ;
+ l3IntfUses
+ , l3LongintList
+ , l3Interfaces
+ , Classes
+ , l3ProtoObject
+ , l3Variant
+ , k2SizedMemoryPool
+;
 
-(*
- MIntegerListTransformator = PureMixIn
-   procedure ToList(aDest: Tl3LongintList);
-   procedure FromList(aSource: Tl3LongintList); overload; 
-   procedure FromList(const aSource: Il3IntegerList); overload; 
-   function AsIntegerList: Il3IntegerList;
+ (*
+ MIntegerListTransformator = interface
+  procedure ToList(aDest: Tl3LongintList);
+  procedure FromList(aSource: Tl3LongintList); overload;
+  procedure FromList(const aSource: Il3IntegerList); overload;
+  function AsIntegerList: Il3IntegerList;
  end;//MIntegerListTransformator
-*)
+ *)
 
 type
- DocumentIDListHelper = interface(IUnknown{, AddressTag})
-   ['{0ACFDC6E-9BDD-4EE0-AA18-98EE006B7348}']
-   procedure Save(aStream: TStream);
-   procedure Load(aStream: TStream);
-   procedure Clear;
-   procedure Add(anItem: Integer);
-   procedure Remove(anItem: Integer);
-   function Get_Count: Integer;
-   function Get_Items(anIndex: Integer): Integer;
-   property Count: Integer
-     read Get_Count;
-   property Items[anIndex: Integer]: Integer
-     read Get_Items;
-  // MIntegerListTransformator
-   procedure ToList(aDest: Tl3LongintList);
-   procedure FromList(aSource: Tl3LongintList); overload; 
-   procedure FromList(const aSource: Il3IntegerList); overload; 
-   function AsIntegerList: Il3IntegerList;
+ DocumentIDListHelper = interface
+  ['{0ACFDC6E-9BDD-4EE0-AA18-98EE006B7348}']
+  function Get_Count: Integer;
+  function Get_Items(anIndex: Integer): Integer;
+  procedure Save(aStream: TStream);
+  procedure Load(aStream: TStream);
+  procedure Clear;
+  procedure Add(anItem: Integer);
+  procedure Remove(anItem: Integer);
+  procedure ToList(aDest: Tl3LongintList);
+  procedure FromList(aSource: Tl3LongintList); overload;
+  procedure FromList(const aSource: Il3IntegerList); overload;
+  function AsIntegerList: Il3IntegerList;
+  property Count: Integer
+   read Get_Count;
+  property Items[anIndex: Integer]: Integer
+   read Get_Items;
  end;//DocumentIDListHelper
 
- StringListHelper = interface(IUnknown)
-   ['{F19CA673-59AD-46E7-8D1F-58BD23E54A95}']
-   procedure Add(const anItem: AnsiString);
-   procedure CopyTo(aDest: TStrings);
-   procedure CopyFrom(aSource: TStrings);
-   function Get_Count: Integer;
-   function Get_Strings(anIndex: Integer): AnsiString;
-   property Count: Integer
-     read Get_Count;
-   property Strings[anIndex: Integer]: AnsiString
-     read Get_Strings;
-     default;
+ StringListHelper = interface
+  ['{F19CA673-59AD-46E7-8D1F-58BD23E54A95}']
+  function Get_Count: Integer;
+  function Get_Strings(anIndex: Integer): AnsiString;
+  procedure Add(const anItem: AnsiString);
+  procedure CopyTo(aDest: TStrings);
+  procedure CopyFrom(aSource: TStrings);
+  property Count: Integer
+   read Get_Count;
+  property Strings[anIndex: Integer]: AnsiString
+   read Get_Strings;
+   default;
  end;//StringListHelper
 
  TevdTagHelper = class(Tl3ProtoObject)
- private
- // private fields
-   f_Value : Tl3Tag;
-    {* Поле для свойства Value}
- protected
- // overridden protected methods
+  private
+   f_Value: Tl3Tag;
+    {* Поле для свойства Value }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aValue: Tl3Tag); reintroduce;
- protected
- // protected properties
+  protected
    property Value: Tl3Tag
-     read f_Value;
+    read f_Value;
  end;//TevdTagHelper
 
- SABStreamHelper = interface(DocumentIDListHelper{, AddressTag})
-   ['{92B4DB96-8C8E-45B8-975A-CC383649BD96}']
-   function Get_Size: Int64;
-   property Size: Int64
-     read Get_Size;
-  // StreamCopying
-   procedure CopyFrom(Source: TStream;
-     Count: Int64);
-   procedure CopyTo(Dest: TStream;
-     Count: Int64);
+ SABStreamHelper = interface(DocumentIDListHelper)
+  ['{92B4DB96-8C8E-45B8-975A-CC383649BD96}']
+  function Get_Size: Int64;
+  procedure CopyFrom(Source: TStream;
+   Count: Int64);
+  procedure CopyTo(Dest: TStream;
+   Count: Int64);
+  property Size: Int64
+   read Get_Size;
  end;//SABStreamHelper
 
  TAbstractStringListHelper = class(TevdTagHelper, StringListHelper)
- protected
- // realized methods
+  protected
+   procedure DoAdd(const anItem: AnsiString); virtual; abstract;
+   function DoGetStrings(anIndex: Integer): AnsiString; virtual; abstract;
    function Get_Count: Integer;
    function Get_Strings(anIndex: Integer): AnsiString;
    procedure Add(const anItem: AnsiString);
    procedure CopyTo(aDest: TStrings);
    procedure CopyFrom(aSource: TStrings);
- protected
- // protected methods
-   procedure DoAdd(const anItem: AnsiString); virtual; abstract;
-   function DoGetStrings(anIndex: Integer): AnsiString; virtual; abstract;
  end;//TAbstractStringListHelper
 
  RegionIDListHelper = DocumentIDListHelper;
 
- TasksIDListHelper = interface(StringListHelper{, TaskIDTag})
-   ['{252940D3-C632-4B3D-97A5-04EB9A3533A9}']
+ TasksIDListHelper = interface(StringListHelper)
+  ['{252940D3-C632-4B3D-97A5-04EB9A3533A9}']
  end;//TasksIDListHelper
 
  TDocumentIDListHelper = class(TevdTagHelper, DocumentIDListHelper)
- protected
- // realized methods
+  protected
    procedure Save(aStream: TStream);
    procedure Load(aStream: TStream);
    procedure Clear;
@@ -131,16 +111,12 @@ type
    procedure Remove(anItem: Integer);
    function Get_Count: Integer;
    function Get_Items(anIndex: Integer): Integer;
- public
- // realized methods
-   procedure ToList(aDest: Tl3LongintList);
-   procedure FromList(aSource: Tl3LongintList); overload; 
-   procedure FromList(const aSource: Il3IntegerList); overload; 
-   function AsIntegerList: Il3IntegerList;
- public
- // public methods
+  public
    class function Make(aValue: Tl3Tag): DocumentIDListHelper; reintroduce;
-     {* Сигнатура фабрики TDocumentIDListHelper.Make }
+   procedure ToList(aDest: Tl3LongintList);
+   procedure FromList(aSource: Tl3LongintList); overload;
+   procedure FromList(const aSource: Il3IntegerList); overload;
+   function AsIntegerList: Il3IntegerList;
  end;//TDocumentIDListHelper
 
  AccGroupsIDListHelper = DocumentIDListHelper;
@@ -198,43 +174,34 @@ type
  InfoIDListHelper = DocumentIDListHelper;
 
  TSABStreamHelper = class(TDocumentIDListHelper, SABStreamHelper)
- protected
- // realized methods
+  protected
    function Get_Size: Int64;
- public
- // realized methods
-   procedure CopyFrom(Source: TStream;
-     Count: Int64);
-   procedure CopyTo(Dest: TStream;
-     Count: Int64);
- public
- // public methods
+  public
    class function Make(aValue: Tl3Tag): SABStreamHelper; reintroduce;
-     {* Сигнатура фабрики TSABStreamHelper.Make }
+   procedure CopyFrom(Source: TStream;
+    Count: Int64);
+   procedure CopyTo(Dest: TStream;
+    Count: Int64);
  end;//TSABStreamHelper
 
  TTasksIDListHelper = class(TAbstractStringListHelper, TasksIDListHelper)
- protected
- // realized methods
+  protected
    procedure DoAdd(const anItem: AnsiString); override;
    function DoGetStrings(anIndex: Integer): AnsiString; override;
- public
- // public methods
+  public
    class function Make(aValue: Tl3Tag): TasksIDListHelper; reintroduce;
-     {* Сигнатура фабрики TTasksIDListHelper.Make }
  end;//TTasksIDListHelper
 
 implementation
 
 uses
-  SysUtils,
-  Address_Const,
-  k2Tags,
-  l3InterfacedIntegerList,
-  TaskID_Const
-  ;
-
-// start class TevdTagHelper
+ l3ImplUses
+ , SysUtils
+ , Address_Const
+ , k2Tags
+ , l3InterfacedIntegerList
+ , TaskID_Const
+;
 
 constructor TevdTagHelper.Create(aValue: Tl3Tag);
 //#UC START# *53BD1BCF010B_53BFD54A01CC_var*
@@ -248,6 +215,7 @@ begin
 end;//TevdTagHelper.Create
 
 procedure TevdTagHelper.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_53BFD54A01CC_var*
 //#UC END# *479731C50290_53BFD54A01CC_var*
 begin
@@ -255,7 +223,6 @@ begin
  inherited;
 //#UC END# *479731C50290_53BFD54A01CC_impl*
 end;//TevdTagHelper.Cleanup
-// start class TAbstractStringListHelper
 
 function TAbstractStringListHelper.Get_Count: Integer;
 //#UC START# *53BFCD4C03BF_53EDDCC203B4get_var*
@@ -309,7 +276,6 @@ begin
   Self.Add(aSource[l_Index]);
 //#UC END# *53BFCE310249_53EDDCC203B4_impl*
 end;//TAbstractStringListHelper.CopyFrom
-// start class TDocumentIDListHelper
 
 class function TDocumentIDListHelper.Make(aValue: Tl3Tag): DocumentIDListHelper;
 var
@@ -321,7 +287,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TDocumentIDListHelper.Make
 
 procedure TDocumentIDListHelper.Save(aStream: TStream);
 //#UC START# *53BD20D702C0_53BD13DC0048_var*
@@ -471,7 +437,6 @@ begin
  end;//try..finally
 //#UC END# *53DA30C501BC_53BD13DC0048_impl*
 end;//TDocumentIDListHelper.AsIntegerList
-// start class TSABStreamHelper
 
 class function TSABStreamHelper.Make(aValue: Tl3Tag): SABStreamHelper;
 var
@@ -483,10 +448,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TSABStreamHelper.Make
 
 procedure TSABStreamHelper.CopyFrom(Source: TStream;
-  Count: Int64);
+ Count: Int64);
 //#UC START# *53B55ED6016D_53BD48A2009C_var*
 var
  l_Pos : Int64;
@@ -526,7 +491,7 @@ begin
 end;//TSABStreamHelper.CopyFrom
 
 procedure TSABStreamHelper.CopyTo(Dest: TStream;
-  Count: Int64);
+ Count: Int64);
 //#UC START# *53B55EF0025D_53BD48A2009C_var*
 //#UC END# *53B55EF0025D_53BD48A2009C_var*
 begin
@@ -544,7 +509,6 @@ begin
  Result := Get_Count;
 //#UC END# *53BD52D902BE_53BD48A2009Cget_impl*
 end;//TSABStreamHelper.Get_Size
-// start class TTasksIDListHelper
 
 class function TTasksIDListHelper.Make(aValue: Tl3Tag): TasksIDListHelper;
 var
@@ -556,7 +520,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TTasksIDListHelper.Make
 
 procedure TTasksIDListHelper.DoAdd(const anItem: AnsiString);
 //#UC START# *53EDDCE10317_54646EB103D5_var*

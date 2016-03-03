@@ -1,48 +1,35 @@
 unit evdDocumentSubsEliminator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EVD"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/EVD/evdDocumentSubsEliminator.pas"
-// Начат: 07.09.2011 15:24
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::EVD::Generators::TevdDocumentSubsEliminator
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\EVD\evdDocumentSubsEliminator.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\EVD\evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 
 uses
-  evdDocumentMarksEliminator,
-  l3Variant
-  ;
+ l3IntfUses
+ , evdDocumentMarksEliminator
+ , l3Variant
+;
 
 type
  TevdDocumentSubsEliminator = class(TevdDocumentMarksEliminator)
- protected
- // overridden protected methods
+  protected
    function NeedWritePara(aLeaf: Tl3Variant): Boolean; override;
-     {* Определяет нужно ли фильтровать переданный абзац }
+    {* Определяет нужно ли фильтровать переданный абзац }
  end;//TevdDocumentSubsEliminator
 
 implementation
 
 uses
-  evdTypes,
-  k2Tags
-  ;
-
-// start class TevdDocumentSubsEliminator
+ l3ImplUses
+ , evdTypes
+ , k2Tags
+;
 
 function TevdDocumentSubsEliminator.NeedWritePara(aLeaf: Tl3Variant): Boolean;
+ {* Определяет нужно ли фильтровать переданный абзац }
 //#UC START# *49E48829016F_4E6756B3015E_var*
 //#UC END# *49E48829016F_4E6756B3015E_var*
 begin

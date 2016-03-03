@@ -1,35 +1,23 @@
 unit evdHypelinkDocIDEliminator;
+ {* Обнуляет DocID у ссылок. Создан для тестов. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EVD"
-// Модуль: "w:/common/components/rtl/Garant/EVD/evdHypelinkDocIDEliminator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::EVD::Generators::TevdHypelinkDocIDEliminator
-//
-// Обнуляет DocID у ссылок. Создан для тестов.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\EVD\evdHypelinkDocIDEliminator.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\EVD\evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 
 uses
-  k2TagFilter,
-  l3Variant
-  ;
+ l3IntfUses
+ , k2TagFilter
+ , l3Variant
+;
 
 type
  TevdHypelinkDocIDEliminator = class(Tk2TagFilter)
   {* Обнуляет DocID у ссылок. Создан для тестов. }
- protected
- // overridden protected methods
+  protected
    procedure DoAddAtomEx(AtomIndex: Integer;
     const Value: Ik2Variant); override;
  end;//TevdHypelinkDocIDEliminator
@@ -37,14 +25,13 @@ type
 implementation
 
 uses
-  k2Tags,
-  Address_Const
-  ;
-
-// start class TevdHypelinkDocIDEliminator
+ l3ImplUses
+ , k2Tags
+ , Address_Const
+;
 
 procedure TevdHypelinkDocIDEliminator.DoAddAtomEx(AtomIndex: Integer;
-  const Value: Ik2Variant);
+ const Value: Ik2Variant);
 //#UC START# *4A2D1634025B_4F33BAE302FA_var*
 //#UC END# *4A2D1634025B_4F33BAE302FA_var*
 begin

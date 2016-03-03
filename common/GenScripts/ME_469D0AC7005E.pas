@@ -190,15 +190,15 @@ type
   , Diff
  );//TevSegmentHandle
 
- TevNormalSegLayerHandleP = ev_slView .. ev_slMistakes;
+ TevNormalSegLayerHandleP = View .. Mistakes;
+
+ TevNormalSegLayerHandleSet = set of TevNormalSegLayerHandleP;
 
  TevBlockViewKind = (
   ev_bvkNone
   , ev_bvkLeft
   , ev_bvkRight
  );//TevBlockViewKind
-
- TevNormalSegLayerHandleSet = set of TevNormalSegLayerHandleP;
 
 const
  {* Слои меток. }

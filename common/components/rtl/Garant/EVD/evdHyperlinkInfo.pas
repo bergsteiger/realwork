@@ -1,65 +1,48 @@
 unit evdHyperlinkInfo;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EVD"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/EVD/evdHyperlinkInfo.pas"
-// Начат: 12.11.2010 16:14
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::EVD::Core Objects::TevdHyperlinkInfo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\EVD\evdHyperlinkInfo.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\EVD\evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  evdInterfaces,
-  l3ProtoObject
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , evdInterfaces
+ , l3Interfaces
+;
 
 type
  TevdHyperlinkInfo = class(Tl3ProtoObject, IevdHyperlinkInfo)
- private
- // private fields
-   f_Address : TevdAddress;
-   f_Text : Il3CString;
-   f_AppInfo : Il3CString;
- protected
- // realized methods
+  private
+   f_Address: TevdAddress;
+   f_Text: Il3CString;
+   f_AppInfo: Il3CString;
+  protected
    function Get_Text: Il3CString;
    function Get_Address: TevdAddress;
    function Get_AppInfo: Il3CString;
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aText: Il3CString;
-     const anAddress: TevdAddress;
-     const anAppInfo: Il3CString); reintroduce;
+    const anAddress: TevdAddress;
+    const anAppInfo: Il3CString); reintroduce;
    class function Make(const aText: Il3CString;
-     const anAddress: TevdAddress;
-     const anAppInfo: Il3CString): IevdHyperlinkInfo; reintroduce;
-     {* Сигнатура фабрики TevdHyperlinkInfo.Make }
+    const anAddress: TevdAddress;
+    const anAppInfo: Il3CString): IevdHyperlinkInfo; reintroduce;
  end;//TevdHyperlinkInfo
 
 implementation
 
-// start class TevdHyperlinkInfo
+uses
+ l3ImplUses
+;
 
 constructor TevdHyperlinkInfo.Create(const aText: Il3CString;
-  const anAddress: TevdAddress;
-  const anAppInfo: Il3CString);
+ const anAddress: TevdAddress;
+ const anAppInfo: Il3CString);
 //#UC START# *4CDD3E250364_4CDD3D930147_var*
 //#UC END# *4CDD3E250364_4CDD3D930147_var*
 begin
@@ -72,8 +55,8 @@ begin
 end;//TevdHyperlinkInfo.Create
 
 class function TevdHyperlinkInfo.Make(const aText: Il3CString;
-  const anAddress: TevdAddress;
-  const anAppInfo: Il3CString): IevdHyperlinkInfo;
+ const anAddress: TevdAddress;
+ const anAppInfo: Il3CString): IevdHyperlinkInfo;
 var
  l_Inst : TevdHyperlinkInfo;
 begin
@@ -83,7 +66,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TevdHyperlinkInfo.Make
 
 function TevdHyperlinkInfo.Get_Text: Il3CString;
 //#UC START# *4CDD38870303_4CDD3D930147get_var*
@@ -113,7 +96,6 @@ begin
 end;//TevdHyperlinkInfo.Get_AppInfo
 
 procedure TevdHyperlinkInfo.ClearFields;
- {-}
 begin
  f_Text := nil;
  f_AppInfo := nil;

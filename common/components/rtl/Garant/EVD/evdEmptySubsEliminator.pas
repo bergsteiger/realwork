@@ -1,44 +1,32 @@
 unit evdEmptySubsEliminator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EVD"
-// Модуль: "w:/common/components/rtl/Garant/EVD/evdEmptySubsEliminator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::EVD::Generators::TevdEmptySubsEliminator
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\EVD\evdEmptySubsEliminator.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\EVD\evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 
 uses
-  evdBufferedFilter,
-  l3Variant
-  ;
+ l3IntfUses
+ , evdBufferedFilter
+ , l3Variant
+;
 
 type
  TevdEmptySubsEliminator = class(TevdBufferedFilter)
- protected
- // overridden protected methods
+  protected
    function NeedStartBuffering(aID: Integer): Boolean; override;
    function NeedFlushBuffer(aLeaf: Tl3Variant;
-     aTagId: Integer): Boolean; override;
+    aTagId: Integer): Boolean; override;
  end;//TevdEmptySubsEliminator
 
 implementation
 
 uses
-  k2Tags
-  ;
-
-// start class TevdEmptySubsEliminator
+ l3ImplUses
+ , k2Tags
+;
 
 function TevdEmptySubsEliminator.NeedStartBuffering(aID: Integer): Boolean;
 //#UC START# *4C56D54B002A_4F9BFA1F007E_var*
@@ -50,7 +38,7 @@ begin
 end;//TevdEmptySubsEliminator.NeedStartBuffering
 
 function TevdEmptySubsEliminator.NeedFlushBuffer(aLeaf: Tl3Variant;
-  aTagId: Integer): Boolean;
+ aTagId: Integer): Boolean;
 //#UC START# *4CF7BC520161_4F9BFA1F007E_var*
 var
  l_Index : Integer;

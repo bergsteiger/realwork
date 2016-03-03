@@ -18,12 +18,12 @@ uses
 type
  TevdEVDWriterService = {final} class(Tl3ProtoObject, Ik2EVDWriterService)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function GetWriter: Tk2CustomFileGenerator;
    function MakeWriter(const aFileName: AnsiString): Ik2TagGenerator;
    class function Instance: TevdEVDWriterService;
     {* Метод получения экземпляра синглетона TevdEVDWriterService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TevdEVDWriterService
 
 implementation
@@ -43,12 +43,6 @@ procedure TevdEVDWriterServiceFree;
 begin
  l3Free(g_TevdEVDWriterService);
 end;//TevdEVDWriterServiceFree
-
-class function TevdEVDWriterService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TevdEVDWriterService <> nil;
-end;//TevdEVDWriterService.Exists
 
 function TevdEVDWriterService.GetWriter: Tk2CustomFileGenerator;
 //#UC START# *26782C1B9519_555DCF5A0060_var*
@@ -91,6 +85,12 @@ begin
  end;
  Result := g_TevdEVDWriterService;
 end;//TevdEVDWriterService.Instance
+
+class function TevdEVDWriterService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TevdEVDWriterService <> nil;
+end;//TevdEVDWriterService.Exists
 
 initialization
  Tk2EVDWriterService.Instance.Alien := TevdEVDWriterService.Instance;

@@ -19,13 +19,13 @@ uses
 type
  TevdEVDReaderService = {final} class(Tl3ProtoObject, Ik2EVDReaderService)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function MakeReader(const aFileName: AnsiString;
     const aFilter: Ik2TagGenerator): Il3Reader;
    function GetReader: Tk2CustomFileReader;
    class function Instance: TevdEVDReaderService;
     {* Метод получения экземпляра синглетона TevdEVDReaderService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TevdEVDReaderService
 
 implementation
@@ -45,12 +45,6 @@ procedure TevdEVDReaderServiceFree;
 begin
  l3Free(g_TevdEVDReaderService);
 end;//TevdEVDReaderServiceFree
-
-class function TevdEVDReaderService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TevdEVDReaderService <> nil;
-end;//TevdEVDReaderService.Exists
 
 function TevdEVDReaderService.MakeReader(const aFileName: AnsiString;
  const aFilter: Ik2TagGenerator): Il3Reader;
@@ -89,6 +83,12 @@ begin
  end;
  Result := g_TevdEVDReaderService;
 end;//TevdEVDReaderService.Instance
+
+class function TevdEVDReaderService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TevdEVDReaderService <> nil;
+end;//TevdEVDReaderService.Exists
 
 initialization
  Tk2EVDReaderService.Instance.Alien := TevdEVDReaderService.Instance;

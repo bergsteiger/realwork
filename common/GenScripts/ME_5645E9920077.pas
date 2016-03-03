@@ -95,33 +95,36 @@ const
 
  procedure lp_MakeSnippetPara;
  var
+  l_DN: IDynListNode;
   l_W: Tl3WString;
-  l_N: INodeBase;
   l_S: IString;
 
   l_Segs: Tl3Variant;
   l_VS: Tl3Variant;
  begin
-  if (AdapterNode <> nil) and AdapterNode.HasChildren then
-  begin
-   AdapterNode.GetFirstChild(l_N);
-   l_N.GetCaption(l_S);
-   l_W := nsWStr(l_S);
+  if (AdapterNode <> nil) then
+   if Supports(AdapterNode, IDynListNode, l_DN) then
+   begin
+    l_DN.GetSnippetText(l_S);
+    if Assigned(l_S) then
+    begin
+     l_W := nsWStr(l_S);
 
-   k2_typTextPara.MakeTag.AsObject.SetRef(f_SnippetPara);
-   f_SnippetPara.PCharLenA[k2_tiText] := Tl3PCharLen(l_W);
-   l3Replace(f_SnippetPara.PCharLenA[k2_tiText], [#10], ' ');
+     k2_typTextPara.MakeTag.AsObject.SetRef(f_SnippetPara);
+     f_SnippetPara.PCharLenA[k2_tiText] := Tl3PCharLen(l_W);
+     l3Replace(f_SnippetPara.PCharLenA[k2_tiText], [#10], ' ');
 
-   l_Segs := f_SnippetPara.cAtomEx([k2_tiSegments, k2_tiChildren, k2_tiHandle, Ord(ev_slView)], nil);
-   l_VS := k2_typTextSegment.MakeTag.AsObject;
-   l_VS.IntA[k2_tiStyle] := ev_saBoldSelection;
-   l_VS.IntA[k2_tiStart] := 10;
-   l_VS.IntA[k2_tiFinish] := 20;
-   l_Segs.AddChild(l_VS.AsObject);
+     l_Segs := f_SnippetPara.cAtomEx([k2_tiSegments, k2_tiChildren, k2_tiHandle, Ord(ev_slView)], nil);
+     l_VS := k2_typTextSegment.MakeTag.AsObject;
+     l_VS.IntA[k2_tiStyle] := ev_saBoldSelection;
+     l_VS.IntA[k2_tiStart] := 10;
+     l_VS.IntA[k2_tiFinish] := 20;
+     l_Segs.AddChild(l_VS.AsObject);
 
-   f_SnippetPara.IntA[k2_tiBullet] := 1;
-   f_Tag.AddChild(f_SnippetPara);
-  end;
+     f_SnippetPara.IntA[k2_tiBullet] := 1;
+     f_Tag.AddChild(f_SnippetPara);
+    end;
+   end;
  end;
 //#UC END# *564B1D4702E5_5645E9920077get_var*
 begin

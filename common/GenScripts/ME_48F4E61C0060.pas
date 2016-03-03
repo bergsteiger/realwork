@@ -14,9 +14,6 @@ uses
  , k2Interfaces
 ;
 
-const
- evd_DefaultStoreFlags = [evd_sfStoreParaEnd];
-
 type
  TevdStoreFlag = (
   evd_sfInternal
@@ -36,7 +33,7 @@ type
   function Store(aFormat: TevdClipboardFormat;
    const aPool: IStream;
    const aFilters: TevdTagGenerator;
-   aFlags: TevdStoreFlags = DefaultStoreFlags): Boolean; overload;
+   aFlags: TevdStoreFlags = [evd_sfStoreParaEnd]): Boolean; overload;
    {* сохраняет выделение в формате aFormat в Pool, который должен реализовывать IStream. }
  end;//IevdDataObject
 
@@ -72,6 +69,9 @@ type
    read Get_AppInfo;
    {* Информация о приложении }
  end;//IevdHyperlinkInfo
+
+const
+ evd_DefaultStoreFlags = [evd_sfStoreParaEnd];
 
 function TevdAddress_E: TevdAddress;
 

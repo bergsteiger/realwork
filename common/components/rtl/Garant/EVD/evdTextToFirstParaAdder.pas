@@ -1,72 +1,54 @@
 unit evdTextToFirstParaAdder;
+ {* Фильтр, добавляющий текст к первому параграфу }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EVD"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/EVD/evdTextToFirstParaAdder.pas"
-// Начат: 12.11.2010 20:41
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::EVD::Generators::TevdTextToFirstParaAdder
-//
-// Фильтр, добавляющий текст к первому параграфу
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\EVD\evdTextToFirstParaAdder.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\EVD\evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  k2Interfaces,
-  evdLeafParaFilter,
-  l3Variant
-  ;
+ l3IntfUses
+ , evdLeafParaFilter
+ , l3Interfaces
+ , k2Interfaces
+ , l3Variant
+;
 
 type
  TevdTextToFirstParaAdder = class(TevdLeafParaFilter)
   {* Фильтр, добавляющий текст к первому параграфу }
- private
- // private fields
-   f_Text : Il3CString;
-   f_WasAdd : Boolean;
- protected
- // overridden protected methods
+  private
+   f_Text: Il3CString;
+   f_WasAdd: Boolean;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoWritePara(aLeaf: Tl3Variant); override;
-     {* Запись конкретного абзаца в генератор. Позволяет вносить изменения в содержание абзаца }
+    {* Запись конкретного абзаца в генератор. Позволяет вносить изменения в содержание абзаца }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    class function SetTo(var theGenerator: Ik2TagGenerator;
-     const aText: Il3CString): Ik2TagGenerator;
+    const aText: Il3CString): Ik2TagGenerator;
    constructor Create(const aText: Il3CString); reintroduce;
  end;//TevdTextToFirstParaAdder
 
 implementation
 
 uses
-  SysUtils,
-  k2Tags,
-  l3CustomString,
-  HyperLink_Const,
-  evdTypes,
-  l3String,
-  l3Types
-  ;
-
-// start class TevdTextToFirstParaAdder
+ l3ImplUses
+ , k2Tags
+ , l3CustomString
+ , HyperLink_Const
+ , evdTypes
+ , l3String
+ , l3Types
+ , SysUtils
+;
 
 class function TevdTextToFirstParaAdder.SetTo(var theGenerator: Ik2TagGenerator;
-  const aText: Il3CString): Ik2TagGenerator;
+ const aText: Il3CString): Ik2TagGenerator;
 //#UC START# *4CDD7CC5001A_4CDD7C01013F_var*
 var
  l_Filter : TevdTextToFirstParaAdder;
@@ -100,6 +82,7 @@ begin
 end;//TevdTextToFirstParaAdder.Create
 
 procedure TevdTextToFirstParaAdder.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4CDD7C01013F_var*
 //#UC END# *479731C50290_4CDD7C01013F_var*
 begin
@@ -110,6 +93,7 @@ begin
 end;//TevdTextToFirstParaAdder.Cleanup
 
 procedure TevdTextToFirstParaAdder.DoWritePara(aLeaf: Tl3Variant);
+ {* Запись конкретного абзаца в генератор. Позволяет вносить изменения в содержание абзаца }
 //#UC START# *49E4883E0176_4CDD7C01013F_var*
 var
  l_S   : Tl3CustomString;
@@ -144,7 +128,6 @@ begin
 end;//TevdTextToFirstParaAdder.DoWritePara
 
 procedure TevdTextToFirstParaAdder.ClearFields;
- {-}
 begin
  f_Text := nil;
  inherited;

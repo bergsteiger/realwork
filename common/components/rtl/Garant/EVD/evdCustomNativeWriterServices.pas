@@ -1,80 +1,48 @@
 unit evdCustomNativeWriterServices;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EVD"
-// Модуль: "w:/common/components/rtl/Garant/EVD/evdCustomNativeWriterServices.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::EVD::Generators::evdCustomNativeWriterServices
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\EVD\evdCustomNativeWriterServices.pas"
+// Стереотип: "UtilityPack"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\EVD\evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 
 uses
-  l3ProtoObject,
-  k2EVDWriterService,
-  k2CustomFileGenerator,
-  l3Variant
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , k2EVDWriterService
+ , k2CustomFileGenerator
+ , l3Variant
+;
 
 type
  TevdEVDWriterService = {final} class(Tl3ProtoObject, Ik2EVDWriterService)
- public
- // realized methods
+  public
    function GetWriter: Tk2CustomFileGenerator;
    function MakeWriter(const aFileName: AnsiString): Ik2TagGenerator;
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
    class function Instance: TevdEVDWriterService;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TevdEVDWriterService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TevdEVDWriterService
 
 implementation
 
 uses
-  l3Base {a},
-  evdCustomNativeWriter,
-  SysUtils
-  ;
+ l3ImplUses
+ , evdCustomNativeWriter
+ , SysUtils
+ , l3Base
+;
 
-
-// start class TevdEVDWriterService
-
-var g_TevdEVDWriterService : TevdEVDWriterService = nil;
+var g_TevdEVDWriterService: TevdEVDWriterService = nil;
+ {* Экземпляр синглетона TevdEVDWriterService }
 
 procedure TevdEVDWriterServiceFree;
+ {* Метод освобождения экземпляра синглетона TevdEVDWriterService }
 begin
  l3Free(g_TevdEVDWriterService);
-end;
-
-class function TevdEVDWriterService.Instance: TevdEVDWriterService;
-begin
- if (g_TevdEVDWriterService = nil) then
- begin
-  l3System.AddExitProc(TevdEVDWriterServiceFree);
-  g_TevdEVDWriterService := Create;
- end;
- Result := g_TevdEVDWriterService;
-end;
-
-
-class function TevdEVDWriterService.Exists: Boolean;
- {-}
-begin
- Result := g_TevdEVDWriterService <> nil;
-end;//TevdEVDWriterService.Exists
+end;//TevdEVDWriterServiceFree
 
 function TevdEVDWriterService.GetWriter: Tk2CustomFileGenerator;
 //#UC START# *26782C1B9519_555DCF5A0060_var*
@@ -107,8 +75,25 @@ begin
 //#UC END# *F7BF6A35E2B1_555DCF5A0060_impl*
 end;//TevdEVDWriterService.MakeWriter
 
+class function TevdEVDWriterService.Instance: TevdEVDWriterService;
+ {* Метод получения экземпляра синглетона TevdEVDWriterService }
+begin
+ if (g_TevdEVDWriterService = nil) then
+ begin
+  l3System.AddExitProc(TevdEVDWriterServiceFree);
+  g_TevdEVDWriterService := Create;
+ end;
+ Result := g_TevdEVDWriterService;
+end;//TevdEVDWriterService.Instance
+
+class function TevdEVDWriterService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TevdEVDWriterService <> nil;
+end;//TevdEVDWriterService.Exists
+
 initialization
-// Регистрация TevdEVDWriterService
  Tk2EVDWriterService.Instance.Alien := TevdEVDWriterService.Instance;
+ {* Регистрация TevdEVDWriterService }
 
 end.

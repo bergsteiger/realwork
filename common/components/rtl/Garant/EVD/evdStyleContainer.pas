@@ -1,36 +1,23 @@
 unit evdStyleContainer;
+ {* описание базового контейнера стилей }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EVD"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/EVD/evdStyleContainer.pas"
-// Начат: 21.04.1997 16:39
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::EVD::Core Objects::TevdStyleContainer
-//
-// описание базового контейнера стилей
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\EVD\evdStyleContainer.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\EVD\evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 
 uses
-  evdStyles,
-  k2Base,
-  l3Variant,
-  k2DictionaryEx
-  ;
+ l3IntfUses
+ , k2DictionaryEx
+ , l3Variant
+ , k2Base
+ , evdStyles
+;
 
 type
- _ItemType_ = l3Variant.Tl3Variant;
+ _ItemType_ = Tl3Variant;
   {* Это вообще-то хак, но без этого не находится тип элемента }
 
  TevStandardStylesArray = array [TevStandardCachedStyle] of Tl3Tag;
@@ -38,38 +25,33 @@ type
  _StringType_ = Tl3Variant;
  TevdStyleContainer = class(Tk2DictionaryEx)
   {* описание базового контейнера стилей }
- private
- // private fields
-   f_AutoNum : Integer;
-   f_Styles : TevStandardStylesArray;
- protected
- // overridden property methods
-   function pm_GetDRByID(anID: Integer): _StringType_; override;
- protected
- // overridden protected methods
+  private
+   f_AutoNum: Integer;
+   f_Styles: TevStandardStylesArray;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DirectInsert(anIndex: Integer;
     const aData: _ItemType_); override;
-     {* Непосредственное удаление элемента. Без проверки валидности индекса. }
+    {* Непосредственное удаление элемента. Без проверки валидности индекса. }
+   function pm_GetDRByID(anID: Integer): _StringType_; override;
    function ControlFindByID: Boolean; override;
- public
- // public methods
+  public
    class procedure CheckValueTable(aType: Tk2Type);
-     {* Проверяет таблицу значений. }
+    {* Проверяет таблицу значений. }
  end;//TevdStyleContainer
 
 implementation
 
 uses
-  SysUtils,
-  l3Types,
-  k2Tags
-  ;
-
-// start class TevdStyleContainer
+ l3ImplUses
+ , SysUtils
+ , l3Types
+ , k2Tags
+;
 
 class procedure TevdStyleContainer.CheckValueTable(aType: Tk2Type);
+ {* Проверяет таблицу значений. }
 //#UC START# *4860B7AA025D_4860B1230094_var*
 var
  VT : TevdStyleContainer;
@@ -90,6 +72,7 @@ begin
 end;//TevdStyleContainer.CheckValueTable
 
 procedure TevdStyleContainer.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4860B1230094_var*
 //#UC END# *479731C50290_4860B1230094_var*
 begin
@@ -100,7 +83,8 @@ begin
 end;//TevdStyleContainer.Cleanup
 
 procedure TevdStyleContainer.DirectInsert(anIndex: Integer;
-  const aData: _ItemType_);
+ const aData: _ItemType_);
+ {* Непосредственное удаление элемента. Без проверки валидности индекса. }
 //#UC START# *47B49EC50034_4860B1230094_var*
 //#UC END# *47B49EC50034_4860B1230094_var*
 begin

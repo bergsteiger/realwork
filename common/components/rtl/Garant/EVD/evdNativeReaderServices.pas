@@ -1,85 +1,53 @@
 unit evdNativeReaderServices;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EVD"
-// Модуль: "w:/common/components/rtl/Garant/EVD/evdNativeReaderServices.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::EVD::Readers::evdNativeReaderServices
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\EVD\evdNativeReaderServices.pas"
+// Стереотип: "UtilityPack"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\EVD\evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 
 uses
-  l3ProtoObject,
-  k2EVDReaderService,
-  l3Interfaces,
-  l3Variant,
-  k2CustomFileReader
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , k2EVDReaderService
+ , l3Interfaces
+ , k2CustomFileReader
+ , l3Variant
+;
 
 type
  TevdEVDReaderService = {final} class(Tl3ProtoObject, Ik2EVDReaderService)
- public
- // realized methods
+  public
    function MakeReader(const aFileName: AnsiString;
-     const aFilter: Ik2TagGenerator): Il3Reader;
+    const aFilter: Ik2TagGenerator): Il3Reader;
    function GetReader: Tk2CustomFileReader;
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
    class function Instance: TevdEVDReaderService;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TevdEVDReaderService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TevdEVDReaderService
 
 implementation
 
 uses
-  l3Base {a},
-  evdNativeReader,
-  SysUtils
-  ;
+ l3ImplUses
+ , evdNativeReader
+ , SysUtils
+ , l3Base
+;
 
-
-// start class TevdEVDReaderService
-
-var g_TevdEVDReaderService : TevdEVDReaderService = nil;
+var g_TevdEVDReaderService: TevdEVDReaderService = nil;
+ {* Экземпляр синглетона TevdEVDReaderService }
 
 procedure TevdEVDReaderServiceFree;
+ {* Метод освобождения экземпляра синглетона TevdEVDReaderService }
 begin
  l3Free(g_TevdEVDReaderService);
-end;
-
-class function TevdEVDReaderService.Instance: TevdEVDReaderService;
-begin
- if (g_TevdEVDReaderService = nil) then
- begin
-  l3System.AddExitProc(TevdEVDReaderServiceFree);
-  g_TevdEVDReaderService := Create;
- end;
- Result := g_TevdEVDReaderService;
-end;
-
-
-class function TevdEVDReaderService.Exists: Boolean;
- {-}
-begin
- Result := g_TevdEVDReaderService <> nil;
-end;//TevdEVDReaderService.Exists
+end;//TevdEVDReaderServiceFree
 
 function TevdEVDReaderService.MakeReader(const aFileName: AnsiString;
-  const aFilter: Ik2TagGenerator): Il3Reader;
+ const aFilter: Ik2TagGenerator): Il3Reader;
 //#UC START# *6A9002DE6C1A_555DB62E036B_var*
 var
  l_Reader : TevdNativeReader;
@@ -105,8 +73,25 @@ begin
 //#UC END# *9F46A5A9DAF5_555DB62E036B_impl*
 end;//TevdEVDReaderService.GetReader
 
+class function TevdEVDReaderService.Instance: TevdEVDReaderService;
+ {* Метод получения экземпляра синглетона TevdEVDReaderService }
+begin
+ if (g_TevdEVDReaderService = nil) then
+ begin
+  l3System.AddExitProc(TevdEVDReaderServiceFree);
+  g_TevdEVDReaderService := Create;
+ end;
+ Result := g_TevdEVDReaderService;
+end;//TevdEVDReaderService.Instance
+
+class function TevdEVDReaderService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TevdEVDReaderService <> nil;
+end;//TevdEVDReaderService.Exists
+
 initialization
-// Регистрация TevdEVDReaderService
  Tk2EVDReaderService.Instance.Alien := TevdEVDReaderService.Instance;
+ {* Регистрация TevdEVDReaderService }
 
 end.
