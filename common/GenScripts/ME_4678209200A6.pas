@@ -10,7 +10,6 @@ interface
 
 uses
  l3IntfUses
- , evdInterfaces
  , l3Interfaces
  , l3Types
  , l3InternalInterfaces
@@ -23,6 +22,7 @@ uses
  , l3Variant
  , k2BaseStruct
  , k2Tags
+ , evdInterfaces
  , evdTypes
  , SysUtils
  , l3ProtoObject
@@ -63,7 +63,7 @@ const
   {* положительная разница сравнения. }
  evDefaultLoadFlags = [ev_lfNeedJoin, ev_lfSkipSubdocuments];
  evDefaultCopyFlags = evDefaultLoadFlags - [ev_lfNeedJoin];
- evDefaultStoreFlags = evdInterfaces.evd_DefaultStoreFlags;
+ evDefaultStoreFlags = evd_DefaultStoreFlags;
 
 type
  InevBase = interface(Il3Base)

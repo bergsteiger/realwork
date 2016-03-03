@@ -24,6 +24,12 @@ uses
 ;
 
 type
+ TddSplitPara = (
+  dd_spNone
+  , dd_spNumber
+  , dd_spHypen
+ );//TddSplitPara
+
  TdestNormSpec = class(TdestNorm)
   {* Специализированная dest, для колонок, например. }
   private
@@ -50,6 +56,8 @@ type
     {* Текущий индекс табуляции параграфа. }
    f_Table: TddTable;
     {* Таблица, в которую пишем, даже если колонки кончились... }
+   f_SplitPara: TddSplitPara;
+    {* Как разбивать оставшуюся часть параграфа. }
   private
    procedure AddColumn4Table(aRowIndex: Integer);
    procedure FinishColumn(aState: TddRTFState);
@@ -67,6 +75,7 @@ type
    function NeedNewCell(aState: TddRTFState): Boolean;
    procedure AddNewCell(aState: TddRTFState);
    procedure ClearTextPara4Table(aPara: TddTextParagraph);
+   procedure AddNewRow(aPAP: TddParagraphProperty);
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
@@ -246,11 +255,14 @@ begin
    f_ColIndex := 0;
   end;
   ipropColNum:
-   f_ColIndex := aValue - 1;
+   begin
+    f_ColIndex := aValue - 1;
+    f_ColWidths.Add(0);
+   end;
   ipropColumnRight:
    f_ColWidths[f_ColIndex] := f_ColWidths[f_ColIndex] + aValue;
   ipropColWidth: begin
-   f_ColWidths.Add(aValue);
+   f_ColWidths[f_ColIndex] := f_ColWidths[f_ColIndex] + aValue;
    if f_ColIndex = (f_ColCount - 1) then
    begin
     if f_PrevColsWidth > 0 then
@@ -335,7 +347,7 @@ var
 begin
 //#UC START# *56C6FC91019C_56BB14F503A0_impl*
  l_LeftIndent := aPAP.xaLeft;
- if (l_LeftIndent > 0) and (f_ColWidths.Count > 0) then
+ if (aPAP.xaFirst > -(l_LeftIndent div 2)) and (l_LeftIndent > 0) and (f_ColWidths.Count > 0) then
  begin
   l_FoundIndex := -1;
   for i := 0 to f_ColWidths.Count - 1 do
@@ -410,7 +422,12 @@ var
 //#UC END# *56C6FD3B01A5_56BB14F503A0_var*
 begin
 //#UC START# *56C6FD3B01A5_56BB14F503A0_impl*
- if (f_LastCell <> nil) and (aState.PAP.TabList.Count > 0) and (f_TabIndex < aState.PAP.TabList.Count) then
+ if (f_LastCell <> nil) and (aState.PAP.TabList.Count > 0) then
+  if (f_TabIndex >= aState.PAP.TabList.Count) then
+  begin
+   f_TabIndex := 0;
+   AddNewRow(aState.PAP);
+  end; // if (f_TabIndex >= aState.PAP.TabList.Count) then
   if f_SaveInColumns then
   begin
    l_Offset := TddTab(aState.PAP.TabList[f_TabIndex]).TabPos;
@@ -426,8 +443,6 @@ begin
    if f_Table <> nil then
    begin
     l_Offset := TddTab(aState.PAP.TabList[f_TabIndex]).TabPos;
-    //if f_CurColumn > -1 then
-    // Inc(l_Offset, ColumnOffset(f_CurColumn));
     f_LastRow.LastCell.Props.CellOffset := l_Offset;
     f_LastCell.Closed := True;
     f_LastCell := lp_AddCell(f_LastRow, l_Offset);
@@ -451,6 +466,26 @@ begin
 //#UC END# *56C846290255_56BB14F503A0_impl*
 end;//TdestNormSpec.ClearTextPara4Table
 
+procedure TdestNormSpec.AddNewRow(aPAP: TddParagraphProperty);
+//#UC START# *56D81BA40350_56BB14F503A0_var*
+//#UC END# *56D81BA40350_56BB14F503A0_var*
+begin
+//#UC START# *56D81BA40350_56BB14F503A0_impl*
+ if f_Table <> nil then
+ begin
+  f_Table.LastRow.Closed := True;
+  f_Table.CheckLastRow(False);
+  f_LastRow := nil;
+  f_LastCell := nil;
+  CheckLeftIndent(aPAP);
+  if f_LastRow = nil then
+   f_LastRow := f_Table.LastRow;
+  f_LastCell := f_LastRow.GetLastNonClosedCellOrAddNew;
+  f_TabIndex := 0;
+ end; // if f_Table <> nil then
+//#UC END# *56D81BA40350_56BB14F503A0_impl*
+end;//TdestNormSpec.AddNewRow
+
 procedure TdestNormSpec.Cleanup;
  {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_56BB14F503A0_var*
@@ -465,6 +500,7 @@ begin
  f_StartRow := -1;
  f_SaveInColumns := False;
  f_TabIndex := 0;
+ f_SplitPara := dd_spNone;
  inherited;
 //#UC END# *479731C50290_56BB14F503A0_impl*
 end;//TdestNormSpec.Cleanup
@@ -479,6 +515,7 @@ begin
  f_LastRow := nil;
  f_SaveInColumns := False;
  f_TabIndex := 0;
+ f_SplitPara := dd_spNone;
  inherited;
 //#UC END# *51D27A48038E_56BB14F503A0_impl*
 end;//TdestNormSpec.Clear
@@ -514,6 +551,7 @@ begin
  f_StartRow := -1;
  f_SaveInColumns := False;
  f_TabIndex := 0;
+ f_SplitPara := dd_spNone;
 //#UC END# *51E7C9DB0213_56BB14F503A0_impl*
 end;//TdestNormSpec.Create
 
@@ -639,11 +677,43 @@ procedure TdestNormSpec.CloseTextPara(aPAP: TddParagraphProperty;
 //#UC START# *56BC3011019B_56BB14F503A0_var*
 
  procedure lp_MoveLastPart;
- var
-  l_Str         : Tl3String;
-  l_FinishNumber: Integer;
- begin
-  if (aPAP.TabList.Count > 0) and (aPAP.TabList.Count = f_TabIndex) then
+
+  function lp_CheckNumber: Boolean;
+  var
+   l_Str         : Tl3String;
+   l_SepPos      : PAnsiChar;
+   l_ColIndex    : Integer;
+   l_FinishNumber: Integer;
+  begin
+   Result := (f_SplitPara = dd_spNumber) or (f_SplitPara = dd_spHypen);
+   if Result then
+   begin
+    l_SepPos := ev_lpRScan(cc_HardSpace, aPara.Text.St, aPara.Text.Len);
+    if l_SepPos <> nil then
+    begin
+     l_FinishNumber := l_SepPos - aPara.Text.St;
+     if (f_SplitPara = dd_spNumber) then
+      l_ColIndex := f_CurColumn
+     else
+      l_ColIndex := f_CurColumn + 1;
+     l_Str := Tl3String.Make(aPara.Text);
+     try
+      l_Str.Offset(l_FinishNumber);
+      f_LastRow.Cells[l_ColIndex].LastTextPara.AddText(l_Str);
+     finally
+      FreeAndNil(l_Str);
+     end;
+     aPara.Text.Delete(l_FinishNumber, aPara.Text.Len - l_FinishNumber);
+    end; // if l_SepPos <> nil then
+    f_SplitPara := dd_spNone;
+   end; // if (f_SplitPara = dd_spNumber) then
+  end;
+
+  procedure lp_CheckDigits;
+  var
+   l_Str         : Tl3String;
+   l_ColumnIndex : Integer;
+   l_FinishNumber: Integer;
   begin
    l_FinishNumber := ev_lpCharset2Indent(aPara.Text.St, aPara.Text.Len, cc_Digits + [cc_Dot, cc_Comma]);
    if l_FinishNumber > 0 then
@@ -656,8 +726,30 @@ procedure TdestNormSpec.CloseTextPara(aPAP: TddParagraphProperty;
      FreeAndNil(l_Str);
     end;
     aPara.Text.Delete(l_FinishNumber, aPara.Text.Len - l_FinishNumber);
-   end; //if l_FinishNumber > 0 then
-  end; // if (aPara.PAP.TabList.Count > 0) and (aPara.PAP.TabList.Count = f_TabIndex) then
+   end; // if l_FinishNumber > 0 then 
+  end;
+
+ begin
+  if (aPAP.TabList.Count = 0) and (f_TabIndex > 0) then
+   lp_CheckDigits
+  else
+   if (aPAP.TabList.Count > 0) then
+    if (aPAP.TabList.Count = f_TabIndex) then
+    begin
+     if not lp_CheckNumber then
+      lp_CheckDigits;
+     f_SplitPara := dd_spNone;
+    end // if (aPara.PAP.TabList.Count > 0) and (aPara.PAP.TabList.Count = f_TabIndex) then
+    else
+     if (aPara.Text.Len = 1) then
+     begin
+      if (aPara.Text.AsChar = '№') then
+       f_SplitPara := dd_spNumber;
+     end // if (aPara.Text.Len = 1) then
+     else
+      if (aPara.Text.Len > 1) then
+       if aPara.Text.Last = cc_Hyphen then
+        f_SplitPara := dd_spHypen;
  end;
 
 //#UC END# *56BC3011019B_56BB14F503A0_var*
@@ -671,7 +763,7 @@ begin
   begin
    if (f_CurColumn > 0) then
    // Если колонка была, то добавляем выравнивающие ячейки...
-     CheckNewColumn;
+    CheckNewColumn;
   end; // if f_SaveInColumns then
  ClearTextPara4Table(aPara);
 //#UC END# *56BC3011019B_56BB14F503A0_impl*
@@ -713,17 +805,7 @@ begin
     AddNewRowWithColumn
   end // if f_SaveInColumns then
   else
-   if f_Table <> nil then
-   begin
-    f_Table.LastRow.Closed := True;
-    f_Table.CheckLastRow(False);
-    f_LastRow := nil;
-    f_LastCell := nil;
-    CheckLeftIndent(aPAP);
-    if f_LastRow = nil then
-     f_LastRow := f_Table.LastRow;
-    f_LastCell := f_LastRow.GetLastNonClosedCellOrAddNew;
-   end; // if f_Table <> nil then
+   AddNewRow(aPAP);
 //#UC END# *56C574EA022E_56BB14F503A0_impl*
 end;//TdestNormSpec.DoAddTabStop
 
