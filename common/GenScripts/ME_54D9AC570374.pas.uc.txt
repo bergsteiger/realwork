@@ -1,4 +1,5 @@
 //#UC START# *54D888450259_54D9AC570374_impl*
+ l_HasURL := not URL.Empty;
  StartHyperlink(Generator);
  try
   Generator.AddIntegerAtom(k2_tiStart, Start);
@@ -8,8 +9,10 @@
   for j := 0 to TargetList.Hi do
   begin
    l_Target := TargetList[j];
-   l_Target.Write2Generator(Generator, LiteVersion);
+   l_Target.Write2Generator(Generator, aLiteVersion);
   end; // for j
+  if l_HasURL then
+   Generator.AddStringAtom(k2_tiURL, URL.AsWStr);
  finally
   Generator.Finish;
  end; // idHyperlink
@@ -17,6 +20,7 @@
 //#UC START# *54D888450259_54D9AC570374_var*
 var
  j       : Integer;
+ l_HasURL: Boolean;
  l_Target: TddHyperlinkTarget;
 //#UC END# *54D888450259_54D9AC570374_var*
 //#UC START# *54DC46B50110_54D9AC570374_impl*
