@@ -1,42 +1,35 @@
 unit vcmProfilersCollection_p;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCMTest"
-// Модуль: "w:/common/components/gui/Garant/VCM/vcmProfilersCollection_p.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestClass::Class>> Shared Delphi TestComplete Wrappers::VCMTest::Profilers::TvcmProfilersCollection
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\vcmProfilersCollection_p.pas"
+// Стереотип: "TestClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VCM\vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
+{$If NOT Defined(XE) AND NOT Defined(NoVCM)}
+uses
+ l3IntfUses
+ , vcmProfilersCollection
+ , vcmProfiler
+;
+{$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVCM)
+
 implementation
 
-{$If not defined(NoVCM) AND not defined(XE)}
+{$If NOT Defined(XE) AND NOT Defined(NoVCM)}
 uses
-  vcmProfilersCollection,
-  vcmProfiler,
-  Variants {a},
-  ActiveX {a},
-  tc5OpenAppClasses {a},
-  tc5PublicInfo {a},
-  tc6OpenAppClasses {a},
-  tc6PublicInfo {a}
-  ;
-{$IfEnd} //not NoVCM AND not XE
+ l3ImplUses
+ , Variants
+ , ActiveX
+ , tc5OpenAppClasses
+ , tc5PublicInfo
+ , tc6OpenAppClasses
+ , tc6PublicInfo
+;
 
-// start class TvcmProfilersCollection
-
-{$If not defined(NoVCM) AND not defined(XE)}
-function TvcmProfilersCollection_Get_Profiler(Self: TvcmProfilersCollection; ProfilerID: Integer): TvcmProfiler;
+function TvcmProfilersCollection_Get_Profiler(Self: TvcmProfilersCollection;
+ ProfilerID: Integer): TvcmProfiler;
 //#UC START# *499AA4C50300_499AA4880244get_var*
 //#UC END# *499AA4C50300_499AA4880244get_var*
 begin
@@ -47,7 +40,6 @@ begin
 //#UC END# *499AA4C50300_499AA4880244get_impl*
  end;//with Self
 end;//TvcmProfilersCollection_Get_Profiler
-{$IfEnd} //not NoVCM AND not XE
 
 procedure TvcmProfilersCollection_Get_Profiler_Pub5(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
 begin
@@ -58,6 +50,11 @@ begin
   // - гасим исключения
   Value := Unassigned;
  end;//try..except
+end;
+
+procedure _RegisterPublicInformation5;
+begin
+ tc5PublicInfo._RegisterMethod(TvcmProfilersCollection, tc5OpenAppClasses.mtGet, 'Profiler', TypeInfo(TvcmProfiler), [TypeInfo(Integer)], ['ProfilerID'], TvcmProfilersCollection_Get_Profiler_Pub5);
 end;
 
 procedure TvcmProfilersCollection_Get_Profiler_Pub6(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
@@ -71,18 +68,14 @@ begin
  end;//try..except
 end;
 
-procedure _RegisterPublicInformation5;
-begin
- tc5PublicInfo._RegisterMethod(TvcmProfilersCollection, tc5OpenAppClasses.mtGet, 'Profiler', TypeInfo(TvcmProfiler), [TypeInfo(Integer)], ['ProfilerID'], TvcmProfilersCollection_Get_Profiler_Pub5);
-end;
-
 procedure _RegisterPublicInformation6;
 begin
  tc6PublicInfo._RegisterMethod(TvcmProfilersCollection, tc6OpenAppClasses.mtGet, 'Profiler', TypeInfo(TvcmProfiler), [TypeInfo(Integer)], ['ProfilerID'], TvcmProfilersCollection_Get_Profiler_Pub6);
 end;
 
 initialization
-  _RegisterPublicInformation5;
-  _RegisterPublicInformation6;
+ _RegisterPublicInformation5;
+ _RegisterPublicInformation6;
+{$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVCM)
 
 end.

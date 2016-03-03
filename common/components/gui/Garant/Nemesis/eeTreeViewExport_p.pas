@@ -1,43 +1,35 @@
 unit eeTreeViewExport_p;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "NemesisTest"
-// Модуль: "w:/common/components/gui/Garant/Nemesis/eeTreeViewExport_p.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestClass::Class>> Shared Delphi For F1::NemesisTest::Tree::TeeTreeViewExport
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\eeTreeViewExport_p.pas"
+// Стереотип: "TestClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\l3Define.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\l3Define.inc}
 
 interface
 
+{$If Defined(Nemesis) AND NOT Defined(XE)}
+uses
+ l3IntfUses
+ , eeTreeViewExport
+ , l3TreeInterfaces
+;
+{$IfEnd} // Defined(Nemesis) AND NOT Defined(XE)
+
 implementation
 
-{$If defined(Nemesis) AND not defined(XE)}
+{$If Defined(Nemesis) AND NOT Defined(XE)}
 uses
-  eeTreeViewExport,
-  l3TreeInterfaces,
-  nscTaskPanelInterfaces,
-  SysUtils,
-  Variants {a},
-  ActiveX {a},
-  tc5OpenAppClasses {a},
-  tc5PublicInfo {a},
-  tc6OpenAppClasses {a},
-  tc6PublicInfo {a}
-  ;
-{$IfEnd} //Nemesis AND not XE
+ l3ImplUses
+ , nscTaskPanelInterfaces
+ , SysUtils
+ , Variants
+ , ActiveX
+ , tc5OpenAppClasses
+ , tc5PublicInfo
+ , tc6OpenAppClasses
+ , tc6PublicInfo
+;
 
-// start class TeeTreeViewExport
-
-{$If defined(Nemesis) AND not defined(XE)}
 function TeeTreeViewExport_Get_CurrentNodeLevel(Self: TeeTreeViewExport): Integer;
 //#UC START# *499C0C240318_499C0C1A009Eget_var*
 //#UC END# *499C0C240318_499C0C1A009Eget_var*
@@ -49,9 +41,7 @@ begin
 //#UC END# *499C0C240318_499C0C1A009Eget_impl*
  end;//with Self
 end;//TeeTreeViewExport_Get_CurrentNodeLevel
-{$IfEnd} //Nemesis AND not XE
 
-{$If defined(Nemesis) AND not defined(XE)}
 function TeeTreeViewExport_Get_CurrentNodeIndex(Self: TeeTreeViewExport): Integer;
 //#UC START# *499C0C3600B4_499C0C1A009Eget_var*
 //#UC END# *499C0C3600B4_499C0C1A009Eget_var*
@@ -63,9 +53,7 @@ begin
 //#UC END# *499C0C3600B4_499C0C1A009Eget_impl*
  end;//with Self
 end;//TeeTreeViewExport_Get_CurrentNodeIndex
-{$IfEnd} //Nemesis AND not XE
 
-{$If defined(Nemesis) AND not defined(XE)}
 function TeeTreeViewExport_Get_CurrentNodeExpanded(Self: TeeTreeViewExport): Boolean;
 //#UC START# *499C0C420199_499C0C1A009Eget_var*
 //#UC END# *499C0C420199_499C0C1A009Eget_var*
@@ -77,9 +65,7 @@ begin
 //#UC END# *499C0C420199_499C0C1A009Eget_impl*
  end;//with Self
 end;//TeeTreeViewExport_Get_CurrentNodeExpanded
-{$IfEnd} //Nemesis AND not XE
 
-{$If defined(Nemesis) AND not defined(XE)}
 function TeeTreeViewExport_Get_IsCurrentOperationEnabled(Self: TeeTreeViewExport): Boolean;
 //#UC START# *499C1DC600BD_499C0C1A009Eget_var*
 var
@@ -101,20 +87,8 @@ begin
 //#UC END# *499C1DC600BD_499C0C1A009Eget_impl*
  end;//with Self
 end;//TeeTreeViewExport_Get_IsCurrentOperationEnabled
-{$IfEnd} //Nemesis AND not XE
 
 procedure TeeTreeViewExport_Get_CurrentNodeLevel_Pub5(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
-begin
- Assert(Instance is TeeTreeViewExport);
- try
-  Value := (TeeTreeViewExport_Get_CurrentNodeLevel(TeeTreeViewExport(Instance)));
- except
-  // - гасим исключения
-  Value := Unassigned;
- end;//try..except
-end;
-
-procedure TeeTreeViewExport_Get_CurrentNodeLevel_Pub6(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
 begin
  Assert(Instance is TeeTreeViewExport);
  try
@@ -136,29 +110,7 @@ begin
  end;//try..except
 end;
 
-procedure TeeTreeViewExport_Get_CurrentNodeIndex_Pub6(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
-begin
- Assert(Instance is TeeTreeViewExport);
- try
-  Value := (TeeTreeViewExport_Get_CurrentNodeIndex(TeeTreeViewExport(Instance)));
- except
-  // - гасим исключения
-  Value := Unassigned;
- end;//try..except
-end;
-
 procedure TeeTreeViewExport_Get_CurrentNodeExpanded_Pub5(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
-begin
- Assert(Instance is TeeTreeViewExport);
- try
-  Value := (TeeTreeViewExport_Get_CurrentNodeExpanded(TeeTreeViewExport(Instance)));
- except
-  // - гасим исключения
-  Value := Unassigned;
- end;//try..except
-end;
-
-procedure TeeTreeViewExport_Get_CurrentNodeExpanded_Pub6(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
 begin
  Assert(Instance is TeeTreeViewExport);
  try
@@ -180,6 +132,47 @@ begin
  end;//try..except
 end;
 
+procedure _RegisterPublicInformation5;
+begin
+ tc5PublicInfo._RegisterMethod(TeeTreeViewExport, tc5OpenAppClasses.mtGet, 'CurrentNodeLevel', TypeInfo(Integer), [], [], TeeTreeViewExport_Get_CurrentNodeLevel_Pub5);
+ tc5PublicInfo._RegisterMethod(TeeTreeViewExport, tc5OpenAppClasses.mtGet, 'CurrentNodeIndex', TypeInfo(Integer), [], [], TeeTreeViewExport_Get_CurrentNodeIndex_Pub5);
+ tc5PublicInfo._RegisterMethod(TeeTreeViewExport, tc5OpenAppClasses.mtGet, 'CurrentNodeExpanded', TypeInfo(Boolean), [], [], TeeTreeViewExport_Get_CurrentNodeExpanded_Pub5);
+ tc5PublicInfo._RegisterMethod(TeeTreeViewExport, tc5OpenAppClasses.mtGet, 'IsCurrentOperationEnabled', TypeInfo(Boolean), [], [], TeeTreeViewExport_Get_IsCurrentOperationEnabled_Pub5);
+end;
+
+procedure TeeTreeViewExport_Get_CurrentNodeLevel_Pub6(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
+begin
+ Assert(Instance is TeeTreeViewExport);
+ try
+  Value := (TeeTreeViewExport_Get_CurrentNodeLevel(TeeTreeViewExport(Instance)));
+ except
+  // - гасим исключения
+  Value := Unassigned;
+ end;//try..except
+end;
+
+procedure TeeTreeViewExport_Get_CurrentNodeIndex_Pub6(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
+begin
+ Assert(Instance is TeeTreeViewExport);
+ try
+  Value := (TeeTreeViewExport_Get_CurrentNodeIndex(TeeTreeViewExport(Instance)));
+ except
+  // - гасим исключения
+  Value := Unassigned;
+ end;//try..except
+end;
+
+procedure TeeTreeViewExport_Get_CurrentNodeExpanded_Pub6(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
+begin
+ Assert(Instance is TeeTreeViewExport);
+ try
+  Value := (TeeTreeViewExport_Get_CurrentNodeExpanded(TeeTreeViewExport(Instance)));
+ except
+  // - гасим исключения
+  Value := Unassigned;
+ end;//try..except
+end;
+
 procedure TeeTreeViewExport_Get_IsCurrentOperationEnabled_Pub6(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
 begin
  Assert(Instance is TeeTreeViewExport);
@@ -191,14 +184,6 @@ begin
  end;//try..except
 end;
 
-procedure _RegisterPublicInformation5;
-begin
- tc5PublicInfo._RegisterMethod(TeeTreeViewExport, tc5OpenAppClasses.mtGet, 'CurrentNodeLevel', TypeInfo(Integer), [], [], TeeTreeViewExport_Get_CurrentNodeLevel_Pub5);
- tc5PublicInfo._RegisterMethod(TeeTreeViewExport, tc5OpenAppClasses.mtGet, 'CurrentNodeIndex', TypeInfo(Integer), [], [], TeeTreeViewExport_Get_CurrentNodeIndex_Pub5);
- tc5PublicInfo._RegisterMethod(TeeTreeViewExport, tc5OpenAppClasses.mtGet, 'CurrentNodeExpanded', TypeInfo(Boolean), [], [], TeeTreeViewExport_Get_CurrentNodeExpanded_Pub5);
- tc5PublicInfo._RegisterMethod(TeeTreeViewExport, tc5OpenAppClasses.mtGet, 'IsCurrentOperationEnabled', TypeInfo(Boolean), [], [], TeeTreeViewExport_Get_IsCurrentOperationEnabled_Pub5);
-end;
-
 procedure _RegisterPublicInformation6;
 begin
  tc6PublicInfo._RegisterMethod(TeeTreeViewExport, tc6OpenAppClasses.mtGet, 'CurrentNodeLevel', TypeInfo(Integer), [], [], TeeTreeViewExport_Get_CurrentNodeLevel_Pub6);
@@ -208,7 +193,8 @@ begin
 end;
 
 initialization
-  _RegisterPublicInformation5;
-  _RegisterPublicInformation6;
+ _RegisterPublicInformation5;
+ _RegisterPublicInformation6;
+{$IfEnd} // Defined(Nemesis) AND NOT Defined(XE)
 
 end.
