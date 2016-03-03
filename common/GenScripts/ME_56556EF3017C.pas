@@ -18,7 +18,7 @@ uses
 ;
 
 type
- TpgFreeIDHelper = class(Tl3ProtoObject)
+ TpgFreeIDHelper = class(Tl3ProtoObject, IdaComboAccessDataProviderHelper)
   private
    f_IntervalQuery: IdaTabledQuery;
    f_FamilyID: TdaFamilyID;
@@ -37,6 +37,12 @@ type
    function TableKind: TdaTables;
   protected
    procedure pm_SetExclusiveUse(aValue: Boolean); virtual;
+   function RegisterFreeExtObjID(aFamilyID: TdaFamilyID;
+    const aKey: AnsiString;
+    anID: TdaDocID): Boolean;
+   function RegisterFreeExtDocID(aFamilyID: TdaFamilyID;
+    const aKey: AnsiString;
+    anID: TdaDocID): Boolean;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -271,6 +277,32 @@ begin
  end;
 //#UC END# *56558EF30265_56556EF3017C_impl*
 end;//TpgFreeIDHelper.AnyRangesPresent
+
+function TpgFreeIDHelper.RegisterFreeExtObjID(aFamilyID: TdaFamilyID;
+ const aKey: AnsiString;
+ anID: TdaDocID): Boolean;
+//#UC START# *56BC642200D0_56556EF3017C_var*
+//#UC END# *56BC642200D0_56556EF3017C_var*
+begin
+//#UC START# *56BC642200D0_56556EF3017C_impl*
+ Result := False;
+ Assert(False);
+//!! !!! Needs to be implemented !!!
+//#UC END# *56BC642200D0_56556EF3017C_impl*
+end;//TpgFreeIDHelper.RegisterFreeExtObjID
+
+function TpgFreeIDHelper.RegisterFreeExtDocID(aFamilyID: TdaFamilyID;
+ const aKey: AnsiString;
+ anID: TdaDocID): Boolean;
+//#UC START# *56BC6437030F_56556EF3017C_var*
+//#UC END# *56BC6437030F_56556EF3017C_var*
+begin
+//#UC START# *56BC6437030F_56556EF3017C_impl*
+ Result := False;
+ Assert(False);
+//!! !!! Needs to be implemented !!!
+//#UC END# *56BC6437030F_56556EF3017C_impl*
+end;//TpgFreeIDHelper.RegisterFreeExtDocID
 
 procedure TpgFreeIDHelper.Cleanup;
  {* Функция очистки полей объекта. }

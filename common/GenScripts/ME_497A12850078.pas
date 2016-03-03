@@ -161,6 +161,7 @@ uses
  , Common_Strange_Controls
  , afwFacade
  , l3Variant
+ , Windows
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)

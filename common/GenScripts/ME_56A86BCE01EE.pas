@@ -99,6 +99,7 @@ uses
  , pgInterfaces
  , caUserManager
  , caTableQueryFactory
+ , daSchemeConsts
 ;
 
 constructor TcaDataProvider.Create(aParams: TcaDataProviderParams;
@@ -279,11 +280,20 @@ end;//TcaDataProvider.LoginAsServer
 
 function TcaDataProvider.GetFreeExtObjID(aFamily: TdaFamilyID): TdaDocID;
 //#UC START# *551E7E1501D8_56A86BCE01EE_var*
+var
+ l_Helper: IdaComboAccessDataProviderHelper;
 //#UC END# *551E7E1501D8_56A86BCE01EE_var*
 begin
 //#UC START# *551E7E1501D8_56A86BCE01EE_impl*
  Result := f_HTProvider.GetFreeExtObjID(aFamily);
- (f_PGProvider as IdaComboAccessDataProviderHelper).RegisterFreeExtObjID(Result);
+ if Result <> 0 then
+  l_Helper := f_PGProvider as IdaComboAccessDataProviderHelper;
+  try
+   if not l_Helper.RegisterFreeExtObjID(aFamily, ftnImgHandle, Result) then
+    l_Helper.RegisterFreeExtObjID(aFamily, ftnDocIDExternal, Result);
+  finally
+   l_Helper := nil;
+  end;
 //#UC END# *551E7E1501D8_56A86BCE01EE_impl*
 end;//TcaDataProvider.GetFreeExtObjID
 
@@ -293,7 +303,8 @@ function TcaDataProvider.GetFreeExtDocID(aFamily: TdaFamilyID): TdaDocID;
 begin
 //#UC START# *551E7E35030B_56A86BCE01EE_impl*
  Result := f_HTProvider.GetFreeExtDocID(aFamily);
- (f_PGProvider as IdaComboAccessDataProviderHelper).RegisterFreeExtDocID(Result);
+ if Result <> 0 then
+  (f_PGProvider as IdaComboAccessDataProviderHelper).RegisterFreeExtDocID(aFamily, ftnDocIDExternal, Result);
 //#UC END# *551E7E35030B_56A86BCE01EE_impl*
 end;//TcaDataProvider.GetFreeExtDocID
 

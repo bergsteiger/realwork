@@ -105,8 +105,12 @@ type
    procedure BeginImpersonate(anUserID: TdaUserID);
    procedure EndImpersonate;
    function Get_UserManager: IdaUserManager;
-   procedure RegisterFreeExtObjID(anID: TdaDocID);
-   procedure RegisterFreeExtDocID(anID: TdaDocID);
+   function RegisterFreeExtObjID(aFamilyID: TdaFamilyID;
+    const aKey: AnsiString;
+    anID: TdaDocID): Boolean;
+   function RegisterFreeExtDocID(aFamilyID: TdaFamilyID;
+    const aKey: AnsiString;
+    anID: TdaDocID): Boolean;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -749,23 +753,25 @@ begin
 //#UC END# *5628D25600E6_55D6DA9E00BFget_impl*
 end;//TpgDataProvider.Get_UserManager
 
-procedure TpgDataProvider.RegisterFreeExtObjID(anID: TdaDocID);
+function TpgDataProvider.RegisterFreeExtObjID(aFamilyID: TdaFamilyID;
+ const aKey: AnsiString;
+ anID: TdaDocID): Boolean;
 //#UC START# *56BC642200D0_55D6DA9E00BF_var*
 //#UC END# *56BC642200D0_55D6DA9E00BF_var*
 begin
 //#UC START# *56BC642200D0_55D6DA9E00BF_impl*
- Assert(False);
-//!! !!! Needs to be implemented !!!
+ (FreeIDHelper[aFamilyID] as IdaComboAccessDataProviderHelper).RegisterFreeExtObjID(aFamilyID, aKey, anID);
 //#UC END# *56BC642200D0_55D6DA9E00BF_impl*
 end;//TpgDataProvider.RegisterFreeExtObjID
 
-procedure TpgDataProvider.RegisterFreeExtDocID(anID: TdaDocID);
+function TpgDataProvider.RegisterFreeExtDocID(aFamilyID: TdaFamilyID;
+ const aKey: AnsiString;
+ anID: TdaDocID): Boolean;
 //#UC START# *56BC6437030F_55D6DA9E00BF_var*
 //#UC END# *56BC6437030F_55D6DA9E00BF_var*
 begin
 //#UC START# *56BC6437030F_55D6DA9E00BF_impl*
- Assert(False);
-//!! !!! Needs to be implemented !!!
+ (FreeIDHelper[aFamilyID] as IdaComboAccessDataProviderHelper).RegisterFreeExtDocID(aFamilyID, aKey, anID);
 //#UC END# *56BC6437030F_55D6DA9E00BF_impl*
 end;//TpgDataProvider.RegisterFreeExtDocID
 

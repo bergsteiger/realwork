@@ -542,8 +542,12 @@ type
 
  IdaComboAccessDataProviderHelper = interface
   ['{603EDD09-200D-48A3-A7AC-E58665C5439E}']
-  procedure RegisterFreeExtObjID(anID: TdaDocID);
-  procedure RegisterFreeExtDocID(anID: TdaDocID);
+  function RegisterFreeExtObjID(aFamilyID: TdaFamilyID;
+   const aKey: AnsiString;
+   anID: TdaDocID): Boolean;
+  function RegisterFreeExtDocID(aFamilyID: TdaFamilyID;
+   const aKey: AnsiString;
+   anID: TdaDocID): Boolean;
  end;//IdaComboAccessDataProviderHelper
 
  IdaComboAccessJournalHelper = interface
