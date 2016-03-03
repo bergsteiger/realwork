@@ -1,27 +1,17 @@
 unit k2DictionaryIDIndex;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Модуль: "w:/common/components/rtl/Garant/K2/k2DictionaryIDIndex.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::K2::k2CoreObjects::Tk2DictionaryIDIndex
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2DictionaryIDIndex.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  k2DictionaryIDIndexPrim,
-  l3Types
-  ;
+ l3IntfUses
+ , k2DictionaryIDIndexPrim
+ , l3Types
+;
 
 type
  _FindDataType_ = Integer;
@@ -33,20 +23,21 @@ type
 implementation
 
 uses
-  k2Tags,
-  l3Memory,
-  l3Variant
-  ;
+ l3ImplUses
+ , k2Tags
+ , l3Variant
+ , l3Memory
+;
 
-{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
 {$If not Declared(_ItemType_)}type _ItemType_ = Tl3Variant;{$IfEnd}
 
-// start class Tk2DictionaryIDIndex
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
 
 function CompareItemWithData(const anItem: _ItemType_;
-  const aData: _FindDataType_;
-  aSortIndex: Tl3SortIndex;
-  aList: _l3Searcher_): Integer;
+ const aData: _FindDataType_;
+ aSortIndex: Tl3SortIndex;
+ aList: _l3Searcher_): Integer;
+ {* Сравнивает существующий элемент с искомым. }
 //#UC START# *47B9BAFD01F4_5304CAB003D1_var*
 //#UC END# *47B9BAFD01F4_5304CAB003D1_var*
 begin

@@ -1,42 +1,30 @@
 unit k2ToolCacheList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Модуль: "w:/common/components/rtl/Garant/K2/k2ToolCacheList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::K2::k2PrimObjects::Tk2ToolCacheList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2ToolCacheList.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  k2ToolPrim,
-  k2ToolPrimList
-  ;
+ l3IntfUses
+ , k2ToolPrimList
+ , k2ToolPrim
+;
 
 type
  Tk2ToolCacheList = class(Tk2ToolPrimList)
- public
- // public methods
+  public
    function GetFree: Tk2ToolPrim;
  end;//Tk2ToolCacheList
 
 implementation
 
 uses
-  l3Base
-  ;
-
-// start class Tk2ToolCacheList
+ l3ImplUses
+ , l3Base
+;
 
 function Tk2ToolCacheList.GetFree: Tk2ToolPrim;
 //#UC START# *531EFB1C03E0_531EFB040349_var*

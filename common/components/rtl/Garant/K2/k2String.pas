@@ -1,35 +1,25 @@
 unit k2String;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Модуль: "w:/common/components/rtl/Garant/K2/k2String.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::K2::k2CoreObjects::Tk2String
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2String.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  l3_String,
-  k2Base,
-  l3Variant,
-  k2TagList,
-  k2Prim,
-  k2BaseStruct,
-  l3Interfaces,
-  k2BaseTypes,
-  l3Types,
-  l3IID
-  ;
+ l3IntfUses
+ , l3_String
+ , k2Base
+ , l3Variant
+ , k2BaseStruct
+ , k2TagList
+ , k2Prim
+ , l3IID
+ , k2BaseTypes
+ , l3Types
+ , l3Interfaces
+;
 
  {$Define k2TagIsString}
 
@@ -37,60 +27,55 @@ uses
 
 type
  _k2Tag_Parent_ = Tl3_String;
- {$Include ..\K2\k2Tag.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2Tag.imp.pas}
  Tk2String = class(_k2Tag_)
- protected
- // realized methods
-   {$If not defined(k2TagIsAtomic)}
+  protected
+   {$If NOT Defined(k2TagIsAtomic)}
    function SetAtomPrim(const aProp: _PropIn_;
     var V: Tk2Values): Boolean; override;
-   {$IfEnd} //not k2TagIsAtomic
- protected
- // overridden protected methods
+   {$IfEnd} // NOT Defined(k2TagIsAtomic)
    procedure InitFields; override;
    function GetIsOrd: Boolean; override;
    function GetTagType: Tl3VariantDef; override;
- public
- // public methods
-   constructor Create(aType: Tk2Type); overload; 
-   constructor Create; reintroduce; overload; 
-   class function Make(aType: Tk2Type): Il3TagRef; overload; 
+  public
+   constructor Create(aType: Tk2Type); reintroduce; overload;
+   constructor Create; reintroduce; overload;
+   class function Make(aType: Tk2Type): Il3TagRef; overload;
  end;//Tk2String
 
 implementation
 
 uses
-  SysUtils,
-  k2String_Const,
-  k2Tags,
-  l3Dict,
-  k2Const,
-  l3Const,
-  l3String,
-  k2Except,
-  k2Strings,
-  TypInfo,
-  l3Stream,
-  l3Base,
-  k2Facade,
-  Classes,
-  k2OList_Const,
-  k2Dictionary,
-  k2NonOptimizeContext,
-  k2VariantImpl,
-  k2Bool_Const,
-  k2List,
-  k2NullTagImpl,
-  k2Interfaces,
-  k2DictionaryPrim,
-  k2InterfaceFactory
-  ;
+ l3ImplUses
+ , k2String_Const
+ , k2Tags
+ , l3Dict
+ , k2Const
+ , l3Const
+ , SysUtils
+ , l3String
+ , k2Except
+ , k2Strings
+ , TypInfo
+ , l3Stream
+ , l3Base
+ , k2Facade
+ , Classes
+ , k2OList_Const
+ , k2Dictionary
+ , k2NonOptimizeContext
+ , k2VariantImpl
+ , k2Bool_Const
+ , k2NullTagImpl
+ , k2Interfaces
+ , k2DictionaryPrim
+ , k2InterfaceFactory
+ , k2List
+;
 
 type _Instance_R_ = Tk2String;
 
-{$Include ..\K2\k2Tag.imp.pas}
-
-// start class Tk2String
+{$Include w:\common\components\rtl\Garant\K2\k2Tag.imp.pas}
 
 constructor Tk2String.Create(aType: Tk2Type);
 //#UC START# *5315D861004C_53073D3D00BE_var*
@@ -127,9 +112,9 @@ begin
 //#UC END# *5356A98502EE_53073D3D00BE_impl*
 end;//Tk2String.Make
 
-{$If not defined(k2TagIsAtomic)}
+{$If NOT Defined(k2TagIsAtomic)}
 function Tk2String.SetAtomPrim(const aProp: _PropIn_;
-  var V: Tk2Values): Boolean;
+ var V: Tk2Values): Boolean;
 //#UC START# *49A545580241_53073D3D00BE_var*
 //#UC END# *49A545580241_53073D3D00BE_var*
 begin
@@ -138,7 +123,7 @@ begin
  Result := false;
 //#UC END# *49A545580241_53073D3D00BE_impl*
 end;//Tk2String.SetAtomPrim
-{$IfEnd} //not k2TagIsAtomic
+{$IfEnd} // NOT Defined(k2TagIsAtomic)
 
 procedure Tk2String.InitFields;
 //#UC START# *47A042E100E2_53073D3D00BE_var*

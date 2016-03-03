@@ -1,67 +1,51 @@
 unit k2DictionaryEx;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Модуль: "w:/common/components/rtl/Garant/K2/k2DictionaryEx.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::K2::k2CoreObjects::Tk2DictionaryEx
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2DictionaryEx.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  k2Base,
-  k2Dictionary,
-  l3Variant
-  ;
+ l3IntfUses
+ , k2Dictionary
+ , k2Base
+ , l3Variant
+;
 
 type
  TLastRec = record
   {* Предыдущий элемент, к которому обращались }
-   rID : Integer; // Идентификатор элемента
-   rTag : Tl3Tag; // Собственно элемент
+  rID: Integer;
+   {* Идентификатор элемента }
+  rTag: Tl3Tag;
+   {* Собственно элемент }
  end;//TLastRec
 
  Tk2DictionaryEx = class(Tk2Dictionary)
- private
- // private fields
-   f_AtomType : Tk2Type;
-    {* Поле для свойства AtomType}
- protected
- // overridden property methods
-   function pm_GetDRByID(anID: Integer): _StringType_; override;
- protected
- // overridden protected methods
+  private
+   f_AtomType: Tk2Type;
+    {* Поле для свойства AtomType }
+  protected
+   f_LastRec: TLastRec;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected fields
-   f_LastRec : TLastRec;
- public
- // public methods
+    {* Функция очистки полей объекта. }
+   function pm_GetDRByID(anID: Integer): _StringType_; override;
+  public
    constructor Create(aType: Tk2Type); reintroduce;
- protected
- // protected properties
+  protected
    property AtomType: Tk2Type
-     read f_AtomType;
+    read f_AtomType;
  end;//Tk2DictionaryEx
 
 implementation
 
 uses
-  k2Tags
-  ;
-
-// start class Tk2DictionaryEx
+ l3ImplUses
+ , k2Tags
+;
 
 constructor Tk2DictionaryEx.Create(aType: Tk2Type);
 //#UC START# *53565C580228_535664EC03B3_var*
@@ -74,6 +58,7 @@ begin
 end;//Tk2DictionaryEx.Create
 
 procedure Tk2DictionaryEx.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_535664EC03B3_var*
 //#UC END# *479731C50290_535664EC03B3_var*
 begin

@@ -1,42 +1,29 @@
 {$IfNDef k2TagHolder_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/K2/k2TagHolder.imp.pas"
-// Начат: 10.07.2009 17:04
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::K2::k2PrimObjects::k2TagHolder
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2TagHolder.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define k2TagHolder_imp}
- _k2TagHolder_ = {mixin} class(_k2TagHolder_Parent_)
- private
- // private fields
-   f_Redirect : Tl3Variant;
-    {* Поле для свойства Redirect}
- protected
- // property methods
+
+ _k2TagHolder_ = class(_k2TagHolder_Parent_)
+  private
+   f_Redirect: Tl3Variant;
+    {* Поле для свойства Redirect }
+  protected
    procedure pm_SetRedirect(aValue: Tl3Variant); virtual;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected properties
+    {* Функция очистки полей объекта. }
+  protected
    property Redirect: Tl3Variant
-     read f_Redirect
-     write pm_SetRedirect;
+    read f_Redirect
+    write pm_SetRedirect;
  end;//_k2TagHolder_
 
 {$Else k2TagHolder_imp}
 
-// start class _k2TagHolder_
+{$IfNDef k2TagHolder_imp_impl}
+
+{$Define k2TagHolder_imp_impl}
 
 procedure _k2TagHolder_.pm_SetRedirect(aValue: Tl3Variant);
 //#UC START# *533ED10E0160_4A573C5F01FFset_var*
@@ -48,6 +35,7 @@ begin
 end;//_k2TagHolder_.pm_SetRedirect
 
 procedure _k2TagHolder_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A573C5F01FF_var*
 //#UC END# *479731C50290_4A573C5F01FF_var*
 begin
@@ -57,4 +45,7 @@ begin
 //#UC END# *479731C50290_4A573C5F01FF_impl*
 end;//_k2TagHolder_.Cleanup
 
+{$EndIf k2TagHolder_imp_impl}
+
 {$EndIf k2TagHolder_imp}
+

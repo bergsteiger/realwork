@@ -1,54 +1,42 @@
 unit evAdjustNSRCToPage;
+ {* [RequestLink:241012792] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EverestCommon"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/EverestCommon/Tools/evAdjustNSRCToPage.pas"
-// Начат: 17.11.2010 12:00
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::EverestCommon::Tools::TevAdjustNSRCToPage
-//
-// {RequestLink:241012792}
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\EverestCommon\Tools\evAdjustNSRCToPage.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 type
  TevAdjustNSRCToPage = class
   {* [RequestLink:241012792] }
- public
- // public methods
+  public
    class procedure ProcessFile(const aFile: AnsiString);
  end;//TevAdjustNSRCToPage
 
 implementation
 
 uses
-  ddSectionWithSub2Para,
-  ddSectionRepair,
-  ddNSRCGenerator,
-  evdNSRCReader,
-  l3Filer,
-  evCustomTextFormatter,
-  evSimpleTextPainter,
-  l3Chars,
-  k2TagGen,
-  l3Base,
-  l3Types,
-  SysUtils,
-  evEmptyTableEliminator
-  ;
-
-// start class TevAdjustNSRCToPage
+ l3ImplUses
+ , ddSectionWithSub2Para
+ , ddSectionRepair
+ , ddNSRCGenerator
+ , evdNSRCReader
+ , l3Filer
+ , evCustomTextFormatter
+ , evSimpleTextPainter
+ , l3Chars
+ , k2TagGen
+ , l3Base
+ , l3Types
+ , SysUtils
+ , evEmptyTableEliminator
+;
 
 class procedure TevAdjustNSRCToPage.ProcessFile(const aFile: AnsiString);
 //#UC START# *4CE399BC02E3_4CE3998200D9_var*

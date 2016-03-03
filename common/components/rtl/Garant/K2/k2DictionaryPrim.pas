@@ -1,33 +1,23 @@
 unit k2DictionaryPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Модуль: "w:/common/components/rtl/Garant/K2/k2DictionaryPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::K2::k2CoreObjects::Tk2DictionaryPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2DictionaryPrim.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  l3ProtoDataContainer,
-  l3Variant,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except,
-  Classes
-  ;
+ l3IntfUses
+ , l3ProtoDataContainer
+ , l3Variant
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
  {$Define l3Items_NeedsAssignItem}
 
@@ -47,23 +37,22 @@ type
 implementation
 
 uses
-  k2BaseTypes,
-  k2Tags,
-  l3String,
-  k2NonOptimizeContext,
-  SysUtils,
-  l3Base,
-  l3MinMax,
-  RTLConsts
-  ;
-
-// start class Tk2DictionaryPrim
+ l3ImplUses
+ , k2BaseTypes
+ , k2Tags
+ , l3String
+ , k2NonOptimizeContext
+ , SysUtils
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+;
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
+ const aFrom: _ItemType_);
 //#UC START# *47B2C42A0163_5304C94F0101_var*
 //#UC END# *47B2C42A0163_5304C94F0101_var*
 begin
@@ -71,9 +60,10 @@ begin
  aTo.AsObject.AssignTag(aFrom.AsObject, k2_amAll {- [k2_amNull]}, Tk2NonOptimizeContext.Instance);
 //#UC END# *47B2C42A0163_5304C94F0101_impl*
 end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_5304C94F0101_var*
 //#UC END# *47B99D4503A2_5304C94F0101_var*
 begin

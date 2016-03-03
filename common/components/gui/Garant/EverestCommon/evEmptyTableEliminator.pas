@@ -1,65 +1,49 @@
 unit evEmptyTableEliminator;
+ {* Фильтр, выкидывающий пустые таблицы }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EverestCommon"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/EverestCommon/evEmptyTableEliminator.pas"
-// Начат: 02.12.2010 18:12
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::EverestCommon::Generators::TevEmptyTableEliminator
-//
-// Фильтр, выкидывающий пустые таблицы
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\EverestCommon\evEmptyTableEliminator.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\EverestCommon\evDefine.inc}
+{$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 
 interface
 
 uses
-  evdBufferedFilter,
-  l3Variant,
-  k2Base
-  ;
+ l3IntfUses
+ , evdBufferedFilter
+ , l3Variant
+ , k2Base
+;
 
 type
  TevEmptyTableEliminator = class(TevdBufferedFilter)
   {* Фильтр, выкидывающий пустые таблицы }
- private
- // private fields
-   f_WasSomeLeaf : Boolean;
- protected
- // overridden protected methods
+  private
+   f_WasSomeLeaf: Boolean;
+  protected
    procedure StartChild(TypeID: Tl3Type); override;
    procedure OpenStream; override;
-     {* вызывается один раз при начале генерации. Для перекрытия в потомках. }
+    {* вызывается один раз при начале генерации. Для перекрытия в потомках. }
    procedure DoStartChild(TypeID: Tk2Type); override;
    function NeedStartBuffering(aID: Integer): Boolean; override;
    function NeedFlushBuffer(aLeaf: Tl3Variant;
-     aTagId: Integer): Boolean; override;
+    aTagId: Integer): Boolean; override;
    procedure DoFlushBuffer(aLeaf: Tl3Variant;
-     aTagId: Integer;
-     aNeedCloseBracket: Boolean); override;
+    aTagId: Integer;
+    aNeedCloseBracket: Boolean); override;
  end;//TevEmptyTableEliminator
 
 implementation
 
 uses
-  LeafPara_Const,
-  Table_Const,
-  SBS_Const,
-  k2Facade,
-  ParaList_Const,
-  TableCell_Const
-  ;
-
-// start class TevEmptyTableEliminator
+ l3ImplUses
+ , LeafPara_Const
+ , Table_Const
+ , SBS_Const
+ , k2Facade
+ , ParaList_Const
+ , TableCell_Const
+;
 
 procedure TevEmptyTableEliminator.StartChild(TypeID: Tl3Type);
 //#UC START# *4836D4650177_4CF7B733015E_var*
@@ -85,6 +69,7 @@ begin
 end;//TevEmptyTableEliminator.StartChild
 
 procedure TevEmptyTableEliminator.OpenStream;
+ {* вызывается один раз при начале генерации. Для перекрытия в потомках. }
 //#UC START# *4836D49800CA_4CF7B733015E_var*
 //#UC END# *4836D49800CA_4CF7B733015E_var*
 begin
@@ -115,7 +100,7 @@ begin
 end;//TevEmptyTableEliminator.NeedStartBuffering
 
 function TevEmptyTableEliminator.NeedFlushBuffer(aLeaf: Tl3Variant;
-  aTagId: Integer): Boolean;
+ aTagId: Integer): Boolean;
 //#UC START# *4CF7BC520161_4CF7B733015E_var*
 
  procedure CheckEmptyLists(aList : Tl3Variant);
@@ -153,8 +138,8 @@ begin
 end;//TevEmptyTableEliminator.NeedFlushBuffer
 
 procedure TevEmptyTableEliminator.DoFlushBuffer(aLeaf: Tl3Variant;
-  aTagId: Integer;
-  aNeedCloseBracket: Boolean);
+ aTagId: Integer;
+ aNeedCloseBracket: Boolean);
 //#UC START# *4CF7BEC40130_4CF7B733015E_var*
 //#UC END# *4CF7BEC40130_4CF7B733015E_var*
 begin

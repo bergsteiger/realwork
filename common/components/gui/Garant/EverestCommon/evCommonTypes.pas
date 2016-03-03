@@ -1,66 +1,56 @@
 unit evCommonTypes;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EverestCommon"
-// Модуль: "w:/common/components/gui/Garant/EverestCommon/evCommonTypes.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi::EverestCommon::evCommonTypes
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\EverestCommon\evCommonTypes.pas"
+// Стереотип: "Interfaces"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\EverestCommon\evDefine.inc}
+{$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  k2Interfaces,
-  nevBase,
-  nevTools,
-  nevInternalInterfaces,
-  evdInterfaces,
-  evOldEverestTypes,
-  k2CustomReader,
-  l3Variant
-  ;
+ l3IntfUses
+ , nevBase
+ , k2CustomReader
+ , l3Variant
+ , nevTools
+ , evdInterfaces
+;
 
 type
- TevGenerator = nevBase.InevTagGenerator;
+ TevGenerator = InevTagGenerator;
 
- TevCustomFileReader = k2CustomReader.Tk2CustomReader;
+ TevCustomFileReader = Tk2CustomReader;
 
- TnevCustomUndoBuffer = l3Variant.Ik2UndoBuffer;
+ TnevCustomUndoBuffer = Ik2UndoBuffer;
 
- TnevLocation = nevTools.InevLocation;
+ TnevLocation = InevLocation;
 
- TnevCursor = nevTools.InevBasePoint;
+ TnevCursor = InevBasePoint;
 
- TnevBaseCursor = nevTools.InevBasePoint;
+ TnevBaseCursor = InevBasePoint;
 
- InevCommonPoint = nevTools.InevBasePoint;
+ InevCommonPoint = InevBasePoint;
 
- TnevIRange = nevTools.InevRange;
+ TnevIRange = InevRange;
 
- TnevBlock = nevTools.InevRange;
+ TnevBlock = InevRange;
 
- InevTagSelection = nevTools.InevRange;
+ InevTagSelection = InevRange;
 
- IevCommonDataObject = evdInterfaces.IevdDataObject;
+ IevCommonDataObject = IevdDataObject;
 
- TevFileReader = k2CustomReader.Tk2CustomReader;
+ TevFileReader = Tk2CustomReader;
 
  InevRange = nevTools.InevRange;
 
- InevPointTool = nevTools.InevPoint;
+ InevPointTool = InevPoint;
 
  InevSelection = nevTools.InevSelection;
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

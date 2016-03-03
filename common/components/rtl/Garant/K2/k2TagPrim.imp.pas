@@ -1,46 +1,62 @@
 {$IfNDef k2TagPrim_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Модуль: "w:/common/components/rtl/Garant/K2/k2TagPrim.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::K2::k2CoreObjects::k2TagPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2TagPrim.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define k2TagPrim_imp}
 
-{$If defined(k2TagNoSort)}
+ {$If Defined(k2TagNoSort)}
  {$Define l3Items_NoSort}
-{$IfEnd} //k2TagNoSort
+ {$IfEnd} // Defined(k2TagNoSort)
 
  _k2Int64Holder_Parent_ = _k2TagPrim_Parent_;
- {$Include ..\K2\k2Int64Holder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2Int64Holder.imp.pas}
  _k2DoQT_Parent_ = _k2Int64Holder_;
- {$Include ..\K2\k2DoQT.imp.pas}
- _k2TagPrim_ = {mixin} class(_k2DoQT_)
- private
- // private methods
+ {$Include w:\common\components\rtl\Garant\K2\k2DoQT.imp.pas}
+ _k2TagPrim_ = class(_k2DoQT_)
+  protected
+   {$If NOT Defined(k2Tag_No_f_TagType)}
+   f_TagType: Tk2Type;
+   {$IfEnd} // NOT Defined(k2Tag_No_f_TagType)
+  private
    procedure ChildAdded(aProp: Tk2ArrayProperty;
-     aChild: Tl3Variant;
-     anIndex: Integer;
-     aTotal: Integer;
-     const anOpPack: Il3OpPack);
- protected
- // overridden property methods
-   function pm_GetTagOwner: Tl3Variant; override;
-   procedure pm_SetTagOwner(aValue: Tl3Variant); override;
-   function pm_GetChildrenCount: Integer; override;
-   procedure pm_SetChildrenCapacity(aValue: Integer); override;
-   function pm_GetChildPrim(anIndex: Integer): Tl3Variant; override;
- protected
- // overridden protected methods
+    aChild: Tl3Variant;
+    anIndex: Integer;
+    aTotal: Integer;
+    const anOpPack: Il3OpPack);
+  protected
+   {$If NOT Defined(k2TagIsAtomic)}
+   function IterateInnerChildrenOnWrite: Boolean; virtual;
+   {$IfEnd} // NOT Defined(k2TagIsAtomic)
+   {$If NOT Defined(k2TagIsList)}
+   function HackChildren: Tk2TagList;
+   {$IfEnd} // NOT Defined(k2TagIsList)
+   procedure CheckChildInsert(var anIndex: Integer;
+    var aChild: Tl3Variant;
+    const anOp: Ik2Op); virtual;
+   {$If NOT Defined(k2TagIsAtomic)}
+   function DoSetAtom(const aProp: _PropIn_;
+    aValue: Tl3Variant): Boolean;
+   {$IfEnd} // NOT Defined(k2TagIsAtomic)
+   function GetOwnAttrValue(aProp: Tk2Prop;
+    out theValue: Tl3Variant): Boolean;
+   function GetAttrValue(aProp: Tk2Prop;
+    out theValue: Tl3Variant): Boolean;
+   {$If NOT Defined(k2TagIsAtomic)}
+   function SetAtomPrim(const aProp: _PropIn_;
+    var V: Tk2Values): Boolean; virtual; abstract;
+   {$IfEnd} // NOT Defined(k2TagIsAtomic)
+   {$If NOT Defined(k2TagIsAtomic)}
+   function GetHasSubAtom(aProp: Tk2Prop): Boolean; virtual;
+   {$IfEnd} // NOT Defined(k2TagIsAtomic)
+   function GetSubAtom(aProp: Tk2Prop;
+    out Data: Tl3Variant): Boolean; virtual;
+   {$If NOT Defined(k2TagIsAtomic)}
+   procedure SetSubAtom(const aProp: _PropIn_;
+    aValue: Tl3Variant);
+   {$IfEnd} // NOT Defined(k2TagIsAtomic)
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function DoIterateChildrenF(Action: Mk2Children_IterateChildrenF_Action;
     aLo: Tl3Index;
     aHi: Tl3Index;
@@ -49,136 +65,91 @@
     All: Boolean); override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
    function DeleteChildPrim(anIndex: Integer;
     aChild: Tl3Variant;
     const aContext: Il3OpPack): Boolean; override;
    function DoMarkModified: Boolean; override;
    procedure DoDoLoad; override;
    function DoIterateChildrenBack(Action: Mk2Children_IterateChildrenBack_Action;
-     aHi: Tl3Index;
-     aLo: Tl3Index;
-     aLoadedOnly: Boolean): Integer; override;
+    aHi: Tl3Index;
+    aLo: Tl3Index;
+    aLoadedOnly: Boolean): Integer; override;
    procedure DoForceStore; override;
    function DoGetHasSubAtom(anIndex: Integer): Boolean; override;
    function GetTagType: Tl3VariantDef; override;
    procedure SetAttr(anIndex: Integer;
-     const aContext: Il3OpPack;
-     aValue: Tl3Variant); override;
+    const aContext: Il3OpPack;
+    aValue: Tl3Variant); override;
    function GetAttr(anIndex: Integer;
-     out theValue: Tl3Variant): Boolean; override;
+    out theValue: Tl3Variant): Boolean; override;
    procedure SetBoolAttr(anIndex: Integer;
-     const aContext: Il3OpPack;
-     aValue: Boolean); override;
+    const aContext: Il3OpPack;
+    aValue: Boolean); override;
    procedure SetIntAttr(anIndex: Integer;
-     const aContext: Il3OpPack;
-     aValue: Integer); override;
+    const aContext: Il3OpPack;
+    aValue: Integer); override;
    procedure SetWStrAttr(anIndex: Integer;
-     const aContext: Il3OpPack;
-     const aValue: Tl3WString); override;
+    const aContext: Il3OpPack;
+    const aValue: Tl3WString); override;
+   function pm_GetTagOwner: Tl3Variant; override;
+   procedure pm_SetTagOwner(aValue: Tl3Variant); override;
+   function pm_GetChildrenCount: Integer; override;
+   procedure pm_SetChildrenCapacity(aValue: Integer); override;
+   function pm_GetChildPrim(anIndex: Integer): Tl3Variant; override;
    function DoAddChild(aChild: Tl3Variant;
-     const aContext: Il3OpPack): Integer; override;
+    const aContext: Il3OpPack): Integer; override;
    function CheckAttr(const aPath: array of Integer;
-     const aContext: Il3OpPack;
-     DoCheck: Boolean;
-     theIndex: PLongint): Tl3Variant; override;
+    const aContext: Il3OpPack;
+    DoCheck: Boolean;
+    theIndex: PLongint): Tl3Variant; override;
    function DoCAtom(anIndex: Integer;
-     const aContext: Il3OpPack;
-     anAtomType: Tl3VariantDef): Tl3Variant; override;
- public
- // overridden public methods
+    const aContext: Il3OpPack;
+    anAtomType: Tl3VariantDef): Tl3Variant; override;
+  public
    procedure CheckSort(aProp: Tl3VariantDef); override;
    function AssignTag(Source: Tl3Variant;
-    AssignMode: Tk2AssignModes = k2_amAll;
-    const Context: Il3OpPack = nil): Boolean; override;
+    AssignMode: Tk2AssignModes;
+    const Context: Il3OpPack): Boolean; override;
    function CloneTag: Il3TagRef; override;
    procedure AssignCloneParams(aSource: Tl3Variant;
-    AssignMode: Tk2AssignModes = k2_amAll;
-    const Context: Il3OpPack = nil); override;
+    AssignMode: Tk2AssignModes;
+    const Context: Il3OpPack); override;
    procedure WriteTag(const G: Ik2TagGenerator;
-    Flags: Tk2StorePropertyFlags = l3_spfAll;
-    Exclude: TByteSet = []); override;
-     {* записать тег в генератор. }
+    Flags: Tk2StorePropertyFlags;
+    Exclude: TByteSet); override;
+    {* записать тег в генератор. }
    procedure InsertChildTag(anIndex: Integer;
     aChild: Tl3Variant;
-    const aContext: Il3OpPack = nil); override;
-     {* вставить ребенка. }
+    const aContext: Il3OpPack); override;
+    {* вставить ребенка. }
    function IndexOfChild(aChild: Tl3Variant): Integer; override;
    function FindChild(anAtom: Integer;
     aValue: Integer;
     const aContext: Il3OpPack;
     aNeedCreate: Boolean;
     theIndex: PLongint): Tl3Variant; override;
-   procedure DeleteChildren(const Context: Il3OpPack = nil); override;
-     {* удалить всех детей. }
+   procedure DeleteChildren(const Context: Il3OpPack); override;
+    {* удалить всех детей. }
    function CompareWithInt(aValue: Integer;
     anIndex: Integer): Integer; override;
-     {* Сравнивает тег с целым. }
+    {* Сравнивает тег с целым. }
    function CompareWithTag(aTag: Tl3Variant;
     aSortIndex: Tl3SortIndex): Integer; override;
-   function ROwnAtom(anIndex: Integer): Tl3Variant; override;
- protected
- // protected fields
-  {$If not defined(k2Tag_No_f_TagType)}
-   f_TagType : Tk2Type;
-  {$IfEnd} //not k2Tag_No_f_TagType
- protected
- // protected methods
-    {$If not defined(k2TagIsAtomic)}
-   function IterateInnerChildrenOnWrite: Boolean; virtual;
-    {$IfEnd} //not k2TagIsAtomic
-    {$If not defined(k2TagIsList)}
-   function HackChildren: Tk2TagList;
-    {$IfEnd} //not k2TagIsList
-   procedure CheckChildInsert(var anIndex: Integer;
-     var aChild: Tl3Variant;
-     const anOp: Ik2Op); virtual;
-    {$If not defined(k2TagIsAtomic)}
-   function DoSetAtom(const aProp: _PropIn_;
-     aValue: Tl3Variant): Boolean;
-    {$IfEnd} //not k2TagIsAtomic
-   function GetOwnAttrValue(aProp: Tk2Prop;
-     out theValue: Tl3Variant): Boolean;
-   function GetAttrValue(aProp: Tk2Prop;
-     out theValue: Tl3Variant): Boolean;
-   {$If not defined(k2TagIsAtomic)}
-   function SetAtomPrim(const aProp: _PropIn_;
-    var V: Tk2Values): Boolean; virtual; abstract;
-   {$IfEnd} //not k2TagIsAtomic
-   {$If not defined(k2TagIsAtomic)}
-   function GetHasSubAtom(aProp: Tk2Prop): Boolean; virtual;
-   {$IfEnd} //not k2TagIsAtomic
-   function GetSubAtom(aProp: Tk2Prop;
-    out Data: Tl3Variant): Boolean; virtual;
-   {$If not defined(k2TagIsAtomic)}
-   procedure SetSubAtom(const aProp: _PropIn_;
-    aValue: Tl3Variant);
-   {$IfEnd} //not k2TagIsAtomic
+   function rOwnAtom(anIndex: Integer): Tl3Variant; override;
  end;//_k2TagPrim_
 
 {$Else k2TagPrim_imp}
 
+{$IfNDef k2TagPrim_imp_impl}
 
-{$Include ..\K2\k2Int64Holder.imp.pas}
+{$Define k2TagPrim_imp_impl}
 
-{$Include ..\K2\k2DoQT.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2Int64Holder.imp.pas}
 
-// start class _k2TagPrim_
+{$Include w:\common\components\rtl\Garant\K2\k2DoQT.imp.pas}
 
-procedure _k2TagPrim_.ChildAdded(aProp: Tk2ArrayProperty;
-  aChild: Tl3Variant;
-  anIndex: Integer;
-  aTotal: Integer;
-  const anOpPack: Il3OpPack);
-//#UC START# *533D641702ED_53280B9801E7_var*
-//#UC END# *533D641702ED_53280B9801E7_var*
-begin
-//#UC START# *533D641702ED_53280B9801E7_impl*
- aProp.DoAfterChildAdded(Self, aChild, anOpPack, anIndex, aTotal);
-//#UC END# *533D641702ED_53280B9801E7_impl*
-end;//_k2TagPrim_.ChildAdded
-
-{$If not defined(k2TagIsAtomic)}
+{$If NOT Defined(k2TagIsAtomic)}
 function _k2TagPrim_.IterateInnerChildrenOnWrite: Boolean;
 //#UC START# *5081947501ED_53280B9801E7_var*
 //#UC END# *5081947501ED_53280B9801E7_var*
@@ -187,9 +158,9 @@ begin
  Result := true;
 //#UC END# *5081947501ED_53280B9801E7_impl*
 end;//_k2TagPrim_.IterateInnerChildrenOnWrite
-{$IfEnd} //not k2TagIsAtomic
+{$IfEnd} // NOT Defined(k2TagIsAtomic)
 
-{$If not defined(k2TagIsList)}
+{$If NOT Defined(k2TagIsList)}
 function _k2TagPrim_.HackChildren: Tk2TagList;
 //#UC START# *4A5368DC0050_53280B9801E7_var*
 {$IfDef k2TagIsList}
@@ -215,11 +186,11 @@ begin
  {$EndIf k2TagIsList}
 //#UC END# *4A5368DC0050_53280B9801E7_impl*
 end;//_k2TagPrim_.HackChildren
-{$IfEnd} //not k2TagIsList
+{$IfEnd} // NOT Defined(k2TagIsList)
 
 procedure _k2TagPrim_.CheckChildInsert(var anIndex: Integer;
-  var aChild: Tl3Variant;
-  const anOp: Ik2Op);
+ var aChild: Tl3Variant;
+ const anOp: Ik2Op);
 //#UC START# *4CED66B8005F_53280B9801E7_var*
 //#UC END# *4CED66B8005F_53280B9801E7_var*
 begin
@@ -228,9 +199,22 @@ begin
 //#UC END# *4CED66B8005F_53280B9801E7_impl*
 end;//_k2TagPrim_.CheckChildInsert
 
-{$If not defined(k2TagIsAtomic)}
+procedure _k2TagPrim_.ChildAdded(aProp: Tk2ArrayProperty;
+ aChild: Tl3Variant;
+ anIndex: Integer;
+ aTotal: Integer;
+ const anOpPack: Il3OpPack);
+//#UC START# *533D641702ED_53280B9801E7_var*
+//#UC END# *533D641702ED_53280B9801E7_var*
+begin
+//#UC START# *533D641702ED_53280B9801E7_impl*
+ aProp.DoAfterChildAdded(Self, aChild, anOpPack, anIndex, aTotal);
+//#UC END# *533D641702ED_53280B9801E7_impl*
+end;//_k2TagPrim_.ChildAdded
+
+{$If NOT Defined(k2TagIsAtomic)}
 function _k2TagPrim_.DoSetAtom(const aProp: _PropIn_;
-  aValue: Tl3Variant): Boolean;
+ aValue: Tl3Variant): Boolean;
 //#UC START# *5346C8570369_53280B9801E7_var*
 var
  l_V : Tk2Values;
@@ -259,10 +243,10 @@ begin
  end;//try..finally
 //#UC END# *5346C8570369_53280B9801E7_impl*
 end;//_k2TagPrim_.DoSetAtom
-{$IfEnd} //not k2TagIsAtomic
+{$IfEnd} // NOT Defined(k2TagIsAtomic)
 
 function _k2TagPrim_.GetOwnAttrValue(aProp: Tk2Prop;
-  out theValue: Tl3Variant): Boolean;
+ out theValue: Tl3Variant): Boolean;
 //#UC START# *5346C88F0297_53280B9801E7_var*
 //#UC END# *5346C88F0297_53280B9801E7_var*
 begin
@@ -281,7 +265,7 @@ begin
 end;//_k2TagPrim_.GetOwnAttrValue
 
 function _k2TagPrim_.GetAttrValue(aProp: Tk2Prop;
-  out theValue: Tl3Variant): Boolean;
+ out theValue: Tl3Variant): Boolean;
 //#UC START# *5346C8C00133_53280B9801E7_var*
 {$IfDef k2TagUseMapping}
 var
@@ -347,7 +331,7 @@ begin
 //#UC END# *5346C8C00133_53280B9801E7_impl*
 end;//_k2TagPrim_.GetAttrValue
 
-{$If not defined(k2TagIsAtomic)}
+{$If NOT Defined(k2TagIsAtomic)}
 function _k2TagPrim_.GetHasSubAtom(aProp: Tk2Prop): Boolean;
 //#UC START# *49A544E802B2_53280B9801E7_var*
 //#UC END# *49A544E802B2_53280B9801E7_var*
@@ -360,10 +344,10 @@ begin
  {$EndIf k2TagIsList}
 //#UC END# *49A544E802B2_53280B9801E7_impl*
 end;//_k2TagPrim_.GetHasSubAtom
-{$IfEnd} //not k2TagIsAtomic
+{$IfEnd} // NOT Defined(k2TagIsAtomic)
 
 function _k2TagPrim_.GetSubAtom(aProp: Tk2Prop;
-  out Data: Tl3Variant): Boolean;
+ out Data: Tl3Variant): Boolean;
 //#UC START# *49A54517029C_53280B9801E7_var*
 //#UC END# *49A54517029C_53280B9801E7_var*
 begin
@@ -373,9 +357,9 @@ begin
 //#UC END# *49A54517029C_53280B9801E7_impl*
 end;//_k2TagPrim_.GetSubAtom
 
-{$If not defined(k2TagIsAtomic)}
+{$If NOT Defined(k2TagIsAtomic)}
 procedure _k2TagPrim_.SetSubAtom(const aProp: _PropIn_;
-  aValue: Tl3Variant);
+ aValue: Tl3Variant);
 //#UC START# *4C6D1C070249_53280B9801E7_var*
 
  procedure SetAtom(const aProp : _PropIn_;
@@ -533,7 +517,7 @@ begin
  end;//Result.IsNull
 //#UC END# *4C6D1C070249_53280B9801E7_impl*
 end;//_k2TagPrim_.SetSubAtom
-{$IfEnd} //not k2TagIsAtomic
+{$IfEnd} // NOT Defined(k2TagIsAtomic)
 
 procedure _k2TagPrim_.CheckSort(aProp: Tl3VariantDef);
 //#UC START# *47612CD10380_53280B9801E7_var*
@@ -552,8 +536,8 @@ begin
 end;//_k2TagPrim_.CheckSort
 
 function _k2TagPrim_.AssignTag(Source: Tl3Variant;
-  AssignMode: Tk2AssignModes = k2_amAll;
-  const Context: Il3OpPack = nil): Boolean;
+ AssignMode: Tk2AssignModes;
+ const Context: Il3OpPack): Boolean;
 //#UC START# *47612DD0012B_53280B9801E7_var*
 
 
@@ -709,8 +693,8 @@ begin
 end;//_k2TagPrim_.CloneTag
 
 procedure _k2TagPrim_.AssignCloneParams(aSource: Tl3Variant;
-  AssignMode: Tk2AssignModes = k2_amAll;
-  const Context: Il3OpPack = nil);
+ AssignMode: Tk2AssignModes;
+ const Context: Il3OpPack);
 //#UC START# *47612E530082_53280B9801E7_var*
 {$IfNDef k2TagIsAtomic}
 var
@@ -807,8 +791,9 @@ begin
 end;//_k2TagPrim_.AssignCloneParams
 
 procedure _k2TagPrim_.WriteTag(const G: Ik2TagGenerator;
-  Flags: Tk2StorePropertyFlags = l3_spfAll;
-  Exclude: TByteSet = []);
+ Flags: Tk2StorePropertyFlags;
+ Exclude: TByteSet);
+ {* записать тег в генератор. }
 //#UC START# *4761324203B8_53280B9801E7_var*
 {$IfNDef k2TagIsAtomic}
 
@@ -957,6 +942,7 @@ begin
 end;//_k2TagPrim_.WriteTag
 
 procedure _k2TagPrim_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_53280B9801E7_var*
 //#UC END# *479731C50290_53280B9801E7_var*
 begin
@@ -969,9 +955,9 @@ begin
 end;//_k2TagPrim_.Cleanup
 
 function _k2TagPrim_.DoIterateChildrenF(Action: Mk2Children_IterateChildrenF_Action;
-  aLo: Tl3Index;
-  aHi: Tl3Index;
-  aLoadedOnly: Boolean): Integer;
+ aLo: Tl3Index;
+ aHi: Tl3Index;
+ aLoadedOnly: Boolean): Integer;
 //#UC START# *48CF96D80241_53280B9801E7_var*
  {$IfNDef k2TagIsAtomic}
  {$IfDef k2TagIsList}
@@ -1012,7 +998,7 @@ begin
 end;//_k2TagPrim_.DoIterateChildrenF
 
 procedure _k2TagPrim_.DoIterateProperties(Action: Ml3TagHolder_IterateProperties_Action;
-  All: Boolean);
+ All: Boolean);
 //#UC START# *49A545D501F6_53280B9801E7_var*
 //#UC END# *49A545D501F6_53280B9801E7_var*
 begin
@@ -1026,8 +1012,9 @@ begin
 end;//_k2TagPrim_.DoIterateProperties
 
 procedure _k2TagPrim_.InsertChildTag(anIndex: Integer;
-  aChild: Tl3Variant;
-  const aContext: Il3OpPack = nil);
+ aChild: Tl3Variant;
+ const aContext: Il3OpPack);
+ {* вставить ребенка. }
 //#UC START# *4A42358A00C2_53280B9801E7_var*
 var
  l_Prop : Tk2ArrayProperty;
@@ -1129,10 +1116,10 @@ begin
 end;//_k2TagPrim_.IndexOfChild
 
 function _k2TagPrim_.FindChild(anAtom: Integer;
-  aValue: Integer;
-  const aContext: Il3OpPack;
-  aNeedCreate: Boolean;
-  theIndex: PLongint): Tl3Variant;
+ aValue: Integer;
+ const aContext: Il3OpPack;
+ aNeedCreate: Boolean;
+ theIndex: PLongint): Tl3Variant;
 //#UC START# *4A42374B0371_53280B9801E7_var*
  {$IfDef k2TagIsList}
  var
@@ -1231,7 +1218,8 @@ begin
 //#UC END# *4A42374B0371_53280B9801E7_impl*
 end;//_k2TagPrim_.FindChild
 
-procedure _k2TagPrim_.DeleteChildren(const Context: Il3OpPack = nil);
+procedure _k2TagPrim_.DeleteChildren(const Context: Il3OpPack);
+ {* удалить всех детей. }
 //#UC START# *4A42378D0030_53280B9801E7_var*
 var
  AL         : Tl3Variant;
@@ -1278,7 +1266,8 @@ begin
 end;//_k2TagPrim_.DeleteChildren
 
 function _k2TagPrim_.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_53280B9801E7_var*
 //#UC END# *4A60B23E00C3_53280B9801E7_var*
 begin
@@ -1294,7 +1283,8 @@ begin
 end;//_k2TagPrim_.COMQueryInterface
 
 function _k2TagPrim_.CompareWithInt(aValue: Integer;
-  anIndex: Integer): Integer;
+ anIndex: Integer): Integer;
+ {* Сравнивает тег с целым. }
 //#UC START# *4BC8415802B6_53280B9801E7_var*
 //#UC END# *4BC8415802B6_53280B9801E7_var*
 begin
@@ -1304,7 +1294,7 @@ begin
 end;//_k2TagPrim_.CompareWithInt
 
 function _k2TagPrim_.CompareWithTag(aTag: Tl3Variant;
-  aSortIndex: Tl3SortIndex): Integer;
+ aSortIndex: Tl3SortIndex): Integer;
 //#UC START# *4BC8415E021A_53280B9801E7_var*
 //#UC END# *4BC8415E021A_53280B9801E7_var*
 begin
@@ -1313,7 +1303,7 @@ begin
 //#UC END# *4BC8415E021A_53280B9801E7_impl*
 end;//_k2TagPrim_.CompareWithTag
 
-function _k2TagPrim_.ROwnAtom(anIndex: Integer): Tl3Variant;
+function _k2TagPrim_.rOwnAtom(anIndex: Integer): Tl3Variant;
 //#UC START# *4BC843C40240_53280B9801E7_var*
 var
  l_Value : Tl3Variant;
@@ -1332,11 +1322,11 @@ begin
  else
   Result := Tk2NullTagImpl.Instance;
 //#UC END# *4BC843C40240_53280B9801E7_impl*
-end;//_k2TagPrim_.ROwnAtom
+end;//_k2TagPrim_.rOwnAtom
 
 function _k2TagPrim_.DeleteChildPrim(anIndex: Integer;
-  aChild: Tl3Variant;
-  const aContext: Il3OpPack): Boolean;
+ aChild: Tl3Variant;
+ const aContext: Il3OpPack): Boolean;
 //#UC START# *4C6CE735026E_53280B9801E7_var*
 {$IfDef k2TagIsList}
 var
@@ -1469,9 +1459,9 @@ begin
 end;//_k2TagPrim_.DoDoLoad
 
 function _k2TagPrim_.DoIterateChildrenBack(Action: Mk2Children_IterateChildrenBack_Action;
-  aHi: Tl3Index;
-  aLo: Tl3Index;
-  aLoadedOnly: Boolean): Integer;
+ aHi: Tl3Index;
+ aLo: Tl3Index;
+ aLoadedOnly: Boolean): Integer;
 //#UC START# *5081632303E6_53280B9801E7_var*
  {$IfNDef k2TagIsAtomic}
  {$IfDef k2TagIsList}
@@ -1550,8 +1540,8 @@ begin
 end;//_k2TagPrim_.GetTagType
 
 procedure _k2TagPrim_.SetAttr(anIndex: Integer;
-  const aContext: Il3OpPack;
-  aValue: Tl3Variant);
+ const aContext: Il3OpPack;
+ aValue: Tl3Variant);
 //#UC START# *5331961F0280_53280B9801E7_var*
 {$IfNDef k2TagIsAtomic}
 var
@@ -1659,7 +1649,7 @@ begin
 end;//_k2TagPrim_.SetAttr
 
 function _k2TagPrim_.GetAttr(anIndex: Integer;
-  out theValue: Tl3Variant): Boolean;
+ out theValue: Tl3Variant): Boolean;
 //#UC START# *53319C270138_53280B9801E7_var*
 var
  l_Prop : Tk2Prop;
@@ -1679,8 +1669,8 @@ begin
 end;//_k2TagPrim_.GetAttr
 
 procedure _k2TagPrim_.SetBoolAttr(anIndex: Integer;
-  const aContext: Il3OpPack;
-  aValue: Boolean);
+ const aContext: Il3OpPack;
+ aValue: Boolean);
 //#UC START# *5331B00B02DD_53280B9801E7_var*
 var
  l_Prop : _PropLoc_;
@@ -1707,8 +1697,8 @@ begin
 end;//_k2TagPrim_.SetBoolAttr
 
 procedure _k2TagPrim_.SetIntAttr(anIndex: Integer;
-  const aContext: Il3OpPack;
-  aValue: Integer);
+ const aContext: Il3OpPack;
+ aValue: Integer);
 //#UC START# *5332CD8801A6_53280B9801E7_var*
 var
  l_Prop : _PropLoc_;
@@ -1728,8 +1718,8 @@ begin
 end;//_k2TagPrim_.SetIntAttr
 
 procedure _k2TagPrim_.SetWStrAttr(anIndex: Integer;
-  const aContext: Il3OpPack;
-  const aValue: Tl3WString);
+ const aContext: Il3OpPack;
+ const aValue: Tl3WString);
 //#UC START# *5332FB8403B6_53280B9801E7_var*
 var
  l_Prop : Tk2Prop;
@@ -1860,7 +1850,7 @@ begin
 end;//_k2TagPrim_.pm_GetChildPrim
 
 function _k2TagPrim_.DoAddChild(aChild: Tl3Variant;
-  const aContext: Il3OpPack): Integer;
+ const aContext: Il3OpPack): Integer;
 //#UC START# *533D587B0359_53280B9801E7_var*
 
  procedure RaiseNoChildren;
@@ -1951,9 +1941,9 @@ begin
 end;//_k2TagPrim_.DoAddChild
 
 function _k2TagPrim_.CheckAttr(const aPath: array of Integer;
-  const aContext: Il3OpPack;
-  DoCheck: Boolean;
-  theIndex: PLongint): Tl3Variant;
+ const aContext: Il3OpPack;
+ DoCheck: Boolean;
+ theIndex: PLongint): Tl3Variant;
 //#UC START# *533D6FD80051_53280B9801E7_var*
 var
  l_Index      : Integer;
@@ -2012,8 +2002,8 @@ begin
 end;//_k2TagPrim_.CheckAttr
 
 function _k2TagPrim_.DoCAtom(anIndex: Integer;
-  const aContext: Il3OpPack;
-  anAtomType: Tl3VariantDef): Tl3Variant;
+ const aContext: Il3OpPack;
+ anAtomType: Tl3VariantDef): Tl3Variant;
 //#UC START# *533D791300DA_53280B9801E7_var*
 {$IfNDef k2TagIsAtomic}
 var
@@ -2074,4 +2064,7 @@ begin
 //#UC END# *533D791300DA_53280B9801E7_impl*
 end;//_k2TagPrim_.DoCAtom
 
+{$EndIf k2TagPrim_imp_impl}
+
 {$EndIf k2TagPrim_imp}
+

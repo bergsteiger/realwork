@@ -1,34 +1,21 @@
 unit k2Dictionary;
+ {* Словарь. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/K2/k2Dictionary.pas"
-// Начат: 11.10.1999 12:08
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::K2::k2CoreObjects::Tk2Dictionary
-//
-// Словарь.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2Dictionary.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  k2DictionaryPrim,
-  k2DictionaryIDIndex,
-  l3Variant,
-  l3Interfaces,
-  l3Types
-  ;
+ l3IntfUses
+ , k2DictionaryPrim
+ , k2DictionaryIDIndex
+ , l3Variant
+ , l3Interfaces
+ , l3Types
+;
 
 type
  _IDIndexType_ = Tk2DictionaryIDIndex;
@@ -42,14 +29,14 @@ type
 implementation
 
 uses
-  l3String,
-  k2Tags,
-  k2BaseTypes,
-  l3Base,
-  SysUtils
-  ;
-
-// start class Tk2Dictionary
+ l3ImplUses
+ , l3String
+ , k2Tags
+ , k2BaseTypes
+ , l3Base
+ , SysUtils
+ , l3Memory
+;
 
 function ItemToWStr(const anItem: _ItemType_): Tl3WString;
 //#UC START# *5304D6C5002B_4860AF86034F_var*

@@ -1,40 +1,30 @@
 unit k2NonAtomicTag;
+ {* Базовый неатомарный тег }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Модуль: "w:/common/components/rtl/Garant/K2/k2NonAtomicTag.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::K2::k2CoreObjects::Tk2NonAtomicTag
-//
-// Базовый неатомарный тег
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2NonAtomicTag.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  k2Tag
-  ;
+ l3IntfUses
+ , k2Tag
+;
 
 type
  Tk2NonAtomicTag = {abstract} class(Tk2Tag)
   {* Базовый неатомарный тег }
- protected
- // overridden protected methods
+  protected
    function GetIsOrd: Boolean; override;
  end;//Tk2NonAtomicTag
 
 implementation
 
-// start class Tk2NonAtomicTag
+uses
+ l3ImplUses
+;
 
 function Tk2NonAtomicTag.GetIsOrd: Boolean;
 //#UC START# *532AE8F2009A_532080BB027A_var*

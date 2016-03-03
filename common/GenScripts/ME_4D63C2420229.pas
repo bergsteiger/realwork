@@ -68,6 +68,7 @@ uses
  l3ImplUses
  , k2Base
  , k2TagPointer
+ , l3Base
 ;
 
 function Tk2InterfaceFactory.QueryTool(aTag: Tl3Variant;

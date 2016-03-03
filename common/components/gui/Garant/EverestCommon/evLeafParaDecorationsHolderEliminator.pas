@@ -1,43 +1,29 @@
 unit evLeafParaDecorationsHolderEliminator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EverestCommon"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/EverestCommon/evLeafParaDecorationsHolderEliminator.pas"
-// Начат: 30.03.2011 18:53
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::EverestCommon::Generators::TevLeafParaDecorationsHolderEliminator
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\EverestCommon\evLeafParaDecorationsHolderEliminator.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\EverestCommon\evDefine.inc}
+{$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 
 interface
 
 uses
-  k2TagFilter
-  ;
+ l3IntfUses
+ , k2TagFilter
+;
 
 type
  TevLeafParaDecorationsHolderEliminator = class(Tk2TagFilter)
- protected
- // overridden protected methods
+  protected
    function NeedTranslateChildToNext: Boolean; override;
  end;//TevLeafParaDecorationsHolderEliminator
 
 implementation
 
 uses
-  LeafParaDecorationsHolder_Const
-  ;
-
-// start class TevLeafParaDecorationsHolderEliminator
+ l3ImplUses
+ , LeafParaDecorationsHolder_Const
+;
 
 function TevLeafParaDecorationsHolderEliminator.NeedTranslateChildToNext: Boolean;
 //#UC START# *4CA3006302BC_4D9343CE038C_var*

@@ -1,41 +1,21 @@
 {$IfNDef k2TagBox_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/K2/k2TagBox.imp.pas"
-// Начат: 20.04.2005 19:29
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::K2::k2PrimObjects::k2TagBox
-//
-// Реализация инструмента, работающего с тегами
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2TagBox.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define k2TagBox_imp}
-//#UC START# *48CF9748004Fci*
-//#UC END# *48CF9748004Fci*
+
+ //#UC START# *48CF9748004Fci*
+ //#UC END# *48CF9748004Fci*
  _k2Int64Holder_Parent_ = _k2TagBox_Parent_;
- {$Include ..\K2\k2Int64Holder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2Int64Holder.imp.pas}
  _k2DoQT_Parent_ = _k2Int64Holder_;
- {$Include ..\K2\k2DoQT.imp.pas}
-//#UC START# *48CF9748004Fcit*
-//#UC END# *48CF9748004Fcit*
- _k2TagBox_ = {mixin} class(_k2DoQT_, Il3TagRef)
+ {$Include w:\common\components\rtl\Garant\K2\k2DoQT.imp.pas}
+ //#UC START# *48CF9748004Fcit*
+ //#UC END# *48CF9748004Fcit*
+ _k2TagBox_ = class(_k2DoQT_, Il3TagRef)
   {* Реализация инструмента, работающего с тегами }
- protected
- // overridden property methods
-   function pm_GetTagOwner: Tl3Variant; override;
-   procedure pm_SetTagOwner(aValue: Tl3Variant); override;
-   function pm_GetChildrenCount: Integer; override;
-   procedure pm_SetChildrenCapacity(aValue: Integer); override;
-   function pm_GetChildPrim(anIndex: Integer): Tl3Variant; override;
- protected
- // overridden protected methods
+  protected
    function GetAsPCharLen: Tl3WString; override;
    function DoIterateChildrenF(Action: Mk2Children_IterateChildrenF_Action;
     aLo: Tl3Index;
@@ -49,9 +29,9 @@
    function DoMarkModified: Boolean; override;
    procedure DoDoLoad; override;
    function DoIterateChildrenBack(Action: Mk2Children_IterateChildrenBack_Action;
-     aHi: Tl3Index;
-     aLo: Tl3Index;
-     aLoadedOnly: Boolean): Integer; override;
+    aHi: Tl3Index;
+    aLo: Tl3Index;
+    aLoadedOnly: Boolean): Integer; override;
    function GetIsStream(out theStream: IStream): Boolean; override;
    procedure DoForceStore; override;
    function GetAsLong: Integer; override;
@@ -64,79 +44,82 @@
    procedure DoSetRef(var theRef: Tl3Variant); override;
    function GetTagType: Tl3VariantDef; override;
    procedure SetAttr(anIndex: Integer;
-     const aContext: Il3OpPack;
-     aValue: Tl3Variant); override;
+    const aContext: Il3OpPack;
+    aValue: Tl3Variant); override;
    function GetAttr(anIndex: Integer;
-     out theValue: Tl3Variant): Boolean; override;
+    out theValue: Tl3Variant): Boolean; override;
    procedure SetBoolAttr(anIndex: Integer;
-     const aContext: Il3OpPack;
-     aValue: Boolean); override;
+    const aContext: Il3OpPack;
+    aValue: Boolean); override;
    procedure SetIntAttr(anIndex: Integer;
-     const aContext: Il3OpPack;
-     aValue: Integer); override;
+    const aContext: Il3OpPack;
+    aValue: Integer); override;
    procedure SetWStrAttr(anIndex: Integer;
-     const aContext: Il3OpPack;
-     const aValue: Tl3WString); override;
+    const aContext: Il3OpPack;
+    const aValue: Tl3WString); override;
+   function pm_GetTagOwner: Tl3Variant; override;
+   procedure pm_SetTagOwner(aValue: Tl3Variant); override;
+   function pm_GetChildrenCount: Integer; override;
+   procedure pm_SetChildrenCapacity(aValue: Integer); override;
+   function pm_GetChildPrim(anIndex: Integer): Tl3Variant; override;
    function DoAddChild(aChild: Tl3Variant;
-     const aContext: Il3OpPack): Integer; override;
+    const aContext: Il3OpPack): Integer; override;
    function CheckAttr(const aPath: array of Integer;
-     const aContext: Il3OpPack;
-     DoCheck: Boolean;
-     theIndex: PLongint): Tl3Variant; override;
+    const aContext: Il3OpPack;
+    DoCheck: Boolean;
+    theIndex: PLongint): Tl3Variant; override;
    function DoCAtom(anIndex: Integer;
-     const aContext: Il3OpPack;
-     anAtomType: Tl3VariantDef): Tl3Variant; override;
+    const aContext: Il3OpPack;
+    anAtomType: Tl3VariantDef): Tl3Variant; override;
    function GetAsRef: Il3TagRef; override;
- public
- // overridden public methods
+  public
+   function GetRedirect: Tl3Variant;
    function AssignTag(Source: Tl3Variant;
-    AssignMode: Tk2AssignModes = k2_amAll;
-    const Context: Il3OpPack = nil): Boolean; override;
+    AssignMode: Tk2AssignModes;
+    const Context: Il3OpPack): Boolean; override;
    function CloneTag: Il3TagRef; override;
    procedure AssignCloneParams(aSource: Tl3Variant;
-    AssignMode: Tk2AssignModes = k2_amAll;
-    const Context: Il3OpPack = nil); override;
+    AssignMode: Tk2AssignModes;
+    const Context: Il3OpPack); override;
    procedure WriteTag(const G: Ik2TagGenerator;
-    Flags: Tk2StorePropertyFlags = l3_spfAll;
-    Exclude: TByteSet = []); override;
-     {* записать тег в генератор. }
+    Flags: Tk2StorePropertyFlags;
+    Exclude: TByteSet); override;
+    {* записать тег в генератор. }
    procedure InsertChildTag(anIndex: Integer;
     aChild: Tl3Variant;
-    const aContext: Il3OpPack = nil); override;
-     {* вставить ребенка. }
+    const aContext: Il3OpPack); override;
+    {* вставить ребенка. }
    function IndexOfChild(aChild: Tl3Variant): Integer; override;
-   procedure DeleteChildren(const Context: Il3OpPack = nil); override;
-     {* удалить всех детей. }
+   procedure DeleteChildren(const Context: Il3OpPack); override;
+    {* удалить всех детей. }
    function CompareWithInt(aValue: Integer;
     anIndex: Integer): Integer; override;
-     {* Сравнивает тег с целым. }
+    {* Сравнивает тег с целым. }
    function CompareWithTag(aTag: Tl3Variant;
     aSortIndex: Tl3SortIndex): Integer; override;
-   function ROwnAtom(anIndex: Integer): Tl3Variant; override;
+   function rOwnAtom(anIndex: Integer): Tl3Variant; override;
    function GetLinkedInterface(const IID: TGUID;
     out Obj): Boolean; override;
    function DoQT(const IID: TGUID;
-     out Obj;
-     const aProcessor: Ik2Processor): Boolean; override;
- public
- // public methods
-   function GetRedirect: Tl3Variant;
-//#UC START# *48CF9748004Fpubl*
-//#UC END# *48CF9748004Fpubl*
+    out Obj;
+    const aProcessor: Ik2Processor): Boolean; override;
+ //#UC START# *48CF9748004Fpubl*
+ //#UC END# *48CF9748004Fpubl*
  end;//_k2TagBox_
 
 {$Else k2TagBox_imp}
 
+{$IfNDef k2TagBox_imp_impl}
 
-{$Include ..\K2\k2Int64Holder.imp.pas}
-
-{$Include ..\K2\k2DoQT.imp.pas}
+{$Define k2TagBox_imp_impl}
 
 type
-  Tl3HackVariant = {final} class(Tl3Variant)
-  end;//Tl3HackVariant
+ Tl3HackVariant = {final} class(Tl3Variant)
+ end;//Tl3HackVariant
 
-// start class _k2TagBox_
+{$Include w:\common\components\rtl\Garant\K2\k2Int64Holder.imp.pas}
+
+{$Include w:\common\components\rtl\Garant\K2\k2DoQT.imp.pas}
 
 function _k2TagBox_.GetRedirect: Tl3Variant;
 //#UC START# *53219B250295_48CF9748004F_var*
@@ -150,8 +133,8 @@ begin
 end;//_k2TagBox_.GetRedirect
 
 function _k2TagBox_.AssignTag(Source: Tl3Variant;
-  AssignMode: Tk2AssignModes = k2_amAll;
-  const Context: Il3OpPack = nil): Boolean;
+ AssignMode: Tk2AssignModes;
+ const Context: Il3OpPack): Boolean;
 //#UC START# *47612DD0012B_48CF9748004F_var*
 //#UC END# *47612DD0012B_48CF9748004F_var*
 begin
@@ -170,8 +153,8 @@ begin
 end;//_k2TagBox_.CloneTag
 
 procedure _k2TagBox_.AssignCloneParams(aSource: Tl3Variant;
-  AssignMode: Tk2AssignModes = k2_amAll;
-  const Context: Il3OpPack = nil);
+ AssignMode: Tk2AssignModes;
+ const Context: Il3OpPack);
 //#UC START# *47612E530082_48CF9748004F_var*
 //#UC END# *47612E530082_48CF9748004F_var*
 begin
@@ -181,8 +164,9 @@ begin
 end;//_k2TagBox_.AssignCloneParams
 
 procedure _k2TagBox_.WriteTag(const G: Ik2TagGenerator;
-  Flags: Tk2StorePropertyFlags = l3_spfAll;
-  Exclude: TByteSet = []);
+ Flags: Tk2StorePropertyFlags;
+ Exclude: TByteSet);
+ {* записать тег в генератор. }
 //#UC START# *4761324203B8_48CF9748004F_var*
 //#UC END# *4761324203B8_48CF9748004F_var*
 begin
@@ -201,9 +185,9 @@ begin
 end;//_k2TagBox_.GetAsPCharLen
 
 function _k2TagBox_.DoIterateChildrenF(Action: Mk2Children_IterateChildrenF_Action;
-  aLo: Tl3Index;
-  aHi: Tl3Index;
-  aLoadedOnly: Boolean): Integer;
+ aLo: Tl3Index;
+ aHi: Tl3Index;
+ aLoadedOnly: Boolean): Integer;
 //#UC START# *48CF96D80241_48CF9748004F_var*
 //#UC END# *48CF96D80241_48CF9748004F_var*
 begin
@@ -213,7 +197,7 @@ begin
 end;//_k2TagBox_.DoIterateChildrenF
 
 procedure _k2TagBox_.DoIterateProperties(Action: Ml3TagHolder_IterateProperties_Action;
-  All: Boolean);
+ All: Boolean);
 //#UC START# *49A545D501F6_48CF9748004F_var*
 //#UC END# *49A545D501F6_48CF9748004F_var*
 begin
@@ -223,8 +207,9 @@ begin
 end;//_k2TagBox_.DoIterateProperties
 
 procedure _k2TagBox_.InsertChildTag(anIndex: Integer;
-  aChild: Tl3Variant;
-  const aContext: Il3OpPack = nil);
+ aChild: Tl3Variant;
+ const aContext: Il3OpPack);
+ {* вставить ребенка. }
 //#UC START# *4A42358A00C2_48CF9748004F_var*
 //#UC END# *4A42358A00C2_48CF9748004F_var*
 begin
@@ -242,7 +227,8 @@ begin
 //#UC END# *4A4235B70288_48CF9748004F_impl*
 end;//_k2TagBox_.IndexOfChild
 
-procedure _k2TagBox_.DeleteChildren(const Context: Il3OpPack = nil);
+procedure _k2TagBox_.DeleteChildren(const Context: Il3OpPack);
+ {* удалить всех детей. }
 //#UC START# *4A42378D0030_48CF9748004F_var*
 //#UC END# *4A42378D0030_48CF9748004F_var*
 begin
@@ -252,7 +238,8 @@ begin
 end;//_k2TagBox_.DeleteChildren
 
 function _k2TagBox_.CompareWithInt(aValue: Integer;
-  anIndex: Integer): Integer;
+ anIndex: Integer): Integer;
+ {* Сравнивает тег с целым. }
 //#UC START# *4BC8415802B6_48CF9748004F_var*
 //#UC END# *4BC8415802B6_48CF9748004F_var*
 begin
@@ -262,7 +249,7 @@ begin
 end;//_k2TagBox_.CompareWithInt
 
 function _k2TagBox_.CompareWithTag(aTag: Tl3Variant;
-  aSortIndex: Tl3SortIndex): Integer;
+ aSortIndex: Tl3SortIndex): Integer;
 //#UC START# *4BC8415E021A_48CF9748004F_var*
 //#UC END# *4BC8415E021A_48CF9748004F_var*
 begin
@@ -271,17 +258,17 @@ begin
 //#UC END# *4BC8415E021A_48CF9748004F_impl*
 end;//_k2TagBox_.CompareWithTag
 
-function _k2TagBox_.ROwnAtom(anIndex: Integer): Tl3Variant;
+function _k2TagBox_.rOwnAtom(anIndex: Integer): Tl3Variant;
 //#UC START# *4BC843C40240_48CF9748004F_var*
 //#UC END# *4BC843C40240_48CF9748004F_var*
 begin
 //#UC START# *4BC843C40240_48CF9748004F_impl*
  Result := GetRedirect.rOwnAtom(anIndex);
 //#UC END# *4BC843C40240_48CF9748004F_impl*
-end;//_k2TagBox_.ROwnAtom
+end;//_k2TagBox_.rOwnAtom
 
 function _k2TagBox_.GetLinkedInterface(const IID: TGUID;
-  out Obj): Boolean;
+ out Obj): Boolean;
 //#UC START# *4BC84CF702F5_48CF9748004F_var*
 //#UC END# *4BC84CF702F5_48CF9748004F_var*
 begin
@@ -293,8 +280,8 @@ begin
 end;//_k2TagBox_.GetLinkedInterface
 
 function _k2TagBox_.DeleteChildPrim(anIndex: Integer;
-  aChild: Tl3Variant;
-  const aContext: Il3OpPack): Boolean;
+ aChild: Tl3Variant;
+ const aContext: Il3OpPack): Boolean;
 //#UC START# *4C6CE735026E_48CF9748004F_var*
 //#UC END# *4C6CE735026E_48CF9748004F_var*
 begin
@@ -322,9 +309,9 @@ begin
 end;//_k2TagBox_.DoDoLoad
 
 function _k2TagBox_.DoIterateChildrenBack(Action: Mk2Children_IterateChildrenBack_Action;
-  aHi: Tl3Index;
-  aLo: Tl3Index;
-  aLoadedOnly: Boolean): Integer;
+ aHi: Tl3Index;
+ aLo: Tl3Index;
+ aLoadedOnly: Boolean): Integer;
 //#UC START# *5081632303E6_48CF9748004F_var*
 //#UC END# *5081632303E6_48CF9748004F_var*
 begin
@@ -406,8 +393,8 @@ begin
 end;//_k2TagBox_.GetIsOrd
 
 function _k2TagBox_.DoQT(const IID: TGUID;
-  out Obj;
-  const aProcessor: Ik2Processor): Boolean;
+ out Obj;
+ const aProcessor: Ik2Processor): Boolean;
 //#UC START# *532C4D4102D8_48CF9748004F_var*
 //#UC END# *532C4D4102D8_48CF9748004F_var*
 begin
@@ -447,8 +434,8 @@ begin
 end;//_k2TagBox_.GetTagType
 
 procedure _k2TagBox_.SetAttr(anIndex: Integer;
-  const aContext: Il3OpPack;
-  aValue: Tl3Variant);
+ const aContext: Il3OpPack;
+ aValue: Tl3Variant);
 //#UC START# *5331961F0280_48CF9748004F_var*
 //#UC END# *5331961F0280_48CF9748004F_var*
 begin
@@ -458,7 +445,7 @@ begin
 end;//_k2TagBox_.SetAttr
 
 function _k2TagBox_.GetAttr(anIndex: Integer;
-  out theValue: Tl3Variant): Boolean;
+ out theValue: Tl3Variant): Boolean;
 //#UC START# *53319C270138_48CF9748004F_var*
 //#UC END# *53319C270138_48CF9748004F_var*
 begin
@@ -469,8 +456,8 @@ begin
 end;//_k2TagBox_.GetAttr
 
 procedure _k2TagBox_.SetBoolAttr(anIndex: Integer;
-  const aContext: Il3OpPack;
-  aValue: Boolean);
+ const aContext: Il3OpPack;
+ aValue: Boolean);
 //#UC START# *5331B00B02DD_48CF9748004F_var*
 //#UC END# *5331B00B02DD_48CF9748004F_var*
 begin
@@ -480,8 +467,8 @@ begin
 end;//_k2TagBox_.SetBoolAttr
 
 procedure _k2TagBox_.SetIntAttr(anIndex: Integer;
-  const aContext: Il3OpPack;
-  aValue: Integer);
+ const aContext: Il3OpPack;
+ aValue: Integer);
 //#UC START# *5332CD8801A6_48CF9748004F_var*
 //#UC END# *5332CD8801A6_48CF9748004F_var*
 begin
@@ -491,8 +478,8 @@ begin
 end;//_k2TagBox_.SetIntAttr
 
 procedure _k2TagBox_.SetWStrAttr(anIndex: Integer;
-  const aContext: Il3OpPack;
-  const aValue: Tl3WString);
+ const aContext: Il3OpPack;
+ const aValue: Tl3WString);
 //#UC START# *5332FB8403B6_48CF9748004F_var*
 //#UC END# *5332FB8403B6_48CF9748004F_var*
 begin
@@ -547,7 +534,7 @@ begin
 end;//_k2TagBox_.pm_GetChildPrim
 
 function _k2TagBox_.DoAddChild(aChild: Tl3Variant;
-  const aContext: Il3OpPack): Integer;
+ const aContext: Il3OpPack): Integer;
 //#UC START# *533D587B0359_48CF9748004F_var*
 //#UC END# *533D587B0359_48CF9748004F_var*
 begin
@@ -557,9 +544,9 @@ begin
 end;//_k2TagBox_.DoAddChild
 
 function _k2TagBox_.CheckAttr(const aPath: array of Integer;
-  const aContext: Il3OpPack;
-  DoCheck: Boolean;
-  theIndex: PLongint): Tl3Variant;
+ const aContext: Il3OpPack;
+ DoCheck: Boolean;
+ theIndex: PLongint): Tl3Variant;
 //#UC START# *533D6FD80051_48CF9748004F_var*
 //#UC END# *533D6FD80051_48CF9748004F_var*
 begin
@@ -569,8 +556,8 @@ begin
 end;//_k2TagBox_.CheckAttr
 
 function _k2TagBox_.DoCAtom(anIndex: Integer;
-  const aContext: Il3OpPack;
-  anAtomType: Tl3VariantDef): Tl3Variant;
+ const aContext: Il3OpPack;
+ anAtomType: Tl3VariantDef): Tl3Variant;
 //#UC START# *533D791300DA_48CF9748004F_var*
 //#UC END# *533D791300DA_48CF9748004F_var*
 begin
@@ -591,4 +578,7 @@ end;//_k2TagBox_.GetAsRef
 //#UC START# *48CF9748004Fimpl*
 //#UC END# *48CF9748004Fimpl*
 
+{$EndIf k2TagBox_imp_impl}
+
 {$EndIf k2TagBox_imp}
+

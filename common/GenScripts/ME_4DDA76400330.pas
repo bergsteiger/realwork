@@ -15,10 +15,10 @@ uses
 type
  Tk2SortTagsList = class(Tk2SortTagsListPrim)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tk2SortTagsList;
     {* Метод получения экземпляра синглетона Tk2SortTagsList }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tk2SortTagsList
 
 implementation
@@ -38,12 +38,6 @@ begin
  l3Free(g_Tk2SortTagsList);
 end;//Tk2SortTagsListFree
 
-class function Tk2SortTagsList.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tk2SortTagsList <> nil;
-end;//Tk2SortTagsList.Exists
-
 class function Tk2SortTagsList.Instance: Tk2SortTagsList;
  {* Метод получения экземпляра синглетона Tk2SortTagsList }
 begin
@@ -54,5 +48,11 @@ begin
  end;
  Result := g_Tk2SortTagsList;
 end;//Tk2SortTagsList.Instance
+
+class function Tk2SortTagsList.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tk2SortTagsList <> nil;
+end;//Tk2SortTagsList.Exists
 
 end.

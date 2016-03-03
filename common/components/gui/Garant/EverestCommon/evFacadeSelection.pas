@@ -1,80 +1,67 @@
 unit evFacadeSelection;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EverestCommon"
-// Модуль: "w:/common/components/gui/Garant/EverestCommon/evFacadeSelection.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::EverestCommon::evFacade::evFacadeSelection
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\EverestCommon\evFacadeSelection.pas"
+// Стереотип: "UtilityPack"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\EverestCommon\evDefine.inc}
+{$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 
 interface
 
 uses
-  nevBase,
-  nevTools,
-  k2TagGen,
-  evCustomEditor,
-  evCustomEditorWindow,
-  evMemo,
-  evCommonTypes
-  ;
+ l3IntfUses
+ , evCommonTypes
+ , nevTools
+ , evCustomEditorWindow
+ , evMemo
+ , nevBase
+ , evCustomEditor
+ , k2TagGen
+;
 
-function EvGetSel(anEditor: TevCustomEditorWindow): TnevIRange;
-procedure EvAssignSelection(aMemo: TevMemo;
-  aPos: Integer;
-  const aCurrStr: AnsiString); overload; 
-function EvGetSelString(const aRange: TnevIRange): AnsiString;
-function EvDeleteBlockEX(const aView: InevView;
-  const Container: InevOp;
-  const aBlock: InevRange): Boolean;
-procedure EvSaveBlock(anEditor: TevCustomEditor;
-  out aSaveBlock: TnevLocation;
-  const aCheckCursor: TnevCursor = nil);
-procedure EvUnselect(anEditor: TevCustomEditorWindow);
-procedure EvFreeBlock(var aSaveBlock: TnevLocation);
-function EvMostInnerFromBlock(const aBlock: IevCommonDataObject;
-  anEditor: TevCustomEditor): InevCommonPoint;
-function EvGetBottomChildBlock(const aBlock: TnevIRange;
-  anEditor: TevCustomEditorWindow): InevRange;
-procedure EvRangeInsertFrom(anEditor: TevCustomEditorWindow;
-  aFilter: Tk2TagGenerator);
-function EvGetMostInnerRange(anEditor: TevCustomEditor): InevTagSelection;
-   {* Возвращает InevRange для курсора самого нижнего уровня }
-procedure EvAssignSelection(aMemo: TevMemo;
-  aPos: Integer;
-  aLen: Integer); overload; 
+procedure evAssignSelection(aMemo: TevMemo;
+ aPos: Integer;
+ aLen: Integer); overload;
+function evGetSel(anEditor: TevCustomEditorWindow): TnevIRange;
+procedure evAssignSelection(aMemo: TevMemo;
+ aPos: Integer;
+ const aCurrStr: AnsiString); overload;
+function evGetSelString(const aRange: TnevIRange): AnsiString;
+function evDeleteBlockEX(const aView: InevView;
+ const Container: InevOp;
+ const aBlock: InevRange): Boolean;
+procedure evSaveBlock(anEditor: TevCustomEditor;
+ out aSaveBlock: TnevLocation;
+ const aCheckCursor: TnevCursor = nil);
+procedure evUnselect(anEditor: TevCustomEditorWindow);
+procedure evFreeBlock(var aSaveBlock: TnevLocation);
+function evMostInnerFromBlock(const aBlock: IevCommonDataObject;
+ anEditor: TevCustomEditor): InevCommonPoint;
+function evGetBottomChildBlock(const aBlock: TnevIRange;
+ anEditor: TevCustomEditorWindow): InevRange;
+procedure evRangeInsertFrom(anEditor: TevCustomEditorWindow;
+ aFilter: Tk2TagGenerator);
+function evGetMostInnerRange(anEditor: TevCustomEditor): InevTagSelection;
+ {* Возвращает InevRange для курсора самого нижнего уровня }
 
 implementation
 
 uses
-  l3String
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  SysUtils,
-  evRange,
-  TableCell_Const,
-  evdTypes,
-  evOp,
-  k2Tags
-  ;
+ l3ImplUses
+ , l3String
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , SysUtils
+ , evRange
+ , TableCell_Const
+ , evdTypes
+ , evOp
+ , k2Tags
+;
 
-// unit methods
-
-procedure EvAssignSelection(aMemo: TevMemo;
-  aPos: Integer;
-  aLen: Integer);
+procedure evAssignSelection(aMemo: TevMemo;
+ aPos: Integer;
+ aLen: Integer);
 //#UC START# *5321D4830213_48EEF8240298_var*
 var
  l_Block : TnevBlock;
@@ -88,20 +75,20 @@ begin
   l_Block := nil;
  end;
 //#UC END# *5321D4830213_48EEF8240298_impl*
-end;//EvAssignSelection
+end;//evAssignSelection
 
-function EvGetSel(anEditor: TevCustomEditorWindow): TnevIRange;
+function evGetSel(anEditor: TevCustomEditorWindow): TnevIRange;
 //#UC START# *48EEF86903A7_48EEF8240298_var*
 //#UC END# *48EEF86903A7_48EEF8240298_var*
 begin
 //#UC START# *48EEF86903A7_48EEF8240298_impl*
  Result := InevSelection(anEditor.Selection).GetBlock;
 //#UC END# *48EEF86903A7_48EEF8240298_impl*
-end;//EvGetSel
+end;//evGetSel
 
-procedure EvAssignSelection(aMemo: TevMemo;
-  aPos: Integer;
-  const aCurrStr: AnsiString);
+procedure evAssignSelection(aMemo: TevMemo;
+ aPos: Integer;
+ const aCurrStr: AnsiString);
 //#UC START# *48EEF88901CE_48EEF8240298_var*
 var
  l_Len: Integer;
@@ -114,20 +101,20 @@ begin
   l_Len := Length(aCurrStr);
  EvAssignSelection(aMemo, aPos, l_Len);
 //#UC END# *48EEF88901CE_48EEF8240298_impl*
-end;//EvAssignSelection
+end;//evAssignSelection
 
-function EvGetSelString(const aRange: TnevIRange): AnsiString;
+function evGetSelString(const aRange: TnevIRange): AnsiString;
 //#UC START# *48EEF8A0019A_48EEF8240298_var*
 //#UC END# *48EEF8A0019A_48EEF8240298_var*
 begin
 //#UC START# *48EEF8A0019A_48EEF8240298_impl*
  Result := l3PCharLen2String(evAsString(aRange.Data).AsWStr);
 //#UC END# *48EEF8A0019A_48EEF8240298_impl*
-end;//EvGetSelString
+end;//evGetSelString
 
-function EvDeleteBlockEX(const aView: InevView;
-  const Container: InevOp;
-  const aBlock: InevRange): Boolean;
+function evDeleteBlockEX(const aView: InevView;
+ const Container: InevOp;
+ const aBlock: InevRange): Boolean;
 //#UC START# *48EEF92400B1_48EEF8240298_var*
 var
  l_TmpBlock : InevRange;
@@ -138,11 +125,11 @@ begin
  l_TmpBlock.Modify.Delete(aView, Container);
  Result := True;
 //#UC END# *48EEF92400B1_48EEF8240298_impl*
-end;//EvDeleteBlockEX
+end;//evDeleteBlockEX
 
-procedure EvSaveBlock(anEditor: TevCustomEditor;
-  out aSaveBlock: TnevLocation;
-  const aCheckCursor: TnevCursor = nil);
+procedure evSaveBlock(anEditor: TevCustomEditor;
+ out aSaveBlock: TnevLocation;
+ const aCheckCursor: TnevCursor = nil);
 //#UC START# *48EEFCF1031C_48EEF8240298_var*
 //#UC END# *48EEFCF1031C_48EEF8240298_var*
 begin
@@ -151,28 +138,28 @@ begin
    IevRange(anEditor.Selection).AssignSel(anEditor.View, anEditor.Selection.FoundBlock);
   aSaveBlock := anEditor.Selection.SaveBlock(aCheckCursor);
 //#UC END# *48EEFCF1031C_48EEF8240298_impl*
-end;//EvSaveBlock
+end;//evSaveBlock
 
-procedure EvUnselect(anEditor: TevCustomEditorWindow);
+procedure evUnselect(anEditor: TevCustomEditorWindow);
 //#UC START# *48EEFCFD0192_48EEF8240298_var*
 //#UC END# *48EEFCFD0192_48EEF8240298_var*
 begin
 //#UC START# *48EEFCFD0192_48EEF8240298_impl*
  InevSelection(anEditor.Selection).Unselect;
 //#UC END# *48EEFCFD0192_48EEF8240298_impl*
-end;//EvUnselect
+end;//evUnselect
 
-procedure EvFreeBlock(var aSaveBlock: TnevLocation);
+procedure evFreeBlock(var aSaveBlock: TnevLocation);
 //#UC START# *48EEFD3B00D0_48EEF8240298_var*
 //#UC END# *48EEFD3B00D0_48EEF8240298_var*
 begin
 //#UC START# *48EEFD3B00D0_48EEF8240298_impl*
  aSaveBlock := nil;
 //#UC END# *48EEFD3B00D0_48EEF8240298_impl*
-end;//EvFreeBlock
+end;//evFreeBlock
 
-function EvMostInnerFromBlock(const aBlock: IevCommonDataObject;
-  anEditor: TevCustomEditor): InevCommonPoint;
+function evMostInnerFromBlock(const aBlock: IevCommonDataObject;
+ anEditor: TevCustomEditor): InevCommonPoint;
 //#UC START# *48F2F0CA02E4_48EEF8240298_var*
 var
  l_PID   : Integer;
@@ -217,20 +204,20 @@ begin
   end; // while (Result <> nil) and Result.IsKindOf(k2_typTableCell) do
  end; // if (Result <> nil) then
 //#UC END# *48F2F0CA02E4_48EEF8240298_impl*
-end;//EvMostInnerFromBlock
+end;//evMostInnerFromBlock
 
-function EvGetBottomChildBlock(const aBlock: TnevIRange;
-  anEditor: TevCustomEditorWindow): InevRange;
+function evGetBottomChildBlock(const aBlock: TnevIRange;
+ anEditor: TevCustomEditorWindow): InevRange;
 //#UC START# *49B0D2EC01FC_48EEF8240298_var*
 //#UC END# *49B0D2EC01FC_48EEF8240298_var*
 begin
 //#UC START# *49B0D2EC01FC_48EEF8240298_impl*
  Result := aBlock.BottomChildBlock(anEditor.View);
 //#UC END# *49B0D2EC01FC_48EEF8240298_impl*
-end;//EvGetBottomChildBlock
+end;//evGetBottomChildBlock
 
-procedure EvRangeInsertFrom(anEditor: TevCustomEditorWindow;
-  aFilter: Tk2TagGenerator);
+procedure evRangeInsertFrom(anEditor: TevCustomEditorWindow;
+ aFilter: Tk2TagGenerator);
 //#UC START# *4BEBBCE00119_48EEF8240298_var*
 //#UC END# *4BEBBCE00119_48EEF8240298_var*
 begin
@@ -239,15 +226,16 @@ begin
     anEditor.TextSource.DocumentContainer.TagReader, aFilter);
  anEditor.TextSource.Modified := true;
 //#UC END# *4BEBBCE00119_48EEF8240298_impl*
-end;//EvRangeInsertFrom
+end;//evRangeInsertFrom
 
-function EvGetMostInnerRange(anEditor: TevCustomEditor): InevTagSelection;
+function evGetMostInnerRange(anEditor: TevCustomEditor): InevTagSelection;
+ {* Возвращает InevRange для курсора самого нижнего уровня }
 //#UC START# *4C332D2F008B_48EEF8240298_var*
 //#UC END# *4C332D2F008B_48EEF8240298_var*
 begin
 //#UC START# *4C332D2F008B_48EEF8240298_impl*
  Result := anEditor.Selection.Cursor.MostInner.Obj.Range;
 //#UC END# *4C332D2F008B_48EEF8240298_impl*
-end;//EvGetMostInnerRange
+end;//evGetMostInnerRange
 
 end.

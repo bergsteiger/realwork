@@ -1,28 +1,17 @@
 unit k2ListTag;
+ {* Базовый тег, содержащий список других тегов (нелистьевой) }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Модуль: "w:/common/components/rtl/Garant/K2/k2ListTag.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::K2::k2CoreObjects::Tk2ListTag
-//
-// Базовый тег, содержащий список других тегов (нелистьевой)
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2ListTag.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  k2NonAtomicTag
-  ;
+ l3IntfUses
+ , k2NonAtomicTag
+;
 
 type
  Tk2ListTag = {abstract} class(Tk2NonAtomicTag)
@@ -30,5 +19,9 @@ type
  end;//Tk2ListTag
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

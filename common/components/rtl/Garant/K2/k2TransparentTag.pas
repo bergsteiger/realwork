@@ -1,53 +1,33 @@
 unit k2TransparentTag;
+ {* Прозрачное значение тега }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/K2/k2TransparentTag.pas"
-// Начат: 24.03.2009 19:15
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::K2::k2PrimObjects::Tk2TransparentTag
-//
-// Прозрачное значение тега
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2TransparentTag.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  k2Base,
-  k2SpecialTag,
-  l3Variant,
-  l3Interfaces
-  ;
+ l3IntfUses
+ , k2SpecialTag
+ , k2Base
+ , l3Variant
+ , l3Interfaces
+;
 
 type
  _k2Int64Holder_Parent_ = Tk2SpecialTag;
- {$Include ..\K2\k2Int64Holder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2Int64Holder.imp.pas}
  Tk2TransparentTag = class(_k2Int64Holder_)
   {* Прозрачное значение тега }
- private
- // private fields
-   f_Type : Tk2Type;
- protected
- // overridden property methods
-   function pm_GetTagOwner: Tl3Variant; override;
-   procedure pm_SetTagOwner(aValue: Tl3Variant); override;
-   function pm_GetChildrenCount: Integer; override;
- protected
- // overridden protected methods
-   {$If not defined(DesignTimeLibrary)}
+  private
+   f_Type: Tk2Type;
+  protected
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    function GetAsPCharLen: Tl3WString; override;
    function DoIterateChildrenF(Action: Mk2Children_IterateChildrenF_Action;
     aLo: Tl3Index;
@@ -62,36 +42,35 @@ type
    function GetIsOrd: Boolean; override;
    function GetTagType: Tl3VariantDef; override;
    function GetAttr(anIndex: Integer;
-     out theValue: Tl3Variant): Boolean; override;
+    out theValue: Tl3Variant): Boolean; override;
+   function pm_GetTagOwner: Tl3Variant; override;
+   procedure pm_SetTagOwner(aValue: Tl3Variant); override;
+   function pm_GetChildrenCount: Integer; override;
    function CheckAttr(const aPath: array of Integer;
-     const aContext: Il3OpPack;
-     DoCheck: Boolean;
-     theIndex: PLongint): Tl3Variant; override;
- public
- // overridden public methods
-   function CloneTag: Il3TagRef; override;
-   function ROwnAtom(anIndex: Integer): Tl3Variant; override;
- public
- // public methods
+    const aContext: Il3OpPack;
+    DoCheck: Boolean;
+    theIndex: PLongint): Tl3Variant; override;
+  public
    constructor Create(aType: Tk2Type); reintroduce;
+   function CloneTag: Il3TagRef; override;
+   function rOwnAtom(anIndex: Integer): Tl3Variant; override;
  end;//Tk2TransparentTag
 
 implementation
 
 uses
-  l3String,
-  k2Strings,
-  k2Const,
-  l3Const,
-  k2NullTagImpl,
-  k2Tags
-  ;
+ l3ImplUses
+ , l3String
+ , k2Strings
+ , k2Const
+ , l3Const
+ , k2NullTagImpl
+ , k2Tags
+;
 
 type _Instance_R_ = Tk2TransparentTag;
 
-{$Include ..\K2\k2Int64Holder.imp.pas}
-
-// start class Tk2TransparentTag
+{$Include w:\common\components\rtl\Garant\K2\k2Int64Holder.imp.pas}
 
 constructor Tk2TransparentTag.Create(aType: Tk2Type);
 //#UC START# *49C907900344_49C906E203A1_var*
@@ -112,8 +91,9 @@ begin
 //#UC END# *47612DF00301_49C906E203A1_impl*
 end;//Tk2TransparentTag.CloneTag
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function Tk2TransparentTag.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_49C906E203A1_var*
 //#UC END# *47A6FEE600FC_49C906E203A1_var*
 begin
@@ -121,7 +101,7 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_49C906E203A1_impl*
 end;//Tk2TransparentTag.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 function Tk2TransparentTag.GetAsPCharLen: Tl3WString;
 //#UC START# *47A869BB02DE_49C906E203A1_var*
@@ -133,9 +113,9 @@ begin
 end;//Tk2TransparentTag.GetAsPCharLen
 
 function Tk2TransparentTag.DoIterateChildrenF(Action: Mk2Children_IterateChildrenF_Action;
-  aLo: Tl3Index;
-  aHi: Tl3Index;
-  aLoadedOnly: Boolean): Integer;
+ aLo: Tl3Index;
+ aHi: Tl3Index;
+ aLoadedOnly: Boolean): Integer;
 //#UC START# *48CF96D80241_49C906E203A1_var*
 //#UC END# *48CF96D80241_49C906E203A1_var*
 begin
@@ -146,7 +126,7 @@ begin
 end;//Tk2TransparentTag.DoIterateChildrenF
 
 procedure Tk2TransparentTag.DoIterateProperties(Action: Ml3TagHolder_IterateProperties_Action;
-  All: Boolean);
+ All: Boolean);
 //#UC START# *49A545D501F6_49C906E203A1_var*
 //#UC END# *49A545D501F6_49C906E203A1_var*
 begin
@@ -155,14 +135,14 @@ begin
 //#UC END# *49A545D501F6_49C906E203A1_impl*
 end;//Tk2TransparentTag.DoIterateProperties
 
-function Tk2TransparentTag.ROwnAtom(anIndex: Integer): Tl3Variant;
+function Tk2TransparentTag.rOwnAtom(anIndex: Integer): Tl3Variant;
 //#UC START# *4BC843C40240_49C906E203A1_var*
 //#UC END# *4BC843C40240_49C906E203A1_var*
 begin
 //#UC START# *4BC843C40240_49C906E203A1_impl*
  Result := Tk2NullTagImpl.Instance;
 //#UC END# *4BC843C40240_49C906E203A1_impl*
-end;//Tk2TransparentTag.ROwnAtom
+end;//Tk2TransparentTag.rOwnAtom
 
 function Tk2TransparentTag.DoMarkModified: Boolean;
 //#UC START# *4C6D1C29031F_49C906E203A1_var*
@@ -219,7 +199,7 @@ begin
 end;//Tk2TransparentTag.GetTagType
 
 function Tk2TransparentTag.GetAttr(anIndex: Integer;
-  out theValue: Tl3Variant): Boolean;
+ out theValue: Tl3Variant): Boolean;
 //#UC START# *53319C270138_49C906E203A1_var*
 //#UC END# *53319C270138_49C906E203A1_var*
 begin
@@ -257,9 +237,9 @@ begin
 end;//Tk2TransparentTag.pm_GetChildrenCount
 
 function Tk2TransparentTag.CheckAttr(const aPath: array of Integer;
-  const aContext: Il3OpPack;
-  DoCheck: Boolean;
-  theIndex: PLongint): Tl3Variant;
+ const aContext: Il3OpPack;
+ DoCheck: Boolean;
+ theIndex: PLongint): Tl3Variant;
 //#UC START# *533D6FD80051_49C906E203A1_var*
 //#UC END# *533D6FD80051_49C906E203A1_var*
 begin

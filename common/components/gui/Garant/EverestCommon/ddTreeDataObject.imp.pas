@@ -1,50 +1,35 @@
 {$IfNDef ddTreeDataObject_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EverestCommon"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/EverestCommon/ddTreeDataObject.imp.pas"
-// Начат: 19.12.2006 13:08
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::EverestCommon::DataObjects::ddTreeDataObject
-//
-// Объект данных дерева
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\EverestCommon\ddTreeDataObject.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define ddTreeDataObject_imp}
+
  {$Include w:\common\components\rtl\Garant\L3\l3TreeDataObject.imp.pas}
- _ddTreeDataObject_ = {mixin} class(_l3TreeDataObject_)
+ _ddTreeDataObject_ = class(_l3TreeDataObject_)
   {* Объект данных дерева }
- protected
- // overridden protected methods
-   procedure WriteFilesAndSetNames(aNames: Tl3StringList); override;
-   function GetFormats: Tl3ClipboardFormats; override;
- protected
- // protected methods
+  protected
    function GetCaptions: Tl3WString;
    function CreateFileName: AnsiString;
- public
- // public methods
+   procedure WriteFilesAndSetNames(aNames: Tl3StringList); override;
+   function GetFormats: Tl3ClipboardFormats; override;
+  public
    constructor Create(const aData: _DataType_;
-     const aBitmap: Il3Bitmap); reintroduce;
+    const aBitmap: Il3Bitmap); reintroduce;
    class function Make(const aData: _DataType_;
-     const aBitmap: Il3Bitmap): IDataObject; reintroduce;
-     {* Сигнатура фабрики ddTreeDataObject.Make }
+    const aBitmap: Il3Bitmap): IDataObject; reintroduce;
  end;//_ddTreeDataObject_
 
 {$Else ddTreeDataObject_imp}
 
+{$IfNDef ddTreeDataObject_imp_impl}
+
+{$Define ddTreeDataObject_imp_impl}
+
 {$Include w:\common\components\rtl\Garant\L3\l3TreeDataObject.imp.pas}
 
-// start class _ddTreeDataObject_
-
 constructor _ddTreeDataObject_.Create(const aData: _DataType_;
-  const aBitmap: Il3Bitmap);
+ const aBitmap: Il3Bitmap);
 //#UC START# *4CDD4F46039D_469C68EC0226_var*
 //#UC END# *4CDD4F46039D_469C68EC0226_var*
 begin
@@ -55,7 +40,7 @@ begin
 end;//_ddTreeDataObject_.Create
 
 class function _ddTreeDataObject_.Make(const aData: _DataType_;
-  const aBitmap: Il3Bitmap): IDataObject;
+ const aBitmap: Il3Bitmap): IDataObject;
 var
  l_Inst : _ddTreeDataObject_;
 begin
@@ -65,7 +50,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//_ddTreeDataObject_.Make
 
 function _ddTreeDataObject_.GetCaptions: Tl3WString;
 //#UC START# *48F4B9F4010C_469C68EC0226_var*
@@ -154,4 +139,7 @@ begin
 //#UC END# *48F4B33501DE_469C68EC0226_impl*
 end;//_ddTreeDataObject_.GetFormats
 
+{$EndIf ddTreeDataObject_imp_impl}
+
 {$EndIf ddTreeDataObject_imp}
+

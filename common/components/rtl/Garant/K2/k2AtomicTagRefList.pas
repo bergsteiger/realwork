@@ -1,27 +1,17 @@
 unit k2AtomicTagRefList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Модуль: "w:/common/components/rtl/Garant/K2/k2AtomicTagRefList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::K2::k2CoreObjects::Tk2AtomicTagRefList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2AtomicTagRefList.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  k2AtomicTagRefListPrim,
-  l3Types
-  ;
+ l3IntfUses
+ , k2AtomicTagRefListPrim
+ , l3Types
+;
 
 type
  _FindDataType_ = Integer;
@@ -32,12 +22,17 @@ type
 
 implementation
 
-// start class Tk2AtomicTagRefList
+uses
+ l3ImplUses
+ , k2AtomicTag
+ , l3Memory
+;
 
 function CompareItemWithData(const anItem: _ItemType_;
-  const aData: _FindDataType_;
-  aSortIndex: Tl3SortIndex;
-  aList: _l3Searcher_): Integer;
+ const aData: _FindDataType_;
+ aSortIndex: Tl3SortIndex;
+ aList: _l3Searcher_): Integer;
+ {* Сравнивает существующий элемент с искомым. }
 //#UC START# *47B9BAFD01F4_526918BD0308_var*
 var
  l_I : Integer;

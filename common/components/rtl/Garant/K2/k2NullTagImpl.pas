@@ -1,61 +1,47 @@
 unit k2NullTagImpl;
+ {* Реализация пустого тега }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/K2/k2NullTagImpl.pas"
-// Начат: 26.02.2009 17:50
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::K2::k2PrimObjects::Tk2NullTagImpl
-//
-// Реализация пустого тега
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2NullTagImpl.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  k2NullTagImplPrim
-  ;
+ l3IntfUses
+ , k2NullTagImplPrim
+;
 
 type
  Tk2NullTagImpl = class(Tk2NullTagImplPrim)
   {* Реализация пустого тега }
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+  public
    class function Instance: Tk2NullTagImpl;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tk2NullTagImpl }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tk2NullTagImpl
 
 implementation
 
 uses
-  l3Base {a}
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-
-// start class Tk2NullTagImpl
-
-var g_Tk2NullTagImpl : Tk2NullTagImpl = nil;
+var g_Tk2NullTagImpl: Tk2NullTagImpl = nil;
+ {* Экземпляр синглетона Tk2NullTagImpl }
 
 procedure Tk2NullTagImplFree;
+ {* Метод освобождения экземпляра синглетона Tk2NullTagImpl }
 begin
  l3Free(g_Tk2NullTagImpl);
-end;
+end;//Tk2NullTagImplFree
 
 class function Tk2NullTagImpl.Instance: Tk2NullTagImpl;
+ {* Метод получения экземпляра синглетона Tk2NullTagImpl }
 begin
  if (g_Tk2NullTagImpl = nil) then
  begin
@@ -63,11 +49,10 @@ begin
   g_Tk2NullTagImpl := Create;
  end;
  Result := g_Tk2NullTagImpl;
-end;
-
+end;//Tk2NullTagImpl.Instance
 
 class function Tk2NullTagImpl.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tk2NullTagImpl <> nil;
 end;//Tk2NullTagImpl.Exists

@@ -1,51 +1,40 @@
 unit k2InterfaceCache;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Модуль: "w:/common/components/rtl/Garant/K2/k2InterfaceCache.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::K2::k2PrimObjects::k2InterfaceCache
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2InterfaceCache.pas"
+// Стереотип: "UtilityPack"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  l3Types,
-  l3IID,
-  k2ToolPrim,
-  k2InterfaceList
-  ;
+ l3IntfUses
+ , k2InterfaceList
+ , k2ToolPrim
+ , l3IID
+ , l3Types
+;
 
 type
  Tk2InterfaceCache = object(Tk2InterfaceList)
- public
-    function GetInterface(const ID: Tl3IID): Tk2ToolPrim;
-    procedure SetInterface(const ID: Tl3IID;
+  public
+   function GetInterface(const ID: Tl3IID): Tk2ToolPrim;
+   procedure SetInterface(const ID: Tl3IID;
     Item: Tk2ToolPrim);
-    procedure IterateInterfaces(const ID: Tl3IID;
+   procedure IterateInterfaces(const ID: Tl3IID;
     Action: Tl3IteratorAction);
  end;//Tk2InterfaceCache
 
 implementation
 
 uses
-  SysUtils,
-  l3ProtoObject,
-  l3ProtoObjectRefList,
-  k2ToolCacheList,
-  k2ToolPrimList
-  ;
-
-// start class Tk2InterfaceCache
+ l3ImplUses
+ , k2ToolCacheList
+ , k2ToolPrimList
+ , SysUtils
+ , l3ProtoObject
+ , l3ProtoObjectRefList
+;
 
 function Tk2InterfaceCache.GetInterface(const ID: Tl3IID): Tk2ToolPrim;
 //#UC START# *531EF76E016B_531EF73702F9_var*
@@ -57,7 +46,7 @@ begin
 end;//Tk2InterfaceCache.GetInterface
 
 procedure Tk2InterfaceCache.SetInterface(const ID: Tl3IID;
-  Item: Tk2ToolPrim);
+ Item: Tk2ToolPrim);
 //#UC START# *531EF77E0278_531EF73702F9_var*
 var
  L : Tk2ToolCacheList;
@@ -79,7 +68,7 @@ begin
 end;//Tk2InterfaceCache.SetInterface
 
 procedure Tk2InterfaceCache.IterateInterfaces(const ID: Tl3IID;
-  Action: Tl3IteratorAction);
+ Action: Tl3IteratorAction);
 //#UC START# *531EF7920193_531EF73702F9_var*
 var
  i    : Long;

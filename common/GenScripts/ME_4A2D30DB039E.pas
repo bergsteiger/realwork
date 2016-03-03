@@ -72,7 +72,7 @@ type
    function Store(aFormat: TevdClipboardFormat;
     const aPool: IStream;
     const aFilters: TevdTagGenerator;
-    aFlags: TevdStoreFlags = DefaultStoreFlags): Boolean; overload;
+    aFlags: TevdStoreFlags = [evd_sfStoreParaEnd]): Boolean; overload;
     {* сохраняет выделение в формате aFormat в Pool, который должен реализовывать IStream. }
    function SolidBottomChildBlock(const aView: InevView): InevRange;
    function GetChildSel(const aView: InevView;
@@ -516,7 +516,7 @@ end;//TevRange.Store
 function TevRange.Store(aFormat: TevdClipboardFormat;
  const aPool: IStream;
  const aFilters: TevdTagGenerator;
- aFlags: TevdStoreFlags = DefaultStoreFlags): Boolean;
+ aFlags: TevdStoreFlags = [evd_sfStoreParaEnd]): Boolean;
  {* сохраняет выделение в формате aFormat в Pool, который должен реализовывать IStream. }
 //#UC START# *47C68C6701AF_4A2D2D4300BE_var*
 var

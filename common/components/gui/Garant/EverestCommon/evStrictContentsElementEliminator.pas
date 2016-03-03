@@ -1,47 +1,31 @@
 unit evStrictContentsElementEliminator;
+ {* Фильтр, удаляющий "элементы оглавления" (k2_idContentsElement). Но не блоки, и никаких других наследников }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EverestCommon"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/EverestCommon/evStrictContentsElementEliminator.pas"
-// Начат: 29.09.2010 13:00
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::EverestCommon::Generators::TevStrictContentsElementEliminator
-//
-// Фильтр, удаляющий "элементы оглавления" (k2_idContentsElement). Но не блоки, и никаких других
-// наследников
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\EverestCommon\evStrictContentsElementEliminator.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\EverestCommon\evDefine.inc}
+{$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 
 interface
 
 uses
-  k2TagFilter
-  ;
+ l3IntfUses
+ , k2TagFilter
+;
 
 type
  TevStrictContentsElementEliminator = class(Tk2TagFilter)
   {* Фильтр, удаляющий "элементы оглавления" (k2_idContentsElement). Но не блоки, и никаких других наследников }
- protected
- // overridden protected methods
+  protected
    function NeedTranslateChildToNext: Boolean; override;
  end;//TevStrictContentsElementEliminator
 
 implementation
 
 uses
-  ContentsElement_Const
-  ;
-
-// start class TevStrictContentsElementEliminator
+ l3ImplUses
+ , ContentsElement_Const
+;
 
 function TevStrictContentsElementEliminator.NeedTranslateChildToNext: Boolean;
 //#UC START# *4CA3006302BC_4CA2FFC10275_var*

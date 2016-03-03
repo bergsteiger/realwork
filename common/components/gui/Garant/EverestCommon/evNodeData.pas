@@ -1,67 +1,52 @@
 unit evNodeData;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EverestCommon"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/EverestCommon/evNodeData.pas"
-// Начат: 26.12.2006 17:02
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::EverestCommon::DataObjects::TevNodeData
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\EverestCommon\evNodeData.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\EverestCommon\evDefine.inc}
+{$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 
 interface
 
 uses
-  l3TreeInterfaces,
-  evNodeDataObject,
-  l3Interfaces,
-  l3InternalInterfaces,
-  l3DataObject,
-  ActiveX,
-  Windows,
-  l3IID,
-  l3StringList
-  ;
+ l3IntfUses
+ , l3TreeInterfaces
+ , evNodeDataObject
+ , l3Interfaces
+ , l3InternalInterfaces
+ , l3IID
+ , l3StringList
+ , l3DataObject
+;
 
 type
  _DataType_ = Il3SimpleNode;
  _DataClass_ = TevNodeDataObject;
- {$Include ..\EverestCommon\evTreeData.imp.pas}
+ {$Include w:\common\components\gui\Garant\EverestCommon\evTreeData.imp.pas}
  TevNodeData = class(_evTreeData_)
- protected
- // overridden protected methods
+  protected
    function GetFormats: Tl3ClipboardFormats; override;
  end;//TevNodeData
 
 implementation
 
 uses
-  evTypes,
-  l3TreeConst,
-  SysUtils,
-  l3Base,
-  l3InterfacesMisc,
-  k2Tags,
-  ddRTFWriter,
-  l3Filer,
-  l3String,
-  l3Types,
-  Document_Const,
-  TextPara_Const
-  ;
+ l3ImplUses
+ , evTypes
+ , l3TreeConst
+ , SysUtils
+ , l3Base
+ , l3InterfacesMisc
+ , k2Tags
+ , ddRTFWriter
+ , l3Filer
+ , Windows
+ , l3String
+ , l3Types
+ , Document_Const
+ , TextPara_Const
+;
 
-{$Include ..\EverestCommon\evTreeData.imp.pas}
-
-// start class TevNodeData
+{$Include w:\common\components\gui\Garant\EverestCommon\evTreeData.imp.pas}
 
 function TevNodeData.GetFormats: Tl3ClipboardFormats;
 //#UC START# *48F4B33501DE_48F7014003A5_var*

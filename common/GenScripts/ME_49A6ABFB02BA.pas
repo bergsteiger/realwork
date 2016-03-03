@@ -17,10 +17,10 @@ type
  Tk2NullTagImpl = class(Tk2NullTagImplPrim)
   {* Реализация пустого тега }
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tk2NullTagImpl;
     {* Метод получения экземпляра синглетона Tk2NullTagImpl }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tk2NullTagImpl
 
 implementation
@@ -40,12 +40,6 @@ begin
  l3Free(g_Tk2NullTagImpl);
 end;//Tk2NullTagImplFree
 
-class function Tk2NullTagImpl.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tk2NullTagImpl <> nil;
-end;//Tk2NullTagImpl.Exists
-
 class function Tk2NullTagImpl.Instance: Tk2NullTagImpl;
  {* Метод получения экземпляра синглетона Tk2NullTagImpl }
 begin
@@ -56,5 +50,11 @@ begin
  end;
  Result := g_Tk2NullTagImpl;
 end;//Tk2NullTagImpl.Instance
+
+class function Tk2NullTagImpl.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tk2NullTagImpl <> nil;
+end;//Tk2NullTagImpl.Exists
 
 end.

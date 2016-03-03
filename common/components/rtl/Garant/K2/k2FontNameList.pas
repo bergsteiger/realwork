@@ -1,28 +1,18 @@
 unit k2FontNameList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Модуль: "w:/common/components/rtl/Garant/K2/k2FontNameList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::K2::k2CoreObjects::Tk2FontNameList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2FontNameList.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  l3LogFont,
-  k2FontNameListPrim,
-  l3Types
-  ;
+ l3IntfUses
+ , k2FontNameListPrim
+ , l3LogFont
+ , l3Types
+;
 
 type
  _FindDataType_ = Tl3LogFont;
@@ -34,15 +24,17 @@ type
 implementation
 
 uses
-  l3String
-  ;
-
-// start class Tk2FontNameList
+ l3ImplUses
+ , l3String
+ , k2FontName
+ , l3Memory
+;
 
 function CompareItemWithData(const anItem: _ItemType_;
-  const aData: _FindDataType_;
-  aSortIndex: Tl3SortIndex;
-  aList: _l3Searcher_): Integer;
+ const aData: _FindDataType_;
+ aSortIndex: Tl3SortIndex;
+ aList: _l3Searcher_): Integer;
+ {* Сравнивает существующий элемент с искомым. }
 //#UC START# *47B9BAFD01F4_53189661025E_var*
 //#UC END# *47B9BAFD01F4_53189661025E_var*
 begin

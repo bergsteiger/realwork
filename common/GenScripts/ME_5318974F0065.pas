@@ -19,10 +19,10 @@ type
    procedure InitFields; override;
   public
    function FontByName(const aName: AnsiString): Tk2FontName;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tk2FontManager;
     {* Метод получения экземпляра синглетона Tk2FontManager }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tk2FontManager
 
 implementation
@@ -86,12 +86,6 @@ begin
 //#UC END# *53189C3D034E_5318974F0065_impl*
 end;//Tk2FontManager.FontByName
 
-class function Tk2FontManager.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tk2FontManager <> nil;
-end;//Tk2FontManager.Exists
-
 class function Tk2FontManager.Instance: Tk2FontManager;
  {* Метод получения экземпляра синглетона Tk2FontManager }
 begin
@@ -102,6 +96,12 @@ begin
  end;
  Result := g_Tk2FontManager;
 end;//Tk2FontManager.Instance
+
+class function Tk2FontManager.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tk2FontManager <> nil;
+end;//Tk2FontManager.Exists
 
 procedure Tk2FontManager.InitFields;
 //#UC START# *47A042E100E2_5318974F0065_var*

@@ -1,41 +1,28 @@
 unit k2ToolPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/K2/k2ToolPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::K2::k2PrimObjects::Tk2ToolPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2ToolPrim.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  k2Tag,
-  l3Variant
-  ;
+ l3IntfUses
+ , k2Tag
+ , l3Variant
+;
 
 type
  Tk2ToolPrim = {abstract} class(Tk2Tag, IUnknown)
- protected
- // overridden protected methods
-   {$If not defined(DesignTimeLibrary)}
+  protected
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    procedure AfterFree; override;
-     {* функция, вызываемая после каждого уменьшении счетчика ссылок на объект, не приводящего к уничтожению объекта }
- public
- // public methods
+    {* функция, вызываемая после каждого уменьшении счетчика ссылок на объект, не приводящего к уничтожению объекта }
+  public
    procedure Assign(Source: Tk2ToolPrim); virtual;
    class function StoreToOldCache: Boolean; virtual;
    procedure SetTagQT(aTag: Tl3Variant); virtual; abstract;
@@ -43,7 +30,9 @@ type
 
 implementation
 
-// start class Tk2ToolPrim
+uses
+ l3ImplUses
+;
 
 procedure Tk2ToolPrim.Assign(Source: Tk2ToolPrim);
 //#UC START# *52BC1DD60298_47F5DAEB0007_var*
@@ -63,8 +52,9 @@ begin
 //#UC END# *49DF4E12001A_47F5DAEB0007_impl*
 end;//Tk2ToolPrim.StoreToOldCache
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function Tk2ToolPrim.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_47F5DAEB0007_var*
 //#UC END# *47A6FEE600FC_47F5DAEB0007_var*
 begin
@@ -72,9 +62,10 @@ begin
  Result := not StoreToOldCache;
 //#UC END# *47A6FEE600FC_47F5DAEB0007_impl*
 end;//Tk2ToolPrim.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure Tk2ToolPrim.AfterFree;
+ {* функция, вызываемая после каждого уменьшении счетчика ссылок на объект, не приводящего к уничтожению объекта }
 //#UC START# *531EEB8503AE_47F5DAEB0007_var*
 //#UC END# *531EEB8503AE_47F5DAEB0007_var*
 begin

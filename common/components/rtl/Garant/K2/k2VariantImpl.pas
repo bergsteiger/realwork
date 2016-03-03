@@ -1,77 +1,59 @@
 unit k2VariantImpl;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Модуль: "w:/common/components/rtl/Garant/K2/k2VariantImpl.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::K2::k2CoreObjects::Tk2VariantImpl
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2VariantImpl.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  k2Interfaces,
-  Classes,
-  l3DataContainerWithoutIUnknownPrim,
-  l3Variant
-  ;
+ l3IntfUses
+ , l3DataContainerWithoutIUnknownPrim
+ , k2Interfaces
+ , l3Variant
+ , Classes
+ , l3Interfaces
+;
 
 type
  Tk2VariantImpl = class(Tl3DataContainerWithoutIUnknownPrim, Ik2Variant)
- private
- // private fields
-   f_Tag : Tl3Variant;
-   f_Stream : TStream;
-   f_IStream : IStream;
- protected
- // realized methods
+  private
+   f_Tag: Tl3Variant;
+   f_Stream: TStream;
+   f_IStream: IStream;
+  protected
    function Get_Kind: Tk2VarKind;
    function Get_AsString: Tl3PrimString;
    function Get_AsInteger: Integer;
    function Get_AsStream: TStream;
    function Get_AsVariant: Tl3Variant;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(DesignTimeLibrary)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(aTag: Tl3Variant); reintroduce;
-   class function Make(aTag: Tl3Variant): Ik2Variant; reintroduce; overload; 
-     {* Сигнатура фабрики Tk2VariantImpl.Make }
-   class function Make(aValue: Integer): Ik2Variant; overload; 
+   class function Make(aTag: Tl3Variant): Ik2Variant; reintroduce; overload;
+   class function Make(aValue: Integer): Ik2Variant; overload;
  end;//Tk2VariantImpl
 
 implementation
 
 uses
-  k2Long_Const,
-  SysUtils,
-  l3Stream,
-  k2String_Const,
-  k2Base,
-  k2NullTagImpl,
-  l3IID,
-  l3InterfacesMisc
-  ;
-
-// start class Tk2VariantImpl
+ l3ImplUses
+ , SysUtils
+ , l3Stream
+ , k2String_Const
+ , k2Base
+ , k2NullTagImpl
+ , k2Long_Const
+ , l3IID
+ , l3InterfacesMisc
+;
 
 constructor Tk2VariantImpl.Create(aTag: Tl3Variant);
 //#UC START# *530F2A36024A_530F1BCA00B2_var*
@@ -97,7 +79,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//Tk2VariantImpl.Make
 
 class function Tk2VariantImpl.Make(aValue: Integer): Ik2Variant;
 //#UC START# *530F438C01D2_530F1BCA00B2_var*
@@ -174,6 +156,7 @@ begin
 end;//Tk2VariantImpl.Get_AsVariant
 
 procedure Tk2VariantImpl.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_530F1BCA00B2_var*
 //#UC END# *479731C50290_530F1BCA00B2_var*
 begin
@@ -184,8 +167,9 @@ begin
 //#UC END# *479731C50290_530F1BCA00B2_impl*
 end;//Tk2VariantImpl.Cleanup
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function Tk2VariantImpl.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_530F1BCA00B2_var*
 //#UC END# *47A6FEE600FC_530F1BCA00B2_var*
 begin
@@ -193,10 +177,9 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_530F1BCA00B2_impl*
 end;//Tk2VariantImpl.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure Tk2VariantImpl.ClearFields;
- {-}
 begin
  f_IStream := nil;
  inherited;

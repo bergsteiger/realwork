@@ -1,33 +1,22 @@
 unit k2DictRecTag;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Модуль: "w:/common/components/rtl/Garant/K2/k2DictRecTag.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::K2::k2CoreObjects::Tk2DictRecTag
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2DictRecTag.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  k2LeafTag,
-  l3Variant,
-  l3Interfaces
-  ;
+ l3IntfUses
+ , k2LeafTag
+ , l3Variant
+ , l3Interfaces
+;
 
 type
  Tk2DictRecTag = {abstract} class(Tk2LeafTag, Il3TagRef)
- protected
- // overridden protected methods
+  protected
    function GetAsPCharLen: Tl3WString; override;
    function GetAsLong: Integer; override;
    function GetAsString: AnsiString; override;
@@ -37,10 +26,9 @@ type
 implementation
 
 uses
-  k2Tags
-  ;
-
-// start class Tk2DictRecTag
+ l3ImplUses
+ , k2Tags
+;
 
 function Tk2DictRecTag.GetAsPCharLen: Tl3WString;
 //#UC START# *47A869BB02DE_53208F54004F_var*

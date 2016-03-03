@@ -1,50 +1,39 @@
 unit evFacadeGUI;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EverestCommon"
-// Модуль: "w:/common/components/gui/Garant/EverestCommon/evFacadeGUI.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::EverestCommon::evFacade::evFacadeGUI
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\EverestCommon\evFacadeGUI.pas"
+// Стереотип: "UtilityPack"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\EverestCommon\evDefine.inc}
+{$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 
 interface
 
 uses
-  Types,
-  evCustomEditor,
-  evCustomEditorWindow,
-  evCustomTextSource,
-  evCommonTypes,
-  l3Variant
-  ;
+ l3IntfUses
+ , Types
+ , l3Variant
+ , evCommonTypes
+ , evCustomEditorWindow
+ , evCustomTextSource
+ , evCustomEditor
+;
 
-function EvInvalidatePara(aPara: Tl3Variant): Boolean;
-function EvCheckInTable(const aBlock: IevCommonDataObject;
-  anEditor: TevCustomEditorWindow): Boolean;
-procedure EvUnformatAll(aTextSource: TevCustomTextSource);
-function EvMouseLP2DP(anEditor: TevCustomEditor): TPoint;
+function evInvalidatePara(aPara: Tl3Variant): Boolean;
+function evCheckInTable(const aBlock: IevCommonDataObject;
+ anEditor: TevCustomEditorWindow): Boolean;
+procedure evUnformatAll(aTextSource: TevCustomTextSource);
+function evMouseLP2DP(anEditor: TevCustomEditor): TPoint;
 
 implementation
 
 uses
-  k2Tags,
-  nevTools,
-  Table_Const,
-  nevBase
-  ;
+ l3ImplUses
+ , k2Tags
+ , nevTools
+ , Table_Const
+ , nevBase
+;
 
-// unit methods
-
-function EvInvalidatePara(aPara: Tl3Variant): Boolean;
+function evInvalidatePara(aPara: Tl3Variant): Boolean;
 //#UC START# *48EEFA40027D_48EEF9D8031A_var*
 var
  l_Para : InevPara;
@@ -60,10 +49,10 @@ begin
    l_Para.Invalidate([nev_spExtent]);
  end;//aPara.QT(InevPara, l_Para)
 //#UC END# *48EEFA40027D_48EEF9D8031A_impl*
-end;//EvInvalidatePara
+end;//evInvalidatePara
 
-function EvCheckInTable(const aBlock: IevCommonDataObject;
-  anEditor: TevCustomEditorWindow): Boolean;
+function evCheckInTable(const aBlock: IevCommonDataObject;
+ anEditor: TevCustomEditorWindow): Boolean;
 //#UC START# *48EEFB7400DB_48EEF9D8031A_var*
 var
  l_Start  : InevBasePoint;
@@ -112,18 +101,18 @@ begin
    l_Finish := nil;
  end;
 //#UC END# *48EEFB7400DB_48EEF9D8031A_impl*
-end;//EvCheckInTable
+end;//evCheckInTable
 
-procedure EvUnformatAll(aTextSource: TevCustomTextSource);
+procedure evUnformatAll(aTextSource: TevCustomTextSource);
 //#UC START# *48EEFBCD02EA_48EEF9D8031A_var*
 //#UC END# *48EEFBCD02EA_48EEF9D8031A_var*
 begin
 //#UC START# *48EEFBCD02EA_48EEF9D8031A_impl*
   aTextSource.DocumentContainer.TextSource.ViewArea.Update;
 //#UC END# *48EEFBCD02EA_48EEF9D8031A_impl*
-end;//EvUnformatAll
+end;//evUnformatAll
 
-function EvMouseLP2DP(anEditor: TevCustomEditor): TPoint;
+function evMouseLP2DP(anEditor: TevCustomEditor): TPoint;
 //#UC START# *48EEFCD2037C_48EEF9D8031A_var*
 //#UC END# *48EEFCD2037C_48EEF9D8031A_var*
 begin
@@ -131,6 +120,6 @@ begin
  with anEditor As InevControl do
   Result := LP2DP(View.MousePos, True);
 //#UC END# *48EEFCD2037C_48EEF9D8031A_impl*
-end;//EvMouseLP2DP
+end;//evMouseLP2DP
 
 end.

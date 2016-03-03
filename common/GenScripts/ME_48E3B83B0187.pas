@@ -30,7 +30,7 @@ type
    function Store(aFormat: TevdClipboardFormat;
     const aPool: IStream;
     const aFilters: TevdTagGenerator;
-    aFlags: TevdStoreFlags = DefaultStoreFlags): Boolean; overload;
+    aFlags: TevdStoreFlags = [evd_sfStoreParaEnd]): Boolean; overload;
     {* сохраняет выделение в формате aFormat в Pool, который должен реализовывать IStream. }
    function GetData: IevdDataObject; override;
    function GetAsStorable: InevDataObjectPrim2; override;
@@ -148,7 +148,7 @@ end;//TevMultiSelectionBlock.Store
 function TevMultiSelectionBlock.Store(aFormat: TevdClipboardFormat;
  const aPool: IStream;
  const aFilters: TevdTagGenerator;
- aFlags: TevdStoreFlags = DefaultStoreFlags): Boolean;
+ aFlags: TevdStoreFlags = [evd_sfStoreParaEnd]): Boolean;
  {* сохраняет выделение в формате aFormat в Pool, который должен реализовывать IStream. }
 //#UC START# *47C68C6701AF_48E3B83B0187_var*
 var

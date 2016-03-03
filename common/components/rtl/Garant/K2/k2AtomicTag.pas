@@ -1,54 +1,40 @@
 unit k2AtomicTag;
+ {* Базовый атомарный тег }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Модуль: "w:/common/components/rtl/Garant/K2/k2AtomicTag.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::K2::k2CoreObjects::Tk2AtomicTag
-//
-// Базовый атомарный тег
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2AtomicTag.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  k2NotStructuredTag,
-  l3Interfaces
-  ;
+ l3IntfUses
+ , k2NotStructuredTag
+ , l3Interfaces
+;
 
 type
  Rk2AtomicTag = class of Tk2AtomicTag;
 
  Tk2AtomicTag = {abstract} class(Tk2NotStructuredTag)
   {* Базовый атомарный тег }
- protected
- // overridden protected methods
+  protected
+   f_Value: Integer;
+  protected
    function GetAsPCharLen: Tl3WString; override;
    function GetAsLong: Integer; override;
    function GetAsString: AnsiString; override;
    function GetIsOrd: Boolean; override;
- protected
- // protected fields
-   f_Value : Integer;
  end;//Tk2AtomicTag
 
 implementation
 
 uses
-  l3String,
-  k2Base
-  ;
-
-// start class Tk2AtomicTag
+ l3ImplUses
+ , l3String
+ , k2Base
+;
 
 function Tk2AtomicTag.GetAsPCharLen: Tl3WString;
 //#UC START# *47A869BB02DE_53207C0102F8_var*

@@ -1,80 +1,63 @@
 {$IfNDef k2HashTag_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/K2/k2HashTag.imp.pas"
-// Начат: 08.02.2008 16:17
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::K2::k2CoreObjects::k2HashTag
-//
-// Одна из реализаций хранилища тегов.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2HashTag.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define k2HashTag_imp}
-//#UC START# *47AC562D0134ci*
+
+ // _HashType_
+
+ //#UC START# *47AC562D0134ci*
   {$Define k2TagComplexAssign}
   {$Define k2TagUseMapping}
   {$Define k2TagUseDefaultValue}
-//#UC END# *47AC562D0134ci*
+ //#UC END# *47AC562D0134ci*
  _k2Tag_Parent_ = _k2HashTag_Parent_;
- {$Include ..\K2\k2Tag.imp.pas}
-//#UC START# *47AC562D0134cit*
-//#UC END# *47AC562D0134cit*
- _k2HashTag_ = {mixin} class(_k2Tag_)
+ {$Include w:\common\components\rtl\Garant\K2\k2Tag.imp.pas}
+ //#UC START# *47AC562D0134cit*
+ //#UC END# *47AC562D0134cit*
+ _k2HashTag_ = class(_k2Tag_)
   {* Одна из реализаций хранилища тегов. }
- private
- // private fields
-   f_SubAtoms : _HashType_;
-    {* Поле для свойства SubAtoms}
- protected
- // realized methods
-   {$If not defined(k2TagIsAtomic)}
+  private
+   f_SubAtoms: _HashType_;
+    {* Поле для свойства SubAtoms }
+  protected
+   procedure ClearAtoms;
+   {$If NOT Defined(k2TagIsAtomic)}
    function SetAtomPrim(const aProp: _PropIn_;
     var V: Tk2Values): Boolean; override;
-   {$IfEnd} //not k2TagIsAtomic
- protected
- // overridden protected methods
+   {$IfEnd} // NOT Defined(k2TagIsAtomic)
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(DesignTimeLibrary)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
-   {$If not defined(k2TagIsAtomic)}
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   {$If NOT Defined(k2TagIsAtomic)}
    function GetHasSubAtom(aProp: Tk2Prop): Boolean; override;
-   {$IfEnd} //not k2TagIsAtomic
+   {$IfEnd} // NOT Defined(k2TagIsAtomic)
    function GetSubAtom(aProp: Tk2Prop;
     out Data: Tl3Variant): Boolean; override;
    procedure DoIterateProperties(Action: Ml3TagHolder_IterateProperties_Action;
     All: Boolean); override;
    function GetEmpty: Boolean; override;
- protected
- // protected methods
-   procedure ClearAtoms;
- public
- // public methods
+  public
    class function Make(aTagType: Tk2Type): Il3TagRef;
    constructor Create(aTagType: Tk2Type); reintroduce;
- protected
- // protected properties
+  protected
    property SubAtoms: _HashType_
-     read f_SubAtoms;
-//#UC START# *47AC562D0134publ*
-//#UC END# *47AC562D0134publ*
+    read f_SubAtoms;
+ //#UC START# *47AC562D0134publ*
+ //#UC END# *47AC562D0134publ*
  end;//_k2HashTag_
 
 {$Else k2HashTag_imp}
 
+{$IfNDef k2HashTag_imp_impl}
 
-{$Include ..\K2\k2Tag.imp.pas}
+{$Define k2HashTag_imp_impl}
 
-// start class _k2HashTag_
+{$Include w:\common\components\rtl\Garant\K2\k2Tag.imp.pas}
 
 class function _k2HashTag_.Make(aTagType: Tk2Type): Il3TagRef;
 //#UC START# *5356A90303BD_47AC562D0134_var*
@@ -137,9 +120,9 @@ begin
 //#UC END# *49A54FAA028F_47AC562D0134_impl*
 end;//_k2HashTag_.ClearAtoms
 
-{$If not defined(k2TagIsAtomic)}
+{$If NOT Defined(k2TagIsAtomic)}
 function _k2HashTag_.SetAtomPrim(const aProp: _PropIn_;
-  var V: Tk2Values): Boolean;
+ var V: Tk2Values): Boolean;
 //#UC START# *49A545580241_47AC562D0134_var*
 
  function FreeData1(SubAtom: Pl3Variant): Bool;
@@ -208,9 +191,10 @@ begin
  end;//NewValue = nil..
 //#UC END# *49A545580241_47AC562D0134_impl*
 end;//_k2HashTag_.SetAtomPrim
-{$IfEnd} //not k2TagIsAtomic
+{$IfEnd} // NOT Defined(k2TagIsAtomic)
 
 procedure _k2HashTag_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47AC562D0134_var*
 //#UC END# *479731C50290_47AC562D0134_var*
 begin
@@ -220,8 +204,9 @@ begin
 //#UC END# *479731C50290_47AC562D0134_impl*
 end;//_k2HashTag_.Cleanup
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function _k2HashTag_.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_47AC562D0134_var*
 //#UC END# *47A6FEE600FC_47AC562D0134_var*
 begin
@@ -229,9 +214,9 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_47AC562D0134_impl*
 end;//_k2HashTag_.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
-{$If not defined(k2TagIsAtomic)}
+{$If NOT Defined(k2TagIsAtomic)}
 function _k2HashTag_.GetHasSubAtom(aProp: Tk2Prop): Boolean;
 //#UC START# *49A544E802B2_47AC562D0134_var*
 //#UC END# *49A544E802B2_47AC562D0134_var*
@@ -240,10 +225,10 @@ begin
  Result := f_SubAtoms.CheckItem(aProp.AtomIndex);
 //#UC END# *49A544E802B2_47AC562D0134_impl*
 end;//_k2HashTag_.GetHasSubAtom
-{$IfEnd} //not k2TagIsAtomic
+{$IfEnd} // NOT Defined(k2TagIsAtomic)
 
 function _k2HashTag_.GetSubAtom(aProp: Tk2Prop;
-  out Data: Tl3Variant): Boolean;
+ out Data: Tl3Variant): Boolean;
 //#UC START# *49A54517029C_47AC562D0134_var*
 var
  pSubAtom : Pl3Variant;
@@ -267,7 +252,7 @@ begin
 end;//_k2HashTag_.GetSubAtom
 
 procedure _k2HashTag_.DoIterateProperties(Action: Ml3TagHolder_IterateProperties_Action;
-  All: Boolean);
+ All: Boolean);
 //#UC START# *49A545D501F6_47AC562D0134_var*
 
  function CheckProp(anAtom: Pl3Variant; anAtomIndex: Long): Bool;
@@ -310,4 +295,7 @@ end;//_k2HashTag_.GetEmpty
 //#UC START# *47AC562D0134impl*
 //#UC END# *47AC562D0134impl*
 
+{$EndIf k2HashTag_imp_impl}
+
 {$EndIf k2HashTag_imp}
+

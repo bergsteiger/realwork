@@ -29,10 +29,10 @@ type
   public
    procedure AddListener(aListener: TNotifyEvent);
    procedure NotifyListeners(aSender: TObject);
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tk2TypeTableCreatedListeners;
     {* Метод получения экземпляра синглетона Tk2TypeTableCreatedListeners }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tk2TypeTableCreatedListeners
 
 implementation
@@ -171,12 +171,6 @@ begin
 //#UC END# *53C7DA8400D6_53C7D8AB0282_impl*
 end;//Tk2TypeTableCreatedListeners.NotifyListeners
 
-class function Tk2TypeTableCreatedListeners.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tk2TypeTableCreatedListeners <> nil;
-end;//Tk2TypeTableCreatedListeners.Exists
-
 class function Tk2TypeTableCreatedListeners.Instance: Tk2TypeTableCreatedListeners;
  {* Метод получения экземпляра синглетона Tk2TypeTableCreatedListeners }
 begin
@@ -187,5 +181,11 @@ begin
  end;
  Result := g_Tk2TypeTableCreatedListeners;
 end;//Tk2TypeTableCreatedListeners.Instance
+
+class function Tk2TypeTableCreatedListeners.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tk2TypeTableCreatedListeners <> nil;
+end;//Tk2TypeTableCreatedListeners.Exists
 
 end.

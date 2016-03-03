@@ -1,67 +1,53 @@
 {$IfNDef evTreeData_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EverestCommon"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/EverestCommon/evTreeData.imp.pas"
-// Начат: 17.10.2008 17:39
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::EverestCommon::DataObjects::evTreeData
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\EverestCommon\evTreeData.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define evTreeData_imp}
+
+type
  RDataClass = class of _DataClass_;
 
- {$Include ..\EverestCommon\ddTreeDataObject.imp.pas}
- _evTreeData_ = {abstract mixin} class(_ddTreeDataObject_)
- private
- // private fields
-   f_ExtData : IDataObject;
-   f_Ext : Boolean;
-    {* Поле для свойства Ext}
- protected
- // overridden protected methods
+ // _DataClass_
+
+ {$Include w:\common\components\gui\Garant\EverestCommon\ddTreeDataObject.imp.pas}
+ _evTreeData_ = {abstract} class(_ddTreeDataObject_)
+  private
+   f_ExtData: IDataObject;
+   f_Ext: Boolean;
+    {* Поле для свойства Ext }
+  protected
+   function ExtData: IDataObject;
+   function MakeExtData: IDataObject; virtual;
+   function ExtDataClass: RDataClass; virtual;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function DoGetData(const aFormatEtcIn: TFormatEtc;
     var medium: Tl3StoragePlace): HResult; override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
- public
- // overridden public methods
-   function AcceptableTymed: Integer; override;
- protected
- // protected methods
-   function ExtData: IDataObject;
-   function MakeExtData: IDataObject; virtual;
-   function ExtDataClass: RDataClass; virtual;
- public
- // public methods
+    {* Реализация запроса интерфейса }
+  public
    constructor Create(const aData: _DataType_;
-     const aBitmap: Il3Bitmap); reintroduce;
+    const aBitmap: Il3Bitmap); reintroduce;
    class function Make(const aData: _DataType_;
-     const aBitmap: Il3Bitmap): IDataObject; reintroduce;
-     {* Сигнатура фабрики evTreeData.Make }
- protected
- // protected properties
+    const aBitmap: Il3Bitmap): IDataObject; reintroduce;
+   function AcceptableTymed: Integer; override;
+  protected
    property Ext: Boolean
-     read f_Ext;
+    read f_Ext;
  end;//_evTreeData_
 
 {$Else evTreeData_imp}
 
-{$Include ..\EverestCommon\ddTreeDataObject.imp.pas}
+{$IfNDef evTreeData_imp_impl}
 
-// start class _evTreeData_
+{$Define evTreeData_imp_impl}
+
+{$Include w:\common\components\gui\Garant\EverestCommon\ddTreeDataObject.imp.pas}
 
 constructor _evTreeData_.Create(const aData: _DataType_;
-  const aBitmap: Il3Bitmap);
+ const aBitmap: Il3Bitmap);
 //#UC START# *4CDD4D9D0014_48F895480266_var*
 //#UC END# *4CDD4D9D0014_48F895480266_var*
 begin
@@ -72,7 +58,7 @@ begin
 end;//_evTreeData_.Create
 
 class function _evTreeData_.Make(const aData: _DataType_;
-  const aBitmap: Il3Bitmap): IDataObject;
+ const aBitmap: Il3Bitmap): IDataObject;
 var
  l_Inst : _evTreeData_;
 begin
@@ -82,7 +68,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//_evTreeData_.Make
 
 function _evTreeData_.ExtData: IDataObject;
 //#UC START# *48F896070020_48F895480266_var*
@@ -126,6 +112,7 @@ begin
 end;//_evTreeData_.ExtDataClass
 
 procedure _evTreeData_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48F895480266_var*
 //#UC END# *479731C50290_48F895480266_var*
 begin
@@ -136,7 +123,7 @@ begin
 end;//_evTreeData_.Cleanup
 
 function _evTreeData_.DoGetData(const aFormatEtcIn: TFormatEtc;
-  var medium: Tl3StoragePlace): HResult;
+ var medium: Tl3StoragePlace): HResult;
 //#UC START# *48F3495D0398_48F895480266_var*
 var
  l_E : IDataObject;
@@ -169,7 +156,8 @@ begin
 end;//_evTreeData_.AcceptableTymed
 
 function _evTreeData_.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_48F895480266_var*
 //#UC END# *4A60B23E00C3_48F895480266_var*
 begin
@@ -183,4 +171,7 @@ begin
 //#UC END# *4A60B23E00C3_48F895480266_impl*
 end;//_evTreeData_.COMQueryInterface
 
+{$EndIf evTreeData_imp_impl}
+
 {$EndIf evTreeData_imp}
+

@@ -1,35 +1,26 @@
 {$IfNDef k2DoQT_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/K2/k2DoQT.imp.pas"
-// Начат: 16.12.2010 19:33
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::K2::k2PrimObjects::k2DoQT
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2DoQT.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define k2DoQT_imp}
- _k2DoQT_ = {mixin} class(_k2DoQT_Parent_)
- public
- // overridden public methods
+
+ _k2DoQT_ = class(_k2DoQT_Parent_)
+  public
    function DoQT(const IID: TGUID;
-     out Obj;
-     const aProcessor: Ik2Processor): Boolean; override;
+    out Obj;
+    const aProcessor: Ik2Processor): Boolean; override;
  end;//_k2DoQT_
 
 {$Else k2DoQT_imp}
 
-// start class _k2DoQT_
+{$IfNDef k2DoQT_imp_impl}
+
+{$Define k2DoQT_imp_impl}
 
 function _k2DoQT_.DoQT(const IID: TGUID;
-  out Obj;
-  const aProcessor: Ik2Processor): Boolean;
+ out Obj;
+ const aProcessor: Ik2Processor): Boolean;
 //#UC START# *532C4D4102D8_4D0A3CA401E0_var*
 var
  l_Type    : Tk2Type;
@@ -53,4 +44,7 @@ begin
 //#UC END# *532C4D4102D8_4D0A3CA401E0_impl*
 end;//_k2DoQT_.DoQT
 
+{$EndIf k2DoQT_imp_impl}
+
 {$EndIf k2DoQT_imp}
+

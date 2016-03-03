@@ -1,71 +1,60 @@
 unit evFacadeSub;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EverestCommon"
-// Модуль: "w:/common/components/gui/Garant/EverestCommon/evFacadeSub.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::EverestCommon::evFacade::evFacadeSub
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\EverestCommon\evFacadeSub.pas"
+// Стереотип: "UtilityPack"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\EverestCommon\evDefine.inc}
+{$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 
 interface
 
 uses
-  nevTools,
-  evCustomEditor,
-  evCustomEditorWindow,
-  evCustomTextSource
-  ;
+ l3IntfUses
+ , nevTools
+ , evCustomEditorWindow
+ , evCustomTextSource
+ , evCustomEditor
+;
 
-function EvDeleteSub(anEditor: TevCustomEditorWindow;
-  const aSub: IevSub): Boolean;
-function EvGetSubList(aTextSource: TevCustomTextSource): InevSubList;
-procedure EvDeleteAllDocumentParts(anEditor: TevCustomEditorWindow);
-function EvNewSub(anEditor: TevCustomEditorWindow): IevSub;
-function EvCurrentSub(anEditor: TevCustomEditorWindow): IevSub;
-procedure EvSubSelect(anEditor: TevCustomEditor;
-  aGoToSubID: Integer);
+function evDeleteSub(anEditor: TevCustomEditorWindow;
+ const aSub: IevSub): Boolean;
+function evGetSubList(aTextSource: TevCustomTextSource): InevSubList;
+procedure evDeleteAllDocumentParts(anEditor: TevCustomEditorWindow);
+function evNewSub(anEditor: TevCustomEditorWindow): IevSub;
+function evCurrentSub(anEditor: TevCustomEditorWindow): IevSub;
+procedure evSubSelect(anEditor: TevCustomEditor;
+ aGoToSubID: Integer);
 
 implementation
 
 uses
-  SysUtils,
-  l3Base,
-  nevBase,
-  evStubs,
-  evMsgCode
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+ , nevBase
+ , evStubs
+ , evMsgCode
+;
 
-// unit methods
-
-function EvDeleteSub(anEditor: TevCustomEditorWindow;
-  const aSub: IevSub): Boolean;
+function evDeleteSub(anEditor: TevCustomEditorWindow;
+ const aSub: IevSub): Boolean;
 //#UC START# *48EEF8EA0247_48EEF8D0004A_var*
 //#UC END# *48EEF8EA0247_48EEF8D0004A_var*
 begin
 //#UC START# *48EEF8EA0247_48EEF8D0004A_impl*
  Result := aSub.Delete(anEditor.View);
 //#UC END# *48EEF8EA0247_48EEF8D0004A_impl*
-end;//EvDeleteSub
+end;//evDeleteSub
 
-function EvGetSubList(aTextSource: TevCustomTextSource): InevSubList;
+function evGetSubList(aTextSource: TevCustomTextSource): InevSubList;
 //#UC START# *48EEF96A02C0_48EEF8D0004A_var*
 //#UC END# *48EEF96A02C0_48EEF8D0004A_var*
 begin
 //#UC START# *48EEF96A02C0_48EEF8D0004A_impl*
  Result := aTextSource.DocumentContainer.SubList;
 //#UC END# *48EEF96A02C0_48EEF8D0004A_impl*
-end;//EvGetSubList
+end;//evGetSubList
 
-procedure EvDeleteAllDocumentParts(anEditor: TevCustomEditorWindow);
+procedure evDeleteAllDocumentParts(anEditor: TevCustomEditorWindow);
 //#UC START# *48EEFA60019E_48EEF8D0004A_var*
 
  function _DoSub(const aSub: IevSub): Boolean;
@@ -98,9 +87,9 @@ begin
   end;//try..finally
  end;//aTextSource
 //#UC END# *48EEFA60019E_48EEF8D0004A_impl*
-end;//EvDeleteAllDocumentParts
+end;//evDeleteAllDocumentParts
 
-function EvNewSub(anEditor: TevCustomEditorWindow): IevSub;
+function evNewSub(anEditor: TevCustomEditorWindow): IevSub;
 //#UC START# *48EEFB0F0332_48EEF8D0004A_var*
 //#UC END# *48EEFB0F0332_48EEF8D0004A_var*
 begin
@@ -108,9 +97,9 @@ begin
  Result := evGetSubList(anEditor.TextSource).NewSub;
  Result.Cursor := anEditor.Selection.Cursor.MostInner.AsObject;
 //#UC END# *48EEFB0F0332_48EEF8D0004A_impl*
-end;//EvNewSub
+end;//evNewSub
 
-function EvCurrentSub(anEditor: TevCustomEditorWindow): IevSub;
+function evCurrentSub(anEditor: TevCustomEditorWindow): IevSub;
 //#UC START# *48EEFB1C005F_48EEF8D0004A_var*
 //#UC END# *48EEFB1C005F_48EEF8D0004A_var*
 begin
@@ -118,16 +107,16 @@ begin
  Result := evGetSubList(anEditor.TextSource).NewSub;
  Supports(anEditor.Selection.Cursor.MostInner, IevSub, Result);
 //#UC END# *48EEFB1C005F_48EEF8D0004A_impl*
-end;//EvCurrentSub
+end;//evCurrentSub
 
-procedure EvSubSelect(anEditor: TevCustomEditor;
-  aGoToSubID: Integer);
+procedure evSubSelect(anEditor: TevCustomEditor;
+ aGoToSubID: Integer);
 //#UC START# *48EEFD46016A_48EEF8D0004A_var*
 //#UC END# *48EEFD46016A_48EEF8D0004A_var*
 begin
 //#UC START# *48EEFD46016A_48EEF8D0004A_impl*
   anEditor.TextSource.DocumentContainer.SubList.Sub[aGoToSubID].Select(anEditor.Selection);
 //#UC END# *48EEFD46016A_48EEF8D0004A_impl*
-end;//EvSubSelect
+end;//evSubSelect
 
 end.

@@ -1,43 +1,29 @@
 unit evOEMTableFlagFilter;
+ {* Фильтр выставления флага выливать в псевдографику таблицам. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EverestCommon"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/EverestCommon/evOEMTableFlagFilter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::EverestCommon::Generators::TevOEMTableFlagFilter
-//
-// Фильтр выставления флага выливать в псевдографику таблицам.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\EverestCommon\evOEMTableFlagFilter.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\EverestCommon\evDefine.inc}
+{$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 
 interface
 
 uses
-  k2TagFilter,
-  k2Base,
-  l3Variant
-  ;
+ l3IntfUses
+ , k2TagFilter
+ , k2Base
+ , l3Variant
+;
 
 type
  TevOEMTableFlagFilter = class(Tk2TagFilter)
   {* Фильтр выставления флага выливать в псевдографику таблицам. }
- private
- // private fields
-   f_NeedChange : Boolean;
-    {* Признак нужно ли менять флаг.}
- protected
- // overridden protected methods
+  private
+   f_NeedChange: Boolean;
+    {* Признак нужно ли менять флаг. }
+  protected
    procedure CloseStructure(NeedUndo: Boolean); override;
-     {* вызывается на закрывающуюся "скобку". Для перекрытия в потомках. }
+    {* вызывается на закрывающуюся "скобку". Для перекрытия в потомках. }
    procedure DoStartChild(TypeID: Tk2Type); override;
    procedure DoAddAtomEx(AtomIndex: Integer;
     const Value: Ik2Variant); override;
@@ -46,13 +32,13 @@ type
 implementation
 
 uses
-  Table_Const,
-  k2Tags
-  ;
-
-// start class TevOEMTableFlagFilter
+ l3ImplUses
+ , Table_Const
+ , k2Tags
+;
 
 procedure TevOEMTableFlagFilter.CloseStructure(NeedUndo: Boolean);
+ {* вызывается на закрывающуюся "скобку". Для перекрытия в потомках. }
 //#UC START# *4836D4C20059_4C3FED3103B2_var*
 //#UC END# *4836D4C20059_4C3FED3103B2_var*
 begin
@@ -78,7 +64,7 @@ begin
 end;//TevOEMTableFlagFilter.DoStartChild
 
 procedure TevOEMTableFlagFilter.DoAddAtomEx(AtomIndex: Integer;
-  const Value: Ik2Variant);
+ const Value: Ik2Variant);
 //#UC START# *4A2D1634025B_4C3FED3103B2_var*
 //#UC END# *4A2D1634025B_4C3FED3103B2_var*
 begin

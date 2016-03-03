@@ -1,113 +1,85 @@
 unit evTableSearch;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EverestCommon"
-// Модуль: "w:/common/components/gui/Garant/EverestCommon/evTableSearch.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::EverestCommon::Searchers::evTableSearch
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\EverestCommon\evTableSearch.pas"
+// Стереотип: "UtilityPack"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\EverestCommon\evDefine.inc}
+{$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 
 interface
 
 uses
-  nevBase,
-  nevTools,
-  evTypes,
-  evSearch,
-  l3CustomString,
-  l3Variant
-  ;
+ l3IntfUses
+ , evSearch
+ , nevBase
+ , l3Variant
+ , l3CustomString
+ , nevTools
+ , evTypes
+;
 
 type
  TevTableTextSearcher = class(TevAnyParagraphSearcher)
- public
- // overridden public methods
-   function DoCheckText(aPara: Tl3Variant;
-     aText: Tl3CustomString;
-     const aSel: TevPair;
-     out theSel: TevPair): Boolean; override;
- protected
- // protected methods
+  protected
    function CheckCellType(aCell: Tl3Variant): Boolean; virtual;
+  public
+   function DoCheckText(aPara: Tl3Variant;
+    aText: Tl3CustomString;
+    const aSel: TevPair;
+    out theSel: TevPair): Boolean; override;
  end;//TevTableTextSearcher
 
  TevFirstTableCellSearcher = class(TevTableTextSearcher)
- public
- // overridden public methods
+  public
    function DoCheckText(aPara: Tl3Variant;
-     aText: Tl3CustomString;
-     const aSel: TevPair;
-     out theSel: TevPair): Boolean; override;
+    aText: Tl3CustomString;
+    const aSel: TevPair;
+    out theSel: TevPair): Boolean; override;
  end;//TevFirstTableCellSearcher
 
  TevOldNSRCFlagReplacer = class(TevBaseReplacer)
- private
- // private fields
-   f_FlagInit : Boolean;
-   f_FlagValue : Boolean;
- protected
- // realized methods
+  private
+   f_FlagInit: Boolean;
+   f_FlagValue: Boolean;
+  protected
    function ReplaceFunc(const aView: InevView;
-     const Container: InevOp;
-     const aBlock: InevRange): Boolean; override;
-     {* абстрактная функция для замены блока Block на что-то еще.
-             Наследники - должны перекрывать данную функцию }
- public
- // public methods
+    const Container: InevOp;
+    const aBlock: InevRange): Boolean; override;
+  public
    class function Make(anOptions: TevSearchOptionSet = []): IevReplacer;
  end;//TevOldNSRCFlagReplacer
 
  TevTableCellFrameReplacer = class(TevBaseReplacer)
- private
- // private fields
-   f_Frame : Integer;
- protected
- // realized methods
+  private
+   f_Frame: Integer;
+  protected
    function ReplaceFunc(const aView: InevView;
-     const Container: InevOp;
-     const aBlock: InevRange): Boolean; override;
-     {* абстрактная функция для замены блока Block на что-то еще.
-             Наследники - должны перекрывать данную функцию }
- public
- // public methods
+    const Container: InevOp;
+    const aBlock: InevRange): Boolean; override;
+  public
    class function Make(aFrame: Integer;
-     anOptions: TevSearchOptionSet = []): IevReplacer;
+    anOptions: TevSearchOptionSet = []): IevReplacer;
  end;//TevTableCellFrameReplacer
 
  TevTextInContinueCellSearcher = class(TevTableTextSearcher)
- protected
- // overridden protected methods
+  protected
    function CheckCellType(aCell: Tl3Variant): Boolean; override;
  end;//TevTextInContinueCellSearcher
 
 implementation
 
 uses
-  Classes
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  TableCell_Const,
-  SBSCell_Const,
-  SysUtils,
-  SBS_Const,
-  Table_Const,
-  k2Tags,
-  evdTypes
-  ;
-
-// start class TevTableTextSearcher
+ l3ImplUses
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , TableCell_Const
+ , SBSCell_Const
+ , SysUtils
+ , SBS_Const
+ , Table_Const
+ , k2Tags
+ , evdTypes
+;
 
 function TevTableTextSearcher.CheckCellType(aCell: Tl3Variant): Boolean;
 //#UC START# *5075300802E0_50751AB90061_var*
@@ -119,9 +91,9 @@ begin
 end;//TevTableTextSearcher.CheckCellType
 
 function TevTableTextSearcher.DoCheckText(aPara: Tl3Variant;
-  aText: Tl3CustomString;
-  const aSel: TevPair;
-  out theSel: TevPair): Boolean;
+ aText: Tl3CustomString;
+ const aSel: TevPair;
+ out theSel: TevPair): Boolean;
 //#UC START# *50751B680376_50751AB90061_var*
 var
  l_Cell : Tl3Variant;
@@ -136,12 +108,11 @@ begin
    Result := false;
 //#UC END# *50751B680376_50751AB90061_impl*
 end;//TevTableTextSearcher.DoCheckText
-// start class TevFirstTableCellSearcher
 
 function TevFirstTableCellSearcher.DoCheckText(aPara: Tl3Variant;
-  aText: Tl3CustomString;
-  const aSel: TevPair;
-  out theSel: TevPair): Boolean;
+ aText: Tl3CustomString;
+ const aSel: TevPair;
+ out theSel: TevPair): Boolean;
 //#UC START# *50751B680376_50751AEF02A9_var*
 var
  l_P : InevPara;
@@ -171,7 +142,6 @@ begin
  end;//Result
 //#UC END# *50751B680376_50751AEF02A9_impl*
 end;//TevFirstTableCellSearcher.DoCheckText
-// start class TevOldNSRCFlagReplacer
 
 class function TevOldNSRCFlagReplacer.Make(anOptions: TevSearchOptionSet = []): IevReplacer;
 //#UC START# *507530F8022A_50751B080168_var*
@@ -194,8 +164,8 @@ begin
 end;//TevOldNSRCFlagReplacer.Make
 
 function TevOldNSRCFlagReplacer.ReplaceFunc(const aView: InevView;
-  const Container: InevOp;
-  const aBlock: InevRange): Boolean;
+ const Container: InevOp;
+ const aBlock: InevRange): Boolean;
 //#UC START# *4D553AC103A3_50751B080168_var*
 var
  l_Table: Tl3Variant;
@@ -213,10 +183,9 @@ begin
  end; 
 //#UC END# *4D553AC103A3_50751B080168_impl*
 end;//TevOldNSRCFlagReplacer.ReplaceFunc
-// start class TevTableCellFrameReplacer
 
 class function TevTableCellFrameReplacer.Make(aFrame: Integer;
-  anOptions: TevSearchOptionSet = []): IevReplacer;
+ anOptions: TevSearchOptionSet = []): IevReplacer;
 //#UC START# *507531E0006E_50751B12004F_var*
 var
  l_Replacer : TevTableCellFrameReplacer;
@@ -236,8 +205,8 @@ begin
 end;//TevTableCellFrameReplacer.Make
 
 function TevTableCellFrameReplacer.ReplaceFunc(const aView: InevView;
-  const Container: InevOp;
-  const aBlock: InevRange): Boolean;
+ const Container: InevOp;
+ const aBlock: InevRange): Boolean;
 //#UC START# *4D553AC103A3_50751B12004F_var*
 var
  l_Cell : Tl3Variant;
@@ -253,7 +222,6 @@ begin
   Result := false;
 //#UC END# *4D553AC103A3_50751B12004F_impl*
 end;//TevTableCellFrameReplacer.ReplaceFunc
-// start class TevTextInContinueCellSearcher
 
 function TevTextInContinueCellSearcher.CheckCellType(aCell: Tl3Variant): Boolean;
 //#UC START# *5075300802E0_50751F2001E9_var*

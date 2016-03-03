@@ -1,61 +1,49 @@
 unit k2TypedSimpleTagListPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Модуль: "w:/common/components/rtl/Garant/K2/k2TypedSimpleTagListPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::K2::k2CoreObjects::Tk2TypedSimpleTagListPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2TypedSimpleTagListPrim.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  k2ListTag,
-  l3Variant,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except,
-  Classes
-  ;
+ l3IntfUses
+ , k2ListTag
+ , l3Variant
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
  {$Define l3Items_NoSort}
 
 type
  _k2SimpleTagListPrim_Parent_ = Tk2ListTag;
  {$Define l3Items_IsProto}
- {$Include ..\K2\k2SimpleTagListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2SimpleTagListPrim.imp.pas}
  Tk2TypedSimpleTagListPrim = class(_k2SimpleTagListPrim_)
- protected
- // overridden protected methods
+  protected
    function ExpandSize(aTargetSize: Integer): Integer; override;
  end;//Tk2TypedSimpleTagListPrim
 
 implementation
 
 uses
-  k2BaseTypes,
-  SysUtils,
-  l3Base,
-  l3MinMax,
-  RTLConsts
-  ;
+ l3ImplUses
+ , k2BaseTypes
+ , SysUtils
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+;
 
 type _Instance_R_ = Tk2TypedSimpleTagListPrim;
 
-{$Include ..\K2\k2SimpleTagListPrim.imp.pas}
-
-// start class Tk2TypedSimpleTagListPrim
+{$Include w:\common\components\rtl\Garant\K2\k2SimpleTagListPrim.imp.pas}
 
 function Tk2TypedSimpleTagListPrim.ExpandSize(aTargetSize: Integer): Integer;
 //#UC START# *47B975AF02ED_527D14900028_var*

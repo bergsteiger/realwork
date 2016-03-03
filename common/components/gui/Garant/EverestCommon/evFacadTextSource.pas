@@ -1,65 +1,54 @@
 unit evFacadTextSource;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EverestCommon"
-// Модуль: "w:/common/components/gui/Garant/EverestCommon/evFacadTextSource.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::EverestCommon::evFacade::evFacadTextSource
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\EverestCommon\evFacadTextSource.pas"
+// Стереотип: "UtilityPack"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\EverestCommon\evDefine.inc}
+{$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  Classes,
-  evCustomEditorWindow,
-  evCustomTextSource,
-  evCommonTypes
-  ;
+ l3IntfUses
+ , evCommonTypes
+ , evCustomTextSource
+ , evCustomEditorWindow
+ , Classes
+ , l3Interfaces
+;
 
-function EvGetUndoBuffer(aTextSource: TevCustomTextSource): TnevCustomUndoBuffer;
-function EvGetBruttoCharCount(aTextSource: TevCustomTextSource): Integer;
-function EvGetBruttoCharLimit(aTextSource: TevCustomTextSource): Integer;
-function EvGetNettoCharCount(aTextSource: TevCustomTextSource): Integer;
-function EvGetShowDocumentParts(anEditor: TevCustomEditorWindow): Boolean;
-function EvGetTextParaCount(aTextSource: TevCustomTextSource): Integer;
-procedure EvInsertFrom(anEditor: TevCustomEditorWindow;
-  aTextSource: TevCustomTextSource);
-procedure EvSetBruttoCharLimit(aTextSource: TevCustomTextSource;
-  aValue: Integer);
-procedure EvSetNettoCharCountEvent(aTextSource: TevCustomTextSource;
-  aValue: TNotifyEvent);
-procedure EvSetShowDocumentParts(anEditor: TevCustomEditorWindow;
-  aTextSource: TevCustomTextSource;
-  aValue: Boolean);
-procedure EvSetTextParaLimit(aTextSource: TevCustomTextSource;
-  aCount: Integer);
-procedure EvAddStringToTextSource(aTextSource: TevCustomTextSource;
-  const aStr: AnsiString;
-  aFormat: Tl3ClipboardFormat = cf_Text);
+function evGetUndoBuffer(aTextSource: TevCustomTextSource): TnevCustomUndoBuffer;
+function evGetBruttoCharCount(aTextSource: TevCustomTextSource): Integer;
+function evGetBruttoCharLimit(aTextSource: TevCustomTextSource): Integer;
+function evGetNettoCharCount(aTextSource: TevCustomTextSource): Integer;
+function evGetShowDocumentParts(anEditor: TevCustomEditorWindow): Boolean;
+function evGetTextParaCount(aTextSource: TevCustomTextSource): Integer;
+procedure evInsertFrom(anEditor: TevCustomEditorWindow;
+ aTextSource: TevCustomTextSource);
+procedure evSetBruttoCharLimit(aTextSource: TevCustomTextSource;
+ aValue: Integer);
+procedure evSetNettoCharCountEvent(aTextSource: TevCustomTextSource;
+ aValue: TNotifyEvent);
+procedure evSetShowDocumentParts(anEditor: TevCustomEditorWindow;
+ aTextSource: TevCustomTextSource;
+ aValue: Boolean);
+procedure evSetTextParaLimit(aTextSource: TevCustomTextSource;
+ aCount: Integer);
+procedure evAddStringToTextSource(aTextSource: TevCustomTextSource;
+ const aStr: AnsiString;
+ aFormat: Tl3ClipboardFormat = cf_Text);
 
 implementation
 
 uses
-  evTextSource,
-  evRange,
-  l3Base,
-  evOp,
-  evEditorInterfaces
-  ;
+ l3ImplUses
+ , evTextSource
+ , evRange
+ , l3Base
+ , evOp
+ , evEditorInterfaces
+;
 
-// unit methods
-
-function EvGetUndoBuffer(aTextSource: TevCustomTextSource): TnevCustomUndoBuffer;
+function evGetUndoBuffer(aTextSource: TevCustomTextSource): TnevCustomUndoBuffer;
 //#UC START# *48EEFC180229_48EEFBF70249_var*
 //#UC END# *48EEFC180229_48EEFBF70249_var*
 begin
@@ -67,18 +56,18 @@ begin
  Result :=
    aTextSource.Processor.UndoBuffer;
 //#UC END# *48EEFC180229_48EEFBF70249_impl*
-end;//EvGetUndoBuffer
+end;//evGetUndoBuffer
 
-function EvGetBruttoCharCount(aTextSource: TevCustomTextSource): Integer;
+function evGetBruttoCharCount(aTextSource: TevCustomTextSource): Integer;
 //#UC START# *48EEFC5A0393_48EEFBF70249_var*
 //#UC END# *48EEFC5A0393_48EEFBF70249_var*
 begin
 //#UC START# *48EEFC5A0393_48EEFBF70249_impl*
  Result := aTextSource.DocumentContainer.DocumentInfo.BruttoCharCount;
 //#UC END# *48EEFC5A0393_48EEFBF70249_impl*
-end;//EvGetBruttoCharCount
+end;//evGetBruttoCharCount
 
-function EvGetBruttoCharLimit(aTextSource: TevCustomTextSource): Integer;
+function evGetBruttoCharLimit(aTextSource: TevCustomTextSource): Integer;
 //#UC START# *48EEFC710310_48EEFBF70249_var*
 //#UC END# *48EEFC710310_48EEFBF70249_var*
 begin
@@ -86,89 +75,89 @@ begin
  Result :=
   aTextSource.DocumentContainer.DocumentLimits.BruttoCharLimit;
 //#UC END# *48EEFC710310_48EEFBF70249_impl*
-end;//EvGetBruttoCharLimit
+end;//evGetBruttoCharLimit
 
-function EvGetNettoCharCount(aTextSource: TevCustomTextSource): Integer;
+function evGetNettoCharCount(aTextSource: TevCustomTextSource): Integer;
 //#UC START# *48EEFC750348_48EEFBF70249_var*
 //#UC END# *48EEFC750348_48EEFBF70249_var*
 begin
 //#UC START# *48EEFC750348_48EEFBF70249_impl*
  Result := aTextSource.DocumentContainer.DocumentInfo.NettoCharCount;
 //#UC END# *48EEFC750348_48EEFBF70249_impl*
-end;//EvGetNettoCharCount
+end;//evGetNettoCharCount
 
-function EvGetShowDocumentParts(anEditor: TevCustomEditorWindow): Boolean;
+function evGetShowDocumentParts(anEditor: TevCustomEditorWindow): Boolean;
 //#UC START# *48EEFC790248_48EEFBF70249_var*
 //#UC END# *48EEFC790248_48EEFBF70249_var*
 begin
 //#UC START# *48EEFC790248_48EEFBF70249_impl*
  Result := anEditor.ShowDocumentParts
 //#UC END# *48EEFC790248_48EEFBF70249_impl*
-end;//EvGetShowDocumentParts
+end;//evGetShowDocumentParts
 
-function EvGetTextParaCount(aTextSource: TevCustomTextSource): Integer;
+function evGetTextParaCount(aTextSource: TevCustomTextSource): Integer;
 //#UC START# *48EEFC7C03C9_48EEFBF70249_var*
 //#UC END# *48EEFC7C03C9_48EEFBF70249_var*
 begin
 //#UC START# *48EEFC7C03C9_48EEFBF70249_impl*
  Result := aTextSource.DocumentContainer.DocumentInfo.TextParaCount;
 //#UC END# *48EEFC7C03C9_48EEFBF70249_impl*
-end;//EvGetTextParaCount
+end;//evGetTextParaCount
 
-procedure EvInsertFrom(anEditor: TevCustomEditorWindow;
-  aTextSource: TevCustomTextSource);
+procedure evInsertFrom(anEditor: TevCustomEditorWindow;
+ aTextSource: TevCustomTextSource);
 //#UC START# *48EEFC8B03E0_48EEFBF70249_var*
 //#UC END# *48EEFC8B03E0_48EEFBF70249_var*
 begin
 //#UC START# *48EEFC8B03E0_48EEFBF70249_impl*
   anEditor.InsertFrom(aTextSource.DocumentContainer.TagReader);
 //#UC END# *48EEFC8B03E0_48EEFBF70249_impl*
-end;//EvInsertFrom
+end;//evInsertFrom
 
-procedure EvSetBruttoCharLimit(aTextSource: TevCustomTextSource;
-  aValue: Integer);
+procedure evSetBruttoCharLimit(aTextSource: TevCustomTextSource;
+ aValue: Integer);
 //#UC START# *48EEFC900196_48EEFBF70249_var*
 //#UC END# *48EEFC900196_48EEFBF70249_var*
 begin
 //#UC START# *48EEFC900196_48EEFBF70249_impl*
   aTextSource.DocumentContainer.DocumentLimits.BruttoCharLimit := aValue;
 //#UC END# *48EEFC900196_48EEFBF70249_impl*
-end;//EvSetBruttoCharLimit
+end;//evSetBruttoCharLimit
 
-procedure EvSetNettoCharCountEvent(aTextSource: TevCustomTextSource;
-  aValue: TNotifyEvent);
+procedure evSetNettoCharCountEvent(aTextSource: TevCustomTextSource;
+ aValue: TNotifyEvent);
 //#UC START# *48EEFC930337_48EEFBF70249_var*
 //#UC END# *48EEFC930337_48EEFBF70249_var*
 begin
 //#UC START# *48EEFC930337_48EEFBF70249_impl*
  (aTextSource As TevTextSource).OnNettoCharCountChange := aValue;
 //#UC END# *48EEFC930337_48EEFBF70249_impl*
-end;//EvSetNettoCharCountEvent
+end;//evSetNettoCharCountEvent
 
-procedure EvSetShowDocumentParts(anEditor: TevCustomEditorWindow;
-  aTextSource: TevCustomTextSource;
-  aValue: Boolean);
+procedure evSetShowDocumentParts(anEditor: TevCustomEditorWindow;
+ aTextSource: TevCustomTextSource;
+ aValue: Boolean);
 //#UC START# *48EEFC970100_48EEFBF70249_var*
 //#UC END# *48EEFC970100_48EEFBF70249_var*
 begin
 //#UC START# *48EEFC970100_48EEFBF70249_impl*
  anEditor.ShowDocumentParts := aValue;
 //#UC END# *48EEFC970100_48EEFBF70249_impl*
-end;//EvSetShowDocumentParts
+end;//evSetShowDocumentParts
 
-procedure EvSetTextParaLimit(aTextSource: TevCustomTextSource;
-  aCount: Integer);
+procedure evSetTextParaLimit(aTextSource: TevCustomTextSource;
+ aCount: Integer);
 //#UC START# *48EEFCA80353_48EEFBF70249_var*
 //#UC END# *48EEFCA80353_48EEFBF70249_var*
 begin
 //#UC START# *48EEFCA80353_48EEFBF70249_impl*
   aTextSource.DocumentContainer.DocumentLimits.TextParaLimit := aCount;
 //#UC END# *48EEFCA80353_48EEFBF70249_impl*
-end;//EvSetTextParaLimit
+end;//evSetTextParaLimit
 
-procedure EvAddStringToTextSource(aTextSource: TevCustomTextSource;
-  const aStr: AnsiString;
-  aFormat: Tl3ClipboardFormat = cf_Text);
+procedure evAddStringToTextSource(aTextSource: TevCustomTextSource;
+ const aStr: AnsiString;
+ aFormat: Tl3ClipboardFormat = cf_Text);
 //#UC START# *48EEFD580285_48EEFBF70249_var*
 var
  l_Range  : TedRange;
@@ -185,6 +174,6 @@ begin
    l3Free(l_Range);
   end;//try..finally
 //#UC END# *48EEFD580285_48EEFBF70249_impl*
-end;//EvAddStringToTextSource
+end;//evAddStringToTextSource
 
 end.

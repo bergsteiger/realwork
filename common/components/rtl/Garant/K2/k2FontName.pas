@@ -1,35 +1,25 @@
 unit k2FontName;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Модуль: "w:/common/components/rtl/Garant/K2/k2FontName.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::K2::k2CoreObjects::Tk2FontName
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2FontName.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  l3LogFont,
-  l3Variant,
-  k2Base,
-  k2TagList,
-  k2Prim,
-  k2BaseStruct,
-  l3Interfaces,
-  k2BaseTypes,
-  l3Types,
-  l3IID
-  ;
+ l3IntfUses
+ , l3Variant
+ , l3LogFont
+ , k2BaseStruct
+ , l3Interfaces
+ , k2Base
+ , k2TagList
+ , k2Prim
+ , l3IID
+ , k2BaseTypes
+ , l3Types
+;
 
  {$Define k2TagIsString}
 
@@ -37,71 +27,64 @@ uses
 
 type
  _k2Tag_Parent_ = Tl3PrimString;
- {$Include ..\K2\k2Tag.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2Tag.imp.pas}
  Tk2FontName = class(_k2Tag_, Il3TagRef)
- private
- // private fields
-   f_LogFont : Tl3LogFont;
-    {* Поле для свойства LogFont}
- protected
- // realized methods
-   {$If not defined(k2TagIsAtomic)}
+  private
+   f_LogFont: Tl3LogFont;
+    {* Поле для свойства LogFont }
+  protected
+   {$If NOT Defined(k2TagIsAtomic)}
    function SetAtomPrim(const aProp: _PropIn_;
     var V: Tk2Values): Boolean; override;
-   {$IfEnd} //not k2TagIsAtomic
- protected
- // overridden protected methods
+   {$IfEnd} // NOT Defined(k2TagIsAtomic)
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
    function GetAsPCharLen: Tl3WString; override;
    function GetIsOrd: Boolean; override;
    function GetTagType: Tl3VariantDef; override;
    function GetAsRef: Il3TagRef; override;
- public
- // public methods
+  public
    constructor Create(aLogFont: Tl3LogFont); reintroduce;
- public
- // public properties
+  public
    property LogFont: Tl3LogFont
-     read f_LogFont;
+    read f_LogFont;
  end;//Tk2FontName
 
 implementation
 
 uses
-  k2FontName_Const,
-  SysUtils,
-  k2Tags,
-  l3Dict,
-  k2Const,
-  l3Const,
-  l3String,
-  k2Except,
-  k2Strings,
-  TypInfo,
-  l3Stream,
-  l3Base,
-  k2Facade,
-  Classes,
-  k2OList_Const,
-  k2Dictionary,
-  k2NonOptimizeContext,
-  k2VariantImpl,
-  k2Bool_Const,
-  k2String,
-  k2List,
-  k2NullTagImpl,
-  k2Interfaces,
-  k2DictionaryPrim,
-  k2InterfaceFactory
-  ;
+ l3ImplUses
+ , k2FontName_Const
+ , SysUtils
+ , k2Tags
+ , l3Dict
+ , k2Const
+ , l3Const
+ , l3String
+ , k2Except
+ , k2Strings
+ , TypInfo
+ , l3Stream
+ , l3Base
+ , k2Facade
+ , Classes
+ , k2OList_Const
+ , k2Dictionary
+ , k2NonOptimizeContext
+ , k2VariantImpl
+ , k2Bool_Const
+ , k2String
+ , k2NullTagImpl
+ , k2Interfaces
+ , k2DictionaryPrim
+ , k2InterfaceFactory
+ , k2List
+;
 
 type _Instance_R_ = Tk2FontName;
 
-{$Include ..\K2\k2Tag.imp.pas}
-
-// start class Tk2FontName
+{$Include w:\common\components\rtl\Garant\K2\k2Tag.imp.pas}
 
 constructor Tk2FontName.Create(aLogFont: Tl3LogFont);
 //#UC START# *53189606008A_53188A6D02A7_var*
@@ -113,9 +96,9 @@ begin
 //#UC END# *53189606008A_53188A6D02A7_impl*
 end;//Tk2FontName.Create
 
-{$If not defined(k2TagIsAtomic)}
+{$If NOT Defined(k2TagIsAtomic)}
 function Tk2FontName.SetAtomPrim(const aProp: _PropIn_;
-  var V: Tk2Values): Boolean;
+ var V: Tk2Values): Boolean;
 //#UC START# *49A545580241_53188A6D02A7_var*
 //#UC END# *49A545580241_53188A6D02A7_var*
 begin
@@ -124,9 +107,10 @@ begin
  Assert(false);
 //#UC END# *49A545580241_53188A6D02A7_impl*
 end;//Tk2FontName.SetAtomPrim
-{$IfEnd} //not k2TagIsAtomic
+{$IfEnd} // NOT Defined(k2TagIsAtomic)
 
 procedure Tk2FontName.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_53188A6D02A7_var*
 //#UC END# *479731C50290_53188A6D02A7_var*
 begin

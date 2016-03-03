@@ -1,244 +1,196 @@
 unit k2Prim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/K2/k2Prim.pas"
-// Начат: 03.07.2009 14:59
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::K2::k2Core::k2Prim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2Prim.pas"
+// Стереотип: "UtilityPack"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  l3Types,
-  TypInfo,
-  Classes,
-  l3ProtoObject,
-  l3ProtoIntegerList,
-  l3Variant,
-  k2PropertyArray,
-  l3Interfaces
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , Classes
+ , l3Variant
+ , l3Types
+ , TypInfo
+ , l3Interfaces
+ , l3ProtoIntegerList
+ , k2PropertyArray
+;
 
 type
  Tk2TypeTablePrim = {abstract} class(Tl3ProtoObject)
- public
- // public methods
+  public
    class procedure AddCreatedListener(aListener: TNotifyEvent); virtual;
  end;//Tk2TypeTablePrim
 
-
  Tk2TypePrim = class;
-
 
  Tk2CustomPropertyPrim = class;
 
  Tk2Base = {abstract} class(Tl3VariantDef)
- protected
- // property methods
+  protected
    function pm_GetTagType: Tk2TypePrim; virtual; abstract;
    function pm_GetAsProp: Tk2CustomPropertyPrim; virtual;
- public
- // public properties
+  public
    property TagType: Tk2TypePrim
-     read pm_GetTagType;
+    read pm_GetTagType;
    property AsProp: Tk2CustomPropertyPrim
-     read pm_GetAsProp;
+    read pm_GetAsProp;
  end;//Tk2Base
 
- Tk2TypeIDPrim = System.Byte;
+ Tk2TypeIDPrim = Byte;
 
  Tk2TypeIDSet = set of Tk2TypeIDPrim;
 
  Tk2TypeIDs = class(Tl3ProtoIntegerList)
- private
- // private fields
-   f_Small : Tk2TypeIDSet;
- protected
- // overridden protected methods
+  private
+   f_Small: Tk2TypeIDSet;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- public
- // public methods
+  public
    function Has(aTypeID: Integer): Boolean;
    procedure Include(aTypeID: Integer);
    procedure Assign(anOther: Tk2TypeIDs);
  end;//Tk2TypeIDs
 
  Tk2TypePrimPrim = {abstract} class(Tk2Base)
- private
- // private fields
-   f_IsParents : Tk2TypeIDs;
-   f_IsNotParents : Tk2TypeIDs;
-   f_ID : Integer;
-    {* Поле для свойства ID}
-   f_AtomType : PTypeInfo;
-    {* Поле для свойства AtomType}
-   f_DisabledChildTypeIDs : Tk2TypeIDs;
-    {* Поле для свойства DisabledChildTypeIDs}
-   f_FormatInfoFactory : TClass;
-    {* Поле для свойства FormatInfoFactory}
-   f_TypeTable : Tk2TypeTablePrim;
-    {* Поле для свойства TypeTable}
- protected
- // property methods
+  private
+   f_IsParents: Tk2TypeIDs;
+   f_IsNotParents: Tk2TypeIDs;
+   f_ID: Integer;
+    {* Поле для свойства ID }
+   f_AtomType: PTypeInfo;
+    {* Поле для свойства AtomType }
+   f_DisabledChildTypeIDs: Tk2TypeIDs;
+    {* Поле для свойства DisabledChildTypeIDs }
+   f_FormatInfoFactory: TClass;
+    {* Поле для свойства FormatInfoFactory }
+   f_TypeTable: Tk2TypeTablePrim;
+    {* Поле для свойства TypeTable }
+  protected
+   f_IsOrd: Tl3Bool;
+  protected
    procedure pm_SetAtomType(aValue: PTypeInfo);
    procedure pm_SetDisabledChildTypeIDs(aValue: Tk2TypeIDs);
- protected
- // realized methods
    function pm_GetTagType: Tk2TypePrim; override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function GetIsOrd: Boolean; override;
    function GetIsKindOfPrim(aType: Tl3VariantDef): Boolean; override;
- protected
- // protected fields
-   f_IsOrd : Tl3Bool;
- public
- // public methods
+  public
    function IsDisabledChildTypeID(anID: Integer): Boolean;
-     {* Проверяет, что тип ребёнка является запрещённым }
+    {* Проверяет, что тип ребёнка является запрещённым }
    procedure AddDisabledChildTypeID(anID: Integer);
-     {* Добавляет тип запрещённого ребёнка }
+    {* Добавляет тип запрещённого ребёнка }
    function DefaultChildTypeID: Tk2TypePrim;
    function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; virtual;
    procedure InheritsFrom;
- protected
- // protected properties
+  protected
    property DisabledChildTypeIDs: Tk2TypeIDs
-     read f_DisabledChildTypeIDs
-     write pm_SetDisabledChildTypeIDs;
-     {* Типы запрещённых детей }
- public
- // public properties
+    read f_DisabledChildTypeIDs
+    write pm_SetDisabledChildTypeIDs;
+    {* Типы запрещённых детей }
+  public
    property ID: Integer
-     read f_ID;
+    read f_ID;
    property AtomType: PTypeInfo
-     read f_AtomType
-     write pm_SetAtomType;
+    read f_AtomType
+    write pm_SetAtomType;
    property FormatInfoFactory: TClass
-     read f_FormatInfoFactory
-     write f_FormatInfoFactory;
-     {* Фабрика для изотовления информации о форматировании }
+    read f_FormatInfoFactory
+    write f_FormatInfoFactory;
+    {* Фабрика для изотовления информации о форматировании }
    property TypeTable: Tk2TypeTablePrim
-     read f_TypeTable
-     write f_TypeTable;
+    read f_TypeTable
+    write f_TypeTable;
  end;//Tk2TypePrimPrim
 
  Tk2CustomPropertyPrim = {abstract} class(Tk2Base)
   {* Базовое описание свойств }
- private
- // private fields
-   f_TagIndex : Integer;
-    {* Поле для свойства TagIndex}
-   f_AtomType : Tk2TypePrimPrim;
-    {* Поле для свойства AtomType}
-   f_NeedMarkModified : Boolean;
-    {* Поле для свойства NeedMarkModified}
-   f_Shared : Boolean;
-    {* Поле для свойства Shared}
-   f_AtomIndex : Integer;
-    {* Поле для свойства AtomIndex}
-   f_ParentType : Tk2TypePrimPrim;
-    {* Поле для свойства ParentType}
- protected
- // property methods
+  private
+   f_TagIndex: Integer;
+    {* Поле для свойства TagIndex }
+   f_AtomType: Tk2TypePrimPrim;
+    {* Поле для свойства AtomType }
+   f_NeedMarkModified: Boolean;
+    {* Поле для свойства NeedMarkModified }
+   f_Shared: Boolean;
+    {* Поле для свойства Shared }
+   f_AtomIndex: Integer;
+    {* Поле для свойства AtomIndex }
+   f_ParentType: Tk2TypePrimPrim;
+    {* Поле для свойства ParentType }
+  protected
+   f_tmpName: AnsiString;
+  protected
    procedure pm_SetAtomType(aValue: Tk2TypePrimPrim);
    function pm_GetEmptyMapping: Integer; virtual; abstract;
    function pm_GetReadOnly: Boolean; virtual; abstract;
    function pm_GetMappingTarget: Integer; virtual; abstract;
    function pm_GetDefaultValue: Integer; virtual; abstract;
- protected
- // realized methods
    function pm_GetTagType: Tk2TypePrim; override;
- protected
- // overridden property methods
-   function pm_GetAsProp: Tk2CustomPropertyPrim; override;
-   procedure pm_SetIDw(aValue: Integer); override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function GetAsPCharLen: Tl3WString; override;
    function GetOwner: TPersistent; override;
    function GetIsProp: Boolean; override;
+   function pm_GetAsProp: Tk2CustomPropertyPrim; override;
+   procedure pm_SetIDw(aValue: Integer); override;
    function DoDoMakeTag(aRef: Integer): Il3TagRef; override;
- protected
- // protected fields
-   f_tmpName : AnsiString;
- public
- // public methods
+  public
    constructor Create(anOwner: Tk2TypePrim); reintroduce;
    function IsThisArray(out theProp: Tl3VariantDef): Boolean; virtual;
- public
- // public properties
+  public
    property TagIndex: Integer
-     read f_TagIndex;
+    read f_TagIndex;
    property AtomType: Tk2TypePrimPrim
-     read f_AtomType
-     write pm_SetAtomType;
+    read f_AtomType
+    write pm_SetAtomType;
    property EmptyMapping: Integer
-     read pm_GetEmptyMapping;
+    read pm_GetEmptyMapping;
    property ReadOnly: Boolean
-     read pm_GetReadOnly;
+    read pm_GetReadOnly;
    property MappingTarget: Integer
-     read pm_GetMappingTarget;
+    read pm_GetMappingTarget;
    property NeedMarkModified: Boolean
-     read f_NeedMarkModified
-     write f_NeedMarkModified;
+    read f_NeedMarkModified
+    write f_NeedMarkModified;
    property DefaultValue: Integer
-     read pm_GetDefaultValue;
+    read pm_GetDefaultValue;
    property Shared: Boolean
-     read f_Shared
-     write f_Shared;
+    read f_Shared
+    write f_Shared;
    property AtomIndex: Integer
-     read f_AtomIndex
-     write f_AtomIndex;
+    read f_AtomIndex
+    write f_AtomIndex;
    property ParentType: Tk2TypePrimPrim
-     read f_ParentType;
+    read f_ParentType;
  end;//Tk2CustomPropertyPrim
 
- Ik2Op = l3Variant.Il3OpPack;
+ Ik2Op = Il3OpPack;
   {* Пачка операций. }
 
  Tk2PropertyArray = k2PropertyArray.Tk2PropertyArray;
 
  Tk2TypePrim = {abstract} class(Tk2TypePrimPrim)
   {* Базовое описание типа }
- protected
- // property methods
+  protected
+   f_Tags: Tk2PropertyArray;
+  protected
    function pm_GetProp(TagIndex: Integer): Tk2CustomPropertyPrim;
- protected
- // overridden property methods
-   procedure pm_SetIDw(aValue: Integer); override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
    function GetAsPCharLen: Tl3WString; override;
- protected
- // protected fields
-   f_Tags : Tk2PropertyArray;
- public
- // public properties
+   procedure pm_SetIDw(aValue: Integer); override;
+  public
    property Prop[TagIndex: Integer]: Tk2CustomPropertyPrim
-     read pm_GetProp;
-     {* Свойства тега }
+    read pm_GetProp;
+    {* Свойства тега }
  end;//Tk2TypePrim
 
  Tk2ArrayPropertyPrim = Tk2CustomPropertyPrim;
@@ -252,18 +204,18 @@ type
 implementation
 
 uses
-  k2TypeTableCreatedListeners,
-  k2BaseHack,
-  k2Tags,
-  k2Empty_Const,
-  l3IID,
-  l3InterfacesMisc,
-  SysUtils,
-  l3String,
-  k2Attributes
-  ;
+ l3ImplUses
+ , k2TypeTableCreatedListeners
+ , k2Tags
+ , k2Empty_Const
+ , k2BaseHack
+ , SysUtils
+ , l3String
+ , k2Attributes
+;
 
-// start class Tk2TypeTablePrim
+type
+ Pk2CustomPropertyPrim = ^Tk2CustomPropertyPrim;
 
 class procedure Tk2TypeTablePrim.AddCreatedListener(aListener: TNotifyEvent);
 //#UC START# *53C7DA31003C_4A4E1F7A029F_var*
@@ -273,7 +225,6 @@ begin
  Tk2TypeTableCreatedListeners.Instance.AddListener(aListener);
 //#UC END# *53C7DA31003C_4A4E1F7A029F_impl*
 end;//Tk2TypeTablePrim.AddCreatedListener
-// start class Tk2Base
 
 function Tk2Base.pm_GetAsProp: Tk2CustomPropertyPrim;
 //#UC START# *4A4DE5AF036A_4A4DE0BF039Eget_var*
@@ -283,43 +234,6 @@ begin
  Result := nil;
 //#UC END# *4A4DE5AF036A_4A4DE0BF039Eget_impl*
 end;//Tk2Base.pm_GetAsProp
-// start class Tk2TypePrimPrim
-
-function Tk2TypePrimPrim.IsDisabledChildTypeID(anID: Integer): Boolean;
-//#UC START# *4C177E9D0375_4FFEF43201C7_var*
-//#UC END# *4C177E9D0375_4FFEF43201C7_var*
-begin
-//#UC START# *4C177E9D0375_4FFEF43201C7_impl*
- Result := f_DisabledChildTypeIDs.Has(anID);
-//#UC END# *4C177E9D0375_4FFEF43201C7_impl*
-end;//Tk2TypePrimPrim.IsDisabledChildTypeID
-
-procedure Tk2TypePrimPrim.AddDisabledChildTypeID(anID: Integer);
-//#UC START# *4C177E4700AB_4FFEF43201C7_var*
-//#UC END# *4C177E4700AB_4FFEF43201C7_var*
-begin
-//#UC START# *4C177E4700AB_4FFEF43201C7_impl*
- if (f_DisabledChildTypeIDs = nil) then
-  f_DisabledChildTypeIDs := Tk2TypeIDs.Create;
- f_DisabledChildTypeIDs.Include(anID);
-//#UC END# *4C177E4700AB_4FFEF43201C7_impl*
-end;//Tk2TypePrimPrim.AddDisabledChildTypeID
-
-function Tk2TypePrimPrim.DefaultChildTypeID: Tk2TypePrim;
-//#UC START# *4A534133014D_4FFEF43201C7_var*
-var
- l_Prop : Tk2ChildrenProperty;
-//#UC END# *4A534133014D_4FFEF43201C7_var*
-begin
-//#UC START# *4A534133014D_4FFEF43201C7_impl*
- l_Prop := Tk2ChildrenProperty(Tk2TypePrim(Self).Prop[k2_tiChildren]);
- if (l_Prop = nil) then
-  Result := k2_typEmpty
- else
-  Result := l_Prop.DefaultChildType; 
-//#UC END# *4A534133014D_4FFEF43201C7_impl*
-end;//Tk2TypePrimPrim.DefaultChildTypeID
-// start class Tk2TypeIDs
 
 function Tk2TypeIDs.Has(aTypeID: Integer): Boolean;
 //#UC START# *54785FC20224_4A4E1D7C01DB_var*
@@ -375,6 +289,7 @@ begin
 end;//Tk2TypeIDs.Assign
 
 procedure Tk2TypeIDs.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A4E1D7C01DB_var*
 //#UC END# *479731C50290_4A4E1D7C01DB_var*
 begin
@@ -429,6 +344,43 @@ begin
 //#UC END# *4C177F23037E_4FFEF43201C7set_impl*
 end;//Tk2TypePrimPrim.pm_SetDisabledChildTypeIDs
 
+function Tk2TypePrimPrim.IsDisabledChildTypeID(anID: Integer): Boolean;
+ {* Проверяет, что тип ребёнка является запрещённым }
+//#UC START# *4C177E9D0375_4FFEF43201C7_var*
+//#UC END# *4C177E9D0375_4FFEF43201C7_var*
+begin
+//#UC START# *4C177E9D0375_4FFEF43201C7_impl*
+ Result := f_DisabledChildTypeIDs.Has(anID);
+//#UC END# *4C177E9D0375_4FFEF43201C7_impl*
+end;//Tk2TypePrimPrim.IsDisabledChildTypeID
+
+procedure Tk2TypePrimPrim.AddDisabledChildTypeID(anID: Integer);
+ {* Добавляет тип запрещённого ребёнка }
+//#UC START# *4C177E4700AB_4FFEF43201C7_var*
+//#UC END# *4C177E4700AB_4FFEF43201C7_var*
+begin
+//#UC START# *4C177E4700AB_4FFEF43201C7_impl*
+ if (f_DisabledChildTypeIDs = nil) then
+  f_DisabledChildTypeIDs := Tk2TypeIDs.Create;
+ f_DisabledChildTypeIDs.Include(anID);
+//#UC END# *4C177E4700AB_4FFEF43201C7_impl*
+end;//Tk2TypePrimPrim.AddDisabledChildTypeID
+
+function Tk2TypePrimPrim.DefaultChildTypeID: Tk2TypePrim;
+//#UC START# *4A534133014D_4FFEF43201C7_var*
+var
+ l_Prop : Tk2ChildrenProperty;
+//#UC END# *4A534133014D_4FFEF43201C7_var*
+begin
+//#UC START# *4A534133014D_4FFEF43201C7_impl*
+ l_Prop := Tk2ChildrenProperty(Tk2TypePrim(Self).Prop[k2_tiChildren]);
+ if (l_Prop = nil) then
+  Result := k2_typEmpty
+ else
+  Result := l_Prop.DefaultChildType; 
+//#UC END# *4A534133014D_4FFEF43201C7_impl*
+end;//Tk2TypePrimPrim.DefaultChildTypeID
+
 function Tk2TypePrimPrim.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
 //#UC START# *4A4E01DA0396_4FFEF43201C7_var*
 //#UC END# *4A4E01DA0396_4FFEF43201C7_var*
@@ -457,6 +409,7 @@ begin
 end;//Tk2TypePrimPrim.pm_GetTagType
 
 procedure Tk2TypePrimPrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4FFEF43201C7_var*
 //#UC END# *479731C50290_4FFEF43201C7_var*
 begin
@@ -547,7 +500,22 @@ begin
  end;//ID = anID
 //#UC END# *533129DC037C_4FFEF43201C7_impl*
 end;//Tk2TypePrimPrim.GetIsKindOfPrim
-// start class Tk2CustomPropertyPrim
+
+procedure Tk2CustomPropertyPrim.pm_SetAtomType(aValue: Tk2TypePrimPrim);
+//#UC START# *4A4DEE580305_4A4DE5850182set_var*
+//#UC END# *4A4DEE580305_4A4DE5850182set_var*
+begin
+//#UC START# *4A4DEE580305_4A4DE5850182set_impl*
+ if (f_AtomType <> aValue) then
+ begin
+(*  if (f_AtomType <> f_ParentType) then
+   FreeAndNil(f_AtomType);*)
+  f_AtomType := aValue;
+(*  if (f_AtomType <> f_ParentType) then
+   f_AtomType.Use;*)
+ end;//f_AtomType <> aValue
+//#UC END# *4A4DEE580305_4A4DE5850182set_impl*
+end;//Tk2CustomPropertyPrim.pm_SetAtomType
 
 constructor Tk2CustomPropertyPrim.Create(anOwner: Tk2TypePrim);
 //#UC START# *4B85667B0066_4A4DE5850182_var*
@@ -569,22 +537,6 @@ begin
 //#UC END# *5357A18303D6_4A4DE5850182_impl*
 end;//Tk2CustomPropertyPrim.IsThisArray
 
-procedure Tk2CustomPropertyPrim.pm_SetAtomType(aValue: Tk2TypePrimPrim);
-//#UC START# *4A4DEE580305_4A4DE5850182set_var*
-//#UC END# *4A4DEE580305_4A4DE5850182set_var*
-begin
-//#UC START# *4A4DEE580305_4A4DE5850182set_impl*
- if (f_AtomType <> aValue) then
- begin
-(*  if (f_AtomType <> f_ParentType) then
-   FreeAndNil(f_AtomType);*)
-  f_AtomType := aValue;
-(*  if (f_AtomType <> f_ParentType) then
-   f_AtomType.Use;*)
- end;//f_AtomType <> aValue
-//#UC END# *4A4DEE580305_4A4DE5850182set_impl*
-end;//Tk2CustomPropertyPrim.pm_SetAtomType
-
 function Tk2CustomPropertyPrim.pm_GetTagType: Tk2TypePrim;
 //#UC START# *4A4DE5340236_4A4DE5850182get_var*
 //#UC END# *4A4DE5340236_4A4DE5850182get_var*
@@ -595,6 +547,7 @@ begin
 end;//Tk2CustomPropertyPrim.pm_GetTagType
 
 procedure Tk2CustomPropertyPrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A4DE5850182_var*
 //#UC END# *479731C50290_4A4DE5850182_var*
 begin
@@ -663,10 +616,6 @@ begin
  Result := AtomType.MakeTag(aRef);
 //#UC END# *5356910A0042_4A4DE5850182_impl*
 end;//Tk2CustomPropertyPrim.DoDoMakeTag
-type
-  Pk2CustomPropertyPrim = ^Tk2CustomPropertyPrim;
-
-// start class Tk2TypePrim
 
 function Tk2TypePrim.pm_GetProp(TagIndex: Integer): Tk2CustomPropertyPrim;
 //#UC START# *4A4DEAE0006B_4A4DE5000202get_var*
@@ -698,6 +647,7 @@ begin
 end;//Tk2TypePrim.pm_GetProp
 
 procedure Tk2TypePrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A4DE5000202_var*
 //#UC END# *479731C50290_4A4DE5000202_var*
 begin

@@ -1,101 +1,86 @@
 unit k2TypedAtomicTag;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Модуль: "w:/common/components/rtl/Garant/K2/k2TypedAtomicTag.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::K2::k2CoreObjects::Tk2TypedAtomicTag
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2TypedAtomicTag.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  k2Base,
-  k2AtomicTag,
-  k2TagList,
-  k2Prim,
-  k2BaseStruct,
-  l3Variant,
-  l3Interfaces,
-  k2BaseTypes,
-  l3Types,
-  l3IID
-  ;
+ l3IntfUses
+ , k2AtomicTag
+ , k2Base
+ , k2BaseStruct
+ , l3Variant
+ , k2TagList
+ , k2Prim
+ , l3IID
+ , k2BaseTypes
+ , l3Types
+ , l3Interfaces
+;
+
+type
+ Rk2TypedAtomicTag = class of Tk2TypedAtomicTag;
 
  {$Define k2TagIsAtomic}
 
  {$Define k2Tag_No_f_TagType}
 
-type
- Rk2TypedAtomicTag = class of Tk2TypedAtomicTag;
-
  _k2Tag_Parent_ = Tk2AtomicTag;
- {$Include ..\K2\k2Tag.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2Tag.imp.pas}
  Tk2TypedAtomicTag = class(_k2Tag_)
- protected
- // realized methods
-   {$If not defined(k2TagIsAtomic)}
+  protected
+   {$If NOT Defined(k2TagIsAtomic)}
    function SetAtomPrim(const aProp: _PropIn_;
     var V: Tk2Values): Boolean; override;
-   {$IfEnd} //not k2TagIsAtomic
- protected
- // overridden protected methods
-   {$If not defined(DesignTimeLibrary)}
+   {$IfEnd} // NOT Defined(k2TagIsAtomic)
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
- public
- // public methods
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+  public
    constructor Create(aValue: Integer;
-     aType: Tk2Type); reintroduce;
+    aType: Tk2Type); reintroduce;
  end;//Tk2TypedAtomicTag
 
 implementation
 
 uses
-  k2Tags,
-  l3Dict,
-  k2Const,
-  l3Const,
-  SysUtils,
-  l3String,
-  k2Except,
-  k2Strings,
-  TypInfo,
-  l3Stream,
-  l3Base,
-  k2Facade,
-  Classes,
-  k2OList_Const,
-  k2Dictionary,
-  k2NonOptimizeContext,
-  k2VariantImpl,
-  k2Bool_Const,
-  k2String,
-  k2List,
-  k2NullTagImpl,
-  k2Interfaces,
-  k2DictionaryPrim,
-  k2InterfaceFactory
-  ;
+ l3ImplUses
+ , k2Tags
+ , l3Dict
+ , k2Const
+ , l3Const
+ , SysUtils
+ , l3String
+ , k2Except
+ , k2Strings
+ , TypInfo
+ , l3Stream
+ , l3Base
+ , k2Facade
+ , Classes
+ , k2OList_Const
+ , k2Dictionary
+ , k2NonOptimizeContext
+ , k2VariantImpl
+ , k2Bool_Const
+ , k2String
+ , k2NullTagImpl
+ , k2Interfaces
+ , k2DictionaryPrim
+ , k2InterfaceFactory
+ , k2List
+;
 
 type _Instance_R_ = Tk2TypedAtomicTag;
 
-{$Include ..\K2\k2Tag.imp.pas}
-
-// start class Tk2TypedAtomicTag
+{$Include w:\common\components\rtl\Garant\K2\k2Tag.imp.pas}
 
 constructor Tk2TypedAtomicTag.Create(aValue: Integer;
-  aType: Tk2Type);
+ aType: Tk2Type);
 //#UC START# *5273CF7E0177_5273CF4602B7_var*
 //#UC END# *5273CF7E0177_5273CF4602B7_var*
 begin
@@ -106,9 +91,9 @@ begin
 //#UC END# *5273CF7E0177_5273CF4602B7_impl*
 end;//Tk2TypedAtomicTag.Create
 
-{$If not defined(k2TagIsAtomic)}
+{$If NOT Defined(k2TagIsAtomic)}
 function Tk2TypedAtomicTag.SetAtomPrim(const aProp: _PropIn_;
-  var V: Tk2Values): Boolean;
+ var V: Tk2Values): Boolean;
 //#UC START# *49A545580241_5273CF4602B7_var*
 //#UC END# *49A545580241_5273CF4602B7_var*
 begin
@@ -116,10 +101,11 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *49A545580241_5273CF4602B7_impl*
 end;//Tk2TypedAtomicTag.SetAtomPrim
-{$IfEnd} //not k2TagIsAtomic
+{$IfEnd} // NOT Defined(k2TagIsAtomic)
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function Tk2TypedAtomicTag.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_5273CF4602B7_var*
 //#UC END# *47A6FEE600FC_5273CF4602B7_var*
 begin
@@ -128,6 +114,6 @@ begin
  //Result := false;
 //#UC END# *47A6FEE600FC_5273CF4602B7_impl*
 end;//Tk2TypedAtomicTag.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 end.

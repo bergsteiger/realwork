@@ -1,102 +1,85 @@
 unit k2IUnknownTag;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Модуль: "w:/common/components/rtl/Garant/K2/k2IUnknownTag.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::K2::k2CoreObjects::Tk2IUnknownTag
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2IUnknownTag.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  l3Variant,
-  k2NotStructuredTag,
-  k2Base,
-  k2TagList,
-  k2Prim,
-  k2BaseStruct,
-  l3Interfaces,
-  k2BaseTypes,
-  l3Types,
-  l3IID
-  ;
+ l3IntfUses
+ , k2NotStructuredTag
+ , l3Variant
+ , k2BaseStruct
+ , l3IID
+ , k2Base
+ , k2TagList
+ , k2Prim
+ , k2BaseTypes
+ , l3Types
+ , l3Interfaces
+;
 
  {$Define k2Tag_No_f_TagType}
 
 type
  _k2Tag_Parent_ = Tk2NotStructuredTag;
- {$Include ..\K2\k2Tag.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2Tag.imp.pas}
  Tk2IUnknownTag = class(_k2Tag_)
- private
- // private fields
-   f_Interface : IUnknown;
- protected
- // realized methods
-   {$If not defined(k2TagIsAtomic)}
+  private
+   f_Interface: IUnknown;
+  protected
+   {$If NOT Defined(k2TagIsAtomic)}
    function SetAtomPrim(const aProp: _PropIn_;
     var V: Tk2Values): Boolean; override;
-   {$IfEnd} //not k2TagIsAtomic
- protected
- // overridden protected methods
+   {$IfEnd} // NOT Defined(k2TagIsAtomic)
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
    function GetTagType: Tl3VariantDef; override;
- public
- // public methods
+  public
    constructor Create(const anInterface: IUnknown); reintroduce;
    class function Make(const anInterface: IUnknown): Il3TagRef; reintroduce;
-     {* Сигнатура фабрики Tk2IUnknownTag.Make }
  end;//Tk2IUnknownTag
 
 implementation
 
 uses
-  k2IUnknown_Const,
-  k2Tags,
-  l3Dict,
-  k2Const,
-  l3Const,
-  SysUtils,
-  l3String,
-  k2Except,
-  k2Strings,
-  TypInfo,
-  l3Stream,
-  l3Base,
-  k2Facade,
-  Classes,
-  k2OList_Const,
-  k2Dictionary,
-  k2NonOptimizeContext,
-  k2VariantImpl,
-  k2Bool_Const,
-  k2String,
-  k2List,
-  k2NullTagImpl,
-  k2Interfaces,
-  k2DictionaryPrim,
-  k2InterfaceFactory
-  ;
+ l3ImplUses
+ , k2IUnknown_Const
+ , k2Tags
+ , l3Dict
+ , k2Const
+ , l3Const
+ , SysUtils
+ , l3String
+ , k2Except
+ , k2Strings
+ , TypInfo
+ , l3Stream
+ , l3Base
+ , k2Facade
+ , Classes
+ , k2OList_Const
+ , k2Dictionary
+ , k2NonOptimizeContext
+ , k2VariantImpl
+ , k2Bool_Const
+ , k2String
+ , k2NullTagImpl
+ , k2Interfaces
+ , k2DictionaryPrim
+ , k2InterfaceFactory
+ , k2List
+;
 
 type _Instance_R_ = Tk2IUnknownTag;
 
-{$Include ..\K2\k2Tag.imp.pas}
-
-// start class Tk2IUnknownTag
+{$Include w:\common\components\rtl\Garant\K2\k2Tag.imp.pas}
 
 constructor Tk2IUnknownTag.Create(const anInterface: IUnknown);
 //#UC START# *531F2C14010E_531F2B0B0102_var*
@@ -118,11 +101,11 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//Tk2IUnknownTag.Make
 
-{$If not defined(k2TagIsAtomic)}
+{$If NOT Defined(k2TagIsAtomic)}
 function Tk2IUnknownTag.SetAtomPrim(const aProp: _PropIn_;
-  var V: Tk2Values): Boolean;
+ var V: Tk2Values): Boolean;
 //#UC START# *49A545580241_531F2B0B0102_var*
 //#UC END# *49A545580241_531F2B0B0102_var*
 begin
@@ -131,9 +114,10 @@ begin
  Assert(false);
 //#UC END# *49A545580241_531F2B0B0102_impl*
 end;//Tk2IUnknownTag.SetAtomPrim
-{$IfEnd} //not k2TagIsAtomic
+{$IfEnd} // NOT Defined(k2TagIsAtomic)
 
 procedure Tk2IUnknownTag.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_531F2B0B0102_var*
 //#UC END# *479731C50290_531F2B0B0102_var*
 begin
@@ -154,7 +138,8 @@ begin
 end;//Tk2IUnknownTag.InitFields
 
 function Tk2IUnknownTag.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_531F2B0B0102_var*
 //#UC END# *4A60B23E00C3_531F2B0B0102_var*
 begin

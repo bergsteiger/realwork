@@ -1,58 +1,45 @@
 unit k2SortTagsList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/K2/k2SortTagsList.pas"
-// Начат: 23.05.2011 18:59
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::K2::k2PrimObjects::Tk2SortTagsList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2SortTagsList.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  k2SortTagsListPrim
-  ;
+ l3IntfUses
+ , k2SortTagsListPrim
+;
 
 type
  Tk2SortTagsList = class(Tk2SortTagsListPrim)
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+  public
    class function Instance: Tk2SortTagsList;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tk2SortTagsList }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tk2SortTagsList
 
 implementation
 
 uses
-  l3Base {a}
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-
-// start class Tk2SortTagsList
-
-var g_Tk2SortTagsList : Tk2SortTagsList = nil;
+var g_Tk2SortTagsList: Tk2SortTagsList = nil;
+ {* Экземпляр синглетона Tk2SortTagsList }
 
 procedure Tk2SortTagsListFree;
+ {* Метод освобождения экземпляра синглетона Tk2SortTagsList }
 begin
  l3Free(g_Tk2SortTagsList);
-end;
+end;//Tk2SortTagsListFree
 
 class function Tk2SortTagsList.Instance: Tk2SortTagsList;
+ {* Метод получения экземпляра синглетона Tk2SortTagsList }
 begin
  if (g_Tk2SortTagsList = nil) then
  begin
@@ -60,11 +47,10 @@ begin
   g_Tk2SortTagsList := Create;
  end;
  Result := g_Tk2SortTagsList;
-end;
-
+end;//Tk2SortTagsList.Instance
 
 class function Tk2SortTagsList.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tk2SortTagsList <> nil;
 end;//Tk2SortTagsList.Exists

@@ -1,65 +1,51 @@
 unit k2TypeModelPart;
+ {* Часть Tk2Type, перенесённая на модель }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/K2/k2TypeModelPart.pas"
-// Начат: 13.04.2010 16:59
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::K2::k2PrimObjects::Tk2TypeModelPart
-//
-// Часть Tk2Type, перенесённая на модель
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2TypeModelPart.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  l3Types,
-  k2Prim,
-  l3Variant
-  ;
+ l3IntfUses
+ , k2Prim
+ , l3Variant
+ , l3Types
+;
 
 type
  Tk2TypeModelPart = class(Tk2TypePrim)
   {* Часть Tk2Type, перенесённая на модель }
- public
- // public methods
+  public
    function CompareTags(A: Tl3Variant;
-     B: Tl3Variant;
-     aSortIndex: Tl3SortIndex): Integer; virtual;
-     {* Сравнивает теги }
+    B: Tl3Variant;
+    aSortIndex: Tl3SortIndex): Integer; virtual;
+    {* Сравнивает теги }
    function CompareTagWithInt(aTag: Tl3Variant;
-     aValue: Integer;
-     anIndex: Integer): Integer; virtual;
-     {* Сравнивает тег с целым }
+    aValue: Integer;
+    anIndex: Integer): Integer; virtual;
+    {* Сравнивает тег с целым }
  end;//Tk2TypeModelPart
 
 implementation
 
 uses
-  k2Tags,
-  l3String,
-  k2SortTagsList,
-  k2String_Const,
-  k2Base,
-  l3IID,
-  l3InterfacesMisc
-  ;
-
-// start class Tk2TypeModelPart
+ l3ImplUses
+ , k2SortTagsList
+ , k2String_Const
+ , k2Base
+ , k2Tags
+ , l3String
+ , l3IID
+ , l3InterfacesMisc
+;
 
 function Tk2TypeModelPart.CompareTags(A: Tl3Variant;
-  B: Tl3Variant;
-  aSortIndex: Tl3SortIndex): Integer;
+ B: Tl3Variant;
+ aSortIndex: Tl3SortIndex): Integer;
+ {* Сравнивает теги }
 //#UC START# *4BC477E60259_4BC46A770394_var*
 
  function ComplexCompare(anIndex : Integer): Integer;
@@ -114,8 +100,9 @@ begin
 end;//Tk2TypeModelPart.CompareTags
 
 function Tk2TypeModelPart.CompareTagWithInt(aTag: Tl3Variant;
-  aValue: Integer;
-  anIndex: Integer): Integer;
+ aValue: Integer;
+ anIndex: Integer): Integer;
+ {* Сравнивает тег с целым }
 //#UC START# *4BC47828023F_4BC46A770394_var*
 //#UC END# *4BC47828023F_4BC46A770394_var*
 begin

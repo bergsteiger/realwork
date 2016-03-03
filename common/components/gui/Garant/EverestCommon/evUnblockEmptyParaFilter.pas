@@ -1,57 +1,42 @@
 unit evUnblockEmptyParaFilter;
+ {* Фильтр ищет блоки с пустыми параграфами в самом начале и "вытаскивает" эти пустые параграфы наверх. См. [$228692043] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EverestCommon"
-// Модуль: "w:/common/components/gui/Garant/EverestCommon/evUnblockEmptyParaFilter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::EverestCommon::Generators::TevUnblockEmptyParaFilter
-//
-// Фильтр ищет блоки с пустыми параграфами в самом начале и "вытаскивает" эти пустые параграфы
-// наверх. См. [$228692043]
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\EverestCommon\evUnblockEmptyParaFilter.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\EverestCommon\evDefine.inc}
+{$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 
 interface
 
 uses
-  evdBufferedFilter,
-  l3Variant
-  ;
+ l3IntfUses
+ , evdBufferedFilter
+ , l3Variant
+;
 
 type
  TevUnblockEmptyParaFilter = class(TevdBufferedFilter)
   {* Фильтр ищет блоки с пустыми параграфами в самом начале и "вытаскивает" эти пустые параграфы наверх. См. [$228692043] }
- private
- // private fields
-   f_NeedToReport : Boolean;
- protected
- // overridden protected methods
+  private
+   f_NeedToReport: Boolean;
+  protected
    procedure StartChild(TypeID: Tl3Type); override;
    procedure CloseStructure(NeedUndo: Boolean); override;
-     {* вызывается на закрывающуюся "скобку". Для перекрытия в потомках. }
+    {* вызывается на закрывающуюся "скобку". Для перекрытия в потомках. }
    function NeedStartBuffering(aID: Integer): Boolean; override;
  end;//TevUnblockEmptyParaFilter
 
 implementation
 
 uses
-  l3String,
-  k2Interfaces,
-  k2Tags,
-  Block_Const,
-  LeafPara_Const,
-  l3Base
-  ;
-
-// start class TevUnblockEmptyParaFilter
+ l3ImplUses
+ , l3String
+ , k2Interfaces
+ , k2Tags
+ , Block_Const
+ , LeafPara_Const
+ , l3Base
+;
 
 procedure TevUnblockEmptyParaFilter.StartChild(TypeID: Tl3Type);
 //#UC START# *4836D4650177_4C56D4E002D2_var*
@@ -68,6 +53,7 @@ begin
 end;//TevUnblockEmptyParaFilter.StartChild
 
 procedure TevUnblockEmptyParaFilter.CloseStructure(NeedUndo: Boolean);
+ {* вызывается на закрывающуюся "скобку". Для перекрытия в потомках. }
 //#UC START# *4836D4C20059_4C56D4E002D2_var*
 var
  l_Para: Tl3Variant;

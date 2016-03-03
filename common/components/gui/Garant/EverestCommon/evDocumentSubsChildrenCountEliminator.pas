@@ -1,34 +1,21 @@
 unit evDocumentSubsChildrenCountEliminator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EverestCommon"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/EverestCommon/evDocumentSubsChildrenCountEliminator.pas"
-// Начат: 19.09.2011 18:42
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::EverestCommon::Generators::TevDocumentSubsChildrenCountEliminator
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\EverestCommon\evDocumentSubsChildrenCountEliminator.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\EverestCommon\evDefine.inc}
+{$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 
 interface
 
 uses
-  k2TagFilter,
-  l3Variant
-  ;
+ l3IntfUses
+ , k2TagFilter
+ , l3Variant
+;
 
 type
  TevDocumentSubsChildrenCountEliminator = class(Tk2TagFilter)
- protected
- // overridden protected methods
+  protected
    procedure DoAddAtomEx(AtomIndex: Integer;
     const Value: Ik2Variant); override;
  end;//TevDocumentSubsChildrenCountEliminator
@@ -36,14 +23,13 @@ type
 implementation
 
 uses
-  Document_Const,
-  k2Tags
-  ;
-
-// start class TevDocumentSubsChildrenCountEliminator
+ l3ImplUses
+ , Document_Const
+ , k2Tags
+;
 
 procedure TevDocumentSubsChildrenCountEliminator.DoAddAtomEx(AtomIndex: Integer;
-  const Value: Ik2Variant);
+ const Value: Ik2Variant);
 //#UC START# *4A2D1634025B_4E7754BD01BA_var*
 //#UC END# *4A2D1634025B_4E7754BD01BA_var*
 begin
