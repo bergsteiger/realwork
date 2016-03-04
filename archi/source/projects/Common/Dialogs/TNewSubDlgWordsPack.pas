@@ -1,69 +1,55 @@
 unit TNewSubDlgWordsPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Dialogs"
-// Модуль: "w:/archi/source/projects/Common/Dialogs/TNewSubDlgWordsPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeywordsPack::Class>> archi$common::Dialogs::Dialogs::TNewSubDlgWordsPack
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Common\Dialogs\TNewSubDlgWordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
 {$Include w:\archi\source\projects\Common\arCommon.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  d_edMSub,
-  tfwRegisterableWord
-  ;
-
-{$IfEnd} //not NoScripts
+ l3IntfUses
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , d_edMSub
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
- TkwPopNewSubDlgFake = {final scriptword} class(TtfwRegisterableWord)
+ TkwPopNewSubDlgFake = {final} class(TtfwClassLike)
   {* Слово скрипта pop:NewSubDlg:Fake
 *Пример:*
 [code]
  aNewSubDlg pop:NewSubDlg:Fake
 [code]  }
- private
- // private methods
+  private
    procedure Fake(const aCtx: TtfwContext;
     aNewSubDlg: TNewSubDlg);
-     {* Реализация слова скрипта pop:NewSubDlg:Fake }
- protected
- // realized methods
+    {* Реализация слова скрипта pop:NewSubDlg:Fake }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopNewSubDlgFake
 
-// start class TkwPopNewSubDlgFake
-
 procedure TkwPopNewSubDlgFake.Fake(const aCtx: TtfwContext;
-  aNewSubDlg: TNewSubDlg);
+ aNewSubDlg: TNewSubDlg);
+ {* Реализация слова скрипта pop:NewSubDlg:Fake }
 //#UC START# *BEDAA2A137B4_744BF601F735_var*
 //#UC END# *BEDAA2A137B4_744BF601F735_var*
 begin
@@ -73,9 +59,7 @@ begin
 end;//TkwPopNewSubDlgFake.Fake
 
 procedure TkwPopNewSubDlgFake.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aNewSubDlg : TNewSubDlg;
+var l_aNewSubDlg: TNewSubDlg;
 begin
  try
   l_aNewSubDlg := TNewSubDlg(aCtx.rEngine.PopObjAs(TNewSubDlg));
@@ -90,30 +74,32 @@ begin
 end;//TkwPopNewSubDlgFake.DoDoIt
 
 class function TkwPopNewSubDlgFake.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:NewSubDlg:Fake';
 end;//TkwPopNewSubDlgFake.GetWordNameForRegister
 
 function TkwPopNewSubDlgFake.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwPopNewSubDlgFake.GetResultTypeInfo
-{$IfEnd} //not NoScripts
+
+function TkwPopNewSubDlgFake.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwPopNewSubDlgFake.GetAllParamsCount
+
+function TkwPopNewSubDlgFake.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TNewSubDlg)]);
+end;//TkwPopNewSubDlgFake.ParamsTypes
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_NewSubDlg_Fake
  TkwPopNewSubDlgFake.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TtfwContext
+ {* Регистрация pop_NewSubDlg_Fake }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TNewSubDlg
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TNewSubDlg));
-{$IfEnd} //not NoScripts
+ {* Регистрация типа TNewSubDlg }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

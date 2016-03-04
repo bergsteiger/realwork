@@ -1,69 +1,55 @@
 unit TSpellCheckDlgWordsPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Dialogs"
-// Модуль: "w:/archi/source/projects/Common/Dialogs/TSpellCheckDlgWordsPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeywordsPack::Class>> archi$common::Dialogs::Dialogs::TSpellCheckDlgWordsPack
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Common\Dialogs\TSpellCheckDlgWordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
 {$Include w:\archi\source\projects\Common\arCommon.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  tfwRegisterableWord,
-  D_spell
-  ;
-
-{$IfEnd} //not NoScripts
+ l3IntfUses
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , D_spell
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
- TkwPopSpellCheckDlgFake = {final scriptword} class(TtfwRegisterableWord)
+ TkwPopSpellCheckDlgFake = {final} class(TtfwClassLike)
   {* Слово скрипта pop:SpellCheckDlg:Fake
 *Пример:*
 [code]
  aSpellCheckDlg pop:SpellCheckDlg:Fake
 [code]  }
- private
- // private methods
+  private
    procedure Fake(const aCtx: TtfwContext;
     aSpellCheckDlg: TSpellCheckDlg);
-     {* Реализация слова скрипта pop:SpellCheckDlg:Fake }
- protected
- // realized methods
+    {* Реализация слова скрипта pop:SpellCheckDlg:Fake }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopSpellCheckDlgFake
 
-// start class TkwPopSpellCheckDlgFake
-
 procedure TkwPopSpellCheckDlgFake.Fake(const aCtx: TtfwContext;
-  aSpellCheckDlg: TSpellCheckDlg);
+ aSpellCheckDlg: TSpellCheckDlg);
+ {* Реализация слова скрипта pop:SpellCheckDlg:Fake }
 //#UC START# *66B7B716E7E4_B3D7A1E7CA69_var*
 //#UC END# *66B7B716E7E4_B3D7A1E7CA69_var*
 begin
@@ -73,9 +59,7 @@ begin
 end;//TkwPopSpellCheckDlgFake.Fake
 
 procedure TkwPopSpellCheckDlgFake.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aSpellCheckDlg : TSpellCheckDlg;
+var l_aSpellCheckDlg: TSpellCheckDlg;
 begin
  try
   l_aSpellCheckDlg := TSpellCheckDlg(aCtx.rEngine.PopObjAs(TSpellCheckDlg));
@@ -90,30 +74,32 @@ begin
 end;//TkwPopSpellCheckDlgFake.DoDoIt
 
 class function TkwPopSpellCheckDlgFake.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:SpellCheckDlg:Fake';
 end;//TkwPopSpellCheckDlgFake.GetWordNameForRegister
 
 function TkwPopSpellCheckDlgFake.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwPopSpellCheckDlgFake.GetResultTypeInfo
-{$IfEnd} //not NoScripts
+
+function TkwPopSpellCheckDlgFake.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwPopSpellCheckDlgFake.GetAllParamsCount
+
+function TkwPopSpellCheckDlgFake.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TSpellCheckDlg)]);
+end;//TkwPopSpellCheckDlgFake.ParamsTypes
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_SpellCheckDlg_Fake
  TkwPopSpellCheckDlgFake.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TtfwContext
+ {* Регистрация pop_SpellCheckDlg_Fake }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TSpellCheckDlg
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TSpellCheckDlg));
-{$IfEnd} //not NoScripts
+ {* Регистрация типа TSpellCheckDlg }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

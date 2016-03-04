@@ -11,15 +11,6 @@ interface
 {$If Defined(NewGen) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
-;
-{$IfEnd} // Defined(NewGen) AND NOT Defined(NoScripts)
-
-implementation
-
-{$If Defined(NewGen) AND NOT Defined(NoScripts)}
-uses
- l3ImplUses
- , Main_Form
  {$If Defined(Nemesis)}
  , nscStatusBar
  {$IfEnd} // Defined(Nemesis)
@@ -29,6 +20,15 @@ uses
  {$If Defined(Nemesis)}
  , nscNavigator
  {$IfEnd} // Defined(Nemesis)
+;
+{$IfEnd} // Defined(NewGen) AND NOT Defined(NoScripts)
+
+implementation
+
+{$If Defined(NewGen) AND NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+ , Main_Form
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

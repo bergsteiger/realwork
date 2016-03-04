@@ -1,69 +1,55 @@
 unit TTableConvParamDialogWordsPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Dialogs"
-// Модуль: "w:/archi/source/projects/Common/Dialogs/TTableConvParamDialogWordsPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeywordsPack::Class>> archi$common::Dialogs::Dialogs::TTableConvParamDialogWordsPack
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Common\Dialogs\TTableConvParamDialogWordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
 {$Include w:\archi\source\projects\Common\arCommon.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  ddTableConvParamDlg,
-  tfwRegisterableWord
-  ;
-
-{$IfEnd} //not NoScripts
+ l3IntfUses
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , ddTableConvParamDlg
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
- TkwPopTableConvParamDialogFake = {final scriptword} class(TtfwRegisterableWord)
+ TkwPopTableConvParamDialogFake = {final} class(TtfwClassLike)
   {* Слово скрипта pop:TableConvParamDialog:Fake
 *Пример:*
 [code]
  aTableConvParamDialog pop:TableConvParamDialog:Fake
 [code]  }
- private
- // private methods
+  private
    procedure Fake(const aCtx: TtfwContext;
     aTableConvParamDialog: TTableConvParamDialog);
-     {* Реализация слова скрипта pop:TableConvParamDialog:Fake }
- protected
- // realized methods
+    {* Реализация слова скрипта pop:TableConvParamDialog:Fake }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopTableConvParamDialogFake
 
-// start class TkwPopTableConvParamDialogFake
-
 procedure TkwPopTableConvParamDialogFake.Fake(const aCtx: TtfwContext;
-  aTableConvParamDialog: TTableConvParamDialog);
+ aTableConvParamDialog: TTableConvParamDialog);
+ {* Реализация слова скрипта pop:TableConvParamDialog:Fake }
 //#UC START# *C4A5B2BD74DF_0BE0E0D34519_var*
 //#UC END# *C4A5B2BD74DF_0BE0E0D34519_var*
 begin
@@ -73,9 +59,7 @@ begin
 end;//TkwPopTableConvParamDialogFake.Fake
 
 procedure TkwPopTableConvParamDialogFake.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aTableConvParamDialog : TTableConvParamDialog;
+var l_aTableConvParamDialog: TTableConvParamDialog;
 begin
  try
   l_aTableConvParamDialog := TTableConvParamDialog(aCtx.rEngine.PopObjAs(TTableConvParamDialog));
@@ -90,30 +74,32 @@ begin
 end;//TkwPopTableConvParamDialogFake.DoDoIt
 
 class function TkwPopTableConvParamDialogFake.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:TableConvParamDialog:Fake';
 end;//TkwPopTableConvParamDialogFake.GetWordNameForRegister
 
 function TkwPopTableConvParamDialogFake.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwPopTableConvParamDialogFake.GetResultTypeInfo
-{$IfEnd} //not NoScripts
+
+function TkwPopTableConvParamDialogFake.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwPopTableConvParamDialogFake.GetAllParamsCount
+
+function TkwPopTableConvParamDialogFake.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TTableConvParamDialog)]);
+end;//TkwPopTableConvParamDialogFake.ParamsTypes
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_TableConvParamDialog_Fake
  TkwPopTableConvParamDialogFake.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TtfwContext
+ {* Регистрация pop_TableConvParamDialog_Fake }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TTableConvParamDialog
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TTableConvParamDialog));
-{$IfEnd} //not NoScripts
+ {* Регистрация типа TTableConvParamDialog }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

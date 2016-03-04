@@ -1,59 +1,45 @@
 unit archiEditorWindowWordsPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EverestTestSupport"
-// Модуль: "w:/archi/source/projects/Everest/Lite/7.0/Express/EverestTestSupport/archiEditorWindowWordsPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeywordsPack::Class>> archi$EverestLite$TestSupport::EverestTestSupport::EverestLiteKeyWords::archiEditorWindowWordsPack
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Everest\Lite\7.0\Express\EverestTestSupport\archiEditorWindowWordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
 interface
 
-{$If defined(InsiderTest) AND defined(nsTest)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingInterfaces
-  {$IfEnd} //not NoScripts
-  ,
-  EdWin
-  {$If not defined(NoScripts)}
-  ,
-  tfwRegisterableWord
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-{$IfEnd} //InsiderTest AND nsTest
+ l3IntfUses
+;
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(InsiderTest) AND defined(nsTest)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingTypes
-  {$IfEnd} //not NoScripts
-  ,
-  TypInfo
-  {$If not defined(NoScripts)}
-  ,
-  tfwTypeRegistrator
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3ImplUses
+ , EdWin
+ , tfwAxiomaticsResNameGetter
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
- TkwIsNeedSaveDocument = {final scriptword} class(TtfwRegisterableWord)
+ //#UC START# *39046F3AEE5Aci*
+ //#UC END# *39046F3AEE5Aci*
+ //#UC START# *39046F3AEE5Acit*
+ //#UC END# *39046F3AEE5Acit*
+ TarchiEditorWindowWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ //#UC START# *39046F3AEE5Apubl*
+ //#UC END# *39046F3AEE5Apubl*
+ end;//TarchiEditorWindowWordsPackResNameGetter
+
+ TkwIsNeedSaveDocument = {final} class(TtfwClassLike)
   {* Слово скрипта IsNeedSaveDocument
 *Тип результата:* Boolean
 *Пример:*
@@ -61,32 +47,29 @@ type
 BOOLEAN VAR l_Boolean
  aEditor IsNeedSaveDocument >>> l_Boolean
 [code]  }
- private
- // private methods
+  private
    function IsNeedSaveDocument(const aCtx: TtfwContext;
     aEditor: TEditorWindow): Boolean;
-     {* Реализация слова скрипта IsNeedSaveDocument }
- protected
- // realized methods
-    {$If not defined(NoScripts)}
+    {* Реализация слова скрипта IsNeedSaveDocument }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
-    {$IfEnd} //not NoScripts
- protected
- // overridden protected methods
-   {$If not defined(NoScripts)}
    class function GetWordNameForRegister: AnsiString; override;
-   {$IfEnd} //not NoScripts
- public
- // overridden public methods
-    {$If not defined(NoScripts)}
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-    {$IfEnd} //not NoScripts
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwIsNeedSaveDocument
 
-// start class TkwIsNeedSaveDocument
+class function TarchiEditorWindowWordsPackResNameGetter.ResName: AnsiString;
+begin
+  Result := 'archiEditorWindowWordsPack';
+end;//TarchiEditorWindowWordsPackResNameGetter.ResName
+
+ {$R archiEditorWindowWordsPack.res}
 
 function TkwIsNeedSaveDocument.IsNeedSaveDocument(const aCtx: TtfwContext;
-  aEditor: TEditorWindow): Boolean;
+ aEditor: TEditorWindow): Boolean;
+ {* Реализация слова скрипта IsNeedSaveDocument }
 //#UC START# *5BBB7C35D3A8_BB6D8477DC61_var*
 //#UC END# *5BBB7C35D3A8_BB6D8477DC61_var*
 begin
@@ -95,11 +78,8 @@ begin
 //#UC END# *5BBB7C35D3A8_BB6D8477DC61_impl*
 end;//TkwIsNeedSaveDocument.IsNeedSaveDocument
 
-{$If not defined(NoScripts)}
 procedure TkwIsNeedSaveDocument.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aEditor : TEditorWindow;
+var l_aEditor: TEditorWindow;
 begin
  try
   l_aEditor := TEditorWindow(aCtx.rEngine.PopObjAs(TEditorWindow));
@@ -110,43 +90,40 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool((IsNeedSaveDocument(aCtx, l_aEditor)));
+ aCtx.rEngine.PushBool(IsNeedSaveDocument(aCtx, l_aEditor));
 end;//TkwIsNeedSaveDocument.DoDoIt
-{$IfEnd} //not NoScripts
 
-{$If not defined(NoScripts)}
 class function TkwIsNeedSaveDocument.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'IsNeedSaveDocument';
 end;//TkwIsNeedSaveDocument.GetWordNameForRegister
-{$IfEnd} //not NoScripts
 
-{$If not defined(NoScripts)}
 function TkwIsNeedSaveDocument.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwIsNeedSaveDocument.GetResultTypeInfo
-{$IfEnd} //not NoScripts
-{$IfEnd} //InsiderTest AND nsTest
+
+function TkwIsNeedSaveDocument.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwIsNeedSaveDocument.GetAllParamsCount
+
+function TkwIsNeedSaveDocument.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TEditorWindow)]);
+end;//TkwIsNeedSaveDocument.ParamsTypes
 
 initialization
-{$If defined(InsiderTest) AND defined(nsTest)}
-// Регистрация IsNeedSaveDocument
+ TarchiEditorWindowWordsPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TkwIsNeedSaveDocument.RegisterInEngine;
-{$IfEnd} //InsiderTest AND nsTest
-{$If defined(InsiderTest) AND defined(nsTest)}
-// Регистрация типа TtfwContext
+ {* Регистрация IsNeedSaveDocument }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //InsiderTest AND nsTest
-{$If defined(InsiderTest) AND defined(nsTest)}
-// Регистрация типа TEditorWindow
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TEditorWindow));
-{$IfEnd} //InsiderTest AND nsTest
-{$If defined(InsiderTest) AND defined(nsTest)}
-// Регистрация типа Boolean
+ {* Регистрация типа TEditorWindow }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
-{$IfEnd} //InsiderTest AND nsTest
+ {* Регистрация типа Boolean }
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 end.

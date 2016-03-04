@@ -1,69 +1,55 @@
 unit TExprEditorWordsPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Dialogs"
-// Модуль: "w:/archi/source/projects/Common/Dialogs/TExprEditorWordsPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeywordsPack::Class>> archi$common::Dialogs::Dialogs::TExprEditorWordsPack
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Common\Dialogs\TExprEditorWordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
 {$Include w:\archi\source\projects\Common\arCommon.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  ExprEditForm,
-  tfwRegisterableWord
-  ;
-
-{$IfEnd} //not NoScripts
+ l3IntfUses
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , ExprEditForm
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
- TkwPopExprEditorFake = {final scriptword} class(TtfwRegisterableWord)
+ TkwPopExprEditorFake = {final} class(TtfwClassLike)
   {* Слово скрипта pop:ExprEditor:Fake
 *Пример:*
 [code]
  aExprEditor pop:ExprEditor:Fake
 [code]  }
- private
- // private methods
+  private
    procedure Fake(const aCtx: TtfwContext;
     aExprEditor: TExprEditor);
-     {* Реализация слова скрипта pop:ExprEditor:Fake }
- protected
- // realized methods
+    {* Реализация слова скрипта pop:ExprEditor:Fake }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopExprEditorFake
 
-// start class TkwPopExprEditorFake
-
 procedure TkwPopExprEditorFake.Fake(const aCtx: TtfwContext;
-  aExprEditor: TExprEditor);
+ aExprEditor: TExprEditor);
+ {* Реализация слова скрипта pop:ExprEditor:Fake }
 //#UC START# *F9F482E814E0_1C9135EF778B_var*
 //#UC END# *F9F482E814E0_1C9135EF778B_var*
 begin
@@ -73,9 +59,7 @@ begin
 end;//TkwPopExprEditorFake.Fake
 
 procedure TkwPopExprEditorFake.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aExprEditor : TExprEditor;
+var l_aExprEditor: TExprEditor;
 begin
  try
   l_aExprEditor := TExprEditor(aCtx.rEngine.PopObjAs(TExprEditor));
@@ -90,30 +74,32 @@ begin
 end;//TkwPopExprEditorFake.DoDoIt
 
 class function TkwPopExprEditorFake.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:ExprEditor:Fake';
 end;//TkwPopExprEditorFake.GetWordNameForRegister
 
 function TkwPopExprEditorFake.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwPopExprEditorFake.GetResultTypeInfo
-{$IfEnd} //not NoScripts
+
+function TkwPopExprEditorFake.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwPopExprEditorFake.GetAllParamsCount
+
+function TkwPopExprEditorFake.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TExprEditor)]);
+end;//TkwPopExprEditorFake.ParamsTypes
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_ExprEditor_Fake
  TkwPopExprEditorFake.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TtfwContext
+ {* Регистрация pop_ExprEditor_Fake }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TExprEditor
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TExprEditor));
-{$IfEnd} //not NoScripts
+ {* Регистрация типа TExprEditor }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

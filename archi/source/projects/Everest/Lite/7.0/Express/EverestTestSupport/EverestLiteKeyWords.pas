@@ -1,41 +1,30 @@
 unit EverestLiteKeyWords;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EverestTestSupport"
-// Модуль: "w:/archi/source/projects/Everest/Lite/7.0/Express/EverestTestSupport/EverestLiteKeyWords.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeywordsPack::Class>> archi$EverestLite$TestSupport::EverestTestSupport::EverestLiteKeyWords::EverestLiteKeyWords
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Everest\Lite\7.0\Express\EverestTestSupport\EverestLiteKeyWords.pas"
+// Стереотип: "ScriptKeywordsPack"
 
 interface
 
-{$If defined(InsiderTest) AND defined(nsTest)}
-{$IfEnd} //InsiderTest AND nsTest
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
+uses
+ l3IntfUses
+;
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(InsiderTest) AND defined(nsTest)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  kwCreate,
-  kwOpen,
-  kwCloseActiveWindow,
-  kwSaveWithOtherExtention,
-  kwOpenWith,
-  kwIsPreviewInProgress,
-  archiEditorWindowWordsPack
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingTypes
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3ImplUses
+ , kwCreate
+ , kwOpen
+ , kwCloseActiveWindow
+ , kwSaveWithOtherExtention
+ , kwOpenWith
+ , kwIsPreviewInProgress
+ , archiEditorWindowWordsPack
+ , tfwScriptingTypes
+;
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
-{$IfEnd} //InsiderTest AND nsTest
 end.

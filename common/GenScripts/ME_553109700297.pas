@@ -19,10 +19,10 @@ implementation
 uses
  l3ImplUses
  , F_AttrExplorer
- , dt_AttrSchema
  , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , tfwScriptingInterfaces
+ , dt_AttrSchema
  , TypInfo
  , tfwScriptingTypes
  , tfwTypeRegistrator

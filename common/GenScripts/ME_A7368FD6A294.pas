@@ -11,6 +11,7 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
+ , vtPanel
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -20,7 +21,6 @@ implementation
 uses
  l3ImplUses
  , Parent_Form
- , vtPanel
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

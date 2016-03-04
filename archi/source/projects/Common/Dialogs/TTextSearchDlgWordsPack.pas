@@ -1,70 +1,56 @@
 unit TTextSearchDlgWordsPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Dialogs"
-// Модуль: "w:/archi/source/projects/Common/Dialogs/TTextSearchDlgWordsPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeywordsPack::Class>> archi$common::Dialogs::Dialogs::TTextSearchDlgWordsPack
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Common\Dialogs\TTextSearchDlgWordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
 {$Include w:\archi\source\projects\Common\arCommon.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  D_TxSrch,
-  tfwRegisterableWord
-  ;
-
-{$IfEnd} //not NoScripts
+ l3IntfUses
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , D_TxSrch
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
- TkwPopTextSearchDlgFake = {final scriptword} class(TtfwRegisterableWord)
+ TkwPopTextSearchDlgFake = {final} class(TtfwClassLike)
   {* Слово скрипта pop:TextSearchDlg:Fake
 [panel]Этот метод нужен лишь для того, чтобы зарегистировать диалог в скриптовой машине.[panel]
 *Пример:*
 [code]
  aTextSearchDlg pop:TextSearchDlg:Fake
 [code]  }
- private
- // private methods
+  private
    procedure Fake(const aCtx: TtfwContext;
     aTextSearchDlg: TTextSearchDlg);
-     {* Реализация слова скрипта pop:TextSearchDlg:Fake }
- protected
- // realized methods
+    {* Реализация слова скрипта pop:TextSearchDlg:Fake }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopTextSearchDlgFake
 
-// start class TkwPopTextSearchDlgFake
-
 procedure TkwPopTextSearchDlgFake.Fake(const aCtx: TtfwContext;
-  aTextSearchDlg: TTextSearchDlg);
+ aTextSearchDlg: TTextSearchDlg);
+ {* Реализация слова скрипта pop:TextSearchDlg:Fake }
 //#UC START# *29B068DE5F56_2975C5F7A803_var*
 //#UC END# *29B068DE5F56_2975C5F7A803_var*
 begin
@@ -74,9 +60,7 @@ begin
 end;//TkwPopTextSearchDlgFake.Fake
 
 procedure TkwPopTextSearchDlgFake.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aTextSearchDlg : TTextSearchDlg;
+var l_aTextSearchDlg: TTextSearchDlg;
 begin
  try
   l_aTextSearchDlg := TTextSearchDlg(aCtx.rEngine.PopObjAs(TTextSearchDlg));
@@ -91,30 +75,32 @@ begin
 end;//TkwPopTextSearchDlgFake.DoDoIt
 
 class function TkwPopTextSearchDlgFake.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:TextSearchDlg:Fake';
 end;//TkwPopTextSearchDlgFake.GetWordNameForRegister
 
 function TkwPopTextSearchDlgFake.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwPopTextSearchDlgFake.GetResultTypeInfo
-{$IfEnd} //not NoScripts
+
+function TkwPopTextSearchDlgFake.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwPopTextSearchDlgFake.GetAllParamsCount
+
+function TkwPopTextSearchDlgFake.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TTextSearchDlg)]);
+end;//TkwPopTextSearchDlgFake.ParamsTypes
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_TextSearchDlg_Fake
  TkwPopTextSearchDlgFake.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TtfwContext
+ {* Регистрация pop_TextSearchDlg_Fake }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TTextSearchDlg
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TTextSearchDlg));
-{$IfEnd} //not NoScripts
+ {* Регистрация типа TTextSearchDlg }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

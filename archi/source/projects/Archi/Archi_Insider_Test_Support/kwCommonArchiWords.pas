@@ -1,44 +1,38 @@
 unit kwCommonArchiWords;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Archi Insider Test Support"
-// Модуль: "w:/archi/source/projects/Archi/Archi_Insider_Test_Support/kwCommonArchiWords.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeywordsPack::Class>> archi$TestSupport::Archi Insider Test Support::CommonArchiWords::kwCommonArchiWords
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwCommonArchiWords.pas"
+// Стереотип: "ScriptKeywordsPack"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
+{$If Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)}
+uses
+ l3IntfUses
+;
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)}
 uses
-  kwMainFormFindDocuments,
-  kwBaseExport,
-  kwBaseRelCorrecter,
-  kwPreview,
-  kwSearchWinSaveDocumentList,
-  kwMainFormClearHistory,
-  kwEditorTextSaveAs,
-  kwClearTemplateStorage,
-  kwMainFormFormClose,
-  kwDialogsLockDocumentGetSkipMode,
-  kwDialogsLockDocumentSetSkipMode,
-  AttributeExplorerWordsPack,
-  tfwScriptingTypes
-  ;
+ l3ImplUses
+ , kwMainFormFindDocuments
+ , kwBaseExport
+ , kwBaseRelCorrecter
+ , kwPreview
+ , kwSearchWinSaveDocumentList
+ , kwMainFormClearHistory
+ , kwEditorTextSaveAs
+ , kwClearTemplateStorage
+ , kwMainFormFormClose
+ , kwDialogsLockDocumentGetSkipMode
+ , kwDialogsLockDocumentSetSkipMode
+ , AttributeExplorerWordsPack
+ , kwClearConfig
+ , tfwScriptingTypes
+;
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)
 
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
 end.

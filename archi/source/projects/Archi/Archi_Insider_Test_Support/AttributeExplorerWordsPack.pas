@@ -1,45 +1,48 @@
 unit AttributeExplorerWordsPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Archi Insider Test Support"
-// Модуль: "w:/archi/source/projects/Archi/Archi_Insider_Test_Support/AttributeExplorerWordsPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeywordsPack::Class>> archi$TestSupport::Archi Insider Test Support::CommonArchiWords::AttributeExplorerWordsPack
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\AttributeExplorerWordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)}
 uses
-  dt_AttrSchema,
-  tfwScriptingInterfaces,
-  F_AttrExplorer,
-  tfwRegisterableWord
-  ;
-
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
+ l3IntfUses
+;
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)}
 uses
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , F_AttrExplorer
+ , tfwAxiomaticsResNameGetter
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , dt_AttrSchema
+ , TypInfo
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
- TkwAttrExplorerGotoOnAttrNode = {final scriptword} class(TtfwRegisterableWord)
+ //#UC START# *83014FAE4406ci*
+ //#UC END# *83014FAE4406ci*
+ //#UC START# *83014FAE4406cit*
+ //#UC END# *83014FAE4406cit*
+ TAttributeExplorerWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ //#UC START# *83014FAE4406publ*
+ //#UC END# *83014FAE4406publ*
+ end;//TAttributeExplorerWordsPackResNameGetter
+
+ TkwAttrExplorerGotoOnAttrNode = {final} class(TtfwClassLike)
   {* Слово скрипта AttrExplorer:GotoOnAttrNode
 [panel]Формат: aNumberAttribute aControl AttributeExplorer:GotoOnAttrNode
 где aNumberAttribute - номер атрибута, а aControl - форма TAttrExplorer.
@@ -51,28 +54,31 @@ TdtAttribute::atKeyWords "Контрол по имени [('otlAttributes')]- в стек" pop:Comp
 [code]
  anAttrID aAttrExplorer AttrExplorer:GotoOnAttrNode
 [code]  }
- private
- // private methods
+  private
    procedure GotoOnAttrNode(const aCtx: TtfwContext;
     aAttrExplorer: TAttrExplorer;
     anAttrID: TdtAttribute);
-     {* Реализация слова скрипта AttrExplorer:GotoOnAttrNode }
- protected
- // realized methods
+    {* Реализация слова скрипта AttrExplorer:GotoOnAttrNode }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwAttrExplorerGotoOnAttrNode
 
-// start class TkwAttrExplorerGotoOnAttrNode
+class function TAttributeExplorerWordsPackResNameGetter.ResName: AnsiString;
+begin
+  Result := 'AttributeExplorerWordsPack';
+end;//TAttributeExplorerWordsPackResNameGetter.ResName
+
+ {$R AttributeExplorerWordsPack.res}
 
 procedure TkwAttrExplorerGotoOnAttrNode.GotoOnAttrNode(const aCtx: TtfwContext;
-  aAttrExplorer: TAttrExplorer;
-  anAttrID: TdtAttribute);
+ aAttrExplorer: TAttrExplorer;
+ anAttrID: TdtAttribute);
+ {* Реализация слова скрипта AttrExplorer:GotoOnAttrNode }
 //#UC START# *986AD64514D6_50112451BECA_var*
 //#UC END# *986AD64514D6_50112451BECA_var*
 begin
@@ -82,10 +88,8 @@ begin
 end;//TkwAttrExplorerGotoOnAttrNode.GotoOnAttrNode
 
 procedure TkwAttrExplorerGotoOnAttrNode.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aAttrExplorer : TAttrExplorer;
- l_anAttrID : TdtAttribute;
+var l_aAttrExplorer: TAttrExplorer;
+var l_anAttrID: TdtAttribute;
 begin
  try
   l_aAttrExplorer := TAttrExplorer(aCtx.rEngine.PopObjAs(TAttrExplorer));
@@ -109,34 +113,36 @@ begin
 end;//TkwAttrExplorerGotoOnAttrNode.DoDoIt
 
 class function TkwAttrExplorerGotoOnAttrNode.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'AttrExplorer:GotoOnAttrNode';
 end;//TkwAttrExplorerGotoOnAttrNode.GetWordNameForRegister
 
 function TkwAttrExplorerGotoOnAttrNode.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwAttrExplorerGotoOnAttrNode.GetResultTypeInfo
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
+
+function TkwAttrExplorerGotoOnAttrNode.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwAttrExplorerGotoOnAttrNode.GetAllParamsCount
+
+function TkwAttrExplorerGotoOnAttrNode.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TAttrExplorer), TypeInfo(TdtAttribute)]);
+end;//TkwAttrExplorerGotoOnAttrNode.ParamsTypes
 
 initialization
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-// Регистрация AttrExplorer_GotoOnAttrNode
+ TAttributeExplorerWordsPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TkwAttrExplorerGotoOnAttrNode.RegisterInEngine;
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-// Регистрация типа TtfwContext
+ {* Регистрация AttrExplorer_GotoOnAttrNode }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-// Регистрация типа TAttrExplorer
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TAttrExplorer));
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-// Регистрация типа TdtAttribute
+ {* Регистрация типа TAttrExplorer }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TdtAttribute));
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
+ {* Регистрация типа TdtAttribute }
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)
 
 end.

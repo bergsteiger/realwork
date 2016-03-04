@@ -1,69 +1,55 @@
 unit TPicSizeEditDlgWordsPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Dialogs"
-// Модуль: "w:/archi/source/projects/Common/Dialogs/TPicSizeEditDlgWordsPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeywordsPack::Class>> archi$common::Dialogs::Dialogs::TPicSizeEditDlgWordsPack
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Common\Dialogs\TPicSizeEditDlgWordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
 {$Include w:\archi\source\projects\Common\arCommon.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  D_PicSizeEdit,
-  tfwRegisterableWord
-  ;
-
-{$IfEnd} //not NoScripts
+ l3IntfUses
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , D_PicSizeEdit
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
- TkwPopPicSizeEditDlgFake = {final scriptword} class(TtfwRegisterableWord)
+ TkwPopPicSizeEditDlgFake = {final} class(TtfwClassLike)
   {* Слово скрипта pop:PicSizeEditDlg:Fake
 *Пример:*
 [code]
  aPicSizeEditDlg pop:PicSizeEditDlg:Fake
 [code]  }
- private
- // private methods
+  private
    procedure Fake(const aCtx: TtfwContext;
     aPicSizeEditDlg: TPicSizeEditDlg);
-     {* Реализация слова скрипта pop:PicSizeEditDlg:Fake }
- protected
- // realized methods
+    {* Реализация слова скрипта pop:PicSizeEditDlg:Fake }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopPicSizeEditDlgFake
 
-// start class TkwPopPicSizeEditDlgFake
-
 procedure TkwPopPicSizeEditDlgFake.Fake(const aCtx: TtfwContext;
-  aPicSizeEditDlg: TPicSizeEditDlg);
+ aPicSizeEditDlg: TPicSizeEditDlg);
+ {* Реализация слова скрипта pop:PicSizeEditDlg:Fake }
 //#UC START# *CD007FA5CC23_DF6A0ECD8244_var*
 //#UC END# *CD007FA5CC23_DF6A0ECD8244_var*
 begin
@@ -73,9 +59,7 @@ begin
 end;//TkwPopPicSizeEditDlgFake.Fake
 
 procedure TkwPopPicSizeEditDlgFake.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aPicSizeEditDlg : TPicSizeEditDlg;
+var l_aPicSizeEditDlg: TPicSizeEditDlg;
 begin
  try
   l_aPicSizeEditDlg := TPicSizeEditDlg(aCtx.rEngine.PopObjAs(TPicSizeEditDlg));
@@ -90,30 +74,32 @@ begin
 end;//TkwPopPicSizeEditDlgFake.DoDoIt
 
 class function TkwPopPicSizeEditDlgFake.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:PicSizeEditDlg:Fake';
 end;//TkwPopPicSizeEditDlgFake.GetWordNameForRegister
 
 function TkwPopPicSizeEditDlgFake.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwPopPicSizeEditDlgFake.GetResultTypeInfo
-{$IfEnd} //not NoScripts
+
+function TkwPopPicSizeEditDlgFake.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwPopPicSizeEditDlgFake.GetAllParamsCount
+
+function TkwPopPicSizeEditDlgFake.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TPicSizeEditDlg)]);
+end;//TkwPopPicSizeEditDlgFake.ParamsTypes
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_PicSizeEditDlg_Fake
  TkwPopPicSizeEditDlgFake.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TtfwContext
+ {* Регистрация pop_PicSizeEditDlg_Fake }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TPicSizeEditDlg
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TPicSizeEditDlg));
-{$IfEnd} //not NoScripts
+ {* Регистрация типа TPicSizeEditDlg }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.
