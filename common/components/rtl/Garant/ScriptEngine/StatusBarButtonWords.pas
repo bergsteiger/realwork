@@ -1,39 +1,34 @@
 unit StatusBarButtonWords;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$F1"
-// Модуль: "StatusBarButtonWords.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi For F1::ScriptEngine$F1::StatusBarWords::StatusBarButtonWords
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\StatusBarButtonWords.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
-{$If defined(Nemesis) AND not defined(NoScripts)}
+{$If Defined(Nemesis) AND NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  nscStatusBarButton,
-  tfwClassLike
-  ;
-
-{$IfEnd} //Nemesis AND not NoScripts
+ l3IntfUses
+;
+{$IfEnd} // Defined(Nemesis) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(Nemesis) AND not defined(NoScripts)}
+{$If Defined(Nemesis) AND NOT Defined(NoScripts)}
 uses
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , nscStatusBarButton
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
- TkwPopStatusBarButtonIsDown = {final scriptword} class(TtfwClassLike)
+ TkwPopStatusBarButtonIsDown = {final} class(TtfwClassLike)
   {* Слово скрипта pop:StatusBarButton:IsDown
 *Тип результата:* Boolean
 *Пример:*
@@ -41,28 +36,22 @@ type
 BOOLEAN VAR l_Boolean
  aStatusBarButton pop:StatusBarButton:IsDown >>> l_Boolean
 [code]  }
- private
- // private methods
+  private
    function IsDown(const aCtx: TtfwContext;
     aStatusBarButton: TnscStatusBarButton): Boolean;
-     {* Реализация слова скрипта pop:StatusBarButton:IsDown }
- protected
- // realized methods
+    {* Реализация слова скрипта pop:StatusBarButton:IsDown }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopStatusBarButtonIsDown
 
-// start class TkwPopStatusBarButtonIsDown
-
 function TkwPopStatusBarButtonIsDown.IsDown(const aCtx: TtfwContext;
-  aStatusBarButton: TnscStatusBarButton): Boolean;
+ aStatusBarButton: TnscStatusBarButton): Boolean;
+ {* Реализация слова скрипта pop:StatusBarButton:IsDown }
 //#UC START# *8D82AE1A2B57_33C559B72437_var*
 //#UC END# *8D82AE1A2B57_33C559B72437_var*
 begin
@@ -72,9 +61,7 @@ begin
 end;//TkwPopStatusBarButtonIsDown.IsDown
 
 procedure TkwPopStatusBarButtonIsDown.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aStatusBarButton : TnscStatusBarButton;
+var l_aStatusBarButton: TnscStatusBarButton;
 begin
  try
   l_aStatusBarButton := TnscStatusBarButton(aCtx.rEngine.PopObjAs(TnscStatusBarButton));
@@ -85,50 +72,38 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool((IsDown(aCtx, l_aStatusBarButton)));
+ aCtx.rEngine.PushBool(IsDown(aCtx, l_aStatusBarButton));
 end;//TkwPopStatusBarButtonIsDown.DoDoIt
 
 class function TkwPopStatusBarButtonIsDown.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:StatusBarButton:IsDown';
 end;//TkwPopStatusBarButtonIsDown.GetWordNameForRegister
 
 function TkwPopStatusBarButtonIsDown.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwPopStatusBarButtonIsDown.GetResultTypeInfo
 
 function TkwPopStatusBarButtonIsDown.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopStatusBarButtonIsDown.GetAllParamsCount
 
 function TkwPopStatusBarButtonIsDown.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TnscStatusBarButton)]);
 end;//TkwPopStatusBarButtonIsDown.ParamsTypes
-{$IfEnd} //Nemesis AND not NoScripts
 
 initialization
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация pop_StatusBarButton_IsDown
  TkwPopStatusBarButtonIsDown.RegisterInEngine;
-{$IfEnd} //Nemesis AND not NoScripts
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация типа TtfwContext
+ {* Регистрация pop_StatusBarButton_IsDown }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //Nemesis AND not NoScripts
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация типа TnscStatusBarButton
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscStatusBarButton));
-{$IfEnd} //Nemesis AND not NoScripts
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация типа Boolean
+ {* Регистрация типа TnscStatusBarButton }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
-{$IfEnd} //Nemesis AND not NoScripts
+ {* Регистрация типа Boolean }
+{$IfEnd} // Defined(Nemesis) AND NOT Defined(NoScripts)
 
 end.

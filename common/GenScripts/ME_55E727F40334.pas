@@ -19,10 +19,10 @@ implementation
 uses
  l3ImplUses
  , tfwDictionary
- , tfwScriptingInterfaces
- , l3Interfaces
  , tfwClassLike
+ , tfwScriptingInterfaces
  , TypInfo
+ , l3Interfaces
  , tfwMembersIterator
  , tfwScriptEngineExInterfaces
  , tfwKeywordsIterator

@@ -11,15 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
-;
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
-
-implementation
-
-{$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
-uses
- l3ImplUses
- , Rubricator_Form
  , nscTreeViewWithAdapterDragDrop
  , vtPanel
  {$If NOT Defined(NoVCL)}
@@ -29,6 +20,15 @@ uses
  {$If Defined(Nemesis)}
  , nscTextSource
  {$IfEnd} // Defined(Nemesis)
+;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
+
+implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+ , Rubricator_Form
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

@@ -18,8 +18,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , tfwScriptingInterfaces
  , tfwWordWorkerEx
+ , tfwScriptingInterfaces
  , TypInfo
  , seModalSupport
  , l3AFWExceptions

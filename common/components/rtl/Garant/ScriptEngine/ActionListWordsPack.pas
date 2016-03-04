@@ -1,40 +1,35 @@
 unit ActionListWordsPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$RTLandVCL"
-// Модуль: "ActionListWordsPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi Low Level::ScriptEngine$RTLandVCL::FormsProcessing::ActionListWordsPack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ActionListWordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
-  ActnList,
-  tfwScriptingInterfaces,
-  tfwClassLike
-  ;
-
-{$IfEnd} //not NoScripts AND not NoVCL
+ l3IntfUses
+;
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
-  ContainedActionsWordspack,
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , ActnList
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
+ , ContainedActionsWordspack
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
- TkwPopActionListFindAction = {final scriptword} class(TtfwClassLike)
+ TkwPopActionListFindAction = {final} class(TtfwClassLike)
   {* Слово скрипта pop:ActionList:FindAction
 *Тип результата:* TContainedAction
 *Пример:*
@@ -42,30 +37,24 @@ type
 OBJECT VAR l_TContainedAction
  anActionName aActionList pop:ActionList:FindAction >>> l_TContainedAction
 [code]  }
- private
- // private methods
+  private
    function FindAction(const aCtx: TtfwContext;
     aActionList: TActionList;
     const anActionName: AnsiString): TContainedAction;
-     {* Реализация слова скрипта pop:ActionList:FindAction }
- protected
- // realized methods
+    {* Реализация слова скрипта pop:ActionList:FindAction }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopActionListFindAction
 
-// start class TkwPopActionListFindAction
-
 function TkwPopActionListFindAction.FindAction(const aCtx: TtfwContext;
-  aActionList: TActionList;
-  const anActionName: AnsiString): TContainedAction;
+ aActionList: TActionList;
+ const anActionName: AnsiString): TContainedAction;
+ {* Реализация слова скрипта pop:ActionList:FindAction }
 //#UC START# *1F5508BF0CF4_E7F049DA4A74_var*
 var
  l_Index : Integer;
@@ -85,10 +74,8 @@ begin
 end;//TkwPopActionListFindAction.FindAction
 
 procedure TkwPopActionListFindAction.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aActionList : TActionList;
- l_anActionName : AnsiString;
+var l_aActionList: TActionList;
+var l_anActionName: AnsiString;
 begin
  try
   l_aActionList := TActionList(aCtx.rEngine.PopObjAs(TActionList));
@@ -108,54 +95,40 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj((FindAction(aCtx, l_aActionList, l_anActionName)));
+ aCtx.rEngine.PushObj(FindAction(aCtx, l_aActionList, l_anActionName));
 end;//TkwPopActionListFindAction.DoDoIt
 
 class function TkwPopActionListFindAction.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:ActionList:FindAction';
 end;//TkwPopActionListFindAction.GetWordNameForRegister
 
 function TkwPopActionListFindAction.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(TContainedAction);
 end;//TkwPopActionListFindAction.GetResultTypeInfo
 
 function TkwPopActionListFindAction.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwPopActionListFindAction.GetAllParamsCount
 
 function TkwPopActionListFindAction.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(TActionList), TypeInfo(AnsiString)]);
+ Result := OpenTypesToTypes([TypeInfo(TActionList), @tfw_tiString]);
 end;//TkwPopActionListFindAction.ParamsTypes
-{$IfEnd} //not NoScripts AND not NoVCL
 
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация pop_ActionList_FindAction
  TkwPopActionListFindAction.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация типа TtfwContext
+ {* Регистрация pop_ActionList_FindAction }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация типа TActionList
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TActionList));
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация типа String
- TtfwTypeRegistrator.RegisterType(TypeInfo(AnsiString));
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация типа TContainedAction
+ {* Регистрация типа TActionList }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiString);
+ {* Регистрация типа String }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TContainedAction));
-{$IfEnd} //not NoScripts AND not NoVCL
+ {* Регистрация типа TContainedAction }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

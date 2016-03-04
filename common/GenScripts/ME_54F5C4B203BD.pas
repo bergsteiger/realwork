@@ -19,11 +19,11 @@ implementation
 uses
  l3ImplUses
  , Controls
- , Classes
- , Types
  , tfwClassLike
  , tfwScriptingInterfaces
+ , Types
  , TypInfo
+ , Classes
  , tfwPropertyLike
  , tfwTypeInfo
  , Messages

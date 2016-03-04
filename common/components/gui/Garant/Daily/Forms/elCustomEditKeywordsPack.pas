@@ -11,6 +11,7 @@ interface
 {$If Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
+ , elCustomEdit
 ;
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts)
 
@@ -20,7 +21,6 @@ implementation
 uses
  l3ImplUses
  , elCustomEdit_Form
- , elCustomEdit
  , tfwControlString
  , tfwPropertyLike
  , tfwScriptingInterfaces

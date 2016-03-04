@@ -19,14 +19,14 @@ implementation
 uses
  l3ImplUses
  , tfwTypeInfo
- , l3Interfaces
- , tfwScriptingInterfaces
- , tfwMainDictionary
- , tfwScriptingTypes
  , tfwAxiomaticsResNameGetter
  , tfwClassLike
+ , tfwScriptingInterfaces
  , TypInfo
+ , l3Interfaces
  , tfwGlobalKeyWord
+ , tfwScriptingTypes
+ , tfwMainDictionary
  , l3String
  , tfwScriptEngineExInterfaces
  , tfwStandardDictionaries

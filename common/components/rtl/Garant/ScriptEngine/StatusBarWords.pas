@@ -1,70 +1,50 @@
 unit StatusBarWords;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$F1"
-// Модуль: "StatusBarWords.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi For F1::ScriptEngine$F1::StatusBarWords::StatusBarWords
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\StatusBarWords.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
-{$If defined(Nemesis) AND not defined(NoScripts)}
+{$If Defined(Nemesis) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  tfwScriptingInterfaces,
-  nscStatusBar,
-  tfwAxiomaticsResNameGetter,
-  tfwClassLike
-  ;
-
-{$IfEnd} //Nemesis AND not NoScripts
+ l3IntfUses
+;
+{$IfEnd} // Defined(Nemesis) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(Nemesis) AND not defined(NoScripts)}
+{$If Defined(Nemesis) AND NOT Defined(NoScripts)}
 uses
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , nscStatusBar
+ , tfwAxiomaticsResNameGetter
+ , tfwClassLike
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , tfwScriptingInterfaces
+ , TypInfo
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
-//#UC START# *98311E435825ci*
-//#UC END# *98311E435825ci*
-//#UC START# *98311E435825cit*
-//#UC END# *98311E435825cit*
+ //#UC START# *98311E435825ci*
+ //#UC END# *98311E435825ci*
+ //#UC START# *98311E435825cit*
+ //#UC END# *98311E435825cit*
  TStatusBarWordsResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
- public
- // realized methods
+  public
    class function ResName: AnsiString; override;
-//#UC START# *98311E435825publ*
-//#UC END# *98311E435825publ*
+ //#UC START# *98311E435825publ*
+ //#UC END# *98311E435825publ*
  end;//TStatusBarWordsResNameGetter
 
-// start class TStatusBarWordsResNameGetter
-
-class function TStatusBarWordsResNameGetter.ResName: AnsiString;
- {-}
-begin
- Result := 'StatusBarWords';
-end;//TStatusBarWordsResNameGetter.ResName
-
- {$R StatusBarWords.res}
-
-type
- TkwStatusBarOrderedControl = {final scriptword} class(TtfwClassLike)
+ TkwStatusBarOrderedControl = {final} class(TtfwClassLike)
   {* Слово скрипта StatusBar:OrderedControl
 *Тип результата:* TControl
 *Пример:*
@@ -72,30 +52,74 @@ type
 OBJECT VAR l_TControl
  anIndex aStatusBar StatusBar:OrderedControl >>> l_TControl
 [code]  }
- private
- // private methods
+  private
    function OrderedControl(const aCtx: TtfwContext;
     aStatusBar: TnscStatusBar;
     anIndex: Integer): TControl;
-     {* Реализация слова скрипта StatusBar:OrderedControl }
- protected
- // realized methods
+    {* Реализация слова скрипта StatusBar:OrderedControl }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwStatusBarOrderedControl
 
-// start class TkwStatusBarOrderedControl
+ TkwStatusBarOrderedControlsCount = {final} class(TtfwClassLike)
+  {* Слово скрипта StatusBar:OrderedControlsCount
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ aStatusBar StatusBar:OrderedControlsCount >>> l_Integer
+[code]  }
+  private
+   function OrderedControlsCount(const aCtx: TtfwContext;
+    aStatusBar: TnscStatusBar): Integer;
+    {* Реализация слова скрипта StatusBar:OrderedControlsCount }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStatusBarOrderedControlsCount
+
+ TkwStatusBarOrderIndex = {final} class(TtfwClassLike)
+  {* Слово скрипта StatusBar:OrderIndex
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ aControl aStatusBar StatusBar:OrderIndex >>> l_Integer
+[code]  }
+  private
+   function OrderIndex(const aCtx: TtfwContext;
+    aStatusBar: TnscStatusBar;
+    aControl: TControl): Integer;
+    {* Реализация слова скрипта StatusBar:OrderIndex }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStatusBarOrderIndex
+
+class function TStatusBarWordsResNameGetter.ResName: AnsiString;
+begin
+  Result := 'StatusBarWords';
+end;//TStatusBarWordsResNameGetter.ResName
+
+ {$R StatusBarWords.res}
 
 function TkwStatusBarOrderedControl.OrderedControl(const aCtx: TtfwContext;
-  aStatusBar: TnscStatusBar;
-  anIndex: Integer): TControl;
+ aStatusBar: TnscStatusBar;
+ anIndex: Integer): TControl;
+ {* Реализация слова скрипта StatusBar:OrderedControl }
 //#UC START# *FE371E175914_6A3FD2C52DF9_var*
 //#UC END# *FE371E175914_6A3FD2C52DF9_var*
 begin
@@ -105,10 +129,8 @@ begin
 end;//TkwStatusBarOrderedControl.OrderedControl
 
 procedure TkwStatusBarOrderedControl.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aStatusBar : TnscStatusBar;
- l_anIndex : Integer;
+var l_aStatusBar: TnscStatusBar;
+var l_anIndex: Integer;
 begin
  try
   l_aStatusBar := TnscStatusBar(aCtx.rEngine.PopObjAs(TnscStatusBar));
@@ -128,64 +150,32 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj((OrderedControl(aCtx, l_aStatusBar, l_anIndex)));
+ aCtx.rEngine.PushObj(OrderedControl(aCtx, l_aStatusBar, l_anIndex));
 end;//TkwStatusBarOrderedControl.DoDoIt
 
 class function TkwStatusBarOrderedControl.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'StatusBar:OrderedControl';
 end;//TkwStatusBarOrderedControl.GetWordNameForRegister
 
 function TkwStatusBarOrderedControl.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(TControl);
 end;//TkwStatusBarOrderedControl.GetResultTypeInfo
 
 function TkwStatusBarOrderedControl.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwStatusBarOrderedControl.GetAllParamsCount
 
 function TkwStatusBarOrderedControl.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TnscStatusBar), TypeInfo(Integer)]);
 end;//TkwStatusBarOrderedControl.ParamsTypes
 
-type
- TkwStatusBarOrderedControlsCount = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта StatusBar:OrderedControlsCount
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aStatusBar StatusBar:OrderedControlsCount >>> l_Integer
-[code]  }
- private
- // private methods
-   function OrderedControlsCount(const aCtx: TtfwContext;
-    aStatusBar: TnscStatusBar): Integer;
-     {* Реализация слова скрипта StatusBar:OrderedControlsCount }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwStatusBarOrderedControlsCount
-
-// start class TkwStatusBarOrderedControlsCount
-
 function TkwStatusBarOrderedControlsCount.OrderedControlsCount(const aCtx: TtfwContext;
-  aStatusBar: TnscStatusBar): Integer;
+ aStatusBar: TnscStatusBar): Integer;
+ {* Реализация слова скрипта StatusBar:OrderedControlsCount }
 //#UC START# *3F6B70526DE3_C8B065596342_var*
 //#UC END# *3F6B70526DE3_C8B065596342_var*
 begin
@@ -195,9 +185,7 @@ begin
 end;//TkwStatusBarOrderedControlsCount.OrderedControlsCount
 
 procedure TkwStatusBarOrderedControlsCount.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aStatusBar : TnscStatusBar;
+var l_aStatusBar: TnscStatusBar;
 begin
  try
   l_aStatusBar := TnscStatusBar(aCtx.rEngine.PopObjAs(TnscStatusBar));
@@ -208,66 +196,33 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt((OrderedControlsCount(aCtx, l_aStatusBar)));
+ aCtx.rEngine.PushInt(OrderedControlsCount(aCtx, l_aStatusBar));
 end;//TkwStatusBarOrderedControlsCount.DoDoIt
 
 class function TkwStatusBarOrderedControlsCount.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'StatusBar:OrderedControlsCount';
 end;//TkwStatusBarOrderedControlsCount.GetWordNameForRegister
 
 function TkwStatusBarOrderedControlsCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwStatusBarOrderedControlsCount.GetResultTypeInfo
 
 function TkwStatusBarOrderedControlsCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwStatusBarOrderedControlsCount.GetAllParamsCount
 
 function TkwStatusBarOrderedControlsCount.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TnscStatusBar)]);
 end;//TkwStatusBarOrderedControlsCount.ParamsTypes
 
-type
- TkwStatusBarOrderIndex = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта StatusBar:OrderIndex
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aControl aStatusBar StatusBar:OrderIndex >>> l_Integer
-[code]  }
- private
- // private methods
-   function OrderIndex(const aCtx: TtfwContext;
-    aStatusBar: TnscStatusBar;
-    aControl: TControl): Integer;
-     {* Реализация слова скрипта StatusBar:OrderIndex }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwStatusBarOrderIndex
-
-// start class TkwStatusBarOrderIndex
-
 function TkwStatusBarOrderIndex.OrderIndex(const aCtx: TtfwContext;
-  aStatusBar: TnscStatusBar;
-  aControl: TControl): Integer;
+ aStatusBar: TnscStatusBar;
+ aControl: TControl): Integer;
+ {* Реализация слова скрипта StatusBar:OrderIndex }
 //#UC START# *BD703176FDE6_F7D061E9FD6E_var*
 //#UC END# *BD703176FDE6_F7D061E9FD6E_var*
 begin
@@ -277,10 +232,8 @@ begin
 end;//TkwStatusBarOrderIndex.OrderIndex
 
 procedure TkwStatusBarOrderIndex.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aStatusBar : TnscStatusBar;
- l_aControl : TControl;
+var l_aStatusBar: TnscStatusBar;
+var l_aControl: TControl;
 begin
  try
   l_aStatusBar := TnscStatusBar(aCtx.rEngine.PopObjAs(TnscStatusBar));
@@ -300,66 +253,46 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt((OrderIndex(aCtx, l_aStatusBar, l_aControl)));
+ aCtx.rEngine.PushInt(OrderIndex(aCtx, l_aStatusBar, l_aControl));
 end;//TkwStatusBarOrderIndex.DoDoIt
 
 class function TkwStatusBarOrderIndex.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'StatusBar:OrderIndex';
 end;//TkwStatusBarOrderIndex.GetWordNameForRegister
 
 function TkwStatusBarOrderIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwStatusBarOrderIndex.GetResultTypeInfo
 
 function TkwStatusBarOrderIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwStatusBarOrderIndex.GetAllParamsCount
 
 function TkwStatusBarOrderIndex.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TnscStatusBar), TypeInfo(TControl)]);
 end;//TkwStatusBarOrderIndex.ParamsTypes
-{$IfEnd} //Nemesis AND not NoScripts
 
 initialization
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация скриптованой аксиоматики
  TStatusBarWordsResNameGetter.Register;
-{$IfEnd} //Nemesis AND not NoScripts
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация StatusBar_OrderedControl
+ {* Регистрация скриптованой аксиоматики }
  TkwStatusBarOrderedControl.RegisterInEngine;
-{$IfEnd} //Nemesis AND not NoScripts
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация StatusBar_OrderedControlsCount
+ {* Регистрация StatusBar_OrderedControl }
  TkwStatusBarOrderedControlsCount.RegisterInEngine;
-{$IfEnd} //Nemesis AND not NoScripts
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация StatusBar_OrderIndex
+ {* Регистрация StatusBar_OrderedControlsCount }
  TkwStatusBarOrderIndex.RegisterInEngine;
-{$IfEnd} //Nemesis AND not NoScripts
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация типа TtfwContext
+ {* Регистрация StatusBar_OrderIndex }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //Nemesis AND not NoScripts
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация типа TnscStatusBar
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscStatusBar));
-{$IfEnd} //Nemesis AND not NoScripts
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация типа Integer
+ {* Регистрация типа TnscStatusBar }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
-{$IfEnd} //Nemesis AND not NoScripts
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация типа TControl
+ {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TControl));
-{$IfEnd} //Nemesis AND not NoScripts
+ {* Регистрация типа TControl }
+{$IfEnd} // Defined(Nemesis) AND NOT Defined(NoScripts)
 
 end.

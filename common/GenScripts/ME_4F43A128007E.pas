@@ -10,8 +10,9 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , kwCompiledWordWorker
+ , tfwTypeInfo
  , tfwScriptingInterfaces
+ , kwCompiledWordWorker
  , l3Interfaces
 ;
 
@@ -35,14 +36,13 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , tfwTypeInfo
- , tfwParserInterfaces
  , tfwConstLike
  , kwCompiledWordPrim
  , tfwAxiomaticsResNameGetter
  , tfwGlobalKeyWord
  , TypInfo
  , tfwWordWorkerEx
+ , tfwParserInterfaces
  , l3Chars
  , Windows
  , l3String

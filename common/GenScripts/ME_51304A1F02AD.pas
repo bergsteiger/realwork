@@ -19,13 +19,13 @@ implementation
 uses
  l3ImplUses
  , GUITestRunner
- , TestFrameWork
- , ComCtrls
  , tfwAxiomaticsResNameGetter
  , tfwRegisterableWord
  , tfwScriptingInterfaces
  , TypInfo
  , tfwClassLike
+ , TestFrameWork
+ , ComCtrls
  , tfwGlobalKeyWord
  , ITestWordsPack
  , TTreeNodeForTestsWordsPack

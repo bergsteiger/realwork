@@ -19,10 +19,10 @@ implementation
 uses
  l3ImplUses
  , tfwDictionaryEx
- , l3Interfaces
- , tfwScriptingInterfaces
  , tfwAxiomaticsResNameGetter
  , tfwClassLike
+ , l3Interfaces
+ , tfwScriptingInterfaces
  , TypInfo
  , tfwDictionaryDataIteratorPrim
  , tfwExportedDictionariesIterator

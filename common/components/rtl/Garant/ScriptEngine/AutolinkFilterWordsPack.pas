@@ -18,8 +18,8 @@ implementation
 {$If Defined(Archi) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , l3Variant
  , tfwGlobalKeyWord
+ , l3Variant
  , tfwScriptingInterfaces
  , TypInfo
  , l3AutolinkService

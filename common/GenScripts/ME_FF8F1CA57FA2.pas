@@ -11,6 +11,14 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
+ , vtPanel
+ {$If Defined(Nemesis)}
+ , nscHideField
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscLister
+ {$IfEnd} // Defined(Nemesis)
+ , nscSimpleEditor
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -20,14 +28,6 @@ implementation
 uses
  l3ImplUses
  , BaseSearchCard_Form
- , vtPanel
- {$If Defined(Nemesis)}
- , nscHideField
- {$IfEnd} // Defined(Nemesis)
- {$If Defined(Nemesis)}
- , nscLister
- {$IfEnd} // Defined(Nemesis)
- , nscSimpleEditor
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

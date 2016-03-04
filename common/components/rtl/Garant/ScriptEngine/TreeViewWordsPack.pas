@@ -1,40 +1,35 @@
 unit TreeViewWordsPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$RTLandVCL"
-// Модуль: "TreeViewWordsPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi Low Level::ScriptEngine$RTLandVCL::TreeViewWords::TreeViewWordsPack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\TreeViewWordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
-  ComCtrls,
-  tfwScriptingInterfaces,
-  tfwClassLike
-  ;
-
-{$IfEnd} //not NoScripts AND not NoVCL
+ l3IntfUses
+;
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
-  TreeNodeWordsPack,
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , ComCtrls
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
+ , TreeNodeWordsPack
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
- TkwPopTreeViewGetItem = {final scriptword} class(TtfwClassLike)
+ TkwPopTreeViewGetItem = {final} class(TtfwClassLike)
   {* Слово скрипта pop:TreeView:GetItem
 *Тип результата:* TTreeNode
 *Пример:*
@@ -42,30 +37,24 @@ type
 OBJECT VAR l_TTreeNode
  anIndex aTreeView pop:TreeView:GetItem >>> l_TTreeNode
 [code]  }
- private
- // private methods
+  private
    function GetItem(const aCtx: TtfwContext;
     aTreeView: TTreeView;
     anIndex: Integer): TTreeNode;
-     {* Реализация слова скрипта pop:TreeView:GetItem }
- protected
- // realized methods
+    {* Реализация слова скрипта pop:TreeView:GetItem }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopTreeViewGetItem
 
-// start class TkwPopTreeViewGetItem
-
 function TkwPopTreeViewGetItem.GetItem(const aCtx: TtfwContext;
-  aTreeView: TTreeView;
-  anIndex: Integer): TTreeNode;
+ aTreeView: TTreeView;
+ anIndex: Integer): TTreeNode;
+ {* Реализация слова скрипта pop:TreeView:GetItem }
 //#UC START# *76ED4B50CB4A_F4C36DEF11AB_var*
 //#UC END# *76ED4B50CB4A_F4C36DEF11AB_var*
 begin
@@ -75,10 +64,8 @@ begin
 end;//TkwPopTreeViewGetItem.GetItem
 
 procedure TkwPopTreeViewGetItem.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aTreeView : TTreeView;
- l_anIndex : Integer;
+var l_aTreeView: TTreeView;
+var l_anIndex: Integer;
 begin
  try
   l_aTreeView := TTreeView(aCtx.rEngine.PopObjAs(TTreeView));
@@ -98,54 +85,40 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj((GetItem(aCtx, l_aTreeView, l_anIndex)));
+ aCtx.rEngine.PushObj(GetItem(aCtx, l_aTreeView, l_anIndex));
 end;//TkwPopTreeViewGetItem.DoDoIt
 
 class function TkwPopTreeViewGetItem.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:TreeView:GetItem';
 end;//TkwPopTreeViewGetItem.GetWordNameForRegister
 
 function TkwPopTreeViewGetItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(TTreeNode);
 end;//TkwPopTreeViewGetItem.GetResultTypeInfo
 
 function TkwPopTreeViewGetItem.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwPopTreeViewGetItem.GetAllParamsCount
 
 function TkwPopTreeViewGetItem.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TTreeView), TypeInfo(Integer)]);
 end;//TkwPopTreeViewGetItem.ParamsTypes
-{$IfEnd} //not NoScripts AND not NoVCL
 
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация pop_TreeView_GetItem
  TkwPopTreeViewGetItem.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация типа TtfwContext
+ {* Регистрация pop_TreeView_GetItem }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация типа TTreeView
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TTreeView));
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация типа Integer
+ {* Регистрация типа TTreeView }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация типа TTreeNode
+ {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TTreeNode));
-{$IfEnd} //not NoScripts AND not NoVCL
+ {* Регистрация типа TTreeNode }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

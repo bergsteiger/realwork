@@ -43,6 +43,22 @@
 //#UC END# *555D9A290122_5551DD0F02A1get_impl*
 //#UC START# *555D9A290122_5551DD0F02A1get_var*
 //#UC END# *555D9A290122_5551DD0F02A1get_var*
+//#UC START# *5608E5FE0355_5551DD0F02A1_impl*
+ case f_Operation of
+  da_copEqual:
+  begin
+   if f_TableAlias <> '' then
+    Result := AddCaseInsensetive(Format('%s.%s', [f_TableAlias, f_Field.Name]))
+   else
+    Result := AddCaseInsensetive(f_Field.Name);
+   Result := Format('%s = %s', [Result, AddCaseInsensetive(aHelper.GetParamCode(f_ParamName))]);
+  end;
+ else
+  Assert(False);
+ end;
+//#UC END# *5608E5FE0355_5551DD0F02A1_impl*
+//#UC START# *5608E5FE0355_5551DD0F02A1_var*
+//#UC END# *5608E5FE0355_5551DD0F02A1_var*
 //#UC START# *562DE57001BE_5551DD0F02A1_impl*
  if f_Field.DataType = da_dtChar then
   Result := Format('UPPER(%s)', [aStr])

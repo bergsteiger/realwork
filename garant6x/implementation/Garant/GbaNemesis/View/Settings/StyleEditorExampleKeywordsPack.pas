@@ -11,6 +11,11 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
+ {$If Defined(Nemesis)}
+ , nscTextSource
+ {$IfEnd} // Defined(Nemesis)
+ , vtPanel
+ , eeEditorWithoutOperations
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -20,11 +25,6 @@ implementation
 uses
  l3ImplUses
  , StyleEditorExample_Form
- {$If Defined(Nemesis)}
- , nscTextSource
- {$IfEnd} // Defined(Nemesis)
- , vtPanel
- , eeEditorWithoutOperations
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

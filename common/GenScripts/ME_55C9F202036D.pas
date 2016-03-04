@@ -10,6 +10,7 @@ interface
 {$If Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
  l3IntfUses
+ , TestFrameWork
 ;
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
@@ -18,7 +19,6 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
  l3ImplUses
- , TestFrameWork
  , tfwAxiomaticsResNameGetter
  , tfwPropertyLike
  , tfwScriptingInterfaces

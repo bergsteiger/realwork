@@ -11,15 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
-;
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
-
-implementation
-
-{$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
-uses
- l3ImplUses
- , NewBaseSearch_Form
  {$If NOT Defined(NoVGScene)}
  , vg_controls
  {$IfEnd} // NOT Defined(NoVGScene)
@@ -41,6 +32,15 @@ uses
  {$If NOT Defined(NoVCL)}
  , ExtCtrls
  {$IfEnd} // NOT Defined(NoVCL)
+;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
+
+implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+ , NewBaseSearch_Form
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

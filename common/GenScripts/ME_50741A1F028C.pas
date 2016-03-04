@@ -19,12 +19,12 @@ implementation
 uses
  l3ImplUses
  , Forms
- , Menus
- , ActnList
- , tfwScriptingInterfaces
  , tfwAxiomaticsResNameGetter
  , tfwClassLike
+ , tfwScriptingInterfaces
  , TypInfo
+ , Menus
+ , ActnList
  , tfwGlobalKeyWord
  , l3ObjectList
  , Classes

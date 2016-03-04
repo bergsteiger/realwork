@@ -1,66 +1,55 @@
 unit ContainedActionsWordspack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$RTLandVCL"
-// Модуль: "ContainedActionsWordspack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi Low Level::ScriptEngine$RTLandVCL::FormsProcessing::ContainedActionsWordspack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ContainedActionsWordspack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
-  ActnList,
-  tfwScriptingInterfaces,
-  tfwClassLike
-  ;
-
-{$IfEnd} //not NoScripts AND not NoVCL
+ l3IntfUses
+;
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , ActnList
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
- TkwPopContainedActionExecute = {final scriptword} class(TtfwClassLike)
+ TkwPopContainedActionExecute = {final} class(TtfwClassLike)
   {* Слово скрипта pop:ContainedAction:Execute
 *Пример:*
 [code]
  aContainedAction pop:ContainedAction:Execute
 [code]  }
- private
- // private methods
+  private
    procedure Execute(const aCtx: TtfwContext;
     aContainedAction: TContainedAction);
-     {* Реализация слова скрипта pop:ContainedAction:Execute }
- protected
- // realized methods
+    {* Реализация слова скрипта pop:ContainedAction:Execute }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopContainedActionExecute
 
-// start class TkwPopContainedActionExecute
-
 procedure TkwPopContainedActionExecute.Execute(const aCtx: TtfwContext;
-  aContainedAction: TContainedAction);
+ aContainedAction: TContainedAction);
+ {* Реализация слова скрипта pop:ContainedAction:Execute }
 //#UC START# *AFC4E3ACD81B_87D5D18D9F8E_var*
 //#UC END# *AFC4E3ACD81B_87D5D18D9F8E_var*
 begin
@@ -70,9 +59,7 @@ begin
 end;//TkwPopContainedActionExecute.Execute
 
 procedure TkwPopContainedActionExecute.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aContainedAction : TContainedAction;
+var l_aContainedAction: TContainedAction;
 begin
  try
   l_aContainedAction := TContainedAction(aCtx.rEngine.PopObjAs(TContainedAction));
@@ -87,42 +74,32 @@ begin
 end;//TkwPopContainedActionExecute.DoDoIt
 
 class function TkwPopContainedActionExecute.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:ContainedAction:Execute';
 end;//TkwPopContainedActionExecute.GetWordNameForRegister
 
 function TkwPopContainedActionExecute.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwPopContainedActionExecute.GetResultTypeInfo
 
 function TkwPopContainedActionExecute.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopContainedActionExecute.GetAllParamsCount
 
 function TkwPopContainedActionExecute.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TContainedAction)]);
 end;//TkwPopContainedActionExecute.ParamsTypes
-{$IfEnd} //not NoScripts AND not NoVCL
 
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация pop_ContainedAction_Execute
  TkwPopContainedActionExecute.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация типа TtfwContext
+ {* Регистрация pop_ContainedAction_Execute }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация типа TContainedAction
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TContainedAction));
-{$IfEnd} //not NoScripts AND not NoVCL
+ {* Регистрация типа TContainedAction }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

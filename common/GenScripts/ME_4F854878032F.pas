@@ -10,6 +10,9 @@ interface
 {$If NOT Defined(NoScripts) AND NOT Defined(NoWindows)}
 uses
  l3IntfUses
+ , Windows
+ , tfwScriptingInterfaces
+ , Types
 ;
 
 function IterateWindowsMethod(hWindow: THandle;
@@ -27,12 +30,9 @@ implementation
 {$If NOT Defined(NoScripts) AND NOT Defined(NoWindows)}
 uses
  l3ImplUses
- , Windows
- , tfwScriptingInterfaces
- , Types
- , tfwTypeInfo
  , tfwGlobalKeyWord
  , TypInfo
+ , tfwTypeInfo
  , SysUtils
  , Messages
  , CommCtrl

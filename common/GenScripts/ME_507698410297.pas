@@ -18,9 +18,9 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , tfwScriptingInterfaces
  , tfwAxiomaticsResNameGetter
  , tfwClassLike
+ , tfwScriptingInterfaces
  , TypInfo
  , kwPopClassInherits
  , SysUtils

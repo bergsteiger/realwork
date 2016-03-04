@@ -1,72 +1,55 @@
 unit FormsProcessingPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$RTLandVCL"
-// Модуль: "FormsProcessingPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi Low Level::ScriptEngine$RTLandVCL::FormsProcessing::FormsProcessingPack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\FormsProcessingPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
-  Forms,
-  ActnList,
-  Menus,
-  tfwScriptingInterfaces,
-  tfwAxiomaticsResNameGetter,
-  tfwClassLike,
-  tfwGlobalKeyWord
-  ;
-
-{$IfEnd} //not NoScripts AND not NoVCL
+ l3IntfUses
+;
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
-  l3ObjectList,
-  Classes,
-  CustomFormProcessingPack,
-  Controls,
-  ActionListWordsPack,
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , Forms
+ , tfwAxiomaticsResNameGetter
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
+ , Menus
+ , ActnList
+ , tfwGlobalKeyWord
+ , l3ObjectList
+ , Classes
+ , CustomFormProcessingPack
+ , Controls
+ , ActionListWordsPack
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
-//#UC START# *38481B365F20ci*
-//#UC END# *38481B365F20ci*
-//#UC START# *38481B365F20cit*
-//#UC END# *38481B365F20cit*
+ //#UC START# *38481B365F20ci*
+ //#UC END# *38481B365F20ci*
+ //#UC START# *38481B365F20cit*
+ //#UC END# *38481B365F20cit*
  TFormsProcessingPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
- public
- // realized methods
+  public
    class function ResName: AnsiString; override;
-//#UC START# *38481B365F20publ*
-//#UC END# *38481B365F20publ*
+ //#UC START# *38481B365F20publ*
+ //#UC END# *38481B365F20publ*
  end;//TFormsProcessingPackResNameGetter
 
-// start class TFormsProcessingPackResNameGetter
-
-class function TFormsProcessingPackResNameGetter.ResName: AnsiString;
- {-}
-begin
- Result := 'FormsProcessingPack';
-end;//TFormsProcessingPackResNameGetter.ResName
-
- {$R FormsProcessingPack.res}
-
-type
- TkwPopFormActiveMDIChild = {final scriptword} class(TtfwClassLike)
+ TkwPopFormActiveMDIChild = {final} class(TtfwClassLike)
   {* Слово скрипта pop:form:ActiveMDIChild
 *Тип результата:* TForm
 *Пример:*
@@ -74,157 +57,39 @@ type
 OBJECT VAR l_TForm
  aForm pop:form:ActiveMDIChild >>> l_TForm
 [code]  }
- private
- // private methods
-   function PopFormActiveMDIChild(const aCtx: TtfwContext;
+  private
+   function pop_form_ActiveMDIChild(const aCtx: TtfwContext;
     aForm: TForm): TForm;
-     {* Реализация слова скрипта pop:form:ActiveMDIChild }
- protected
- // realized methods
+    {* Реализация слова скрипта pop:form:ActiveMDIChild }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopFormActiveMDIChild
 
-// start class TkwPopFormActiveMDIChild
-
-function TkwPopFormActiveMDIChild.PopFormActiveMDIChild(const aCtx: TtfwContext;
-  aForm: TForm): TForm;
-//#UC START# *8AB0508CEF4C_90DD5B736D00_var*
-//#UC END# *8AB0508CEF4C_90DD5B736D00_var*
-begin
-//#UC START# *8AB0508CEF4C_90DD5B736D00_impl*
- Result := aForm.ActiveMDIChild;
-//#UC END# *8AB0508CEF4C_90DD5B736D00_impl*
-end;//TkwPopFormActiveMDIChild.PopFormActiveMDIChild
-
-procedure TkwPopFormActiveMDIChild.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aForm : TForm;
-begin
- try
-  l_aForm := TForm(aCtx.rEngine.PopObjAs(TForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aForm: TForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj((PopFormActiveMDIChild(aCtx, l_aForm)));
-end;//TkwPopFormActiveMDIChild.DoDoIt
-
-class function TkwPopFormActiveMDIChild.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'pop:form:ActiveMDIChild';
-end;//TkwPopFormActiveMDIChild.GetWordNameForRegister
-
-function TkwPopFormActiveMDIChild.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
-begin
- Result := TypeInfo(TForm);
-end;//TkwPopFormActiveMDIChild.GetResultTypeInfo
-
-function TkwPopFormActiveMDIChild.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
-begin
- Result := 0 + 1;
-end;//TkwPopFormActiveMDIChild.GetAllParamsCount
-
-function TkwPopFormActiveMDIChild.ParamsTypes: PTypeInfoArray;
- {-}
-begin
- Result := OpenTypesToTypes([TypeInfo(TForm)]);
-end;//TkwPopFormActiveMDIChild.ParamsTypes
-
-type
- TkwPopFormClose = {final scriptword} class(TtfwClassLike)
+ TkwPopFormClose = {final} class(TtfwClassLike)
   {* Слово скрипта pop:form:Close
 *Пример:*
 [code]
  aForm pop:form:Close
 [code]  }
- private
- // private methods
-   procedure PopFormClose(const aCtx: TtfwContext;
+  private
+   procedure pop_form_Close(const aCtx: TtfwContext;
     aForm: TForm);
-     {* Реализация слова скрипта pop:form:Close }
- protected
- // realized methods
+    {* Реализация слова скрипта pop:form:Close }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopFormClose
 
-// start class TkwPopFormClose
-
-procedure TkwPopFormClose.PopFormClose(const aCtx: TtfwContext;
-  aForm: TForm);
-//#UC START# *2435574FF0DB_EF68563BBDE0_var*
-//#UC END# *2435574FF0DB_EF68563BBDE0_var*
-begin
-//#UC START# *2435574FF0DB_EF68563BBDE0_impl*
- aForm.Close;
-//#UC END# *2435574FF0DB_EF68563BBDE0_impl*
-end;//TkwPopFormClose.PopFormClose
-
-procedure TkwPopFormClose.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aForm : TForm;
-begin
- try
-  l_aForm := TForm(aCtx.rEngine.PopObjAs(TForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aForm: TForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- PopFormClose(aCtx, l_aForm);
-end;//TkwPopFormClose.DoDoIt
-
-class function TkwPopFormClose.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'pop:form:Close';
-end;//TkwPopFormClose.GetWordNameForRegister
-
-function TkwPopFormClose.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
-begin
- Result := @tfw_tiVoid;
-end;//TkwPopFormClose.GetResultTypeInfo
-
-function TkwPopFormClose.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
-begin
- Result := 0 + 1;
-end;//TkwPopFormClose.GetAllParamsCount
-
-function TkwPopFormClose.ParamsTypes: PTypeInfoArray;
- {-}
-begin
- Result := OpenTypesToTypes([TypeInfo(TForm)]);
-end;//TkwPopFormClose.ParamsTypes
-
-type
- TkwPopFormFindMenuItem = {final scriptword} class(TtfwClassLike)
+ TkwPopFormFindMenuItem = {final} class(TtfwClassLike)
   {* Слово скрипта pop:form:FindMenuItem
 *Тип результата:* TMenuItem
 *Пример:*
@@ -232,30 +97,310 @@ type
 OBJECT VAR l_TMenuItem
  aName aForm pop:form:FindMenuItem >>> l_TMenuItem
 [code]  }
- private
- // private methods
-   function PopFormFindMenuItem(const aCtx: TtfwContext;
+  private
+   function pop_form_FindMenuItem(const aCtx: TtfwContext;
     aForm: TForm;
     const aName: AnsiString): TMenuItem;
-     {* Реализация слова скрипта pop:form:FindMenuItem }
- protected
- // realized methods
+    {* Реализация слова скрипта pop:form:FindMenuItem }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopFormFindMenuItem
 
-// start class TkwPopFormFindMenuItem
+ TkwPopFormGetWindowState = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:form:GetWindowState
+*Тип результата:* TWindowState
+*Пример:*
+[code]
+TWindowState VAR l_TWindowState
+ aForm pop:form:GetWindowState >>> l_TWindowState
+[code]  }
+  private
+   function pop_form_GetWindowState(const aCtx: TtfwContext;
+    aForm: TForm): TWindowState;
+    {* Реализация слова скрипта pop:form:GetWindowState }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopFormGetWindowState
 
-function TkwPopFormFindMenuItem.PopFormFindMenuItem(const aCtx: TtfwContext;
-  aForm: TForm;
-  const aName: AnsiString): TMenuItem;
+ TkwPopFormHasControl = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:form:HasControl
+*Тип результата:* Boolean
+*Пример:*
+[code]
+BOOLEAN VAR l_Boolean
+ aName aForm pop:form:HasControl >>> l_Boolean
+[code]  }
+  private
+   function pop_form_HasControl(const aCtx: TtfwContext;
+    aForm: TForm;
+    const aName: AnsiString): Boolean;
+    {* Реализация слова скрипта pop:form:HasControl }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopFormHasControl
+
+ TkwPopFormMDIChildCount = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:form:MDIChildCount
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ aForm pop:form:MDIChildCount >>> l_Integer
+[code]  }
+  private
+   function pop_form_MDIChildCount(const aCtx: TtfwContext;
+    aForm: TForm): Integer;
+    {* Реализация слова скрипта pop:form:MDIChildCount }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopFormMDIChildCount
+
+ TkwPopFormMDIChildren = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:form:MDIChildren
+*Тип результата:* TForm
+*Пример:*
+[code]
+OBJECT VAR l_TForm
+ anIndex aForm pop:form:MDIChildren >>> l_TForm
+[code]  }
+  private
+   function pop_form_MDIChildren(const aCtx: TtfwContext;
+    aForm: TForm;
+    anIndex: Integer): TForm;
+    {* Реализация слова скрипта pop:form:MDIChildren }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopFormMDIChildren
+
+ TkwPopFormModalResult = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:form:ModalResult
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ aForm pop:form:ModalResult >>> l_Integer
+[code]  }
+  private
+   function pop_form_ModalResult(const aCtx: TtfwContext;
+    aForm: TForm): Integer;
+    {* Реализация слова скрипта pop:form:ModalResult }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopFormModalResult
+
+ TkwPopFormNext = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:form:Next
+*Пример:*
+[code]
+ aForm pop:form:Next
+[code]  }
+  private
+   procedure pop_form_Next(const aCtx: TtfwContext;
+    aForm: TForm);
+    {* Реализация слова скрипта pop:form:Next }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopFormNext
+
+ TkwPopFormSetWindowState = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:form:SetWindowState
+*Пример:*
+[code]
+ aValue aForm pop:form:SetWindowState
+[code]  }
+  private
+   procedure pop_form_SetWindowState(const aCtx: TtfwContext;
+    aForm: TForm;
+    aValue: TWindowState);
+    {* Реализация слова скрипта pop:form:SetWindowState }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopFormSetWindowState
+
+ TkwPopFormFindActionList = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:form:FindActionList
+*Тип результата:* TActionList
+*Пример:*
+[code]
+OBJECT VAR l_TActionList
+ aListName aForm pop:form:FindActionList >>> l_TActionList
+[code]  }
+  private
+   function pop_form_FindActionList(const aCtx: TtfwContext;
+    aForm: TForm;
+    const aListName: AnsiString): TActionList;
+    {* Реализация слова скрипта pop:form:FindActionList }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopFormFindActionList
+
+ TkwIterateForms = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта IterateForms
+*Пример:*
+[code]
+ aLambda IterateForms
+[code]  }
+  private
+   procedure IterateForms(const aCtx: TtfwContext;
+    aLambda: TtfwWord);
+    {* Реализация слова скрипта IterateForms }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwIterateForms
+
+class function TFormsProcessingPackResNameGetter.ResName: AnsiString;
+begin
+  Result := 'FormsProcessingPack';
+end;//TFormsProcessingPackResNameGetter.ResName
+
+ {$R FormsProcessingPack.res}
+
+function TkwPopFormActiveMDIChild.pop_form_ActiveMDIChild(const aCtx: TtfwContext;
+ aForm: TForm): TForm;
+ {* Реализация слова скрипта pop:form:ActiveMDIChild }
+//#UC START# *8AB0508CEF4C_90DD5B736D00_var*
+//#UC END# *8AB0508CEF4C_90DD5B736D00_var*
+begin
+//#UC START# *8AB0508CEF4C_90DD5B736D00_impl*
+ Result := aForm.ActiveMDIChild;
+//#UC END# *8AB0508CEF4C_90DD5B736D00_impl*
+end;//TkwPopFormActiveMDIChild.pop_form_ActiveMDIChild
+
+procedure TkwPopFormActiveMDIChild.DoDoIt(const aCtx: TtfwContext);
+var l_aForm: TForm;
+begin
+ try
+  l_aForm := TForm(aCtx.rEngine.PopObjAs(TForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aForm: TForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(pop_form_ActiveMDIChild(aCtx, l_aForm));
+end;//TkwPopFormActiveMDIChild.DoDoIt
+
+class function TkwPopFormActiveMDIChild.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:form:ActiveMDIChild';
+end;//TkwPopFormActiveMDIChild.GetWordNameForRegister
+
+function TkwPopFormActiveMDIChild.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TForm);
+end;//TkwPopFormActiveMDIChild.GetResultTypeInfo
+
+function TkwPopFormActiveMDIChild.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwPopFormActiveMDIChild.GetAllParamsCount
+
+function TkwPopFormActiveMDIChild.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TForm)]);
+end;//TkwPopFormActiveMDIChild.ParamsTypes
+
+procedure TkwPopFormClose.pop_form_Close(const aCtx: TtfwContext;
+ aForm: TForm);
+ {* Реализация слова скрипта pop:form:Close }
+//#UC START# *2435574FF0DB_EF68563BBDE0_var*
+//#UC END# *2435574FF0DB_EF68563BBDE0_var*
+begin
+//#UC START# *2435574FF0DB_EF68563BBDE0_impl*
+ aForm.Close;
+//#UC END# *2435574FF0DB_EF68563BBDE0_impl*
+end;//TkwPopFormClose.pop_form_Close
+
+procedure TkwPopFormClose.DoDoIt(const aCtx: TtfwContext);
+var l_aForm: TForm;
+begin
+ try
+  l_aForm := TForm(aCtx.rEngine.PopObjAs(TForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aForm: TForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ pop_form_Close(aCtx, l_aForm);
+end;//TkwPopFormClose.DoDoIt
+
+class function TkwPopFormClose.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:form:Close';
+end;//TkwPopFormClose.GetWordNameForRegister
+
+function TkwPopFormClose.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwPopFormClose.GetResultTypeInfo
+
+function TkwPopFormClose.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwPopFormClose.GetAllParamsCount
+
+function TkwPopFormClose.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TForm)]);
+end;//TkwPopFormClose.ParamsTypes
+
+function TkwPopFormFindMenuItem.pop_form_FindMenuItem(const aCtx: TtfwContext;
+ aForm: TForm;
+ const aName: AnsiString): TMenuItem;
+ {* Реализация слова скрипта pop:form:FindMenuItem }
 //#UC START# *91740A9F6F65_CCC0609B3BF5_var*
 const
  cDelimiter = '/';
@@ -324,13 +469,11 @@ begin
  l_Item.RethinkLines;
  Result := l_Item;
 //#UC END# *91740A9F6F65_CCC0609B3BF5_impl*
-end;//TkwPopFormFindMenuItem.PopFormFindMenuItem
+end;//TkwPopFormFindMenuItem.pop_form_FindMenuItem
 
 procedure TkwPopFormFindMenuItem.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aForm : TForm;
- l_aName : AnsiString;
+var l_aForm: TForm;
+var l_aName: AnsiString;
 begin
  try
   l_aForm := TForm(aCtx.rEngine.PopObjAs(TForm));
@@ -350,76 +493,42 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj((PopFormFindMenuItem(aCtx, l_aForm, l_aName)));
+ aCtx.rEngine.PushObj(pop_form_FindMenuItem(aCtx, l_aForm, l_aName));
 end;//TkwPopFormFindMenuItem.DoDoIt
 
 class function TkwPopFormFindMenuItem.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:form:FindMenuItem';
 end;//TkwPopFormFindMenuItem.GetWordNameForRegister
 
 function TkwPopFormFindMenuItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(TMenuItem);
 end;//TkwPopFormFindMenuItem.GetResultTypeInfo
 
 function TkwPopFormFindMenuItem.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwPopFormFindMenuItem.GetAllParamsCount
 
 function TkwPopFormFindMenuItem.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(TForm), TypeInfo(AnsiString)]);
+ Result := OpenTypesToTypes([TypeInfo(TForm), @tfw_tiString]);
 end;//TkwPopFormFindMenuItem.ParamsTypes
 
-type
- TkwPopFormGetWindowState = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:form:GetWindowState
-*Тип результата:* TWindowState
-*Пример:*
-[code]
-TWindowState VAR l_TWindowState
- aForm pop:form:GetWindowState >>> l_TWindowState
-[code]  }
- private
- // private methods
-   function PopFormGetWindowState(const aCtx: TtfwContext;
-    aForm: TForm): TWindowState;
-     {* Реализация слова скрипта pop:form:GetWindowState }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopFormGetWindowState
-
-// start class TkwPopFormGetWindowState
-
-function TkwPopFormGetWindowState.PopFormGetWindowState(const aCtx: TtfwContext;
-  aForm: TForm): TWindowState;
+function TkwPopFormGetWindowState.pop_form_GetWindowState(const aCtx: TtfwContext;
+ aForm: TForm): TWindowState;
+ {* Реализация слова скрипта pop:form:GetWindowState }
 //#UC START# *1AF6E71E5FCF_DA5ACD40FDF6_var*
 //#UC END# *1AF6E71E5FCF_DA5ACD40FDF6_var*
 begin
 //#UC START# *1AF6E71E5FCF_DA5ACD40FDF6_impl*
  Result := aForm.WindowState;
 //#UC END# *1AF6E71E5FCF_DA5ACD40FDF6_impl*
-end;//TkwPopFormGetWindowState.PopFormGetWindowState
+end;//TkwPopFormGetWindowState.pop_form_GetWindowState
 
 procedure TkwPopFormGetWindowState.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aForm : TForm;
+var l_aForm: TForm;
 begin
  try
   l_aForm := TForm(aCtx.rEngine.PopObjAs(TForm));
@@ -430,79 +539,44 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt(Ord(PopFormGetWindowState(aCtx, l_aForm)));
+ aCtx.rEngine.PushInt(Ord(pop_form_GetWindowState(aCtx, l_aForm)));
 end;//TkwPopFormGetWindowState.DoDoIt
 
 class function TkwPopFormGetWindowState.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:form:GetWindowState';
 end;//TkwPopFormGetWindowState.GetWordNameForRegister
 
 function TkwPopFormGetWindowState.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(TWindowState);
 end;//TkwPopFormGetWindowState.GetResultTypeInfo
 
 function TkwPopFormGetWindowState.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopFormGetWindowState.GetAllParamsCount
 
 function TkwPopFormGetWindowState.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TForm)]);
 end;//TkwPopFormGetWindowState.ParamsTypes
 
-type
- TkwPopFormHasControl = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:form:HasControl
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aName aForm pop:form:HasControl >>> l_Boolean
-[code]  }
- private
- // private methods
-   function PopFormHasControl(const aCtx: TtfwContext;
-    aForm: TForm;
-    const aName: AnsiString): Boolean;
-     {* Реализация слова скрипта pop:form:HasControl }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopFormHasControl
-
-// start class TkwPopFormHasControl
-
-function TkwPopFormHasControl.PopFormHasControl(const aCtx: TtfwContext;
-  aForm: TForm;
-  const aName: AnsiString): Boolean;
+function TkwPopFormHasControl.pop_form_HasControl(const aCtx: TtfwContext;
+ aForm: TForm;
+ const aName: AnsiString): Boolean;
+ {* Реализация слова скрипта pop:form:HasControl }
 //#UC START# *1040311EDE6F_AF277B657685_var*
 //#UC END# *1040311EDE6F_AF277B657685_var*
 begin
 //#UC START# *1040311EDE6F_AF277B657685_impl*
  Result := (aForm.FindChildControl(aName) <> nil);
 //#UC END# *1040311EDE6F_AF277B657685_impl*
-end;//TkwPopFormHasControl.PopFormHasControl
+end;//TkwPopFormHasControl.pop_form_HasControl
 
 procedure TkwPopFormHasControl.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aForm : TForm;
- l_aName : AnsiString;
+var l_aForm: TForm;
+var l_aName: AnsiString;
 begin
  try
   l_aForm := TForm(aCtx.rEngine.PopObjAs(TForm));
@@ -522,76 +596,42 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool((PopFormHasControl(aCtx, l_aForm, l_aName)));
+ aCtx.rEngine.PushBool(pop_form_HasControl(aCtx, l_aForm, l_aName));
 end;//TkwPopFormHasControl.DoDoIt
 
 class function TkwPopFormHasControl.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:form:HasControl';
 end;//TkwPopFormHasControl.GetWordNameForRegister
 
 function TkwPopFormHasControl.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwPopFormHasControl.GetResultTypeInfo
 
 function TkwPopFormHasControl.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwPopFormHasControl.GetAllParamsCount
 
 function TkwPopFormHasControl.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(TForm), TypeInfo(AnsiString)]);
+ Result := OpenTypesToTypes([TypeInfo(TForm), @tfw_tiString]);
 end;//TkwPopFormHasControl.ParamsTypes
 
-type
- TkwPopFormMDIChildCount = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:form:MDIChildCount
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aForm pop:form:MDIChildCount >>> l_Integer
-[code]  }
- private
- // private methods
-   function PopFormMDIChildCount(const aCtx: TtfwContext;
-    aForm: TForm): Integer;
-     {* Реализация слова скрипта pop:form:MDIChildCount }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopFormMDIChildCount
-
-// start class TkwPopFormMDIChildCount
-
-function TkwPopFormMDIChildCount.PopFormMDIChildCount(const aCtx: TtfwContext;
-  aForm: TForm): Integer;
+function TkwPopFormMDIChildCount.pop_form_MDIChildCount(const aCtx: TtfwContext;
+ aForm: TForm): Integer;
+ {* Реализация слова скрипта pop:form:MDIChildCount }
 //#UC START# *12B749ECF277_2C52284D1B9B_var*
 //#UC END# *12B749ECF277_2C52284D1B9B_var*
 begin
 //#UC START# *12B749ECF277_2C52284D1B9B_impl*
  Result := aForm.MDIChildCount;
 //#UC END# *12B749ECF277_2C52284D1B9B_impl*
-end;//TkwPopFormMDIChildCount.PopFormMDIChildCount
+end;//TkwPopFormMDIChildCount.pop_form_MDIChildCount
 
 procedure TkwPopFormMDIChildCount.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aForm : TForm;
+var l_aForm: TForm;
 begin
  try
   l_aForm := TForm(aCtx.rEngine.PopObjAs(TForm));
@@ -602,79 +642,44 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt((PopFormMDIChildCount(aCtx, l_aForm)));
+ aCtx.rEngine.PushInt(pop_form_MDIChildCount(aCtx, l_aForm));
 end;//TkwPopFormMDIChildCount.DoDoIt
 
 class function TkwPopFormMDIChildCount.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:form:MDIChildCount';
 end;//TkwPopFormMDIChildCount.GetWordNameForRegister
 
 function TkwPopFormMDIChildCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwPopFormMDIChildCount.GetResultTypeInfo
 
 function TkwPopFormMDIChildCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopFormMDIChildCount.GetAllParamsCount
 
 function TkwPopFormMDIChildCount.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TForm)]);
 end;//TkwPopFormMDIChildCount.ParamsTypes
 
-type
- TkwPopFormMDIChildren = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:form:MDIChildren
-*Тип результата:* TForm
-*Пример:*
-[code]
-OBJECT VAR l_TForm
- anIndex aForm pop:form:MDIChildren >>> l_TForm
-[code]  }
- private
- // private methods
-   function PopFormMDIChildren(const aCtx: TtfwContext;
-    aForm: TForm;
-    anIndex: Integer): TForm;
-     {* Реализация слова скрипта pop:form:MDIChildren }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopFormMDIChildren
-
-// start class TkwPopFormMDIChildren
-
-function TkwPopFormMDIChildren.PopFormMDIChildren(const aCtx: TtfwContext;
-  aForm: TForm;
-  anIndex: Integer): TForm;
+function TkwPopFormMDIChildren.pop_form_MDIChildren(const aCtx: TtfwContext;
+ aForm: TForm;
+ anIndex: Integer): TForm;
+ {* Реализация слова скрипта pop:form:MDIChildren }
 //#UC START# *3639BFFF59A0_8D30B82D3D31_var*
 //#UC END# *3639BFFF59A0_8D30B82D3D31_var*
 begin
 //#UC START# *3639BFFF59A0_8D30B82D3D31_impl*
  Result := aForm.MDIChildren[anIndex];
 //#UC END# *3639BFFF59A0_8D30B82D3D31_impl*
-end;//TkwPopFormMDIChildren.PopFormMDIChildren
+end;//TkwPopFormMDIChildren.pop_form_MDIChildren
 
 procedure TkwPopFormMDIChildren.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aForm : TForm;
- l_anIndex : Integer;
+var l_aForm: TForm;
+var l_anIndex: Integer;
 begin
  try
   l_aForm := TForm(aCtx.rEngine.PopObjAs(TForm));
@@ -694,64 +699,32 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj((PopFormMDIChildren(aCtx, l_aForm, l_anIndex)));
+ aCtx.rEngine.PushObj(pop_form_MDIChildren(aCtx, l_aForm, l_anIndex));
 end;//TkwPopFormMDIChildren.DoDoIt
 
 class function TkwPopFormMDIChildren.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:form:MDIChildren';
 end;//TkwPopFormMDIChildren.GetWordNameForRegister
 
 function TkwPopFormMDIChildren.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(TForm);
 end;//TkwPopFormMDIChildren.GetResultTypeInfo
 
 function TkwPopFormMDIChildren.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwPopFormMDIChildren.GetAllParamsCount
 
 function TkwPopFormMDIChildren.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TForm), TypeInfo(Integer)]);
 end;//TkwPopFormMDIChildren.ParamsTypes
 
-type
- TkwPopFormModalResult = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:form:ModalResult
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aForm pop:form:ModalResult >>> l_Integer
-[code]  }
- private
- // private methods
-   function PopFormModalResult(const aCtx: TtfwContext;
-    aForm: TForm): Integer;
-     {* Реализация слова скрипта pop:form:ModalResult }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopFormModalResult
-
-// start class TkwPopFormModalResult
-
-function TkwPopFormModalResult.PopFormModalResult(const aCtx: TtfwContext;
-  aForm: TForm): Integer;
+function TkwPopFormModalResult.pop_form_ModalResult(const aCtx: TtfwContext;
+ aForm: TForm): Integer;
+ {* Реализация слова скрипта pop:form:ModalResult }
 //#UC START# *258A2F5BBDB1_320C0D058217_var*
 //#UC END# *258A2F5BBDB1_320C0D058217_var*
 begin
@@ -759,12 +732,10 @@ begin
  RunnerAssert(fsModal in aForm.FormState, 'Это не модальная форма!', aCtx);
  Result := aForm.ModalResult;
 //#UC END# *258A2F5BBDB1_320C0D058217_impl*
-end;//TkwPopFormModalResult.PopFormModalResult
+end;//TkwPopFormModalResult.pop_form_ModalResult
 
 procedure TkwPopFormModalResult.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aForm : TForm;
+var l_aForm: TForm;
 begin
  try
   l_aForm := TForm(aCtx.rEngine.PopObjAs(TForm));
@@ -775,74 +746,42 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt((PopFormModalResult(aCtx, l_aForm)));
+ aCtx.rEngine.PushInt(pop_form_ModalResult(aCtx, l_aForm));
 end;//TkwPopFormModalResult.DoDoIt
 
 class function TkwPopFormModalResult.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:form:ModalResult';
 end;//TkwPopFormModalResult.GetWordNameForRegister
 
 function TkwPopFormModalResult.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwPopFormModalResult.GetResultTypeInfo
 
 function TkwPopFormModalResult.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopFormModalResult.GetAllParamsCount
 
 function TkwPopFormModalResult.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TForm)]);
 end;//TkwPopFormModalResult.ParamsTypes
 
-type
- TkwPopFormNext = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:form:Next
-*Пример:*
-[code]
- aForm pop:form:Next
-[code]  }
- private
- // private methods
-   procedure PopFormNext(const aCtx: TtfwContext;
-    aForm: TForm);
-     {* Реализация слова скрипта pop:form:Next }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopFormNext
-
-// start class TkwPopFormNext
-
-procedure TkwPopFormNext.PopFormNext(const aCtx: TtfwContext;
-  aForm: TForm);
+procedure TkwPopFormNext.pop_form_Next(const aCtx: TtfwContext;
+ aForm: TForm);
+ {* Реализация слова скрипта pop:form:Next }
 //#UC START# *BE561C1EA571_12E2A5A1963A_var*
 //#UC END# *BE561C1EA571_12E2A5A1963A_var*
 begin
 //#UC START# *BE561C1EA571_12E2A5A1963A_impl*
  aForm.Next;
 //#UC END# *BE561C1EA571_12E2A5A1963A_impl*
-end;//TkwPopFormNext.PopFormNext
+end;//TkwPopFormNext.pop_form_Next
 
 procedure TkwPopFormNext.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aForm : TForm;
+var l_aForm: TForm;
 begin
  try
   l_aForm := TForm(aCtx.rEngine.PopObjAs(TForm));
@@ -853,77 +792,44 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- PopFormNext(aCtx, l_aForm);
+ pop_form_Next(aCtx, l_aForm);
 end;//TkwPopFormNext.DoDoIt
 
 class function TkwPopFormNext.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:form:Next';
 end;//TkwPopFormNext.GetWordNameForRegister
 
 function TkwPopFormNext.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwPopFormNext.GetResultTypeInfo
 
 function TkwPopFormNext.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopFormNext.GetAllParamsCount
 
 function TkwPopFormNext.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TForm)]);
 end;//TkwPopFormNext.ParamsTypes
 
-type
- TkwPopFormSetWindowState = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:form:SetWindowState
-*Пример:*
-[code]
- aValue aForm pop:form:SetWindowState
-[code]  }
- private
- // private methods
-   procedure PopFormSetWindowState(const aCtx: TtfwContext;
-    aForm: TForm;
-    aValue: TWindowState);
-     {* Реализация слова скрипта pop:form:SetWindowState }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopFormSetWindowState
-
-// start class TkwPopFormSetWindowState
-
-procedure TkwPopFormSetWindowState.PopFormSetWindowState(const aCtx: TtfwContext;
-  aForm: TForm;
-  aValue: TWindowState);
+procedure TkwPopFormSetWindowState.pop_form_SetWindowState(const aCtx: TtfwContext;
+ aForm: TForm;
+ aValue: TWindowState);
+ {* Реализация слова скрипта pop:form:SetWindowState }
 //#UC START# *84606C12BBFD_062C119864B2_var*
 //#UC END# *84606C12BBFD_062C119864B2_var*
 begin
 //#UC START# *84606C12BBFD_062C119864B2_impl*
  aForm.WindowState := aValue;
 //#UC END# *84606C12BBFD_062C119864B2_impl*
-end;//TkwPopFormSetWindowState.PopFormSetWindowState
+end;//TkwPopFormSetWindowState.pop_form_SetWindowState
 
 procedure TkwPopFormSetWindowState.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aForm : TForm;
- l_aValue : TWindowState;
+var l_aForm: TForm;
+var l_aValue: TWindowState;
 begin
  try
   l_aForm := TForm(aCtx.rEngine.PopObjAs(TForm));
@@ -943,66 +849,33 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- PopFormSetWindowState(aCtx, l_aForm, l_aValue);
+ pop_form_SetWindowState(aCtx, l_aForm, l_aValue);
 end;//TkwPopFormSetWindowState.DoDoIt
 
 class function TkwPopFormSetWindowState.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:form:SetWindowState';
 end;//TkwPopFormSetWindowState.GetWordNameForRegister
 
 function TkwPopFormSetWindowState.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwPopFormSetWindowState.GetResultTypeInfo
 
 function TkwPopFormSetWindowState.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwPopFormSetWindowState.GetAllParamsCount
 
 function TkwPopFormSetWindowState.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TForm), TypeInfo(TWindowState)]);
 end;//TkwPopFormSetWindowState.ParamsTypes
 
-type
- TkwPopFormFindActionList = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:form:FindActionList
-*Тип результата:* TActionList
-*Пример:*
-[code]
-OBJECT VAR l_TActionList
- aListName aForm pop:form:FindActionList >>> l_TActionList
-[code]  }
- private
- // private methods
-   function PopFormFindActionList(const aCtx: TtfwContext;
-    aForm: TForm;
-    const aListName: AnsiString): TActionList;
-     {* Реализация слова скрипта pop:form:FindActionList }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopFormFindActionList
-
-// start class TkwPopFormFindActionList
-
-function TkwPopFormFindActionList.PopFormFindActionList(const aCtx: TtfwContext;
-  aForm: TForm;
-  const aListName: AnsiString): TActionList;
+function TkwPopFormFindActionList.pop_form_FindActionList(const aCtx: TtfwContext;
+ aForm: TForm;
+ const aListName: AnsiString): TActionList;
+ {* Реализация слова скрипта pop:form:FindActionList }
 //#UC START# *2D6AE1A8E910_76B7945239DF_var*
 var
  l_Component : TComponent;
@@ -1029,13 +902,11 @@ begin
  end; // if l_Component = nil then
  Result := l_Component As TActionList;
 //#UC END# *2D6AE1A8E910_76B7945239DF_impl*
-end;//TkwPopFormFindActionList.PopFormFindActionList
+end;//TkwPopFormFindActionList.pop_form_FindActionList
 
 procedure TkwPopFormFindActionList.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aForm : TForm;
- l_aListName : AnsiString;
+var l_aForm: TForm;
+var l_aListName: AnsiString;
 begin
  try
   l_aForm := TForm(aCtx.rEngine.PopObjAs(TForm));
@@ -1055,62 +926,32 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj((PopFormFindActionList(aCtx, l_aForm, l_aListName)));
+ aCtx.rEngine.PushObj(pop_form_FindActionList(aCtx, l_aForm, l_aListName));
 end;//TkwPopFormFindActionList.DoDoIt
 
 class function TkwPopFormFindActionList.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:form:FindActionList';
 end;//TkwPopFormFindActionList.GetWordNameForRegister
 
 function TkwPopFormFindActionList.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(TActionList);
 end;//TkwPopFormFindActionList.GetResultTypeInfo
 
 function TkwPopFormFindActionList.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwPopFormFindActionList.GetAllParamsCount
 
 function TkwPopFormFindActionList.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(TForm), TypeInfo(AnsiString)]);
+ Result := OpenTypesToTypes([TypeInfo(TForm), @tfw_tiString]);
 end;//TkwPopFormFindActionList.ParamsTypes
 
-type
- TkwIterateForms = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта IterateForms
-*Пример:*
-[code]
- aLambda IterateForms
-[code]  }
- private
- // private methods
-   procedure IterateForms(const aCtx: TtfwContext;
-    aLambda: TtfwWord);
-     {* Реализация слова скрипта IterateForms }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwIterateForms
-
-// start class TkwIterateForms
-
 procedure TkwIterateForms.IterateForms(const aCtx: TtfwContext;
-  aLambda: TtfwWord);
+ aLambda: TtfwWord);
+ {* Реализация слова скрипта IterateForms }
 //#UC START# *B1D8BF8B68F8_DBFEA799BB20_var*
 var
  l_Obj: TObject;
@@ -1139,9 +980,7 @@ begin
 end;//TkwIterateForms.IterateForms
 
 procedure TkwIterateForms.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aLambda : TtfwWord;
+var l_aLambda: TtfwWord;
 begin
  try
   l_aLambda := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
@@ -1156,118 +995,70 @@ begin
 end;//TkwIterateForms.DoDoIt
 
 class function TkwIterateForms.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'IterateForms';
 end;//TkwIterateForms.GetWordNameForRegister
 
 function TkwIterateForms.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwIterateForms.GetResultTypeInfo
 
 function TkwIterateForms.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 1;
 end;//TkwIterateForms.GetAllParamsCount
 
 function TkwIterateForms.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwWord)]);
 end;//TkwIterateForms.ParamsTypes
-{$IfEnd} //not NoScripts AND not NoVCL
 
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация скриптованой аксиоматики
  TFormsProcessingPackResNameGetter.Register;
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация pop_form_ActiveMDIChild
+ {* Регистрация скриптованой аксиоматики }
  TkwPopFormActiveMDIChild.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация pop_form_Close
+ {* Регистрация pop_form_ActiveMDIChild }
  TkwPopFormClose.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация pop_form_FindMenuItem
+ {* Регистрация pop_form_Close }
  TkwPopFormFindMenuItem.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация pop_form_GetWindowState
+ {* Регистрация pop_form_FindMenuItem }
  TkwPopFormGetWindowState.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация pop_form_HasControl
+ {* Регистрация pop_form_GetWindowState }
  TkwPopFormHasControl.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация pop_form_MDIChildCount
+ {* Регистрация pop_form_HasControl }
  TkwPopFormMDIChildCount.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация pop_form_MDIChildren
+ {* Регистрация pop_form_MDIChildCount }
  TkwPopFormMDIChildren.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация pop_form_ModalResult
+ {* Регистрация pop_form_MDIChildren }
  TkwPopFormModalResult.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация pop_form_Next
+ {* Регистрация pop_form_ModalResult }
  TkwPopFormNext.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация pop_form_SetWindowState
+ {* Регистрация pop_form_Next }
  TkwPopFormSetWindowState.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация pop_form_FindActionList
+ {* Регистрация pop_form_SetWindowState }
  TkwPopFormFindActionList.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация IterateForms
+ {* Регистрация pop_form_FindActionList }
  TkwIterateForms.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация типа TtfwContext
+ {* Регистрация IterateForms }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация типа TForm
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TForm));
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация типа String
- TtfwTypeRegistrator.RegisterType(TypeInfo(AnsiString));
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация типа TMenuItem
+ {* Регистрация типа TForm }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiString);
+ {* Регистрация типа String }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TMenuItem));
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация типа TWindowState
+ {* Регистрация типа TMenuItem }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TWindowState));
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация типа Boolean
+ {* Регистрация типа TWindowState }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация типа Integer
+ {* Регистрация типа Boolean }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация типа TActionList
+ {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TActionList));
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация типа TtfwWord
+ {* Регистрация типа TActionList }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwWord));
-{$IfEnd} //not NoScripts AND not NoVCL
+ {* Регистрация типа TtfwWord }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

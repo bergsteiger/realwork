@@ -19,11 +19,11 @@ implementation
 uses
  l3ImplUses
  , nscStatusBar
+ , tfwAxiomaticsResNameGetter
+ , tfwClassLike
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
- , tfwAxiomaticsResNameGetter
- , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo
  , tfwScriptingTypes

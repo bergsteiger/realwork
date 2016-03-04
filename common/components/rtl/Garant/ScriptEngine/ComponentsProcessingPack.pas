@@ -1,40 +1,36 @@
 unit ComponentsProcessingPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$RTLandVCL"
-// Модуль: "ComponentsProcessingPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi Low Level::ScriptEngine$RTLandVCL::ComponentsProcessing::ComponentsProcessingPack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ComponentsProcessingPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Classes,
-  tfwScriptingInterfaces,
-  tfwClassLike,
-  tfwPropertyLike
-  ;
-
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , Classes
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
+ , tfwPropertyLike
+ , tfwTypeInfo
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
- TkwPopComponentGetComponent = {final scriptword} class(TtfwClassLike)
+ TkwPopComponentGetComponent = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Component:GetComponent
 *Тип результата:* TComponent
 *Пример:*
@@ -42,30 +38,115 @@ type
 OBJECT VAR l_TComponent
  anIndex aComponent pop:Component:GetComponent >>> l_TComponent
 [code]  }
- private
- // private methods
+  private
    function GetComponent(const aCtx: TtfwContext;
     aComponent: TComponent;
     anIndex: Integer): TComponent;
-     {* Реализация слова скрипта pop:Component:GetComponent }
- protected
- // realized methods
+    {* Реализация слова скрипта pop:Component:GetComponent }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopComponentGetComponent
 
-// start class TkwPopComponentGetComponent
+ TkwPopComponentFindComponent = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:Component:FindComponent
+*Тип результата:* TComponent
+*Пример:*
+[code]
+OBJECT VAR l_TComponent
+ aName aComponent pop:Component:FindComponent >>> l_TComponent
+[code]  }
+  private
+   function FindComponent(const aCtx: TtfwContext;
+    aComponent: TComponent;
+    const aName: AnsiString): TComponent;
+    {* Реализация слова скрипта pop:Component:FindComponent }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopComponentFindComponent
+
+ TkwPopComponentComponentCount = {final} class(TtfwPropertyLike)
+  {* Слово скрипта pop:Component:ComponentCount
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ aComponent pop:Component:ComponentCount >>> l_Integer
+[code]  }
+  private
+   function ComponentCount(const aCtx: TtfwContext;
+    aComponent: TComponent): Integer;
+    {* Реализация слова скрипта pop:Component:ComponentCount }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopComponentComponentCount
+
+ TkwPopComponentOwner = {final} class(TtfwPropertyLike)
+  {* Слово скрипта pop:Component:Owner
+*Тип результата:* TComponent
+*Пример:*
+[code]
+OBJECT VAR l_TComponent
+ aComponent pop:Component:Owner >>> l_TComponent
+[code]  }
+  private
+   function Owner(const aCtx: TtfwContext;
+    aComponent: TComponent): TComponent;
+    {* Реализация слова скрипта pop:Component:Owner }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopComponentOwner
+
+ TkwPopComponentName = {final} class(TtfwPropertyLike)
+  {* Слово скрипта pop:Component:Name
+*Тип результата:* String
+*Пример:*
+[code]
+STRING VAR l_String
+ aComponent pop:Component:Name >>> l_String
+[code]  }
+  private
+   function Name(const aCtx: TtfwContext;
+    aComponent: TComponent): AnsiString;
+    {* Реализация слова скрипта pop:Component:Name }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopComponentName
 
 function TkwPopComponentGetComponent.GetComponent(const aCtx: TtfwContext;
-  aComponent: TComponent;
-  anIndex: Integer): TComponent;
+ aComponent: TComponent;
+ anIndex: Integer): TComponent;
+ {* Реализация слова скрипта pop:Component:GetComponent }
 //#UC START# *2E270C931823_D0FE9D22441B_var*
 //#UC END# *2E270C931823_D0FE9D22441B_var*
 begin
@@ -75,10 +156,8 @@ begin
 end;//TkwPopComponentGetComponent.GetComponent
 
 procedure TkwPopComponentGetComponent.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aComponent : TComponent;
- l_anIndex : Integer;
+var l_aComponent: TComponent;
+var l_anIndex: Integer;
 begin
  try
   l_aComponent := TComponent(aCtx.rEngine.PopObjAs(TComponent));
@@ -98,76 +177,40 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj((GetComponent(aCtx, l_aComponent, l_anIndex)));
+ aCtx.rEngine.PushObj(GetComponent(aCtx, l_aComponent, l_anIndex));
 end;//TkwPopComponentGetComponent.DoDoIt
 
 class function TkwPopComponentGetComponent.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:Component:GetComponent';
 end;//TkwPopComponentGetComponent.GetWordNameForRegister
 
 function TkwPopComponentGetComponent.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(TComponent);
 end;//TkwPopComponentGetComponent.GetResultTypeInfo
 
 function TkwPopComponentGetComponent.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwPopComponentGetComponent.GetAllParamsCount
 
 function TkwPopComponentGetComponent.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TComponent), TypeInfo(Integer)]);
 end;//TkwPopComponentGetComponent.ParamsTypes
 
-type
- TkwPopComponentFindComponent = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:Component:FindComponent
-*Тип результата:* TComponent
-*Пример:*
-[code]
-OBJECT VAR l_TComponent
- aName aComponent pop:Component:FindComponent >>> l_TComponent
-[code]  }
- private
- // private methods
-   function FindComponent(const aCtx: TtfwContext;
-    aComponent: TComponent;
-    const aName: AnsiString): TComponent;
-     {* Реализация слова скрипта pop:Component:FindComponent }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopComponentFindComponent
-
-// start class TkwPopComponentFindComponent
-
 function TkwPopComponentFindComponent.FindComponent(const aCtx: TtfwContext;
-  aComponent: TComponent;
-  const aName: AnsiString): TComponent;
- {-}
+ aComponent: TComponent;
+ const aName: AnsiString): TComponent;
+ {* Реализация слова скрипта pop:Component:FindComponent }
 begin
  Result := aComponent.FindComponent(aName);
 end;//TkwPopComponentFindComponent.FindComponent
 
 procedure TkwPopComponentFindComponent.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aComponent : TComponent;
- l_aName : AnsiString;
+var l_aComponent: TComponent;
+var l_aName: AnsiString;
 begin
  try
   l_aComponent := TComponent(aCtx.rEngine.PopObjAs(TComponent));
@@ -187,75 +230,38 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj((FindComponent(aCtx, l_aComponent, l_aName)));
+ aCtx.rEngine.PushObj(FindComponent(aCtx, l_aComponent, l_aName));
 end;//TkwPopComponentFindComponent.DoDoIt
 
 class function TkwPopComponentFindComponent.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:Component:FindComponent';
 end;//TkwPopComponentFindComponent.GetWordNameForRegister
 
 function TkwPopComponentFindComponent.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(TComponent);
 end;//TkwPopComponentFindComponent.GetResultTypeInfo
 
 function TkwPopComponentFindComponent.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwPopComponentFindComponent.GetAllParamsCount
 
 function TkwPopComponentFindComponent.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(TComponent), TypeInfo(AnsiString)]);
+ Result := OpenTypesToTypes([TypeInfo(TComponent), @tfw_tiString]);
 end;//TkwPopComponentFindComponent.ParamsTypes
 
-type
- TkwPopComponentComponentCount = {final scriptword} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Component:ComponentCount
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aComponent pop:Component:ComponentCount >>> l_Integer
-[code]  }
- private
- // private methods
-   function ComponentCount(const aCtx: TtfwContext;
-    aComponent: TComponent): Integer;
-     {* Реализация слова скрипта pop:Component:ComponentCount }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-     const aCtx: TtfwContext); override;
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopComponentComponentCount
-
-// start class TkwPopComponentComponentCount
-
 function TkwPopComponentComponentCount.ComponentCount(const aCtx: TtfwContext;
-  aComponent: TComponent): Integer;
- {-}
+ aComponent: TComponent): Integer;
+ {* Реализация слова скрипта pop:Component:ComponentCount }
 begin
  Result := aComponent.ComponentCount;
 end;//TkwPopComponentComponentCount.ComponentCount
 
 procedure TkwPopComponentComponentCount.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aComponent : TComponent;
+var l_aComponent: TComponent;
 begin
  try
   l_aComponent := TComponent(aCtx.rEngine.PopObjAs(TComponent));
@@ -266,82 +272,44 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt((ComponentCount(aCtx, l_aComponent)));
+ aCtx.rEngine.PushInt(ComponentCount(aCtx, l_aComponent));
 end;//TkwPopComponentComponentCount.DoDoIt
 
 class function TkwPopComponentComponentCount.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:Component:ComponentCount';
 end;//TkwPopComponentComponentCount.GetWordNameForRegister
 
 procedure TkwPopComponentComponentCount.SetValuePrim(const aValue: TtfwStackValue;
-  const aCtx: TtfwContext);
- {-}
+ const aCtx: TtfwContext);
 begin
  RunnerError('Нельзя присваивать значение readonly свойству ComponentCount', aCtx);
 end;//TkwPopComponentComponentCount.SetValuePrim
 
 function TkwPopComponentComponentCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwPopComponentComponentCount.GetResultTypeInfo
 
 function TkwPopComponentComponentCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopComponentComponentCount.GetAllParamsCount
 
 function TkwPopComponentComponentCount.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TComponent)]);
 end;//TkwPopComponentComponentCount.ParamsTypes
 
-type
- TkwPopComponentOwner = {final scriptword} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Component:Owner
-*Тип результата:* TComponent
-*Пример:*
-[code]
-OBJECT VAR l_TComponent
- aComponent pop:Component:Owner >>> l_TComponent
-[code]  }
- private
- // private methods
-   function Owner(const aCtx: TtfwContext;
-    aComponent: TComponent): TComponent;
-     {* Реализация слова скрипта pop:Component:Owner }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-     const aCtx: TtfwContext); override;
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopComponentOwner
-
-// start class TkwPopComponentOwner
-
 function TkwPopComponentOwner.Owner(const aCtx: TtfwContext;
-  aComponent: TComponent): TComponent;
- {-}
+ aComponent: TComponent): TComponent;
+ {* Реализация слова скрипта pop:Component:Owner }
 begin
  Result := aComponent.Owner;
 end;//TkwPopComponentOwner.Owner
 
 procedure TkwPopComponentOwner.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aComponent : TComponent;
+var l_aComponent: TComponent;
 begin
  try
   l_aComponent := TComponent(aCtx.rEngine.PopObjAs(TComponent));
@@ -352,82 +320,44 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj((Owner(aCtx, l_aComponent)));
+ aCtx.rEngine.PushObj(Owner(aCtx, l_aComponent));
 end;//TkwPopComponentOwner.DoDoIt
 
 class function TkwPopComponentOwner.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:Component:Owner';
 end;//TkwPopComponentOwner.GetWordNameForRegister
 
 procedure TkwPopComponentOwner.SetValuePrim(const aValue: TtfwStackValue;
-  const aCtx: TtfwContext);
- {-}
+ const aCtx: TtfwContext);
 begin
  RunnerError('Нельзя присваивать значение readonly свойству Owner', aCtx);
 end;//TkwPopComponentOwner.SetValuePrim
 
 function TkwPopComponentOwner.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(TComponent);
 end;//TkwPopComponentOwner.GetResultTypeInfo
 
 function TkwPopComponentOwner.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopComponentOwner.GetAllParamsCount
 
 function TkwPopComponentOwner.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TComponent)]);
 end;//TkwPopComponentOwner.ParamsTypes
 
-type
- TkwPopComponentName = {final scriptword} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Component:Name
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- aComponent pop:Component:Name >>> l_String
-[code]  }
- private
- // private methods
-   function Name(const aCtx: TtfwContext;
-    aComponent: TComponent): AnsiString;
-     {* Реализация слова скрипта pop:Component:Name }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-     const aCtx: TtfwContext); override;
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopComponentName
-
-// start class TkwPopComponentName
-
 function TkwPopComponentName.Name(const aCtx: TtfwContext;
-  aComponent: TComponent): AnsiString;
- {-}
+ aComponent: TComponent): AnsiString;
+ {* Реализация слова скрипта pop:Component:Name }
 begin
  Result := aComponent.Name;
 end;//TkwPopComponentName.Name
 
 procedure TkwPopComponentName.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aComponent : TComponent;
+var l_aComponent: TComponent;
 begin
  try
   l_aComponent := TComponent(aCtx.rEngine.PopObjAs(TComponent));
@@ -438,77 +368,54 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString((Name(aCtx, l_aComponent)));
+ aCtx.rEngine.PushString(Name(aCtx, l_aComponent));
 end;//TkwPopComponentName.DoDoIt
 
 class function TkwPopComponentName.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:Component:Name';
 end;//TkwPopComponentName.GetWordNameForRegister
 
 procedure TkwPopComponentName.SetValuePrim(const aValue: TtfwStackValue;
-  const aCtx: TtfwContext);
- {-}
+ const aCtx: TtfwContext);
 begin
  RunnerError('Нельзя присваивать значение readonly свойству Name', aCtx);
 end;//TkwPopComponentName.SetValuePrim
 
 function TkwPopComponentName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
- Result := TypeInfo(AnsiString);
+ Result := @tfw_tiString;
 end;//TkwPopComponentName.GetResultTypeInfo
 
 function TkwPopComponentName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopComponentName.GetAllParamsCount
 
 function TkwPopComponentName.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TComponent)]);
 end;//TkwPopComponentName.ParamsTypes
-{$IfEnd} //not NoScripts
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_Component_GetComponent
  TkwPopComponentGetComponent.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_Component_FindComponent
+ {* Регистрация pop_Component_GetComponent }
  TkwPopComponentFindComponent.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_Component_ComponentCount
+ {* Регистрация pop_Component_FindComponent }
  TkwPopComponentComponentCount.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_Component_Owner
+ {* Регистрация pop_Component_ComponentCount }
  TkwPopComponentOwner.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_Component_Name
+ {* Регистрация pop_Component_Owner }
  TkwPopComponentName.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TtfwContext
+ {* Регистрация pop_Component_Name }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TComponent
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TComponent));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Integer
+ {* Регистрация типа TComponent }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа String
- TtfwTypeRegistrator.RegisterType(TypeInfo(AnsiString));
-{$IfEnd} //not NoScripts
+ {* Регистрация типа Integer }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiString);
+ {* Регистрация типа String }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

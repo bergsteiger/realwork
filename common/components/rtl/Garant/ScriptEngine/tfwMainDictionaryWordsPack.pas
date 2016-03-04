@@ -19,8 +19,8 @@ implementation
 uses
  l3ImplUses
  , tfwMainDictionary
- , tfwScriptingInterfaces
  , tfwClassLike
+ , tfwScriptingInterfaces
  , TypInfo
  , tfwScriptingTypes
  , tfwTypeRegistrator

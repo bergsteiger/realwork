@@ -11,6 +11,11 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
+ , vtPanel
+ , vtLabel
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -20,11 +25,6 @@ implementation
 uses
  l3ImplUses
  , BaseSearchContainer_Form
- , vtPanel
- , vtLabel
- {$If NOT Defined(NoVCL)}
- , ExtCtrls
- {$IfEnd} // NOT Defined(NoVCL)
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

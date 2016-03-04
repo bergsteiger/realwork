@@ -10,6 +10,7 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
+ , tfwScriptingInterfaces
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -19,7 +20,6 @@ implementation
 uses
  l3ImplUses
  , WordsRTTIPack
- , tfwScriptingInterfaces
  , tfwClassLike
  , TypInfo
  , tfwScriptingTypes

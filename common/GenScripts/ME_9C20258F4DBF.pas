@@ -11,6 +11,10 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
+ , vtPanel
+ , vtLabel
+ , vtDblClickDateEdit
+ , vtRadioButton
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -20,10 +24,6 @@ implementation
 uses
  l3ImplUses
  , DefineSearchDate_Form
- , vtPanel
- , vtLabel
- , vtDblClickDateEdit
- , vtRadioButton
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

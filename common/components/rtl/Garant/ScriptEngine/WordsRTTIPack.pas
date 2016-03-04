@@ -10,6 +10,7 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
+ , l3Interfaces
  , tfwScriptingInterfaces
  , l3CProtoObject
 ;
@@ -40,11 +41,10 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , l3Interfaces
- , tfwDictionary
  , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , TypInfo
+ , tfwDictionary
  , tfwPropertyLike
  , tfwTypeInfo
  , seWordsInfo

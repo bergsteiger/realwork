@@ -1,41 +1,37 @@
 unit ScrollingWinControlWordsPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$RTLandVCL"
-// Модуль: "ScrollingWinControlWordsPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi Low Level::ScriptEngine$RTLandVCL::ExtControlsProcessing::ScrollingWinControlWordsPack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ScrollingWinControlWordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
-  Controls,
-  Forms,
-  tfwScriptingInterfaces,
-  tfwPropertyLike
-  ;
-
-{$IfEnd} //not NoScripts AND not NoVCL
+ l3IntfUses
+;
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
-  Windows,
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , Controls
+ , Forms
+ , tfwPropertyLike
+ , tfwScriptingInterfaces
+ , tfwTypeInfo
+ , TypInfo
+ , Windows
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
- TkwPopControlVScrollerVisible = {final scriptword} class(TtfwPropertyLike)
+ TkwPopControlVScrollerVisible = {final} class(TtfwPropertyLike)
   {* Слово скрипта pop:Control:VScrollerVisible
 *Тип результата:* Boolean
 *Пример:*
@@ -43,30 +39,93 @@ type
 BOOLEAN VAR l_Boolean
  aControl pop:Control:VScrollerVisible >>> l_Boolean
 [code]  }
- private
- // private methods
+  private
    function VScrollerVisible(const aCtx: TtfwContext;
     aControl: TWinControl): Boolean;
-     {* Реализация слова скрипта pop:Control:VScrollerVisible }
- protected
- // realized methods
+    {* Реализация слова скрипта pop:Control:VScrollerVisible }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    procedure SetValuePrim(const aValue: TtfwStackValue;
-     const aCtx: TtfwContext); override;
+    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopControlVScrollerVisible
 
-// start class TkwPopControlVScrollerVisible
+ TkwPopControlHScrollerVisible = {final} class(TtfwPropertyLike)
+  {* Слово скрипта pop:Control:HScrollerVisible
+*Тип результата:* Boolean
+*Пример:*
+[code]
+BOOLEAN VAR l_Boolean
+ aControl pop:Control:HScrollerVisible >>> l_Boolean
+[code]  }
+  private
+   function HScrollerVisible(const aCtx: TtfwContext;
+    aControl: TWinControl): Boolean;
+    {* Реализация слова скрипта pop:Control:HScrollerVisible }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopControlHScrollerVisible
+
+ TkwPopScrollingWinControlVScrollerVisible = {final} class(TtfwPropertyLike)
+  {* Слово скрипта pop:ScrollingWinControl:VScrollerVisible
+*Тип результата:* Boolean
+*Пример:*
+[code]
+BOOLEAN VAR l_Boolean
+ aScrollingWinControl pop:ScrollingWinControl:VScrollerVisible >>> l_Boolean
+[code]  }
+  private
+   function VScrollerVisible(const aCtx: TtfwContext;
+    aScrollingWinControl: TScrollingWinControl): Boolean;
+    {* Реализация слова скрипта pop:ScrollingWinControl:VScrollerVisible }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopScrollingWinControlVScrollerVisible
+
+ TkwPopScrollingWinControlHScrollerVisible = {final} class(TtfwPropertyLike)
+  {* Слово скрипта pop:ScrollingWinControl:HScrollerVisible
+*Тип результата:* Boolean
+*Пример:*
+[code]
+BOOLEAN VAR l_Boolean
+ aScrollingWinControl pop:ScrollingWinControl:HScrollerVisible >>> l_Boolean
+[code]  }
+  private
+   function HScrollerVisible(const aCtx: TtfwContext;
+    aScrollingWinControl: TScrollingWinControl): Boolean;
+    {* Реализация слова скрипта pop:ScrollingWinControl:HScrollerVisible }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopScrollingWinControlHScrollerVisible
 
 function TkwPopControlVScrollerVisible.VScrollerVisible(const aCtx: TtfwContext;
-  aControl: TWinControl): Boolean;
+ aControl: TWinControl): Boolean;
+ {* Реализация слова скрипта pop:Control:VScrollerVisible }
 //#UC START# *9B30ABE39DA1_D64D3C18264A_var*
 var
  l_PageMax: Integer;
@@ -104,9 +163,7 @@ begin
 end;//TkwPopControlVScrollerVisible.VScrollerVisible
 
 procedure TkwPopControlVScrollerVisible.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aControl : TWinControl;
+var l_aControl: TWinControl;
 begin
  try
   l_aControl := TWinControl(aCtx.rEngine.PopObjAs(TWinControl));
@@ -117,73 +174,38 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool((VScrollerVisible(aCtx, l_aControl)));
+ aCtx.rEngine.PushBool(VScrollerVisible(aCtx, l_aControl));
 end;//TkwPopControlVScrollerVisible.DoDoIt
 
 class function TkwPopControlVScrollerVisible.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:Control:VScrollerVisible';
 end;//TkwPopControlVScrollerVisible.GetWordNameForRegister
 
 procedure TkwPopControlVScrollerVisible.SetValuePrim(const aValue: TtfwStackValue;
-  const aCtx: TtfwContext);
- {-}
+ const aCtx: TtfwContext);
 begin
  RunnerError('Нельзя присваивать значение readonly свойству VScrollerVisible', aCtx);
 end;//TkwPopControlVScrollerVisible.SetValuePrim
 
 function TkwPopControlVScrollerVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwPopControlVScrollerVisible.GetResultTypeInfo
 
 function TkwPopControlVScrollerVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopControlVScrollerVisible.GetAllParamsCount
 
 function TkwPopControlVScrollerVisible.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TWinControl)]);
 end;//TkwPopControlVScrollerVisible.ParamsTypes
 
-type
- TkwPopControlHScrollerVisible = {final scriptword} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Control:HScrollerVisible
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aControl pop:Control:HScrollerVisible >>> l_Boolean
-[code]  }
- private
- // private methods
-   function HScrollerVisible(const aCtx: TtfwContext;
-    aControl: TWinControl): Boolean;
-     {* Реализация слова скрипта pop:Control:HScrollerVisible }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-     const aCtx: TtfwContext); override;
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopControlHScrollerVisible
-
-// start class TkwPopControlHScrollerVisible
-
 function TkwPopControlHScrollerVisible.HScrollerVisible(const aCtx: TtfwContext;
-  aControl: TWinControl): Boolean;
+ aControl: TWinControl): Boolean;
+ {* Реализация слова скрипта pop:Control:HScrollerVisible }
 //#UC START# *770305E8A083_F808620CE3AB_var*
 var
  l_PageMax: Integer;
@@ -221,9 +243,7 @@ begin
 end;//TkwPopControlHScrollerVisible.HScrollerVisible
 
 procedure TkwPopControlHScrollerVisible.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aControl : TWinControl;
+var l_aControl: TWinControl;
 begin
  try
   l_aControl := TWinControl(aCtx.rEngine.PopObjAs(TWinControl));
@@ -234,73 +254,38 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool((HScrollerVisible(aCtx, l_aControl)));
+ aCtx.rEngine.PushBool(HScrollerVisible(aCtx, l_aControl));
 end;//TkwPopControlHScrollerVisible.DoDoIt
 
 class function TkwPopControlHScrollerVisible.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:Control:HScrollerVisible';
 end;//TkwPopControlHScrollerVisible.GetWordNameForRegister
 
 procedure TkwPopControlHScrollerVisible.SetValuePrim(const aValue: TtfwStackValue;
-  const aCtx: TtfwContext);
- {-}
+ const aCtx: TtfwContext);
 begin
  RunnerError('Нельзя присваивать значение readonly свойству HScrollerVisible', aCtx);
 end;//TkwPopControlHScrollerVisible.SetValuePrim
 
 function TkwPopControlHScrollerVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwPopControlHScrollerVisible.GetResultTypeInfo
 
 function TkwPopControlHScrollerVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopControlHScrollerVisible.GetAllParamsCount
 
 function TkwPopControlHScrollerVisible.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TWinControl)]);
 end;//TkwPopControlHScrollerVisible.ParamsTypes
 
-type
- TkwPopScrollingWinControlVScrollerVisible = {final scriptword} class(TtfwPropertyLike)
-  {* Слово скрипта pop:ScrollingWinControl:VScrollerVisible
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aScrollingWinControl pop:ScrollingWinControl:VScrollerVisible >>> l_Boolean
-[code]  }
- private
- // private methods
-   function VScrollerVisible(const aCtx: TtfwContext;
-    aScrollingWinControl: TScrollingWinControl): Boolean;
-     {* Реализация слова скрипта pop:ScrollingWinControl:VScrollerVisible }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-     const aCtx: TtfwContext); override;
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopScrollingWinControlVScrollerVisible
-
-// start class TkwPopScrollingWinControlVScrollerVisible
-
 function TkwPopScrollingWinControlVScrollerVisible.VScrollerVisible(const aCtx: TtfwContext;
-  aScrollingWinControl: TScrollingWinControl): Boolean;
+ aScrollingWinControl: TScrollingWinControl): Boolean;
+ {* Реализация слова скрипта pop:ScrollingWinControl:VScrollerVisible }
 //#UC START# *EC3279A91E15_0E188022DACF_var*
 //#UC END# *EC3279A91E15_0E188022DACF_var*
 begin
@@ -310,9 +295,7 @@ begin
 end;//TkwPopScrollingWinControlVScrollerVisible.VScrollerVisible
 
 procedure TkwPopScrollingWinControlVScrollerVisible.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aScrollingWinControl : TScrollingWinControl;
+var l_aScrollingWinControl: TScrollingWinControl;
 begin
  try
   l_aScrollingWinControl := TScrollingWinControl(aCtx.rEngine.PopObjAs(TScrollingWinControl));
@@ -323,73 +306,38 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool((VScrollerVisible(aCtx, l_aScrollingWinControl)));
+ aCtx.rEngine.PushBool(VScrollerVisible(aCtx, l_aScrollingWinControl));
 end;//TkwPopScrollingWinControlVScrollerVisible.DoDoIt
 
 class function TkwPopScrollingWinControlVScrollerVisible.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:ScrollingWinControl:VScrollerVisible';
 end;//TkwPopScrollingWinControlVScrollerVisible.GetWordNameForRegister
 
 procedure TkwPopScrollingWinControlVScrollerVisible.SetValuePrim(const aValue: TtfwStackValue;
-  const aCtx: TtfwContext);
- {-}
+ const aCtx: TtfwContext);
 begin
  RunnerError('Нельзя присваивать значение readonly свойству VScrollerVisible', aCtx);
 end;//TkwPopScrollingWinControlVScrollerVisible.SetValuePrim
 
 function TkwPopScrollingWinControlVScrollerVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwPopScrollingWinControlVScrollerVisible.GetResultTypeInfo
 
 function TkwPopScrollingWinControlVScrollerVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopScrollingWinControlVScrollerVisible.GetAllParamsCount
 
 function TkwPopScrollingWinControlVScrollerVisible.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TScrollingWinControl)]);
 end;//TkwPopScrollingWinControlVScrollerVisible.ParamsTypes
 
-type
- TkwPopScrollingWinControlHScrollerVisible = {final scriptword} class(TtfwPropertyLike)
-  {* Слово скрипта pop:ScrollingWinControl:HScrollerVisible
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aScrollingWinControl pop:ScrollingWinControl:HScrollerVisible >>> l_Boolean
-[code]  }
- private
- // private methods
-   function HScrollerVisible(const aCtx: TtfwContext;
-    aScrollingWinControl: TScrollingWinControl): Boolean;
-     {* Реализация слова скрипта pop:ScrollingWinControl:HScrollerVisible }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-     const aCtx: TtfwContext); override;
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopScrollingWinControlHScrollerVisible
-
-// start class TkwPopScrollingWinControlHScrollerVisible
-
 function TkwPopScrollingWinControlHScrollerVisible.HScrollerVisible(const aCtx: TtfwContext;
-  aScrollingWinControl: TScrollingWinControl): Boolean;
+ aScrollingWinControl: TScrollingWinControl): Boolean;
+ {* Реализация слова скрипта pop:ScrollingWinControl:HScrollerVisible }
 //#UC START# *C1B1B2C96DB6_B46C6A433AAC_var*
 //#UC END# *C1B1B2C96DB6_B46C6A433AAC_var*
 begin
@@ -399,9 +347,7 @@ begin
 end;//TkwPopScrollingWinControlHScrollerVisible.HScrollerVisible
 
 procedure TkwPopScrollingWinControlHScrollerVisible.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aScrollingWinControl : TScrollingWinControl;
+var l_aScrollingWinControl: TScrollingWinControl;
 begin
  try
   l_aScrollingWinControl := TScrollingWinControl(aCtx.rEngine.PopObjAs(TScrollingWinControl));
@@ -412,73 +358,52 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool((HScrollerVisible(aCtx, l_aScrollingWinControl)));
+ aCtx.rEngine.PushBool(HScrollerVisible(aCtx, l_aScrollingWinControl));
 end;//TkwPopScrollingWinControlHScrollerVisible.DoDoIt
 
 class function TkwPopScrollingWinControlHScrollerVisible.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:ScrollingWinControl:HScrollerVisible';
 end;//TkwPopScrollingWinControlHScrollerVisible.GetWordNameForRegister
 
 procedure TkwPopScrollingWinControlHScrollerVisible.SetValuePrim(const aValue: TtfwStackValue;
-  const aCtx: TtfwContext);
- {-}
+ const aCtx: TtfwContext);
 begin
  RunnerError('Нельзя присваивать значение readonly свойству HScrollerVisible', aCtx);
 end;//TkwPopScrollingWinControlHScrollerVisible.SetValuePrim
 
 function TkwPopScrollingWinControlHScrollerVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwPopScrollingWinControlHScrollerVisible.GetResultTypeInfo
 
 function TkwPopScrollingWinControlHScrollerVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopScrollingWinControlHScrollerVisible.GetAllParamsCount
 
 function TkwPopScrollingWinControlHScrollerVisible.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TScrollingWinControl)]);
 end;//TkwPopScrollingWinControlHScrollerVisible.ParamsTypes
-{$IfEnd} //not NoScripts AND not NoVCL
 
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация pop_Control_VScrollerVisible
  TkwPopControlVScrollerVisible.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация pop_Control_HScrollerVisible
+ {* Регистрация pop_Control_VScrollerVisible }
  TkwPopControlHScrollerVisible.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация pop_ScrollingWinControl_VScrollerVisible
+ {* Регистрация pop_Control_HScrollerVisible }
  TkwPopScrollingWinControlVScrollerVisible.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация pop_ScrollingWinControl_HScrollerVisible
+ {* Регистрация pop_ScrollingWinControl_VScrollerVisible }
  TkwPopScrollingWinControlHScrollerVisible.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация типа TtfwContext
+ {* Регистрация pop_ScrollingWinControl_HScrollerVisible }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация типа TWinControl
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TWinControl));
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация типа Boolean
+ {* Регистрация типа TWinControl }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация типа TScrollingWinControl
+ {* Регистрация типа Boolean }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TScrollingWinControl));
-{$IfEnd} //not NoScripts AND not NoVCL
+ {* Регистрация типа TScrollingWinControl }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

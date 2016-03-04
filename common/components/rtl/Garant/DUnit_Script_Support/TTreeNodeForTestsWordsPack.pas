@@ -1,70 +1,48 @@
 unit TTreeNodeForTestsWordsPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DUnit Script Support"
-// Модуль: "w:/common/components/rtl/Garant/DUnit_Script_Support/TTreeNodeForTestsWordsPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeywordsPack::Class>> Shared Delphi Testing Framework::DUnit Script Support::DUnit Keywords::TTreeNodeForTestsWordsPack
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DUnit_Script_Support\TTreeNodeForTestsWordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DUnit_Script_Support\dsDefine.inc}
+{$Include w:\common\components\rtl\Garant\DUnit_Script_Support\dsDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCL)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
-  ComCtrls,
-  tfwScriptingInterfaces,
-  tfwAxiomaticsResNameGetter,
-  tfwClassLike
-  ;
-
-{$IfEnd} //nsTest AND not NoScripts AND not NoVCL
+ l3IntfUses
+;
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCL)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
-  FolderSupport,
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , ComCtrls
+ , tfwAxiomaticsResNameGetter
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
+ , FolderSupport
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
-//#UC START# *CE36BAE2E068ci*
-//#UC END# *CE36BAE2E068ci*
-//#UC START# *CE36BAE2E068cit*
-//#UC END# *CE36BAE2E068cit*
+ //#UC START# *CE36BAE2E068ci*
+ //#UC END# *CE36BAE2E068ci*
+ //#UC START# *CE36BAE2E068cit*
+ //#UC END# *CE36BAE2E068cit*
  TTTreeNodeForTestsWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
- public
- // realized methods
+  public
    class function ResName: AnsiString; override;
-//#UC START# *CE36BAE2E068publ*
-//#UC END# *CE36BAE2E068publ*
+ //#UC START# *CE36BAE2E068publ*
+ //#UC END# *CE36BAE2E068publ*
  end;//TTTreeNodeForTestsWordsPackResNameGetter
 
-// start class TTTreeNodeForTestsWordsPackResNameGetter
-
-class function TTTreeNodeForTestsWordsPackResNameGetter.ResName: AnsiString;
- {-}
-begin
- Result := 'TTreeNodeForTestsWordsPack';
-end;//TTTreeNodeForTestsWordsPackResNameGetter.ResName
-
- {$R TTreeNodeForTestsWordsPack.res}
-
-type
- TkwPopTreeNodeIsNodeFolder = {final scriptword} class(TtfwClassLike)
+ TkwPopTreeNodeIsNodeFolder = {final} class(TtfwClassLike)
   {* Слово скрипта pop:TreeNode:IsNodeFolder
 *Тип результата:* Boolean
 *Пример:*
@@ -72,28 +50,29 @@ type
 BOOLEAN VAR l_Boolean
  aTreeNode pop:TreeNode:IsNodeFolder >>> l_Boolean
 [code]  }
- private
- // private methods
+  private
    function IsNodeFolder(const aCtx: TtfwContext;
     aTreeNode: TTreeNode): Boolean;
-     {* Реализация слова скрипта pop:TreeNode:IsNodeFolder }
- protected
- // realized methods
+    {* Реализация слова скрипта pop:TreeNode:IsNodeFolder }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopTreeNodeIsNodeFolder
 
-// start class TkwPopTreeNodeIsNodeFolder
+class function TTTreeNodeForTestsWordsPackResNameGetter.ResName: AnsiString;
+begin
+  Result := 'TTreeNodeForTestsWordsPack';
+end;//TTTreeNodeForTestsWordsPackResNameGetter.ResName
+
+ {$R TTreeNodeForTestsWordsPack.res}
 
 function TkwPopTreeNodeIsNodeFolder.IsNodeFolder(const aCtx: TtfwContext;
-  aTreeNode: TTreeNode): Boolean;
+ aTreeNode: TTreeNode): Boolean;
+ {* Реализация слова скрипта pop:TreeNode:IsNodeFolder }
 //#UC START# *B5879A320542_565CDF98FF94_var*
 //#UC END# *B5879A320542_565CDF98FF94_var*
 begin
@@ -103,9 +82,7 @@ begin
 end;//TkwPopTreeNodeIsNodeFolder.IsNodeFolder
 
 procedure TkwPopTreeNodeIsNodeFolder.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aTreeNode : TTreeNode;
+var l_aTreeNode: TTreeNode;
 begin
  try
   l_aTreeNode := TTreeNode(aCtx.rEngine.PopObjAs(TTreeNode));
@@ -116,54 +93,40 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool((IsNodeFolder(aCtx, l_aTreeNode)));
+ aCtx.rEngine.PushBool(IsNodeFolder(aCtx, l_aTreeNode));
 end;//TkwPopTreeNodeIsNodeFolder.DoDoIt
 
 class function TkwPopTreeNodeIsNodeFolder.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:TreeNode:IsNodeFolder';
 end;//TkwPopTreeNodeIsNodeFolder.GetWordNameForRegister
 
 function TkwPopTreeNodeIsNodeFolder.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwPopTreeNodeIsNodeFolder.GetResultTypeInfo
 
 function TkwPopTreeNodeIsNodeFolder.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopTreeNodeIsNodeFolder.GetAllParamsCount
 
 function TkwPopTreeNodeIsNodeFolder.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TTreeNode)]);
 end;//TkwPopTreeNodeIsNodeFolder.ParamsTypes
-{$IfEnd} //nsTest AND not NoScripts AND not NoVCL
 
 initialization
-{$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация скриптованой аксиоматики
  TTTreeNodeForTestsWordsPackResNameGetter.Register;
-{$IfEnd} //nsTest AND not NoScripts AND not NoVCL
-{$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация pop_TreeNode_IsNodeFolder
+ {* Регистрация скриптованой аксиоматики }
  TkwPopTreeNodeIsNodeFolder.RegisterInEngine;
-{$IfEnd} //nsTest AND not NoScripts AND not NoVCL
-{$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация типа TtfwContext
+ {* Регистрация pop_TreeNode_IsNodeFolder }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //nsTest AND not NoScripts AND not NoVCL
-{$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация типа TTreeNode
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TTreeNode));
-{$IfEnd} //nsTest AND not NoScripts AND not NoVCL
-{$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация типа Boolean
+ {* Регистрация типа TTreeNode }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
-{$IfEnd} //nsTest AND not NoScripts AND not NoVCL
+ {* Регистрация типа Boolean }
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

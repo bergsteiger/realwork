@@ -18,12 +18,12 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , l3Interfaces
- , tfwScriptingInterfaces
- , tfwTypeInfo
  , tfwAxiomaticsResNameGetter
  , tfwGlobalKeyWord
+ , tfwScriptingInterfaces
  , TypInfo
+ , l3Interfaces
+ , tfwTypeInfo
  , l3TabService
  , l3SysUtils
  , Windows

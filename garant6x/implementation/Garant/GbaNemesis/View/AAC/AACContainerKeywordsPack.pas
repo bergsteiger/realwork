@@ -11,15 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
-;
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
-
-implementation
-
-{$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
-uses
- l3ImplUses
- , AACContainer_Form
  , vtPanel
  , nscSimpleEditorForDialogs
  , vtLabel
@@ -29,6 +20,15 @@ uses
  , vtProportionalPanel
  , vtScrollBar
  , vtSizeablePanel
+;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
+
+implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+ , AACContainer_Form
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

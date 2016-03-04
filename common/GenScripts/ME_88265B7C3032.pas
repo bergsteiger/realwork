@@ -11,6 +11,11 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
+ , vtPanel
+ , eeTreeView
+ , vtSizeablePanel
+ , evMemo
+ , vtLabel
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -20,11 +25,6 @@ implementation
 uses
  l3ImplUses
  , MemoryUsage_Form
- , vtPanel
- , eeTreeView
- , vtSizeablePanel
- , evMemo
- , vtLabel
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
