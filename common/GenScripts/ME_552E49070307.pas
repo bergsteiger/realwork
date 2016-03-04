@@ -19,9 +19,9 @@ implementation
 uses
  l3ImplUses
  , ElPgCtl
- , l3Interfaces
  , tfwClassLike
  , tfwScriptingInterfaces
+ , l3Interfaces
  , TypInfo
  , l3String
  , tfwScriptingTypes

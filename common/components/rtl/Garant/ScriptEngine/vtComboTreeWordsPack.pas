@@ -19,8 +19,8 @@ implementation
 uses
  l3ImplUses
  , vtComboTree
- , l3TreeInterfaces
  , tfwClassLike
+ , l3TreeInterfaces
  , tfwScriptingInterfaces
  , TypInfo
  , tfwScriptingTypes

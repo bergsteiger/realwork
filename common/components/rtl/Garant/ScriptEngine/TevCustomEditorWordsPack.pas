@@ -19,12 +19,12 @@ implementation
 uses
  l3ImplUses
  , evCustomEditor
- , evEditorInterfaces
- , evdTypes
  , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo
+ , evEditorInterfaces
+ , evdTypes
  , l3Interfaces
  , IedRangeWordsPack
  , tfwScriptingTypes

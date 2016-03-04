@@ -19,8 +19,8 @@ implementation
 uses
  l3ImplUses
  , vgRemindersLine
- , Types
  , tfwClassLike
+ , Types
  , tfwScriptingInterfaces
  , TypInfo
  , tfwPropertyLike

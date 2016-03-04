@@ -21,8 +21,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
- , vgObject
  , tfwClassLike
+ , vgObject
  , tfwScriptingInterfaces
  , TypInfo
  , vg_controls

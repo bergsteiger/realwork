@@ -18,10 +18,10 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , l3Interfaces
  , tfwGlobalKeyWord
  , tfwScriptingInterfaces
  , TypInfo
+ , l3Interfaces
  , vtHintManager
  , Windows
  , tfwScriptingTypes

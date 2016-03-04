@@ -10,6 +10,8 @@ interface
 {$If NOT Defined(NoScripts) AND NOT Defined(NoVGScene) AND NOT Defined(NoVCM)}
 uses
  l3IntfUses
+ , l3Interfaces
+ , vtPopupFormModelPart
 ;
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVGScene) AND NOT Defined(NoVCM)
 
@@ -19,16 +21,14 @@ implementation
 uses
  l3ImplUses
  , vgRemindersLine
- , l3Interfaces
- , vtPopupFormModelPart
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
+ , Types
  , Classes
  {$If NOT Defined(NoVCL)}
  , Menus
  {$IfEnd} // NOT Defined(NoVCL)
- , Types
- , tfwClassLike
- , tfwScriptingInterfaces
- , TypInfo
  , tfwPropertyLike
  , tfwTypeInfo
  {$If NOT Defined(NoVCL)}

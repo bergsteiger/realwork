@@ -18,8 +18,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , DragData
  , tfwGlobalKeyWord
+ , DragData
  , tfwScriptingInterfaces
  , TypInfo
  , tfwScriptingTypes

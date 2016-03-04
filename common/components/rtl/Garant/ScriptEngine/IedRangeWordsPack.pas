@@ -10,6 +10,12 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
+ , evEditorInterfaces
+ , nevNavigation
+ , nevTools
+ , l3Interfaces
+ , Windows
+ , nevBase
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -18,12 +24,6 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , evEditorInterfaces
- , nevNavigation
- , nevTools
- , l3Interfaces
- , Windows
- , nevBase
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo

@@ -10,6 +10,13 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
+ , l3Variant
+ , l3Types
+ , l3Interfaces
+ , k2Interfaces
+ , nevTools
+ , nevBase
+ , k2Prim
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -18,18 +25,11 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , nevTools
- , l3Variant
- , l3Interfaces
- , evCustomEditorWindow
- , l3Types
- , k2Interfaces
- , nevBase
- , k2Prim
  , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo
+ , evCustomEditorWindow
  , k2Tags
  , l3Base
  , l3String

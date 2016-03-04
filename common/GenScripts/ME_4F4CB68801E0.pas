@@ -10,6 +10,7 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
+ , nevBase
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -19,12 +20,11 @@ implementation
 uses
  l3ImplUses
  , evCustomEditorWindow
- , nevBase
- , nevTools
  , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo
+ , nevTools
  , tfwPropertyLike
  , tfwTypeInfo
  , kwPopEditorSelectCells

@@ -18,11 +18,11 @@ implementation
 {$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
- , vcmToolbarMenuRes
- , vcmMenuManager
  , tfwGlobalKeyWord
  , tfwScriptingInterfaces
+ , vcmToolbarMenuRes
  , TypInfo
+ , vcmMenuManager
  , tfwScriptingTypes
  , tfwTypeRegistrator
  , SysUtils

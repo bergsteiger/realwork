@@ -19,11 +19,11 @@ implementation
 uses
  l3ImplUses
  , vtOutliner
- , l3TreeInterfaces
- , tfwScriptingInterfaces
  , tfwAxiomaticsResNameGetter
  , tfwClassLike
+ , tfwScriptingInterfaces
  , TypInfo
+ , l3TreeInterfaces
  , l3Nodes
  , l3String
  , l3Interfaces

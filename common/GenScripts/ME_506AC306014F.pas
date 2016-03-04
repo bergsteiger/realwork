@@ -19,13 +19,13 @@ implementation
 uses
  l3ImplUses
  , vgVisualObject
- {$If NOT Defined(NoVCL)}
- , Controls
- {$IfEnd} // NOT Defined(NoVCL)
  , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
  , VGSceneAndWinControlPack
  , VGComboBoxPack
  , vg_controls
