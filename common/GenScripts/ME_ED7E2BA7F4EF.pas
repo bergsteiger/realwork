@@ -11,6 +11,8 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
+ , evQueryCardEditor
+ , evTextSource
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(NoScripts)
 
@@ -20,8 +22,6 @@ implementation
 uses
  l3ImplUses
  , QueryCard_Form
- , evQueryCardEditor
- , evTextSource
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

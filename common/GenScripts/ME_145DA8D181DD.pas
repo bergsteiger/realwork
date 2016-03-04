@@ -11,6 +11,9 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
+ , vtLabel
+ , vtButton
+ , eeMemoWithEditOperations
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -20,9 +23,6 @@ implementation
 uses
  l3ImplUses
  , EULA_Form
- , vtLabel
- , vtButton
- , eeMemoWithEditOperations
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

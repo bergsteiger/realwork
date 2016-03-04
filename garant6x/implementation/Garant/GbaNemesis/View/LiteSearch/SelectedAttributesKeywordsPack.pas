@@ -11,6 +11,7 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
+ , nscTreeViewWithAdapterDragDrop
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -20,7 +21,6 @@ implementation
 uses
  l3ImplUses
  , SelectedAttributes_Form
- , nscTreeViewWithAdapterDragDrop
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

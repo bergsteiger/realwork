@@ -11,15 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
-;
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
-
-implementation
-
-{$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
-uses
- l3ImplUses
- , Registration_Form
  , vtPanel
  , vtLabel
  {$If Defined(Nemesis)}
@@ -32,6 +23,15 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , ElPopBtn
  , vtFocusLabel
+;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
+
+implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+ , Registration_Form
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

@@ -11,6 +11,13 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
+ , vtRadioButton
+ {$If Defined(Nemesis)}
+ , nscComboBox
+ {$IfEnd} // Defined(Nemesis)
+ , vtSpinEdit
+ , vtCheckBox
+ , vtComboBoxQS
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(NoScripts)
 
@@ -20,13 +27,6 @@ implementation
 uses
  l3ImplUses
  , PrintDialog_Form
- , vtRadioButton
- {$If Defined(Nemesis)}
- , nscComboBox
- {$IfEnd} // Defined(Nemesis)
- , vtSpinEdit
- , vtCheckBox
- , vtComboBoxQS
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

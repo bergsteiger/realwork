@@ -11,6 +11,9 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
+ , vtProportionalPanel
+ , vtSizeablePanel
+ , vtPanel
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -20,9 +23,6 @@ implementation
 uses
  l3ImplUses
  , AttributeSelect_Form
- , vtProportionalPanel
- , vtSizeablePanel
- , vtPanel
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

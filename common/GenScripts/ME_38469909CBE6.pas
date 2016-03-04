@@ -11,6 +11,14 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
+ {$If Defined(Nemesis)}
+ , nscHideField
+ {$IfEnd} // Defined(Nemesis)
+ , nscTreeViewWithAdapterDragDrop
+ {$If Defined(Nemesis)}
+ , nscTreeViewHotTruck
+ {$IfEnd} // Defined(Nemesis)
+ , vtPanel
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -20,14 +28,6 @@ implementation
 uses
  l3ImplUses
  , MedicMainMenu_Form
- {$If Defined(Nemesis)}
- , nscHideField
- {$IfEnd} // Defined(Nemesis)
- , nscTreeViewWithAdapterDragDrop
- {$If Defined(Nemesis)}
- , nscTreeViewHotTruck
- {$IfEnd} // Defined(Nemesis)
- , vtPanel
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

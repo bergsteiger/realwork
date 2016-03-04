@@ -11,6 +11,13 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
+ , vtPanel
+ , eeMemoWithEditOperations
+ , vtLabel
+ {$If Defined(Nemesis)}
+ , nscComboBoxWithReadOnly
+ {$IfEnd} // Defined(Nemesis)
+ , vtCheckBox
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -20,13 +27,6 @@ implementation
 uses
  l3ImplUses
  , FoldersElementInfo_Form
- , vtPanel
- , eeMemoWithEditOperations
- , vtLabel
- {$If Defined(Nemesis)}
- , nscComboBoxWithReadOnly
- {$IfEnd} // Defined(Nemesis)
- , vtCheckBox
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

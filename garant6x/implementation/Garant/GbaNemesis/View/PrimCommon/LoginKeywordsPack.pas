@@ -11,15 +11,6 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
-;
-{$IfEnd} // NOT Defined(NoScripts)
-
-implementation
-
-{$If NOT Defined(NoScripts)}
-uses
- l3ImplUses
- , Login_Form
  , vtGroupBox
  , vtLabel
  {$If NOT Defined(NoVCL)}
@@ -35,6 +26,15 @@ uses
  , vtCheckBox
  , ElPopBtn
  , vtPanel
+;
+{$IfEnd} // NOT Defined(NoScripts)
+
+implementation
+
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+ , Login_Form
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
