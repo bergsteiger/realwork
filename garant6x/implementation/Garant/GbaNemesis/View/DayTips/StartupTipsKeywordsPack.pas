@@ -11,6 +11,14 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
+ , vtPanel
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vtLabel
+ , vtFocusLabel
+ , vtCheckBox
+ , ElPopBtn
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -20,14 +28,6 @@ implementation
 uses
  l3ImplUses
  , StartupTips_Form
- , vtPanel
- {$If NOT Defined(NoVCL)}
- , ExtCtrls
- {$IfEnd} // NOT Defined(NoVCL)
- , vtLabel
- , vtFocusLabel
- , vtCheckBox
- , ElPopBtn
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

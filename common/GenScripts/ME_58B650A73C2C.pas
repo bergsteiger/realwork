@@ -11,6 +11,13 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
+ , vtPanel
+ , vtLabel
+ , vtGradientWaitbar
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vtButton
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -20,13 +27,6 @@ implementation
 uses
  l3ImplUses
  , LongProcess_Form
- , vtPanel
- , vtLabel
- , vtGradientWaitbar
- {$If NOT Defined(NoVCL)}
- , ExtCtrls
- {$IfEnd} // NOT Defined(NoVCL)
- , vtButton
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

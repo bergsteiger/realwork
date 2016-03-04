@@ -11,15 +11,6 @@ interface
 {$If NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
-;
-{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoScripts)
-
-implementation
-
-{$If NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
-uses
- l3ImplUses
- , CustomizeTasksPanel_Form
  , vtCtrls
  , vtPanel
  , vtLabel
@@ -34,6 +25,15 @@ uses
  , Buttons
  {$IfEnd} // NOT Defined(NoVCL)
  , eeCheckBox
+;
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoScripts)
+
+implementation
+
+{$If NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+ , CustomizeTasksPanel_Form
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

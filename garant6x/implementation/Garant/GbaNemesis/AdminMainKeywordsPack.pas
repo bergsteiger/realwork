@@ -11,15 +11,6 @@ interface
 {$If Defined(Admin) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
-;
-{$IfEnd} // Defined(Admin) AND NOT Defined(NoScripts)
-
-implementation
-
-{$If Defined(Admin) AND NOT Defined(NoScripts)}
-uses
- l3ImplUses
- , AdminMain_Form
  {$If Defined(Nemesis)}
  , nscStatusBar
  {$IfEnd} // Defined(Nemesis)
@@ -29,6 +20,15 @@ uses
  {$If Defined(Nemesis)}
  , nscNavigator
  {$IfEnd} // Defined(Nemesis)
+;
+{$IfEnd} // Defined(Admin) AND NOT Defined(NoScripts)
+
+implementation
+
+{$If Defined(Admin) AND NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+ , AdminMain_Form
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

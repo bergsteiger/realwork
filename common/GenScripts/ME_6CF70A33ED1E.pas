@@ -11,6 +11,14 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
+ , vtPanel
+ {$If Defined(Nemesis)}
+ , nscContextFilter
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscTreeViewHotTruck
+ {$IfEnd} // Defined(Nemesis)
+ , SearchLite_Strange_Controls
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -20,14 +28,6 @@ implementation
 uses
  l3ImplUses
  , TreeAttributeSelect_Form
- , vtPanel
- {$If Defined(Nemesis)}
- , nscContextFilter
- {$IfEnd} // Defined(Nemesis)
- {$If Defined(Nemesis)}
- , nscTreeViewHotTruck
- {$IfEnd} // Defined(Nemesis)
- , SearchLite_Strange_Controls
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
