@@ -21,13 +21,13 @@ uses
  {$If NOT Defined(NoVGScene)}
  , vcmBaseMenuForChromeLike
  {$IfEnd} // NOT Defined(NoVGScene)
- {$If NOT Defined(NoVCL)}
- , Menus
- {$IfEnd} // NOT Defined(NoVCL)
  , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo
+ {$If NOT Defined(NoVCL)}
+ , Menus
+ {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingTypes
  , tfwTypeRegistrator
  , SysUtils
