@@ -18,9 +18,9 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , l3Interfaces
  , tfwGlobalKeyWord
  , tfwScriptingInterfaces
+ , l3Interfaces
  , TypInfo
  , kwF1ImportConsultation
  , kwConfigRestore

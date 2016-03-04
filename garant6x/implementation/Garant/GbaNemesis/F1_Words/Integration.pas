@@ -1,33 +1,26 @@
 unit Integration;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1 Words"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1_Words/Integration.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeywordsPack::Class>> F1 Поддержка тестов::F1 Words::Integration::Integration
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\Integration.pas"
+// Стереотип: "ScriptKeywordsPack"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
-{$IfEnd} //not NoScripts
+{$If NOT Defined(NoScripts)}
+uses
+ l3IntfUses
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwIntegrationOpenLink,
-  tfwScriptingTypes
-  ;
+ l3ImplUses
+ , kwIntegrationOpenLink
+ , tfwScriptingTypes
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$IfEnd} //not NoScripts
 end.
