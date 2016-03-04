@@ -11,6 +11,8 @@ interface
 {$If Defined(Admin) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
+ , vtPanel
+ , eeTreeView
 ;
 {$IfEnd} // Defined(Admin) AND NOT Defined(NoScripts)
 
@@ -20,8 +22,6 @@ implementation
 uses
  l3ImplUses
  , GroupList_Form
- , vtPanel
- , eeTreeView
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

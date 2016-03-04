@@ -11,15 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
-;
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
-
-implementation
-
-{$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
-uses
- l3ImplUses
- , Picture_Form
  {$If NOT Defined(NoImageEn)}
  , imageenio
  {$IfEnd} // NOT Defined(NoImageEn)
@@ -29,6 +20,15 @@ uses
  {$If NOT Defined(NoImageEn)}
  , imageenproc
  {$IfEnd} // NOT Defined(NoImageEn)
+;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
+
+implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+ , Picture_Form
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

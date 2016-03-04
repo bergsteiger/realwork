@@ -11,6 +11,9 @@ interface
 {$If Defined(Admin) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
+ , vtProportionalPanel
+ , vtSizeablePanel
+ , vtPanel
 ;
 {$IfEnd} // Defined(Admin) AND NOT Defined(NoScripts)
 
@@ -20,9 +23,6 @@ implementation
 uses
  l3ImplUses
  , Admin_Form
- , vtProportionalPanel
- , vtSizeablePanel
- , vtPanel
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

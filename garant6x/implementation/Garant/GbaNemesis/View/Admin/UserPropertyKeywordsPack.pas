@@ -11,6 +11,13 @@ interface
 {$If Defined(Admin) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
+ , vtPanel
+ , vtLabel
+ {$If Defined(Nemesis)}
+ , nscComboBox
+ {$IfEnd} // Defined(Nemesis)
+ , vtComboBoxQS
+ , vtCheckBox
 ;
 {$IfEnd} // Defined(Admin) AND NOT Defined(NoScripts)
 
@@ -20,13 +27,6 @@ implementation
 uses
  l3ImplUses
  , UserProperty_Form
- , vtPanel
- , vtLabel
- {$If Defined(Nemesis)}
- , nscComboBox
- {$IfEnd} // Defined(Nemesis)
- , vtComboBoxQS
- , vtCheckBox
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

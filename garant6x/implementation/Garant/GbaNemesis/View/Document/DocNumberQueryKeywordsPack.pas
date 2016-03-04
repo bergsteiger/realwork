@@ -11,6 +11,11 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
+ , vtLabel
+ {$If Defined(Nemesis)}
+ , nscComboBox
+ {$IfEnd} // Defined(Nemesis)
+ , vtCheckBox
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -20,11 +25,6 @@ implementation
 uses
  l3ImplUses
  , DocNumberQuery_Form
- , vtLabel
- {$If Defined(Nemesis)}
- , nscComboBox
- {$IfEnd} // Defined(Nemesis)
- , vtCheckBox
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

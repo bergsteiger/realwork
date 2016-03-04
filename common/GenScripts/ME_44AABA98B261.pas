@@ -11,6 +11,7 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
+ , eeMemoWithEditOperations
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -20,7 +21,6 @@ implementation
 uses
  l3ImplUses
  , PictureInfo_Form
- , eeMemoWithEditOperations
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
