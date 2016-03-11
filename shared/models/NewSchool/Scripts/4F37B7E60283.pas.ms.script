@@ -19006,6 +19006,208 @@ ref; // ME_5617F4D00243_ME_0A08F7650387 ParamsTypes
 
 ref; // ME_0A08F7650387 pop_Compiler_AddCodePart
 
+FORWARD ME_56E13F740281
+
+FORWARD ME_4A88B5E4BF40
+
+FORWARD ME_77BEE4F9136B
+
+: ME_64E56E4AAF4A
+ CONST UID '64E56E4AAF4A'
+ CONST Name 'aCtx'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_64E56E4AAF4A aCtx
+
+: ME_64E56E4AAF4B
+ CONST UID '64E56E4AAF4B'
+ CONST Name 'aCompiler'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB6E2EE0259' '4DAF19F600C5.pas.ms.script' // TtfwCompiler
+ ;
+
+ref; // ME_64E56E4AAF4B aCompiler
+
+: ME_64E56E4AAF4C
+ CONST UID '64E56E4AAF4C'
+ CONST Name 'aValue'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB00A510300' '55BF153300A4.pas.ms.script' // TtfwStackValue
+ ;
+
+ref; // ME_64E56E4AAF4C aValue
+
+: ME_4A88B5E4BF40
+ CONST UID '4A88B5E4BF40'
+ CONST Name 'AddCodePartValue'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта pop:Compiler:AddCodePartValue' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_77BEE4F9136B // pop_Compiler_AddCodePartValue
+ ;
+ : Parameters
+   Seq: ( ME_64E56E4AAF4A // aCtx
+ ME_64E56E4AAF4B // aCompiler
+ ME_64E56E4AAF4C // aValue
+ )
+ ; // Parameters
+ : SpelledFor ME_56E13F740281 // AddCodePartValue
+ ;
+
+ref; // ME_4A88B5E4BF40 AddCodePartValue
+
+: ME_FCAD153432C3
+ CONST UID 'FCAD153432C3'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация pop_Compiler_AddCodePartValue' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_77BEE4F9136B // pop_Compiler_AddCodePartValue
+ ;
+
+ref; // ME_FCAD153432C3 Ini_Reg
+
+: ME_4A78FDAC6FC0
+ CONST UID '4A78FDAC6FC0'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_77BEE4F9136B // pop_Compiler_AddCodePartValue
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_4A78FDAC6FC0 
+
+: ME_78BB3F19AD9D
+ CONST UID '78BB3F19AD9D'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_77BEE4F9136B // pop_Compiler_AddCodePartValue
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_78BB3F19AD9D 
+
+: ME_4DAEEDE10285_ME_77BEE4F9136B
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_77BEE4F9136B // pop_Compiler_AddCodePartValue
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_77BEE4F9136B DoDoIt
+
+: ME_4DB0614603C8_ME_77BEE4F9136B
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_77BEE4F9136B // pop_Compiler_AddCodePartValue
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_77BEE4F9136B GetWordNameForRegister
+
+: ME_551544E2001A_ME_77BEE4F9136B
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_77BEE4F9136B // pop_Compiler_AddCodePartValue
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_551544E2001A_ME_77BEE4F9136B GetResultTypeInfo
+
+: ME_559687E6025A_ME_77BEE4F9136B
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_77BEE4F9136B // pop_Compiler_AddCodePartValue
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_559687E6025A_ME_77BEE4F9136B GetAllParamsCount
+
+: ME_5617F4D00243_ME_77BEE4F9136B
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_77BEE4F9136B // pop_Compiler_AddCodePartValue
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5617F4D00243_ME_77BEE4F9136B ParamsTypes
+
+: ME_77BEE4F9136B
+ CONST UID '77BEE4F9136B'
+ CONST Name 'pop_Compiler_AddCodePartValue'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта pop:Compiler:AddCodePartValue'#13#10'*Пример:*'#13#10'{code}'#13#10' aValue aCompiler pop:Compiler:AddCodePartValue'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_559BDDE30092 // ItfwCompilerWordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_4A88B5E4BF40 // AddCodePartValue
+ ME_FCAD153432C3 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_77BEE4F9136B // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_77BEE4F9136B // GetWordNameForRegister
+ ME_551544E2001A_ME_77BEE4F9136B // GetResultTypeInfo
+ ME_559687E6025A_ME_77BEE4F9136B // GetAllParamsCount
+ ME_5617F4D00243_ME_77BEE4F9136B // ParamsTypes
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4A78FDAC6FC0 // 
+ ME_78BB3F19AD9D // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'pop:Compiler:AddCodePartValue'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwPopCompilerAddCodePartValue'
+ CONST extprop:rc:SelfName 'PopCompilerAddCodePartValue'
+ CONST extprop:rc:isAcceptableForScripts true
+ : Speller WL 'ME_4DB6E2EE0259' '4DAF19F600C5.pas.ms.script' // TtfwCompiler
+ ;
+ : SpelledFor ME_56E13F740281 // AddCodePartValue
+ ;
+ : Stub ME_4A88B5E4BF40 // AddCodePartValue
+ ;
+
+ref; // ME_77BEE4F9136B pop_Compiler_AddCodePartValue
+
 FORWARD ME_D8B128B94337
 
 FORWARD ME_ACAA83F81CD5
@@ -19525,6 +19727,37 @@ ref; // ME_559BDF620018 aWord
 
 ref; // ME_559BDF500382 AddCodePart
 
+: ME_56E13F8002A1
+ CONST UID '56E13F8002A1'
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB00A510300' '55BF153300A4.pas.ms.script' // TtfwStackValue
+ ;
+
+ref; // ME_56E13F8002A1 aValue
+
+: ME_56E13F740281
+ CONST UID '56E13F740281'
+ CONST Name 'AddCodePartValue'
+ CONST Class class_Operation
+ : Stereotype st_keyword::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_559BDDE30092 // ItfwCompilerWordsPack
+ ;
+ : Parameters
+   Seq: ( ME_56E13F8002A1 // aValue
+ )
+ ; // Parameters
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+ : Speller ME_77BEE4F9136B // pop_Compiler_AddCodePartValue
+ ;
+
+ref; // ME_56E13F740281 AddCodePartValue
+
 : ME_D8B128B94337
  CONST UID 'D8B128B94337'
  CONST Name 'KeywordFinder'
@@ -19617,6 +19850,22 @@ ref; // ME_CBA910947421 Reg_Type_TtfwCompiler
 
 ref; // ME_9BF7099FFAE8 Reg_Type_TtfwWord
 
+: ME_45B09F0A56B8
+ CONST UID '45B09F0A56B8'
+ CONST Name 'Reg_Type_TtfwStackValue'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TtfwStackValue' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_559BDDE30092 // ItfwCompilerWordsPack
+ ;
+ : SpelledFor WL 'ME_4DB00A510300' '55BF153300A4.pas.ms.script' // TtfwStackValue
+ ;
+
+ref; // ME_45B09F0A56B8 Reg_Type_TtfwStackValue
+
 : ME_4E51D5DED84B
  CONST UID '4E51D5DED84B'
  CONST Name 'Reg_Type_TtfwKeywordFinder'
@@ -19648,6 +19897,17 @@ ref; // ME_4E51D5DED84B Reg_Type_TtfwKeywordFinder
  ;
 
 ref; // ME_CF61E35F50E5 Reg_Type_TtfwNewWordDefinitor
+
+: ME_56E13F54001A
+ CONST UID '56E13F54001A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_559BDDE30092 // ItfwCompilerWordsPack
+ ;
+ : Target WL 'ME_52B46DD80194' '4F3E3F5F0160.pas.ms.script' // TkwValue
+ ;
+
+ref; // ME_56E13F54001A 
 
 : ME_17E505410042
  CONST UID '17E505410042'
@@ -19718,11 +19978,13 @@ ref; // ME_4DAEEDE10285_ME_559BDDE30092 DoDoIt
    Seq: ( ME_559BDE1700B0 // CompileInParameterPopCode
  ME_559BDF1000D6 // GetWordCompilingNow
  ME_559BDF500382 // AddCodePart
+ ME_56E13F740281 // AddCodePartValue
  ME_D8B128B94337 // KeywordFinder
  ME_590E9BCDEE40 // NewWordDefinitor
  ME_E3CC00B290C9 // Reg_Type_TtfwContext
  ME_CBA910947421 // Reg_Type_TtfwCompiler
  ME_9BF7099FFAE8 // Reg_Type_TtfwWord
+ ME_45B09F0A56B8 // Reg_Type_TtfwStackValue
  ME_4E51D5DED84B // Reg_Type_TtfwKeywordFinder
  ME_CF61E35F50E5 // Reg_Type_TtfwNewWordDefinitor
  )
@@ -19735,12 +19997,14 @@ ref; // ME_4DAEEDE10285_ME_559BDDE30092 DoDoIt
    Seq: ( ME_1EEC2B16B8DA // pop_Compiler_CompileInParameterPopCode
  ME_E67ED9D1F090 // pop_Compiler_GetWordCompilingNow
  ME_0A08F7650387 // pop_Compiler_AddCodePart
+ ME_77BEE4F9136B // pop_Compiler_AddCodePartValue
  ME_3521615FAE64 // pop_Compiler_KeywordFinder
  ME_468F9B6E6285 // pop_Compiler_NewWordDefinitor
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_17E505410042 // 
+   Seq: ( ME_56E13F54001A // 
+ ME_17E505410042 // 
  ME_D0100027103B // 
  ME_09A781C008DA // 
  )
@@ -26736,6 +27000,7 @@ ref; // ME_567A8EB00176 tfwWordBoxPack
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
  WL 'ME_4F2275C00012' '4F2275C00012.pas.ms.script' // ScriptingKeywordsCore
+ WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_4F50310E03D7' '4F50310E03D7.pas.ms.script' // ArrayProcessing
  WL 'ME_4F7338A800A7' '4F7338A800A7.pas.ms.script' // ScriptEngineCore
  WL 'ME_52EF72190220' '52EF72190220.pas.ms.script' // tfwParserInterfaces

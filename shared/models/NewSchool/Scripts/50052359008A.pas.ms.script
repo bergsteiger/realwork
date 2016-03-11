@@ -6,6 +6,16 @@ FORWARD ME_50052359008A
 
 FORWARD ME_500523660003
 
+: ME_50055A7D015C
+ CONST UID '50055A7D015C'
+ CONST Name 'aLeft'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_50055A7D015C aLeft
+
 : ME_5005237D0210
  CONST UID '5005237D0210'
  CONST Name 'GetVScrollBar'
@@ -17,6 +27,10 @@ FORWARD ME_500523660003
  ;
  : Target WL 'ME_50220B0E0061' '50220AA101CA.pas.ms.script' // TvtScrollBar
  ;
+ : Parameters
+   Seq: ( ME_50055A7D015C // aLeft
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -28,6 +42,16 @@ FORWARD ME_500523660003
 
 ref; // ME_5005237D0210 GetVScrollBar
 
+: ME_5006ED3302C8
+ CONST UID '5006ED3302C8'
+ CONST Name 'aJumpTo'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_50041C7C0270' '4829D7D50156.pas.ms.script' // TevJumpToEvent
+ ;
+
+ref; // ME_5006ED3302C8 aJumpTo
+
 : ME_5006ED2300F9
  CONST UID '5006ED2300F9'
  CONST Name 'SetJumpTo'
@@ -37,6 +61,10 @@ ref; // ME_5005237D0210 GetVScrollBar
  CONST Abstraction at_abstract
  : Parent ME_500523660003 // AACTextContainer
  ;
+ : Parameters
+   Seq: ( ME_5006ED3302C8 // aJumpTo
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false

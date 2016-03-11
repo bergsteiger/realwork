@@ -902,8 +902,37 @@ implementation @ :: <<TestClass>> <<Operation>> ;
 ; // wiki_child_kind
 
 
+// Вложенные стереотипы
+//: TestClass::Class::Operation::Parameter
+end. // :: <<TestClass>> <<Operation>> ;
+
+implementation @ :: <<TestClass>> <<Operation>> ;
+//= Ifdef::MDAGenerator
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+// Параметры стереотипа
+//Y code_param.gif
+//L code_param
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S%[Delphi интерфейсы и реализация::MDAGenerator]f_wiki_up_print()
+ call-inherited:: 'Delphi интерфейсы и реализация' wiki_up_print %( )%
+
+
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+; // wiki_up_print
 
 end. // :: <<TestClass>> <<Operation>> ;
 

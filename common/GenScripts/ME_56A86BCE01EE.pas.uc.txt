@@ -260,21 +260,18 @@ var
 //#UC START# *55409258013F_56A86BCE01EEget_impl*
  if f_Journal = nil then
  begin
-//  f_Journal := TcaJournal.Make(Get_TableQueryFactory);
-//  f_Journal.UserID := Get_UserID;
-  Assert(False);
-//!! !!! Needs to be implemented !!!
+  f_Journal := TcaJournal.Make(Get_TableQueryFactory, f_HTProvider.Journal, f_PGProvider.Journal);
+  f_Journal.UserID := Get_UserID;
  end;
  Result := f_Journal;
 //#UC END# *55409258013F_56A86BCE01EEget_impl*
 //#UC START# *55409258013F_56A86BCE01EEget_var*
-var
- l_HTJournalHelper: IdaComboAccessJournalHelper;
- l_PGJournalHelper: IdaComboAccessJournalHelper;
 //#UC END# *55409258013F_56A86BCE01EEget_var*
 //#UC START# *554C7A3002BF_56A86BCE01EEget_impl*
  if f_Factory = nil then
-  f_Factory := TcaTableQueryFactory.Make(f_DataConverter, f_HTProvider.TableQueryFactory, f_PGProvider.TableQueryFactory);
+  f_Factory := TcaTableQueryFactory.Make(f_DataConverter,
+    f_HTProvider.TableQueryFactory,
+    f_PGProvider.TableQueryFactory);
  Result := f_Factory;
 //#UC END# *554C7A3002BF_56A86BCE01EEget_impl*
 //#UC START# *554C7A3002BF_56A86BCE01EEget_var*

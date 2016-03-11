@@ -76,3 +76,26 @@ var
 //#UC END# *566A7F3C01D9_566A7DCD0151_impl*
 //#UC START# *566A7F3C01D9_566A7DCD0151_var*
 //#UC END# *566A7F3C01D9_566A7DCD0151_var*
+//#UC START# *56E120F00095_566A7DCD0151_impl*
+ Result := TdaParam.Make(f_DataConverter, aParamDesc);
+//#UC END# *56E120F00095_566A7DCD0151_impl*
+//#UC START# *56E120F00095_566A7DCD0151_var*
+//#UC END# *56E120F00095_566A7DCD0151_var*
+//#UC START# *56E152F4011D_566A7DCD0151_impl*
+ l_Param := Get_Param(aParamDesc.Name);
+ if Assigned(l_Param) then
+ begin
+  if not l_Param.IsSameType(aParamDesc) then
+   raise EdaError.CreateFmt('Ќе совпадают типы данных дл€ параметра %s', [aParamDesc.Name]);
+ end
+ else
+ begin
+  l_Param := DoMakeParam(aParamDesc);
+  f_Params.Add(l_Param);
+ end;
+ Result := l_Param;
+//#UC END# *56E152F4011D_566A7DCD0151_impl*
+//#UC START# *56E152F4011D_566A7DCD0151_var*
+var
+ l_Param: IdaParam;
+//#UC END# *56E152F4011D_566A7DCD0151_var*

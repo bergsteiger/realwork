@@ -22884,6 +22884,38 @@ ref; // ME_522EE1FF033E DoIt
 
 ref; // ME_522EE1F7018F UpItem
 
+FORWARD ME_56D93DBD039D
+
+: ME_F42EC6A0CA40
+ CONST UID 'F42EC6A0CA40'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода ClearItems' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56D93DBD039D // ClearItems
+ ;
+
+ref; // ME_F42EC6A0CA40 DoIt
+
+: ME_56D93DBD039D
+ CONST UID '56D93DBD039D'
+ CONST Name 'ClearItems'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5214CC1D02F4 // TddBaseConfigDataAdapter
+ ;
+ : Operations
+   Seq: ( ME_F42EC6A0CA40 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56D93DBD039D ClearItems
+
 : ME_5214CC1D02F4
  CONST UID '5214CC1D02F4'
  CONST Name 'TddBaseConfigDataAdapter'
@@ -22918,6 +22950,7 @@ ref; // ME_522EE1F7018F UpItem
  ME_522EE1B9018D // Load
  ME_522EE1D7016D // Save
  ME_522EE1F7018F // UpItem
+ ME_56D93DBD039D // ClearItems
  )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
@@ -23105,6 +23138,16 @@ ref; // ME_522EE457008E DoIt
  ; // Operations
 
 ref; // ME_522EE43E0110 Make
+
+: ME_56D93DBD039D_ME_522EDF570036
+ CONST UID '56D93DBD039D'
+ CONST Name 'ClearItems'
+ : Original ME_56D93DBD039D // ClearItems
+ ;
+ : Implementor ME_522EDF570036 // TddSimpleListDataAdapter
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_56D93DBD039D_ME_522EDF570036 ClearItems
 
 : ME_478CF34E02CE_ME_522EDF570036
  CONST UID '478CF34E02CE'
@@ -23297,6 +23340,10 @@ ref; // ME_5301EC5A006A_ME_522EDF570036 Create
  ME_522EE43E0110 // Make
  )
  ; // Operations
+ : Implemented
+   Seq: ( ME_56D93DBD039D_ME_522EDF570036 // ClearItems
+ )
+ ; // Implemented
  : Overridden
    Seq: ( ME_478CF34E02CE_ME_522EDF570036 // Assign
  ME_479731C50290_ME_522EDF570036 // Cleanup
@@ -23372,6 +23419,16 @@ ref; // ME_522EE4E90333 DoIt
  ; // Operations
 
 ref; // ME_522EE4E000E1 GetStrings
+
+: ME_56D93DBD039D_ME_522EDF6702AF
+ CONST UID '56D93DBD039D'
+ CONST Name 'ClearItems'
+ : Original ME_56D93DBD039D // ClearItems
+ ;
+ : Implementor ME_522EDF6702AF // TddStringDataAdapter
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_56D93DBD039D_ME_522EDF6702AF ClearItems
 
 : ME_478CF34E02CE_ME_522EDF6702AF
  CONST UID '478CF34E02CE'
@@ -23517,6 +23574,10 @@ ref; // ME_5301EC5A006A_ME_522EDF6702AF Create
    Seq: ( ME_522EE4E000E1 // GetStrings
  )
  ; // Operations
+ : Implemented
+   Seq: ( ME_56D93DBD039D_ME_522EDF6702AF // ClearItems
+ )
+ ; // Implemented
  : Overridden
    Seq: ( ME_478CF34E02CE_ME_522EDF6702AF // Assign
  ME_479731C50290_ME_522EDF6702AF // Cleanup

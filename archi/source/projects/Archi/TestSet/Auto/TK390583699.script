@@ -3,51 +3,69 @@ USES
 	QuickTestsUtils.script
 ;
 
-PROCEDURE "Копируем библиотеки-dll арчи"
+CONST ArchiTestIni 'ArchiTest.ini'
+CONST "Путь к копии базы" 'C:\Base\testbase2'
+CONST "Все dll" '*.dll'
 
-	STRING VAR l_FullPath
-	STRING VAR l_ShortPath
-	STRING VAR l_SubDirForTest
-
-	"Получить полный путь к исполняемому файлу" >>> l_FullPath
-	"Извлечь путь из полного пути {(l_FullPath)}" >>> l_ShortPath
-	"Сформировать путь к новому каталогу {(l_ShortPath)}" >>> l_SubDirForTest
-
-	STRING VAR l_SourceDir 
-	"Извлечь путь из полного пути {(l_FullPath)}" >>> l_SourceDir
- 
-	STRING VAR l_DestDir 
-	"Сформировать путь к новому каталогу {(l_ShortPath)}"  >>> l_DestDir
-
-	STRING VAR l_FileMask
-	'*.dll' >>> l_FileMask
-	l_FileMask l_DestDir l_SourceDir CopyFilesByMask
+STRING FUNCTION "Путь Архивариуса"
+	application:ExeName sysutils:ExtractFilePath >>> Result
 ;
 
-PROCEDURE "Запустить 'ArchiTest.exe'"
-	STRING VAR l_FullPath
-	STRING VAR l_ShortPath
-	STRING VAR l_SubDirForTest
-	"Получить полный путь к исполняемому файлу" >>> l_FullPath
-	"Извлечь путь из полного пути {(l_FullPath)}" >>> l_ShortPath
-	"Сформировать путь к новому каталогу {(l_ShortPath)}" >>> l_SubDirForTest
-	STRING VAR l_SourceDir 
-	"Извлечь путь из полного пути {(l_FullPath)}" >>> l_SourceDir
-	STRING VAR l_DestDir 
-	"Сформировать путь к новому каталогу {(l_ShortPath)}"  >>> l_DestDir 'ArchiTest.exe' sysutils:FileExists 'Не найден ArchiTest.exe' ASSERTS
- 	STRING VAR l_File
- 	STRING VAR l_TempFile
- 	STRING VAR l_CMD 
- 	script:FileName '' sysutils:ChangeFileExt
- 	sysutils:ExtractFileName >>> l_File
- 	l_File >>> l_TempFile 
- 	l_TempFile '' + >>> l_TempFile
- 	STRING VAR l_CMDLINE
-	[ "Сформировать путь к новому каталогу {(l_ShortPath)}"  >>> l_DestDir 'ArchiTest.exe' ' TestSet\' l_TempFile ' TestSet\' l_File ' -a'] strings:Cat >>> l_CMDLINE
-	l_CMDLINE WinExec
- 	5000 SLEEP // Чтобы предыдущаяя программа могла спокойно выполниться !
-	[ "Сформировать путь к новому каталогу {(l_ShortPath)}"  >>> l_DestDir ' TestSet\' l_TempFile ] strings:Cat >>> l_TempFile
+STRING FUNCTION "Путь к копии Архивариуса" STRING IN aSourceDir
+	STRING VAR l_SubDir
+	script:FileName '' sysutils:ChangeFileExt sysutils:ExtractFileName >>> l_SubDir 
+	[ aSourceDir l_SubDir ] strings:Cat >>> Result	
+;
 
+PROCEDURE "Подготовка к копированию" STRING IN aDestDir
+	"Создать каталог, если он не существует {(aDestDir)}"
+	"Очистить каталог {(aDestDir)}"
+;
+
+PROCEDURE "Распаковка тестовой базы"
+	"Закрыть все окна"
+	"Обработать сообщения" 
+	'testbase.zip' "Путь к копии базы" ClearDataBase 
+;
+
+PROCEDURE "Очистка после теста"
+	"Почистить за собой"
+	"Очистить каталог {('C:\Base\testbase2')}"
+;
+
+PROCEDURE "Копировать в каталог для теста dll" STRING IN aDestDir STRING IN aSourceDir
+	"Все dll" "Не создавать копию перезаписываемого файла" aDestDir aSourceDir CopyFilesByMask
+;
+
+PROCEDURE "Копировать в каталог для теста ArchiTest" STRING IN aFile STRING IN aDestDir STRING IN aSourceDir 
+	aFile "Не создавать копию перезаписываемого файла" aDestDir aSourceDir CopyFile
+;
+
+STRING FUNCTION "Путь к директории TestSet в CVS"
+	'' test:ResolveInputFilePath >>> Result	
+;
+
+PROCEDURE "Копировать в каталог для теста файл" STRING IN aDestDir STRING IN aFile
+	STRING VAR l_ArchiIni_CVS_Path
+	"Путь к директории TestSet в CVS" >>> l_ArchiIni_CVS_Path
+	[ l_ArchiIni_CVS_Path 'CMD\' aFile ] strings:Cat >>> l_ArchiIni_CVS_Path
+	STRING VAR l_DestDirArchiTestIni
+	[ aDestDir ArchiTestIni ] strings:Cat >>> l_DestDirArchiTestIni
+	"Не создавать копию перезаписываемого файла" l_DestDirArchiTestIni l_ArchiIni_CVS_Path CopyFile
+;
+
+PROCEDURE "Копирование исполняемых файлов" STRING IN aDestDir STRING IN aSourceDir
+	"Копировать в каталог для теста dll {(aDestDir)} {(aSourceDir)}"
+	"Копировать в каталог {(aDestDir)} для теста файл {('ArchiTest.ini')}"
+	"Копировать в каталог {(aDestDir)} для теста файл {('OneTest.txt')}"
+	"Копировать в каталог для теста ArchiTest {('ArchiTest.exe')} {(aDestDir)} {(aSourceDir)}"
+	"Копировать в каталог для теста ArchiTest {('ArchiTest.map')} {(aDestDir)} {(aSourceDir)}"
+;
+
+PROCEDURE "Запуск второй копии тестового Архивариуса" STRING IN aDestDir
+ 	STRING VAR l_CMDLINE
+	[ 'start ""' aDestDir 'ArchiTest.exe' '-toK -FakeK -File:OneTest.txt'] strings:Cat >>> l_CMDLINE
+	l_CMDLINE WinExec
 ;
 
 Тест TK390583699
@@ -56,24 +74,19 @@ PROCEDURE "Запустить 'ArchiTest.exe'"
 	)
 	Выполнить ( 
 
-		STRING VAR l_FullPath
-		STRING VAR l_ShortPath
-		STRING VAR l_SubDirForTest
+		STRING VAR l_SourceDir
+           	"Путь Архивариуса" >>> l_SourceDir
+          	STRING VAR l_DestDir 
+           	"Путь к копии Архивариуса {(l_SourceDir)}" >>> l_DestDir
+		"Подготовка к копированию {(l_DestDir)}"
+		"Копирование исполняемых файлов {(l_DestDir)} {(l_SourceDir)}"
+		"Распаковка тестовой базы"
 
-		"Получить полный путь к исполняемому файлу" >>> l_FullPath
-		"Извлечь путь из полного пути {(l_FullPath)}" >>> l_ShortPath
-		"Сформировать путь к новому каталогу {(l_ShortPath)}" >>> l_SubDirForTest
-		"Создать каталог, если он не существует {(l_SubDirForTest)}"
-		"Очистить каталог {(l_SubDirForTest)}"
+		"Запуск второй копии тестового Архивариуса {(l_DestDir)}"
 
-		"Копируем библиотеки-dll арчи"
+		// "Проверка результатов запуска" // Может быть понадобиться объединить с предыдущей.
 
-		"Копировать в каталог для теста ArchiTest.ini {(l_FullPath)} {(l_ShortPath)} {(l_SubDirForTest)}"
-		"Копировать в каталог для теста ArchiTest.exe {(l_FullPath)} {(l_ShortPath)} {(l_SubDirForTest)}"
-		"Копировать в каталог для теста ArchiTest.map {(l_FullPath)} {(l_ShortPath)} {(l_SubDirForTest)}"
-
-		"Запустить 'ArchiTest.exe'"
-		
+                "Очистка после теста"
 	)
 ;
 

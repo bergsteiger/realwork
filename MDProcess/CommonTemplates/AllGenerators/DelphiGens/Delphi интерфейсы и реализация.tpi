@@ -2132,7 +2132,7 @@ f _NeedFinalize
 	[{%S%f_pas_script_NeedOutToScript()=true}{\
 	false\
 	}\
-	[{%S#f_IsMethod()=true}{\
+	[{%S#f_pas_script_IsOperation()=true}{\
 	[{%SS=Constants}{\
 	[{%P#f_IsInterfaces()=true}{\
 	[{%SC=Class}{\
@@ -2346,7 +2346,7 @@ f _NeedFinalize
 
 	[{"%f_with_gen_id(%{GEN_ID}N,%Sd)"!=""}\
 	[{%SC=Class|%SC=Category}\
-	[{%S#f_IsMethod()!=true}\
+	[{%S#f_pas_script_IsOperation()!=true}\
 	[{%S#f_IsProject()=true|"%f_with_gen_id(%{GEN_ID}N,%Pd)"!="%f_with_gen_id(%{GEN_ID}N,%Sd)"}\
 	 CONST %{GEN_ID}N:PathOnly '%f_str_replace(%f_str_replace(%f_with_gen_id(%{GEN_ID}N,%Sd),/,\\),\\\\,\\)'
 	]\
@@ -2384,7 +2384,7 @@ f _NeedFinalize
 
 	[{%SC=Class|%SC=Category}\
 	[{"%f_pas_UnitName(%S)"!=""&%f_pas_UnitName(%S)!=%f_N(%S)}\
-	[{%S#f_IsMethod()!=true}\
+	[{%S#f_pas_script_IsOperation()!=true}\
 	[\
 	 CONST extprop:pas:UnitName '%f_fine_string(%f_pas_UnitName(%S))'
 	]\
@@ -2952,7 +2952,7 @@ f _OutOverride
 %f _pas_script_IsOperation
 // возвращаемый результат: boolean
 //#UC START# *5637623B00A0for470F151302FD*
-	[{%SC=Operation|%S#f_IsMethod()=true}{\
+	[{%SC=Operation|%S#f_IsMethod()=true|%SS=VCMOperation}{\
 	false\
 	}\
 	true\
@@ -3005,7 +3005,7 @@ f _pas_script_FileNameForLinkSafe
 %f _pas_script_CanImplementMethods
 // возвращаемый результат: boolean
 //#UC START# *563C76070331for470F151302FD*
-	[{%t_isClassRef(%S)=true|%SS=Typedef|%SS=MixInMirror|%S#f_IsMethod()=true}{\
+	[{%t_isClassRef(%S)=true|%SS=Typedef|%SS=MixInMirror|%S#f_pas_script_IsOperation()=true}{\
 	true\
 	}\
 	false\

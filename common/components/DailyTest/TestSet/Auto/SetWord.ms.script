@@ -1,0 +1,84 @@
+PROGRAM SetWord.ms.script
+
+USES
+ Testing.ms.dict
+;
+
+/*{USES
+ axiom:CompiledProcedure
+;
+
+TtfwKeyWord FUNCTION AddMethod
+  TtfwWord IN Self
+  TtfwWord IN aCode
+  STRING IN aName
+ aName Self pop:NewWordDefinitor:CheckWord >>> Result
+ 
+ if ( Result pop:KeyWord:Word IsNil ) then
+ begin
+  VAR P
+  CompiledProcedure:Create >>> P
+  
+  aCode P pop:Compiler:AddCodePart
+  P Result pop:KeyWord:SetWord
+  
+  P pop:Word:DecRef 
+ end // ( W pop:KeyWord:Word IsNil )
+; // AddMethod
+
+TtfwKeyWord FUNCTION AddMethodWithParams
+  TtfwWord IN Self
+  TtfwWord IN aCode
+  STRING IN aName
+  TtfwWord IN aParams
+ aName Self pop:NewWordDefinitor:CheckWord >>> Result
+ 
+ if ( Result pop:KeyWord:Word IsNil ) then
+ begin
+  VAR P
+  CompiledProcedure:Create >>> P
+  
+  [ aParams DO ] .for> ( P pop:Compiler:AddCodePartValue )
+  aCode P pop:Compiler:AddCodePart
+  P Result pop:KeyWord:SetWord
+  
+  P pop:Word:DecRef 
+ end // ( W pop:KeyWord:Word IsNil )
+; // AddMethodWithParams
+
+PROCEDURE .AddMethodWithParams:
+  TtfwWord IN Self
+  ^ IN aName
+  ^ IN aParams
+  ^ IN aCode
+ Self aCode aName DO aParams AddMethodWithParams DROP
+; // .AddMethodWithParams:}*/
+
+: Holder
+; // Holder
+
+Test&Dump SetWordTest
+ VAR W
+ @ Holder @ . 'A' AddMethod >>> W
+ W pop:KeyWord:Name .
+ 
+ W pop:KeyWord:Word .
+ W pop:KeyWord:Word pop:Word:Name .
+ 'X' W pop:KeyWord:Word DO
+ 'Y' Holder -> A
+ 'Z' Holder ->^ 'A' DO
+ 
+ @ Holder .AddMethodWithParams: 'B' 'Hello' .
+ Holder -> B
+ 
+ @ Holder .AddMethodWithParams: 'C' @ . .
+ Holder -> C
+ 
+ @ Holder .AddMethodWithParams: 'D' ( 1 2 3 ) ( . . . )
+ Holder -> D
+ 
+ @ Holder .AddMethodWithParams: 'E' ( 1 2 3 ) ( IN p1 IN p2 IN p3 p1 . p2 . p3 . )
+ Holder -> E
+; // SetWordTest
+
+SetWordTest

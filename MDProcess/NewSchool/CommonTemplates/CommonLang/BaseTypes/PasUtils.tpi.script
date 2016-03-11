@@ -29,19 +29,13 @@
 // - имя модуля для пакета с интерфейсами
 //r {%SS=ControllerInterfaces}: {%P#f_pas_ElementPrefixBase()%SN}
 // - имя модуля для пакета с интерфейсами контроллеров
-//r {%SS=EvdFactoryDef}: {%SN}
-// - имя модуля для пакета с фабриками
 //r {%S#f_IsUtilityPack()=true}: {%P#f_pas_ElementPrefixBase()%SN}
 // - имя модуля для утилитного пакета
-//r {%SS=WrapperPack}: {%SN}
-// - пакет с обёртками
-//r {%SS=InterfaceFactoryPack}: {%SN}
-// - пакет с фабриками
 //r {%SN=Primitives}: {}
 // - модуль с примитивами
-//r {%SS=Wrapper}: {[{%PS=WrapperPack}{%f_cut_prefix(%SN,W)_Wrap}]}
+//r {%SS=Wrapper}: {%f_cut_prefix(%SN,W)_Wrap}
 // - обёртка тега
-//r {%SS=InterfaceFactory}: {[{%PS=InterfaceFactoryPack}{%f_cut_prefix(%SN,T)_InterfaceFactory}]}
+//r {%SS=InterfaceFactory}: {%f_cut_prefix(%SN,T)_InterfaceFactory}
 // - обёртка тега
 //r {%S#f_IsUnit()=true}: {}
 // - модуль реализации
@@ -2369,14 +2363,13 @@
    end // if
    else
    begin
-//	[{%BS!=Wrapper&%BS!=WrapperPack&%BS!=InterfaceFactory&%BS!=InterfaceFactoryPack}\
+//	[{%BS!=Wrapper&%BS!=InterfaceFactory}\
     if ( ( %B |S ) %!= 'Wrapper' AND 
-      ( ( %B |S ) %!= 'WrapperPack'  ) AND 
-      ( ( %B |S ) %!= 'InterfaceFactory'  ) AND 
-      ( ( %B |S ) %!= 'InterfaceFactoryPack'  ) ) then
+      ( ( %B |S ) %!= 'InterfaceFactory'  ) ) then
     begin
-//	%f_pas_PutToUsesPrim(%S)]\
+//	%f_pas_PutToUsesPrim(%S)\
      [%f] pas_PutToUsesPrim %( %S )% 
+//	]\
     end // if
 //	}\
    end // else

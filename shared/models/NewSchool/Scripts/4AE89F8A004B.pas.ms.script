@@ -6,6 +6,16 @@ FORWARD ME_4AE89F8A004B
 
 FORWARD ME_4AE8A0D10108
 
+: ME_4AE8A0FA0247
+ CONST UID '4AE8A0FA0247'
+ CONST Name 'aNotClearRange'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4AE8A0FA0247 aNotClearRange
+
 : ME_4AE8A0E10254
  CONST UID '4AE8A0E10254'
  CONST Name 'ClearAll'
@@ -15,6 +25,10 @@ FORWARD ME_4AE8A0D10108
  CONST Abstraction at_abstract
  : Parent ME_4AE8A0D10108 // Query
  ;
+ : Parameters
+   Seq: ( ME_4AE8A0FA0247 // aNotClearRange
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -26,6 +40,26 @@ FORWARD ME_4AE8A0D10108
 
 ref; // ME_4AE8A0E10254 ClearAll
 
+: ME_4AE96F8F031B
+ CONST UID '4AE96F8F031B'
+ CONST Name 'aList'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47F20DEA0340' '4B1D3D250382.pas.ms.script' // IdeList
+ ;
+
+ref; // ME_4AE96F8F031B aList
+
+: ME_4AE9713102BB
+ CONST UID '4AE9713102BB'
+ CONST Name 'aInList'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4AE9713102BB aInList
+
 : ME_4AE96F6C0191
  CONST UID '4AE96F6C0191'
  CONST Name 'SetList'
@@ -35,6 +69,11 @@ ref; // ME_4AE8A0E10254 ClearAll
  CONST Abstraction at_abstract
  : Parent ME_4AE8A0D10108 // Query
  ;
+ : Parameters
+   Seq: ( ME_4AE96F8F031B // aList
+ ME_4AE9713102BB // aInList
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -89,6 +128,16 @@ ref; // ME_4AE8A0D10108 Query
 
 FORWARD ME_4AE9C8CC0055
 
+: ME_4AEF0BF7035D
+ CONST UID '4AEF0BF7035D'
+ CONST Name 'aFilter'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4CA499CA03DD' '45EEA48F011F.pas.ms.script' // FilterFromQuery
+ ;
+
+ref; // ME_4AEF0BF7035D aFilter
+
 : ME_4AEF0BF70306
  CONST UID '4AEF0BF70306'
  CONST Name 'Add'
@@ -100,6 +149,10 @@ FORWARD ME_4AE9C8CC0055
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ : Parameters
+   Seq: ( ME_4AEF0BF7035D // aFilter
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" true
@@ -110,6 +163,16 @@ FORWARD ME_4AE9C8CC0055
  CONST "no prefix" false
 
 ref; // ME_4AEF0BF70306 Add
+
+: ME_4AEF0D26012C
+ CONST UID '4AEF0D26012C'
+ CONST Name 'aFilter'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4CA499CA03DD' '45EEA48F011F.pas.ms.script' // FilterFromQuery
+ ;
+
+ref; // ME_4AEF0D26012C aFilter
 
 : ME_4AEF0D1A01C3
  CONST UID '4AEF0D1A01C3'
@@ -122,6 +185,10 @@ ref; // ME_4AEF0BF70306 Add
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ : Parameters
+   Seq: ( ME_4AEF0D26012C // aFilter
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" true
@@ -237,6 +304,40 @@ ref; // ME_4AE9CE790344 TNodesArray
 
 FORWARD ME_498959F103C4
 
+: ME_4AEAC69D027D
+ CONST UID '4AEAC69D027D'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4912DD2C0082' '4912DD020283.pas.ms.script' // IeeNode
+ ;
+
+ref; // ME_4AEAC69D027D aNode
+
+: ME_4AEAC69D02CF
+ CONST UID '4AEAC69D02CF'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
+ ;
+
+ref; // ME_4AEAC69D02CF aData
+
+: ME_4AEAC69D031D
+ CONST UID '4AEAC69D031D'
+ CONST Name 'anOp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47F2791D019A' '47F2170002B2.pas.ms.script' // TListLogicOperation
+ ;
+ CONST Value 'LLO_NONE'
+ : ValueType WL 'ME_47F2791D019A' '47F2170002B2.pas.ms.script' // TListLogicOperation
+ ;
+ CONST extprop:pas:Value 'nsTypes.LLO_NONE'
+
+ref; // ME_4AEAC69D031D anOp
+
 : ME_49895A2102E8
  CONST UID '49895A2102E8'
  CONST Name 'Load'
@@ -249,6 +350,12 @@ FORWARD ME_498959F103C4
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ : Parameters
+   Seq: ( ME_4AEAC69D027D // aNode
+ ME_4AEAC69D02CF // aData
+ ME_4AEAC69D031D // anOp
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -838,10 +945,10 @@ ref; // ME_4C81191003E5 FiltersListOpen
  CONST Abstraction at_regular
  : Parent ME_4AE89F8A004B // Strange
  ;
- : Children
+ : Operations
    Seq: ( ME_4C81191003E5 // FiltersListOpen
  )
- ; // Children
+ ; // Operations
 
 ref; // ME_4B6BEE5800CE Filters$UI
 
@@ -1405,7 +1512,7 @@ ref; // ME_4C88D4E8007C FilePosition
  CONST Abstraction at_regular
  : Parent ME_4AE89F8A004B // Strange
  ;
- : Children
+ : Operations
    Seq: ( ME_4C88D40C0029 // AppTitle
  ME_4C88D42001C2 // DocName
  ME_4C88D43300C7 // DocFullName
@@ -1418,7 +1525,7 @@ ref; // ME_4C88D4E8007C FilePosition
  ME_4C88D4D202BA // DocumentSIze
  ME_4C88D4E8007C // FilePosition
  )
- ; // Children
+ ; // Operations
 
 ref; // ME_4C88D3FB02D1 ColontitulMacro
 
@@ -1458,10 +1565,10 @@ ref; // ME_4C7F8DFF02BF Show
  CONST Abstraction at_regular
  : Parent ME_4AE89F8A004B // Strange
  ;
- : Children
+ : Operations
    Seq: ( ME_4C7F8DFF02BF // Show
  )
- ; // Children
+ ; // Operations
 
 ref; // ME_4C7F8DE70364 SubPanelSettings$ShowSubNumbers
 
@@ -1499,10 +1606,10 @@ ref; // ME_528373EC0026 ShowByShortCut
  CONST Abstraction at_regular
  : Parent ME_4AE89F8A004B // Strange
  ;
- : Children
+ : Operations
    Seq: ( ME_528373EC0026 // ShowByShortCut
  )
- ; // Children
+ ; // Operations
 
 ref; // ME_528373C80349 SubPanelSettings$WithShowByShortCut
 

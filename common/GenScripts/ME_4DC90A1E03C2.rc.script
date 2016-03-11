@@ -1384,8 +1384,8 @@ USES
 ;
 
 Procedure DogAndBracket
- String in aBracketOpen
- String in aBracketClose
+ STRING in aBracketOpen
+ STRING in aBracketClose
  INTERFACE var l_Parser 
  Ctx:Parser >>> l_Parser
  ARRAY var l_A
@@ -1394,7 +1394,7 @@ Procedure DogAndBracket
  l_Parser pop:Parser:NextToken
  while true
  begin
-  String var l_Token
+  STRING var l_Token
   l_Parser pop:Parser:TokenLongString >>> l_Token
   TOKEN_TYPE var l_TokenType
   l_Parser pop:Parser:TokenType >>> l_TokenType
@@ -2650,6 +2650,56 @@ PROCEDURE Ctx:PrintDictionaries
 ; // Ctx:PrintDictionaries
 
 WordAlias help Ctx:PrintDictionaries
+
+USES
+ axiom:CompiledProcedure
+;
+
+TtfwKeyWord FUNCTION AddMethod
+  TtfwWord IN Self
+  TtfwWord IN aCode
+  STRING IN aName
+ aName Self pop:NewWordDefinitor:CheckWord >>> Result
+ 
+ if ( Result pop:KeyWord:Word IsNil ) then
+ begin
+  VAR P
+  CompiledProcedure:Create >>> P
+  
+  aCode P pop:Compiler:AddCodePart
+  P Result pop:KeyWord:SetWord
+  
+  P pop:Word:DecRef 
+ end // ( W pop:KeyWord:Word IsNil )
+; // AddMethod
+
+TtfwKeyWord FUNCTION AddMethodWithParams
+  TtfwWord IN Self
+  TtfwWord IN aCode
+  STRING IN aName
+  TtfwWord IN aParams
+ aName Self pop:NewWordDefinitor:CheckWord >>> Result
+ 
+ if ( Result pop:KeyWord:Word IsNil ) then
+ begin
+  VAR P
+  CompiledProcedure:Create >>> P
+  
+  [ aParams DO ] .for> ( P pop:Compiler:AddCodePartValue )
+  aCode P pop:Compiler:AddCodePart
+  P Result pop:KeyWord:SetWord
+  
+  P pop:Word:DecRef 
+ end // ( W pop:KeyWord:Word IsNil )
+; // AddMethodWithParams
+
+PROCEDURE .AddMethodWithParams:
+  TtfwWord IN Self
+  ^ IN aName
+  ^ IN aParams
+  ^ IN aCode
+ Self aCode aName DO aParams AddMethodWithParams DROP
+; // .AddMethodWithParams:
 
 // end. WordsInfo
 

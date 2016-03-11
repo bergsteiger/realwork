@@ -2530,7 +2530,7 @@ var
  if (aIndex = f_Current) then
  begin
   //если ткнули в текущий, а он не выделен, то надо выделить
-  if (f_Current >= 0) and (total > 0) and not (PickedList or Selected[f_Current]) then
+  if (f_Current >= 0) and (total > 0) and not (PickedList or Selected[f_Current]) and not f_LockSelectChange then
    Selected[f_Current] := True;
   Exit;
  end;
@@ -5359,8 +5359,8 @@ var
   end;
   if (not PickedList and f_MultiSelect) then
   begin
-   DoOnSelect(f_Current, 1);
-   InvalidateItem(f_Current);
+//   DoOnSelect(f_Current, 1); //закомментировал из-за 619559545
+//   InvalidateItem(f_Current);
   end;
  end;
 //#UC END# *515998420356_4CFFE36B00FA_impl*

@@ -6,6 +6,20 @@ FORWARD ME_4A96A8C10357
 
 FORWARD ME_4AE9BF190048
 
+: ME_4AE9BF890294
+ CONST UID '4AE9BF890294'
+ CONST Name 'aModalResult'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST Value 'mrCancel'
+ : ValueType WL 'ME_4A980B37006B' '4799D29F033F.pas.ms.script' // ModalResults
+ ;
+ CONST extprop:pas:Value 'mrCancel'
+
+ref; // ME_4AE9BF890294 aModalResult
+
 : ME_4AE9BF890271
  CONST UID '4AE9BF890271'
  CONST Name 'Close'
@@ -15,6 +29,10 @@ FORWARD ME_4AE9BF190048
  CONST Abstraction at_abstract
  : Parent ME_4AE9BF190048 // AdditionInfo$ForFoldersInfo
  ;
+ : Parameters
+   Seq: ( ME_4AE9BF890294 // aModalResult
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -45,6 +63,30 @@ ref; // ME_4AE9BF190048 AdditionInfo$ForFoldersInfo
 
 FORWARD ME_4AE705EE00E6
 
+: ME_4AE7062301CC
+ CONST UID '4AE7062301CC'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EED5F0008E' '4570501E037A.pas.ms.script' // FoldersNode
+ ;
+
+ref; // ME_4AE7062301CC aNode
+
+: ME_4AE71B2101D7
+ CONST UID '4AE71B2101D7'
+ CONST Name 'aInternalCall'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value true
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value true
+
+ref; // ME_4AE71B2101D7 aInternalCall
+
 : ME_4AE7060A03E7
  CONST UID '4AE7060A03E7'
  CONST Name 'InternalEditByFoldersNode'
@@ -55,6 +97,11 @@ FORWARD ME_4AE705EE00E6
  CONST Abstraction at_abstract
  : Parent ME_4AE705EE00E6 // FolderElement$ForTree
  ;
+ : Parameters
+   Seq: ( ME_4AE7062301CC // aNode
+ ME_4AE71B2101D7 // aInternalCall
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -65,6 +112,30 @@ FORWARD ME_4AE705EE00E6
  CONST "no prefix" false
 
 ref; // ME_4AE7060A03E7 InternalEditByFoldersNode
+
+: ME_4AE709C402E4
+ CONST UID '4AE709C402E4'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EED5F0008E' '4570501E037A.pas.ms.script' // FoldersNode
+ ;
+
+ref; // ME_4AE709C402E4 aNode
+
+: ME_4AE71B01026B
+ CONST UID '4AE71B01026B'
+ CONST Name 'aAsk'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value true
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value true
+
+ref; // ME_4AE71B01026B aAsk
 
 : ME_4AE7099B0136
  CONST UID '4AE7099B0136'
@@ -78,6 +149,11 @@ ref; // ME_4AE7060A03E7 InternalEditByFoldersNode
  ;
  : Target WL 'ME_4AE7093402CF' '47F2170002B2.pas.ms.script' // TnsDeleteResult
  ;
+ : Parameters
+   Seq: ( ME_4AE709C402E4 // aNode
+ ME_4AE71B01026B // aAsk
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -89,6 +165,30 @@ ref; // ME_4AE7060A03E7 InternalEditByFoldersNode
 
 ref; // ME_4AE7099B0136 InternalDelete
 
+: ME_4AE72422036A
+ CONST UID '4AE72422036A'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4912DD2C0082' '4912DD020283.pas.ms.script' // IeeNode
+ ;
+
+ref; // ME_4AE72422036A aNode
+
+: ME_4AE7242203B6
+ CONST UID '4AE7242203B6'
+ CONST Name 'aInternalCall'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value true
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value true
+
+ref; // ME_4AE7242203B6 aInternalCall
+
 : ME_4AE7240E024C
  CONST UID '4AE7240E024C'
  CONST Name 'InternalEdit'
@@ -98,6 +198,11 @@ ref; // ME_4AE7099B0136 InternalDelete
  CONST Abstraction at_abstract
  : Parent ME_4AE705EE00E6 // FolderElement$ForTree
  ;
+ : Parameters
+   Seq: ( ME_4AE72422036A // aNode
+ ME_4AE7242203B6 // aInternalCall
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -152,6 +257,16 @@ ref; // ME_4AE705EE00E6 FolderElement$ForTree
 
 FORWARD ME_4AE9BFEA0177
 
+: ME_4AE9C02D037F
+ CONST UID '4AE9C02D037F'
+ CONST Name 'aInfoType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49901BC6004A' '4990135D02F1.pas.ms.script' // TFoldersInfoType
+ ;
+
+ref; // ME_4AE9C02D037F aInfoType
+
 : ME_4AE9C01201BA
  CONST UID '4AE9C01201BA'
  CONST Name 'SetState'
@@ -161,6 +276,10 @@ FORWARD ME_4AE9BFEA0177
  CONST Abstraction at_abstract
  : Parent ME_4AE9BFEA0177 // FolderElement$ForFoldersInfo
  ;
+ : Parameters
+   Seq: ( ME_4AE9C02D037F // aInfoType
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -231,6 +350,16 @@ ref; // ME_4A980672034B Show
 
 ref; // ME_4A9806B600E8 Hide
 
+: ME_4A98099100B9
+ CONST UID '4A98099100B9'
+ CONST Name 'aCaption'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4A98099100B9 aCaption
+
 : ME_4A9806D7038D
  CONST UID '4A9806D7038D'
  CONST Name 'SetCaption'
@@ -240,6 +369,10 @@ ref; // ME_4A9806B600E8 Hide
  CONST Abstraction at_abstract
  : Parent ME_4A98004D0059 // AdditionInfo
  ;
+ : Parameters
+   Seq: ( ME_4A98099100B9 // aCaption
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -321,6 +454,56 @@ FORWARD ME_4AE7070800A4
 
 ref; // ME_4AE7073F0388 GetState
 
+: ME_4AE74F65027D
+ CONST UID '4AE74F65027D'
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_4AE74F65027D aForm
+
+: ME_4AE74F6502A6
+ CONST UID '4AE74F6502A6'
+ CONST Name 'aFolderFilterInfo'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_496A107D033B' '4990135D02F1.pas.ms.script' // InsFolderFilterInfo
+ ;
+
+ref; // ME_4AE74F6502A6 aFolderFilterInfo
+
+: ME_4AE74F6502E8
+ CONST UID '4AE74F6502E8'
+ CONST Name 'aCaption'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4AE74F6502E8 aCaption
+
+: ME_4AE74F65034B
+ CONST UID '4AE74F65034B'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
+ ;
+
+ref; // ME_4AE74F65034B aData
+
+: ME_4AEACBB200AA
+ CONST UID '4AEACBB200AA'
+ CONST Name 'anOp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47F2791D019A' '47F2170002B2.pas.ms.script' // TListLogicOperation
+ ;
+
+ref; // ME_4AEACBB200AA anOp
+
 : ME_4AE74E1C007F
  CONST UID '4AE74E1C007F'
  CONST Name 'SetLoadInfo'
@@ -331,6 +514,14 @@ ref; // ME_4AE7073F0388 GetState
  CONST Abstraction at_abstract
  : Parent ME_4AE7070800A4 // FolderElement$ForInfo
  ;
+ : Parameters
+   Seq: ( ME_4AE74F65027D // aForm
+ ME_4AE74F6502A6 // aFolderFilterInfo
+ ME_4AE74F6502E8 // aCaption
+ ME_4AE74F65034B // aData
+ ME_4AEACBB200AA // anOp
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -342,6 +533,30 @@ ref; // ME_4AE7073F0388 GetState
 
 ref; // ME_4AE74E1C007F SetLoadInfo
 
+: ME_4AE8530F006F
+ CONST UID '4AE8530F006F'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4912DD2C0082' '4912DD020283.pas.ms.script' // IeeNode
+ ;
+
+ref; // ME_4AE8530F006F aNode
+
+: ME_4AE8530F009B
+ CONST UID '4AE8530F009B'
+ CONST Name 'aIsNewFolder'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value false
+
+ref; // ME_4AE8530F009B aIsNewFolder
+
 : ME_4AE85279013B
  CONST UID '4AE85279013B'
  CONST Name 'SetContent'
@@ -352,6 +567,11 @@ ref; // ME_4AE74E1C007F SetLoadInfo
  CONST Abstraction at_abstract
  : Parent ME_4AE7070800A4 // FolderElement$ForInfo
  ;
+ : Parameters
+   Seq: ( ME_4AE8530F006F // aNode
+ ME_4AE8530F009B // aIsNewFolder
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -363,6 +583,56 @@ ref; // ME_4AE74E1C007F SetLoadInfo
 
 ref; // ME_4AE85279013B SetContent
 
+: ME_4AE8582C02F3
+ CONST UID '4AE8582C02F3'
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_4AE8582C02F3 aForm
+
+: ME_4AE8582C0343
+ CONST UID '4AE8582C0343'
+ CONST Name 'aFilterInfo'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_496A107D033B' '4990135D02F1.pas.ms.script' // InsFolderFilterInfo
+ ;
+
+ref; // ME_4AE8582C0343 aFilterInfo
+
+: ME_4AE8582C0394
+ CONST UID '4AE8582C0394'
+ CONST Name 'anElementType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49901B7F0265' '4990135D02F1.pas.ms.script' // TFoldersElementType
+ ;
+
+ref; // ME_4AE8582C0394 anElementType
+
+: ME_4AE8582D000C
+ CONST UID '4AE8582D000C'
+ CONST Name 'anEntity'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_456EB3E10177' '456EA56002BF.pas.ms.script' // EntityBase
+ ;
+
+ref; // ME_4AE8582D000C anEntity
+
+: ME_4AE8582D007E
+ CONST UID '4AE8582D007E'
+ CONST Name 'aSaveAs'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4AE8582D007E aSaveAs
+
 : ME_4AE857EF0085
  CONST UID '4AE857EF0085'
  CONST Name 'SetSaveInfo'
@@ -372,6 +642,14 @@ ref; // ME_4AE85279013B SetContent
  CONST Abstraction at_abstract
  : Parent ME_4AE7070800A4 // FolderElement$ForInfo
  ;
+ : Parameters
+   Seq: ( ME_4AE8582C02F3 // aForm
+ ME_4AE8582C0343 // aFilterInfo
+ ME_4AE8582C0394 // anElementType
+ ME_4AE8582D000C // anEntity
+ ME_4AE8582D007E // aSaveAs
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -383,6 +661,16 @@ ref; // ME_4AE85279013B SetContent
 
 ref; // ME_4AE857EF0085 SetSaveInfo
 
+: ME_4AEEC8880267
+ CONST UID '4AEEC8880267'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4912DD2C0082' '4912DD020283.pas.ms.script' // IeeNode
+ ;
+
+ref; // ME_4AEEC8880267 aNode
+
 : ME_4AEEC8810299
  CONST UID '4AEEC8810299'
  CONST Name 'ResetModificationOnDelete'
@@ -392,6 +680,10 @@ ref; // ME_4AE857EF0085 SetSaveInfo
  CONST Abstraction at_abstract
  : Parent ME_4AE7070800A4 // FolderElement$ForInfo
  ;
+ : Parameters
+   Seq: ( ME_4AEEC8880267 // aNode
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -516,6 +808,16 @@ ref; // ME_4AE7070800A4 FolderElement$ForInfo
 
 FORWARD ME_4AEEBF1F006C
 
+: ME_4AEEBF8003B2
+ CONST UID '4AEEBF8003B2'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_456FE63B01D4' '456F02A50196.pas.ms.script' // Node
+ ;
+
+ref; // ME_4AEEBF8003B2 aNode
+
 : ME_4AEEBF3B01CD
  CONST UID '4AEEBF3B01CD'
  CONST Name 'SetFilterState'
@@ -525,6 +827,10 @@ FORWARD ME_4AEEBF1F006C
  CONST Abstraction at_abstract
  : Parent ME_4AEEBF1F006C // SavedQuery
  ;
+ : Parameters
+   Seq: ( ME_4AEEBF8003B2 // aNode
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -555,6 +861,16 @@ ref; // ME_4AEEBF1F006C SavedQuery
 
 FORWARD ME_4AEEC34C02B5
 
+: ME_4AEEC36001FA
+ CONST UID '4AEEC36001FA'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4912DD2C0082' '4912DD020283.pas.ms.script' // IeeNode
+ ;
+
+ref; // ME_4AEEC36001FA aNode
+
 : ME_4AEEC3580234
  CONST UID '4AEEC3580234'
  CONST Name 'SetCurrent'
@@ -564,6 +880,10 @@ FORWARD ME_4AEEC34C02B5
  CONST Abstraction at_abstract
  : Parent ME_4AEEC34C02B5 // Folders
  ;
+ : Parameters
+   Seq: ( ME_4AEEC36001FA // aNode
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -575,6 +895,16 @@ FORWARD ME_4AEEC34C02B5
 
 ref; // ME_4AEEC3580234 SetCurrent
 
+: ME_4AF2F5CB00EB
+ CONST UID '4AF2F5CB00EB'
+ CONST Name 'anInfo'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_496A107D033B' '4990135D02F1.pas.ms.script' // InsFolderFilterInfo
+ ;
+
+ref; // ME_4AF2F5CB00EB anInfo
+
 : ME_4AF2F57400D8
  CONST UID '4AF2F57400D8'
  CONST Name 'FiltrateByFilterInfo'
@@ -584,6 +914,10 @@ ref; // ME_4AEEC3580234 SetCurrent
  CONST Abstraction at_abstract
  : Parent ME_4AEEC34C02B5 // Folders
  ;
+ : Parameters
+   Seq: ( ME_4AF2F5CB00EB // anInfo
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -678,6 +1012,16 @@ ref; // ME_4AEEC34C02B5 Folders
 
 FORWARD ME_4AEEC5DD01A9
 
+: ME_4AEEC5F40019
+ CONST UID '4AEEC5F40019'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4912DD2C0082' '4912DD020283.pas.ms.script' // IeeNode
+ ;
+
+ref; // ME_4AEEC5F40019 aNode
+
 : ME_4AEEC5EA03DC
  CONST UID '4AEEC5EA03DC'
  CONST Name 'UpdateRights'
@@ -687,6 +1031,10 @@ FORWARD ME_4AEEC5DD01A9
  CONST Abstraction at_abstract
  : Parent ME_4AEEC5DD01A9 // UsersRights
  ;
+ : Parameters
+   Seq: ( ME_4AEEC5F40019 // aNode
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -809,10 +1157,10 @@ ref; // ME_4C7E65DF016E Filtrate
  CONST Abstraction at_regular
  : Parent ME_4A96A8C10357 // Strange
  ;
- : Children
+ : Operations
    Seq: ( ME_4C7E65DF016E // Filtrate
  )
- ; // Children
+ ; // Operations
 
 ref; // ME_4C7E65BE0317 Folders$ForTree
 
@@ -960,7 +1308,7 @@ ref; // ME_4C7E66F60347 ImportFromXML
  CONST Abstraction at_regular
  : Parent ME_4A96A8C10357 // Strange
  ;
- : Children
+ : Operations
    Seq: ( ME_4C7E66850144 // New
  ME_4C7E66990246 // AddToControl
  ME_4C7E66B102FB // DelFromControl
@@ -968,7 +1316,7 @@ ref; // ME_4C7E66F60347 ImportFromXML
  ME_4C7E66DC00F5 // ExportToXML
  ME_4C7E66F60347 // ImportFromXML
  )
- ; // Children
+ ; // Operations
 
 ref; // ME_4C7E667200A7 Folder
 
@@ -1116,7 +1464,7 @@ ref; // ME_4C7E68E900DC ExportForIntegration
  CONST Abstraction at_regular
  : Parent ME_4A96A8C10357 // Strange
  ;
- : Children
+ : Operations
    Seq: ( ME_4C7E679702DA // Edit
  ME_4C7E67B301FD // EditExt
  ME_4C7E67CE01CB // Open
@@ -1124,7 +1472,7 @@ ref; // ME_4C7E68E900DC ExportForIntegration
  ME_4C7E68D602DB // ControlStatus
  ME_4C7E68E900DC // ExportForIntegration
  )
- ; // Children
+ ; // Operations
 
 ref; // ME_4C7E673800A1 FolderElement$ForTreeOptions
 
@@ -1163,10 +1511,10 @@ ref; // ME_4CB5802D00CB CreateFilter
  CONST Abstraction at_regular
  : Parent ME_4A96A8C10357 // Strange
  ;
- : Children
+ : Operations
    Seq: ( ME_4CB5802D00CB // CreateFilter
  )
- ; // Children
+ ; // Operations
 
 ref; // ME_4C7E69DD02C0 SavedQuery$ForTree
 
@@ -1270,13 +1618,13 @@ ref; // ME_4C7E6B310055 ImportConsultation
  CONST Abstraction at_regular
  : Parent ME_4A96A8C10357 // Strange
  ;
- : Children
+ : Operations
    Seq: ( ME_4C7E6AE10291 // Open
  ME_4C7E6AF2031C // GiveMark
  ME_4C7E6B1A019D // ShowConsultationInfo
  ME_4C7E6B310055 // ImportConsultation
  )
- ; // Children
+ ; // Operations
 
 ref; // ME_4C7E6AD102DF Consultation
 

@@ -437,8 +437,8 @@ f _base_class_collect
 
 	[{%{WasRegisterInEngine}N!=true}\
 	[{%SS!=ScriptKeyword|%Sa=abstract}\
-	[{"%f_string_find(%SN,Hack)"="-1"}\
 	[{%S#f_NeedRegisterInScripts()=true}\
+	[{"%f_string_find(%SN,Hack)"="-1"}\
 	[{%S%f_InheritsFrom("TtfwWord")=true}{\
 	[{"%{TtfwClassRef}N"=""}%f_find_element(561F9F9400BC,TtfwClassRef)]\
 	%S%f_make_accessable(%{TtfwClassRef}U)\
@@ -778,8 +778,10 @@ f _ChildNeedOwnFile
 // артефактов
 + spell
 //#UC START# *4A41A13D03D5for471466900128*
+	%f_warning(%SN start spell)\
 	<%CX>\
-	%S%f_DoSpell()
+	%S%f_DoSpell()\
+	%f_warning(%SN finish spell)
 //#UC END# *4A41A13D03D5for471466900128*
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

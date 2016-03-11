@@ -6,6 +6,16 @@ FORWARD ME_4AE831B30019
 
 FORWARD ME_4AE831E70016
 
+: ME_4AE8320A009A
+ CONST UID '4AE8320A009A'
+ CONST Name 'aChar'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4AE8320A009A aChar
+
 : ME_4AE831FA00F9
  CONST UID '4AE831FA00F9'
  CONST Name 'ExternalCharPressed'
@@ -15,6 +25,10 @@ FORWARD ME_4AE831E70016
  CONST Abstraction at_abstract
  : Parent ME_4AE831E70016 // AttributeTree$Select
  ;
+ : Parameters
+   Seq: ( ME_4AE8320A009A // aChar
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -26,6 +40,30 @@ FORWARD ME_4AE831E70016
 
 ref; // ME_4AE831FA00F9 ExternalCharPressed
 
+: ME_4AE870540350
+ CONST UID '4AE870540350'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_4AE870540350 aNode
+
+: ME_4AE87054038D
+ CONST UID '4AE87054038D'
+ CONST Name 'aExpand'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value false
+
+ref; // ME_4AE87054038D aExpand
+
 : ME_4AE8703B02A2
  CONST UID '4AE8703B02A2'
  CONST Name 'SetCurrent'
@@ -35,6 +73,11 @@ ref; // ME_4AE831FA00F9 ExternalCharPressed
  CONST Abstraction at_abstract
  : Parent ME_4AE831E70016 // AttributeTree$Select
  ;
+ : Parameters
+   Seq: ( ME_4AE870540350 // aNode
+ ME_4AE87054038D // aExpand
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -46,6 +89,44 @@ ref; // ME_4AE831FA00F9 ExternalCharPressed
 
 ref; // ME_4AE8703B02A2 SetCurrent
 
+: ME_4AE871050201
+ CONST UID '4AE871050201'
+ CONST Name 'aDropSelection'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4AE871050201 aDropSelection
+
+: ME_4AE871050239
+ CONST UID '4AE871050239'
+ CONST Name 'aNotifyMultipleChanges'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value false
+
+ref; // ME_4AE871050239 aNotifyMultipleChanges
+
+: ME_4BE00B85011B
+ CONST UID '4BE00B85011B'
+ CONST Name 'SetToTop'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value true
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value true
+
+ref; // ME_4BE00B85011B SetToTop
+
 : ME_4AE870DD01D0
  CONST UID '4AE870DD01D0'
  CONST Name 'DropAllLogicSelection'
@@ -55,6 +136,12 @@ ref; // ME_4AE8703B02A2 SetCurrent
  CONST Abstraction at_abstract
  : Parent ME_4AE831E70016 // AttributeTree$Select
  ;
+ : Parameters
+   Seq: ( ME_4AE871050201 // aDropSelection
+ ME_4AE871050239 // aNotifyMultipleChanges
+ ME_4BE00B85011B // SetToTop
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -66,6 +153,16 @@ ref; // ME_4AE8703B02A2 SetCurrent
 
 ref; // ME_4AE870DD01D0 DropAllLogicSelection
 
+: ME_4AEAE6830296
+ CONST UID '4AEAE6830296'
+ CONST Name 'aUserType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4AEAE6830296 aUserType
+
 : ME_4AEAE67802ED
  CONST UID '4AEAE67802ED'
  CONST Name 'Invalidate'
@@ -75,6 +172,10 @@ ref; // ME_4AE870DD01D0 DropAllLogicSelection
  CONST Abstraction at_abstract
  : Parent ME_4AE831E70016 // AttributeTree$Select
  ;
+ : Parameters
+   Seq: ( ME_4AEAE6830296 // aUserType
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -86,6 +187,16 @@ ref; // ME_4AE870DD01D0 DropAllLogicSelection
 
 ref; // ME_4AEAE67802ED Invalidate
 
+: ME_4AEF383D0238
+ CONST UID '4AEF383D0238'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+
+ref; // ME_4AEF383D0238 aNode
+
 : ME_4AEF38310030
  CONST UID '4AEF38310030'
  CONST Name 'DropLogicSelection'
@@ -95,6 +206,10 @@ ref; // ME_4AEAE67802ED Invalidate
  CONST Abstraction at_abstract
  : Parent ME_4AE831E70016 // AttributeTree$Select
  ;
+ : Parameters
+   Seq: ( ME_4AEF383D0238 // aNode
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -106,6 +221,16 @@ ref; // ME_4AEAE67802ED Invalidate
 
 ref; // ME_4AEF38310030 DropLogicSelection
 
+: ME_4AEF3865011C
+ CONST UID '4AEF3865011C'
+ CONST Name 'aQuery'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEE145027B' '45EEAA8E034E.pas.ms.script' // Query
+ ;
+
+ref; // ME_4AEF3865011C aQuery
+
 : ME_4AEF3857010A
  CONST UID '4AEF3857010A'
  CONST Name 'LoadQuery'
@@ -115,6 +240,10 @@ ref; // ME_4AEF38310030 DropLogicSelection
  CONST Abstraction at_abstract
  : Parent ME_4AE831E70016 // AttributeTree$Select
  ;
+ : Parameters
+   Seq: ( ME_4AEF3865011C // aQuery
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -126,6 +255,16 @@ ref; // ME_4AEF38310030 DropLogicSelection
 
 ref; // ME_4AEF3857010A LoadQuery
 
+: ME_4AEF3879015D
+ CONST UID '4AEF3879015D'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_4AEF3879015D aNode
+
 : ME_4AEF3871010E
  CONST UID '4AEF3871010E'
  CONST Name 'SetOneLevelCurrent'
@@ -135,6 +274,10 @@ ref; // ME_4AEF3857010A LoadQuery
  CONST Abstraction at_abstract
  : Parent ME_4AE831E70016 // AttributeTree$Select
  ;
+ : Parameters
+   Seq: ( ME_4AEF3879015D // aNode
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -309,6 +452,20 @@ FORWARD ME_4AE879C5022F
 
 ref; // ME_4AE879D00143 IsQueryEmpty
 
+: ME_4AE88E2E011B
+ CONST UID '4AE88E2E011B'
+ CONST Name 'aIgnoreError'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value false
+
+ref; // ME_4AE88E2E011B aIgnoreError
+
 : ME_4AE884E803AA
  CONST UID '4AE884E803AA'
  CONST Name 'GetQuery'
@@ -320,6 +477,10 @@ ref; // ME_4AE879D00143 IsQueryEmpty
  ;
  : Target ME_4AE8846C018D // TnsQueryInfo
  ;
+ : Parameters
+   Seq: ( ME_4AE88E2E011B // aIgnoreError
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -353,6 +514,16 @@ ref; // ME_4AE884E803AA GetQuery
 
 ref; // ME_4AE8A577027D IsQuerySaved
 
+: ME_4AEF21680339
+ CONST UID '4AEF21680339'
+ CONST Name 'aQuery'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEE145027B' '45EEAA8E034E.pas.ms.script' // Query
+ ;
+
+ref; // ME_4AEF21680339 aQuery
+
 : ME_4AEF213001F0
  CONST UID '4AEF213001F0'
  CONST Name 'SetQuery'
@@ -362,6 +533,10 @@ ref; // ME_4AE8A577027D IsQuerySaved
  CONST Abstraction at_abstract
  : Parent ME_4AE879C5022F // SearchParameters
  ;
+ : Parameters
+   Seq: ( ME_4AEF21680339 // aQuery
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -417,6 +592,16 @@ ref; // ME_4AE879C5022F SearchParameters
 
 FORWARD ME_4AE8912B03B3
 
+: ME_4AE891460077
+ CONST UID '4AE891460077'
+ CONST Name 'aQuery'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEE145027B' '45EEAA8E034E.pas.ms.script' // Query
+ ;
+
+ref; // ME_4AE891460077 aQuery
+
 : ME_4AE8913D00A7
  CONST UID '4AE8913D00A7'
  CONST Name 'SaveToQuery'
@@ -426,6 +611,10 @@ FORWARD ME_4AE8912B03B3
  CONST Abstraction at_abstract
  : Parent ME_4AE8912B03B3 // AttributeTree$SaveToQuery
  ;
+ : Parameters
+   Seq: ( ME_4AE891460077 // aQuery
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -456,6 +645,20 @@ ref; // ME_4AE8912B03B3 AttributeTree$SaveToQuery
 
 FORWARD ME_4AEAEAB60182
 
+: ME_4AEAEB0E0052
+ CONST UID '4AEAEB0E0052'
+ CONST Name 'anIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST Value '-1'
+ : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST extprop:pas:Value '-1'
+
+ref; // ME_4AEAEB0E0052 anIndex
+
 : ME_4AEAEABF034E
  CONST UID '4AEAEABF034E'
  CONST Name 'DefaultAction'
@@ -465,6 +668,10 @@ FORWARD ME_4AEAEAB60182
  CONST Abstraction at_abstract
  : Parent ME_4AEAEAB60182 // Attribute
  ;
+ : Parameters
+   Seq: ( ME_4AEAEB0E0052 // anIndex
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -579,6 +786,16 @@ ref; // ME_4AEAEAB60182 Attribute
 
 FORWARD ME_4AEF388A0016
 
+: ME_4AEF389B02C4
+ CONST UID '4AEF389B02C4'
+ CONST Name 'aState'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4908393001C5' '490838E10313.pas.ms.script' // InscContextFilterState
+ ;
+
+ref; // ME_4AEF389B02C4 aState
+
 : ME_4AEF38920247
  CONST UID '4AEF38920247'
  CONST Name 'SetContext'
@@ -588,6 +805,10 @@ FORWARD ME_4AEF388A0016
  CONST Abstraction at_abstract
  : Parent ME_4AEF388A0016 // Context
  ;
+ : Parameters
+   Seq: ( ME_4AEF389B02C4 // aState
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -599,6 +820,16 @@ FORWARD ME_4AEF388A0016
 
 ref; // ME_4AEF38920247 SetContext
 
+: ME_4B017BCE01CE
+ CONST UID '4B017BCE01CE'
+ CONST Name 'aAdditionalFilter'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_490200F300DD' '47F2170002B2.pas.ms.script' // TnsFilterType
+ ;
+
+ref; // ME_4B017BCE01CE aAdditionalFilter
+
 : ME_4AF40A0E01D3
  CONST UID '4AF40A0E01D3'
  CONST Name 'SyncContextParams'
@@ -608,6 +839,10 @@ ref; // ME_4AEF38920247 SetContext
  CONST Abstraction at_abstract
  : Parent ME_4AEF388A0016 // Context
  ;
+ : Parameters
+   Seq: ( ME_4B017BCE01CE // aAdditionalFilter
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -639,6 +874,16 @@ ref; // ME_4AEF388A0016 Context
 
 FORWARD ME_4AEF128901C3
 
+: ME_4AEF12A0012C
+ CONST UID '4AEF12A0012C'
+ CONST Name 'aParent'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_4AEF12A0012C aParent
+
 : ME_4AEF129601AC
  CONST UID '4AEF129601AC'
  CONST Name 'SetParent'
@@ -648,6 +893,10 @@ FORWARD ME_4AEF128901C3
  CONST Abstraction at_abstract
  : Parent ME_4AEF128901C3 // AttributeTree
  ;
+ : Parameters
+   Seq: ( ME_4AEF12A0012C // aParent
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -659,6 +908,16 @@ FORWARD ME_4AEF128901C3
 
 ref; // ME_4AEF129601AC SetParent
 
+: ME_4AEF14540312
+ CONST UID '4AEF14540312'
+ CONST Name 'aRoot'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+
+ref; // ME_4AEF14540312 aRoot
+
 : ME_4AEF14460025
  CONST UID '4AEF14460025'
  CONST Name 'ExtSetRoot'
@@ -668,6 +927,10 @@ ref; // ME_4AEF129601AC SetParent
  CONST Abstraction at_abstract
  : Parent ME_4AEF128901C3 // AttributeTree
  ;
+ : Parameters
+   Seq: ( ME_4AEF14540312 // aRoot
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -699,6 +962,16 @@ ref; // ME_4AEF128901C3 AttributeTree
 
 FORWARD ME_4AF3EB1C03A9
 
+: ME_4AFD555C01A3
+ CONST UID '4AFD555C01A3'
+ CONST Name 'aTag'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4AFD555C01A3 aTag
+
 : ME_4AF3EBC001C4
  CONST UID '4AF3EBC001C4'
  CONST Name 'SetRoot'
@@ -708,6 +981,10 @@ FORWARD ME_4AF3EB1C03A9
  CONST Abstraction at_abstract
  : Parent ME_4AF3EB1C03A9 // AttributeTree$SetRoot
  ;
+ : Parameters
+   Seq: ( ME_4AFD555C01A3 // aTag
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -738,6 +1015,36 @@ ref; // ME_4AF3EB1C03A9 AttributeTree$SetRoot
 
 FORWARD ME_4AF3FE6B0386
 
+: ME_4AFD5CDE0066
+ CONST UID '4AFD5CDE0066'
+ CONST Name 'aTag'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4AFD5CDE0066 aTag
+
+: ME_4AFD5CDE0083
+ CONST UID '4AFD5CDE0083'
+ CONST Name 'aRoot'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_4AFD5CDE0083 aRoot
+
+: ME_4AFD5CDE00A0
+ CONST UID '4AFD5CDE00A0'
+ CONST Name 'aCurrent'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_4AFD5CDE00A0 aCurrent
+
 : ME_4AF3FE7D0138
  CONST UID '4AF3FE7D0138'
  CONST Name 'ChangeRoot'
@@ -747,6 +1054,12 @@ FORWARD ME_4AF3FE6B0386
  CONST Abstraction at_abstract
  : Parent ME_4AF3FE6B0386 // AttributeTree$ChangeRoot
  ;
+ : Parameters
+   Seq: ( ME_4AFD5CDE0066 // aTag
+ ME_4AFD5CDE0083 // aRoot
+ ME_4AFD5CDE00A0 // aCurrent
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -777,6 +1090,26 @@ ref; // ME_4AF3FE6B0386 AttributeTree$ChangeRoot
 
 FORWARD ME_4AF4007401DC
 
+: ME_4B01730D03E7
+ CONST UID '4B01730D03E7'
+ CONST Name 'aContextState'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4908393001C5' '490838E10313.pas.ms.script' // InscContextFilterState
+ ;
+
+ref; // ME_4B01730D03E7 aContextState
+
+: ME_4B0176DD0351
+ CONST UID '4B0176DD0351'
+ CONST Name 'aContextTarget'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46835C6F02E0' '4682595B0268.pas.ms.script' // Il3ContextFilterTarget
+ ;
+
+ref; // ME_4B0176DD0351 aContextTarget
+
 : ME_4AF4008101F4
  CONST UID '4AF4008101F4'
  CONST Name 'ContextChanged'
@@ -786,6 +1119,11 @@ FORWARD ME_4AF4007401DC
  CONST Abstraction at_abstract
  : Parent ME_4AF4007401DC // ContextParams
  ;
+ : Parameters
+   Seq: ( ME_4B01730D03E7 // aContextState
+ ME_4B0176DD0351 // aContextTarget
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -816,6 +1154,16 @@ ref; // ME_4AF4007401DC ContextParams
 
 FORWARD ME_4AF40CFB0021
 
+: ME_4AF40D290156
+ CONST UID '4AF40D290156'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4AE589BA0016' '491DAF4202EE.pas.ms.script' // InsSelectedAttributesIterators
+ ;
+
+ref; // ME_4AF40D290156 aData
+
 : ME_4AF40D070123
  CONST UID '4AF40D070123'
  CONST Name 'RefreshValues'
@@ -825,6 +1173,10 @@ FORWARD ME_4AF40CFB0021
  CONST Abstraction at_abstract
  : Parent ME_4AF40CFB0021 // SelectedList
  ;
+ : Parameters
+   Seq: ( ME_4AF40D290156 // aData
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false

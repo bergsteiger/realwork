@@ -4924,4 +4924,7 @@ VOID WORDWORKER "Открыть поочередно документы из массива и выполнить с каждым" I
 WordAlias "Записать в лог количество обращений к подсказке БП без закрытия оболочки" logging:WriteCachedEvents
 WordAlias "Записать в лог всю информацию, которая формируется при закрытии оболочки" logging:WriteCachedEvents
 
-
+: "в поле 'Статус' ввести" STRING IN aStr
+ "Убедиться, что фокус в редакторе"
+ 'AT_STATUS' aStr focused:control:push pop:QueryCard:SetAttribute
+;

@@ -88,6 +88,16 @@ ref; // ME_4A9D267100BA Document$ForDiction
 
 FORWARD ME_4AE9E3C2031C
 
+: ME_4AE9E3DB0318
+ CONST UID '4AE9E3DB0318'
+ CONST Name 'aFormType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4AE9E3B40320' '47F2170002B2.pas.ms.script' // TnsShowSynchroForm
+ ;
+
+ref; // ME_4AE9E3DB0318 aFormType
+
 : ME_4AE9E3CC03C7
  CONST UID '4AE9E3CC03C7'
  CONST Name 'BecomeActive'
@@ -97,6 +107,10 @@ FORWARD ME_4AE9E3C2031C
  CONST Abstraction at_abstract
  : Parent ME_4AE9E3C2031C // SynchroView
  ;
+ : Parameters
+   Seq: ( ME_4AE9E3DB0318 // aFormType
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -507,16 +521,13 @@ ref; // ME_4C46E7160275 OpenNewWindow
  : Parent ME_4A9807DB01A5 // Strange
  ;
  : Operations
-   Seq: ( ME_4C3A96BD0239 // PublishSourceSearchInList
+   Seq: ( ME_4C810A2702D9 // SearchInList
+ ME_4C3A96BD0239 // PublishSourceSearchInList
  ME_4C3A971300DA // Open
  ME_4C3A97210318 // SearchDrugInList
  ME_4C46E7160275 // OpenNewWindow
  )
  ; // Operations
- : Children
-   Seq: ( ME_4C810A2702D9 // SearchInList
- )
- ; // Children
 
 ref; // ME_4B5572710384 LocalList
 
@@ -658,15 +669,12 @@ ref; // ME_4B261EC80086 TimeMachineOnOffNew
  : Parent ME_4A9807DB01A5 // Strange
  ;
  : Operations
-   Seq: ( ME_4AF83BDB03AE // TimeMachineOnOff
+   Seq: ( ME_4C7BD34501EB // TimeMachineOnOffNew
+ ME_4AF83BDB03AE // TimeMachineOnOff
  ME_4AF83BEB0393 // TimeMachineOffAndReset
  ME_4B261EC80086 // TimeMachineOnOffNew
  )
  ; // Operations
- : Children
-   Seq: ( ME_4C7BD34501EB // TimeMachineOnOffNew
- )
- ; // Children
 
 ref; // ME_4AF83BD1018E TimeMachine
 
@@ -718,6 +726,16 @@ ref; // ME_4C7D3A94007B Deactivate
 
 ref; // ME_4C7D3A81021B Activate
 
+: ME_4AEECBAE0337
+ CONST UID '4AEECBAE0337'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
+ ;
+
+ref; // ME_4AEECBAE0337 aNode
+
 : ME_4AEECBA3030B
  CONST UID '4AEECBA3030B'
  CONST Name 'ActivateNode'
@@ -727,6 +745,10 @@ ref; // ME_4C7D3A81021B Activate
  CONST Abstraction at_abstract
  : Parent ME_4AEECB7A0036 // Filter
  ;
+ : Parameters
+   Seq: ( ME_4AEECBAE0337 // aNode
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -749,13 +771,10 @@ ref; // ME_4AEECBA3030B ActivateNode
  : Parent ME_4A9807DB01A5 // Strange
  ;
  : Operations
-   Seq: ( ME_4AEECBA3030B // ActivateNode
+   Seq: ( ME_4C7D3A81021B // Activate
+ ME_4AEECBA3030B // ActivateNode
  )
  ; // Operations
- : Children
-   Seq: ( ME_4C7D3A81021B // Activate
- )
- ; // Children
 
 ref; // ME_4AEECB7A0036 Filter
 
@@ -950,16 +969,13 @@ ref; // ME_49880FE90145 ReturnToList
  : Parent ME_4A9807DB01A5 // Strange
  ;
  : Operations
-   Seq: ( ME_4FE1BA1303D3 // PrevDocumentInList
+   Seq: ( ME_4FE1EF1201D6 // DocumentIsUseful
+ ME_4FE1EF1B039A // DocumentIsUseless
+ ME_4FE1BA1303D3 // PrevDocumentInList
  ME_49880FD20039 // NextDocumentInList
  ME_49880FE90145 // ReturnToList
  )
  ; // Operations
- : Children
-   Seq: ( ME_4FE1EF1201D6 // DocumentIsUseful
- ME_4FE1EF1B039A // DocumentIsUseless
- )
- ; // Children
 
 ref; // ME_49880F4A0376 Document$ForStatusBar
 
@@ -1318,7 +1334,10 @@ ref; // ME_4FE1EF1B039A_ME_498860B50287 DocumentIsUseless
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_498863B203D0 // AddToControl
+   Seq: ( ME_4C7BABCE03C0 // AddToControl
+ ME_4C7BAC1902F5 // UserCR1
+ ME_4C7BAC5101CA // UserCR2
+ ME_498863B203D0 // AddToControl
  ME_4989C7D30219 // UserCR1
  ME_4989C96003C4 // UserCR2
  ME_4989D06D014E // AddBookmark
@@ -1333,16 +1352,20 @@ ref; // ME_4FE1EF1B039A_ME_498860B50287 DocumentIsUseless
  ME_4FE1EF1B039A_ME_498860B50287 // DocumentIsUseless
  )
  ; // Implemented
- : Children
-   Seq: ( ME_4C7BABCE03C0 // AddToControl
- ME_4C7BAC1902F5 // UserCR1
- ME_4C7BAC5101CA // UserCR2
- )
- ; // Children
 
 ref; // ME_498860B50287 Document$FromDocument
 
 FORWARD ME_4A96A965008B
+
+: ME_4AE6FCC60388
+ CONST UID '4AE6FCC60388'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EED5F0008E' '4570501E037A.pas.ms.script' // FoldersNode
+ ;
+
+ref; // ME_4AE6FCC60388 aNode
 
 : ME_4A96A9BE011C
  CONST UID '4A96A9BE011C'
@@ -1354,6 +1377,10 @@ FORWARD ME_4A96A965008B
  CONST Abstraction at_abstract
  : Parent ME_4A96A965008B // FoldersControl
  ;
+ : Parameters
+   Seq: ( ME_4AE6FCC60388 // aNode
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -1364,6 +1391,16 @@ FORWARD ME_4A96A965008B
  CONST "no prefix" false
 
 ref; // ME_4A96A9BE011C EditElement
+
+: ME_4AE7096B0232
+ CONST UID '4AE7096B0232'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EED5F0008E' '4570501E037A.pas.ms.script' // FoldersNode
+ ;
+
+ref; // ME_4AE7096B0232 aNode
 
 : ME_4A96A9D10023
  CONST UID '4A96A9D10023'
@@ -1377,6 +1414,10 @@ ref; // ME_4A96A9BE011C EditElement
  ;
  : Target WL 'ME_4AE7093402CF' '47F2170002B2.pas.ms.script' // TnsDeleteResult
  ;
+ : Parameters
+   Seq: ( ME_4AE7096B0232 // aNode
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -1783,10 +1824,6 @@ ref; // ME_4C3C758C0183 Delete
  )
  ; // Implements
  : Operations
-   Seq: ( ME_4C3C758C0183 // Delete
- )
- ; // Operations
- : Children
    Seq: ( ME_4C7F8B870162 // Open
  ME_4C7F8BBB01B2 // OpenNewWindow
  ME_4C7F8BD80114 // NextHyperLink
@@ -1794,12 +1831,23 @@ ref; // ME_4C3C758C0183 Delete
  ME_53DF186601F1 // OpenInNewTab
  ME_53F5887E03A1 // OpenScriptHyperLink
  ME_5460A4DD0349 // NavigateInternetHyperlink
+ ME_4C3C758C0183 // Delete
  )
- ; // Children
+ ; // Operations
 
 ref; // ME_4C3C757901C3 HyperLink
 
 FORWARD ME_4AE9D36D02A6
+
+: ME_4AE9D9BF02F4
+ CONST UID '4AE9D9BF02F4'
+ CONST Name 'aUserType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4AE9D9BF02F4 aUserType
 
 : ME_4AE9D9AF02FE
  CONST UID '4AE9D9AF02FE'
@@ -1810,6 +1858,10 @@ FORWARD ME_4AE9D36D02A6
  CONST Abstraction at_abstract
  : Parent ME_4AE9D36D02A6 // Document$Position
  ;
+ : Parameters
+   Seq: ( ME_4AE9D9BF02F4 // aUserType
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -1821,6 +1873,36 @@ FORWARD ME_4AE9D36D02A6
 
 ref; // ME_4AE9D9AF02FE SetActive
 
+: ME_4AE9DC1D00B9
+ CONST UID '4AE9DC1D00B9'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
+ ;
+
+ref; // ME_4AE9DC1D00B9 aData
+
+: ME_4AE9DC1D0115
+ CONST UID '4AE9DC1D0115'
+ CONST Name 'aUserType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4AE9DC1D0115 aUserType
+
+: ME_4AE9DC520238
+ CONST UID '4AE9DC520238'
+ CONST Name 'aToActiveWindow'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4AE9DC520238 aToActiveWindow
+
 : ME_4AE9DC070264
  CONST UID '4AE9DC070264'
  CONST Name 'ExportBlock'
@@ -1830,6 +1912,12 @@ ref; // ME_4AE9D9AF02FE SetActive
  CONST Abstraction at_abstract
  : Parent ME_4AE9D36D02A6 // Document$Position
  ;
+ : Parameters
+   Seq: ( ME_4AE9DC1D00B9 // aData
+ ME_4AE9DC1D0115 // aUserType
+ ME_4AE9DC520238 // aToActiveWindow
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -1863,6 +1951,26 @@ ref; // ME_4AE9DC070264 ExportBlock
 
 ref; // ME_4AEAF9C000D8 GetCurrentPosition
 
+: ME_4AEB098D02F0
+ CONST UID '4AEB098D02F0'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
+ ;
+
+ref; // ME_4AEB098D02F0 aData
+
+: ME_4AEB098D0351
+ CONST UID '4AEB098D0351'
+ CONST Name 'aUserType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4AEB098D0351 aUserType
+
 : ME_4AEB097001C3
  CONST UID '4AEB097001C3'
  CONST Name 'SelectBlock'
@@ -1872,6 +1980,11 @@ ref; // ME_4AEAF9C000D8 GetCurrentPosition
  CONST Abstraction at_abstract
  : Parent ME_4AE9D36D02A6 // Document$Position
  ;
+ : Parameters
+   Seq: ( ME_4AEB098D02F0 // aData
+ ME_4AEB098D0351 // aUserType
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -1883,6 +1996,26 @@ ref; // ME_4AEAF9C000D8 GetCurrentPosition
 
 ref; // ME_4AEB097001C3 SelectBlock
 
+: ME_4AEB09D8027A
+ CONST UID '4AEB09D8027A'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
+ ;
+
+ref; // ME_4AEB09D8027A aData
+
+: ME_4AEB09D802DE
+ CONST UID '4AEB09D802DE'
+ CONST Name 'aUserType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4AEB09D802DE aUserType
+
 : ME_4AEB09C50287
  CONST UID '4AEB09C50287'
  CONST Name 'CopyBlock'
@@ -1892,6 +2025,11 @@ ref; // ME_4AEB097001C3 SelectBlock
  CONST Abstraction at_abstract
  : Parent ME_4AE9D36D02A6 // Document$Position
  ;
+ : Parameters
+   Seq: ( ME_4AEB09D8027A // aData
+ ME_4AEB09D802DE // aUserType
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -1903,6 +2041,26 @@ ref; // ME_4AEB097001C3 SelectBlock
 
 ref; // ME_4AEB09C50287 CopyBlock
 
+: ME_4AEB0A2C0207
+ CONST UID '4AEB0A2C0207'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
+ ;
+
+ref; // ME_4AEB0A2C0207 aData
+
+: ME_4AEB0A2C0270
+ CONST UID '4AEB0A2C0270'
+ CONST Name 'aUserType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4AEB0A2C0270 aUserType
+
 : ME_4AEB0A1C0270
  CONST UID '4AEB0A1C0270'
  CONST Name 'PrintBlock'
@@ -1912,6 +2070,11 @@ ref; // ME_4AEB09C50287 CopyBlock
  CONST Abstraction at_abstract
  : Parent ME_4AE9D36D02A6 // Document$Position
  ;
+ : Parameters
+   Seq: ( ME_4AEB0A2C0207 // aData
+ ME_4AEB0A2C0270 // aUserType
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -1923,6 +2086,26 @@ ref; // ME_4AEB09C50287 CopyBlock
 
 ref; // ME_4AEB0A1C0270 PrintBlock
 
+: ME_4AEB0A6203D5
+ CONST UID '4AEB0A6203D5'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
+ ;
+
+ref; // ME_4AEB0A6203D5 aData
+
+: ME_4AEB0A63005B
+ CONST UID '4AEB0A63005B'
+ CONST Name 'aUserType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4AEB0A63005B aUserType
+
 : ME_4AEB0A550165
  CONST UID '4AEB0A550165'
  CONST Name 'PrintDialogBlock'
@@ -1932,6 +2115,11 @@ ref; // ME_4AEB0A1C0270 PrintBlock
  CONST Abstraction at_abstract
  : Parent ME_4AE9D36D02A6 // Document$Position
  ;
+ : Parameters
+   Seq: ( ME_4AEB0A6203D5 // aData
+ ME_4AEB0A63005B // aUserType
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -1943,6 +2131,26 @@ ref; // ME_4AEB0A1C0270 PrintBlock
 
 ref; // ME_4AEB0A550165 PrintDialogBlock
 
+: ME_4AEB0A990132
+ CONST UID '4AEB0A990132'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
+ ;
+
+ref; // ME_4AEB0A990132 aData
+
+: ME_4AEB0A9901A1
+ CONST UID '4AEB0A9901A1'
+ CONST Name 'aUserType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4AEB0A9901A1 aUserType
+
 : ME_4AEB0A8E002E
  CONST UID '4AEB0A8E002E'
  CONST Name 'PreviewBlock'
@@ -1952,6 +2160,11 @@ ref; // ME_4AEB0A550165 PrintDialogBlock
  CONST Abstraction at_abstract
  : Parent ME_4AE9D36D02A6 // Document$Position
  ;
+ : Parameters
+   Seq: ( ME_4AEB0A990132 // aData
+ ME_4AEB0A9901A1 // aUserType
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -1963,6 +2176,30 @@ ref; // ME_4AEB0A550165 PrintDialogBlock
 
 ref; // ME_4AEB0A8E002E PreviewBlock
 
+: ME_4AEEEEB30123
+ CONST UID '4AEEEEB30123'
+ CONST Name 'aList'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB65202EF' '4570511E038A.pas.ms.script' // PositionList
+ ;
+
+ref; // ME_4AEEEEB30123 aList
+
+: ME_4AEEEEB30198
+ CONST UID '4AEEEEB30198'
+ CONST Name 'aCurrent'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+ CONST Value 'nil'
+ : ValueType WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+ CONST extprop:pas:Value 'nil'
+
+ref; // ME_4AEEEEB30198 aCurrent
+
 : ME_4AEEEE970141
  CONST UID '4AEEEE970141'
  CONST Name 'ShowRespondentListToPart'
@@ -1972,6 +2209,11 @@ ref; // ME_4AEB0A8E002E PreviewBlock
  CONST Abstraction at_abstract
  : Parent ME_4AE9D36D02A6 // Document$Position
  ;
+ : Parameters
+   Seq: ( ME_4AEEEEB30123 // aList
+ ME_4AEEEEB30198 // aCurrent
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -1983,6 +2225,30 @@ ref; // ME_4AEB0A8E002E PreviewBlock
 
 ref; // ME_4AEEEE970141 ShowRespondentListToPart
 
+: ME_4AEEEEBF033A
+ CONST UID '4AEEEEBF033A'
+ CONST Name 'aList'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB65202EF' '4570511E038A.pas.ms.script' // PositionList
+ ;
+
+ref; // ME_4AEEEEBF033A aList
+
+: ME_4AEEEEBF03B1
+ CONST UID '4AEEEEBF03B1'
+ CONST Name 'aCurrent'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+ CONST Value 'nil'
+ : ValueType WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+ CONST extprop:pas:Value 'nil'
+
+ref; // ME_4AEEEEBF03B1 aCurrent
+
 : ME_4AEEEEB7027C
  CONST UID '4AEEEEB7027C'
  CONST Name 'ShowCorrespondentListToPart'
@@ -1992,6 +2258,11 @@ ref; // ME_4AEEEE970141 ShowRespondentListToPart
  CONST Abstraction at_abstract
  : Parent ME_4AE9D36D02A6 // Document$Position
  ;
+ : Parameters
+   Seq: ( ME_4AEEEEBF033A // aList
+ ME_4AEEEEBF03B1 // aCurrent
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -2003,6 +2274,16 @@ ref; // ME_4AEEEE970141 ShowRespondentListToPart
 
 ref; // ME_4AEEEEB7027C ShowCorrespondentListToPart
 
+: ME_4AEEF80D02EE
+ CONST UID '4AEEF80D02EE'
+ CONST Name 'anEntity'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
+ ;
+
+ref; // ME_4AEEF80D02EE anEntity
+
 : ME_4AEEF7F40304
  CONST UID '4AEEF7F40304'
  CONST Name 'ModifyBookmarkNotify'
@@ -2012,6 +2293,10 @@ ref; // ME_4AEEEEB7027C ShowCorrespondentListToPart
  CONST Abstraction at_abstract
  : Parent ME_4AE9D36D02A6 // Document$Position
  ;
+ : Parameters
+   Seq: ( ME_4AEEF80D02EE // anEntity
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -2023,6 +2308,16 @@ ref; // ME_4AEEEEB7027C ShowCorrespondentListToPart
 
 ref; // ME_4AEEF7F40304 ModifyBookmarkNotify
 
+: ME_4AEEF88D02BD
+ CONST UID '4AEEF88D02BD'
+ CONST Name 'aTag'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5346BD53015A' '47913B47006E.pas.ms.script' // Il3TagRef
+ ;
+
+ref; // ME_4AEEF88D02BD aTag
+
 : ME_4AEEF87B00E1
  CONST UID '4AEEF87B00E1'
  CONST Name 'AddBookmarkFromContents'
@@ -2032,6 +2327,10 @@ ref; // ME_4AEEF7F40304 ModifyBookmarkNotify
  CONST Abstraction at_abstract
  : Parent ME_4AE9D36D02A6 // Document$Position
  ;
+ : Parameters
+   Seq: ( ME_4AEEF88D02BD // aTag
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -2063,6 +2362,26 @@ ref; // ME_4AEEF87B00E1 AddBookmarkFromContents
 
 ref; // ME_4AF83C3D01DA OpenNotSureTopic
 
+: ME_4AFD4A78036E
+ CONST UID '4AFD4A78036E'
+ CONST Name 'aPara'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5346BD53015A' '47913B47006E.pas.ms.script' // Il3TagRef
+ ;
+
+ref; // ME_4AFD4A78036E aPara
+
+: ME_4AFD4A79002A
+ CONST UID '4AFD4A79002A'
+ CONST Name 'aUserType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4AFD4A79002A aUserType
+
 : ME_4AFD4A45003B
  CONST UID '4AFD4A45003B'
  CONST Name 'GotoPara'
@@ -2074,6 +2393,11 @@ ref; // ME_4AF83C3D01DA OpenNotSureTopic
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ : Parameters
+   Seq: ( ME_4AFD4A78036E // aPara
+ ME_4AFD4A79002A // aUserType
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false

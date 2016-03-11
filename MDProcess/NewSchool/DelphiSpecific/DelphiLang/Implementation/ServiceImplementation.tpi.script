@@ -95,51 +95,56 @@ implementation @ <<ServiceImplementation>>
   end // if
  end // for C
 
-//	%S%f_add_operation(%SU_Ini_Reg_Class,ini,bind (),Op_Instance)\
- %S %f add_operation %( %S |U '_Ini_Reg_Class' %, 'ini' %, 'bind ()' %, 'Op_Instance' )% 
-//	%{Op_Instance}%f_set_documentation(Регистрация %SN)\
- ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Регистрация '
- %S |N )% ) 
-//	%{Op_Instance}%f_set_abstraction_type(final)\
- ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
-//	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
- ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
-//	%{Op_Instance}%f_set_uc_content(intf.pas,,\
- ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '' %, 
-//	<{\n}{%CC=Dependency&%CS=implements}\
- INTEGER VAR l_Counter l_Counter := 0
- for %S%C
+//	[{%S#f_UseNewGenRec()!=true}\
+ if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
  begin
-  OBJECT IN %C
-  if ( ( %C |C ) %== 'Dependency' AND 
-   ( ( %C |S ) %== 'implements'  ) ) then
+//	%S%f_add_operation(%SU_Ini_Reg_Class,ini,bind (),Op_Instance)\
+  %S %f add_operation %( %S |U '_Ini_Reg_Class' %, 'ini' %, 'bind ()' %, 'Op_Instance' )% 
+//	%{Op_Instance}%f_set_documentation(Регистрация %SN)\
+  ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Регистрация '
+  %S |N )% ) 
+//	%{Op_Instance}%f_set_abstraction_type(final)\
+  ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
+//	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
+  ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+//	%{Op_Instance}%f_set_uc_content(intf.pas,,\
+  ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '' %, 
+//	<{\n}{%CC=Dependency&%CS=implements}\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
   begin
-   if ( l_Counter >0 ) then ( #13#10 )
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Dependency' AND 
+    ( ( %C |S ) %== 'implements'  ) ) then
+   begin
+    if ( l_Counter >0 ) then ( #13#10 )
 //	[ %C%T#f_open_ifdef()\n]\
-   if NOT-EMPTY
-   begin
-    ' '
-    %C ->T %?f open_ifdef %( )%  #13#10 
-   end // if
-   NOP
+    if NOT-EMPTY
+    begin
+     ' '
+     %C ->T %?f open_ifdef %( )%  #13#10 
+    end // if
+    NOP
 //	 %f_pas_TypeName(%C%T).Instance.Alien := %f_pas_TypeName(%S).Instance;\
-   ' '
-   [%f] pas_TypeName %( %C ->T  )% '.Instance.Alien := '
-   [%f] pas_TypeName %( %S )% '.Instance;'
+    ' '
+    [%f] pas_TypeName %( %C ->T  )% '.Instance.Alien := '
+    [%f] pas_TypeName %( %S )% '.Instance;'
 //	[\n %C%T#f_close_ifdef()\n]\
-   if NOT-EMPTY
-   begin
-    #13#10' '
-    %C ->T %?f close_ifdef %( )%  #13#10 
-   end // if
-   NOP
+    if NOT-EMPTY
+    begin
+     #13#10' '
+     %C ->T %?f close_ifdef %( )%  #13#10 
+    end // if
+    NOP
 //	>\
 
-   ++! l_Counter
-  end // if
- end // for C
+    ++! l_Counter
+   end // if
+  end // for C
 //	)\
-)% ) 
+)% ) //	]\
+ end // if
+
 //	%S%[inherited]
  inherited
 //#UC END# *5502C6A200F5for5502BADD01CB*

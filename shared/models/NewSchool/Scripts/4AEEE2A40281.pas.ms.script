@@ -6,6 +6,16 @@ FORWARD ME_4AEEE2A40281
 
 FORWARD ME_4AEEE2C402DC
 
+: ME_4AEEE2E302C5
+ CONST UID '4AEEE2E302C5'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_4AEEE2E302C5 aNode
+
 : ME_4AEEE2D40157
  CONST UID '4AEEE2D40157'
  CONST Name 'SetCurrent'
@@ -15,6 +25,10 @@ FORWARD ME_4AEEE2C402DC
  CONST Abstraction at_abstract
  : Parent ME_4AEEE2C402DC // Navigator
  ;
+ : Parameters
+   Seq: ( ME_4AEEE2E302C5 // aNode
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -91,6 +105,26 @@ ref; // ME_4C7B9ED00353 Picture
 
 ref; // ME_4C7B9EBC01AC GetAttributesFrmAct
 
+: ME_4B0181EC0308
+ CONST UID '4B0181EC0308'
+ CONST Name 'aKind'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47F1CDD203D9' '47EA07FA02CE.pas.ms.script' // TlstCRType
+ ;
+
+ref; // ME_4B0181EC0308 aKind
+
+: ME_4B01820902B4
+ CONST UID '4B01820902B4'
+ CONST Name 'aCRType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_4B01820902B4 aCRType
+
 : ME_4988752302F4
  CONST UID '4988752302F4'
  CONST Name 'OpenCorrespondentList'
@@ -101,6 +135,11 @@ ref; // ME_4C7B9EBC01AC GetAttributesFrmAct
  CONST Abstraction at_abstract
  : Parent ME_498874FD012C // Document$MangleForSpell
  ;
+ : Parameters
+   Seq: ( ME_4B0181EC0308 // aKind
+ ME_4B01820902B4 // aCRType
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -112,6 +151,26 @@ ref; // ME_4C7B9EBC01AC GetAttributesFrmAct
 
 ref; // ME_4988752302F4 OpenCorrespondentList
 
+: ME_4B01821402DF
+ CONST UID '4B01821402DF'
+ CONST Name 'aKind'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47F1CDD203D9' '47EA07FA02CE.pas.ms.script' // TlstCRType
+ ;
+
+ref; // ME_4B01821402DF aKind
+
+: ME_4B018214035E
+ CONST UID '4B018214035E'
+ CONST Name 'aCRType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_4B018214035E aCRType
+
 : ME_49888E8003B9
  CONST UID '49888E8003B9'
  CONST Name 'OpenRespondentList'
@@ -122,6 +181,11 @@ ref; // ME_4988752302F4 OpenCorrespondentList
  CONST Abstraction at_abstract
  : Parent ME_498874FD012C // Document$MangleForSpell
  ;
+ : Parameters
+   Seq: ( ME_4B01821402DF // aKind
+ ME_4B018214035E // aCRType
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -240,6 +304,16 @@ ref; // ME_4989D8430128 GetRespondentList
 
 ref; // ME_4989DE3702CF AttributesCanBeClosed
 
+: ME_4AEAFFE100F4
+ CONST UID '4AEAFFE100F4'
+ CONST Name 'aUserType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4AEAFFE100F4 aUserType
+
 : ME_4A8EF02E007D
  CONST UID '4A8EF02E007D'
  CONST Name 'CommonDocumentOpenNewWindow'
@@ -250,6 +324,10 @@ ref; // ME_4989DE3702CF AttributesCanBeClosed
  CONST Abstraction at_abstract
  : Parent ME_498874FD012C // Document$MangleForSpell
  ;
+ : Parameters
+   Seq: ( ME_4AEAFFE100F4 // aUserType
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -303,6 +381,16 @@ ref; // ME_4AF329F6002A GetCorrespondentListExFrmAct
 
 ref; // ME_4AF329FD014D GetRespondentListExFrmAct
 
+: ME_55545C720194
+ CONST UID '55545C720194'
+ CONST Name 'aUserType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_55545C720194 aUserType
+
 : ME_55545C63026E
  CONST UID '55545C63026E'
  CONST Name 'CommonDocumentOpenNewTab'
@@ -312,6 +400,10 @@ ref; // ME_4AF329FD014D GetRespondentListExFrmAct
  CONST Abstraction at_abstract
  : Parent ME_498874FD012C // Document$MangleForSpell
  ;
+ : Parameters
+   Seq: ( ME_55545C720194 // aUserType
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -335,7 +427,8 @@ ref; // ME_55545C63026E CommonDocumentOpenNewTab
  : Parent ME_4AEEE2A40281 // Strange
  ;
  : Operations
-   Seq: ( ME_4988752302F4 // OpenCorrespondentList
+   Seq: ( ME_4C7B9EBC01AC // GetAttributesFrmAct
+ ME_4988752302F4 // OpenCorrespondentList
  ME_49888E8003B9 // OpenRespondentList
  ME_498891640253 // GetAttributesFrmAct
  ME_498993C801DC // GetRelatedDocFrmAct
@@ -348,10 +441,6 @@ ref; // ME_55545C63026E CommonDocumentOpenNewTab
  ME_55545C63026E // CommonDocumentOpenNewTab
  )
  ; // Operations
- : Children
-   Seq: ( ME_4C7B9EBC01AC // GetAttributesFrmAct
- )
- ; // Children
 
 ref; // ME_498874FD012C Document$MangleForSpell
 
@@ -576,11 +665,11 @@ ref; // ME_4C87A52E02F7 Execute
  CONST Abstraction at_regular
  : Parent ME_4AEEE2A40281 // Strange
  ;
- : Children
+ : Operations
    Seq: ( ME_4C87A50402CC // Info
  ME_4C87A52E02F7 // Execute
  )
- ; // Children
+ ; // Operations
 
 ref; // ME_4C87A4F301A7 NavigatorElement
 
@@ -672,6 +761,16 @@ ref; // ME_4ED8CF6002B6 ChooseAnotherEditions
 
 ref; // ME_4ED8CF5700E7 OpenRedactionListFrmAct
 
+: ME_4AE73B4F0198
+ CONST UID '4AE73B4F0198'
+ CONST Name 'aRedactionID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EED84C01FD' '4570511E038A.pas.ms.script' // RedactionID
+ ;
+
+ref; // ME_4AE73B4F0198 aRedactionID
+
 : ME_4A8EF4B50044
  CONST UID '4A8EF4B50044'
  CONST Name 'RedactionOnID'
@@ -681,6 +780,10 @@ ref; // ME_4ED8CF5700E7 OpenRedactionListFrmAct
  CONST Abstraction at_abstract
  : Parent ME_4A8EF4AD0348 // Redactions
  ;
+ : Parameters
+   Seq: ( ME_4AE73B4F0198 // aRedactionID
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -784,17 +887,14 @@ ref; // ME_4C3AE0CD0079 NextRedaction
  : Parent ME_4AEEE2A40281 // Strange
  ;
  : Operations
-   Seq: ( ME_4A8EF4B50044 // RedactionOnID
+   Seq: ( ME_4ED8CF5700E7 // OpenRedactionListFrmAct
+ ME_4A8EF4B50044 // RedactionOnID
  ME_4AFAF4900270 // ActualRedaction
  ME_4B262F9701DE // OpenRedactionListFrmAct
  ME_4C3AE0950253 // PrevRedaction
  ME_4C3AE0CD0079 // NextRedaction
  )
  ; // Operations
- : Children
-   Seq: ( ME_4ED8CF5700E7 // OpenRedactionListFrmAct
- )
- ; // Children
 
 ref; // ME_4A8EF4AD0348 Redactions
 

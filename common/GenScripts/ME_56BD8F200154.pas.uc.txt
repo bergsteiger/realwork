@@ -1,49 +1,70 @@
+//#UC START# *479731C50290_56BD8F200154_impl*
+ f_HTJournal := nil;
+ f_PGJournal := nil;
+ inherited;
+//#UC END# *479731C50290_56BD8F200154_impl*
+//#UC START# *479731C50290_56BD8F200154_var*
+//#UC END# *479731C50290_56BD8F200154_var*
 //#UC START# *5549F6220397_56BD8F200154_impl*
- Assert(False);
-//!! !!! Needs to be implemented !!!
+ (f_HTJournal as IdaComboAccessJournalHelper).LogAlienEvent(aOperation, aFamilyID, aExtID, aData);
+ (f_PGJournal as IdaComboAccessJournalHelper).LogAlienEvent(aOperation, aFamilyID, aExtID, aData);
 //#UC END# *5549F6220397_56BD8F200154_impl*
 //#UC START# *5549F6220397_56BD8F200154_var*
 //#UC END# *5549F6220397_56BD8F200154_var*
 //#UC START# *559B6A290200_56BD8F200154_impl*
- Assert(False);
-//!! !!! Needs to be implemented !!!
+// Do nothing
 //#UC END# *559B6A290200_56BD8F200154_impl*
 //#UC START# *559B6A290200_56BD8F200154_var*
 //#UC END# *559B6A290200_56BD8F200154_var*
 //#UC START# *559B6A7C03AA_56BD8F200154_impl*
- Assert(False);
-//!! !!! Needs to be implemented !!!
+// Do nothing
 //#UC END# *559B6A7C03AA_56BD8F200154_impl*
 //#UC START# *559B6A7C03AA_56BD8F200154_var*
 //#UC END# *559B6A7C03AA_56BD8F200154_var*
 //#UC START# *559B6A8C0034_56BD8F200154_impl*
- Assert(False);
-//!! !!! Needs to be implemented !!!
+ (f_HTJournal as IdaComboAccessJournalHelper).SetAlienSessionID(CurSessionID);
+ (f_PGJournal as IdaComboAccessJournalHelper).SetAlienSessionID(CurSessionID);
 //#UC END# *559B6A8C0034_56BD8F200154_impl*
 //#UC START# *559B6A8C0034_56BD8F200154_var*
 //#UC END# *559B6A8C0034_56BD8F200154_var*
 //#UC START# *559B889B030B_56BD8F200154_impl*
- Assert(False);
-//!! !!! Needs to be implemented !!!
+ f_HTJournal.StartCaching;
+ f_PGJournal.StartCaching;
 //#UC END# *559B889B030B_56BD8F200154_impl*
 //#UC START# *559B889B030B_56BD8F200154_var*
 //#UC END# *559B889B030B_56BD8F200154_var*
 //#UC START# *559B88B00126_56BD8F200154_impl*
- Assert(False);
-//!! !!! Needs to be implemented !!!
+ f_HTJournal.StopCaching;
+ f_PGJournal.StopCaching;
 //#UC END# *559B88B00126_56BD8F200154_impl*
 //#UC START# *559B88B00126_56BD8F200154_var*
 //#UC END# *559B88B00126_56BD8F200154_var*
 //#UC START# *559CF9D300FA_56BD8F200154_impl*
- Result := nil;
- Assert(False);
-//!! !!! Needs to be implemented !!!
+ l_SelectFields := TdaSelectFieldList.Make;
+ try
+  TdaScheme.Instance.Table(da_mtJournal).IterateFieldsF(L2DaTableDescriptionIteratorIterateFieldsFAction(@lp_AddSelectField));
+  Result := TcaResultSet.Make(l_SelectFields,
+    (f_HTJournal as IdaComboAccessJournalHelper).MakeAlienResultSet(FromDate, ToDate, aDocID, UserOrGroupID, UserGr),
+    (f_PGJournal as IdaComboAccessJournalHelper).MakeAlienResultSet(FromDate, ToDate, aDocID, UserOrGroupID, UserGr));
+ finally
+  FreeAndNil(l_SelectFields);
+ end;
 //#UC END# *559CF9D300FA_56BD8F200154_impl*
 //#UC START# *559CF9D300FA_56BD8F200154_var*
+var
+ l_SelectFields : TdaSelectFieldList;
+
+ function lp_AddSelectField(aField: IdaFieldDescription): Boolean;
+ begin
+  Result := True;
+  l_SelectFields.Add(Factory.MakeSelectField('', aField));
+ end;
+
 //#UC END# *559CF9D300FA_56BD8F200154_var*
 //#UC START# *56BD9BFD0109_56BD8F200154_impl*
  inherited Create(aFactory);
-//!! !!! Needs to be implemented !!!
+ f_HTJournal := aHTJournal;
+ f_PGJournal := aHTJournal;
 //#UC END# *56BD9BFD0109_56BD8F200154_impl*
 //#UC START# *56BD9BFD0109_56BD8F200154_var*
 //#UC END# *56BD9BFD0109_56BD8F200154_var*

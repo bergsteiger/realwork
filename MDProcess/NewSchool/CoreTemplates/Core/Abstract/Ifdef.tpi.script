@@ -843,8 +843,21 @@ implementation @ <<Ifdef>>
  end // if
  else
  begin
+//	[{%SS=Wrapper|%SS=TestClass|%SS=ScriptKeywordsPack}{\
+  if ( ( %S |S ) %== 'Wrapper' OR 
+    ( ( %S |S ) %== 'TestClass'  ) OR 
+    ( ( %S |S ) %== 'ScriptKeywordsPack'  ) ) then
+  begin
+//	true\
+    true 
+//	]\
+  end // if
+  else
+  begin
 //	false\
-   false 
+    false 
+//	}\
+  end // else
 //	}\
  end // else
 

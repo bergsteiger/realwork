@@ -756,8 +756,9 @@ implementation @ <<VCMForm>>
     ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
 //	%{Op_Instance}%f_set_var(SpelledFor,S)\
     ( get_global_var ( 'Op_Instance' ) %f set_var %( 'SpelledFor' %, 'S' )% ) 
-//	[{%S#f_UseNewGenRec()!=true}\
-    if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+//	[{%S{finished}!=true|%S#f_UseNewGenRec()!=true}\
+    if ( ( %S get_up ( 'finished' ) ) %!=  true OR 
+      ( ( %S %?f UseNewGenRec %( )% ) %!=  true  ) ) then
     begin
 //	%{Op_Instance}%f_set_uc_content(intf.pas,,\
      ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '' %, 

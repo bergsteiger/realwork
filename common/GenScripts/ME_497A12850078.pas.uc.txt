@@ -18,6 +18,8 @@
   if IsModalForm and (Document <> nil) then
     TnsViewDocumentEditionListEvent.Log(Document);
  end;//dsEditions <> nil
+ if RedactionTree.HandleAllocated then
+  PostMessage(RedactionTree.Handle, msg_vtInvalidateNCArea, 0, 0);
 //#UC END# *497469C90140_497A12850078_impl*
 //#UC START# *497469C90140_497A12850078_var*
 //#UC END# *497469C90140_497A12850078_var*
@@ -95,6 +97,14 @@
 var
  l_RootDocument: InsDocument;
 //#UC END# *4A8EE08403B3_497A12850078exec_var*
+//#UC START# *4A97E78202FC_497A12850078_impl*
+ inherited;
+ if (aParent <> nil) then
+  if RedactionTree.HandleAllocated then
+   PostMessage(RedactionTree.Handle, msg_vtInvalidateNCArea, 0, 0);
+//#UC END# *4A97E78202FC_497A12850078_impl*
+//#UC START# *4A97E78202FC_497A12850078_var*
+//#UC END# *4A97E78202FC_497A12850078_var*
 //#UC START# *4B0D11FB00CC_4B0D11B20334_impl*
  l_Data := MakeParamsList;
  l_Data.AddObject(aDoc);

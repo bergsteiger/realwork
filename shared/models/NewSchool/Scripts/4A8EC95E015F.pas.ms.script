@@ -6,6 +6,26 @@ FORWARD ME_4A8EC95E015F
 
 FORWARD ME_4A8EC9DC0375
 
+: ME_4AE973900136
+ CONST UID '4AE973900136'
+ CONST Name 'aShotdown'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4AE973900136 aShotdown
+
+: ME_4AE97390014D
+ CONST UID '4AE97390014D'
+ CONST Name 'aCloseInterval'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4AE97390014D aCloseInterval
+
 : ME_4A8EC9E902CD
  CONST UID '4A8EC9E902CD'
  CONST Name 'InitShutdown'
@@ -16,6 +36,11 @@ FORWARD ME_4A8EC9DC0375
  CONST Abstraction at_abstract
  : Parent ME_4A8EC9DC0375 // System
  ;
+ : Parameters
+   Seq: ( ME_4AE973900136 // aShotdown
+ ME_4AE97390014D // aCloseInterval
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -79,10 +104,10 @@ ref; // ME_4C8A27DA0087 HelpTopics
  CONST Abstraction at_regular
  : Parent ME_4A8EC95E015F // InternalOperations
  ;
- : Children
+ : Operations
    Seq: ( ME_4C8A27DA0087 // HelpTopics
  )
- ; // Children
+ ; // Operations
 
 ref; // ME_4C8A27C4035F Help
 

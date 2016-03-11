@@ -6,6 +6,36 @@ FORWARD ME_4AA7800100B4
 
 FORWARD ME_4AA7803101E2
 
+: ME_4AA7805E03E2
+ CONST UID '4AA7805E03E2'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_4AA7805E03E2 aNode
+
+: ME_4E7B020B01CB
+ CONST UID '4E7B020B01CB'
+ CONST Name 'aRootToKeep'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+
+ref; // ME_4E7B020B01CB aRootToKeep
+
+: ME_4E7B020B023A
+ CONST UID '4E7B020B023A'
+ CONST Name 'aMenuSectionItemToKeep'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4E36C7D80396' '4DD24BD40021.pas.ms.script' // SectionItem
+ ;
+
+ref; // ME_4E7B020B023A aMenuSectionItemToKeep
+
 : ME_4AA7805301DC
  CONST UID '4AA7805301DC'
  CONST Name 'SetListRoot'
@@ -15,6 +45,12 @@ FORWARD ME_4AA7803101E2
  CONST Abstraction at_abstract
  : Parent ME_4AA7803101E2 // Rubricator
  ;
+ : Parameters
+   Seq: ( ME_4AA7805E03E2 // aNode
+ ME_4E7B020B01CB // aRootToKeep
+ ME_4E7B020B023A // aMenuSectionItemToKeep
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -26,6 +62,36 @@ FORWARD ME_4AA7803101E2
 
 ref; // ME_4AA7805301DC SetListRoot
 
+: ME_4AA7806C02DE
+ CONST UID '4AA7806C02DE'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_4AA7806C02DE aNode
+
+: ME_4E7B02150291
+ CONST UID '4E7B02150291'
+ CONST Name 'aRootToKeep'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+
+ref; // ME_4E7B02150291 aRootToKeep
+
+: ME_4E7B02150317
+ CONST UID '4E7B02150317'
+ CONST Name 'aMenuSectionItemToKeep'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4E36C7D80396' '4DD24BD40021.pas.ms.script' // SectionItem
+ ;
+
+ref; // ME_4E7B02150317 aMenuSectionItemToKeep
+
 : ME_4AA7806601AE
  CONST UID '4AA7806601AE'
  CONST Name 'InitListRoot'
@@ -35,6 +101,12 @@ ref; // ME_4AA7805301DC SetListRoot
  CONST Abstraction at_abstract
  : Parent ME_4AA7803101E2 // Rubricator
  ;
+ : Parameters
+   Seq: ( ME_4AA7806C02DE // aNode
+ ME_4E7B02150291 // aRootToKeep
+ ME_4E7B02150317 // aMenuSectionItemToKeep
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false

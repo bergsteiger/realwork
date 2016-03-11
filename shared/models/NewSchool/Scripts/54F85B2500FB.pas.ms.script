@@ -4008,6 +4008,36 @@ ref; // ME_5541F6FB0124_ME_559A3BD901CC StopCaching
  CONST OpKind opkind_Implemented
 ref; // ME_554A037B0325_ME_559A3BD901CC SessionDone
 
+: ME_56E2A25501A6_ME_559A3BD901CC
+ CONST UID '56E2A25501A6'
+ CONST Name 'SetAlienSessionID'
+ : Original WL 'ME_56E2A25501A6' '5432518A0316.pas.ms.script' // SetAlienSessionID
+ ;
+ : Implementor ME_559A3BD901CC // TdaJournal
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_56E2A25501A6_ME_559A3BD901CC SetAlienSessionID
+
+: ME_56E2A7DB03CE_ME_559A3BD901CC
+ CONST UID '56E2A7DB03CE'
+ CONST Name 'LogAlienEvent'
+ : Original WL 'ME_56E2A7DB03CE' '5432518A0316.pas.ms.script' // LogAlienEvent
+ ;
+ : Implementor ME_559A3BD901CC // TdaJournal
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_56E2A7DB03CE_ME_559A3BD901CC LogAlienEvent
+
+: ME_56E2B57C01FA_ME_559A3BD901CC
+ CONST UID '56E2B57C01FA'
+ CONST Name 'MakeAlienResultSet'
+ : Original WL 'ME_56E2B57C01FA' '5432518A0316.pas.ms.script' // MakeAlienResultSet
+ ;
+ : Implementor ME_559A3BD901CC // TdaJournal
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_56E2B57C01FA_ME_559A3BD901CC MakeAlienResultSet
+
 : ME_479731C50290_ME_559A3BD901CC
  CONST UID '479731C50290'
  CONST Name 'Cleanup'
@@ -4044,6 +4074,7 @@ ref; // ME_5000565C019C_ME_559A3BD901CC ClearFields
  ; // Inherits
  : Implements
    Seq: ( WL 'ME_5540922C0376' '5432518A0316.pas.ms.script' // IdaJournal
+ WL 'ME_56C193DB0058' '5432518A0316.pas.ms.script' // IdaComboAccessJournalHelper
  )
  ; // Implements
  : Attributes
@@ -4089,6 +4120,9 @@ ref; // ME_5000565C019C_ME_559A3BD901CC ClearFields
  ME_5541F6EC00DE_ME_559A3BD901CC // StartCaching
  ME_5541F6FB0124_ME_559A3BD901CC // StopCaching
  ME_554A037B0325_ME_559A3BD901CC // SessionDone
+ ME_56E2A25501A6_ME_559A3BD901CC // SetAlienSessionID
+ ME_56E2A7DB03CE_ME_559A3BD901CC // LogAlienEvent
+ ME_56E2B57C01FA_ME_559A3BD901CC // MakeAlienResultSet
  )
  ; // Implemented
  : Overridden
@@ -6313,65 +6347,6 @@ ref; // ME_4C4B93208FF8 f_Params
 
 ref; // ME_065AD501631B f_Prepared
 
-FORWARD ME_55FFDEC4037F
-
-: ME_56726BAE0248
- CONST UID '56726BAE0248'
- CONST Name 'aParamDesc'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_5555ADD202AB' '5432518A0316.pas.ms.script' // IdaParamDescription
- ;
-
-ref; // ME_56726BAE0248 aParamDesc
-
-: ME_55FFDECE0247
- CONST UID '55FFDECE0247'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55FFDEC4037F // AddParam
- ;
- : Parameters
-   Seq: ( ME_56726BAE0248 // aParamDesc
- )
- ; // Parameters
-
-ref; // ME_55FFDECE0247 DoIt
-
-: ME_55FFE2B60146
- CONST UID '55FFE2B60146'
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_55FFDEC4037F // AddParam
- ;
- : Target WL 'ME_5555D51A02D2' '5432448401BC.pas.ms.script' // EdaError
- ;
-
-ref; // ME_55FFE2B60146 
-
-: ME_55FFDEC4037F
- CONST UID '55FFDEC4037F'
- CONST Name 'AddParam'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- : Parent ME_566A7DCD0151 // TdaQuery
- ;
- : Operations
-   Seq: ( ME_55FFDECE0247 // DoIt
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_55FFE2B60146 // 
- )
- ; // Dependencies
-
-ref; // ME_55FFDEC4037F AddParam
-
 FORWARD ME_56010AB70258
 
 : ME_68CF33B605B1
@@ -6604,6 +6579,52 @@ ref; // ME_566A8510020A DoIt
 
 ref; // ME_566A850001E5 DoBuildSQLValue
 
+FORWARD ME_56E120F00095
+
+: ME_56E1210B0353
+ CONST UID '56E1210B0353'
+ CONST Name 'aParamDesc'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5555ADD202AB' '5432518A0316.pas.ms.script' // IdaParamDescription
+ ;
+
+ref; // ME_56E1210B0353 aParamDesc
+
+: ME_56E1210801A3
+ CONST UID '56E1210801A3'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56E120F00095 // DoMakeParam
+ ;
+ : Target WL 'ME_55559D5700AC' '5432518A0316.pas.ms.script' // IdaParam
+ ;
+ : Parameters
+   Seq: ( ME_56E1210B0353 // aParamDesc
+ )
+ ; // Parameters
+
+ref; // ME_56E1210801A3 DoIt
+
+: ME_56E120F00095
+ CONST UID '56E120F00095'
+ CONST Name 'DoMakeParam'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_566A7DCD0151 // TdaQuery
+ ;
+ : Operations
+   Seq: ( ME_56E1210801A3 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56E120F00095 DoMakeParam
+
 : ME_566A93D603A6
  CONST UID '566A93D603A6'
  CONST Class class_Dependency
@@ -6625,6 +6646,17 @@ ref; // ME_566A93D603A6
  ;
 
 ref; // ME_566A93DA02A6 
+
+: ME_55FFE2B60146
+ CONST UID '55FFE2B60146'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_566A7DCD0151 // TdaQuery
+ ;
+ : Target WL 'ME_5555D51A02D2' '5432448401BC.pas.ms.script' // EdaError
+ ;
+
+ref; // ME_55FFE2B60146 
 
 : ME_5549C42400DA_ME_566A7DCD0151
  CONST UID '5549C42400DA'
@@ -6677,6 +6709,16 @@ ref; // ME_555334DD023B_ME_566A7DCD0151 UnPrepare
  CONST OpKind opkind_Implemented
 ref; // ME_564318160268_ME_566A7DCD0151 BuildSQLValue
 
+: ME_56E152F4011D_ME_566A7DCD0151
+ CONST UID '56E152F4011D'
+ CONST Name 'AddParam'
+ : Original WL 'ME_56E152F4011D' '5432518A0316.pas.ms.script' // AddParam
+ ;
+ : Implementor ME_566A7DCD0151 // TdaQuery
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_56E152F4011D_ME_566A7DCD0151 AddParam
+
 : ME_479731C50290_ME_566A7DCD0151
  CONST UID '479731C50290'
  CONST Name 'Cleanup'
@@ -6713,6 +6755,7 @@ ref; // ME_49BFC98902FF_ME_566A7DCD0151 BeforeRelease
  ; // Inherits
  : Implements
    Seq: ( WL 'ME_5666C55000A5' '5432518A0316.pas.ms.script' // IdaQuery
+ WL 'ME_56E153570073' '5432518A0316.pas.ms.script' // IdaComboAccessQueryHelper
  )
  ; // Implements
  : Attributes
@@ -6725,13 +6768,13 @@ ref; // ME_49BFC98902FF_ME_566A7DCD0151 BeforeRelease
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_55FFDEC4037F // AddParam
- ME_56010AB70258 // PrepareQuery
+   Seq: ( ME_56010AB70258 // PrepareQuery
  ME_56010ACB00F0 // UnprepareQuery
  ME_560B861302E9 // MakeParamList
  ME_56010A7801F2 // MakeResultSet
  ME_566A7F3C01D9 // Create
  ME_566A850001E5 // DoBuildSQLValue
+ ME_56E120F00095 // DoMakeParam
  )
  ; // Operations
  : Implemented
@@ -6740,6 +6783,7 @@ ref; // ME_49BFC98902FF_ME_566A7DCD0151 BeforeRelease
  ME_5551BEA500AE_ME_566A7DCD0151 // Param
  ME_555334DD023B_ME_566A7DCD0151 // UnPrepare
  ME_564318160268_ME_566A7DCD0151 // BuildSQLValue
+ ME_56E152F4011D_ME_566A7DCD0151 // AddParam
  )
  ; // Implemented
  : Overridden
@@ -6750,6 +6794,7 @@ ref; // ME_49BFC98902FF_ME_566A7DCD0151 BeforeRelease
  : Dependencies
    Seq: ( ME_566A93D603A6 // 
  ME_566A93DA02A6 // 
+ ME_55FFE2B60146 // 
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
