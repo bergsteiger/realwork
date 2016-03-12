@@ -43,9 +43,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
+{$If NOT Defined(NoVCL)}
 {$Include w:\common\components\rtl\Garant\ScriptEngine\kwControlFromStackWord.imp.pas}
 
-{$If NOT Defined(NoVCL)}
 procedure TkwImageEnControl.DoControl(aControl: TControl;
  const aCtx: TtfwContext);
 //#UC START# *4F212C3A015A_52E20F060237_var*
@@ -55,11 +55,11 @@ begin
  DoWithImageEn(aControl as TImageEnView, aCtx);
 //#UC END# *4F212C3A015A_52E20F060237_impl*
 end;//TkwImageEnControl.DoControl
-{$IfEnd} // NOT Defined(NoVCL)
 
 initialization
  TkwImageEnControl.RegisterClass;
  {* Регистрация TkwImageEnControl }
-{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoImageEn)
+{$IfEnd} // NOT Defined(NoVCL)
 
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoImageEn)
 end.
