@@ -32,10 +32,10 @@ const
  m3_cObject = 'object';
  m3_cDocPartName: Tm3DocPartSelector_Names_Array = ('main', 'anno', m3_cSummary, m3_cObject);
 
-function GetBaseSummary(const aBase: Im3IndexedStorage;
+function m3_GetBaseSummary(const aBase: Im3IndexedStorage;
  out theSumm: Tm3BaseSummary): Boolean; overload;
  {* получить информациею об основном хранилище }
-function GetBaseSummary(const aBase: Im3IndexedStorage;
+function m3_GetBaseSummary(const aBase: Im3IndexedStorage;
  aMode: Tm3StoreAccess): IStream; overload;
  {* получить поток с информацией об основном хранилище }
 
@@ -56,7 +56,7 @@ uses
  , m3StorageElementIDList
 ;
 
-function GetBaseSummary(const aBase: Im3IndexedStorage;
+function m3_GetBaseSummary(const aBase: Im3IndexedStorage;
  out theSumm: Tm3BaseSummary): Boolean;
  {* получить информациею об основном хранилище }
 //#UC START# *49B92E2D02CD_49B141B8022F_var*
@@ -80,9 +80,9 @@ begin
   theSumm.rMin := High(theSumm.rMin);
  end;//not Result
 //#UC END# *49B92E2D02CD_49B141B8022F_impl*
-end;//GetBaseSummary
+end;//m3_GetBaseSummary
 
-function GetBaseSummary(const aBase: Im3IndexedStorage;
+function m3_GetBaseSummary(const aBase: Im3IndexedStorage;
  aMode: Tm3StoreAccess): IStream;
  {* получить поток с информацией об основном хранилище }
 //#UC START# *49B92E450104_49B141B8022F_var*
@@ -91,6 +91,6 @@ begin
 //#UC START# *49B92E450104_49B141B8022F_impl*
  m3COMSafeOpenStream(aBase, l3PCharLen(AnsiString(m3_cSummary)), aMode, aMode <> m3_saRead, Result, false);
 //#UC END# *49B92E450104_49B141B8022F_impl*
-end;//GetBaseSummary
+end;//m3_GetBaseSummary
 
 end.

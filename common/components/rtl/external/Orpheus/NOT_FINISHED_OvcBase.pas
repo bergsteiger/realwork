@@ -33,10 +33,12 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCL)}
 initialization
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TOvcBase);
  {* Регистрация TOvcBase }
 {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCL)
 
 end.

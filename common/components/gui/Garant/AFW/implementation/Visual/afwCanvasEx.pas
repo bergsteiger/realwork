@@ -32,7 +32,7 @@ type
    procedure ClearFields; override;
    function IsPreview: Boolean; override;
    function NeedOpenRealPage(aDoc: Boolean;
-    ByWidth: Boolean): Tl3OpenPageResult; override;
+    ByWidth: Boolean = False): Tl3OpenPageResult; override;
    procedure DoEndPaint; override;
   public
    constructor Create(const aPrinter: IafwPrinter;
@@ -118,7 +118,7 @@ begin
 end;//TafwCanvasEx.IsPreview
 
 function TafwCanvasEx.NeedOpenRealPage(aDoc: Boolean;
- ByWidth: Boolean): Tl3OpenPageResult;
+ ByWidth: Boolean = False): Tl3OpenPageResult;
 //#UC START# *56B4A55202AB_47414C8700D5_var*
 var
  l_IsPreview : Boolean;
