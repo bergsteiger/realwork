@@ -1332,6 +1332,7 @@ var
 begin
 //#UC START# *56A89F6B03A5_46835B4001A4_impl*
  Assert(aState <> nil);
+ SelectAllNodes(sbDeselect);
  for l_Index := 0 to Pred(aState.GetSelectedNodeCount) do
  begin
   l_SelectedNodeIndex := aState.GetSelectedNodeVisibleIndex(l_Index);

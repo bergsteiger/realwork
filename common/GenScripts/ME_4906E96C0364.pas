@@ -27,7 +27,7 @@ type
   public
    constructor Create(const aRoot: INodeBase;
     aShowRoot: Boolean;
-    aOneLevel: Boolean); override;
+    aOneLevel: Boolean = False); override;
  end;//TnsUserTreeStruct
 
 implementation
@@ -53,7 +53,7 @@ end;//TnsUserTreeStruct.ReAqurieUnfilteredRoot
 
 constructor TnsUserTreeStruct.Create(const aRoot: INodeBase;
  aShowRoot: Boolean;
- aOneLevel: Boolean);
+ aOneLevel: Boolean = False);
 //#UC START# *48FDD9270194_4906E96C0364_var*
 //#UC END# *48FDD9270194_4906E96C0364_var*
 begin

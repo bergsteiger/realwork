@@ -61,8 +61,8 @@ type
    procedure ClearFields; override;
    function Get_AllChildrenCount: Integer; override;
    function Get_ChildNode: Il3Node; override;
-   procedure DoSortChilds(const aChild: Il3Node); override;
-   function DoGetNumInParent(aOnlyOneLevel: Boolean): Integer; override;
+   procedure DoSortChilds(const aChild: Il3Node = nil); override;
+   function DoGetNumInParent(aOnlyOneLevel: Boolean = False): Integer; override;
    procedure DoReleaseChilds; override;
    procedure DoIncAllChildrenCount(aInc: Integer); override;
   public
@@ -290,7 +290,7 @@ begin
 //#UC END# *54C78E2702B3_4ADDF4470087_impl*
 end;//TnsBaseNode.Get_ChildNode
 
-procedure TnsBaseNode.DoSortChilds(const aChild: Il3Node);
+procedure TnsBaseNode.DoSortChilds(const aChild: Il3Node = nil);
 //#UC START# *54C8E0850062_4ADDF4470087_var*
 var
  lChild,
@@ -442,7 +442,7 @@ begin
 //#UC END# *54C8E0850062_4ADDF4470087_impl*
 end;//TnsBaseNode.DoSortChilds
 
-function TnsBaseNode.DoGetNumInParent(aOnlyOneLevel: Boolean): Integer;
+function TnsBaseNode.DoGetNumInParent(aOnlyOneLevel: Boolean = False): Integer;
 //#UC START# *54C8E1F30128_4ADDF4470087_var*
 //#UC END# *54C8E1F30128_4ADDF4470087_var*
 begin

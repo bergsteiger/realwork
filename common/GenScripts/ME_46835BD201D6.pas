@@ -118,7 +118,7 @@ ApplyEmptyFilter: Boolean
     const aSource: Il3CString): Boolean;
    constructor Create(const aRoot: INodeBase;
     aShowRoot: Boolean;
-    aOneLevel: Boolean); override;
+    aOneLevel: Boolean = False); override;
   protected
    property Filters: Il3TreeFilters
     read pm_GetFilters;
@@ -642,7 +642,7 @@ end;//TnsFilterableTreeStruct.Cleanup
 
 constructor TnsFilterableTreeStruct.Create(const aRoot: INodeBase;
  aShowRoot: Boolean;
- aOneLevel: Boolean);
+ aOneLevel: Boolean = False);
 //#UC START# *48FDD9270194_46835BD201D6_var*
 //#UC END# *48FDD9270194_46835BD201D6_var*
 begin

@@ -17,7 +17,7 @@ type
   protected
    f_NumInParent: Integer;
   protected
-   function DoGetNumInParent(aOnlyOneLevel: Boolean): Integer; override;
+   function DoGetNumInParent(aOnlyOneLevel: Boolean = False): Integer; override;
   public
    constructor Create(aNumInParent: Integer); reintroduce;
  end;//TnsPrimNode
@@ -38,7 +38,7 @@ begin
 //#UC END# *4AE030AF029D_4ADDF4020322_impl*
 end;//TnsPrimNode.Create
 
-function TnsPrimNode.DoGetNumInParent(aOnlyOneLevel: Boolean): Integer;
+function TnsPrimNode.DoGetNumInParent(aOnlyOneLevel: Boolean = False): Integer;
 //#UC START# *54C8E1F30128_4ADDF4020322_var*
 //#UC END# *54C8E1F30128_4ADDF4020322_var*
 begin
