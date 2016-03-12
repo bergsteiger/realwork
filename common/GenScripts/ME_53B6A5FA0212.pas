@@ -222,6 +222,7 @@ uses
  , AutoExportTask_Const
 ;
 
+{$If NOT Defined(Nemesis)}
 function TalcuAutoExportTaskPrim.pm_GetToday: TDateTime;
 //#UC START# *72D12E8AD850_53B6A5FA0212get_var*
 //#UC END# *72D12E8AD850_53B6A5FA0212get_var*
@@ -770,7 +771,6 @@ begin
 //#UC END# *53AC03EE01FD_53B6A5FA0212_impl*
 end;//TalcuAutoExportTaskPrim.GetTaggedDataType
 
-{$If NOT Defined(Nemesis)}
 function TalcuAutoExportTaskPrim.GetDescription: AnsiString;
 //#UC START# *53FB28170339_53B6A5FA0212_var*
 //#UC END# *53FB28170339_53B6A5FA0212_var*

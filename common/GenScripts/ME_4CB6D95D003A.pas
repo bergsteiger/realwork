@@ -51,15 +51,15 @@ type
   public
    class function Make(const aData: IdsCreateFilter): MvcmEntityForm; reintroduce;
    {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
+   procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
     {* OK }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Отмена }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure OkExt; override;
+   procedure Result_OkExt_Execute(const aParams: IvcmExecuteParamsPrim);
     {* OK }
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -111,39 +111,43 @@ begin
 end;//TPrimCreateFilterForm.Make
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimCreateFilterForm.Ok;
+procedure TPrimCreateFilterForm.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
  {* OK }
-//#UC START# *4C762A1501FC_4CB6D95D003A_var*
-//#UC END# *4C762A1501FC_4CB6D95D003A_var*
+//#UC START# *4C762A1501FC_4CB6D95D003Aexec_var*
+//#UC END# *4C762A1501FC_4CB6D95D003Aexec_var*
 begin
-//#UC START# *4C762A1501FC_4CB6D95D003A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762A1501FC_4CB6D95D003A_impl*
-end;//TPrimCreateFilterForm.Ok
+//#UC START# *4C762A1501FC_4CB6D95D003Aexec_impl*
+ Result_OkExt_Execute(aParams);
+//#UC END# *4C762A1501FC_4CB6D95D003Aexec_impl*
+end;//TPrimCreateFilterForm.Result_Ok_Execute
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimCreateFilterForm.Cancel;
+procedure TPrimCreateFilterForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Отмена }
-//#UC START# *4C762C910358_4CB6D95D003A_var*
-//#UC END# *4C762C910358_4CB6D95D003A_var*
+//#UC START# *4C762C910358_4CB6D95D003Aexec_var*
+//#UC END# *4C762C910358_4CB6D95D003Aexec_var*
 begin
-//#UC START# *4C762C910358_4CB6D95D003A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762C910358_4CB6D95D003A_impl*
-end;//TPrimCreateFilterForm.Cancel
+//#UC START# *4C762C910358_4CB6D95D003Aexec_impl*
+ ModalResult := mrCancel;
+//#UC END# *4C762C910358_4CB6D95D003Aexec_impl*
+end;//TPrimCreateFilterForm.Result_Cancel_Execute
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimCreateFilterForm.OkExt;
+procedure TPrimCreateFilterForm.Result_OkExt_Execute(const aParams: IvcmExecuteParamsPrim);
  {* OK }
-//#UC START# *4C762D9B0224_4CB6D95D003A_var*
-//#UC END# *4C762D9B0224_4CB6D95D003A_var*
+//#UC START# *4C762D9B0224_4CB6D95D003Aexec_var*
+//#UC END# *4C762D9B0224_4CB6D95D003Aexec_var*
 begin
-//#UC START# *4C762D9B0224_4CB6D95D003A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762D9B0224_4CB6D95D003A_impl*
-end;//TPrimCreateFilterForm.OkExt
+//#UC START# *4C762D9B0224_4CB6D95D003Aexec_impl*
+ if (UserType = cfCreate) then
+  ViewArea.CreateFilter(FilterName.Text)
+ else
+  ViewArea.RenameFilter(FilterName.Text);
+ ModalResult := mrOk;
+//#UC END# *4C762D9B0224_4CB6D95D003Aexec_impl*
+end;//TPrimCreateFilterForm.Result_OkExt_Execute
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}

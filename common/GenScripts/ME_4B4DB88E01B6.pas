@@ -67,49 +67,84 @@
    procedure ClearFields; override;
   public
    {$If NOT Defined(NoVCM)}
-   procedure Copy; override;
+   procedure Edit_Copy_Test(const aParams: IvcmTestParamsPrim);
     {* Копировать }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Cut; override;
+   procedure Edit_Copy_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Копировать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Cut_Test(const aParams: IvcmTestParamsPrim);
     {* Вырезать }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure FindContext; override;
+   procedure Edit_Cut_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Вырезать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_FindContext_Test(const aParams: IvcmTestParamsPrim);
     {* Поиск }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure FindNext; override;
+   procedure Edit_FindContext_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Поиск }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_FindNext_Test(const aParams: IvcmTestParamsPrim);
     {* Найти далее }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Paste; override;
+   procedure Edit_FindNext_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Найти далее }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Paste_Test(const aParams: IvcmTestParamsPrim);
     {* Вставка }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Undo; override;
+   procedure Edit_Paste_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Вставка }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Undo_Test(const aParams: IvcmTestParamsPrim);
     {* Отмена }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Redo; override;
+   procedure Edit_Undo_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Redo_Test(const aParams: IvcmTestParamsPrim);
     {* Возврат }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure SelectAll; override;
+   procedure Edit_Redo_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Возврат }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_SelectAll_Test(const aParams: IvcmTestParamsPrim);
     {* Выделить всё }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Deselect; override;
+   procedure Edit_SelectAll_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Выделить всё }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Deselect_Test(const aParams: IvcmTestParamsPrim);
     {* Снять выделение }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure FindPrev; override;
+   procedure Edit_Deselect_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Снять выделение }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_FindPrev_Test(const aParams: IvcmTestParamsPrim);
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_FindPrev_Execute(const aParams: IvcmExecuteParamsPrim);
    {$IfEnd} // NOT Defined(NoVCM)
    function SupportDisabled: Boolean;
-   {$If NOT Defined(NoVCM)}
-   procedure Copy; override;
-    {* Копировать }
-   {$IfEnd} // NOT Defined(NoVCM)
   protected
    property ContextSearcher: IbsBaseDocumentContextSearcher
     read pm_GetContextSearcher;
@@ -188,51 +223,105 @@ begin
 end;//_DocumentBaseSearcher_.CheckFocusedInPaint
 
 {$If NOT Defined(NoVCM)}
-procedure _DocumentBaseSearcher_.Copy;
+procedure _DocumentBaseSearcher_.Edit_Copy_Test(const aParams: IvcmTestParamsPrim);
  {* Копировать }
-//#UC START# *4951284902BD_4B4DB88E01B6_var*
-//#UC END# *4951284902BD_4B4DB88E01B6_var*
+//#UC START# *4951284902BD_4B4DB88E01B6test_var*
+//#UC END# *4951284902BD_4B4DB88E01B6test_var*
 begin
-//#UC START# *4951284902BD_4B4DB88E01B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4951284902BD_4B4DB88E01B6_impl*
-end;//_DocumentBaseSearcher_.Copy
+//#UC START# *4951284902BD_4B4DB88E01B6test_impl*
+ aParams.CallControl;
+ CheckTrial(aParams);
+//#UC END# *4951284902BD_4B4DB88E01B6test_impl*
+end;//_DocumentBaseSearcher_.Edit_Copy_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure _DocumentBaseSearcher_.Cut;
+procedure _DocumentBaseSearcher_.Edit_Copy_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Копировать }
+//#UC START# *4951284902BD_4B4DB88E01B6exec_var*
+//#UC END# *4951284902BD_4B4DB88E01B6exec_var*
+begin
+//#UC START# *4951284902BD_4B4DB88E01B6exec_impl*
+ aParams.CallControl;
+//#UC END# *4951284902BD_4B4DB88E01B6exec_impl*
+end;//_DocumentBaseSearcher_.Edit_Copy_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure _DocumentBaseSearcher_.Edit_Cut_Test(const aParams: IvcmTestParamsPrim);
  {* Вырезать }
-//#UC START# *4951285702E1_4B4DB88E01B6_var*
-//#UC END# *4951285702E1_4B4DB88E01B6_var*
+//#UC START# *4951285702E1_4B4DB88E01B6test_var*
+//#UC END# *4951285702E1_4B4DB88E01B6test_var*
 begin
-//#UC START# *4951285702E1_4B4DB88E01B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4951285702E1_4B4DB88E01B6_impl*
-end;//_DocumentBaseSearcher_.Cut
+//#UC START# *4951285702E1_4B4DB88E01B6test_impl*
+ aParams.CallControl;
+ CheckTrial(aParams);
+//#UC END# *4951285702E1_4B4DB88E01B6test_impl*
+end;//_DocumentBaseSearcher_.Edit_Cut_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure _DocumentBaseSearcher_.FindContext;
+procedure _DocumentBaseSearcher_.Edit_Cut_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Вырезать }
+//#UC START# *4951285702E1_4B4DB88E01B6exec_var*
+//#UC END# *4951285702E1_4B4DB88E01B6exec_var*
+begin
+//#UC START# *4951285702E1_4B4DB88E01B6exec_impl*
+ aParams.CallControl;
+//#UC END# *4951285702E1_4B4DB88E01B6exec_impl*
+end;//_DocumentBaseSearcher_.Edit_Cut_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure _DocumentBaseSearcher_.Edit_FindContext_Test(const aParams: IvcmTestParamsPrim);
  {* Поиск }
-//#UC START# *49512B5D0009_4B4DB88E01B6_var*
-//#UC END# *49512B5D0009_4B4DB88E01B6_var*
+//#UC START# *49512B5D0009_4B4DB88E01B6test_var*
+//#UC END# *49512B5D0009_4B4DB88E01B6test_var*
 begin
-//#UC START# *49512B5D0009_4B4DB88E01B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49512B5D0009_4B4DB88E01B6_impl*
-end;//_DocumentBaseSearcher_.FindContext
+//#UC START# *49512B5D0009_4B4DB88E01B6test_impl*
+ DoEditFindContextTest(aParams);
+//#UC END# *49512B5D0009_4B4DB88E01B6test_impl*
+end;//_DocumentBaseSearcher_.Edit_FindContext_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure _DocumentBaseSearcher_.FindNext;
- {* Найти далее }
-//#UC START# *495130C40123_4B4DB88E01B6_var*
-//#UC END# *495130C40123_4B4DB88E01B6_var*
+procedure _DocumentBaseSearcher_.Edit_FindContext_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Поиск }
+//#UC START# *49512B5D0009_4B4DB88E01B6exec_var*
+//#UC END# *49512B5D0009_4B4DB88E01B6exec_var*
 begin
-//#UC START# *495130C40123_4B4DB88E01B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495130C40123_4B4DB88E01B6_impl*
-end;//_DocumentBaseSearcher_.FindNext
+//#UC START# *49512B5D0009_4B4DB88E01B6exec_impl*
+ TdmStdRes.OpenBaseSearch(ns_bsokLocal, nil);
+//#UC END# *49512B5D0009_4B4DB88E01B6exec_impl*
+end;//_DocumentBaseSearcher_.Edit_FindContext_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure _DocumentBaseSearcher_.Edit_FindNext_Test(const aParams: IvcmTestParamsPrim);
+ {* Найти далее }
+//#UC START# *495130C40123_4B4DB88E01B6test_var*
+//#UC END# *495130C40123_4B4DB88E01B6test_var*
+begin
+//#UC START# *495130C40123_4B4DB88E01B6test_impl*
+ Edit_FindContext_Test(aParams);
+//#UC END# *495130C40123_4B4DB88E01B6test_impl*
+end;//_DocumentBaseSearcher_.Edit_FindNext_Test
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure _DocumentBaseSearcher_.Edit_FindNext_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Найти далее }
+//#UC START# *495130C40123_4B4DB88E01B6exec_var*
+//#UC END# *495130C40123_4B4DB88E01B6exec_var*
+begin
+//#UC START# *495130C40123_4B4DB88E01B6exec_impl*
+ if Assigned(f_ContextSearcher) and f_ContextSearcher.CanContinue then
+  Find(Self, nil)
+ else
+  TdmStdRes.OpenBaseSearch(ns_bsokLocal,
+                           nil);
+//#UC END# *495130C40123_4B4DB88E01B6exec_impl*
+end;//_DocumentBaseSearcher_.Edit_FindNext_Execute
 {$IfEnd} // NOT Defined(NoVCM)
 
 function _DocumentBaseSearcher_.pm_GetArea: TnsSearchArea;
@@ -407,63 +496,123 @@ begin
 end;//_DocumentBaseSearcher_.VisibleChanged
 
 {$If NOT Defined(NoVCM)}
-procedure _DocumentBaseSearcher_.Paste;
+procedure _DocumentBaseSearcher_.Edit_Paste_Test(const aParams: IvcmTestParamsPrim);
  {* Вставка }
-//#UC START# *49EDFA3701B0_4B4DB88E01B6_var*
-//#UC END# *49EDFA3701B0_4B4DB88E01B6_var*
+//#UC START# *49EDFA3701B0_4B4DB88E01B6test_var*
+//#UC END# *49EDFA3701B0_4B4DB88E01B6test_var*
 begin
-//#UC START# *49EDFA3701B0_4B4DB88E01B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EDFA3701B0_4B4DB88E01B6_impl*
-end;//_DocumentBaseSearcher_.Paste
+//#UC START# *49EDFA3701B0_4B4DB88E01B6test_impl*
+ aParams.CallControl;
+//#UC END# *49EDFA3701B0_4B4DB88E01B6test_impl*
+end;//_DocumentBaseSearcher_.Edit_Paste_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure _DocumentBaseSearcher_.Undo;
+procedure _DocumentBaseSearcher_.Edit_Paste_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Вставка }
+//#UC START# *49EDFA3701B0_4B4DB88E01B6exec_var*
+//#UC END# *49EDFA3701B0_4B4DB88E01B6exec_var*
+begin
+//#UC START# *49EDFA3701B0_4B4DB88E01B6exec_impl*
+ aParams.CallControl;
+//#UC END# *49EDFA3701B0_4B4DB88E01B6exec_impl*
+end;//_DocumentBaseSearcher_.Edit_Paste_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure _DocumentBaseSearcher_.Edit_Undo_Test(const aParams: IvcmTestParamsPrim);
  {* Отмена }
-//#UC START# *49EDFCA2006D_4B4DB88E01B6_var*
-//#UC END# *49EDFCA2006D_4B4DB88E01B6_var*
+//#UC START# *49EDFCA2006D_4B4DB88E01B6test_var*
+//#UC END# *49EDFCA2006D_4B4DB88E01B6test_var*
 begin
-//#UC START# *49EDFCA2006D_4B4DB88E01B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EDFCA2006D_4B4DB88E01B6_impl*
-end;//_DocumentBaseSearcher_.Undo
+//#UC START# *49EDFCA2006D_4B4DB88E01B6test_impl*
+ aParams.CallControl;
+//#UC END# *49EDFCA2006D_4B4DB88E01B6test_impl*
+end;//_DocumentBaseSearcher_.Edit_Undo_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure _DocumentBaseSearcher_.Redo;
+procedure _DocumentBaseSearcher_.Edit_Undo_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отмена }
+//#UC START# *49EDFCA2006D_4B4DB88E01B6exec_var*
+//#UC END# *49EDFCA2006D_4B4DB88E01B6exec_var*
+begin
+//#UC START# *49EDFCA2006D_4B4DB88E01B6exec_impl*
+ aParams.CallControl;
+//#UC END# *49EDFCA2006D_4B4DB88E01B6exec_impl*
+end;//_DocumentBaseSearcher_.Edit_Undo_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure _DocumentBaseSearcher_.Edit_Redo_Test(const aParams: IvcmTestParamsPrim);
  {* Возврат }
-//#UC START# *49EDFCB100BC_4B4DB88E01B6_var*
-//#UC END# *49EDFCB100BC_4B4DB88E01B6_var*
+//#UC START# *49EDFCB100BC_4B4DB88E01B6test_var*
+//#UC END# *49EDFCB100BC_4B4DB88E01B6test_var*
 begin
-//#UC START# *49EDFCB100BC_4B4DB88E01B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EDFCB100BC_4B4DB88E01B6_impl*
-end;//_DocumentBaseSearcher_.Redo
+//#UC START# *49EDFCB100BC_4B4DB88E01B6test_impl*
+ aParams.CallControl;
+//#UC END# *49EDFCB100BC_4B4DB88E01B6test_impl*
+end;//_DocumentBaseSearcher_.Edit_Redo_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure _DocumentBaseSearcher_.SelectAll;
+procedure _DocumentBaseSearcher_.Edit_Redo_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Возврат }
+//#UC START# *49EDFCB100BC_4B4DB88E01B6exec_var*
+//#UC END# *49EDFCB100BC_4B4DB88E01B6exec_var*
+begin
+//#UC START# *49EDFCB100BC_4B4DB88E01B6exec_impl*
+ aParams.CallControl;
+//#UC END# *49EDFCB100BC_4B4DB88E01B6exec_impl*
+end;//_DocumentBaseSearcher_.Edit_Redo_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure _DocumentBaseSearcher_.Edit_SelectAll_Test(const aParams: IvcmTestParamsPrim);
  {* Выделить всё }
-//#UC START# *49EE01AA02BE_4B4DB88E01B6_var*
-//#UC END# *49EE01AA02BE_4B4DB88E01B6_var*
+//#UC START# *49EE01AA02BE_4B4DB88E01B6test_var*
+//#UC END# *49EE01AA02BE_4B4DB88E01B6test_var*
 begin
-//#UC START# *49EE01AA02BE_4B4DB88E01B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EE01AA02BE_4B4DB88E01B6_impl*
-end;//_DocumentBaseSearcher_.SelectAll
+//#UC START# *49EE01AA02BE_4B4DB88E01B6test_impl*
+ aParams.CallControl;
+//#UC END# *49EE01AA02BE_4B4DB88E01B6test_impl*
+end;//_DocumentBaseSearcher_.Edit_SelectAll_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure _DocumentBaseSearcher_.Deselect;
- {* Снять выделение }
-//#UC START# *49EE01BC022E_4B4DB88E01B6_var*
-//#UC END# *49EE01BC022E_4B4DB88E01B6_var*
+procedure _DocumentBaseSearcher_.Edit_SelectAll_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Выделить всё }
+//#UC START# *49EE01AA02BE_4B4DB88E01B6exec_var*
+//#UC END# *49EE01AA02BE_4B4DB88E01B6exec_var*
 begin
-//#UC START# *49EE01BC022E_4B4DB88E01B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EE01BC022E_4B4DB88E01B6_impl*
-end;//_DocumentBaseSearcher_.Deselect
+//#UC START# *49EE01AA02BE_4B4DB88E01B6exec_impl*
+ aParams.CallControl;
+//#UC END# *49EE01AA02BE_4B4DB88E01B6exec_impl*
+end;//_DocumentBaseSearcher_.Edit_SelectAll_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure _DocumentBaseSearcher_.Edit_Deselect_Test(const aParams: IvcmTestParamsPrim);
+ {* Снять выделение }
+//#UC START# *49EE01BC022E_4B4DB88E01B6test_var*
+//#UC END# *49EE01BC022E_4B4DB88E01B6test_var*
+begin
+//#UC START# *49EE01BC022E_4B4DB88E01B6test_impl*
+ aParams.CallControl;
+//#UC END# *49EE01BC022E_4B4DB88E01B6test_impl*
+end;//_DocumentBaseSearcher_.Edit_Deselect_Test
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure _DocumentBaseSearcher_.Edit_Deselect_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Снять выделение }
+//#UC START# *49EE01BC022E_4B4DB88E01B6exec_var*
+//#UC END# *49EE01BC022E_4B4DB88E01B6exec_var*
+begin
+//#UC START# *49EE01BC022E_4B4DB88E01B6exec_impl*
+ aParams.CallControl;
+//#UC END# *49EE01BC022E_4B4DB88E01B6exec_impl*
+end;//_DocumentBaseSearcher_.Edit_Deselect_Execute
 {$IfEnd} // NOT Defined(NoVCM)
 
 function _DocumentBaseSearcher_.FindBack(const aContext: InsBaseSearchContextProvider;
@@ -535,14 +684,29 @@ begin
 end;//_DocumentBaseSearcher_.FindBackEnabled
 
 {$If NOT Defined(NoVCM)}
-procedure _DocumentBaseSearcher_.FindPrev;
-//#UC START# *49FEDE4703B8_4B4DB88E01B6_var*
-//#UC END# *49FEDE4703B8_4B4DB88E01B6_var*
+procedure _DocumentBaseSearcher_.Edit_FindPrev_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *49FEDE4703B8_4B4DB88E01B6test_var*
+//#UC END# *49FEDE4703B8_4B4DB88E01B6test_var*
 begin
-//#UC START# *49FEDE4703B8_4B4DB88E01B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49FEDE4703B8_4B4DB88E01B6_impl*
-end;//_DocumentBaseSearcher_.FindPrev
+//#UC START# *49FEDE4703B8_4B4DB88E01B6test_impl*
+ Edit_FindContext_Test(aParams);
+ if aParams.Op.Flag[vcm_ofEnabled] and
+   not (Assigned(f_ContextSearcher) and f_ContextSearcher.CanFindBack) then
+   aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *49FEDE4703B8_4B4DB88E01B6test_impl*
+end;//_DocumentBaseSearcher_.Edit_FindPrev_Test
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure _DocumentBaseSearcher_.Edit_FindPrev_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *49FEDE4703B8_4B4DB88E01B6exec_var*
+//#UC END# *49FEDE4703B8_4B4DB88E01B6exec_var*
+begin
+//#UC START# *49FEDE4703B8_4B4DB88E01B6exec_impl*
+ if Assigned(f_ContextSearcher) and f_ContextSearcher.CanFindBack then
+  FindBack(Self, nil);
+//#UC END# *49FEDE4703B8_4B4DB88E01B6exec_impl*
+end;//_DocumentBaseSearcher_.Edit_FindPrev_Execute
 {$IfEnd} // NOT Defined(NoVCM)
 
 function _DocumentBaseSearcher_.FragmentsCountSuffix: Il3CString;
@@ -619,18 +783,6 @@ begin
  Result := True;
 //#UC END# *4B263ADE02E0_4B4DB88E01B6_impl*
 end;//_DocumentBaseSearcher_.SwitchToTextIfPossible
-
-{$If NOT Defined(NoVCM)}
-procedure _DocumentBaseSearcher_.Copy;
- {* Копировать }
-//#UC START# *4C7D0C7B0185_4B4DB88E01B6_var*
-//#UC END# *4C7D0C7B0185_4B4DB88E01B6_var*
-begin
-//#UC START# *4C7D0C7B0185_4B4DB88E01B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7D0C7B0185_4B4DB88E01B6_impl*
-end;//_DocumentBaseSearcher_.Copy
-{$IfEnd} // NOT Defined(NoVCM)
 
 function _DocumentBaseSearcher_.IsSearchLocked: Boolean;
 //#UC START# *561641EE03D8_4B4DB88E01B6_var*

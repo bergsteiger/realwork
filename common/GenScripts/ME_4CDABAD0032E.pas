@@ -15,15 +15,27 @@
    procedure DoPreviewExecute(const aParams: IvcmExecuteParamsPrim); virtual;
   public
    {$If NOT Defined(NoVCM)}
-   procedure Print; override;
+   procedure File_Print_Test(const aParams: IvcmTestParamsPrim);
     {* Печать }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure PrintDialog; override;
+   procedure File_Print_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Печать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
     {* Печать... }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure PrintPreview; override;
+   procedure File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Печать... }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
+    {* Предварительный просмотр }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Предварительный просмотр }
    {$IfEnd} // NOT Defined(NoVCM)
   protected
@@ -85,39 +97,79 @@ begin
 end;//_Printable_.DoPreviewExecute
 
 {$If NOT Defined(NoVCM)}
-procedure _Printable_.Print;
+procedure _Printable_.File_Print_Test(const aParams: IvcmTestParamsPrim);
  {* Печать }
-//#UC START# *49521D8E0295_4CDABAD0032E_var*
-//#UC END# *49521D8E0295_4CDABAD0032E_var*
+//#UC START# *49521D8E0295_4CDABAD0032Etest_var*
+//#UC END# *49521D8E0295_4CDABAD0032Etest_var*
 begin
-//#UC START# *49521D8E0295_4CDABAD0032E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49521D8E0295_4CDABAD0032E_impl*
-end;//_Printable_.Print
+//#UC START# *49521D8E0295_4CDABAD0032Etest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := Self.CanPrint;
+//#UC END# *49521D8E0295_4CDABAD0032Etest_impl*
+end;//_Printable_.File_Print_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure _Printable_.PrintDialog;
+procedure _Printable_.File_Print_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Печать }
+//#UC START# *49521D8E0295_4CDABAD0032Eexec_var*
+//#UC END# *49521D8E0295_4CDABAD0032Eexec_var*
+begin
+//#UC START# *49521D8E0295_4CDABAD0032Eexec_impl*
+ DoPrintExecute(aParams);
+//#UC END# *49521D8E0295_4CDABAD0032Eexec_impl*
+end;//_Printable_.File_Print_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure _Printable_.File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
  {* Печать... }
-//#UC START# *495220DE0298_4CDABAD0032E_var*
-//#UC END# *495220DE0298_4CDABAD0032E_var*
+//#UC START# *495220DE0298_4CDABAD0032Etest_var*
+//#UC END# *495220DE0298_4CDABAD0032Etest_var*
 begin
-//#UC START# *495220DE0298_4CDABAD0032E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495220DE0298_4CDABAD0032E_impl*
-end;//_Printable_.PrintDialog
+//#UC START# *495220DE0298_4CDABAD0032Etest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := Self.CanPrint;
+//#UC END# *495220DE0298_4CDABAD0032Etest_impl*
+end;//_Printable_.File_PrintDialog_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure _Printable_.PrintPreview;
- {* Предварительный просмотр }
-//#UC START# *495220F2033A_4CDABAD0032E_var*
-//#UC END# *495220F2033A_4CDABAD0032E_var*
+procedure _Printable_.File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Печать... }
+//#UC START# *495220DE0298_4CDABAD0032Eexec_var*
+var
+ l_Preview : IafwDocumentPreview;
+//#UC END# *495220DE0298_4CDABAD0032Eexec_var*
 begin
-//#UC START# *495220F2033A_4CDABAD0032E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495220F2033A_4CDABAD0032E_impl*
-end;//_Printable_.PrintPreview
+//#UC START# *495220DE0298_4CDABAD0032Eexec_impl*
+ l_Preview := Preview;
+ if (l_Preview <> nil) then
+  afw.Application.PrintManager.PrintDialog(l_Preview);
+//#UC END# *495220DE0298_4CDABAD0032Eexec_impl*
+end;//_Printable_.File_PrintDialog_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure _Printable_.File_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
+ {* Предварительный просмотр }
+//#UC START# *495220F2033A_4CDABAD0032Etest_var*
+//#UC END# *495220F2033A_4CDABAD0032Etest_var*
+begin
+//#UC START# *495220F2033A_4CDABAD0032Etest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := Self.CanPrint;
+//#UC END# *495220F2033A_4CDABAD0032Etest_impl*
+end;//_Printable_.File_PrintPreview_Test
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure _Printable_.File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Предварительный просмотр }
+//#UC START# *495220F2033A_4CDABAD0032Eexec_var*
+//#UC END# *495220F2033A_4CDABAD0032Eexec_var*
+begin
+//#UC START# *495220F2033A_4CDABAD0032Eexec_impl*
+ DoPreviewExecute(aParams);
+//#UC END# *495220F2033A_4CDABAD0032Eexec_impl*
+end;//_Printable_.File_PrintPreview_Execute
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$EndIf Printable_imp_impl}

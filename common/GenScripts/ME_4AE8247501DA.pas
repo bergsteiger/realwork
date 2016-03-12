@@ -21,6 +21,7 @@ uses
  , ImgList
  {$IfEnd} // NOT Defined(NoVCL)
  , eeInterfaces
+ , l3Interfaces
 ;
 
 const
@@ -56,9 +57,12 @@ type
    procedure FormInsertedIntoContainer; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   procedure ReloadStylesTree; override;
+   procedure StyleEditor_ReloadStylesTree_Execute(const aStyleName: Il3CString);
     {* ReloadStylesTree }
-   procedure ReloadStyleTable; override;
+   procedure StyleEditor_ReloadStylesTree(const aParams: IvcmExecuteParamsPrim);
+    {* ReloadStylesTree }
+   procedure StyleEditor_ReloadStyleTable_Execute;
+   procedure StyleEditor_ReloadStyleTable(const aParams: IvcmExecuteParamsPrim);
   public
    property StyleTreeView: TnscTreeViewWithAdapterDragDrop
     read f_StyleTreeView;
@@ -98,6 +102,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки utStyleEditorNavigatorLocalConstants }
  str_utStyleEditorNavigatorCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utStyleEditorNavigatorCaption'; rValue : 'Дерево стилей');
@@ -194,24 +199,170 @@ begin
 //#UC END# *52724A1F0013_4AE8247501DA_impl*
 end;//TPrimStyleEditorNavigatorForm.WMAfterInsert
 
-procedure TPrimStyleEditorNavigatorForm.ReloadStylesTree;
+procedure TPrimStyleEditorNavigatorForm.StyleEditor_ReloadStylesTree_Execute(const aStyleName: Il3CString);
  {* ReloadStylesTree }
-//#UC START# *4AE8250D03D5_4AE8247501DA_var*
-//#UC END# *4AE8250D03D5_4AE8247501DA_var*
-begin
-//#UC START# *4AE8250D03D5_4AE8247501DA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE8250D03D5_4AE8247501DA_impl*
-end;//TPrimStyleEditorNavigatorForm.ReloadStylesTree
+//#UC START# *4AE8250D03D5_4AE8247501DAexec_var*
+ function lp_IsInArray(const aArray: array of Integer; aValue: Integer): Boolean;
+ var
+  l_Index: Integer;
+ begin
+  Result := False;
+  for l_Index := Low(aArray) to High(aArray) do
+  begin
+   Result := aArray[l_Index] = aValue;
+   if Result then
+    Exit;
+  end;
+ end;//lp_IsInArray
 
-procedure TPrimStyleEditorNavigatorForm.ReloadStyleTable;
-//#UC START# *4AF8660E0079_4AE8247501DA_var*
-//#UC END# *4AF8660E0079_4AE8247501DA_var*
+ function lp_CorrectStylesArray(const anArray: TLongArray): TLongArray;
+ var
+  l_Index: Integer;
+  l_IsEnglish: Boolean;
+ begin
+  l_IsEnglish := afw.Application.LocaleInfo.Language <> afw_lngRussian;
+  SetLength(Result, 0);
+  for l_Index := Low(anArray) to High(anArray) do
+   // Исключаем стили, которых не должно быть в английской версии
+   //http://mdp.garant.ru/pages/viewpage.action?pageId=421127387
+   if (not l_IsEnglish) or (not lp_IsInArray([ev_saHeaderAACLeftWindow, ev_saHeaderAACRightWindow,
+    ev_saTxtNormalAACSeeAlso], anArray[l_Index])) then
+   begin
+    SetLength(Result, Succ(Length(Result)));
+    Result[High(Result)] := anArray[l_Index];
+   end;
+ end;//lp_CorrectStylesArray
+
+var
+ l_Node: Il3Node;
+ l_Root: IeeNode;
+ l_Current: Integer;
+ l_RootChanged: TeeRootChangedEvent;
+ l_CurrentChanged: TeeCurrentChanged;
+ l_Styles: array of Integer;
+ l_ResultStyles: TLongArray;
+ l_IDX: Integer;
+//#UC END# *4AE8250D03D5_4AE8247501DAexec_var*
 begin
-//#UC START# *4AF8660E0079_4AE8247501DA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF8660E0079_4AE8247501DA_impl*
-end;//TPrimStyleEditorNavigatorForm.ReloadStyleTable
+//#UC START# *4AE8250D03D5_4AE8247501DAexec_impl*
+ with TevStyleInterface.Make do
+  try
+   with f_StyleTreeView do
+    with TreeView do
+    begin
+     l_RootChanged := OnRootChanged;
+     try
+      OnRootChanged := nil;
+      //
+      with Tree do
+      begin
+       l_Root := Root;
+       try
+        l_CurrentChanged := OnCurrentChanged;
+        try
+         OnCurrentChanged := nil;
+         //
+         SetLength(l_Styles, 0);
+         SetLength(l_ResultStyles, 0);
+         //
+         //Во внутренней версии нужно показывать все стили
+         //http://mdp.garant.ru/pages/viewpage.action?pageId=485427672 
+         if (not afw.Application.IsInternal) then
+         begin
+          for l_Idx := Low(VisibleStyleTable) to High (VisibleStyleTable) do
+           if VisibleStyleTable[l_IDX].ForAll or afw.Application.IsInternal then
+           begin
+            SetLength(l_Styles, Length(l_Styles) + 1);
+            l_Styles[High(l_Styles)] := VisibleStyleTable[l_IDX].ID;
+           end;//VisibleStyleTable[l_IDX].ForAll or afw.Application.IsInternal
+          l_ResultStyles := l3CatLongArray(l_Styles, [ev_saInterface,
+                                           ev_saHeaderForChangesInfo,
+                                           ev_saFooterForChangesInfo,
+                                           ev_saTextForChangesInfo,
+                                           ev_saSubHeaderForChangesInfo,
+                                           ev_saChangesInfo,
+                                           ev_saDialogs,
+                                           ev_saEnclosureHeader,
+                                           ev_saEditionInterval,
+                                           ev_saEdition,
+                                           ev_saEditionNumber,
+                                           ev_saNodeGroupHeader,
+                                           ev_saTOC,
+                                           ev_saWriteToUs,
+                                           ev_saHeaderAACLeftWindow,
+                                           ev_saHeaderAACRightWindow,
+                                           ev_saTxtNormalAACSeeAlso,
+                                           ev_saSnippet,
+                                           ev_saAbolishedDocumentLink,
+                                           ev_saVisitedDocumentInList
+                                           {,
+                                           ev_saContextAACRightWindows}
+                                          ]);
+         end;//if (not afw.Application.IsInternal)
+         // http://mdp.garant.ru/pages/viewpage.action?pageId=421127387
+         Root := TeeNode.Make(MakeStylesTreeRoot(lp_CorrectStylesArray(l_ResultStyles)));
+         ExpandAll;
+        finally
+         OnCurrentChanged := l_CurrentChanged;
+        end;//try..finally
+        //
+        l_Node := l3SearchByName(Root as Il3Node, aStyleName);
+        if (l_Node <> nil) then
+         try
+          l_Current := Current;
+          if (GotoNode(TeeNode.Make(l_Node)) <> -1) then
+          begin
+           if (l_Current = Current) then
+            SendToAggregateSetNewContentNotify(GetStyleIdFromTreeByIndex(l_Current));
+           Exit;
+          end;
+         finally
+          l_Node := nil;
+         end;
+        //
+        if Assigned(l_RootChanged) then
+         l_RootChanged(Self, l_Root, Root);
+       finally
+        l_Root := nil;
+       end;
+      end;
+     finally
+      OnRootChanged := l_RootChanged;
+     end;
+    end;
+  finally
+   Free;
+  end;
+//#UC END# *4AE8250D03D5_4AE8247501DAexec_impl*
+end;//TPrimStyleEditorNavigatorForm.StyleEditor_ReloadStylesTree_Execute
+
+procedure TPrimStyleEditorNavigatorForm.StyleEditor_ReloadStylesTree(const aParams: IvcmExecuteParamsPrim);
+ {* ReloadStylesTree }
+begin
+ with (aParams.Data As IStyleEditor_ReloadStylesTree_Params) do
+  Self.StyleEditor_ReloadStylesTree_Execute(StyleName);
+end;//TPrimStyleEditorNavigatorForm.StyleEditor_ReloadStylesTree
+
+procedure TPrimStyleEditorNavigatorForm.StyleEditor_ReloadStyleTable_Execute;
+//#UC START# *4AF8660E0079_4AE8247501DAexec_var*
+var
+ l_StyleTableSpy: IafwStyleTableSpy;
+//#UC END# *4AF8660E0079_4AE8247501DAexec_var*
+begin
+//#UC START# *4AF8660E0079_4AE8247501DAexec_impl*
+ if Supports(f_StyleTreeView, IafwStyleTableSpy, l_StyleTableSpy) then
+  try
+   l_StyleTableSpy.StyleTableChanged;
+  finally
+   l_StyleTableSpy := nil;
+  end;
+//#UC END# *4AF8660E0079_4AE8247501DAexec_impl*
+end;//TPrimStyleEditorNavigatorForm.StyleEditor_ReloadStyleTable_Execute
+
+procedure TPrimStyleEditorNavigatorForm.StyleEditor_ReloadStyleTable(const aParams: IvcmExecuteParamsPrim);
+begin
+ Self.StyleEditor_ReloadStyleTable_Execute;
+end;//TPrimStyleEditorNavigatorForm.StyleEditor_ReloadStyleTable
 
 procedure TPrimStyleEditorNavigatorForm.InitFields;
 //#UC START# *47A042E100E2_4AE8247501DA_var*
@@ -229,7 +380,6 @@ begin
 //#UC END# *47A042E100E2_4AE8247501DA_impl*
 end;//TPrimStyleEditorNavigatorForm.InitFields
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimStyleEditorNavigatorForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AE8247501DA_var*
@@ -258,9 +408,7 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AE8247501DA_impl*
 end;//TPrimStyleEditorNavigatorForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimStyleEditorNavigatorForm.FormInsertedIntoContainer;
 //#UC START# *4F7C65380244_4AE8247501DA_var*
 //#UC END# *4F7C65380244_4AE8247501DA_var*
@@ -269,7 +417,6 @@ begin
  PostMessage(Handle, WM_AFTERINSERT, 0, 0);
 //#UC END# *4F7C65380244_4AE8247501DA_impl*
 end;//TPrimStyleEditorNavigatorForm.FormInsertedIntoContainer
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_utStyleEditorNavigatorCaption.Init;
@@ -280,6 +427,7 @@ initialization
  TtfwClassRef.Register(TPrimStyleEditorNavigatorForm);
  {* Регистрация PrimStyleEditorNavigator }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

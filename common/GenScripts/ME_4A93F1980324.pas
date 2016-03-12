@@ -108,6 +108,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки utProgressIndicatorLocalConstants }
  str_utProgressIndicatorCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utProgressIndicatorCaption'; rValue : 'Ход выполнения');
@@ -207,7 +208,6 @@ begin
 //#UC END# *479731C50290_4A93F1980324_impl*
 end;//TPrimProgressIndicatorForm.Cleanup
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimProgressIndicatorForm.BecomeActive;
 //#UC START# *4A8AE0FA03B2_4A93F1980324_var*
 //#UC END# *4A8AE0FA03B2_4A93F1980324_var*
@@ -221,9 +221,7 @@ begin
  end;//Assigned(f_Owner) and not f_SearchStarted
 //#UC END# *4A8AE0FA03B2_4A93F1980324_impl*
 end;//TPrimProgressIndicatorForm.BecomeActive
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimProgressIndicatorForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4A93F1980324_var*
@@ -286,7 +284,6 @@ begin
  f_Scene.ActiveControl := f_CancelButton;
 //#UC END# *4A8E8F2E0195_4A93F1980324_impl*
 end;//TPrimProgressIndicatorForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_utProgressIndicatorCaption.Init;
@@ -299,6 +296,7 @@ initialization
  TtfwClassRef.Register(TPrimProgressIndicatorForm);
  {* Регистрация PrimProgressIndicator }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

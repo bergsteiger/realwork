@@ -65,9 +65,9 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
 
-{$If NOT Defined(NoVCM)}
 procedure TInsertSectionBreak.Process(aForm: TPrimTextLoadForm);
  {* Собственно процесс обработки текста }
 //#UC START# *4BE13147032C_4E158BBC032C_var*
@@ -82,9 +82,7 @@ begin
  CheckPara(aForm.Text);
 //#UC END# *4BE13147032C_4E158BBC032C_impl*
 end;//TInsertSectionBreak.Process
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TInsertSectionBreak.GetNormalFontSize: Integer;
  {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
 //#UC START# *4C07AC6F036D_4E158BBC032C_var*
@@ -94,9 +92,7 @@ begin
  Result := 12;
 //#UC END# *4C07AC6F036D_4E158BBC032C_impl*
 end;//TInsertSectionBreak.GetNormalFontSize
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TInsertSectionBreak.WebStyle: Boolean;
 //#UC START# *4C08CF4300BE_4E158BBC032C_var*
 //#UC END# *4C08CF4300BE_4E158BBC032C_var*
@@ -105,7 +101,6 @@ begin
  Result := False;
 //#UC END# *4C08CF4300BE_4E158BBC032C_impl*
 end;//TInsertSectionBreak.WebStyle
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TInsertSectionBreak.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -118,6 +113,7 @@ function TInsertSectionBreak.GetModelElementGUID: AnsiString;
 begin
  Result := '4E158BBC032C';
 end;//TInsertSectionBreak.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

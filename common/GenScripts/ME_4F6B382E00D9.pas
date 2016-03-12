@@ -150,25 +150,45 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
   public
-   procedure ShowSplitter; override;
-   procedure CheckChildZone; override;
+   procedure Common_ShowSplitter_Execute;
+   procedure Common_ShowSplitter(const aParams: IvcmExecuteParamsPrim);
+   procedure Common_CheckChildZone_Execute;
+   procedure Common_CheckChildZone(const aParams: IvcmExecuteParamsPrim);
    {$If NOT Defined(NoVCM)}
-   procedure OpenNewWindowByUser; override;
+   procedure Common_OpenNewWindowByUser_Test(const aParams: IvcmTestParamsPrim);
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure GetWindowList; override;
+   procedure Common_OpenNewWindowByUser_Execute(const aParams: IvcmExecuteParamsPrim);
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure CascadeWindows; override;
+   procedure Common_GetWindowList_Test(const aParams: IvcmTestParamsPrim);
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure TileWindowsHorizontal; override;
+   procedure Common_GetWindowList_Execute(const aParams: IvcmExecuteParamsPrim);
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure TileWindowsVertical; override;
+   procedure Common_CascadeWindows_Test(const aParams: IvcmTestParamsPrim);
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure CloseAllWindows; override;
+   procedure Common_CascadeWindows_Execute(const aParams: IvcmExecuteParamsPrim);
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Common_TileWindowsHorizontal_Test(const aParams: IvcmTestParamsPrim);
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Common_TileWindowsHorizontal_Execute(const aParams: IvcmExecuteParamsPrim);
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Common_TileWindowsVertical_Test(const aParams: IvcmTestParamsPrim);
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Common_TileWindowsVertical_Execute(const aParams: IvcmExecuteParamsPrim);
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Common_CloseAllWindows_Test(const aParams: IvcmTestParamsPrim);
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Common_CloseAllWindows_Execute(const aParams: IvcmExecuteParamsPrim);
    {$IfEnd} // NOT Defined(NoVCM)
    constructor Create(AOwner: TComponent); override;
   public
@@ -214,6 +234,7 @@ uses
  , F1Like_FormDefinitions_Controls
 ;
 
+{$If NOT Defined(NoVCM)}
 var g_InMakeClone: Boolean = False;
 
 procedure TMainPrimForm.vcmMainFormCloseQuery(Sender: TObject;
@@ -627,89 +648,235 @@ begin
 //#UC END# *499037820017_4F6B382E00D9_impl*
 end;//TMainPrimForm.CorrectHeight
 
-procedure TMainPrimForm.ShowSplitter;
-//#UC START# *4AE8744002F3_4F6B382E00D9_var*
-//#UC END# *4AE8744002F3_4F6B382E00D9_var*
+procedure TMainPrimForm.Common_ShowSplitter_Execute;
+//#UC START# *4AE8744002F3_4F6B382E00D9exec_var*
+//#UC END# *4AE8744002F3_4F6B382E00D9exec_var*
 begin
-//#UC START# *4AE8744002F3_4F6B382E00D9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE8744002F3_4F6B382E00D9_impl*
-end;//TMainPrimForm.ShowSplitter
+//#UC START# *4AE8744002F3_4F6B382E00D9exec_impl*
+ if aVisible then
+  ChildZonePanel.SizeableSides := [szTop]
+ else
+  ChildZonePanel.SizeableSides := [];
+//#UC END# *4AE8744002F3_4F6B382E00D9exec_impl*
+end;//TMainPrimForm.Common_ShowSplitter_Execute
 
-procedure TMainPrimForm.CheckChildZone;
-//#UC START# *4AE8777F01A3_4F6B382E00D9_var*
-//#UC END# *4AE8777F01A3_4F6B382E00D9_var*
+procedure TMainPrimForm.Common_ShowSplitter(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4AE8777F01A3_4F6B382E00D9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE8777F01A3_4F6B382E00D9_impl*
-end;//TMainPrimForm.CheckChildZone
+ Self.Common_ShowSplitter_Execute;
+end;//TMainPrimForm.Common_ShowSplitter
 
-{$If NOT Defined(NoVCM)}
-procedure TMainPrimForm.OpenNewWindowByUser;
-//#UC START# *4C8A30B60087_4F6B382E00D9_var*
-//#UC END# *4C8A30B60087_4F6B382E00D9_var*
+procedure TMainPrimForm.Common_CheckChildZone_Execute;
+//#UC START# *4AE8777F01A3_4F6B382E00D9exec_var*
+var
+ l_IForm: IvcmEntityForm;
+//#UC END# *4AE8777F01A3_4F6B382E00D9exec_var*
 begin
-//#UC START# *4C8A30B60087_4F6B382E00D9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8A30B60087_4F6B382E00D9_impl*
-end;//TMainPrimForm.OpenNewWindowByUser
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4AE8777F01A3_4F6B382E00D9exec_impl*
+ if aToggle then
+ begin
+  // Управляем видимостью нижнего контейнера
+  if not HasForm(fm_ChildForm.rFormID, vcm_ztChild, false, @l_IForm) then
+   ChildZonePanel.Hide
+  else
+  if l_IForm.AsContainer.HasForm(vcm_ztChild, false) then
+   ChildZonePanel.Show
+  else
+   ChildZonePanel.Hide;
+ end//aToggle
+ else
+  ChildZonePanel.Show;
+//#UC END# *4AE8777F01A3_4F6B382E00D9exec_impl*
+end;//TMainPrimForm.Common_CheckChildZone_Execute
 
-{$If NOT Defined(NoVCM)}
-procedure TMainPrimForm.GetWindowList;
-//#UC START# *4C8A30DB001D_4F6B382E00D9_var*
-//#UC END# *4C8A30DB001D_4F6B382E00D9_var*
+procedure TMainPrimForm.Common_CheckChildZone(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4C8A30DB001D_4F6B382E00D9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8A30DB001D_4F6B382E00D9_impl*
-end;//TMainPrimForm.GetWindowList
-{$IfEnd} // NOT Defined(NoVCM)
+ Self.Common_CheckChildZone_Execute;
+end;//TMainPrimForm.Common_CheckChildZone
 
-{$If NOT Defined(NoVCM)}
-procedure TMainPrimForm.CascadeWindows;
-//#UC START# *4C8A30F30115_4F6B382E00D9_var*
-//#UC END# *4C8A30F30115_4F6B382E00D9_var*
+procedure TMainPrimForm.Common_OpenNewWindowByUser_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C8A30B60087_4F6B382E00D9test_var*
+//#UC END# *4C8A30B60087_4F6B382E00D9test_var*
 begin
-//#UC START# *4C8A30F30115_4F6B382E00D9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8A30F30115_4F6B382E00D9_impl*
-end;//TMainPrimForm.CascadeWindows
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4C8A30B60087_4F6B382E00D9test_impl*
+{$if defined(Admin) or defined(Monitorings)}
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+ aParams.Op.Flag[vcm_ofVisible] := False;
+{$else}
+ if g_InMakeClone then
+  aParams.Op.Flag[vcm_ofEnabled] := False;
+{$ifend}
+//#UC END# *4C8A30B60087_4F6B382E00D9test_impl*
+end;//TMainPrimForm.Common_OpenNewWindowByUser_Test
 
-{$If NOT Defined(NoVCM)}
-procedure TMainPrimForm.TileWindowsHorizontal;
-//#UC START# *4C8A3114001E_4F6B382E00D9_var*
-//#UC END# *4C8A3114001E_4F6B382E00D9_var*
+procedure TMainPrimForm.Common_OpenNewWindowByUser_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C8A30B60087_4F6B382E00D9exec_var*
+//#UC END# *4C8A30B60087_4F6B382E00D9exec_var*
 begin
-//#UC START# *4C8A3114001E_4F6B382E00D9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8A3114001E_4F6B382E00D9_impl*
-end;//TMainPrimForm.TileWindowsHorizontal
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4C8A30B60087_4F6B382E00D9exec_impl*
+ g_InMakeClone := true;
+ try
+  OpenNewMainWindow;
+ finally
+  g_InMakeClone := false;
+ end;//try..finally
+//#UC END# *4C8A30B60087_4F6B382E00D9exec_impl*
+end;//TMainPrimForm.Common_OpenNewWindowByUser_Execute
 
-{$If NOT Defined(NoVCM)}
-procedure TMainPrimForm.TileWindowsVertical;
-//#UC START# *4C8A312F018D_4F6B382E00D9_var*
-//#UC END# *4C8A312F018D_4F6B382E00D9_var*
+procedure TMainPrimForm.Common_GetWindowList_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C8A30DB001D_4F6B382E00D9test_var*
+var
+ l_List : IvcmNodes;
+ l_ParentForm: TCustomForm;
+ l_Form: IvcmEntityForm;
+//#UC END# *4C8A30DB001D_4F6B382E00D9test_var*
 begin
-//#UC START# *4C8A312F018D_4F6B382E00D9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8A312F018D_4F6B382E00D9_impl*
-end;//TMainPrimForm.TileWindowsVertical
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4C8A30DB001D_4F6B382E00D9test_impl*
+{$if defined(Admin) or defined(Monitorings)}
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+ aParams.Op.Flag[vcm_ofVisible] := False;
+{$else}
+ l_List := aParams.Op.SubNodes;
+ // Для одной формы список не показываем
+ if GetCurrentOpenedWindowsCount = 1 then
+ begin
+  l_List.Clear;
+  aParams.Op.Flag[vcm_ofEnabled] := False;
+ end//Dispatcher.FormDispatcher.MainFormsCount
+ else
+ begin
+  // Перезагрузим список, если изменился _Caption формы
+  if not l3Same(f_OldCaption, CCaption) then
+  begin
+   TnsWindowsList.Instance.Reload;
+   f_OldCaption := CCaption;
+  end;//not l3Same(f_OldCaption, CCaption)
+  // Установим список
+  if (l_List <> nil) then
+  begin
+   with l_List do
+   begin
+    Clear;
+    Add(TnsWindowsList.Instance.Root);
+    // Текущая формы выделена check-ом
+    Current := TnsWindowsList.Instance.FindNode(GetCurrentActiveWindow);
+   end;//with l_List
+  end;//l_List <> nil
+ end;//Dispatcher.FormDispatcher.MainFormsCount
+{$ifend}
+//#UC END# *4C8A30DB001D_4F6B382E00D9test_impl*
+end;//TMainPrimForm.Common_GetWindowList_Test
 
-{$If NOT Defined(NoVCM)}
-procedure TMainPrimForm.CloseAllWindows;
-//#UC START# *4C8A31770143_4F6B382E00D9_var*
-//#UC END# *4C8A31770143_4F6B382E00D9_var*
+procedure TMainPrimForm.Common_GetWindowList_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C8A30DB001D_4F6B382E00D9exec_var*
+var
+ lWindow  : InsWindow;
+ lIndex   : Integer;
+ lMyIndex : Integer;
+//#UC END# *4C8A30DB001D_4F6B382E00D9exec_var*
 begin
-//#UC START# *4C8A31770143_4F6B382E00D9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8A31770143_4F6B382E00D9_impl*
-end;//TMainPrimForm.CloseAllWindows
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4C8A30DB001D_4F6B382E00D9exec_impl*
+ with Dispatcher.FormDispatcher do
+ begin
+  // Пользователь выбрал значение в списке
+  if Supports(aParams.CurrentNode, InsWindow, lWindow) then
+   try
+    ShowMainForm(lWindow.Form);
+   finally
+    lWindow := nil;
+   end//try..finally
+  // Пользователь нажал на кнопку в toolbar-е, выберем следующее окно после
+  // текущего
+  else
+   ShowMainForm(DoGetNextMainForm);
+ end;//with Dispatcher.FormDispatcher
+//#UC END# *4C8A30DB001D_4F6B382E00D9exec_impl*
+end;//TMainPrimForm.Common_GetWindowList_Execute
+
+procedure TMainPrimForm.Common_CascadeWindows_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C8A30F30115_4F6B382E00D9test_var*
+//#UC END# *4C8A30F30115_4F6B382E00D9test_var*
+begin
+//#UC START# *4C8A30F30115_4F6B382E00D9test_impl*
+{$if defined(Admin) or defined(Monitorings)}
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+ aParams.Op.Flag[vcm_ofVisible] := False;
+{$ifend}
+//#UC END# *4C8A30F30115_4F6B382E00D9test_impl*
+end;//TMainPrimForm.Common_CascadeWindows_Test
+
+procedure TMainPrimForm.Common_CascadeWindows_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C8A30F30115_4F6B382E00D9exec_var*
+//#UC END# *4C8A30F30115_4F6B382E00D9exec_var*
+begin
+//#UC START# *4C8A30F30115_4F6B382E00D9exec_impl*
+ DoCascadeWindows;
+//#UC END# *4C8A30F30115_4F6B382E00D9exec_impl*
+end;//TMainPrimForm.Common_CascadeWindows_Execute
+
+procedure TMainPrimForm.Common_TileWindowsHorizontal_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C8A3114001E_4F6B382E00D9test_var*
+//#UC END# *4C8A3114001E_4F6B382E00D9test_var*
+begin
+//#UC START# *4C8A3114001E_4F6B382E00D9test_impl*
+{$if defined(Admin) or defined(Monitorings)}
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+ aParams.Op.Flag[vcm_ofVisible] := False;
+{$ifend}
+//#UC END# *4C8A3114001E_4F6B382E00D9test_impl*
+end;//TMainPrimForm.Common_TileWindowsHorizontal_Test
+
+procedure TMainPrimForm.Common_TileWindowsHorizontal_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C8A3114001E_4F6B382E00D9exec_var*
+//#UC END# *4C8A3114001E_4F6B382E00D9exec_var*
+begin
+//#UC START# *4C8A3114001E_4F6B382E00D9exec_impl*
+ DoTileWindowsHorizontal;
+//#UC END# *4C8A3114001E_4F6B382E00D9exec_impl*
+end;//TMainPrimForm.Common_TileWindowsHorizontal_Execute
+
+procedure TMainPrimForm.Common_TileWindowsVertical_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C8A312F018D_4F6B382E00D9test_var*
+//#UC END# *4C8A312F018D_4F6B382E00D9test_var*
+begin
+//#UC START# *4C8A312F018D_4F6B382E00D9test_impl*
+{$if defined(Admin) or defined(Monitorings)}
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+ aParams.Op.Flag[vcm_ofVisible] := False;
+{$ifend}
+//#UC END# *4C8A312F018D_4F6B382E00D9test_impl*
+end;//TMainPrimForm.Common_TileWindowsVertical_Test
+
+procedure TMainPrimForm.Common_TileWindowsVertical_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C8A312F018D_4F6B382E00D9exec_var*
+//#UC END# *4C8A312F018D_4F6B382E00D9exec_var*
+begin
+//#UC START# *4C8A312F018D_4F6B382E00D9exec_impl*
+ DoTileWindowsVertical;
+//#UC END# *4C8A312F018D_4F6B382E00D9exec_impl*
+end;//TMainPrimForm.Common_TileWindowsVertical_Execute
+
+procedure TMainPrimForm.Common_CloseAllWindows_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C8A31770143_4F6B382E00D9test_var*
+//#UC END# *4C8A31770143_4F6B382E00D9test_var*
+begin
+//#UC START# *4C8A31770143_4F6B382E00D9test_impl*
+{$if defined(Admin) or defined(Monitorings)}
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+ aParams.Op.Flag[vcm_ofVisible] := False;
+{$else}
+ aParams.Op.Flag[vcm_ofEnabled] := GetCanCloseAllWindows;
+{$ifend}
+//#UC END# *4C8A31770143_4F6B382E00D9test_impl*
+end;//TMainPrimForm.Common_CloseAllWindows_Test
+
+procedure TMainPrimForm.Common_CloseAllWindows_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C8A31770143_4F6B382E00D9exec_var*
+//#UC END# *4C8A31770143_4F6B382E00D9exec_var*
+begin
+//#UC START# *4C8A31770143_4F6B382E00D9exec_impl*
+ DoCloseAllWindows;
+//#UC END# *4C8A31770143_4F6B382E00D9exec_impl*
+end;//TMainPrimForm.Common_CloseAllWindows_Execute
 
 procedure TMainPrimForm.Cleanup;
  {* Функция очистки полей объекта. }
@@ -742,7 +909,6 @@ begin
 //#UC END# *47D1602000C6_4F6B382E00D9_impl*
 end;//TMainPrimForm.Create
 
-{$If NOT Defined(NoVCM)}
 procedure TMainPrimForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4F6B382E00D9_var*
@@ -760,9 +926,7 @@ begin
  f_NeedSwitchKeyboard := (Dispatcher.FormDispatcher.MainFormsCount = 1);
 //#UC END# *49803F5503AA_4F6B382E00D9_impl*
 end;//TMainPrimForm.DoInit
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TMainPrimForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4F6B382E00D9_var*
@@ -896,7 +1060,6 @@ begin
  RequestAlign; 
 //#UC END# *4A8E8F2E0195_4F6B382E00D9_impl*
 end;//TMainPrimForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCL)}
 procedure TMainPrimForm.DoShow;
@@ -914,7 +1077,6 @@ begin
 end;//TMainPrimForm.DoShow
 {$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCM)}
 procedure TMainPrimForm.DoSaveInSettings;
 //#UC START# *4F7B072201AA_4F6B382E00D9_var*
 //#UC END# *4F7B072201AA_4F6B382E00D9_var*
@@ -938,9 +1100,7 @@ begin
  end;//with afw.Settings
 //#UC END# *4F7B072201AA_4F6B382E00D9_impl*
 end;//TMainPrimForm.DoSaveInSettings
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TMainPrimForm.DispatcherCreated;
 //#UC START# *4F7B0CF50022_4F6B382E00D9_var*
 //#UC END# *4F7B0CF50022_4F6B382E00D9_var*
@@ -951,7 +1111,6 @@ begin
  MenuManager.LoadShortcuts;
 //#UC END# *4F7B0CF50022_4F6B382E00D9_impl*
 end;//TMainPrimForm.DispatcherCreated
-{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TMainPrimForm.ClearFields;
 begin
@@ -964,5 +1123,6 @@ initialization
  TtfwClassRef.Register(TMainPrimForm);
  {* Регистрация MainPrim }
 {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

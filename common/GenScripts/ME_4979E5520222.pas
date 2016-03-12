@@ -68,7 +68,7 @@ type
   protected
    procedure PositionOnRequestedSub(aSubID: TnsWarningSub);
    procedure GotoPoint(aPointID: Cardinal;
-    aPointType: TDocumentPositionType); override;
+    aPointType: TDocumentPositionType = Sub); override;
     {* Переход на точку в документе }
    function HyperlinkDocument: IDocument; override;
     {* Документ ИЗ которого ведёт ссылка }
@@ -92,7 +92,8 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   procedure TimeMachineStateChange; override;
+   procedure System_TimeMachineStateChange_Execute(aStayInCurrentRedaction: Boolean = False);
+   procedure System_TimeMachineStateChange(const aParams: IvcmExecuteParamsPrim);
   public
    property Viewer: TnscEditor
     read f_Viewer;
@@ -150,6 +151,7 @@ uses
  , nsHyperlinkProcessorTypes
 ;
 
+{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TPrimWarningForm;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessorWithOwnLocalLink.imp.pas}
@@ -179,7 +181,7 @@ begin
 end;//TPrimWarningForm.MakeDocumentContainer
 
 procedure TPrimWarningForm.GotoPoint(aPointID: Cardinal;
- aPointType: TDocumentPositionType);
+ aPointType: TDocumentPositionType = Sub);
  {* Переход на точку в документе }
 //#UC START# *4A8164E801AE_4979E5520222_var*
 //#UC END# *4A8164E801AE_4979E5520222_var*
@@ -221,14 +223,22 @@ begin
 //#UC END# *4A8A9DB0001A_4979E5520222_impl*
 end;//TPrimWarningForm.IsFloating
 
-procedure TPrimWarningForm.TimeMachineStateChange;
-//#UC START# *4A8EF367029E_4979E5520222_var*
-//#UC END# *4A8EF367029E_4979E5520222_var*
+procedure TPrimWarningForm.System_TimeMachineStateChange_Execute(aStayInCurrentRedaction: Boolean = False);
+//#UC START# *4A8EF367029E_4979E5520222exec_var*
+//#UC END# *4A8EF367029E_4979E5520222exec_var*
 begin
-//#UC START# *4A8EF367029E_4979E5520222_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A8EF367029E_4979E5520222_impl*
-end;//TPrimWarningForm.TimeMachineStateChange
+//#UC START# *4A8EF367029E_4979E5520222exec_impl*
+ if (UserType = WarnTimeMachineOn) then
+  if Assigned(Viewer) and Assigned(Viewer.TextSource) then
+   Viewer.TextSource.DocumentContainer := nil; // сбрасываем текст баллона
+//#UC END# *4A8EF367029E_4979E5520222exec_impl*
+end;//TPrimWarningForm.System_TimeMachineStateChange_Execute
+
+procedure TPrimWarningForm.System_TimeMachineStateChange(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As ISystem_TimeMachineStateChange_Params) do
+  Self.System_TimeMachineStateChange_Execute(StayInCurrentRedaction);
+end;//TPrimWarningForm.System_TimeMachineStateChange
 
 function TPrimWarningForm.CalculateHeightByWidth(var theWidth: Integer;
  aForceLoadData: Boolean): Integer;
@@ -343,7 +353,6 @@ begin
 //#UC END# *53A303BE03A8_4979E5520222_impl*
 end;//TPrimWarningForm.OpenRedactionGlobalLink
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimWarningForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
  const aNew: IvcmViewAreaController);
  {* Изменился источник данных. Для перекрытия в потомках }
@@ -365,9 +374,7 @@ begin
  end;//Assigned(ViewArea)
 //#UC END# *497469C90140_4979E5520222_impl*
 end;//TPrimWarningForm.NotifyDataSourceChanged
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimWarningForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4979E5520222_var*
@@ -386,7 +393,6 @@ begin
  (Viewer.TextSource As TeeTextSourceExport).OnMakeDocumentContainer := Self.MakeDocumentContainer;
 //#UC END# *4A8E8F2E0195_4979E5520222_impl*
 end;//TPrimWarningForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 //#UC START# *4979E5520222impl*
 //#UC END# *4979E5520222impl*
@@ -396,6 +402,7 @@ initialization
  TtfwClassRef.Register(TPrimWarningForm);
  {* Регистрация PrimWarning }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

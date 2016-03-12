@@ -81,12 +81,20 @@ type
    procedure BecomeVisible; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   procedure ReturnToDocument; override;
+   procedure RightEdition_ReturnToDocument_Execute;
     {* ¬ернутьс€ в текст документа }
-   function GetParaForPositionning: IeeLeafPara; override;
-   procedure SetFocusToText; override;
+   procedure RightEdition_ReturnToDocument(const aParams: IvcmExecuteParamsPrim);
+    {* ¬ернутьс€ в текст документа }
+   procedure Document_GetParaForPositionning_Test(const aParams: IvcmTestParamsPrim);
+   function Document_GetParaForPositionning_Execute: IeeLeafPara;
+   procedure Document_GetParaForPositionning(const aParams: IvcmExecuteParamsPrim);
+   procedure RightEdition_SetFocusToText_Execute;
     {* ”станавливает фокус тексту }
-   function IsCurrentPara: Boolean; override;
+   procedure RightEdition_SetFocusToText(const aParams: IvcmExecuteParamsPrim);
+    {* ”станавливает фокус тексту }
+   function RightEdition_IsCurrentPara_Execute(aPara: Integer): Boolean;
+    {* явл€етс€ ли параграф текущим }
+   procedure RightEdition_IsCurrentPara(const aParams: IvcmExecuteParamsPrim);
     {* явл€етс€ ли параграф текущим }
    {$If NOT Defined(NoVCM)}
    function NeedSetMyFocus: Boolean; override;
@@ -281,24 +289,45 @@ begin
  inherited;
 end;//TnsInitialParaWaiter.ClearFields
 
-procedure TPrimRightEditionForm.ReturnToDocument;
+procedure TPrimRightEditionForm.RightEdition_ReturnToDocument_Execute;
  {* ¬ернутьс€ в текст документа }
-//#UC START# *4B1E3833024A_4A6D5ABE020A_var*
-//#UC END# *4B1E3833024A_4A6D5ABE020A_var*
+//#UC START# *4B1E3833024A_4A6D5ABE020Aexec_var*
+//#UC END# *4B1E3833024A_4A6D5ABE020Aexec_var*
 begin
-//#UC START# *4B1E3833024A_4A6D5ABE020A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4B1E3833024A_4A6D5ABE020A_impl*
-end;//TPrimRightEditionForm.ReturnToDocument
+//#UC START# *4B1E3833024A_4A6D5ABE020Aexec_impl*
+ ReturnToDocument;
+//#UC END# *4B1E3833024A_4A6D5ABE020Aexec_impl*
+end;//TPrimRightEditionForm.RightEdition_ReturnToDocument_Execute
 
-function TPrimRightEditionForm.GetParaForPositionning: IeeLeafPara;
-//#UC START# *4B506F4D0196_4A6D5ABE020A_var*
-//#UC END# *4B506F4D0196_4A6D5ABE020A_var*
+procedure TPrimRightEditionForm.RightEdition_ReturnToDocument(const aParams: IvcmExecuteParamsPrim);
+ {* ¬ернутьс€ в текст документа }
 begin
-//#UC START# *4B506F4D0196_4A6D5ABE020A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4B506F4D0196_4A6D5ABE020A_impl*
-end;//TPrimRightEditionForm.GetParaForPositionning
+ Self.RightEdition_ReturnToDocument_Execute;
+end;//TPrimRightEditionForm.RightEdition_ReturnToDocument
+
+procedure TPrimRightEditionForm.Document_GetParaForPositionning_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4B506F4D0196_4A6D5ABE020Atest_var*
+//#UC END# *4B506F4D0196_4A6D5ABE020Atest_var*
+begin
+//#UC START# *4B506F4D0196_4A6D5ABE020Atest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := true;
+//#UC END# *4B506F4D0196_4A6D5ABE020Atest_impl*
+end;//TPrimRightEditionForm.Document_GetParaForPositionning_Test
+
+function TPrimRightEditionForm.Document_GetParaForPositionning_Execute: IeeLeafPara;
+//#UC START# *4B506F4D0196_4A6D5ABE020Aexec_var*
+//#UC END# *4B506F4D0196_4A6D5ABE020Aexec_var*
+begin
+//#UC START# *4B506F4D0196_4A6D5ABE020Aexec_impl*
+ Result := GetParaForPositionning;
+//#UC END# *4B506F4D0196_4A6D5ABE020Aexec_impl*
+end;//TPrimRightEditionForm.Document_GetParaForPositionning_Execute
+
+procedure TPrimRightEditionForm.Document_GetParaForPositionning(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IDocument_GetParaForPositionning_Params) do
+  ResultValue := Self.Document_GetParaForPositionning_Execute;
+end;//TPrimRightEditionForm.Document_GetParaForPositionning
 
 function TPrimRightEditionForm.EditionsChooseRoot: Il3Node;
 //#UC START# *4B55ADAD0005_4A6D5ABE020A_var*
@@ -340,25 +369,47 @@ begin
 //#UC END# *4B55BB7F0172_4A6D5ABE020A_impl*
 end;//TPrimRightEditionForm.DoEditionChanged
 
-procedure TPrimRightEditionForm.SetFocusToText;
+procedure TPrimRightEditionForm.RightEdition_SetFocusToText_Execute;
  {* ”станавливает фокус тексту }
-//#UC START# *4B69B5A802C2_4A6D5ABE020A_var*
-//#UC END# *4B69B5A802C2_4A6D5ABE020A_var*
+//#UC START# *4B69B5A802C2_4A6D5ABE020Aexec_var*
+//#UC END# *4B69B5A802C2_4A6D5ABE020Aexec_var*
 begin
-//#UC START# *4B69B5A802C2_4A6D5ABE020A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4B69B5A802C2_4A6D5ABE020A_impl*
-end;//TPrimRightEditionForm.SetFocusToText
+//#UC START# *4B69B5A802C2_4A6D5ABE020Aexec_impl*
+ SetFocusToText;
+//#UC END# *4B69B5A802C2_4A6D5ABE020Aexec_impl*
+end;//TPrimRightEditionForm.RightEdition_SetFocusToText_Execute
 
-function TPrimRightEditionForm.IsCurrentPara: Boolean;
- {* явл€етс€ ли параграф текущим }
-//#UC START# *4B6AF2A502AE_4A6D5ABE020A_var*
-//#UC END# *4B6AF2A502AE_4A6D5ABE020A_var*
+procedure TPrimRightEditionForm.RightEdition_SetFocusToText(const aParams: IvcmExecuteParamsPrim);
+ {* ”станавливает фокус тексту }
 begin
-//#UC START# *4B6AF2A502AE_4A6D5ABE020A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4B6AF2A502AE_4A6D5ABE020A_impl*
-end;//TPrimRightEditionForm.IsCurrentPara
+ Self.RightEdition_SetFocusToText_Execute;
+end;//TPrimRightEditionForm.RightEdition_SetFocusToText
+
+function TPrimRightEditionForm.RightEdition_IsCurrentPara_Execute(aPara: Integer): Boolean;
+ {* явл€етс€ ли параграф текущим }
+//#UC START# *4B6AF2A502AE_4A6D5ABE020Aexec_var*
+var
+ l_Form : IvcmEntityForm;
+//#UC END# *4B6AF2A502AE_4A6D5ABE020Aexec_var*
+begin
+//#UC START# *4B6AF2A502AE_4A6D5ABE020Aexec_impl*
+ Result := IsParaCurrent(aPara);
+ if Result then
+  if not Text.ForceDrawFocusRect then
+  begin
+   Text.ForceDrawFocusRect := true;
+   if Container.HasForm(vcm_ztChild, false, @l_Form) then
+    Op_Finder_DisableForceDrawFocusRect.Call(l_Form);
+  end;//not Text.ForceDrawFocusRect
+//#UC END# *4B6AF2A502AE_4A6D5ABE020Aexec_impl*
+end;//TPrimRightEditionForm.RightEdition_IsCurrentPara_Execute
+
+procedure TPrimRightEditionForm.RightEdition_IsCurrentPara(const aParams: IvcmExecuteParamsPrim);
+ {* явл€етс€ ли параграф текущим }
+begin
+ with (aParams.Data As IRightEdition_IsCurrentPara_Params) do
+  ResultValue := Self.RightEdition_IsCurrentPara_Execute(Para);
+end;//TPrimRightEditionForm.RightEdition_IsCurrentPara
 
 procedure TPrimRightEditionForm.Cleanup;
  {* ‘ункци€ очистки полей объекта. }

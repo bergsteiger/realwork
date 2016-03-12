@@ -57,9 +57,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
+{$If NOT Defined(NoVCM)}
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\ClickOnCommentHeader.imp.pas}
 
-{$If NOT Defined(NoVCM)}
 procedure TClickOnCommentTest.Process(aForm: TPrimTextLoadForm);
  {* Собственно процесс обработки текста }
 //#UC START# *4BE13147032C_4DDF6677000D_var*
@@ -74,7 +74,6 @@ begin
  {$EndIf evNeedCollapsedVersionComments}
 //#UC END# *4BE13147032C_4DDF6677000D_impl*
 end;//TClickOnCommentTest.Process
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TClickOnCommentTest.CheckCollapsed(aText: TevCustomEditorWindow): Boolean;
 //#UC START# *4DE7456800BE_4DDF6677000D_var*
@@ -100,6 +99,7 @@ function TClickOnCommentTest.GetModelElementGUID: AnsiString;
 begin
  Result := '4DDF6677000D';
 end;//TClickOnCommentTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

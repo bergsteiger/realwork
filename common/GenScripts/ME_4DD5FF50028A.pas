@@ -54,9 +54,9 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\SelectOperation.imp.pas}
 
-{$If NOT Defined(NoVCM)}
 procedure TSelectCommentAndDelete.Process(aForm: TPrimTextLoadForm);
  {* Собственно процесс обработки текста }
 //#UC START# *4BE13147032C_4DD5FF50028A_var*
@@ -67,7 +67,6 @@ begin
  aForm.Text.Range.Delete;
 //#UC END# *4BE13147032C_4DD5FF50028A_impl*
 end;//TSelectCommentAndDelete.Process
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TSelectCommentAndDelete.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -80,6 +79,7 @@ function TSelectCommentAndDelete.GetModelElementGUID: AnsiString;
 begin
  Result := '4DD5FF50028A';
 end;//TSelectCommentAndDelete.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

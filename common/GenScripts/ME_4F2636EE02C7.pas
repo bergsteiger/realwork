@@ -35,6 +35,7 @@ uses
  , TestFrameWork
 ;
 
+{$If NOT Defined(NoScripts)}
 function TK330704233.GetFolder: AnsiString;
  {* Папка в которую входит тест }
 begin
@@ -49,6 +50,7 @@ end;//TK330704233.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(TK330704233.Suite);
-{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
+{$IfEnd} // NOT Defined(NoScripts)
 
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
 end.

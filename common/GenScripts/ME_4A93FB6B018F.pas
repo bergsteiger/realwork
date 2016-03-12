@@ -68,6 +68,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки EULA Local Const }
  str_EULAText: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'EULAText'; rValue : 'Правомерное владение экземпляром версии Электронного периодического справочника ' +
@@ -90,7 +91,6 @@ begin
 //#UC END# *51BAD500014C_4A93FB6B018F_impl*
 end;//TPrimEULAForm.OkButtonClick
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimEULAForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4A93FB6B018F_var*
@@ -101,9 +101,7 @@ begin
  Position := poScreenCenter;
 //#UC END# *49803F5503AA_4A93FB6B018F_impl*
 end;//TPrimEULAForm.DoInit
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimEULAForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4A93FB6B018F_var*
@@ -152,7 +150,6 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4A93FB6B018F_impl*
 end;//TPrimEULAForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_EULAText.Init;
@@ -161,6 +158,7 @@ initialization
  TtfwClassRef.Register(TPrimEULAForm);
  {* Регистрация PrimEULA }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

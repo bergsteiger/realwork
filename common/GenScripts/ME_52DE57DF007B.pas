@@ -31,6 +31,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If Defined(Nemesis)}
 function TnscTreeViewWithAdapterDragDrop.DataObjectClass: RvtNodeDataObject;
 //#UC START# *52DD106403D3_52DE57DF007B_var*
 //#UC END# *52DD106403D3_52DE57DF007B_var*
@@ -53,5 +54,6 @@ initialization
  TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
  {* Регистрация TnscTreeViewWithAdapterDragDrop }
 {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(Nemesis)
 
 end.

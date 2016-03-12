@@ -74,6 +74,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TdsUserProperty;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
@@ -174,7 +175,6 @@ begin
 //#UC END# *479731C50290_491DA7AB0298_impl*
 end;//TdsUserProperty.Cleanup
 
-{$If NOT Defined(NoVCM)}
 procedure TdsUserProperty.GotData;
  {* - данные изменились. }
 //#UC START# *492ACF630072_491DA7AB0298_var*
@@ -185,7 +185,6 @@ begin
  SetProfileData(PartData.UserProfile, False, PartData.IsNewProfile);
 //#UC END# *492ACF630072_491DA7AB0298_impl*
 end;//TdsUserProperty.GotData
-{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TdsUserProperty.ClearNewUser;
 //#UC START# *4B5049D901A9_491DA7AB0298_var*
@@ -196,6 +195,7 @@ begin
  f_IsReadOnlyFor268342582 := False;
 //#UC END# *4B5049D901A9_491DA7AB0298_impl*
 end;//TdsUserProperty.ClearNewUser
-{$IfEnd} // Defined(Admin)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(Admin)
 end.

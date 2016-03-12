@@ -106,11 +106,11 @@ type
    function Get_SearchList: IDynList;
    procedure ShowEditorOrList(const aTree: Il3SimpleTree); override;
    function ApplyFilter(const aFilter: IFilterFromQuery;
-    aAdd: Boolean): Boolean; override;
+    aAdd: Boolean = False): Boolean; override;
    function IsListEmpty: Boolean; override;
    procedure QueryMaximized; override;
    procedure QueryOpen; override;
-   procedure SaveToFolders(aOperation: Integer); override;
+   procedure SaveToFolders(aOperation: Integer = 0); override;
    function MakeFilterInfo(aType: TnsFolderFilter): InsFolderFilterInfo; override;
    procedure ResetSaveToFolderOperations; override;
    function CheckValidSortTypes(aSortType: TbsValidSortTypes): Boolean; override;
@@ -145,139 +145,139 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
-   procedure Delete; override;
+   procedure Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
     {* Удалить }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Print; override;
+   procedure Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Delete_GetState(var State: TvcmOperationStateIndex);
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_Print_Test(const aParams: IvcmTestParamsPrim);
     {* Печать }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure PrintDialog; override;
+   procedure File_Print_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Печать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
     {* Печать... }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure PrintPreview; override;
+   procedure File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Печать... }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
     {* Предварительный просмотр }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Save; override;
+   procedure File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Предварительный просмотр }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_Save_Test(const aParams: IvcmTestParamsPrim);
     {* Сохранить }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure ToMSWord; override;
+   {$If NOT Defined(NoVCM)}
+   procedure File_Save_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Сохранить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure File_ToMSWord_Test(const aParams: IvcmTestParamsPrim);
     {* Экспорт в Word }
-   procedure SendMailAsAttachment; override;
+   procedure File_ToMSWord_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Экспорт в Word }
+   procedure File_SendMailAsAttachment_Test(const aParams: IvcmTestParamsPrim);
     {* Послать по e-mail }
-   procedure AddBookmark; override;
+   procedure File_SendMailAsAttachment_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Послать по e-mail }
+   procedure Document_AddBookmark_Test(const aParams: IvcmTestParamsPrim);
+    {* Добавить закладку }
+   procedure Document_AddBookmark_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Добавить закладку }
    {$If NOT Defined(NoVCM)}
-   procedure Paste; override;
-    {* Вставка }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure SelectAll; override;
+   procedure Edit_SelectAll_Test(const aParams: IvcmTestParamsPrim);
     {* Выделить всё }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure ExpandAll; override;
+   procedure Edit_SelectAll_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Выделить всё }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Tree_ExpandAll_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Развернуть все }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure CollapseAll; override;
+   procedure Tree_CollapseAll_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Свернуть все }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Wrap; override;
+   procedure Tree_Wrap_Test(const aParams: IvcmTestParamsPrim);
     {* Перенос по словам }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure OrAnotherList; override;
-   procedure AndAnotherList; override;
-   procedure AndNotAnotherList; override;
-   procedure Open; override;
-   procedure OpenNewWindow; override;
-   procedure OpenInNewWindow; override;
-   procedure PrintDialog; override;
-   procedure PrintPreview; override;
-   procedure Save; override;
-   procedure Print; override;
-   procedure ClearAll; override;
+   procedure List_OrAnotherList_Test(const aParams: IvcmTestParamsPrim);
+   procedure List_OrAnotherList_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure List_AndAnotherList_Test(const aParams: IvcmTestParamsPrim);
+   procedure List_AndAnotherList_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure List_AndNotAnotherList_Test(const aParams: IvcmTestParamsPrim);
+   procedure List_AndNotAnotherList_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_Open_Test(const aParams: IvcmTestParamsPrim);
+   procedure Document_Open_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_OpenNewWindow_Test(const aParams: IvcmTestParamsPrim);
+   procedure Document_OpenNewWindow_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Openable_OpenInNewWindow_Test(const aParams: IvcmTestParamsPrim);
+   procedure Openable_OpenInNewWindow_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
+   procedure Document_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
+   procedure Document_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_Save_Test(const aParams: IvcmTestParamsPrim);
+   procedure Document_Save_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_Print_Test(const aParams: IvcmTestParamsPrim);
+   procedure Document_Print_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure WarnListFiltered_ClearAll_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Отменить все фильтры }
-   procedure RemListModified; override;
-   procedure RemListFiltered; override;
-   procedure RemListTimeMachineWarning; override;
-   procedure WorkWithList; override;
+   procedure Reminder_RemListModified_Test(const aParams: IvcmTestParamsPrim);
+   procedure Reminder_RemListModified_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Reminder_RemListFiltered_Test(const aParams: IvcmTestParamsPrim);
+   procedure Reminder_RemListFiltered_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Reminder_RemListTimeMachineWarning_Test(const aParams: IvcmTestParamsPrim);
+   procedure List_WorkWithList_Test(const aParams: IvcmTestParamsPrim);
     {* Работа со списком }
-   procedure OpenDocumentInNewTab; override;
+   procedure DocumentInList_OpenDocumentInNewTab_Test(const aParams: IvcmTestParamsPrim);
     {* Открыть документ в новой вкладке }
-   procedure OpenDocumentInNewWindow; override;
+   procedure DocumentInList_OpenDocumentInNewTab_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Открыть документ в новой вкладке }
+   procedure DocumentInList_OpenDocumentInNewWindow_Test(const aParams: IvcmTestParamsPrim);
     {* Открыть документ в новом окне }
-   procedure MakeHyperlinkToDocument; override;
+   procedure DocumentInList_OpenDocumentInNewWindow_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Открыть документ в новом окне }
+   procedure SelectedDocuments_MakeHyperlinkToDocument_Test(const aParams: IvcmTestParamsPrim);
     {* Создать ссылку на документ }
-   procedure OrAnotherListForReminders; override;
-   procedure AndAnotherListForReminders; override;
-   procedure AndNotAnotherListForReminders; override;
-   procedure AddToControl; override;
+   procedure SelectedDocuments_MakeHyperlinkToDocument_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Создать ссылку на документ }
+   procedure List_OrAnotherListForReminders_Test(const aParams: IvcmTestParamsPrim);
+   procedure List_OrAnotherListForReminders_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure List_AndAnotherListForReminders_Test(const aParams: IvcmTestParamsPrim);
+   procedure List_AndAnotherListForReminders_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure List_AndNotAnotherListForReminders_Test(const aParams: IvcmTestParamsPrim);
+   procedure List_AndNotAnotherListForReminders_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure SelectedDocuments_AddToControl_Test(const aParams: IvcmTestParamsPrim);
     {* Поставить на контроль }
-   {$If NOT Defined(NoVCM)}
-   procedure Copy; override;
-    {* Копировать }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure FindContext; override;
-    {* Поиск }
-   {$IfEnd} // NOT Defined(NoVCM)
-   procedure SaveToFolder; override;
-    {* Сохранить в папки }
-   procedure LoadFromFolder; override;
-    {* Загрузить из папок }
-   procedure AddToControl; override;
+   procedure SelectedDocuments_AddToControl_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Поставить на контроль }
-   procedure GetAttributesFrmAct; override;
-    {* Информация о документе }
-   procedure GetRelatedDocFrmAct; override;
-    {* Справка к документу }
-   {$If NOT Defined(NoVCM)}
-   procedure Deselect; override;
-    {* Снять выделение }
-   {$IfEnd} // NOT Defined(NoVCM)
+   procedure SelectedDocuments_AddToControl_GetState(var State: TvcmOperationStateIndex);
+    {* Поставить на контроль }
    {$If NOT Defined(NoVCM)}
    function DoGetTabInfo(out theCaption: Il3CString;
     out theItemIndex: Integer): Boolean; override;
     {* Информация о закладке, в которую вставляется форма. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure TimeMachineOnOffNew; override;
-    {* Включить Машину времени }
-   procedure SwitchToFullList; override;
-    {* Построить полный список }
-   procedure ListInfo; override;
-   procedure Sort; override;
-   procedure SortDirection; override;
-   procedure SpecifyList; override;
-   procedure ExportToXML; override;
-   procedure FiltersList; override;
-   procedure PublishSourceSearchInList; override;
-    {* Искать по источнику опубликования в текущем списке }
-   procedure SearchDrugInList; override;
-   procedure GetAnnotationDocFrmAct; override;
-   procedure SimilarDocuments; override;
-   procedure SetType; override;
-   procedure OpenNewWindow; override;
-    {* Открыть текущий список в новом окне }
-   procedure CopyToNewList; override;
-   procedure Analize; override;
-    {* Анализ списка... }
-   procedure SearchInList; override;
-    {* Искать по реквизитам в текущем списке }
-   procedure FiltersListOpen; override;
-    {* Фильтры (вкладка) }
-   procedure MakeHyperlinkToDocument; override;
-    {* Создать ссылку на документ }
-   procedure MakeHyperlinkToDocument; override;
-    {* Создать ссылку на документ }
-   procedure Analize; override;
-    {* Анализ списка }
-   procedure AnalizeList; override;
-    {* Анализ списка... }
   public
    property RemindersLine: TnscRemindersLine
     read f_RemindersLine;
@@ -736,94 +736,357 @@ begin
 end;//TPrimListOptionsForm.UpdateStatusBar
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimListOptionsForm.Delete;
+procedure TPrimListOptionsForm.Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
  {* Удалить }
-//#UC START# *494F89C30197_4C46AA3401DB_var*
-//#UC END# *494F89C30197_4C46AA3401DB_var*
+//#UC START# *494F89C30197_4C46AA3401DBtest_var*
+//#UC END# *494F89C30197_4C46AA3401DBtest_var*
 begin
-//#UC START# *494F89C30197_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *494F89C30197_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.Delete
+//#UC START# *494F89C30197_4C46AA3401DBtest_impl*
+ SelectionOpsTest(aParams);
+//#UC END# *494F89C30197_4C46AA3401DBtest_impl*
+end;//TPrimListOptionsForm.Edit_Delete_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimListOptionsForm.Print;
+procedure TPrimListOptionsForm.Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Удалить }
+//#UC START# *494F89C30197_4C46AA3401DBexec_var*
+//#UC END# *494F89C30197_4C46AA3401DBexec_var*
+begin
+//#UC START# *494F89C30197_4C46AA3401DBexec_impl*
+ if aParams.Control = tvList then
+  DeleteSelectionFromList
+ else
+  aParams.CallControl;
+//#UC END# *494F89C30197_4C46AA3401DBexec_impl*
+end;//TPrimListOptionsForm.Edit_Delete_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimListOptionsForm.Edit_Delete_GetState(var State: TvcmOperationStateIndex);
+ {* Удалить }
+//#UC START# *494F89C30197_4C46AA3401DBgetstate_var*
+//#UC END# *494F89C30197_4C46AA3401DBgetstate_var*
+begin
+//#UC START# *494F89C30197_4C46AA3401DBgetstate_impl*
+ // - ничего не делаем
+//#UC END# *494F89C30197_4C46AA3401DBgetstate_impl*
+end;//TPrimListOptionsForm.Edit_Delete_GetState
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimListOptionsForm.File_Print_Test(const aParams: IvcmTestParamsPrim);
  {* Печать }
-//#UC START# *49521D8E0295_4C46AA3401DB_var*
-//#UC END# *49521D8E0295_4C46AA3401DB_var*
+//#UC START# *49521D8E0295_4C46AA3401DBtest_var*
+//#UC END# *49521D8E0295_4C46AA3401DBtest_var*
 begin
-//#UC START# *49521D8E0295_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49521D8E0295_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.Print
+//#UC START# *49521D8E0295_4C46AA3401DBtest_impl*
+ ListOpsWithTrialModeTest(aParams);
+//#UC END# *49521D8E0295_4C46AA3401DBtest_impl*
+end;//TPrimListOptionsForm.File_Print_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimListOptionsForm.PrintDialog;
+procedure TPrimListOptionsForm.File_Print_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Печать }
+//#UC START# *49521D8E0295_4C46AA3401DBexec_var*
+var
+ l_Preview : IafwComplexDocumentPreview;
+//#UC END# *49521D8E0295_4C46AA3401DBexec_var*
+begin
+//#UC START# *49521D8E0295_4C46AA3401DBexec_impl*
+ l_Preview := MakePreview(False);
+ if (l_Preview <> nil) then
+ begin
+  l_Preview.Print;
+ end;//if (l_Preview <> nil) then
+//#UC END# *49521D8E0295_4C46AA3401DBexec_impl*
+end;//TPrimListOptionsForm.File_Print_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimListOptionsForm.File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
  {* Печать... }
-//#UC START# *495220DE0298_4C46AA3401DB_var*
-//#UC END# *495220DE0298_4C46AA3401DB_var*
+//#UC START# *495220DE0298_4C46AA3401DBtest_var*
+//#UC END# *495220DE0298_4C46AA3401DBtest_var*
 begin
-//#UC START# *495220DE0298_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495220DE0298_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.PrintDialog
+//#UC START# *495220DE0298_4C46AA3401DBtest_impl*
+ ListOpsWithTrialModeTest(aParams);
+//#UC END# *495220DE0298_4C46AA3401DBtest_impl*
+end;//TPrimListOptionsForm.File_PrintDialog_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimListOptionsForm.PrintPreview;
+procedure TPrimListOptionsForm.File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Печать... }
+//#UC START# *495220DE0298_4C46AA3401DBexec_var*
+var
+ l_Preview : IafwComplexDocumentPreview;
+//#UC END# *495220DE0298_4C46AA3401DBexec_var*
+begin
+//#UC START# *495220DE0298_4C46AA3401DBexec_impl*
+ if (afw.Application <> nil) AND (afw.Application.PrintManager <> nil) then
+ begin
+  l_Preview := MakePreview(True);
+  with l_Preview do
+  begin
+   if (ContentKind = afw_pckSelection) then
+    case MessageDlg(str_ListPrintSelectedConfirmation) of
+     -1:
+      ;
+     -2:
+      ContentKind := afw_pckDocument;
+     mrCancel:
+      Exit;
+    end;//MessageDlg(str_DocumentPrintSelectedConfirmation)
+  end;//with l_Preview
+  afw.Application.PrintManager.PrintDialog(l_Preview);
+  // Регистрируем событие печати, без гарантий, что печать действительно была
+  // выполнена. Т.к. пользователь в диалоге мог нажать кнопку отмена:
+ end;//if (afw.Application <> nil)...
+//#UC END# *495220DE0298_4C46AA3401DBexec_impl*
+end;//TPrimListOptionsForm.File_PrintDialog_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimListOptionsForm.File_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
  {* Предварительный просмотр }
-//#UC START# *495220F2033A_4C46AA3401DB_var*
-//#UC END# *495220F2033A_4C46AA3401DB_var*
+//#UC START# *495220F2033A_4C46AA3401DBtest_var*
+//#UC END# *495220F2033A_4C46AA3401DBtest_var*
 begin
-//#UC START# *495220F2033A_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495220F2033A_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.PrintPreview
+//#UC START# *495220F2033A_4C46AA3401DBtest_impl*
+ ListopPrintTest(aParams);
+//#UC END# *495220F2033A_4C46AA3401DBtest_impl*
+end;//TPrimListOptionsForm.File_PrintPreview_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimListOptionsForm.Save;
- {* Сохранить }
-//#UC START# *495235F401C0_4C46AA3401DB_var*
-//#UC END# *495235F401C0_4C46AA3401DB_var*
+procedure TPrimListOptionsForm.File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Предварительный просмотр }
+//#UC START# *495220F2033A_4C46AA3401DBexec_var*
+var
+ l_Preview: IafwComplexDocumentPreview;
+//#UC END# *495220F2033A_4C46AA3401DBexec_var*
 begin
-//#UC START# *495235F401C0_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495235F401C0_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.Save
+//#UC START# *495220F2033A_4C46AA3401DBexec_impl*
+ l_Preview := MakePreview(False);
+ if dsList <> nil then
+  TnsListPrintPreviewEvent.Log(dsList.List, ApproxExportCount(l_Preview.ContentKind =  afw_pckSelection), l_Preview.ContentKind =  afw_pckSelection);
+ TdmStdRes.MakePreview(l_Preview);
+//#UC END# *495220F2033A_4C46AA3401DBexec_impl*
+end;//TPrimListOptionsForm.File_PrintPreview_Execute
 {$IfEnd} // NOT Defined(NoVCM)
 
-procedure TPrimListOptionsForm.ToMSWord;
+{$If NOT Defined(NoVCM)}
+procedure TPrimListOptionsForm.File_Save_Test(const aParams: IvcmTestParamsPrim);
+ {* Сохранить }
+//#UC START# *495235F401C0_4C46AA3401DBtest_var*
+//#UC END# *495235F401C0_4C46AA3401DBtest_var*
+begin
+//#UC START# *495235F401C0_4C46AA3401DBtest_impl*
+ ListOpsWithTrialModeTest(aParams);
+//#UC END# *495235F401C0_4C46AA3401DBtest_impl*
+end;//TPrimListOptionsForm.File_Save_Test
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimListOptionsForm.File_Save_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Сохранить }
+//#UC START# *495235F401C0_4C46AA3401DBexec_var*
+//#UC END# *495235F401C0_4C46AA3401DBexec_var*
+begin
+//#UC START# *495235F401C0_4C46AA3401DBexec_impl*
+ SaveList(True);
+//#UC END# *495235F401C0_4C46AA3401DBexec_impl*
+end;//TPrimListOptionsForm.File_Save_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+procedure TPrimListOptionsForm.File_ToMSWord_Test(const aParams: IvcmTestParamsPrim);
  {* Экспорт в Word }
-//#UC START# *495238EB0160_4C46AA3401DB_var*
-//#UC END# *495238EB0160_4C46AA3401DB_var*
+//#UC START# *495238EB0160_4C46AA3401DBtest_var*
+//#UC END# *495238EB0160_4C46AA3401DBtest_var*
 begin
-//#UC START# *495238EB0160_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495238EB0160_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.ToMSWord
+//#UC START# *495238EB0160_4C46AA3401DBtest_impl*
+ ListOpsWithTrialModeTest(aParams);
+ TnsToMSWordOp.Test(aParams);
+//#UC END# *495238EB0160_4C46AA3401DBtest_impl*
+end;//TPrimListOptionsForm.File_ToMSWord_Test
 
-procedure TPrimListOptionsForm.SendMailAsAttachment;
+procedure TPrimListOptionsForm.File_ToMSWord_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Экспорт в Word }
+//#UC START# *495238EB0160_4C46AA3401DBexec_var*
+var
+ //l_PathName   : Il3CString;
+ l_Output: TnsGetGenOutputStruct;
+ l_Stream     : IStream;
+ l_Visualizer : IafwLongProcessVisualizer;
+ l_ExportSelection : Boolean;
+//#UC END# *495238EB0160_4C46AA3401DBexec_var*
+begin
+//#UC START# *495238EB0160_4C46AA3401DBexec_impl*
+ if Assigned(dsList) then
+ try
+  l_ExportSelection := tvList.TreeView.Tree.SelectedCount > 1;
+  if (l_ExportSelection) then
+   case MessageDlg(str_ListExportSelectionToWord) of
+     -1:
+      ;
+     -2:
+      l_ExportSelection := False;
+     mrCancel:
+      Exit;
+   end;//case MessageDlg(str_ListExportSelectionToWord)
+
+  if (ApproxExportCount(l_ExportSelection) > c_MaxTotalDocumentInListLimit) then
+   if not afw.Application.IsInternal or
+      not afw.Settings.LoadBoolean(pi_List_ExportWORestrictions,
+                                   dv_List_ExportWORestrictions) then
+   begin
+    Say(war_TryToExportTooManyTotalDocs, [c_MaxTotalDocumentInListLimit]);
+    Exit;
+   end;//not afw.Application.IsInternal
+
+   // Экспортировать в Word
+//  l_PathName := nsMakeTemporaryFileName(nsPrepareFileName(CreateListName(l_ExportSelection)),
+//   nsGetFileFormatExt(ns_ffRTF), False);
+  l_Output := TnsGetGenOutputStruct_Create(
+    nsMakeTemporaryFileName(nsPrepareFileName(CreateListName(l_ExportSelection)),
+    nsGetFileFormatExt(ns_ffRTF), False)
+     );
+  l_Visualizer := bsMakeExportVisualizer(vcmCStr(str_ExportListVisualizer));
+  try
+   l_Stream := dsList.ListAsText(CalcSaveListKind, l_ExportSelection);
+   try
+    nsEvdStreamSaveAs(l_Stream, l_Output, ns_ffRTF, False);
+    TnsListExportToWordEvent.Log(dsList.List, ApproxExportCount(l_ExportSelection), l_ExportSelection);
+   finally
+    l_Stream := nil;
+   end;//try..finally
+  finally
+   l_Visualizer := nil;
+  end;//try..finally
+  if not TnsToMSWordOp.Execute(l_Output.rName, aParams) then
+   Say(err_CannotOpen, [dsList.ListName]);
+ except
+  on E: Exception do
+   l3System.Exception2Log(E);
+ end;//if Assigned(dsDocumentList) then
+//#UC END# *495238EB0160_4C46AA3401DBexec_impl*
+end;//TPrimListOptionsForm.File_ToMSWord_Execute
+
+procedure TPrimListOptionsForm.File_SendMailAsAttachment_Test(const aParams: IvcmTestParamsPrim);
  {* Послать по e-mail }
-//#UC START# *495253870002_4C46AA3401DB_var*
-//#UC END# *495253870002_4C46AA3401DB_var*
+//#UC START# *495253870002_4C46AA3401DBtest_var*
+//#UC END# *495253870002_4C46AA3401DBtest_var*
 begin
-//#UC START# *495253870002_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495253870002_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.SendMailAsAttachment
+//#UC START# *495253870002_4C46AA3401DBtest_impl*
+ ListOpsWithTrialModeTest(aParams);
+//#UC END# *495253870002_4C46AA3401DBtest_impl*
+end;//TPrimListOptionsForm.File_SendMailAsAttachment_Test
 
-procedure TPrimListOptionsForm.AddBookmark;
- {* Добавить закладку }
-//#UC START# *4989D06D014E_4C46AA3401DB_var*
-//#UC END# *4989D06D014E_4C46AA3401DB_var*
+procedure TPrimListOptionsForm.File_SendMailAsAttachment_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Послать по e-mail }
+//#UC START# *495253870002_4C46AA3401DBexec_var*
+var
+ //l_PathName   : Il3CString;
+ l_Output: TnsGetGenOutputStruct;
+ l_Stream     : IStream;
+ l_Visualizer : IafwLongProcessVisualizer;
+ l_ExportSelection : Boolean;
+//#UC END# *495253870002_4C46AA3401DBexec_var*
 begin
-//#UC START# *4989D06D014E_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4989D06D014E_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.AddBookmark
+//#UC START# *495253870002_4C46AA3401DBexec_impl*
+ if Assigned(dsList) then
+ try
+  l_ExportSelection := tvList.TreeView.Tree.SelectedCount > 1;
+  if (l_ExportSelection) then
+   case MessageDlg(str_ListEMailSelection) of
+     -1:
+      ;
+     -2:
+      l_ExportSelection := False;
+     mrCancel:
+      Exit;
+   end;//case MessageDlg(str_ListEMailSelection)
+   // Экспортировать в Word
+//  l_PathName := nsMakeTemporaryFileName(nsPrepareFileName(CreateListName(l_ExportSelection)),
+//   nsGetFileFormatExt(ns_ffRTF), False);
+  l_Output := TnsGetGenOutputStruct_Create(
+   nsMakeTemporaryFileName(nsPrepareFileName(CreateListName(l_ExportSelection)),
+   nsGetFileFormatExt(ns_ffRTF), False)
+  );
+  l_Visualizer := bsMakeEMailVisualizer;
+  try
+   l_Stream := dsList.ListAsText(CalcSaveListKind, l_ExportSelection);
+   try
+    nsEvdStreamSaveAs(l_Stream, l_Output, ns_ffRTF, False);
+   finally
+    l_Stream := nil;
+   end;//try..finally
+  finally
+   l_Visualizer := nil;
+  end;//try..finally
+  try
+   nsSendAttachedFile(l_Output.rName);
+   TnsSendListByEmailEvent.Log(dsList.List, ApproxExportCount(l_ExportSelection),
+    l_ExportSelection);
+  except
+   on EDefaultMailCLientAbsent do
+    Say(err_DefaultMailCLientAbsent);
+  end;//try..except
+ except
+  on E: Exception do
+   l3System.Exception2Log(E);
+ end;//if Assigned(dsDocumentList) then
+//#UC END# *495253870002_4C46AA3401DBexec_impl*
+end;//TPrimListOptionsForm.File_SendMailAsAttachment_Execute
+
+procedure TPrimListOptionsForm.Document_AddBookmark_Test(const aParams: IvcmTestParamsPrim);
+ {* Добавить закладку }
+//#UC START# *4989D06D014E_4C46AA3401DBtest_var*
+//#UC END# *4989D06D014E_4C46AA3401DBtest_var*
+begin
+//#UC START# *4989D06D014E_4C46AA3401DBtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := NoMoreThanOneSelected and HasCurrent;
+//#UC END# *4989D06D014E_4C46AA3401DBtest_impl*
+end;//TPrimListOptionsForm.Document_AddBookmark_Test
+
+procedure TPrimListOptionsForm.Document_AddBookmark_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Добавить закладку }
+//#UC START# *4989D06D014E_4C46AA3401DBexec_var*
+
+  function lp_FolderElementType: TFoldersElementType;
+  begin//lp_FolderElementType
+   case dsList.ListType of
+    bs_ltDocument:
+     Result := fetBookmark;
+    bs_ltDrug:
+     Result := fetDrugBookmark;
+    else
+    begin
+     Assert(False);
+     Result := Low(TFoldersElementType);
+    end;//else
+   end;//case dsList.ListType
+  end;//lp_FolderElementType
+  
+var
+ l_Bookmark: IBookmark;
+//#UC END# *4989D06D014E_4C46AA3401DBexec_var*
+begin
+//#UC START# *4989D06D014E_4C46AA3401DBexec_impl*
+ if (dsList <> nil) then
+ begin
+  l_Bookmark := dsList.CreateBookmark;
+  if (l_Bookmark <> nil) then
+   TdmStdRes.SaveOpen(Self.As_IvcmEntityForm,
+                      MakeFilterInfo(ffBookmark),
+                      lp_FolderElementType,
+                      l_Bookmark,
+                      false);
+ end;//dsList <> nil
+//#UC END# *4989D06D014E_4C46AA3401DBexec_impl*
+end;//TPrimListOptionsForm.Document_AddBookmark_Execute
 
 function TPrimListOptionsForm.Get_SearchList: IDynList;
 //#UC START# *49916C1E001D_4C46AA3401DBget_var*
@@ -838,27 +1101,27 @@ begin
 end;//TPrimListOptionsForm.Get_SearchList
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimListOptionsForm.Paste;
- {* Вставка }
-//#UC START# *49EDFA3701B0_4C46AA3401DB_var*
-//#UC END# *49EDFA3701B0_4C46AA3401DB_var*
+procedure TPrimListOptionsForm.Edit_SelectAll_Test(const aParams: IvcmTestParamsPrim);
+ {* Выделить всё }
+//#UC START# *49EE01AA02BE_4C46AA3401DBtest_var*
+//#UC END# *49EE01AA02BE_4C46AA3401DBtest_var*
 begin
-//#UC START# *49EDFA3701B0_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EDFA3701B0_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.Paste
+//#UC START# *49EE01AA02BE_4C46AA3401DBtest_impl*
+ aParams.CallControl;
+//#UC END# *49EE01AA02BE_4C46AA3401DBtest_impl*
+end;//TPrimListOptionsForm.Edit_SelectAll_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimListOptionsForm.SelectAll;
+procedure TPrimListOptionsForm.Edit_SelectAll_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Выделить всё }
-//#UC START# *49EE01AA02BE_4C46AA3401DB_var*
-//#UC END# *49EE01AA02BE_4C46AA3401DB_var*
+//#UC START# *49EE01AA02BE_4C46AA3401DBexec_var*
+//#UC END# *49EE01AA02BE_4C46AA3401DBexec_var*
 begin
-//#UC START# *49EE01AA02BE_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EE01AA02BE_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.SelectAll
+//#UC START# *49EE01AA02BE_4C46AA3401DBexec_impl*
+ aParams.CallControl;
+//#UC END# *49EE01AA02BE_4C46AA3401DBexec_impl*
+end;//TPrimListOptionsForm.Edit_SelectAll_Execute
 {$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimListOptionsForm.ShowEditorOrList(const aTree: Il3SimpleTree);
@@ -885,7 +1148,7 @@ begin
 end;//TPrimListOptionsForm.ShowEditorOrList
 
 function TPrimListOptionsForm.ApplyFilter(const aFilter: IFilterFromQuery;
- aAdd: Boolean): Boolean;
+ aAdd: Boolean = False): Boolean;
 //#UC START# *4AEF0A9403DD_4C46AA3401DB_var*
 
  procedure lp_ResetTree;
@@ -983,42 +1246,53 @@ begin
 end;//TPrimListOptionsForm.QueryOpen
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimListOptionsForm.ExpandAll;
+procedure TPrimListOptionsForm.Tree_ExpandAll_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Развернуть все }
-//#UC START# *4BDAF7880236_4C46AA3401DB_var*
-//#UC END# *4BDAF7880236_4C46AA3401DB_var*
+//#UC START# *4BDAF7880236_4C46AA3401DBexec_var*
+//#UC END# *4BDAF7880236_4C46AA3401DBexec_var*
 begin
-//#UC START# *4BDAF7880236_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BDAF7880236_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.ExpandAll
+//#UC START# *4BDAF7880236_4C46AA3401DBexec_impl*
+ tvList.LockChangeSelected;
+ try
+  aParams.CallControl;
+ finally
+  tvList.UnLockChangeSelected;
+ end;//try..finally
+//#UC END# *4BDAF7880236_4C46AA3401DBexec_impl*
+end;//TPrimListOptionsForm.Tree_ExpandAll_Execute
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimListOptionsForm.CollapseAll;
+procedure TPrimListOptionsForm.Tree_CollapseAll_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Свернуть все }
-//#UC START# *4BDAF7A2005C_4C46AA3401DB_var*
-//#UC END# *4BDAF7A2005C_4C46AA3401DB_var*
+//#UC START# *4BDAF7A2005C_4C46AA3401DBexec_var*
+//#UC END# *4BDAF7A2005C_4C46AA3401DBexec_var*
 begin
-//#UC START# *4BDAF7A2005C_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BDAF7A2005C_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.CollapseAll
+//#UC START# *4BDAF7A2005C_4C46AA3401DBexec_impl*
+ tvList.LockChangeSelected;
+ try
+  aParams.CallControl;
+ finally
+  tvList.UnLockChangeSelected;
+ end;//try..finally
+//#UC END# *4BDAF7A2005C_4C46AA3401DBexec_impl*
+end;//TPrimListOptionsForm.Tree_CollapseAll_Execute
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimListOptionsForm.Wrap;
+procedure TPrimListOptionsForm.Tree_Wrap_Test(const aParams: IvcmTestParamsPrim);
  {* Перенос по словам }
-//#UC START# *4BDAF7B803CF_4C46AA3401DB_var*
-//#UC END# *4BDAF7B803CF_4C46AA3401DB_var*
+//#UC START# *4BDAF7B803CF_4C46AA3401DBtest_var*
+//#UC END# *4BDAF7B803CF_4C46AA3401DBtest_var*
 begin
-//#UC START# *4BDAF7B803CF_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BDAF7B803CF_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.Wrap
+//#UC START# *4BDAF7B803CF_4C46AA3401DBtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+ aParams.Op.Flag[vcm_ofVisible] := False;
+//#UC END# *4BDAF7B803CF_4C46AA3401DBtest_impl*
+end;//TPrimListOptionsForm.Tree_Wrap_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
-procedure TPrimListOptionsForm.SaveToFolders(aOperation: Integer);
+procedure TPrimListOptionsForm.SaveToFolders(aOperation: Integer = 0);
 //#UC START# *4C3418190372_4C46AA3401DB_var*
 var
  l_CurEntity: IEntityBase;
@@ -1130,209 +1404,503 @@ begin
 //#UC END# *4C3722EE03A8_4C46AA3401DB_impl*
 end;//TPrimListOptionsForm.CheckValidSortTypes
 
-procedure TPrimListOptionsForm.OrAnotherList;
-//#UC START# *4C46E1A20174_4C46AA3401DB_var*
-//#UC END# *4C46E1A20174_4C46AA3401DB_var*
+procedure TPrimListOptionsForm.List_OrAnotherList_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C46E1A20174_4C46AA3401DBtest_var*
+//#UC END# *4C46E1A20174_4C46AA3401DBtest_var*
 begin
-//#UC START# *4C46E1A20174_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C46E1A20174_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.OrAnotherList
+//#UC START# *4C46E1A20174_4C46AA3401DBtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (not IsListEmpty) and
+  (aParams.Control <> nil) {and (tvList <> aParams.Control)};
+//#UC END# *4C46E1A20174_4C46AA3401DBtest_impl*
+end;//TPrimListOptionsForm.List_OrAnotherList_Test
 
-procedure TPrimListOptionsForm.AndAnotherList;
-//#UC START# *4C46E1BD0315_4C46AA3401DB_var*
-//#UC END# *4C46E1BD0315_4C46AA3401DB_var*
+procedure TPrimListOptionsForm.List_OrAnotherList_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C46E1A20174_4C46AA3401DBexec_var*
+//#UC END# *4C46E1A20174_4C46AA3401DBexec_var*
 begin
-//#UC START# *4C46E1BD0315_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C46E1BD0315_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.AndAnotherList
+//#UC START# *4C46E1A20174_4C46AA3401DBexec_impl*
+ TdmStdRes.SelectOpenWithOperation(Self.as_IvcmEntityForm,
+                                   MakeFilterInfo(ffList),
+                                   str_ListAppend,
+                                   LLO_OR);
+ StatusParamsShow;
+//#UC END# *4C46E1A20174_4C46AA3401DBexec_impl*
+end;//TPrimListOptionsForm.List_OrAnotherList_Execute
 
-procedure TPrimListOptionsForm.AndNotAnotherList;
-//#UC START# *4C46E1E302A8_4C46AA3401DB_var*
-//#UC END# *4C46E1E302A8_4C46AA3401DB_var*
+procedure TPrimListOptionsForm.List_AndAnotherList_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C46E1BD0315_4C46AA3401DBtest_var*
+//#UC END# *4C46E1BD0315_4C46AA3401DBtest_var*
 begin
-//#UC START# *4C46E1E302A8_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C46E1E302A8_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.AndNotAnotherList
+//#UC START# *4C46E1BD0315_4C46AA3401DBtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (not IsListEmpty) and
+  (aParams.Control <> nil) {and (tvList <> aParams.Control)};
+//#UC END# *4C46E1BD0315_4C46AA3401DBtest_impl*
+end;//TPrimListOptionsForm.List_AndAnotherList_Test
 
-procedure TPrimListOptionsForm.Open;
-//#UC START# *4C4EAC0701B4_4C46AA3401DB_var*
-//#UC END# *4C4EAC0701B4_4C46AA3401DB_var*
+procedure TPrimListOptionsForm.List_AndAnotherList_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C46E1BD0315_4C46AA3401DBexec_var*
+//#UC END# *4C46E1BD0315_4C46AA3401DBexec_var*
 begin
-//#UC START# *4C4EAC0701B4_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C4EAC0701B4_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.Open
+//#UC START# *4C46E1BD0315_4C46AA3401DBexec_impl*
+ TdmStdRes.SelectOpenWithOperation(Self.as_IvcmEntityForm,
+                                   MakeFilterInfo(ffList),
+                                   str_ListIntersect,
+                                   LLO_AND);
+ StatusParamsShow;
+//#UC END# *4C46E1BD0315_4C46AA3401DBexec_impl*
+end;//TPrimListOptionsForm.List_AndAnotherList_Execute
 
-procedure TPrimListOptionsForm.OpenNewWindow;
-//#UC START# *4C4EAC20007F_4C46AA3401DB_var*
-//#UC END# *4C4EAC20007F_4C46AA3401DB_var*
+procedure TPrimListOptionsForm.List_AndNotAnotherList_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C46E1E302A8_4C46AA3401DBtest_var*
+//#UC END# *4C46E1E302A8_4C46AA3401DBtest_var*
 begin
-//#UC START# *4C4EAC20007F_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C4EAC20007F_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.OpenNewWindow
+//#UC START# *4C46E1E302A8_4C46AA3401DBtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (not IsListEmpty) and
+  (aParams.Control <> nil) {and (tvList <> aParams.Control)};
+//#UC END# *4C46E1E302A8_4C46AA3401DBtest_impl*
+end;//TPrimListOptionsForm.List_AndNotAnotherList_Test
 
-procedure TPrimListOptionsForm.OpenInNewWindow;
-//#UC START# *4C4EB6710127_4C46AA3401DB_var*
-//#UC END# *4C4EB6710127_4C46AA3401DB_var*
+procedure TPrimListOptionsForm.List_AndNotAnotherList_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C46E1E302A8_4C46AA3401DBexec_var*
+//#UC END# *4C46E1E302A8_4C46AA3401DBexec_var*
 begin
-//#UC START# *4C4EB6710127_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C4EB6710127_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.OpenInNewWindow
+//#UC START# *4C46E1E302A8_4C46AA3401DBexec_impl*
+ TdmStdRes.SelectOpenWithOperation(Self.as_IvcmEntityForm,
+                                   MakeFilterInfo(ffList),
+                                   str_ListSubtract,
+                                   LLO_AND_NOT);
+ StatusParamsShow;
+//#UC END# *4C46E1E302A8_4C46AA3401DBexec_impl*
+end;//TPrimListOptionsForm.List_AndNotAnotherList_Execute
 
-procedure TPrimListOptionsForm.PrintDialog;
-//#UC START# *4C5285F5004B_4C46AA3401DB_var*
-//#UC END# *4C5285F5004B_4C46AA3401DB_var*
+procedure TPrimListOptionsForm.Document_Open_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C4EAC0701B4_4C46AA3401DBtest_var*
+//#UC END# *4C4EAC0701B4_4C46AA3401DBtest_var*
 begin
-//#UC START# *4C5285F5004B_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C5285F5004B_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.PrintDialog
+//#UC START# *4C4EAC0701B4_4C46AA3401DBtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := NoMoreThanOneSelected and HasCurrent;
+//#UC END# *4C4EAC0701B4_4C46AA3401DBtest_impl*
+end;//TPrimListOptionsForm.Document_Open_Test
 
-procedure TPrimListOptionsForm.PrintPreview;
-//#UC START# *4C52860A017C_4C46AA3401DB_var*
-//#UC END# *4C52860A017C_4C46AA3401DB_var*
+procedure TPrimListOptionsForm.Document_Open_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C4EAC0701B4_4C46AA3401DBexec_var*
+var
+ l_DataInfo: IdeDocInfo;
+//#UC END# *4C4EAC0701B4_4C46AA3401DBexec_var*
 begin
-//#UC START# *4C52860A017C_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C52860A017C_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.PrintPreview
+//#UC START# *4C4EAC0701B4_4C46AA3401DBexec_impl*
+ if Assigned(dsList) and dsList.OpenDocument(l_DataInfo) then
+ try
+  OpenDocument(l_DataInfo, nil, False);
+ finally
+  l_DataInfo := nil;
+ end;//try..finally
+//#UC END# *4C4EAC0701B4_4C46AA3401DBexec_impl*
+end;//TPrimListOptionsForm.Document_Open_Execute
 
-procedure TPrimListOptionsForm.Save;
-//#UC START# *4C52861800F7_4C46AA3401DB_var*
-//#UC END# *4C52861800F7_4C46AA3401DB_var*
+procedure TPrimListOptionsForm.Document_OpenNewWindow_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C4EAC20007F_4C46AA3401DBtest_var*
+//#UC END# *4C4EAC20007F_4C46AA3401DBtest_var*
 begin
-//#UC START# *4C52861800F7_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C52861800F7_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.Save
+//#UC START# *4C4EAC20007F_4C46AA3401DBtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := NoMoreThanOneSelected and HasCurrent and
+  (not IsListEmpty);
+ // - http://mdp.garant.ru/pages/viewpage.action?pageId=561019302 
+//#UC END# *4C4EAC20007F_4C46AA3401DBtest_impl*
+end;//TPrimListOptionsForm.Document_OpenNewWindow_Test
 
-procedure TPrimListOptionsForm.Print;
-//#UC START# *4C52879C00F4_4C46AA3401DB_var*
-//#UC END# *4C52879C00F4_4C46AA3401DB_var*
+procedure TPrimListOptionsForm.Document_OpenNewWindow_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C4EAC20007F_4C46AA3401DBexec_var*
+//#UC END# *4C4EAC20007F_4C46AA3401DBexec_var*
 begin
-//#UC START# *4C52879C00F4_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C52879C00F4_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.Print
+//#UC START# *4C4EAC20007F_4C46AA3401DBexec_impl*
+ OpenSelectedDocumentInContainer(vcm_okInNewWindow);
+//#UC END# *4C4EAC20007F_4C46AA3401DBexec_impl*
+end;//TPrimListOptionsForm.Document_OpenNewWindow_Execute
 
-procedure TPrimListOptionsForm.ClearAll;
+procedure TPrimListOptionsForm.Openable_OpenInNewWindow_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C4EB6710127_4C46AA3401DBtest_var*
+//#UC END# *4C4EB6710127_4C46AA3401DBtest_var*
+begin
+//#UC START# *4C4EB6710127_4C46AA3401DBtest_impl*
+ Document_Open_Test(aParams);
+//#UC END# *4C4EB6710127_4C46AA3401DBtest_impl*
+end;//TPrimListOptionsForm.Openable_OpenInNewWindow_Test
+
+procedure TPrimListOptionsForm.Openable_OpenInNewWindow_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C4EB6710127_4C46AA3401DBexec_var*
+//#UC END# *4C4EB6710127_4C46AA3401DBexec_var*
+begin
+//#UC START# *4C4EB6710127_4C46AA3401DBexec_impl*
+ Document_OpenNewWindow_Execute(aParams);
+//#UC END# *4C4EB6710127_4C46AA3401DBexec_impl*
+end;//TPrimListOptionsForm.Openable_OpenInNewWindow_Execute
+
+procedure TPrimListOptionsForm.Document_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C5285F5004B_4C46AA3401DBtest_var*
+//#UC END# *4C5285F5004B_4C46AA3401DBtest_var*
+begin
+//#UC START# *4C5285F5004B_4C46AA3401DBtest_impl*
+ if not ForbidOpForDocumentSchema(aParams) then
+  DocumentOpsWithTrialModeTest(aParams);
+//#UC END# *4C5285F5004B_4C46AA3401DBtest_impl*
+end;//TPrimListOptionsForm.Document_PrintDialog_Test
+
+procedure TPrimListOptionsForm.Document_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C5285F5004B_4C46AA3401DBexec_var*
+//#UC END# *4C5285F5004B_4C46AA3401DBexec_var*
+begin
+//#UC START# *4C5285F5004B_4C46AA3401DBexec_impl*
+ if Assigned(dsList) and (afw.Application <> nil) AND
+   (afw.Application.PrintManager <> nil) then
+  afw.Application.PrintManager.PrintDialog(dsList.MakeDocumentPreview);
+//#UC END# *4C5285F5004B_4C46AA3401DBexec_impl*
+end;//TPrimListOptionsForm.Document_PrintDialog_Execute
+
+procedure TPrimListOptionsForm.Document_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C52860A017C_4C46AA3401DBtest_var*
+//#UC END# *4C52860A017C_4C46AA3401DBtest_var*
+begin
+//#UC START# *4C52860A017C_4C46AA3401DBtest_impl*
+ if not ForbidOpForDocumentSchema(aParams) then
+  DocumentOpsTest(aParams);
+//#UC END# *4C52860A017C_4C46AA3401DBtest_impl*
+end;//TPrimListOptionsForm.Document_PrintPreview_Test
+
+procedure TPrimListOptionsForm.Document_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C52860A017C_4C46AA3401DBexec_var*
+//#UC END# *4C52860A017C_4C46AA3401DBexec_var*
+begin
+//#UC START# *4C52860A017C_4C46AA3401DBexec_impl*
+ if Assigned(dsList) then
+  TdmStdRes.MakePreview(dsList.MakeDocumentPreview);
+//#UC END# *4C52860A017C_4C46AA3401DBexec_impl*
+end;//TPrimListOptionsForm.Document_PrintPreview_Execute
+
+procedure TPrimListOptionsForm.Document_Save_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C52861800F7_4C46AA3401DBtest_var*
+//#UC END# *4C52861800F7_4C46AA3401DBtest_var*
+begin
+//#UC START# *4C52861800F7_4C46AA3401DBtest_impl*
+ if not ForbidOpForDocumentSchema(aParams) then
+  DocumentOpsWithTrialModeTest(aParams);
+//#UC END# *4C52861800F7_4C46AA3401DBtest_impl*
+end;//TPrimListOptionsForm.Document_Save_Test
+
+procedure TPrimListOptionsForm.Document_Save_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C52861800F7_4C46AA3401DBexec_var*
+var
+ l_Visualizer : IafwLongProcessVisualizer;
+ l_Document   : IDocument;
+//#UC END# *4C52861800F7_4C46AA3401DBexec_var*
+begin
+//#UC START# *4C52861800F7_4C46AA3401DBexec_impl*
+ if Assigned(dsList) then
+ begin
+  with dmStdRes do
+  begin
+   SaveDialog.DialogKind := ns_sdkDocument;
+   SaveDialog.SelectedOnlyEnabled := false;
+   SaveDialog.SelectedOnlyChecked := false;
+   l_Document := bsExtractDocument(tvList.GetCurrentNode);
+   if Assigned(l_Document) then
+   begin
+    SaveDialog.FileName := nsEStr(CreateFileName(l_Document));
+    if SaveDialog.Execute then
+    begin
+     afw.ProcessMessages;
+     try
+      l_Visualizer := bsMakeSaveVisualizer(vcmCStr(str_SaveDocumentVisualizer));
+      try
+       dsList.ExportDocument(l_Document, nsCStr(SaveDialog.FileName),
+        SaveDialog.SelectedFileFormat);
+      finally
+       l_Visualizer := nil;
+      end//try..finally
+     except
+      on ECannotSave do
+       Say(err_ListSaveToFileError);
+     end{try..except}
+    end;//if SaveDialog.Execute then
+   end;//if Assigned(l_Document) then
+  end;//with dmStdRes do
+ end;//if Assigned(dsDocumentList) then
+//#UC END# *4C52861800F7_4C46AA3401DBexec_impl*
+end;//TPrimListOptionsForm.Document_Save_Execute
+
+procedure TPrimListOptionsForm.Document_Print_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C52879C00F4_4C46AA3401DBtest_var*
+//#UC END# *4C52879C00F4_4C46AA3401DBtest_var*
+begin
+//#UC START# *4C52879C00F4_4C46AA3401DBtest_impl*
+ if not ForbidOpForDocumentSchema(aParams) then
+  DocumentOpsWithTrialModeTest(aParams);
+//#UC END# *4C52879C00F4_4C46AA3401DBtest_impl*
+end;//TPrimListOptionsForm.Document_Print_Test
+
+procedure TPrimListOptionsForm.Document_Print_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C52879C00F4_4C46AA3401DBexec_var*
+var
+ l_Preview : IafwComplexDocumentPreview;
+//#UC END# *4C52879C00F4_4C46AA3401DBexec_var*
+begin
+//#UC START# *4C52879C00F4_4C46AA3401DBexec_impl*
+ if Assigned(dsList) then
+ begin
+  l_Preview := dsList.MakeDocumentPreview;
+  if (l_Preview <> nil) then
+   l_Preview.Print;
+ end;//if Assigned(dsDocumentList) then
+//#UC END# *4C52879C00F4_4C46AA3401DBexec_impl*
+end;//TPrimListOptionsForm.Document_Print_Execute
+
+procedure TPrimListOptionsForm.WarnListFiltered_ClearAll_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Отменить все фильтры }
-//#UC START# *4C5290E2008C_4C46AA3401DB_var*
-//#UC END# *4C5290E2008C_4C46AA3401DB_var*
+//#UC START# *4C5290E2008C_4C46AA3401DBexec_var*
+//#UC END# *4C5290E2008C_4C46AA3401DBexec_var*
 begin
-//#UC START# *4C5290E2008C_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C5290E2008C_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.ClearAll
+//#UC START# *4C5290E2008C_4C46AA3401DBexec_impl*
+ ClearFilters;
+//#UC END# *4C5290E2008C_4C46AA3401DBexec_impl*
+end;//TPrimListOptionsForm.WarnListFiltered_ClearAll_Execute
 
-procedure TPrimListOptionsForm.RemListModified;
-//#UC START# *4C52914202E1_4C46AA3401DB_var*
-//#UC END# *4C52914202E1_4C46AA3401DB_var*
+procedure TPrimListOptionsForm.Reminder_RemListModified_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C52914202E1_4C46AA3401DBtest_var*
+//#UC END# *4C52914202E1_4C46AA3401DBtest_var*
 begin
-//#UC START# *4C52914202E1_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C52914202E1_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.RemListModified
+//#UC START# *4C52914202E1_4C46AA3401DBtest_impl*
+ aParams.Op.Flag[vcm_ofVisible] := Assigned(dsList) and dsList.IsChanged;
+//#UC END# *4C52914202E1_4C46AA3401DBtest_impl*
+end;//TPrimListOptionsForm.Reminder_RemListModified_Test
 
-procedure TPrimListOptionsForm.RemListFiltered;
-//#UC START# *4C52915602E4_4C46AA3401DB_var*
-//#UC END# *4C52915602E4_4C46AA3401DB_var*
+procedure TPrimListOptionsForm.Reminder_RemListModified_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C52914202E1_4C46AA3401DBexec_var*
+//#UC END# *4C52914202E1_4C46AA3401DBexec_var*
 begin
-//#UC START# *4C52915602E4_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C52915602E4_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.RemListFiltered
+//#UC START# *4C52914202E1_4C46AA3401DBexec_impl*
+ Say(inf_ListWasModified);
+//#UC END# *4C52914202E1_4C46AA3401DBexec_impl*
+end;//TPrimListOptionsForm.Reminder_RemListModified_Execute
 
-procedure TPrimListOptionsForm.RemListTimeMachineWarning;
-//#UC START# *4C5292A60085_4C46AA3401DB_var*
-//#UC END# *4C5292A60085_4C46AA3401DB_var*
+procedure TPrimListOptionsForm.Reminder_RemListFiltered_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C52915602E4_4C46AA3401DBtest_var*
+//#UC END# *4C52915602E4_4C46AA3401DBtest_var*
 begin
-//#UC START# *4C5292A60085_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C5292A60085_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.RemListTimeMachineWarning
+//#UC START# *4C52915602E4_4C46AA3401DBtest_impl*
+ aParams.Op.Flag[vcm_ofVisible] := Assigned(dsList) and dsList.IsFiltered;
+//#UC END# *4C52915602E4_4C46AA3401DBtest_impl*
+end;//TPrimListOptionsForm.Reminder_RemListFiltered_Test
 
-procedure TPrimListOptionsForm.WorkWithList;
+procedure TPrimListOptionsForm.Reminder_RemListFiltered_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C52915602E4_4C46AA3401DBexec_var*
+//#UC END# *4C52915602E4_4C46AA3401DBexec_var*
+begin
+//#UC START# *4C52915602E4_4C46AA3401DBexec_impl*
+ MessageDlg(l3Cat(remListFiltered.Hint, '.'), 'TPrimListOptionsForm.Reminder_RemListFiltered_Execute');
+//#UC END# *4C52915602E4_4C46AA3401DBexec_impl*
+end;//TPrimListOptionsForm.Reminder_RemListFiltered_Execute
+
+procedure TPrimListOptionsForm.Reminder_RemListTimeMachineWarning_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C5292A60085_4C46AA3401DBtest_var*
+//#UC END# *4C5292A60085_4C46AA3401DBtest_var*
+begin
+//#UC START# *4C5292A60085_4C46AA3401DBtest_impl*
+ aParams.Op.Flag[vcm_ofVisible] := Assigned(dsList) and
+  dsList.IsTimeMachineEnable and defDataAdapter.TimeMachine.IsOn;
+ if aParams.Op.Flag[vcm_ofVisible] then
+  aParams.Op.Caption := DefDataAdapter.TimeMachine.DateStr
+ else
+  aParams.Op.Caption := nil;
+//#UC END# *4C5292A60085_4C46AA3401DBtest_impl*
+end;//TPrimListOptionsForm.Reminder_RemListTimeMachineWarning_Test
+
+procedure TPrimListOptionsForm.List_WorkWithList_Test(const aParams: IvcmTestParamsPrim);
  {* Работа со списком }
-//#UC START# *4F82C5D50033_4C46AA3401DB_var*
-//#UC END# *4F82C5D50033_4C46AA3401DB_var*
-begin
-//#UC START# *4F82C5D50033_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4F82C5D50033_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.WorkWithList
+//#UC START# *4F82C5D50033_4C46AA3401DBtest_var*
 
-procedure TPrimListOptionsForm.OpenDocumentInNewTab;
+ function lp_MakeAvailableOps: IvcmItems;
+   {-}
+ begin//lp_MakeAvailableOps
+  if (f_ListOpsList = nil) then
+   f_ListOpsList := TvcmItems.Make;
+  if (f_ListOpsList.Count = 0) then
+  begin
+   f_ListOpsList.AddOp(TdmStdRes.opcode_Selection_Analize);
+   f_ListOpsList.AddOp(TdmStdRes.opcode_List_SwitchToFullList);
+   f_ListOpsList.AddOp(TdmStdRes.opcode_Filters_FiltersListOpen, vcmCStr(str_ApplyFilters));
+   f_ListOpsList.AddOp(TdmStdRes.opcode_LocalList_SearchInList);
+   f_ListOpsList.AddOp(TdmStdRes.opcode_List_Sort);
+  end;//f_ListOpsList.Count = 0
+  Result := f_ListOpsList;
+ end;//lp_MakeAvailableOps
+
+var
+ l_List : IvcmItems;
+//#UC END# *4F82C5D50033_4C46AA3401DBtest_var*
+begin
+//#UC START# *4F82C5D50033_4C46AA3401DBtest_impl*
+ l_List := lp_MakeAvailableOps;
+ aParams.Op.SubItems := l_List;
+ aParams.Op.Flag[vcm_ofEnabled] := (l_List <> nil) AND (l_List.Count > 0);
+//#UC END# *4F82C5D50033_4C46AA3401DBtest_impl*
+end;//TPrimListOptionsForm.List_WorkWithList_Test
+
+procedure TPrimListOptionsForm.DocumentInList_OpenDocumentInNewTab_Test(const aParams: IvcmTestParamsPrim);
  {* Открыть документ в новой вкладке }
-//#UC START# *53DB36DC031F_4C46AA3401DB_var*
-//#UC END# *53DB36DC031F_4C46AA3401DB_var*
+//#UC START# *53DB36DC031F_4C46AA3401DBtest_var*
+//#UC END# *53DB36DC031F_4C46AA3401DBtest_var*
 begin
-//#UC START# *53DB36DC031F_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53DB36DC031F_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.OpenDocumentInNewTab
+//#UC START# *53DB36DC031F_4C46AA3401DBtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (not IsListEmpty) and NoMoreThanOneSelected
+  and HasCurrent and (aParams.Control = tvList);
+ // - http://mdp.garant.ru/pages/viewpage.action?pageId=561019302
+//#UC END# *53DB36DC031F_4C46AA3401DBtest_impl*
+end;//TPrimListOptionsForm.DocumentInList_OpenDocumentInNewTab_Test
 
-procedure TPrimListOptionsForm.OpenDocumentInNewWindow;
+procedure TPrimListOptionsForm.DocumentInList_OpenDocumentInNewTab_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Открыть документ в новой вкладке }
+//#UC START# *53DB36DC031F_4C46AA3401DBexec_var*
+//#UC END# *53DB36DC031F_4C46AA3401DBexec_var*
+begin
+//#UC START# *53DB36DC031F_4C46AA3401DBexec_impl*
+ OpenSelectedDocumentInContainer(vcm_okInNewTab, True);
+//#UC END# *53DB36DC031F_4C46AA3401DBexec_impl*
+end;//TPrimListOptionsForm.DocumentInList_OpenDocumentInNewTab_Execute
+
+procedure TPrimListOptionsForm.DocumentInList_OpenDocumentInNewWindow_Test(const aParams: IvcmTestParamsPrim);
  {* Открыть документ в новом окне }
-//#UC START# *53DB36F40164_4C46AA3401DB_var*
-//#UC END# *53DB36F40164_4C46AA3401DB_var*
+//#UC START# *53DB36F40164_4C46AA3401DBtest_var*
+//#UC END# *53DB36F40164_4C46AA3401DBtest_var*
 begin
-//#UC START# *53DB36F40164_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53DB36F40164_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.OpenDocumentInNewWindow
+//#UC START# *53DB36F40164_4C46AA3401DBtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := NoMoreThanOneSelected and HasCurrent and
+  (not IsListEmpty) and (aParams.Control = tvList); 
+//#UC END# *53DB36F40164_4C46AA3401DBtest_impl*
+end;//TPrimListOptionsForm.DocumentInList_OpenDocumentInNewWindow_Test
 
-procedure TPrimListOptionsForm.MakeHyperlinkToDocument;
+procedure TPrimListOptionsForm.DocumentInList_OpenDocumentInNewWindow_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Открыть документ в новом окне }
+//#UC START# *53DB36F40164_4C46AA3401DBexec_var*
+//#UC END# *53DB36F40164_4C46AA3401DBexec_var*
+begin
+//#UC START# *53DB36F40164_4C46AA3401DBexec_impl*
+ OpenSelectedDocumentInContainer(vcm_okInNewWindow);
+//#UC END# *53DB36F40164_4C46AA3401DBexec_impl*
+end;//TPrimListOptionsForm.DocumentInList_OpenDocumentInNewWindow_Execute
+
+procedure TPrimListOptionsForm.SelectedDocuments_MakeHyperlinkToDocument_Test(const aParams: IvcmTestParamsPrim);
  {* Создать ссылку на документ }
-//#UC START# *53DB37280279_4C46AA3401DB_var*
-//#UC END# *53DB37280279_4C46AA3401DB_var*
+//#UC START# *53DB37280279_4C46AA3401DBtest_var*
+//#UC END# *53DB37280279_4C46AA3401DBtest_var*
 begin
-//#UC START# *53DB37280279_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53DB37280279_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.MakeHyperlinkToDocument
+//#UC START# *53DB37280279_4C46AA3401DBtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (HyperlinkDocID > 0) AND
+                                    NoMoreThanOneSelected AND
+                                   (not l3IsNil(HyperlinkDocumentName)) AND
+                                   (aParams.Control = tvList);
+ // - http://mdp.garant.ru/pages/viewpage.action?pageId=530839714
+//#UC END# *53DB37280279_4C46AA3401DBtest_impl*
+end;//TPrimListOptionsForm.SelectedDocuments_MakeHyperlinkToDocument_Test
 
-procedure TPrimListOptionsForm.OrAnotherListForReminders;
-//#UC START# *545B94BE0081_4C46AA3401DB_var*
-//#UC END# *545B94BE0081_4C46AA3401DB_var*
+procedure TPrimListOptionsForm.SelectedDocuments_MakeHyperlinkToDocument_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Создать ссылку на документ }
+//#UC START# *53DB37280279_4C46AA3401DBexec_var*
+//#UC END# *53DB37280279_4C46AA3401DBexec_var*
 begin
-//#UC START# *545B94BE0081_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *545B94BE0081_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.OrAnotherListForReminders
+//#UC START# *53DB37280279_4C46AA3401DBexec_impl*
+ Document_MakeHyperlinkToDocument_Execute(aParams);
+//#UC END# *53DB37280279_4C46AA3401DBexec_impl*
+end;//TPrimListOptionsForm.SelectedDocuments_MakeHyperlinkToDocument_Execute
 
-procedure TPrimListOptionsForm.AndAnotherListForReminders;
-//#UC START# *545B94DA0240_4C46AA3401DB_var*
-//#UC END# *545B94DA0240_4C46AA3401DB_var*
+procedure TPrimListOptionsForm.List_OrAnotherListForReminders_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *545B94BE0081_4C46AA3401DBtest_var*
+//#UC END# *545B94BE0081_4C46AA3401DBtest_var*
 begin
-//#UC START# *545B94DA0240_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *545B94DA0240_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.AndAnotherListForReminders
+//#UC START# *545B94BE0081_4C46AA3401DBtest_impl*
+ List_OrAnotherList_Test(aParams);
+ if (aParams.Control = tvList) then
+   aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *545B94BE0081_4C46AA3401DBtest_impl*
+end;//TPrimListOptionsForm.List_OrAnotherListForReminders_Test
 
-procedure TPrimListOptionsForm.AndNotAnotherListForReminders;
-//#UC START# *545B94E90205_4C46AA3401DB_var*
-//#UC END# *545B94E90205_4C46AA3401DB_var*
+procedure TPrimListOptionsForm.List_OrAnotherListForReminders_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *545B94BE0081_4C46AA3401DBexec_var*
+//#UC END# *545B94BE0081_4C46AA3401DBexec_var*
 begin
-//#UC START# *545B94E90205_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *545B94E90205_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.AndNotAnotherListForReminders
+//#UC START# *545B94BE0081_4C46AA3401DBexec_impl*
+ List_OrAnotherList_Execute(aParams);
+//#UC END# *545B94BE0081_4C46AA3401DBexec_impl*
+end;//TPrimListOptionsForm.List_OrAnotherListForReminders_Execute
 
-procedure TPrimListOptionsForm.AddToControl;
+procedure TPrimListOptionsForm.List_AndAnotherListForReminders_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *545B94DA0240_4C46AA3401DBtest_var*
+//#UC END# *545B94DA0240_4C46AA3401DBtest_var*
+begin
+//#UC START# *545B94DA0240_4C46AA3401DBtest_impl*
+ List_AndAnotherList_Test(aParams);
+ if (aParams.Control = tvList) then
+   aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *545B94DA0240_4C46AA3401DBtest_impl*
+end;//TPrimListOptionsForm.List_AndAnotherListForReminders_Test
+
+procedure TPrimListOptionsForm.List_AndAnotherListForReminders_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *545B94DA0240_4C46AA3401DBexec_var*
+//#UC END# *545B94DA0240_4C46AA3401DBexec_var*
+begin
+//#UC START# *545B94DA0240_4C46AA3401DBexec_impl*
+ List_AndAnotherList_Execute(aParams);
+//#UC END# *545B94DA0240_4C46AA3401DBexec_impl*
+end;//TPrimListOptionsForm.List_AndAnotherListForReminders_Execute
+
+procedure TPrimListOptionsForm.List_AndNotAnotherListForReminders_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *545B94E90205_4C46AA3401DBtest_var*
+//#UC END# *545B94E90205_4C46AA3401DBtest_var*
+begin
+//#UC START# *545B94E90205_4C46AA3401DBtest_impl*
+ List_AndNotAnotherList_Test(aParams);
+ if (aParams.Control = tvList) then
+   aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *545B94E90205_4C46AA3401DBtest_impl*
+end;//TPrimListOptionsForm.List_AndNotAnotherListForReminders_Test
+
+procedure TPrimListOptionsForm.List_AndNotAnotherListForReminders_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *545B94E90205_4C46AA3401DBexec_var*
+//#UC END# *545B94E90205_4C46AA3401DBexec_var*
+begin
+//#UC START# *545B94E90205_4C46AA3401DBexec_impl*
+ List_AndNotAnotherList_Execute(aParams);
+//#UC END# *545B94E90205_4C46AA3401DBexec_impl*
+end;//TPrimListOptionsForm.List_AndNotAnotherListForReminders_Execute
+
+procedure TPrimListOptionsForm.SelectedDocuments_AddToControl_Test(const aParams: IvcmTestParamsPrim);
  {* Поставить на контроль }
-//#UC START# *551D2A900072_4C46AA3401DB_var*
-//#UC END# *551D2A900072_4C46AA3401DB_var*
+//#UC START# *551D2A900072_4C46AA3401DBtest_var*
+//#UC END# *551D2A900072_4C46AA3401DBtest_var*
 begin
-//#UC START# *551D2A900072_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551D2A900072_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.AddToControl
+//#UC START# *551D2A900072_4C46AA3401DBtest_impl*
+ Document_AddToControl_Test(aParams);
+//#UC END# *551D2A900072_4C46AA3401DBtest_impl*
+end;//TPrimListOptionsForm.SelectedDocuments_AddToControl_Test
+
+procedure TPrimListOptionsForm.SelectedDocuments_AddToControl_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Поставить на контроль }
+//#UC START# *551D2A900072_4C46AA3401DBexec_var*
+//#UC END# *551D2A900072_4C46AA3401DBexec_var*
+begin
+//#UC START# *551D2A900072_4C46AA3401DBexec_impl*
+ Document_AddToControl_Execute(aParams);
+//#UC END# *551D2A900072_4C46AA3401DBexec_impl*
+end;//TPrimListOptionsForm.SelectedDocuments_AddToControl_Execute
+
+procedure TPrimListOptionsForm.SelectedDocuments_AddToControl_GetState(var State: TvcmOperationStateIndex);
+ {* Поставить на контроль }
+//#UC START# *551D2A900072_4C46AA3401DBgetstate_var*
+//#UC END# *551D2A900072_4C46AA3401DBgetstate_var*
+begin
+//#UC START# *551D2A900072_4C46AA3401DBgetstate_impl*
+ Document_AddToControl_GetState(State);
+//#UC END# *551D2A900072_4C46AA3401DBgetstate_impl*
+end;//TPrimListOptionsForm.SelectedDocuments_AddToControl_GetState
 
 procedure TPrimListOptionsForm.Cleanup;
  {* Функция очистки полей объекта. }
@@ -1376,30 +1944,6 @@ begin
  f_NeedDropCRList := True;
 //#UC END# *47EA8B9601FE_4C46AA3401DB_impl*
 end;//TPrimListOptionsForm.SettingsReplaceFinish
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimListOptionsForm.Copy;
- {* Копировать }
-//#UC START# *4951284902BD_4C46AA3401DB_var*
-//#UC END# *4951284902BD_4C46AA3401DB_var*
-begin
-//#UC START# *4951284902BD_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4951284902BD_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.Copy
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimListOptionsForm.FindContext;
- {* Поиск }
-//#UC START# *49512B5D0009_4C46AA3401DB_var*
-//#UC END# *49512B5D0009_4C46AA3401DB_var*
-begin
-//#UC START# *49512B5D0009_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49512B5D0009_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.FindContext
-{$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
 procedure TPrimListOptionsForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
@@ -1485,68 +2029,6 @@ begin
  cfList.Images := dmStdRes.SmallImageList;
 //#UC END# *49803F5503AA_4C46AA3401DB_impl*
 end;//TPrimListOptionsForm.DoInit
-{$IfEnd} // NOT Defined(NoVCM)
-
-procedure TPrimListOptionsForm.SaveToFolder;
- {* Сохранить в папки }
-//#UC START# *49885D540232_4C46AA3401DB_var*
-//#UC END# *49885D540232_4C46AA3401DB_var*
-begin
-//#UC START# *49885D540232_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49885D540232_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.SaveToFolder
-
-procedure TPrimListOptionsForm.LoadFromFolder;
- {* Загрузить из папок }
-//#UC START# *49885D59018D_4C46AA3401DB_var*
-//#UC END# *49885D59018D_4C46AA3401DB_var*
-begin
-//#UC START# *49885D59018D_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49885D59018D_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.LoadFromFolder
-
-procedure TPrimListOptionsForm.AddToControl;
- {* Поставить на контроль }
-//#UC START# *498863B203D0_4C46AA3401DB_var*
-//#UC END# *498863B203D0_4C46AA3401DB_var*
-begin
-//#UC START# *498863B203D0_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *498863B203D0_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.AddToControl
-
-procedure TPrimListOptionsForm.GetAttributesFrmAct;
- {* Информация о документе }
-//#UC START# *498891640253_4C46AA3401DB_var*
-//#UC END# *498891640253_4C46AA3401DB_var*
-begin
-//#UC START# *498891640253_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *498891640253_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.GetAttributesFrmAct
-
-procedure TPrimListOptionsForm.GetRelatedDocFrmAct;
- {* Справка к документу }
-//#UC START# *498993C801DC_4C46AA3401DB_var*
-//#UC END# *498993C801DC_4C46AA3401DB_var*
-begin
-//#UC START# *498993C801DC_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *498993C801DC_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.GetRelatedDocFrmAct
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimListOptionsForm.Deselect;
- {* Снять выделение }
-//#UC START# *49EE01BC022E_4C46AA3401DB_var*
-//#UC END# *49EE01BC022E_4C46AA3401DB_var*
-begin
-//#UC START# *49EE01BC022E_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EE01BC022E_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.Deselect
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
@@ -1644,195 +2126,6 @@ begin
 end;//TPrimListOptionsForm.EntitiesInited
 {$IfEnd} // NOT Defined(NoVCM)
 
-procedure TPrimListOptionsForm.TimeMachineOnOffNew;
- {* Включить Машину времени }
-//#UC START# *4B261EC80086_4C46AA3401DB_var*
-//#UC END# *4B261EC80086_4C46AA3401DB_var*
-begin
-//#UC START# *4B261EC80086_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4B261EC80086_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.TimeMachineOnOffNew
-
-procedure TPrimListOptionsForm.SwitchToFullList;
- {* Построить полный список }
-//#UC START# *4B556F56016B_4C46AA3401DB_var*
-//#UC END# *4B556F56016B_4C46AA3401DB_var*
-begin
-//#UC START# *4B556F56016B_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4B556F56016B_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.SwitchToFullList
-
-procedure TPrimListOptionsForm.ListInfo;
-//#UC START# *4C3716AC02AC_4C46AA3401DB_var*
-//#UC END# *4C3716AC02AC_4C46AA3401DB_var*
-begin
-//#UC START# *4C3716AC02AC_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3716AC02AC_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.ListInfo
-
-procedure TPrimListOptionsForm.Sort;
-//#UC START# *4C3716C50005_4C46AA3401DB_var*
-//#UC END# *4C3716C50005_4C46AA3401DB_var*
-begin
-//#UC START# *4C3716C50005_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3716C50005_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.Sort
-
-procedure TPrimListOptionsForm.SortDirection;
-//#UC START# *4C3716D1012E_4C46AA3401DB_var*
-//#UC END# *4C3716D1012E_4C46AA3401DB_var*
-begin
-//#UC START# *4C3716D1012E_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3716D1012E_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.SortDirection
-
-procedure TPrimListOptionsForm.SpecifyList;
-//#UC START# *4C3716E20109_4C46AA3401DB_var*
-//#UC END# *4C3716E20109_4C46AA3401DB_var*
-begin
-//#UC START# *4C3716E20109_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3716E20109_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.SpecifyList
-
-procedure TPrimListOptionsForm.ExportToXML;
-//#UC START# *4C3716EF02DF_4C46AA3401DB_var*
-//#UC END# *4C3716EF02DF_4C46AA3401DB_var*
-begin
-//#UC START# *4C3716EF02DF_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3716EF02DF_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.ExportToXML
-
-procedure TPrimListOptionsForm.FiltersList;
-//#UC START# *4C3740FA02D7_4C46AA3401DB_var*
-//#UC END# *4C3740FA02D7_4C46AA3401DB_var*
-begin
-//#UC START# *4C3740FA02D7_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3740FA02D7_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.FiltersList
-
-procedure TPrimListOptionsForm.PublishSourceSearchInList;
- {* Искать по источнику опубликования в текущем списке }
-//#UC START# *4C3A96BD0239_4C46AA3401DB_var*
-//#UC END# *4C3A96BD0239_4C46AA3401DB_var*
-begin
-//#UC START# *4C3A96BD0239_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3A96BD0239_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.PublishSourceSearchInList
-
-procedure TPrimListOptionsForm.SearchDrugInList;
-//#UC START# *4C3A97210318_4C46AA3401DB_var*
-//#UC END# *4C3A97210318_4C46AA3401DB_var*
-begin
-//#UC START# *4C3A97210318_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3A97210318_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.SearchDrugInList
-
-procedure TPrimListOptionsForm.GetAnnotationDocFrmAct;
-//#UC START# *4C3AA77E00A3_4C46AA3401DB_var*
-//#UC END# *4C3AA77E00A3_4C46AA3401DB_var*
-begin
-//#UC START# *4C3AA77E00A3_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3AA77E00A3_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.GetAnnotationDocFrmAct
-
-procedure TPrimListOptionsForm.SimilarDocuments;
-//#UC START# *4C3AA78E024D_4C46AA3401DB_var*
-//#UC END# *4C3AA78E024D_4C46AA3401DB_var*
-begin
-//#UC START# *4C3AA78E024D_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3AA78E024D_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.SimilarDocuments
-
-procedure TPrimListOptionsForm.SetType;
-//#UC START# *4C3AA94D0041_4C46AA3401DB_var*
-//#UC END# *4C3AA94D0041_4C46AA3401DB_var*
-begin
-//#UC START# *4C3AA94D0041_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3AA94D0041_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.SetType
-
-procedure TPrimListOptionsForm.OpenNewWindow;
- {* Открыть текущий список в новом окне }
-//#UC START# *4C46E7160275_4C46AA3401DB_var*
-//#UC END# *4C46E7160275_4C46AA3401DB_var*
-begin
-//#UC START# *4C46E7160275_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C46E7160275_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.OpenNewWindow
-
-procedure TPrimListOptionsForm.CopyToNewList;
-//#UC START# *4C46EB11016B_4C46AA3401DB_var*
-//#UC END# *4C46EB11016B_4C46AA3401DB_var*
-begin
-//#UC START# *4C46EB11016B_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C46EB11016B_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.CopyToNewList
-
-procedure TPrimListOptionsForm.Analize;
- {* Анализ списка... }
-//#UC START# *4C8103FB02FD_4C46AA3401DB_var*
-//#UC END# *4C8103FB02FD_4C46AA3401DB_var*
-begin
-//#UC START# *4C8103FB02FD_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8103FB02FD_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.Analize
-
-procedure TPrimListOptionsForm.SearchInList;
- {* Искать по реквизитам в текущем списке }
-//#UC START# *4C810A2702D9_4C46AA3401DB_var*
-//#UC END# *4C810A2702D9_4C46AA3401DB_var*
-begin
-//#UC START# *4C810A2702D9_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C810A2702D9_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.SearchInList
-
-procedure TPrimListOptionsForm.FiltersListOpen;
- {* Фильтры (вкладка) }
-//#UC START# *4C81191003E5_4C46AA3401DB_var*
-//#UC END# *4C81191003E5_4C46AA3401DB_var*
-begin
-//#UC START# *4C81191003E5_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C81191003E5_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.FiltersListOpen
-
-procedure TPrimListOptionsForm.MakeHyperlinkToDocument;
- {* Создать ссылку на документ }
-//#UC START# *4CDD5C3901E0_4C46AA3401DB_var*
-//#UC END# *4CDD5C3901E0_4C46AA3401DB_var*
-begin
-//#UC START# *4CDD5C3901E0_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4CDD5C3901E0_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.MakeHyperlinkToDocument
-
-procedure TPrimListOptionsForm.MakeHyperlinkToDocument;
- {* Создать ссылку на документ }
-//#UC START# *4CDE7C2C0258_4C46AA3401DB_var*
-//#UC END# *4CDE7C2C0258_4C46AA3401DB_var*
-begin
-//#UC START# *4CDE7C2C0258_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4CDE7C2C0258_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.MakeHyperlinkToDocument
-
 procedure TPrimListOptionsForm.ClearFields;
 begin
  f_ListOpsList := nil;
@@ -1854,16 +2147,6 @@ begin
 end;//TPrimListOptionsForm.ReleaseResources
 {$IfEnd} // NOT Defined(NoVCM)
 
-procedure TPrimListOptionsForm.Analize;
- {* Анализ списка }
-//#UC START# *53DB376C0239_4C46AA3401DB_var*
-//#UC END# *53DB376C0239_4C46AA3401DB_var*
-begin
-//#UC START# *53DB376C0239_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53DB376C0239_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.Analize
-
 {$If NOT Defined(NoVCM)}
 function TPrimListOptionsForm.DoGetTabCaption: IvcmCString;
 //#UC START# *53F1C6EF02C9_4C46AA3401DB_var*
@@ -1881,16 +2164,6 @@ begin
 //#UC END# *53F1C6EF02C9_4C46AA3401DB_impl*
 end;//TPrimListOptionsForm.DoGetTabCaption
 {$IfEnd} // NOT Defined(NoVCM)
-
-procedure TPrimListOptionsForm.AnalizeList;
- {* Анализ списка... }
-//#UC START# *53FF40030272_4C46AA3401DB_var*
-//#UC END# *53FF40030272_4C46AA3401DB_var*
-begin
-//#UC START# *53FF40030272_4C46AA3401DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53FF40030272_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.AnalizeList
 
 initialization
  str_remListModifiedHint.Init;

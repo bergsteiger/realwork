@@ -16,7 +16,8 @@ uses
 type
  TBaseWorkJournalModule = class
   protected
-   procedure OpenJournal;
+   procedure BaseWorkJournal_OpenJournal_Test(const aParams: IvcmTestParamsPrim);
+   procedure BaseWorkJournal_OpenJournal_Execute(const aParams: IvcmExecuteParamsPrim);
   public
    function MakeWorkJournal: IbsWorkJournal;
  end;//TBaseWorkJournalModule
@@ -43,14 +44,29 @@ begin
 //#UC END# *4A827E40004E_4A811C1A0293_impl*
 end;//TBaseWorkJournalModule.MakeWorkJournal
 
-procedure TBaseWorkJournalModule.OpenJournal;
-//#UC START# *4A97C7C0019C_4A811C1A0293_var*
-//#UC END# *4A97C7C0019C_4A811C1A0293_var*
+procedure TBaseWorkJournalModule.BaseWorkJournal_OpenJournal_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4A97C7C0019C_4A811C1A0293test_var*
+//#UC END# *4A97C7C0019C_4A811C1A0293test_var*
 begin
-//#UC START# *4A97C7C0019C_4A811C1A0293_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A97C7C0019C_4A811C1A0293_impl*
-end;//TBaseWorkJournalModule.OpenJournal
+//#UC START# *4A97C7C0019C_4A811C1A0293test_impl*
+// Do nothing
+//#UC END# *4A97C7C0019C_4A811C1A0293test_impl*
+end;//TBaseWorkJournalModule.BaseWorkJournal_OpenJournal_Test
+
+procedure TBaseWorkJournalModule.BaseWorkJournal_OpenJournal_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4A97C7C0019C_4A811C1A0293exec_var*
+var
+ l_Window: IvcmEntityForm;
+//#UC END# *4A97C7C0019C_4A811C1A0293exec_var*
+begin
+//#UC START# *4A97C7C0019C_4A811C1A0293exec_impl*
+ l_Window := TWorkJournalForm.MakeSingleChild(DefaultContainer,
+                               vcmMakeParams(nil, DefaultContainer),
+                               vcm_ztNavigator,
+                               Ord(utWorkJournal));
+ l_Window.SetActiveInParent;
+//#UC END# *4A97C7C0019C_4A811C1A0293exec_impl*
+end;//TBaseWorkJournalModule.BaseWorkJournal_OpenJournal_Execute
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

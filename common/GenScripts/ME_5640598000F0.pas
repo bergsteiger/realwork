@@ -15,7 +15,7 @@ uses
 ;
 
 type
- TdaLogicCondition = class(TdaCondition, IdaCondition)
+ TdaLogicCondition = class(TdaCondition)
   private
    f_Left: IdaCondition;
    f_Right: IdaCondition;

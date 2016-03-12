@@ -255,6 +255,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 var g_Tfs_List: Tfs_List = nil;
  {* Экземпляр синглетона Tfs_List }
 
@@ -583,7 +584,6 @@ begin
 //#UC END# *47A042E100E2_4AA4D6C7036F_impl*
 end;//Tfs_List.InitFields
 
-{$If NOT Defined(NoVCM)}
 class function Tfs_List.GetInstance: TvcmFormSetFactoryPrim;
 //#UC START# *4FFE854A009B_4AA4D6C7036F_var*
 //#UC END# *4FFE854A009B_4AA4D6C7036F_var*
@@ -592,9 +592,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4FFE854A009B_4AA4D6C7036F_impl*
 end;//Tfs_List.GetInstance
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function Tfs_List.GetFormSetImplementation: RvcmFormSet;
  {* Возвращает класс реализации сборки }
 //#UC START# *52973E60005E_4AA4D6C7036F_var*
@@ -604,9 +602,7 @@ begin
  Result := TfstList;
 //#UC END# *52973E60005E_4AA4D6C7036F_impl*
 end;//Tfs_List.GetFormSetImplementation
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure Tfs_List.InitForms(const aParams: IvcmFormSetRefreshParams);
  {* Вызывается при создании сборки перед Refresh для инициализации нужных флажков на сборке. }
 //#UC START# *52EA619F02FA_4AA4D6C7036F_var*
@@ -786,11 +782,11 @@ begin
  end;
 //#UC END# *52EA619F02FA_4AA4D6C7036F_impl*
 end;//Tfs_List.InitForms
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_fsListCaption.Init;
  {* Инициализация str_fsListCaption }
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

@@ -55,9 +55,9 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
 
-{$If NOT Defined(NoVCM)}
 procedure TVerticalCursorMovingTest.DoVisit(aForm: TPrimTextLoadForm);
  {* Обработать текст }
 //#UC START# *4BE419AF0217_4D79E1800396_var*
@@ -76,7 +76,6 @@ begin
  Check(aForm.Text.Selection.Cursor.MostInner.Position = 10);
 //#UC END# *4BE419AF0217_4D79E1800396_impl*
 end;//TVerticalCursorMovingTest.DoVisit
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TVerticalCursorMovingTest.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -89,6 +88,7 @@ function TVerticalCursorMovingTest.GetModelElementGUID: AnsiString;
 begin
  Result := '4D79E1800396';
 end;//TVerticalCursorMovingTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

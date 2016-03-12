@@ -64,29 +64,47 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
-   procedure Delete; override;
+   procedure Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
     {* Удалить }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure BecomeActive; override;
    {$If NOT Defined(NoVCM)}
-   procedure ExpandAll; override;
+   procedure Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Delete_GetState(var State: TvcmOperationStateIndex);
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure Switcher_BecomeActive_Execute;
+   procedure Switcher_BecomeActive(const aParams: IvcmExecuteParamsPrim);
+   {$If NOT Defined(NoVCM)}
+   procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
     {* Развернуть все }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure CollapseAll; override;
+   procedure Tree_ExpandAll_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Развернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
     {* Свернуть все }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure DoActive; override;
-   procedure Modify; override;
-   procedure CopyConfig; override;
-   procedure ConfInfo; override;
-   procedure RestoreAllSettings; override;
-   procedure RestoreConf; override;
-   procedure SaveAsDefaultConf; override;
    {$If NOT Defined(NoVCM)}
-   procedure Delete; override;
-    {* Удалить }
+   procedure Tree_CollapseAll_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Свернуть все }
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure PopupMenu_DoActive_Test(const aParams: IvcmTestParamsPrim);
+   procedure PopupMenu_DoActive_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure PopupMenu_Modify_Test(const aParams: IvcmTestParamsPrim);
+   procedure PopupMenu_Modify_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure PopupMenu_CopyConfig_Test(const aParams: IvcmTestParamsPrim);
+   procedure PopupMenu_CopyConfig_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure PopupMenu_ConfInfo_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure PopupMenu_RestoreAllSettings_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure PopupMenu_RestoreConf_Test(const aParams: IvcmTestParamsPrim);
+   procedure PopupMenu_RestoreConf_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure PopupMenu_SaveAsDefaultConf_Test(const aParams: IvcmTestParamsPrim);
+   procedure PopupMenu_SaveAsDefaultConf_Execute(const aParams: IvcmExecuteParamsPrim);
   public
    property tvConfs: TnscTreeViewWithAdapterDragDrop
     read f_tvConfs;
@@ -121,6 +139,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки utConfigurationListLocalConstants }
  str_utConfigurationListCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utConfigurationListCaption'; rValue : 'Конфигурации');
@@ -324,127 +343,300 @@ begin
 //#UC END# *517176BE0397_4BD7279101C5_impl*
 end;//TPrimConfigurationListForm.GetConfImage
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimConfigurationListForm.Delete;
+procedure TPrimConfigurationListForm.Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
  {* Удалить }
-//#UC START# *494F89C30197_4BD7279101C5_var*
-//#UC END# *494F89C30197_4BD7279101C5_var*
+//#UC START# *494F89C30197_4BD7279101C5test_var*
+var
+ l_Conf : InsConfigNode;
+//#UC END# *494F89C30197_4BD7279101C5test_var*
 begin
-//#UC START# *494F89C30197_4BD7279101C5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *494F89C30197_4BD7279101C5_impl*
-end;//TPrimConfigurationListForm.Delete
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *494F89C30197_4BD7279101C5test_impl*
+ if Supports(tvConfs.TreeView.CurrentNode, InsConfigNode, l_Conf) then
+ try
+  with aParams do
+  begin
+   Op.Hint := vcmFmt(str_DeleteConfigConfirmHint, [l_Conf.Config.ConfigName]);
+   Op.Flag[vcm_ofEnabled] := not l_Conf.Config.IsActive and
+    not l_Conf.Config.IsPredefined;
+  end;//with aParams
+ finally
+  l_Conf := nil;
+ end;//try..finally
+//#UC END# *494F89C30197_4BD7279101C5test_impl*
+end;//TPrimConfigurationListForm.Edit_Delete_Test
 
-procedure TPrimConfigurationListForm.BecomeActive;
-//#UC START# *4A9807F801F9_4BD7279101C5_var*
-//#UC END# *4A9807F801F9_4BD7279101C5_var*
+procedure TPrimConfigurationListForm.Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Удалить }
+//#UC START# *494F89C30197_4BD7279101C5exec_var*
+var
+ l_ConfNode : InsConfigNode;
+//#UC END# *494F89C30197_4BD7279101C5exec_var*
 begin
-//#UC START# *4A9807F801F9_4BD7279101C5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A9807F801F9_4BD7279101C5_impl*
-end;//TPrimConfigurationListForm.BecomeActive
+//#UC START# *494F89C30197_4BD7279101C5exec_impl*
+ if Assigned(tvConfs.TreeView.CurrentNode) and
+  Supports(tvConfs.TreeView.CurrentNode, InsConfigNode, l_ConfNode) then
+ try
+  if Ask(qr_ConfigurationDelete, [l_ConfNode.Config.ConfigName]) then
+  try
+   ConfigurationList.DeleteConfig(l_ConfNode);
+   { Закроем форму если она была открыта }
+   Aggregate.Operation(TdmStdRes.opcode_Result_Cancel);
+  except
+   on EConfigurationIsActiveNow do
+    Say(err_ActiveConfigurationCannotDelete);
+  end;
+ finally
+  l_ConfNode := nil;
+ end;
+//#UC END# *494F89C30197_4BD7279101C5exec_impl*
+end;//TPrimConfigurationListForm.Edit_Delete_Execute
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimConfigurationListForm.ExpandAll;
+procedure TPrimConfigurationListForm.Edit_Delete_GetState(var State: TvcmOperationStateIndex);
+ {* Удалить }
+//#UC START# *494F89C30197_4BD7279101C5getstate_var*
+//#UC END# *494F89C30197_4BD7279101C5getstate_var*
+begin
+//#UC START# *494F89C30197_4BD7279101C5getstate_impl*
+ inherited;
+//#UC END# *494F89C30197_4BD7279101C5getstate_impl*
+end;//TPrimConfigurationListForm.Edit_Delete_GetState
+
+procedure TPrimConfigurationListForm.Switcher_BecomeActive_Execute;
+//#UC START# *4A9807F801F9_4BD7279101C5exec_var*
+//#UC END# *4A9807F801F9_4BD7279101C5exec_var*
+begin
+//#UC START# *4A9807F801F9_4BD7279101C5exec_impl*
+ SetActiveInParent;
+//#UC END# *4A9807F801F9_4BD7279101C5exec_impl*
+end;//TPrimConfigurationListForm.Switcher_BecomeActive_Execute
+
+procedure TPrimConfigurationListForm.Switcher_BecomeActive(const aParams: IvcmExecuteParamsPrim);
+begin
+ Self.Switcher_BecomeActive_Execute;
+end;//TPrimConfigurationListForm.Switcher_BecomeActive
+
+procedure TPrimConfigurationListForm.Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
  {* Развернуть все }
-//#UC START# *4BDAF7880236_4BD7279101C5_var*
-//#UC END# *4BDAF7880236_4BD7279101C5_var*
+//#UC START# *4BDAF7880236_4BD7279101C5test_var*
+//#UC END# *4BDAF7880236_4BD7279101C5test_var*
 begin
-//#UC START# *4BDAF7880236_4BD7279101C5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BDAF7880236_4BD7279101C5_impl*
-end;//TPrimConfigurationListForm.ExpandAll
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4BDAF7880236_4BD7279101C5test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4BDAF7880236_4BD7279101C5test_impl*
+end;//TPrimConfigurationListForm.Tree_ExpandAll_Test
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimConfigurationListForm.CollapseAll;
+procedure TPrimConfigurationListForm.Tree_ExpandAll_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Развернуть все }
+//#UC START# *4BDAF7880236_4BD7279101C5exec_var*
+//#UC END# *4BDAF7880236_4BD7279101C5exec_var*
+begin
+//#UC START# *4BDAF7880236_4BD7279101C5exec_impl*
+ inherited;
+//#UC END# *4BDAF7880236_4BD7279101C5exec_impl*
+end;//TPrimConfigurationListForm.Tree_ExpandAll_Execute
+
+procedure TPrimConfigurationListForm.Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
  {* Свернуть все }
-//#UC START# *4BDAF7A2005C_4BD7279101C5_var*
-//#UC END# *4BDAF7A2005C_4BD7279101C5_var*
+//#UC START# *4BDAF7A2005C_4BD7279101C5test_var*
+//#UC END# *4BDAF7A2005C_4BD7279101C5test_var*
 begin
-//#UC START# *4BDAF7A2005C_4BD7279101C5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BDAF7A2005C_4BD7279101C5_impl*
-end;//TPrimConfigurationListForm.CollapseAll
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4BDAF7A2005C_4BD7279101C5test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4BDAF7A2005C_4BD7279101C5test_impl*
+end;//TPrimConfigurationListForm.Tree_CollapseAll_Test
 
-procedure TPrimConfigurationListForm.DoActive;
-//#UC START# *4C4088D301A1_4BD7279101C5_var*
-//#UC END# *4C4088D301A1_4BD7279101C5_var*
+procedure TPrimConfigurationListForm.Tree_CollapseAll_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Свернуть все }
+//#UC START# *4BDAF7A2005C_4BD7279101C5exec_var*
+//#UC END# *4BDAF7A2005C_4BD7279101C5exec_var*
 begin
-//#UC START# *4C4088D301A1_4BD7279101C5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C4088D301A1_4BD7279101C5_impl*
-end;//TPrimConfigurationListForm.DoActive
+//#UC START# *4BDAF7A2005C_4BD7279101C5exec_impl*
+ inherited;
+//#UC END# *4BDAF7A2005C_4BD7279101C5exec_impl*
+end;//TPrimConfigurationListForm.Tree_CollapseAll_Execute
 
-procedure TPrimConfigurationListForm.Modify;
-//#UC START# *4C4088E801E0_4BD7279101C5_var*
-//#UC END# *4C4088E801E0_4BD7279101C5_var*
+procedure TPrimConfigurationListForm.PopupMenu_DoActive_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C4088D301A1_4BD7279101C5test_var*
+var
+ lConf : InsConfigNode;
+//#UC END# *4C4088D301A1_4BD7279101C5test_var*
 begin
-//#UC START# *4C4088E801E0_4BD7279101C5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C4088E801E0_4BD7279101C5_impl*
-end;//TPrimConfigurationListForm.Modify
+//#UC START# *4C4088D301A1_4BD7279101C5test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := Assigned(tvConfs.TreeView.CurrentNode);
+ if Assigned(tvConfs.TreeView.CurrentNode) and
+   Supports(tvConfs.TreeView.CurrentNode, InsConfigNode, lConf) then
+ try
+  aParams.Op.Flag[vcm_ofEnabled] := not lConf.Config.IsActive;
+ finally
+  lConf := nil;
+ end;
+//#UC END# *4C4088D301A1_4BD7279101C5test_impl*
+end;//TPrimConfigurationListForm.PopupMenu_DoActive_Test
 
-procedure TPrimConfigurationListForm.CopyConfig;
-//#UC START# *4C4088F60021_4BD7279101C5_var*
-//#UC END# *4C4088F60021_4BD7279101C5_var*
+procedure TPrimConfigurationListForm.PopupMenu_DoActive_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C4088D301A1_4BD7279101C5exec_var*
+//#UC END# *4C4088D301A1_4BD7279101C5exec_var*
 begin
-//#UC START# *4C4088F60021_4BD7279101C5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C4088F60021_4BD7279101C5_impl*
-end;//TPrimConfigurationListForm.CopyConfig
+//#UC START# *4C4088D301A1_4BD7279101C5exec_impl*
+ SetActiveConf;
+//#UC END# *4C4088D301A1_4BD7279101C5exec_impl*
+end;//TPrimConfigurationListForm.PopupMenu_DoActive_Execute
 
-procedure TPrimConfigurationListForm.ConfInfo;
-//#UC START# *4C40890403A9_4BD7279101C5_var*
-//#UC END# *4C40890403A9_4BD7279101C5_var*
+procedure TPrimConfigurationListForm.PopupMenu_Modify_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C4088E801E0_4BD7279101C5test_var*
+//#UC END# *4C4088E801E0_4BD7279101C5test_var*
 begin
-//#UC START# *4C40890403A9_4BD7279101C5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C40890403A9_4BD7279101C5_impl*
-end;//TPrimConfigurationListForm.ConfInfo
+//#UC START# *4C4088E801E0_4BD7279101C5test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := Assigned(tvConfs.TreeView.CurrentNode);
+//#UC END# *4C4088E801E0_4BD7279101C5test_impl*
+end;//TPrimConfigurationListForm.PopupMenu_Modify_Test
 
-procedure TPrimConfigurationListForm.RestoreAllSettings;
-//#UC START# *4C408917021D_4BD7279101C5_var*
-//#UC END# *4C408917021D_4BD7279101C5_var*
+procedure TPrimConfigurationListForm.PopupMenu_Modify_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C4088E801E0_4BD7279101C5exec_var*
+//#UC END# *4C4088E801E0_4BD7279101C5exec_var*
 begin
-//#UC START# *4C408917021D_4BD7279101C5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C408917021D_4BD7279101C5_impl*
-end;//TPrimConfigurationListForm.RestoreAllSettings
+//#UC START# *4C4088E801E0_4BD7279101C5exec_impl*
+ OpenConf;
+//#UC END# *4C4088E801E0_4BD7279101C5exec_impl*
+end;//TPrimConfigurationListForm.PopupMenu_Modify_Execute
 
-procedure TPrimConfigurationListForm.RestoreConf;
-//#UC START# *4C40892F0293_4BD7279101C5_var*
-//#UC END# *4C40892F0293_4BD7279101C5_var*
+procedure TPrimConfigurationListForm.PopupMenu_CopyConfig_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C4088F60021_4BD7279101C5test_var*
+//#UC END# *4C4088F60021_4BD7279101C5test_var*
 begin
-//#UC START# *4C40892F0293_4BD7279101C5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C40892F0293_4BD7279101C5_impl*
-end;//TPrimConfigurationListForm.RestoreConf
+//#UC START# *4C4088F60021_4BD7279101C5test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := Assigned(tvConfs.TreeView.CurrentNode);
+//#UC END# *4C4088F60021_4BD7279101C5test_impl*
+end;//TPrimConfigurationListForm.PopupMenu_CopyConfig_Test
 
-procedure TPrimConfigurationListForm.SaveAsDefaultConf;
-//#UC START# *4C408C950385_4BD7279101C5_var*
-//#UC END# *4C408C950385_4BD7279101C5_var*
+procedure TPrimConfigurationListForm.PopupMenu_CopyConfig_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C4088F60021_4BD7279101C5exec_var*
+var
+ l_eeNode   : IeeNode;
+ lConfNode : InsConfigNode;
+//#UC END# *4C4088F60021_4BD7279101C5exec_var*
 begin
-//#UC START# *4C408C950385_4BD7279101C5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C408C950385_4BD7279101C5_impl*
-end;//TPrimConfigurationListForm.SaveAsDefaultConf
+//#UC START# *4C4088F60021_4BD7279101C5exec_impl*
+ { Получим текущую конфигурацию }
+ if Supports(tvConfs.TreeView.CurrentNode, InsConfigNode, lConfNode) then
+ try
+  l_eeNode := ConfigurationList.CopyConfig(lConfNode,
+                                          vcmCStr(str_CopyConfSingle),
+                                          vcmCStr(str_CopyConfDuplicate)) as IeeNode;
+  try
+   tvConfs.TreeView.GotoNode(l_eeNode);
+   OpenConf(l_eeNode);
+  finally
+   l_eeNode := nil;
+  end;//try..finally
+ finally
+  lConfNode := nil;
+ end;//try..finally
+//#UC END# *4C4088F60021_4BD7279101C5exec_impl*
+end;//TPrimConfigurationListForm.PopupMenu_CopyConfig_Execute
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimConfigurationListForm.Delete;
- {* Удалить }
-//#UC START# *4C7D0CC90052_4BD7279101C5_var*
-//#UC END# *4C7D0CC90052_4BD7279101C5_var*
+procedure TPrimConfigurationListForm.PopupMenu_ConfInfo_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C40890403A9_4BD7279101C5exec_var*
+var
+ lConfNode : InsConfigNode;
+//#UC END# *4C40890403A9_4BD7279101C5exec_var*
 begin
-//#UC START# *4C7D0CC90052_4BD7279101C5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7D0CC90052_4BD7279101C5_impl*
-end;//TPrimConfigurationListForm.Delete
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4C40890403A9_4BD7279101C5exec_impl*
+ if Assigned(tvConfs.TreeView.CurrentNode) and
+   Supports(tvConfs.TreeView.CurrentNode, InsConfigNode, lConfNode) then
+ try
+  Say(inf_AnyInformation, [lConfNode.Config.ConfigHint]);
+ finally
+  lConfNode := nil;
+ end;
+//#UC END# *4C40890403A9_4BD7279101C5exec_impl*
+end;//TPrimConfigurationListForm.PopupMenu_ConfInfo_Execute
 
-{$If NOT Defined(NoVCM)}
+procedure TPrimConfigurationListForm.PopupMenu_RestoreAllSettings_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C408917021D_4BD7279101C5exec_var*
+var
+ l_ConfChild : InsConfigNode;
+//#UC END# *4C408917021D_4BD7279101C5exec_var*
+begin
+//#UC START# *4C408917021D_4BD7279101C5exec_impl*
+ if Assigned(tvConfs.TreeView.CurrentNode) and
+  Supports(tvConfs.TreeView.CurrentNode, InsConfigNode, l_ConfChild) then
+ try
+  if Ask(qr_RestoreAllSettings) then
+  begin
+   l_ConfChild.Config.RestoreAllSettings;
+   l_ConfChild.Config.DoneEditing;
+   tvConfs.Invalidate;
+  end;
+ finally
+  l_ConfChild := nil;
+ end;
+//#UC END# *4C408917021D_4BD7279101C5exec_impl*
+end;//TPrimConfigurationListForm.PopupMenu_RestoreAllSettings_Execute
+
+procedure TPrimConfigurationListForm.PopupMenu_RestoreConf_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C40892F0293_4BD7279101C5test_var*
+//#UC END# *4C40892F0293_4BD7279101C5test_var*
+begin
+//#UC START# *4C40892F0293_4BD7279101C5test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := IsCurrentConfChanged;
+//#UC END# *4C40892F0293_4BD7279101C5test_impl*
+end;//TPrimConfigurationListForm.PopupMenu_RestoreConf_Test
+
+procedure TPrimConfigurationListForm.PopupMenu_RestoreConf_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C40892F0293_4BD7279101C5exec_var*
+var
+ l_ConfChild : InsConfigNode;
+//#UC END# *4C40892F0293_4BD7279101C5exec_var*
+begin
+//#UC START# *4C40892F0293_4BD7279101C5exec_impl*
+ if Assigned(tvConfs.TreeView.CurrentNode) and
+  Supports(tvConfs.TreeView.CurrentNode, InsConfigNode, l_ConfChild) then
+ try
+  if Ask(qr_RestoreDefaultValuesConf) then
+  begin
+   l_ConfChild.Config.Load(True);
+   l_ConfChild.Config.DoneEditing;
+   tvConfs.Invalidate;
+  end;
+ finally
+  l_ConfChild := nil;
+ end;
+//#UC END# *4C40892F0293_4BD7279101C5exec_impl*
+end;//TPrimConfigurationListForm.PopupMenu_RestoreConf_Execute
+
+procedure TPrimConfigurationListForm.PopupMenu_SaveAsDefaultConf_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C408C950385_4BD7279101C5test_var*
+//#UC END# *4C408C950385_4BD7279101C5test_var*
+begin
+//#UC START# *4C408C950385_4BD7279101C5test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := IsCurrentConfChanged and not IsCurrentReadOnly;
+//#UC END# *4C408C950385_4BD7279101C5test_impl*
+end;//TPrimConfigurationListForm.PopupMenu_SaveAsDefaultConf_Test
+
+procedure TPrimConfigurationListForm.PopupMenu_SaveAsDefaultConf_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C408C950385_4BD7279101C5exec_var*
+var
+ l_ConfChild : InsConfigNode;
+//#UC END# *4C408C950385_4BD7279101C5exec_var*
+begin
+//#UC START# *4C408C950385_4BD7279101C5exec_impl*
+ if Assigned(tvConfs.TreeView.CurrentNode) and
+  Supports(tvConfs.TreeView.CurrentNode, InsConfigNode, l_ConfChild) then
+ try
+  if Ask(qr_SaveAsDefaultValuesConf) then
+  begin
+   l_ConfChild.Config.Load;
+   l_ConfChild.Config.Save(True);
+   l_ConfChild.Config.DoneEditing;
+   tvConfs.Invalidate;
+  end;
+ finally
+  l_ConfChild := nil;
+ end;
+//#UC END# *4C408C950385_4BD7279101C5exec_impl*
+end;//TPrimConfigurationListForm.PopupMenu_SaveAsDefaultConf_Execute
+
 procedure TPrimConfigurationListForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4BD7279101C5_var*
@@ -471,7 +663,6 @@ begin
  tvConfs.TreeView.Tree.Root := ConfigurationList.ConfigTree;
 //#UC END# *4A8E8F2E0195_4BD7279101C5_impl*
 end;//TPrimConfigurationListForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_utConfigurationListCaption.Init;
@@ -482,6 +673,7 @@ initialization
  TtfwClassRef.Register(TPrimConfigurationListForm);
  {* Регистрация PrimConfigurationList }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

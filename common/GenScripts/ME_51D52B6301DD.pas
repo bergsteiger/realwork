@@ -60,9 +60,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
+{$If NOT Defined(NoVCM)}
 {$Include w:\common\components\rtl\Garant\Daily\AppConfigTestMixin.imp.pas}
 
-{$If NOT Defined(NoVCM)}
 function TAppConfigBaseTest.FormExtent: TPoint;
  {* Размеры формы }
 //#UC START# *4C08CF700318_51D52B6301DD_var*
@@ -73,9 +73,7 @@ begin
  Result.Y := 200;
 //#UC END# *4C08CF700318_51D52B6301DD_impl*
 end;//TAppConfigBaseTest.FormExtent
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TAppConfigBaseTest.FormMade(const aForm: _FormClass_);
 //#UC START# *4C08D61F0231_51D52B6301DD_var*
 //#UC END# *4C08D61F0231_51D52B6301DD_var*
@@ -92,7 +90,6 @@ begin
  IddConfigNode(f_Config).SetControlValues(False);
 //#UC END# *4C08D61F0231_51D52B6301DD_impl*
 end;//TAppConfigBaseTest.FormMade
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TAppConfigBaseTest.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -106,7 +103,6 @@ begin
  Result := '51D52B6301DD';
 end;//TAppConfigBaseTest.GetModelElementGUID
 
-{$If NOT Defined(NoVCM)}
 procedure TAppConfigBaseTest.CheckControl;
 //#UC START# *51D5464D033C_51D52B6301DD_var*
 var

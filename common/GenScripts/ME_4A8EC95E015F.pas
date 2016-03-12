@@ -18,8 +18,6 @@ uses
 type
  // System
 
- // HelpTopics
-
  // Help
 
  ISystem_InitShutdown_Params = interface

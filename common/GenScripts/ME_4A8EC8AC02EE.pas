@@ -84,7 +84,10 @@ type
    procedure DoClose(var Action: TCloseAction); override;
    {$IfEnd} // NOT Defined(NoVCL)
   public
-   procedure InitShutdown; override;
+   procedure System_InitShutdown_Execute(aShotdown: Boolean;
+    aCloseInterval: Integer);
+    {* Начать процесс завершения работы }
+   procedure System_InitShutdown(const aParams: IvcmExecuteParamsPrim);
     {* Начать процесс завершения работы }
   public
    property ShutdownTimer: TTimer
@@ -124,6 +127,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки sftNoneLocalConstants }
  str_sftNoneCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'sftNoneCaption'; rValue : 'Предупреждение о закрытии приложения');
@@ -226,15 +230,31 @@ begin
 //#UC END# *5267AFC1022B_4A8EC8AC02EE_impl*
 end;//TPrimShutDownForm.UpdateSize
 
-procedure TPrimShutDownForm.InitShutdown;
+procedure TPrimShutDownForm.System_InitShutdown_Execute(aShotdown: Boolean;
+ aCloseInterval: Integer);
  {* Начать процесс завершения работы }
-//#UC START# *4A8EC9E902CD_4A8EC8AC02EE_var*
-//#UC END# *4A8EC9E902CD_4A8EC8AC02EE_var*
+//#UC START# *4A8EC9E902CD_4A8EC8AC02EEexec_var*
+//#UC END# *4A8EC9E902CD_4A8EC8AC02EEexec_var*
 begin
-//#UC START# *4A8EC9E902CD_4A8EC8AC02EE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A8EC9E902CD_4A8EC8AC02EE_impl*
-end;//TPrimShutDownForm.InitShutdown
+//#UC START# *4A8EC9E902CD_4A8EC8AC02EEexec_impl*
+ f_InShutdown := True;
+ f_CloseInterval := aCloseInterval;
+ if aShotdown then
+  WarningText.CCaption := vcmFmt(str_ShotdownWarning, [f_CloseInterval])
+ else
+  WarningText.CCaption := vcmFmt(str_LogoutWarning, [f_CloseInterval]);
+ UpdateSize;
+ UpdateCloseButton;
+ ShutDownTimer.Enabled := True;
+//#UC END# *4A8EC9E902CD_4A8EC8AC02EEexec_impl*
+end;//TPrimShutDownForm.System_InitShutdown_Execute
+
+procedure TPrimShutDownForm.System_InitShutdown(const aParams: IvcmExecuteParamsPrim);
+ {* Начать процесс завершения работы }
+begin
+ with (aParams.Data As ISystem_InitShutdown_Params) do
+  Self.System_InitShutdown_Execute(Shotdown, CloseInterval);
+end;//TPrimShutDownForm.System_InitShutdown
 
 procedure TPrimShutDownForm.WndProcRetListenerNotify(Msg: PCWPRetStruct;
  var theResult: Tl3HookProcResult);
@@ -273,7 +293,6 @@ begin
 //#UC END# *47A042E100E2_4A8EC8AC02EE_impl*
 end;//TPrimShutDownForm.InitFields
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimShutDownForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4A8EC8AC02EE_var*
@@ -351,7 +370,6 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4A8EC8AC02EE_impl*
 end;//TPrimShutDownForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCL)}
 procedure TPrimShutDownForm.DoShow;
@@ -366,7 +384,6 @@ begin
 end;//TPrimShutDownForm.DoShow
 {$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimShutDownForm.SetupFormLayout;
  {* Тут можно настроить внешний вид формы }
 //#UC START# *529332B40230_4A8EC8AC02EE_var*
@@ -382,7 +399,6 @@ begin
  OnCloseQuery := vcmEntityFormCloseQuery;
 //#UC END# *529332B40230_4A8EC8AC02EE_impl*
 end;//TPrimShutDownForm.SetupFormLayout
-{$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCL)}
 procedure TPrimShutDownForm.DoClose(var Action: TCloseAction);
@@ -403,5 +419,6 @@ initialization
  TtfwClassRef.Register(TPrimShutDownForm);
  {* Регистрация PrimShutDown }
 {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

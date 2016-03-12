@@ -17,8 +17,8 @@ uses
 type
  TServiceTest = class(TTestCase)
   public
-   procedure DoIt;
    procedure DoIter;
+   procedure DoIt;
  end;//TServiceTest
 {$IfEnd} // Defined(nsTest)
 

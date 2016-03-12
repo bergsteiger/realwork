@@ -12,7 +12,7 @@
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\UnderControl\UnderControlBehaviour.imp.pas}
  _ucpHAFMacroReplacerFactory_Parent_ = _UnderControlBehaviour_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Presentation\ucpHAFMacroReplacerFactory.imp.pas}
- _dsEditionDiff_ = {abstract} class(_ucpHAFMacroReplacerFactory_, IdsEditionDiff, InsEditionListener, IucpHAFMacroReplacerFactory, IucpFilterInfoFactory)
+ _dsEditionDiff_ = {abstract} class(_ucpHAFMacroReplacerFactory_, IdsEditionDiff, InsEditionListener, IucpFilterInfoFactory)
   {* Разница редакций }
   private
    f_Cont: InevDocumentContainer;

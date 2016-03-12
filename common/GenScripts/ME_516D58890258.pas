@@ -15,7 +15,7 @@ uses
 
 type
  TmyReferenceCountGuardTest = class(TTestCase)
-  public
+  published
    procedure DoIt;
    procedure CheckWithClause;
  end;//TmyReferenceCountGuardTest

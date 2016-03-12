@@ -42,7 +42,7 @@ type
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
    {$IfEnd} // Defined(nsTest)
-  public
+  published
    procedure DoIt;
    procedure CheckLoad;
    procedure DoItPiped;
@@ -72,6 +72,7 @@ uses
  {$IfEnd} // Defined(nsTest)
 ;
 
+{$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
 {$Include w:\archi\source\projects\PipeInAuto\Tests\TaskSaver.imp.pas}
 
 procedure TK517772970_TCheckSaveToStream.DoIt;
@@ -235,21 +236,18 @@ begin
 //#UC END# *53C0122C003B_532008240001_impl*
 end;//TK517772970_TCheckSaveToStream.CheckSaveToEVDPiped
 
-{$If Defined(nsTest)}
 function TK517772970_TCheckSaveToStream.GetFolder: AnsiString;
  {* Папка в которую входит тест }
 begin
  Result := 'TaskSaveLoad';
 end;//TK517772970_TCheckSaveToStream.GetFolder
-{$IfEnd} // Defined(nsTest)
 
-{$If Defined(nsTest)}
 function TK517772970_TCheckSaveToStream.GetModelElementGUID: AnsiString;
  {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '532008240001';
 end;//TK517772970_TCheckSaveToStream.GetModelElementGUID
-{$IfEnd} // Defined(nsTest)
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
 
 {$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
 end.

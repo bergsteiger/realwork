@@ -47,6 +47,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TdsInternetAgent;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
@@ -59,6 +60,7 @@ begin
  Result := l3WideString(PartData);
 //#UC END# *49EDE45A02EB_49ECA9AA0000get_impl*
 end;//TdsInternetAgent.Get_URL
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

@@ -65,11 +65,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
+{$If NOT Defined(NoVCM)}
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\ClipboardOperations.imp.pas}
 
-{$If NOT Defined(NoVCM)}
 procedure TCopyPasteTest.Process(aForm: TPrimTextLoadForm);
  {* Собственно процесс обработки текста }
 //#UC START# *4BE13147032C_4C93529B018C_var*
@@ -101,7 +101,6 @@ begin
  end;//aForm.Text
 //#UC END# *4BE13147032C_4C93529B018C_impl*
 end;//TCopyPasteTest.Process
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TCopyPasteTest.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -114,6 +113,7 @@ function TCopyPasteTest.GetModelElementGUID: AnsiString;
 begin
  Result := '4C93529B018C';
 end;//TCopyPasteTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

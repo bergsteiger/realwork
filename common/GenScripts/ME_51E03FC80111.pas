@@ -12,7 +12,7 @@
  _AtomicListTest_ = class(_ListTest_)
   private
    function RandomItem: _ItemType_;
-  public
+  published
    procedure DoIt;
    procedure TestTwoLists;
    procedure TestInsert;

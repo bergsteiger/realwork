@@ -60,7 +60,6 @@ begin
  ScrollByLine(aForm, -1, False, False);
 //#UC END# *4BE419AF0217_4CB6E426014A_impl*
 end;//TScrollByLineTest.DoVisit
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TScrollByLineTest.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -73,6 +72,7 @@ function TScrollByLineTest.GetModelElementGUID: AnsiString;
 begin
  Result := '4CB6E426014A';
 end;//TScrollByLineTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

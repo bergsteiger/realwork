@@ -91,6 +91,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 var g_Tfs_MedicFirmDocument: Tfs_MedicFirmDocument = nil;
  {* Экземпляр синглетона Tfs_MedicFirmDocument }
 
@@ -167,7 +168,6 @@ begin
 //#UC END# *47A042E100E2_4AA12BC400A6_impl*
 end;//Tfs_MedicFirmDocument.InitFields
 
-{$If NOT Defined(NoVCM)}
 class function Tfs_MedicFirmDocument.GetInstance: TvcmFormSetFactoryPrim;
 //#UC START# *4FFE854A009B_4AA12BC400A6_var*
 //#UC END# *4FFE854A009B_4AA12BC400A6_var*
@@ -176,11 +176,11 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4FFE854A009B_4AA12BC400A6_impl*
 end;//Tfs_MedicFirmDocument.GetInstance
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_fsMedicFirmDocumentCaption.Init;
  {* Инициализация str_fsMedicFirmDocumentCaption }
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

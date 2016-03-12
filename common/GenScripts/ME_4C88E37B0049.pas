@@ -20,11 +20,19 @@ type
  TPrimAdminOptionsForm = class(TPrimAdminForm)
   public
    {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
+   procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
     {* Отмена }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure OkExt; override;
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_OkExt_Test(const aParams: IvcmTestParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_OkExt_Execute(const aParams: IvcmExecuteParamsPrim);
     {* OK }
    {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimAdminOptionsForm
@@ -47,27 +55,91 @@ uses
 ;
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimAdminOptionsForm.Cancel;
+procedure TPrimAdminOptionsForm.Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
  {* Отмена }
-//#UC START# *4C762C910358_4C88E37B0049_var*
-//#UC END# *4C762C910358_4C88E37B0049_var*
+//#UC START# *4C762C910358_4C88E37B0049test_var*
+var
+ l_Form : IvcmEntityForm;
+//#UC END# *4C762C910358_4C88E37B0049test_var*
 begin
-//#UC START# *4C762C910358_4C88E37B0049_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762C910358_4C88E37B0049_impl*
-end;//TPrimAdminOptionsForm.Cancel
+//#UC START# *4C762C910358_4C88E37B0049test_impl*
+ if HasForm(vcm_ztChild, False, @l_Form) then
+  try
+   l_Form.Entity.Operation(TdmStdRes.opcode_Result_Cancel, aParams As IvcmTestParams);
+   aParams.Op.Flag[vcm_ofVisible] := False;
+  finally
+   l_Form := nil;
+  end
+ else
+ begin
+  aParams.Op.Flag[vcm_ofVisible] := False;
+  aParams.Op.Flag[vcm_ofEnabled] := False;
+ end;
+//#UC END# *4C762C910358_4C88E37B0049test_impl*
+end;//TPrimAdminOptionsForm.Result_Cancel_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimAdminOptionsForm.OkExt;
- {* OK }
-//#UC START# *4C762D9B0224_4C88E37B0049_var*
-//#UC END# *4C762D9B0224_4C88E37B0049_var*
+procedure TPrimAdminOptionsForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отмена }
+//#UC START# *4C762C910358_4C88E37B0049exec_var*
+var
+ l_Form : IvcmEntityForm;
+//#UC END# *4C762C910358_4C88E37B0049exec_var*
 begin
-//#UC START# *4C762D9B0224_4C88E37B0049_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762D9B0224_4C88E37B0049_impl*
-end;//TPrimAdminOptionsForm.OkExt
+//#UC START# *4C762C910358_4C88E37B0049exec_impl*
+ if HasForm(vcm_ztChild, False, @l_Form) then
+  try
+   l_Form.Entity.Operation(TdmStdRes.opcode_Result_Cancel, aParams As IvcmExecuteParams);
+  finally
+   l_Form := nil;
+  end;
+//#UC END# *4C762C910358_4C88E37B0049exec_impl*
+end;//TPrimAdminOptionsForm.Result_Cancel_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimAdminOptionsForm.Result_OkExt_Test(const aParams: IvcmTestParamsPrim);
+ {* OK }
+//#UC START# *4C762D9B0224_4C88E37B0049test_var*
+var
+ l_Form : IvcmEntityForm;
+//#UC END# *4C762D9B0224_4C88E37B0049test_var*
+begin
+//#UC START# *4C762D9B0224_4C88E37B0049test_impl*
+ if HasForm(vcm_ztChild, False, @l_Form) then
+  try
+   l_Form.Entity.Operation(TdmStdRes.opcode_Result_Save, aParams As IvcmTestParams);
+   aParams.Op.Flag[vcm_ofVisible] := False;
+  finally
+   l_Form := nil;
+  end
+ else
+ begin
+  aParams.Op.Flag[vcm_ofVisible] := False;
+  aParams.Op.Flag[vcm_ofEnabled] := False;
+ end;
+//#UC END# *4C762D9B0224_4C88E37B0049test_impl*
+end;//TPrimAdminOptionsForm.Result_OkExt_Test
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimAdminOptionsForm.Result_OkExt_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* OK }
+//#UC START# *4C762D9B0224_4C88E37B0049exec_var*
+var
+ l_Form : IvcmEntityForm;
+//#UC END# *4C762D9B0224_4C88E37B0049exec_var*
+begin
+//#UC START# *4C762D9B0224_4C88E37B0049exec_impl*
+ if HasForm(vcm_ztChild, False, @l_Form) then
+  try
+   l_Form.Entity.Operation(TdmStdRes.opcode_Result_Save, aParams As IvcmExecuteParams);
+  finally
+   l_Form := nil;
+  end;
+//#UC END# *4C762D9B0224_4C88E37B0049exec_impl*
+end;//TPrimAdminOptionsForm.Result_OkExt_Execute
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization

@@ -24,10 +24,15 @@ type
    function NeedTerminateOnExit: Boolean; virtual;
    function AskMayExit: Boolean; virtual;
   public
-   procedure Exit; override;
-   procedure Back; override;
+   procedure Common_Exit_Test(const aParams: IvcmTestParamsPrim);
+   procedure Common_Exit_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure History_Back_Test(const aParams: IvcmTestParamsPrim);
     {* Назад }
-   procedure Forward; override;
+   procedure History_Back_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Назад }
+   procedure History_Forward_Test(const aParams: IvcmTestParamsPrim);
+    {* Вперёд }
+   procedure History_Forward_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Вперёд }
    constructor Create(AOwner: TComponent); override;
  end;//TOfficeLikeMainForm
@@ -82,34 +87,77 @@ begin
 //#UC END# *4ADDD5A30139_4ADDD3030251_impl*
 end;//TOfficeLikeMainForm.AskMayExit
 
-procedure TOfficeLikeMainForm.Exit;
-//#UC START# *4ADDD377028F_4ADDD3030251_var*
-//#UC END# *4ADDD377028F_4ADDD3030251_var*
+procedure TOfficeLikeMainForm.Common_Exit_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4ADDD377028F_4ADDD3030251test_var*
+//#UC END# *4ADDD377028F_4ADDD3030251test_var*
 begin
-//#UC START# *4ADDD377028F_4ADDD3030251_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4ADDD377028F_4ADDD3030251_impl*
-end;//TOfficeLikeMainForm.Exit
+//#UC START# *4ADDD377028F_4ADDD3030251test_impl*
+ // - ничего не делаем
+//#UC END# *4ADDD377028F_4ADDD3030251test_impl*
+end;//TOfficeLikeMainForm.Common_Exit_Test
 
-procedure TOfficeLikeMainForm.Back;
+procedure TOfficeLikeMainForm.Common_Exit_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4ADDD377028F_4ADDD3030251exec_var*
+//#UC END# *4ADDD377028F_4ADDD3030251exec_var*
+begin
+//#UC START# *4ADDD377028F_4ADDD3030251exec_impl*
+ if not NeedTerminateOnExit then
+ begin
+  if AskMayExit then
+   DoExitApplication;
+ end//not NeedTerminateOnExit
+ else
+  TerminateProcess(GetCurrentProcess, 255);
+//#UC END# *4ADDD377028F_4ADDD3030251exec_impl*
+end;//TOfficeLikeMainForm.Common_Exit_Execute
+
+procedure TOfficeLikeMainForm.History_Back_Test(const aParams: IvcmTestParamsPrim);
  {* Назад }
-//#UC START# *4ADDDC550118_4ADDD3030251_var*
-//#UC END# *4ADDDC550118_4ADDD3030251_var*
+//#UC START# *4ADDDC550118_4ADDD3030251test_var*
+var
+ l_History: IvcmHistory;
+//#UC END# *4ADDDC550118_4ADDD3030251test_var*
 begin
-//#UC START# *4ADDDC550118_4ADDD3030251_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4ADDDC550118_4ADDD3030251_impl*
-end;//TOfficeLikeMainForm.Back
+//#UC START# *4ADDDC550118_4ADDD3030251test_impl*
+ l_History := Self.History;
+ aParams.Op.Flag[vcm_ofEnabled] := l_History.CanBack;
+ l_History.GetBackStrings(aParams);
+//#UC END# *4ADDDC550118_4ADDD3030251test_impl*
+end;//TOfficeLikeMainForm.History_Back_Test
 
-procedure TOfficeLikeMainForm.Forward;
- {* Вперёд }
-//#UC START# *4ADDDC630097_4ADDD3030251_var*
-//#UC END# *4ADDDC630097_4ADDD3030251_var*
+procedure TOfficeLikeMainForm.History_Back_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Назад }
+//#UC START# *4ADDDC550118_4ADDD3030251exec_var*
+//#UC END# *4ADDDC550118_4ADDD3030251exec_var*
 begin
-//#UC START# *4ADDDC630097_4ADDD3030251_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4ADDDC630097_4ADDD3030251_impl*
-end;//TOfficeLikeMainForm.Forward
+//#UC START# *4ADDDC550118_4ADDD3030251exec_impl*
+ DoBack(aParams);
+//#UC END# *4ADDDC550118_4ADDD3030251exec_impl*
+end;//TOfficeLikeMainForm.History_Back_Execute
+
+procedure TOfficeLikeMainForm.History_Forward_Test(const aParams: IvcmTestParamsPrim);
+ {* Вперёд }
+//#UC START# *4ADDDC630097_4ADDD3030251test_var*
+var
+ l_History: IvcmHistory;
+//#UC END# *4ADDDC630097_4ADDD3030251test_var*
+begin
+//#UC START# *4ADDDC630097_4ADDD3030251test_impl*
+ l_History := Self.History;
+ aParams.Op.Flag[vcm_ofEnabled] := l_History.CanForward;
+ l_History.GetForwardStrings(aParams);
+//#UC END# *4ADDDC630097_4ADDD3030251test_impl*
+end;//TOfficeLikeMainForm.History_Forward_Test
+
+procedure TOfficeLikeMainForm.History_Forward_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Вперёд }
+//#UC START# *4ADDDC630097_4ADDD3030251exec_var*
+//#UC END# *4ADDDC630097_4ADDD3030251exec_var*
+begin
+//#UC START# *4ADDDC630097_4ADDD3030251exec_impl*
+ DoForward(aParams);
+//#UC END# *4ADDDC630097_4ADDD3030251exec_impl*
+end;//TOfficeLikeMainForm.History_Forward_Execute
 
 constructor TOfficeLikeMainForm.Create(AOwner: TComponent);
 //#UC START# *47D1602000C6_4ADDD3030251_var*

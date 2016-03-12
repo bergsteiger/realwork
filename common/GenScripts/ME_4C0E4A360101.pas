@@ -70,9 +70,7 @@ begin
  Result := 12;
 //#UC END# *4C07AC6F036D_4C0E4A360101_impl*
 end;//TK217684334.GetNormalFontSize
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TK217684334.FormExtent: TPoint;
  {* Размеры формы }
 //#UC START# *4C08CF700318_4C0E4A360101_var*
@@ -83,9 +81,7 @@ begin
  Result.Y := 296{200};
 //#UC END# *4C08CF700318_4C0E4A360101_impl*
 end;//TK217684334.FormExtent
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TK217684334.SendKey: Boolean;
  {* Управлять ли окном реактора посредсвом посылки клавиш, а не вызова методов редактора }
 //#UC START# *4C091B9A0305_4C0E4A360101_var*
@@ -95,9 +91,7 @@ begin
  Result := true;
 //#UC END# *4C091B9A0305_4C0E4A360101_impl*
 end;//TK217684334.SendKey
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TK217684334.MaxHeight: Integer;
  {* Если возвращается не 0, то будет организован цикл подбора высоты от FormExtent.Y до MaxHeight }
 //#UC START# *4C0E56F000A4_4C0E4A360101_var*
@@ -107,7 +101,6 @@ begin
  Result := 0{600}; 
 //#UC END# *4C0E56F000A4_4C0E4A360101_impl*
 end;//TK217684334.MaxHeight
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TK217684334.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -123,6 +116,7 @@ end;//TK217684334.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(TK217684334.Suite);
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

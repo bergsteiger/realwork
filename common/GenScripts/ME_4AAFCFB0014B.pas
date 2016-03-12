@@ -158,7 +158,8 @@ type
    function DoGetTabImageIndex: Integer; override;
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
   public
-   procedure InitNewContent; override;
+   procedure Picture_InitNewContent_Execute(const aData: InsLinkedObjectData);
+   procedure Picture_InitNewContent(const aParams: IvcmExecuteParamsPrim);
   protected
    property Scale: Integer
     read Get_Scale
@@ -223,6 +224,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки pfImageLocalConstants }
  str_pfImageCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'pfImageCaption'; rValue : 'Просмотр графического объекта');
@@ -463,14 +465,36 @@ begin
 //#UC END# *52493BD40232_4AAFCFB0014B_impl*
 end;//TPrimPictureForm.AfterInit
 
-procedure TPrimPictureForm.InitNewContent;
-//#UC START# *4AF32F3102BE_4AAFCFB0014B_var*
-//#UC END# *4AF32F3102BE_4AAFCFB0014B_var*
+procedure TPrimPictureForm.Picture_InitNewContent_Execute(const aData: InsLinkedObjectData);
+//#UC START# *4AF32F3102BE_4AAFCFB0014Bexec_var*
+var
+ l_Stream: TStream;
+//#UC END# *4AF32F3102BE_4AAFCFB0014Bexec_var*
 begin
-//#UC START# *4AF32F3102BE_4AAFCFB0014B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF32F3102BE_4AAFCFB0014B_impl*
-end;//TPrimPictureForm.InitNewContent
+//#UC START# *4AF32F3102BE_4AAFCFB0014Bexec_impl*
+ CCaption := aData.WindowCaption;
+ GetSaveDialog.FileName := l3PStr(aData.FileName);
+ GetSaveDialog.FilterIndex := 1;
+ if aData.IsPicture then
+ begin
+  l3IStream2Stream(aData.Data, l_Stream);
+  f_Info := aData.Description;
+  try
+   ieIO.LoadFromStream(l_Stream);
+  finally
+   FreeAndNil(l_Stream);
+  end;//try..finally
+ end;//aData.IsPicture
+ PostMessage(Handle, CM_AFTER_INIT, 0, 0);
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=271749118&focusedCommentId=290954110&#comment-290954110
+//#UC END# *4AF32F3102BE_4AAFCFB0014Bexec_impl*
+end;//TPrimPictureForm.Picture_InitNewContent_Execute
+
+procedure TPrimPictureForm.Picture_InitNewContent(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IPicture_InitNewContent_Params) do
+  Self.Picture_InitNewContent_Execute(Data);
+end;//TPrimPictureForm.Picture_InitNewContent
 
 procedure TPrimPictureForm.Cleanup;
  {* Функция очистки полей объекта. }
@@ -511,7 +535,6 @@ begin
 //#UC END# *47A042E100E2_4AAFCFB0014B_impl*
 end;//TPrimPictureForm.InitFields
 
-{$If NOT Defined(NoVCM)}
 function TPrimPictureForm.DoSaveState(out theState: IvcmBase;
  aStateType: TvcmStateType;
  aForClone: Boolean): Boolean;
@@ -533,9 +556,7 @@ begin
  end;
 //#UC END# *49806ED503D5_4AAFCFB0014B_impl*
 end;//TPrimPictureForm.DoSaveState
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TPrimPictureForm.DoLoadState(const aState: IvcmBase;
  aStateType: TvcmStateType): Boolean;
  {* Загружает состояние формы. Для перекрытия в потомках }
@@ -564,9 +585,7 @@ begin
   Assert(False);
 //#UC END# *49807428008C_4AAFCFB0014B_impl*
 end;//TPrimPictureForm.DoLoadState
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimPictureForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AAFCFB0014B_var*
@@ -610,9 +629,7 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AAFCFB0014B_impl*
 end;//TPrimPictureForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimPictureForm.FormInsertedIntoContainer;
 //#UC START# *4F7C65380244_4AAFCFB0014B_var*
 //#UC END# *4F7C65380244_4AAFCFB0014B_var*
@@ -624,7 +641,6 @@ begin
  end;
 //#UC END# *4F7C65380244_4AAFCFB0014B_impl*
 end;//TPrimPictureForm.FormInsertedIntoContainer
-{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimPictureForm.ClearFields;
 begin
@@ -632,7 +648,7 @@ begin
  inherited;
 end;//TPrimPictureForm.ClearFields
 
-{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 function TPrimPictureForm.DoGetTabImageIndex: Integer;
 //#UC START# *543E3AA801D0_4AAFCFB0014B_var*
 //#UC END# *543E3AA801D0_4AAFCFB0014B_var*
@@ -641,7 +657,7 @@ begin
  Result := nsTabIconIndex(titMain);
 //#UC END# *543E3AA801D0_4AAFCFB0014B_impl*
 end;//TPrimPictureForm.DoGetTabImageIndex
-{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 initialization
 //#UC START# *52496599037C*
@@ -656,6 +672,7 @@ initialization
  TtfwClassRef.Register(TPrimPictureForm);
  {* Регистрация PrimPicture }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

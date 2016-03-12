@@ -24,6 +24,8 @@ uses
  , l3IID
  , DocumentInterfaces
  , DynamicTreeUnit
+ , SimpleListInterfaces
+ , WorkWithDocumentInterfaces
  , DocInfoInterfaces
  , ExternalObjectUnit
  , BaseDocumentWithAttributesInterfaces

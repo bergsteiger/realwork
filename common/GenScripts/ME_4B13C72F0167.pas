@@ -44,7 +44,6 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   procedure Fake; override;
   public
    property tpvMain: TnscTasksPanelView
     read f_tpvMain;
@@ -141,15 +140,6 @@ begin
  tpvMain.DefineActiveControl;
 //#UC END# *4EE78AC500E3_4B13C72F0167_impl*
 end;//TPrimTasksPanelForm.WMSetFocus
-
-procedure TPrimTasksPanelForm.Fake;
-//#UC START# *4D3D969B02EA_4B13C72F0167_var*
-//#UC END# *4D3D969B02EA_4B13C72F0167_var*
-begin
-//#UC START# *4D3D969B02EA_4B13C72F0167_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4D3D969B02EA_4B13C72F0167_impl*
-end;//TPrimTasksPanelForm.Fake
 
 {$If NOT Defined(NoVCM)}
 procedure TPrimTasksPanelForm.InitControls;

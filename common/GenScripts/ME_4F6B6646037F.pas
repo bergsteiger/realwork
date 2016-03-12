@@ -78,8 +78,10 @@ type
    {$IfEnd} // NOT Defined(NoVCL)
   public
    procedure AdjustSizeToFixed;
-   procedure BecomeActive; override;
-   procedure SetFirstPageActive; override;
+   procedure Switcher_BecomeActive_Execute;
+   procedure Switcher_BecomeActive(const aParams: IvcmExecuteParamsPrim);
+   procedure Switcher_SetFirstPageActive_Execute;
+   procedure Switcher_SetFirstPageActive(const aParams: IvcmExecuteParamsPrim);
   public
    property ChildZone: TnscFormsPageControl
     read f_ChildZone;
@@ -110,6 +112,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 type
  THackControl = {abstract} class(TControl)
  end;//THackControl
@@ -401,25 +404,36 @@ begin
 //#UC END# *4F71E3020328_4F6B6646037F_impl*
 end;//TPrimChildForm.ChildZoneTabSheetClick
 
-procedure TPrimChildForm.BecomeActive;
-//#UC START# *4AEF3E8C02F5_4F6B6646037F_var*
-//#UC END# *4AEF3E8C02F5_4F6B6646037F_var*
+procedure TPrimChildForm.Switcher_BecomeActive_Execute;
+//#UC START# *4AEF3E8C02F5_4F6B6646037Fexec_var*
+//#UC END# *4AEF3E8C02F5_4F6B6646037Fexec_var*
 begin
-//#UC START# *4AEF3E8C02F5_4F6B6646037F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AEF3E8C02F5_4F6B6646037F_impl*
-end;//TPrimChildForm.BecomeActive
+//#UC START# *4AEF3E8C02F5_4F6B6646037Fexec_impl*
+ if (aForm.VCLWinControl.Parent <> nil) then
+  ChildZone.ActivePage := aForm.VCLWinControl.Parent as TElTabSheet;
+//#UC END# *4AEF3E8C02F5_4F6B6646037Fexec_impl*
+end;//TPrimChildForm.Switcher_BecomeActive_Execute
 
-procedure TPrimChildForm.SetFirstPageActive;
-//#UC START# *4AF832C401A1_4F6B6646037F_var*
-//#UC END# *4AF832C401A1_4F6B6646037F_var*
+procedure TPrimChildForm.Switcher_BecomeActive(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4AF832C401A1_4F6B6646037F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF832C401A1_4F6B6646037F_impl*
-end;//TPrimChildForm.SetFirstPageActive
+ Self.Switcher_BecomeActive_Execute;
+end;//TPrimChildForm.Switcher_BecomeActive
 
-{$If NOT Defined(NoVCM)}
+procedure TPrimChildForm.Switcher_SetFirstPageActive_Execute;
+//#UC START# *4AF832C401A1_4F6B6646037Fexec_var*
+//#UC END# *4AF832C401A1_4F6B6646037Fexec_var*
+begin
+//#UC START# *4AF832C401A1_4F6B6646037Fexec_impl*
+ if (ChildZone.PageCount > 0) then
+  ChildZone.ActivePageIndex := 0;
+//#UC END# *4AF832C401A1_4F6B6646037Fexec_impl*
+end;//TPrimChildForm.Switcher_SetFirstPageActive_Execute
+
+procedure TPrimChildForm.Switcher_SetFirstPageActive(const aParams: IvcmExecuteParamsPrim);
+begin
+ Self.Switcher_SetFirstPageActive_Execute;
+end;//TPrimChildForm.Switcher_SetFirstPageActive
+
 procedure TPrimChildForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4F6B6646037F_var*
@@ -433,9 +447,7 @@ begin
  Dispatcher.History.AddForm(Self.As_IvcmEntityForm);
 //#UC END# *49803F5503AA_4F6B6646037F_impl*
 end;//TPrimChildForm.DoInit
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimChildForm.BecomeActive;
 //#UC START# *4A8AE0FA03B2_4F6B6646037F_var*
 //#UC END# *4A8AE0FA03B2_4F6B6646037F_var*
@@ -447,9 +459,7 @@ begin
   Inherited BecomeActive;
 //#UC END# *4A8AE0FA03B2_4F6B6646037F_impl*
 end;//TPrimChildForm.BecomeActive
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimChildForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4F6B6646037F_var*
@@ -495,9 +505,7 @@ begin
  ChildZoneChange(ChildZone);
 //#UC END# *4A8E8F2E0195_4F6B6646037F_impl*
 end;//TPrimChildForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimChildForm.BecomeInactive;
 //#UC START# *4AD5FA8E03DD_4F6B6646037F_var*
 //#UC END# *4AD5FA8E03DD_4F6B6646037F_var*
@@ -509,9 +517,7 @@ begin
   Inherited BecomeInactive;
 //#UC END# *4AD5FA8E03DD_4F6B6646037F_impl*
 end;//TPrimChildForm.BecomeInactive
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimChildForm.DoLoadFromSettings;
 //#UC START# *4E7C2AA3037E_4F6B6646037F_var*
 //#UC END# *4E7C2AA3037E_4F6B6646037F_var*
@@ -521,7 +527,6 @@ begin
  AdjustSizeToFixed;
 //#UC END# *4E7C2AA3037E_4F6B6646037F_impl*
 end;//TPrimChildForm.DoLoadFromSettings
-{$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCL)}
 procedure TPrimChildForm.SetParent(AParent: TWinControl);
@@ -549,5 +554,6 @@ initialization
  TtfwClassRef.Register(TPrimChildForm);
  {* Регистрация PrimChild }
 {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

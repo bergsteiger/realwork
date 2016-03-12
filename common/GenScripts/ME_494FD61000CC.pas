@@ -14,53 +14,9 @@ uses
 ;
 
 type
- // SingleUser
-
- // MultiUsers
-
- // LogoutUser
-
- // Enabled
-
- // Disabled
-
- // ConsultingStateForNewbie
-
- // Enabled
-
- // Disabled
-
- // Autoregistration
-
- // MultiUsers
-
- // SingleUser
-
- // AddPrivelegedRight
-
- // MultiUsers
-
- // SingleUser
-
- // RemovePrivelegedRight
-
- // UserFilter
-
- // DisableConsulting
-
- // EnableConsulting
-
- // MakeFiltersShared
-
- // DenyDeleteIdle
-
  // Users
 
  // Groups
-
- // Create
-
- // Save
 
  // Result
 {$IfEnd} // Defined(Admin)

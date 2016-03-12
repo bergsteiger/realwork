@@ -58,7 +58,6 @@ begin
  AcEndDragAndDrop(aControl);
 //#UC END# *4DB98B990054_4F0C009200D7_impl*
 end;//TkwEndAddSubByMouse.DoControl
-{$IfEnd} // NOT Defined(NoVCL)
 
 class function TkwEndAddSubByMouse.GetWordNameForRegister: AnsiString;
 begin
@@ -68,6 +67,7 @@ end;//TkwEndAddSubByMouse.GetWordNameForRegister
 initialization
  TkwEndAddSubByMouse.RegisterInEngine;
  {* Регистрация TkwEndAddSubByMouse }
-{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCL)
 
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 end.

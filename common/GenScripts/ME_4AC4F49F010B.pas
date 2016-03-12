@@ -132,6 +132,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimStartupTipsForm.UpdateTip;
 //#UC START# *5268E6380393_4AC4F49F010B_var*
 var
@@ -378,7 +379,6 @@ begin
 //#UC END# *47EA4E9002C6_4AC4F49F010B_impl*
 end;//TPrimStartupTipsForm.FinishDataUpdate
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimStartupTipsForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AC4F49F010B_var*
@@ -540,9 +540,7 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AC4F49F010B_impl*
 end;//TPrimStartupTipsForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimStartupTipsForm.SetupFormLayout;
  {* Тут можно настроить внешний вид формы }
 //#UC START# *529332B40230_4AC4F49F010B_var*
@@ -561,9 +559,7 @@ begin
  UpdateTip;
 //#UC END# *529332B40230_4AC4F49F010B_impl*
 end;//TPrimStartupTipsForm.SetupFormLayout
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TPrimStartupTipsForm.DoGetNeedSaveToTabHistory: Boolean;
 //#UC START# *55B9F0BD0069_4AC4F49F010B_var*
 //#UC END# *55B9F0BD0069_4AC4F49F010B_var*
@@ -572,13 +568,13 @@ begin
  Result := False;
 //#UC END# *55B9F0BD0069_4AC4F49F010B_impl*
 end;//TPrimStartupTipsForm.DoGetNeedSaveToTabHistory
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimStartupTipsForm);
  {* Регистрация PrimStartupTips }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

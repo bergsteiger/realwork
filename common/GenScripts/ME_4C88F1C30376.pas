@@ -25,11 +25,15 @@ type
    function SaveAdminInfo: Boolean;
   public
    {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
+   procedure Result_Ok_Test(const aParams: IvcmTestParamsPrim);
     {* OK }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
+   procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Отмена }
    {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimForbidAutoregistrationOptionsForm
@@ -96,27 +100,45 @@ begin
 end;//TPrimForbidAutoregistrationOptionsForm.SaveAdminInfo
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimForbidAutoregistrationOptionsForm.Ok;
+procedure TPrimForbidAutoregistrationOptionsForm.Result_Ok_Test(const aParams: IvcmTestParamsPrim);
  {* OK }
-//#UC START# *4C762A1501FC_4C88F1C30376_var*
-//#UC END# *4C762A1501FC_4C88F1C30376_var*
+//#UC START# *4C762A1501FC_4C88F1C30376test_var*
+//#UC END# *4C762A1501FC_4C88F1C30376test_var*
 begin
-//#UC START# *4C762A1501FC_4C88F1C30376_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762A1501FC_4C88F1C30376_impl*
-end;//TPrimForbidAutoregistrationOptionsForm.Ok
+//#UC START# *4C762A1501FC_4C88F1C30376test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not l3IsNil(cbPhone.Text) or
+  (not l3IsNil(cbEmail.Text) and nsEmailVerify.Verify(cbEmail.Text));
+//#UC END# *4C762A1501FC_4C88F1C30376test_impl*
+end;//TPrimForbidAutoregistrationOptionsForm.Result_Ok_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimForbidAutoregistrationOptionsForm.Cancel;
- {* Отмена }
-//#UC START# *4C762C910358_4C88F1C30376_var*
-//#UC END# *4C762C910358_4C88F1C30376_var*
+procedure TPrimForbidAutoregistrationOptionsForm.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* OK }
+//#UC START# *4C762A1501FC_4C88F1C30376exec_var*
+//#UC END# *4C762A1501FC_4C88F1C30376exec_var*
 begin
-//#UC START# *4C762C910358_4C88F1C30376_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762C910358_4C88F1C30376_impl*
-end;//TPrimForbidAutoregistrationOptionsForm.Cancel
+//#UC START# *4C762A1501FC_4C88F1C30376exec_impl*
+ if SaveAdminInfo then
+ begin
+  dsForbidAutoregistration.NeedForbid := True;
+  SafeClose;
+ end;//if SaveAdminInfo then
+//#UC END# *4C762A1501FC_4C88F1C30376exec_impl*
+end;//TPrimForbidAutoregistrationOptionsForm.Result_Ok_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimForbidAutoregistrationOptionsForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отмена }
+//#UC START# *4C762C910358_4C88F1C30376exec_var*
+//#UC END# *4C762C910358_4C88F1C30376exec_var*
+begin
+//#UC START# *4C762C910358_4C88F1C30376exec_impl*
+ dsForbidAutoregistration.NeedForbid := False;
+ SafeClose;
+//#UC END# *4C762C910358_4C88F1C30376exec_impl*
+end;//TPrimForbidAutoregistrationOptionsForm.Result_Cancel_Execute
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization

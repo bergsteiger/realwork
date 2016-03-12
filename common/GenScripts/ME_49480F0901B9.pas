@@ -117,31 +117,60 @@ type
    procedure ClearFields; override;
   public
    {$If NOT Defined(NoVCM)}
-   procedure Delete; override;
+   procedure Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
     {* Удалить }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure Add; override;
-    {* Добавить }
-   procedure LogoutUser; override;
-    {* Отключить пользователя }
-   procedure ConsultingStateForNewbie; override;
-    {* Разрешить/Запретить вновь созданным пользователям использование услуги Правового консалтинга }
-   procedure Autoregistration; override;
-    {* Разрешить/Запретить авторегистрацию новых пользователей }
-   procedure AddPrivelegedRight; override;
-    {* Сделать выделенных пользователей привилегированными }
-   procedure RemovePrivelegedRight; override;
-    {* Отменить для выделенных пользователей режим привилегий }
-   procedure UserFilter; override;
-   procedure DisableConsulting; override;
-   procedure EnableConsulting; override;
    {$If NOT Defined(NoVCM)}
-   procedure Delete; override;
+   procedure Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Удалить }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure MakeFiltersShared; override;
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Delete_GetState(var State: TvcmOperationStateIndex);
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure Users_Add_Test(const aParams: IvcmTestParamsPrim);
+    {* Добавить }
+   procedure Users_Add_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Добавить }
+   procedure Users_LogoutUser_Test(const aParams: IvcmTestParamsPrim);
+    {* Отключить пользователя }
+   procedure Users_LogoutUser_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Отключить пользователя }
+   procedure Users_LogoutUser_GetState(var State: TvcmOperationStateIndex);
+    {* Отключить пользователя }
+   procedure Users_ConsultingStateForNewbie_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Разрешить/Запретить вновь созданным пользователям использование услуги Правового консалтинга }
+   procedure Users_ConsultingStateForNewbie_GetState(var State: TvcmOperationStateIndex);
+    {* Разрешить/Запретить вновь созданным пользователям использование услуги Правового консалтинга }
+   procedure Users_Autoregistration_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Разрешить/Запретить авторегистрацию новых пользователей }
+   procedure Users_Autoregistration_GetState(var State: TvcmOperationStateIndex);
+    {* Разрешить/Запретить авторегистрацию новых пользователей }
+   procedure Users_AddPrivelegedRight_Test(const aParams: IvcmTestParamsPrim);
+    {* Сделать выделенных пользователей привилегированными }
+   procedure Users_AddPrivelegedRight_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Сделать выделенных пользователей привилегированными }
+   procedure Users_AddPrivelegedRight_GetState(var State: TvcmOperationStateIndex);
+    {* Сделать выделенных пользователей привилегированными }
+   procedure Users_RemovePrivelegedRight_Test(const aParams: IvcmTestParamsPrim);
+    {* Отменить для выделенных пользователей режим привилегий }
+   procedure Users_RemovePrivelegedRight_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Отменить для выделенных пользователей режим привилегий }
+   procedure Users_RemovePrivelegedRight_GetState(var State: TvcmOperationStateIndex);
+    {* Отменить для выделенных пользователей режим привилегий }
+   procedure Users_UserFilter_Test(const aParams: IvcmTestParamsPrim);
+   procedure Users_UserFilter_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Users_DisableConsulting_Test(const aParams: IvcmTestParamsPrim);
+   procedure Users_DisableConsulting_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Users_EnableConsulting_Test(const aParams: IvcmTestParamsPrim);
+   procedure Users_EnableConsulting_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Users_MakeFiltersShared_Test(const aParams: IvcmTestParamsPrim);
     {* Сделать фильтры данного пользователя общими }
-   procedure DenyDeleteIdle; override;
+   procedure Users_MakeFiltersShared_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Сделать фильтры данного пользователя общими }
+   procedure Users_DenyDeleteIdle_Test(const aParams: IvcmTestParamsPrim);
+    {* Не удалять при бездействии }
+   procedure Users_DenyDeleteIdle_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Не удалять при бездействии }
   protected
    property AutoRegistration: Boolean
@@ -192,6 +221,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки admUserListLocalConstants }
  str_admUserListCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'admUserListCaption'; rValue : 'Список пользователей');
@@ -490,27 +520,119 @@ begin
 //#UC END# *49F6DCF102A7_49480F0901B9_impl*
 end;//TPrimUserListForm.CheckUnsavedUserProperty
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimUserListForm.Delete;
+procedure TPrimUserListForm.Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
  {* Удалить }
-//#UC START# *494F89C30197_49480F0901B9_var*
-//#UC END# *494F89C30197_49480F0901B9_var*
+//#UC START# *494F89C30197_49480F0901B9test_var*
+var
+ l_Node: Il3SimpleNode;
+//#UC END# *494F89C30197_49480F0901B9test_var*
 begin
-//#UC START# *494F89C30197_49480F0901B9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *494F89C30197_49480F0901B9_impl*
-end;//TPrimUserListForm.Delete
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *494F89C30197_49480F0901B9test_impl*
+ if aParams.Control = trUserList then
+ begin
+  l_Node := trUserList.GetCurrentNode;
+  aParams.Op.Flag[vcm_ofEnabled] := IsApplyMultiOperations or
+                                    (Assigned(l_Node) and (ViewArea.GetUserState(l_Node)=[]));
+ end
+ else
+  if not aParams.CallControl then
+   aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *494F89C30197_49480F0901B9test_impl*
+end;//TPrimUserListForm.Edit_Delete_Test
 
-procedure TPrimUserListForm.Add;
- {* Добавить }
-//#UC START# *494FD65902BF_49480F0901B9_var*
-//#UC END# *494FD65902BF_49480F0901B9_var*
+procedure TPrimUserListForm.Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Удалить }
+//#UC START# *494F89C30197_49480F0901B9exec_var*
+var
+ l_CurrentNode: Il3SimpleNode;
+ l_ErrList: IadminUserNodeList;
+ l_Failed: Boolean;
+//#UC END# *494F89C30197_49480F0901B9exec_var*
 begin
-//#UC START# *494FD65902BF_49480F0901B9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *494FD65902BF_49480F0901B9_impl*
-end;//TPrimUserListForm.Add
+//#UC START# *494F89C30197_49480F0901B9exec_impl*
+ if aParams.Control = trUserList then
+ begin
+  if IsApplyMultiOperations then
+  begin
+   if Ask(qr_DeleteUsers, [trUserList.TreeStruct.SelectCount]) then
+   begin
+    ViewArea.DeleteUsers(trUserList.TreeStruct, l_ErrList);
+    if (l_ErrList.Count > 0) then
+    begin
+     if Ask(qr_UsersDeleteFailed) then
+      SelectFailed(l_ErrList);
+    end
+    else
+     Say(inf_UsersDeleted);
+   end;
+  end
+  else
+  begin
+   l_CurrentNode := trUserList.GetCurrentNode;
+   if Assigned(l_CurrentNode) and Ask(qr_DeleteUser, [l3CStr(l_CurrentNode)]) then
+   begin
+    // Пока висел диалог с вопросом удалять или нет - пользователь мог залогиниться,
+    // и это не повод падать.
+    // http://mdp.garant.ru/pages/viewpage.action?pageId=508180160
+    if (ViewArea.GetUserState(l_CurrentNode) = []) then
+    begin
+     ViewArea.DeleteUser(l_CurrentNode, l_Failed);
+     if l_Failed then
+      vcmSay(str_FailedToDeleteUser, [l3CStr(l_CurrentNode)]);
+    end
+    else
+     vcmSay(str_CannotDeleteActiveUser, [l3CStr(l_CurrentNode)]);
+   end;
+  end;
+ end
+ else
+  aParams.CallControl;
+//#UC END# *494F89C30197_49480F0901B9exec_impl*
+end;//TPrimUserListForm.Edit_Delete_Execute
+
+procedure TPrimUserListForm.Edit_Delete_GetState(var State: TvcmOperationStateIndex);
+ {* Удалить }
+//#UC START# *494F89C30197_49480F0901B9getstate_var*
+//#UC END# *494F89C30197_49480F0901B9getstate_var*
+begin
+//#UC START# *494F89C30197_49480F0901B9getstate_impl*
+ //if aParams.Control = trUserList then
+ begin
+  if IsApplyMultiOperations then
+   State := st_user_Edit_Delete_MultiUsers
+  else
+   State := st_user_Edit_Delete_User;
+ end;  
+//#UC END# *494F89C30197_49480F0901B9getstate_impl*
+end;//TPrimUserListForm.Edit_Delete_GetState
+
+procedure TPrimUserListForm.Users_Add_Test(const aParams: IvcmTestParamsPrim);
+ {* Добавить }
+//#UC START# *494FD65902BF_49480F0901B9test_var*
+//#UC END# *494FD65902BF_49480F0901B9test_var*
+begin
+//#UC START# *494FD65902BF_49480F0901B9test_impl*
+ // - ничего не делаем
+//#UC END# *494FD65902BF_49480F0901B9test_impl*
+end;//TPrimUserListForm.Users_Add_Test
+
+procedure TPrimUserListForm.Users_Add_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Добавить }
+//#UC START# *494FD65902BF_49480F0901B9exec_var*
+//#UC END# *494FD65902BF_49480F0901B9exec_var*
+begin
+//#UC START# *494FD65902BF_49480F0901B9exec_impl*
+ f_InCreateNew := True;
+ try
+  f_PrevUID := GetUserID(trUserList.GetCurrentNode);
+  trUserList.AllowWithoutCurrent := True;
+  trUserList.Current := -1;
+  ViewArea.CreateNewUser;
+ finally
+  f_InCreateNew := False;
+ end;
+//#UC END# *494FD65902BF_49480F0901B9exec_impl*
+end;//TPrimUserListForm.Users_Add_Execute
 
 procedure TPrimUserListForm.CreateUserFinished(Successfull: Boolean);
 //#UC START# *49E5B915022D_49480F0901B9_var*
@@ -578,114 +700,370 @@ begin
 //#UC END# *49F6E0C101AC_49480F0901B9_impl*
 end;//TPrimUserListForm.RequestUpdateCurrent
 
-procedure TPrimUserListForm.LogoutUser;
+procedure TPrimUserListForm.Users_LogoutUser_Test(const aParams: IvcmTestParamsPrim);
  {* Отключить пользователя }
-//#UC START# *4C7CDF1B0192_49480F0901B9_var*
-//#UC END# *4C7CDF1B0192_49480F0901B9_var*
+//#UC START# *4C7CDF1B0192_49480F0901B9test_var*
+var
+ l_Node: Il3SimpleNode;
+//#UC END# *4C7CDF1B0192_49480F0901B9test_var*
 begin
-//#UC START# *4C7CDF1B0192_49480F0901B9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7CDF1B0192_49480F0901B9_impl*
-end;//TPrimUserListForm.LogoutUser
+//#UC START# *4C7CDF1B0192_49480F0901B9test_impl*
+ l_Node := trUserList.GetCurrentNode;
+ aParams.Op.Flag[vcm_ofEnabled] := IsApplyMultiOperations or (usActive in ViewArea.GetUserState(l_Node));
+//#UC END# *4C7CDF1B0192_49480F0901B9test_impl*
+end;//TPrimUserListForm.Users_LogoutUser_Test
 
-procedure TPrimUserListForm.ConsultingStateForNewbie;
+procedure TPrimUserListForm.Users_LogoutUser_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отключить пользователя }
+//#UC START# *4C7CDF1B0192_49480F0901B9exec_var*
+//#UC END# *4C7CDF1B0192_49480F0901B9exec_var*
+begin
+//#UC START# *4C7CDF1B0192_49480F0901B9exec_impl*
+ try
+  if IsApplyMultiOperations then
+  begin
+   if Ask(qr_LogoutUsers, [trUserList.TreeStruct.SelectCount]) then
+   begin
+    ViewArea.LogoutUsers(trUserList.TreeStruct);
+    Say(inf_LogoutUsersNotify);
+   end;
+  end
+  else
+  begin
+   ViewArea.LogoutUser(trUserList.GetCurrentNode);
+   Say(inf_LogoutUserNotify);
+  end;
+ except
+  on ETryLogoutCurrentUser do
+   Say(war_TryLogoutCurrent);
+ end;
+//#UC END# *4C7CDF1B0192_49480F0901B9exec_impl*
+end;//TPrimUserListForm.Users_LogoutUser_Execute
+
+procedure TPrimUserListForm.Users_LogoutUser_GetState(var State: TvcmOperationStateIndex);
+ {* Отключить пользователя }
+//#UC START# *4C7CDF1B0192_49480F0901B9getstate_var*
+//#UC END# *4C7CDF1B0192_49480F0901B9getstate_var*
+begin
+//#UC START# *4C7CDF1B0192_49480F0901B9getstate_impl*
+ if IsApplyMultiOperations then
+  State := st_user_Users_LogoutUser_MultiUsers
+ else
+  State := st_user_Users_LogoutUser_SingleUser;
+//#UC END# *4C7CDF1B0192_49480F0901B9getstate_impl*
+end;//TPrimUserListForm.Users_LogoutUser_GetState
+
+procedure TPrimUserListForm.Users_ConsultingStateForNewbie_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Разрешить/Запретить вновь созданным пользователям использование услуги Правового консалтинга }
-//#UC START# *4C7CDF570361_49480F0901B9_var*
-//#UC END# *4C7CDF570361_49480F0901B9_var*
+//#UC START# *4C7CDF570361_49480F0901B9exec_var*
+//#UC END# *4C7CDF570361_49480F0901B9exec_var*
 begin
-//#UC START# *4C7CDF570361_49480F0901B9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7CDF570361_49480F0901B9_impl*
-end;//TPrimUserListForm.ConsultingStateForNewbie
+//#UC START# *4C7CDF570361_49480F0901B9exec_impl*
+ ViewArea.ConsultingPaymentForNewbies := not ViewArea.ConsultingPaymentForNewbies;
+//#UC END# *4C7CDF570361_49480F0901B9exec_impl*
+end;//TPrimUserListForm.Users_ConsultingStateForNewbie_Execute
 
-procedure TPrimUserListForm.Autoregistration;
+procedure TPrimUserListForm.Users_ConsultingStateForNewbie_GetState(var State: TvcmOperationStateIndex);
+ {* Разрешить/Запретить вновь созданным пользователям использование услуги Правового консалтинга }
+//#UC START# *4C7CDF570361_49480F0901B9getstate_var*
+//#UC END# *4C7CDF570361_49480F0901B9getstate_var*
+begin
+//#UC START# *4C7CDF570361_49480F0901B9getstate_impl*
+ if ViewArea.ConsultingPaymentForNewbies then
+  State := st_user_Users_ConsultingStateForNewbie_Enabled
+ else
+  State := st_user_Users_ConsultingStateForNewbie_Disabled;
+//#UC END# *4C7CDF570361_49480F0901B9getstate_impl*
+end;//TPrimUserListForm.Users_ConsultingStateForNewbie_GetState
+
+procedure TPrimUserListForm.Users_Autoregistration_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Разрешить/Запретить авторегистрацию новых пользователей }
-//#UC START# *4C7CDFE10330_49480F0901B9_var*
-//#UC END# *4C7CDFE10330_49480F0901B9_var*
+//#UC START# *4C7CDFE10330_49480F0901B9exec_var*
+var
+ l_ForbidAutoregistration: IdsForbidAutoregistration;
+//#UC END# *4C7CDFE10330_49480F0901B9exec_var*
 begin
-//#UC START# *4C7CDFE10330_49480F0901B9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7CDFE10330_49480F0901B9_impl*
-end;//TPrimUserListForm.Autoregistration
+//#UC START# *4C7CDFE10330_49480F0901B9exec_impl*
+ // Администратор хочет запретить автоматическую регистрацию пользователей.
+ // Перед запретом администратору показывается форма, в которой он указывает
+ // свои координаты, а также подтверждает запрет нажатием на кноку "OK". Если
+ // админстратор закрыл форму по "Cancel", то запрет не устанавливается
+ // (CQ: OIT5-25328):
+ if AutoRegistration then
+ begin
+  l_ForbidAutoregistration := TdsForbidAutoregistration.Make(nil);
+  try
+   TefForbidAutoregistration.Make(nil,
+                                  vcm_ztModal,
+                                  0,
+                                  l_ForbidAutoregistration);
+   if not l_ForbidAutoregistration.NeedForbid then
+    Exit;
+  finally
+   l_ForbidAutoregistration := nil;
+  end;//try..finally
+ end;//if AutoRegistration then
+ DefDataAdapter.Authorization.
+  SetAutoregistrationStatus(not AutoRegistration);
+ l3BoolReset(f_AutoRegistration);
+//#UC END# *4C7CDFE10330_49480F0901B9exec_impl*
+end;//TPrimUserListForm.Users_Autoregistration_Execute
 
-procedure TPrimUserListForm.AddPrivelegedRight;
+procedure TPrimUserListForm.Users_Autoregistration_GetState(var State: TvcmOperationStateIndex);
+ {* Разрешить/Запретить авторегистрацию новых пользователей }
+//#UC START# *4C7CDFE10330_49480F0901B9getstate_var*
+//#UC END# *4C7CDFE10330_49480F0901B9getstate_var*
+begin
+//#UC START# *4C7CDFE10330_49480F0901B9getstate_impl*
+ if AutoRegistration then
+  State := st_user_Users_Autoregistration_Enabled
+   // - разрешить авторегистрацию;
+ else
+  State := st_user_Users_Autoregistration_Disabled;
+   // - запретить авторегистрацию;
+//#UC END# *4C7CDFE10330_49480F0901B9getstate_impl*
+end;//TPrimUserListForm.Users_Autoregistration_GetState
+
+procedure TPrimUserListForm.Users_AddPrivelegedRight_Test(const aParams: IvcmTestParamsPrim);
  {* Сделать выделенных пользователей привилегированными }
-//#UC START# *4C7CE03100BF_49480F0901B9_var*
-//#UC END# *4C7CE03100BF_49480F0901B9_var*
+//#UC START# *4C7CE03100BF_49480F0901B9test_var*
+//#UC END# *4C7CE03100BF_49480F0901B9test_var*
 begin
-//#UC START# *4C7CE03100BF_49480F0901B9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7CE03100BF_49480F0901B9_impl*
-end;//TPrimUserListForm.AddPrivelegedRight
+//#UC START# *4C7CE03100BF_49480F0901B9test_impl*
+ SetPrivilegedRightTest(aParams, true);
+//#UC END# *4C7CE03100BF_49480F0901B9test_impl*
+end;//TPrimUserListForm.Users_AddPrivelegedRight_Test
 
-procedure TPrimUserListForm.RemovePrivelegedRight;
+procedure TPrimUserListForm.Users_AddPrivelegedRight_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Сделать выделенных пользователей привилегированными }
+//#UC START# *4C7CE03100BF_49480F0901B9exec_var*
+//#UC END# *4C7CE03100BF_49480F0901B9exec_var*
+begin
+//#UC START# *4C7CE03100BF_49480F0901B9exec_impl*
+ SetPrivilegedRight(True);
+//#UC END# *4C7CE03100BF_49480F0901B9exec_impl*
+end;//TPrimUserListForm.Users_AddPrivelegedRight_Execute
+
+procedure TPrimUserListForm.Users_AddPrivelegedRight_GetState(var State: TvcmOperationStateIndex);
+ {* Сделать выделенных пользователей привилегированными }
+//#UC START# *4C7CE03100BF_49480F0901B9getstate_var*
+//#UC END# *4C7CE03100BF_49480F0901B9getstate_var*
+begin
+//#UC START# *4C7CE03100BF_49480F0901B9getstate_impl*
+ if IsApplyMultiOperations then
+  State := st_user_Users_AddPrivelegedRight_MultiUsers
+ else
+  State := st_user_Users_AddPrivelegedRight_SingleUser;
+//#UC END# *4C7CE03100BF_49480F0901B9getstate_impl*
+end;//TPrimUserListForm.Users_AddPrivelegedRight_GetState
+
+procedure TPrimUserListForm.Users_RemovePrivelegedRight_Test(const aParams: IvcmTestParamsPrim);
  {* Отменить для выделенных пользователей режим привилегий }
-//#UC START# *4C7CE0710199_49480F0901B9_var*
-//#UC END# *4C7CE0710199_49480F0901B9_var*
+//#UC START# *4C7CE0710199_49480F0901B9test_var*
+//#UC END# *4C7CE0710199_49480F0901B9test_var*
 begin
-//#UC START# *4C7CE0710199_49480F0901B9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7CE0710199_49480F0901B9_impl*
-end;//TPrimUserListForm.RemovePrivelegedRight
+//#UC START# *4C7CE0710199_49480F0901B9test_impl*
+ SetPrivilegedRightTest(aParams, false);
+//#UC END# *4C7CE0710199_49480F0901B9test_impl*
+end;//TPrimUserListForm.Users_RemovePrivelegedRight_Test
 
-procedure TPrimUserListForm.UserFilter;
-//#UC START# *4C7CEDAC0209_49480F0901B9_var*
-//#UC END# *4C7CEDAC0209_49480F0901B9_var*
+procedure TPrimUserListForm.Users_RemovePrivelegedRight_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отменить для выделенных пользователей режим привилегий }
+//#UC START# *4C7CE0710199_49480F0901B9exec_var*
+//#UC END# *4C7CE0710199_49480F0901B9exec_var*
 begin
-//#UC START# *4C7CEDAC0209_49480F0901B9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7CEDAC0209_49480F0901B9_impl*
-end;//TPrimUserListForm.UserFilter
+//#UC START# *4C7CE0710199_49480F0901B9exec_impl*
+ SetPrivilegedRight(False);
+//#UC END# *4C7CE0710199_49480F0901B9exec_impl*
+end;//TPrimUserListForm.Users_RemovePrivelegedRight_Execute
 
-procedure TPrimUserListForm.DisableConsulting;
-//#UC START# *4C7CEDB701D6_49480F0901B9_var*
-//#UC END# *4C7CEDB701D6_49480F0901B9_var*
+procedure TPrimUserListForm.Users_RemovePrivelegedRight_GetState(var State: TvcmOperationStateIndex);
+ {* Отменить для выделенных пользователей режим привилегий }
+//#UC START# *4C7CE0710199_49480F0901B9getstate_var*
+//#UC END# *4C7CE0710199_49480F0901B9getstate_var*
 begin
-//#UC START# *4C7CEDB701D6_49480F0901B9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7CEDB701D6_49480F0901B9_impl*
-end;//TPrimUserListForm.DisableConsulting
+//#UC START# *4C7CE0710199_49480F0901B9getstate_impl*
+ if IsApplyMultiOperations then
+  State := st_user_Users_RemovePrivelegedRight_MultiUsers
+ else
+  State := st_user_Users_RemovePrivelegedRight_SingleUser;
+//#UC END# *4C7CE0710199_49480F0901B9getstate_impl*
+end;//TPrimUserListForm.Users_RemovePrivelegedRight_GetState
 
-procedure TPrimUserListForm.EnableConsulting;
-//#UC START# *4C7CEDC20353_49480F0901B9_var*
-//#UC END# *4C7CEDC20353_49480F0901B9_var*
+procedure TPrimUserListForm.Users_UserFilter_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C7CEDAC0209_49480F0901B9test_var*
+var
+ l_Strings: IvcmStrings;
+ l_StringSource: InsStringsSource;
+//#UC END# *4C7CEDAC0209_49480F0901B9test_var*
 begin
-//#UC START# *4C7CEDC20353_49480F0901B9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7CEDC20353_49480F0901B9_impl*
-end;//TPrimUserListForm.EnableConsulting
+//#UC START# *4C7CEDAC0209_49480F0901B9test_impl*
+ l_Strings := aParams.Op.SubItems;
+ if Assigned(l_Strings) then
+ begin
+  if (l_Strings.Count = 0) or f_NeedFillFilterList then
+   if Supports(f_FilterMap, InsStringsSource, l_StringSource) then
+   begin
+    l_StringSource.FillStrings(l_Strings);
+    f_NeedFillFilterList := False;
+   end;
+  aParams.Op.SelectedString := f_FilterMap.
+   ValueToDisplayName(Ord(ViewArea.CurrentFlagFilter));
+ end;//if Assigned(l_Strings) then
+//#UC END# *4C7CEDAC0209_49480F0901B9test_impl*
+end;//TPrimUserListForm.Users_UserFilter_Test
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimUserListForm.Delete;
- {* Удалить }
-//#UC START# *4C7D0CC90052_49480F0901B9_var*
-//#UC END# *4C7D0CC90052_49480F0901B9_var*
+procedure TPrimUserListForm.Users_UserFilter_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C7CEDAC0209_49480F0901B9exec_var*
+var
+ l_TreeSource: Il3SimpleTree;
+ l_Current: Integer;
+//#UC END# *4C7CEDAC0209_49480F0901B9exec_var*
 begin
-//#UC START# *4C7D0CC90052_49480F0901B9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7D0CC90052_49480F0901B9_impl*
-end;//TPrimUserListForm.Delete
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4C7CEDAC0209_49480F0901B9exec_impl*
+ with trUserList do
+ begin
+  l_TreeSource := ViewArea.FiltrateByType(TreeStruct, GetCurrentNode,
+   TUserListFilterTypes(f_FilterMap.DisplayNameToValue(aParams.SelectedString)),
+   l_Current);
+  if Assigned(l_TreeSource) then
+  begin
+   Changing;
+   try
+    LockChangeSelected;
+    try
+     ContextFilter.BeginAssignState;
+     try
+      TreeStruct := l_TreeSource;
+     finally
+      ContextFilter.EndAssignState;
+     end;
+    finally
+     UnLockChangeSelected;
+    end;
+   finally
+    Changed;
+   end;
+   Current := l_Current;
+  end;
+  ContextFilter.UpdateIsContextWrong;
+ end;
+//#UC END# *4C7CEDAC0209_49480F0901B9exec_impl*
+end;//TPrimUserListForm.Users_UserFilter_Execute
 
-procedure TPrimUserListForm.MakeFiltersShared;
+procedure TPrimUserListForm.Users_DisableConsulting_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C7CEDB701D6_49480F0901B9test_var*
+//#UC END# *4C7CEDB701D6_49480F0901B9test_var*
+begin
+//#UC START# *4C7CEDB701D6_49480F0901B9test_impl*
+ PrepareConsultingParams(aParams, True);
+//#UC END# *4C7CEDB701D6_49480F0901B9test_impl*
+end;//TPrimUserListForm.Users_DisableConsulting_Test
+
+procedure TPrimUserListForm.Users_DisableConsulting_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C7CEDB701D6_49480F0901B9exec_var*
+//#UC END# *4C7CEDB701D6_49480F0901B9exec_var*
+begin
+//#UC START# *4C7CEDB701D6_49480F0901B9exec_impl*
+ SetConsultingPayment(False, aParams.ItemIndex < 2);
+//#UC END# *4C7CEDB701D6_49480F0901B9exec_impl*
+end;//TPrimUserListForm.Users_DisableConsulting_Execute
+
+procedure TPrimUserListForm.Users_EnableConsulting_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C7CEDC20353_49480F0901B9test_var*
+//#UC END# *4C7CEDC20353_49480F0901B9test_var*
+begin
+//#UC START# *4C7CEDC20353_49480F0901B9test_impl*
+ PrepareConsultingParams(aParams, False);
+//#UC END# *4C7CEDC20353_49480F0901B9test_impl*
+end;//TPrimUserListForm.Users_EnableConsulting_Test
+
+procedure TPrimUserListForm.Users_EnableConsulting_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C7CEDC20353_49480F0901B9exec_var*
+//#UC END# *4C7CEDC20353_49480F0901B9exec_var*
+begin
+//#UC START# *4C7CEDC20353_49480F0901B9exec_impl*
+ SetConsultingPayment(True, aParams.ItemIndex < 2);
+//#UC END# *4C7CEDC20353_49480F0901B9exec_impl*
+end;//TPrimUserListForm.Users_EnableConsulting_Execute
+
+procedure TPrimUserListForm.Users_MakeFiltersShared_Test(const aParams: IvcmTestParamsPrim);
  {* Сделать фильтры данного пользователя общими }
-//#UC START# *4E807746035F_49480F0901B9_var*
-//#UC END# *4E807746035F_49480F0901B9_var*
+//#UC START# *4E807746035F_49480F0901B9test_var*
+var
+ l_UID : Integer;
+//#UC END# *4E807746035F_49480F0901B9test_var*
 begin
-//#UC START# *4E807746035F_49480F0901B9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4E807746035F_49480F0901B9_impl*
-end;//TPrimUserListForm.MakeFiltersShared
+//#UC START# *4E807746035F_49480F0901B9test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (trUserList.GetCurrentNode <> nil) and
+                                   (trUserList.SelectedCount = 1);
+ if aParams.Op.Flag[vcm_ofEnabled] then
+ begin
+  l_UID := GetUserID(trUserList.GetCurrentNode);
+  aParams.Op.Flag[vcm_ofChecked] := defDataAdapter.NativeAdapter.MakeUserManager.HasSharedFilters(l_UID);
+ end;//aParams.Op.Flag[vcm_ofEnabled]
+//#UC END# *4E807746035F_49480F0901B9test_impl*
+end;//TPrimUserListForm.Users_MakeFiltersShared_Test
 
-procedure TPrimUserListForm.DenyDeleteIdle;
- {* Не удалять при бездействии }
-//#UC START# *4F3D030901C3_49480F0901B9_var*
-//#UC END# *4F3D030901C3_49480F0901B9_var*
+procedure TPrimUserListForm.Users_MakeFiltersShared_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Сделать фильтры данного пользователя общими }
+//#UC START# *4E807746035F_49480F0901B9exec_var*
+var
+ l_UID : Integer;
+ l_Has : Boolean;
+//#UC END# *4E807746035F_49480F0901B9exec_var*
 begin
-//#UC START# *4F3D030901C3_49480F0901B9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4F3D030901C3_49480F0901B9_impl*
-end;//TPrimUserListForm.DenyDeleteIdle
+//#UC START# *4E807746035F_49480F0901B9exec_impl*
+ l_UID := GetUserID(trUserList.GetCurrentNode);
+ with defDataAdapter.NativeAdapter.MakeUserManager do
+ begin
+  l_Has := HasSharedFilters(l_UID);
+  SetSharedFiltersState(l_UID, not l_Has);
+ end;//with defDataAdapter.NativeAdapter.MakeUserManager
+ ViewArea.RequestUpdateCureent;
+//#UC END# *4E807746035F_49480F0901B9exec_impl*
+end;//TPrimUserListForm.Users_MakeFiltersShared_Execute
+
+procedure TPrimUserListForm.Users_DenyDeleteIdle_Test(const aParams: IvcmTestParamsPrim);
+ {* Не удалять при бездействии }
+//#UC START# *4F3D030901C3_49480F0901B9test_var*
+var
+ l_UID: Integer;
+ l_Node: Il3SimpleNode;
+//#UC END# *4F3D030901C3_49480F0901B9test_var*
+begin
+//#UC START# *4F3D030901C3_49480F0901B9test_impl*
+ aParams.Op.Flag[vcm_ofVisible] := defDataAdapter.CommonInterfaces.IsEraseOfInactiveUsersEnabled;
+ l_Node := trUserList.GetCurrentNode;
+ aParams.Op.Flag[vcm_ofEnabled] := not UseCase.dsUserProperty.IsSystem
+                                   and (l_Node <> nil)
+                                   and (trUserList.SelectedCount = 1);
+ if l_Node <> nil then
+ begin
+  l_UID := GetUserID(l_Node);
+  aParams.Op.Flag[vcm_ofChecked] := UseCase.dsUserProperty.IsSystem or not defDataAdapter.NativeAdapter.MakeUserManager.IsErasable(l_UID);
+ end;
+//#UC END# *4F3D030901C3_49480F0901B9test_impl*
+end;//TPrimUserListForm.Users_DenyDeleteIdle_Test
+
+procedure TPrimUserListForm.Users_DenyDeleteIdle_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Не удалять при бездействии }
+//#UC START# *4F3D030901C3_49480F0901B9exec_var*
+var
+ l_UID : Integer;
+ l_CanDelete : Boolean;
+//#UC END# *4F3D030901C3_49480F0901B9exec_var*
+begin
+//#UC START# *4F3D030901C3_49480F0901B9exec_impl*
+ l_UID := GetUserID(trUserList.GetCurrentNode);
+ with defDataAdapter.NativeAdapter.MakeUserManager do
+ begin
+  l_CanDelete := IsErasable(l_UID);
+  SetErasableState(l_UID, not l_CanDelete);
+ end;//with defDataAdapter.NativeAdapter.MakeUserManager
+ ViewArea.RequestUpdateCureent;
+//#UC END# *4F3D030901C3_49480F0901B9exec_impl*
+end;//TPrimUserListForm.Users_DenyDeleteIdle_Execute
 
 procedure TPrimUserListForm.InitFields;
 //#UC START# *47A042E100E2_49480F0901B9_var*
@@ -707,7 +1085,6 @@ begin
 //#UC END# *47EA4E9002C6_49480F0901B9_impl*
 end;//TPrimUserListForm.FinishDataUpdate
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimUserListForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
  const aNew: IvcmViewAreaController);
  {* Изменился источник данных. Для перекрытия в потомках }
@@ -750,9 +1127,7 @@ begin
  end;
 //#UC END# *497469C90140_49480F0901B9_impl*
 end;//TPrimUserListForm.NotifyDataSourceChanged
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimUserListForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_49480F0901B9_var*
@@ -768,9 +1143,7 @@ begin
  Height := 480;
 //#UC END# *49803F5503AA_49480F0901B9_impl*
 end;//TPrimUserListForm.DoInit
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimUserListForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_49480F0901B9_var*
@@ -811,7 +1184,6 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_49480F0901B9_impl*
 end;//TPrimUserListForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimUserListForm.ClearFields;
 begin
@@ -838,6 +1210,7 @@ initialization
  TtfwClassRef.Register(TPrimUserListForm);
  {* Регистрация PrimUserList }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // Defined(Admin)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(Admin)
 end.

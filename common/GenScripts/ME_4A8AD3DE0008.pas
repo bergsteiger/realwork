@@ -15,22 +15,6 @@ uses
 ;
 
 type
- // Search
-
- // Save
-
- // AttributesSelect
-
- // Consult
-
- // Chat
-
- {$If NOT Defined(Monitorings)}
- // SaveAndSend
- {$IfEnd} // NOT Defined(Monitorings)
-
- // OkExt
-
  // Result
 {$IfEnd} // NOT Defined(NoVCM)
 

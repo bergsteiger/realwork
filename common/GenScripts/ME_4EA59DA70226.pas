@@ -12,6 +12,7 @@ uses
  l3IntfUses
  , PrimWarningOptions_Form
  , Document_Strange_Controls
+ , DocumentAndListInterfaces
 ;
 
 type
@@ -22,12 +23,12 @@ type
    procedure WarningQueryClose(aSender: TObject); override;
     {* Обработчик события Warning.OnQueryClose }
   public
-   procedure BecomeActive; override;
-   procedure SwitchActive; override;
-   {$If NOT Defined(NoVCM)}
-   procedure Print; override;
-    {* Печать }
-   {$IfEnd} // NOT Defined(NoVCM)
+   procedure Warning_BecomeActive_Test(const aParams: IvcmTestParamsPrim);
+   procedure Warning_BecomeActive_Execute(aSubID: TnsWarningSub);
+   procedure Warning_BecomeActive(const aParams: IvcmExecuteParamsPrim);
+   procedure Warning_SwitchActive_Test(const aParams: IvcmTestParamsPrim);
+   procedure Warning_SwitchActive_Execute(aSubID: TnsWarningSub);
+   procedure Warning_SwitchActive(const aParams: IvcmExecuteParamsPrim);
  end;//TPrimDockedWarningForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -63,35 +64,57 @@ begin
 //#UC END# *2FE2CD3A0C24_4EA59DA70226_impl*
 end;//TPrimDockedWarningForm.WarningQueryClose
 
-procedure TPrimDockedWarningForm.BecomeActive;
-//#UC START# *4AE9DF12018A_4EA59DA70226_var*
-//#UC END# *4AE9DF12018A_4EA59DA70226_var*
+procedure TPrimDockedWarningForm.Warning_BecomeActive_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4AE9DF12018A_4EA59DA70226test_var*
+//#UC END# *4AE9DF12018A_4EA59DA70226test_var*
 begin
-//#UC START# *4AE9DF12018A_4EA59DA70226_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE9DF12018A_4EA59DA70226_impl*
-end;//TPrimDockedWarningForm.BecomeActive
+//#UC START# *4AE9DF12018A_4EA59DA70226test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (UserType = Warning);
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=269081712
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=274464961
+//#UC END# *4AE9DF12018A_4EA59DA70226test_impl*
+end;//TPrimDockedWarningForm.Warning_BecomeActive_Test
 
-procedure TPrimDockedWarningForm.SwitchActive;
-//#UC START# *4AE9DF3602B2_4EA59DA70226_var*
-//#UC END# *4AE9DF3602B2_4EA59DA70226_var*
+procedure TPrimDockedWarningForm.Warning_BecomeActive_Execute(aSubID: TnsWarningSub);
+//#UC START# *4AE9DF12018A_4EA59DA70226exec_var*
+//#UC END# *4AE9DF12018A_4EA59DA70226exec_var*
 begin
-//#UC START# *4AE9DF3602B2_4EA59DA70226_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE9DF3602B2_4EA59DA70226_impl*
-end;//TPrimDockedWarningForm.SwitchActive
+//#UC START# *4AE9DF12018A_4EA59DA70226exec_impl*
+ PositionOnRequestedSub(aSubID);
+//#UC END# *4AE9DF12018A_4EA59DA70226exec_impl*
+end;//TPrimDockedWarningForm.Warning_BecomeActive_Execute
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimDockedWarningForm.Print;
- {* Печать }
-//#UC START# *49521D8E0295_4EA59DA70226_var*
-//#UC END# *49521D8E0295_4EA59DA70226_var*
+procedure TPrimDockedWarningForm.Warning_BecomeActive(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *49521D8E0295_4EA59DA70226_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49521D8E0295_4EA59DA70226_impl*
-end;//TPrimDockedWarningForm.Print
-{$IfEnd} // NOT Defined(NoVCM)
+ with (aParams.Data As IWarning_BecomeActive_Params) do
+  Self.Warning_BecomeActive_Execute(SubID);
+end;//TPrimDockedWarningForm.Warning_BecomeActive
+
+procedure TPrimDockedWarningForm.Warning_SwitchActive_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4AE9DF3602B2_4EA59DA70226test_var*
+//#UC END# *4AE9DF3602B2_4EA59DA70226test_var*
+begin
+//#UC START# *4AE9DF3602B2_4EA59DA70226test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (UserType = Warning);
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=269081712
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=274464961
+//#UC END# *4AE9DF3602B2_4EA59DA70226test_impl*
+end;//TPrimDockedWarningForm.Warning_SwitchActive_Test
+
+procedure TPrimDockedWarningForm.Warning_SwitchActive_Execute(aSubID: TnsWarningSub);
+//#UC START# *4AE9DF3602B2_4EA59DA70226exec_var*
+//#UC END# *4AE9DF3602B2_4EA59DA70226exec_var*
+begin
+//#UC START# *4AE9DF3602B2_4EA59DA70226exec_impl*
+ PositionOnRequestedSub(aSubID);
+//#UC END# *4AE9DF3602B2_4EA59DA70226exec_impl*
+end;//TPrimDockedWarningForm.Warning_SwitchActive_Execute
+
+procedure TPrimDockedWarningForm.Warning_SwitchActive(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IWarning_SwitchActive_Params) do
+  Self.Warning_SwitchActive_Execute(SubID);
+end;//TPrimDockedWarningForm.Warning_SwitchActive
 
 initialization
 {$If NOT Defined(NoScripts)}

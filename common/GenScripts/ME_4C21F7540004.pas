@@ -68,9 +68,7 @@ begin
  Result := true;
 //#UC END# *4BFD1B5A0200_4C21F7540004_impl*
 end;//TK219124975.TreatExceptionAsSuccess
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TK219124975.GetNormalFontSize: Integer;
  {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
 //#UC START# *4C07AC6F036D_4C21F7540004_var*
@@ -80,9 +78,7 @@ begin
  Result := 39;
 //#UC END# *4C07AC6F036D_4C21F7540004_impl*
 end;//TK219124975.GetNormalFontSize
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TK219124975.ReadColontituls(var theColontituls: TevColontituls);
 //#UC START# *4C221AE002A2_4C21F7540004_var*
 //#UC END# *4C221AE002A2_4C21F7540004_var*
@@ -95,9 +91,7 @@ begin
  theColontituls[pcDownRight] := theColontituls[pcDownRightFirst];
 //#UC END# *4C221AE002A2_4C21F7540004_impl*
 end;//TK219124975.ReadColontituls
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TK219124975.GetHAFFontSize: Integer;
  {* Размер колонтитулов. 0 - по-умолчанию }
 //#UC START# *4C2224D00159_4C21F7540004_var*
@@ -107,7 +101,6 @@ begin
  Result := 28;
 //#UC END# *4C2224D00159_4C21F7540004_impl*
 end;//TK219124975.GetHAFFontSize
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TK219124975.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -123,6 +116,7 @@ end;//TK219124975.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(TK219124975.Suite);
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

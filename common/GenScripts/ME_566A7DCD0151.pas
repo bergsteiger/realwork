@@ -15,7 +15,7 @@ uses
 ;
 
 type
- TdaQuery = class(Tl3ProtoObject, IdaQuery)
+ TdaQuery = class(Tl3ProtoObject, IdaQuery, IdaComboAccessQueryHelper)
   private
    f_DataConverter: IdaDataConverter;
     {* Поле для свойства DataConverter }
@@ -24,17 +24,18 @@ type
    f_Prepared: Boolean;
     {* Поле для свойства Prepared }
   protected
-   procedure AddParam(const aParamDesc: IdaParamDescription);
    procedure PrepareQuery; virtual; abstract;
    procedure UnprepareQuery; virtual; abstract;
    function MakeParamList: TdaParamList; virtual;
    function MakeResultSet(Unidirectional: Boolean): IdaResultSet; virtual; abstract;
    function DoBuildSQLValue(const aHelper: IdaParamListHelper): AnsiString; virtual; abstract;
+   function DoMakeParam(const aParamDesc: IdaParamDescription): IdaParam; virtual;
    function OpenResultSet(Unidirectional: Boolean = True): IdaResultSet;
    procedure Prepare;
    function Get_Param(const aName: AnsiString): IdaParam;
    procedure UnPrepare;
    function BuildSQLValue(const aHelper: IdaParamListHelper): AnsiString;
+   function AddParam(const aParamDesc: IdaParamDescription): IdaParam;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure BeforeRelease; override;
@@ -59,24 +60,6 @@ uses
  , daTypes
 ;
 
-procedure TdaQuery.AddParam(const aParamDesc: IdaParamDescription);
-//#UC START# *55FFDEC4037F_566A7DCD0151_var*
-var
- l_Param: IdaParam;
-//#UC END# *55FFDEC4037F_566A7DCD0151_var*
-begin
-//#UC START# *55FFDEC4037F_566A7DCD0151_impl*
- l_Param := Get_Param(aParamDesc.Name);
- if Assigned(l_Param) then
- begin
-  if not l_Param.IsSameType(aParamDesc) then
-   raise EdaError.CreateFmt('Не совпадают типы данных для параметра %s', [aParamDesc.Name]);
- end
- else
-  f_Params.Add(TdaParam.Make(f_DataConverter, aParamDesc));
-//#UC END# *55FFDEC4037F_566A7DCD0151_impl*
-end;//TdaQuery.AddParam
-
 function TdaQuery.MakeParamList: TdaParamList;
 //#UC START# *560B861302E9_566A7DCD0151_var*
 //#UC END# *560B861302E9_566A7DCD0151_var*
@@ -96,6 +79,15 @@ begin
  f_DataConverter := aDataConverter;
 //#UC END# *566A7F3C01D9_566A7DCD0151_impl*
 end;//TdaQuery.Create
+
+function TdaQuery.DoMakeParam(const aParamDesc: IdaParamDescription): IdaParam;
+//#UC START# *56E120F00095_566A7DCD0151_var*
+//#UC END# *56E120F00095_566A7DCD0151_var*
+begin
+//#UC START# *56E120F00095_566A7DCD0151_impl*
+ Result := TdaParam.Make(f_DataConverter, aParamDesc);
+//#UC END# *56E120F00095_566A7DCD0151_impl*
+end;//TdaQuery.DoMakeParam
 
 function TdaQuery.OpenResultSet(Unidirectional: Boolean = True): IdaResultSet;
 //#UC START# *5549C42400DA_566A7DCD0151_var*
@@ -155,6 +147,28 @@ begin
  Result := DoBuildSQLValue(aHelper);
 //#UC END# *564318160268_566A7DCD0151_impl*
 end;//TdaQuery.BuildSQLValue
+
+function TdaQuery.AddParam(const aParamDesc: IdaParamDescription): IdaParam;
+//#UC START# *56E152F4011D_566A7DCD0151_var*
+var
+ l_Param: IdaParam;
+//#UC END# *56E152F4011D_566A7DCD0151_var*
+begin
+//#UC START# *56E152F4011D_566A7DCD0151_impl*
+ l_Param := Get_Param(aParamDesc.Name);
+ if Assigned(l_Param) then
+ begin
+  if not l_Param.IsSameType(aParamDesc) then
+   raise EdaError.CreateFmt('Не совпадают типы данных для параметра %s', [aParamDesc.Name]);
+ end
+ else
+ begin
+  l_Param := DoMakeParam(aParamDesc);
+  f_Params.Add(l_Param);
+ end;
+ Result := l_Param;
+//#UC END# *56E152F4011D_566A7DCD0151_impl*
+end;//TdaQuery.AddParam
 
 procedure TdaQuery.Cleanup;
  {* Функция очистки полей объекта. }

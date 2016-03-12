@@ -74,9 +74,7 @@ begin
  Result.Y := 600;
 //#UC END# *4C08CF700318_4D46BBB60035_impl*
 end;//TOutlinerWithEVDStyleNodes.FormExtent
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TOutlinerWithEVDStyleNodes.FormMade(const aForm: _FormClass_);
 //#UC START# *4C08D61F0231_4D46BBB60035_var*
 //#UC END# *4C08D61F0231_4D46BBB60035_var*
@@ -86,7 +84,6 @@ begin
  aForm.TreeControl.SelfDrawNodes := True;
 //#UC END# *4C08D61F0231_4D46BBB60035_impl*
 end;//TOutlinerWithEVDStyleNodes.FormMade
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TOutlinerWithEVDStyleNodes.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -94,7 +91,6 @@ begin
  Result := 'OutlinerTests';
 end;//TOutlinerWithEVDStyleNodes.GetFolder
 
-{$If NOT Defined(NoVCM)}
 procedure TOutlinerWithEVDStyleNodes.Load(aForm: TOutlinerFormForm;
  const aFileName: AnsiString);
  {* Загрузить данные в дерево. }
@@ -114,13 +110,13 @@ begin
  end; {try..finally}
 //#UC END# *4D46E22801EB_4D46BBB60035_impl*
 end;//TOutlinerWithEVDStyleNodes.Load
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TOutlinerWithEVDStyleNodes.GetModelElementGUID: AnsiString;
  {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4D46BBB60035';
 end;//TOutlinerWithEVDStyleNodes.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

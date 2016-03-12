@@ -21,21 +21,41 @@ type
    procedure ReadPageFormats; override;
    procedure SetColontitulComboBoxItemIndex(aIndex: Integer); override;
    procedure ToGUIMargins; override;
-   procedure Save(SaveAsDefault: Boolean); override;
+   procedure Save(SaveAsDefault: Boolean = False); override;
    procedure SetPageFormat(aOrientation: Integer); override;
    procedure MacroAdd(const aString: AnsiString); override;
    procedure ToGUIColontituls; override;
   public
    {$If NOT Defined(NoVCM)}
-   procedure Save; override;
+   procedure File_Save_Test(const aParams: IvcmTestParamsPrim);
     {* Сохранить }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
+   procedure File_Save_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Сохранить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_Test(const aParams: IvcmTestParamsPrim);
     {* OK }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
+   procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_GetState(var State: TvcmOperationStateIndex);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_GetState(var State: TvcmOperationStateIndex);
     {* Отмена }
    {$IfEnd} // NOT Defined(NoVCM)
  end;//Ten_PageSetup
@@ -55,39 +75,99 @@ uses
 ;
 
 {$If NOT Defined(NoVCM)}
-procedure Ten_PageSetup.Save;
+procedure Ten_PageSetup.File_Save_Test(const aParams: IvcmTestParamsPrim);
  {* Сохранить }
-//#UC START# *495235F401C0_4AAF86650309_var*
-//#UC END# *495235F401C0_4AAF86650309_var*
+//#UC START# *495235F401C0_4AAF86650309test_var*
+//#UC END# *495235F401C0_4AAF86650309test_var*
 begin
-//#UC START# *495235F401C0_4AAF86650309_impl*
+//#UC START# *495235F401C0_4AAF86650309test_impl*
  !!! Needs to be implemented !!!
-//#UC END# *495235F401C0_4AAF86650309_impl*
-end;//Ten_PageSetup.Save
+//#UC END# *495235F401C0_4AAF86650309test_impl*
+end;//Ten_PageSetup.File_Save_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure Ten_PageSetup.Ok;
+procedure Ten_PageSetup.File_Save_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Сохранить }
+//#UC START# *495235F401C0_4AAF86650309exec_var*
+//#UC END# *495235F401C0_4AAF86650309exec_var*
+begin
+//#UC START# *495235F401C0_4AAF86650309exec_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *495235F401C0_4AAF86650309exec_impl*
+end;//Ten_PageSetup.File_Save_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure Ten_PageSetup.Result_Ok_Test(const aParams: IvcmTestParamsPrim);
  {* OK }
-//#UC START# *4A97EBE702F8_4AAF86650309_var*
-//#UC END# *4A97EBE702F8_4AAF86650309_var*
+//#UC START# *4A97EBE702F8_4AAF86650309test_var*
+//#UC END# *4A97EBE702F8_4AAF86650309test_var*
 begin
-//#UC START# *4A97EBE702F8_4AAF86650309_impl*
+//#UC START# *4A97EBE702F8_4AAF86650309test_impl*
  !!! Needs to be implemented !!!
-//#UC END# *4A97EBE702F8_4AAF86650309_impl*
-end;//Ten_PageSetup.Ok
+//#UC END# *4A97EBE702F8_4AAF86650309test_impl*
+end;//Ten_PageSetup.Result_Ok_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure Ten_PageSetup.Cancel;
- {* Отмена }
-//#UC START# *4AC5D61E0284_4AAF86650309_var*
-//#UC END# *4AC5D61E0284_4AAF86650309_var*
+procedure Ten_PageSetup.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* OK }
+//#UC START# *4A97EBE702F8_4AAF86650309exec_var*
+//#UC END# *4A97EBE702F8_4AAF86650309exec_var*
 begin
-//#UC START# *4AC5D61E0284_4AAF86650309_impl*
+//#UC START# *4A97EBE702F8_4AAF86650309exec_impl*
  !!! Needs to be implemented !!!
-//#UC END# *4AC5D61E0284_4AAF86650309_impl*
-end;//Ten_PageSetup.Cancel
+//#UC END# *4A97EBE702F8_4AAF86650309exec_impl*
+end;//Ten_PageSetup.Result_Ok_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure Ten_PageSetup.Result_Ok_GetState(var State: TvcmOperationStateIndex);
+ {* OK }
+//#UC START# *4A97EBE702F8_4AAF86650309getstate_var*
+//#UC END# *4A97EBE702F8_4AAF86650309getstate_var*
+begin
+//#UC START# *4A97EBE702F8_4AAF86650309getstate_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4A97EBE702F8_4AAF86650309getstate_impl*
+end;//Ten_PageSetup.Result_Ok_GetState
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure Ten_PageSetup.Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
+ {* Отмена }
+//#UC START# *4AC5D61E0284_4AAF86650309test_var*
+//#UC END# *4AC5D61E0284_4AAF86650309test_var*
+begin
+//#UC START# *4AC5D61E0284_4AAF86650309test_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4AC5D61E0284_4AAF86650309test_impl*
+end;//Ten_PageSetup.Result_Cancel_Test
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure Ten_PageSetup.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отмена }
+//#UC START# *4AC5D61E0284_4AAF86650309exec_var*
+//#UC END# *4AC5D61E0284_4AAF86650309exec_var*
+begin
+//#UC START# *4AC5D61E0284_4AAF86650309exec_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4AC5D61E0284_4AAF86650309exec_impl*
+end;//Ten_PageSetup.Result_Cancel_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure Ten_PageSetup.Result_Cancel_GetState(var State: TvcmOperationStateIndex);
+ {* Отмена }
+//#UC START# *4AC5D61E0284_4AAF86650309getstate_var*
+//#UC END# *4AC5D61E0284_4AAF86650309getstate_var*
+begin
+//#UC START# *4AC5D61E0284_4AAF86650309getstate_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4AC5D61E0284_4AAF86650309getstate_impl*
+end;//Ten_PageSetup.Result_Cancel_GetState
 {$IfEnd} // NOT Defined(NoVCM)
 
 procedure Ten_PageSetup.ReadPageFormats;
@@ -117,7 +197,7 @@ begin
 //#UC END# *4AC608AC03C7_4AAF86650309_impl*
 end;//Ten_PageSetup.ToGUIMargins
 
-procedure Ten_PageSetup.Save(SaveAsDefault: Boolean);
+procedure Ten_PageSetup.Save(SaveAsDefault: Boolean = False);
 //#UC START# *4C88D996000B_4AAF86650309_var*
 //#UC END# *4C88D996000B_4AAF86650309_var*
 begin

@@ -141,6 +141,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 var g_Tfs_Diction: Tfs_Diction = nil;
  {* Экземпляр синглетона Tfs_Diction }
 
@@ -305,7 +306,6 @@ begin
 //#UC END# *47A042E100E2_4A9D19450248_impl*
 end;//Tfs_Diction.InitFields
 
-{$If NOT Defined(NoVCM)}
 class function Tfs_Diction.GetInstance: TvcmFormSetFactoryPrim;
 //#UC START# *4FFE854A009B_4A9D19450248_var*
 //#UC END# *4FFE854A009B_4A9D19450248_var*
@@ -314,9 +314,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4FFE854A009B_4A9D19450248_impl*
 end;//Tfs_Diction.GetInstance
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function Tfs_Diction.DoMakeFormSetCaption(const aDataSource: IvcmFormSetDataSource): IvcmCString;
 //#UC START# *54B352A903E5_4A9D19450248_var*
 var
@@ -328,9 +326,7 @@ begin
  Result := l3Cat([str_DictionFormSetCaptionPrefix.AsCStr, l3CStr(' : '), l_TabCaption]);
 //#UC END# *54B352A903E5_4A9D19450248_impl*
 end;//Tfs_Diction.DoMakeFormSetCaption
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function Tfs_Diction.DoMakeFormSetTabCaption(const aDataSource: IvcmFormSetDataSource): IvcmCString;
 //#UC START# *54B352D401E5_4A9D19450248_var*
 var
@@ -346,9 +342,7 @@ begin
   Result := nil;
 //#UC END# *54B352D401E5_4A9D19450248_impl*
 end;//Tfs_Diction.DoMakeFormSetTabCaption
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function Tfs_Diction.DoMakeFormSetTabHint(const aDataSource: IvcmFormSetDataSource): IvcmCString;
 //#UC START# *54B352FB03A1_4A9D19450248_var*
 //#UC END# *54B352FB03A1_4A9D19450248_var*
@@ -357,13 +351,13 @@ begin
  Result := DoMakeFormSetCaption(aDataSource);
 //#UC END# *54B352FB03A1_4A9D19450248_impl*
 end;//Tfs_Diction.DoMakeFormSetTabHint
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_DictionFormSetCaptionPrefix.Init;
  {* Инициализация str_DictionFormSetCaptionPrefix }
  str_fsDictionCaption.Init;
  {* Инициализация str_fsDictionCaption }
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

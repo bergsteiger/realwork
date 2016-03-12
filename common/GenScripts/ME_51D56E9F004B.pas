@@ -30,7 +30,6 @@ type
  {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
  )
   private
-   f_AllSelected: Boolean;
    f_OnGetNodeType: TdltGetNodeTypeEvent;
     {* Поле для свойства OnGetNodeType }
   private
@@ -73,12 +72,8 @@ uses
  l3ImplUses
  , l3ControlsTypes
  , l3TreeInterfaces
- , OvcConst
  , Windows
- , l3Nodes
- , l3MinMax
  , SysUtils
- , l3Base
  , l3String
  , evStyleTableTools
  , l3Units

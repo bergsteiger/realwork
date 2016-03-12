@@ -113,7 +113,6 @@ begin
  end;
 //#UC END# *4BE419AF0217_4DA7CCC00062_impl*
 end;//TWholeSelectionWithMouseTest.DoVisit
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TWholeSelectionWithMouseTest.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -126,6 +125,7 @@ function TWholeSelectionWithMouseTest.GetModelElementGUID: AnsiString;
 begin
  Result := '4DA7CCC00062';
 end;//TWholeSelectionWithMouseTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

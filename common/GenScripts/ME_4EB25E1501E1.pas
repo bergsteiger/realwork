@@ -58,11 +58,11 @@ begin
  DoDiffForm(aForm As TDiffForm, aCtx);
 //#UC END# *4EB25DE00396_4EB25E1501E1_impl*
 end;//TkwDiffFormWord.DoForm
-{$IfEnd} // NOT Defined(NoVCL)
 
 initialization
  TkwDiffFormWord.RegisterClass;
  {* Регистрация TkwDiffFormWord }
-{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCL)
 
+{$IfEnd} // NOT Defined(NoScripts)
 end.

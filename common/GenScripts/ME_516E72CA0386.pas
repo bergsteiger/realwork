@@ -21,6 +21,7 @@ type
   protected
    procedure EVDtoHTML(const aFileName: AnsiString);
    procedure SomeFormatToHTML(aReader: Tk2CustomFileReader);
+   procedure TuningHTMLGenerator(aHTMLReader: TddHTMLGenerator); virtual;
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
@@ -76,6 +77,15 @@ begin
  DoWrite(aReader, EtalonSuffix + '.htm')
 //#UC END# *516E775B03C9_516E72CA0386_impl*
 end;//TEVDtoHTMLWriterTest.SomeFormatToHTML
+
+procedure TEVDtoHTMLWriterTest.TuningHTMLGenerator(aHTMLReader: TddHTMLGenerator);
+//#UC START# *56D9300D018D_516E72CA0386_var*
+//#UC END# *56D9300D018D_516E72CA0386_var*
+begin
+//#UC START# *56D9300D018D_516E72CA0386_impl*
+ 
+//#UC END# *56D9300D018D_516E72CA0386_impl*
+end;//TEVDtoHTMLWriterTest.TuningHTMLGenerator
 
 function TEVDtoHTMLWriterTest.GetFolder: AnsiString;
  {* Папка в которую входит тест }

@@ -13,11 +13,17 @@
    function pm_GetHyperlinkSubID: Integer; virtual;
    function NeedMakeHyperlinkToDocument: Boolean; virtual;
   public
-   procedure MakeHyperlinkToDocument; override;
+   procedure File_MakeHyperlinkToDocument_Test(const aParams: IvcmTestParamsPrim);
     {* Создать ссылку на документ }
-   procedure MakeHyperlinkToDocument; override;
+   procedure File_MakeHyperlinkToDocument_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Создать ссылку на документ }
-   procedure MakeHyperlinkToDocument; override;
+   procedure Text_MakeHyperlinkToDocument_Test(const aParams: IvcmTestParamsPrim);
+    {* Создать ссылку на документ }
+   procedure Text_MakeHyperlinkToDocument_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Создать ссылку на документ }
+   procedure Document_MakeHyperlinkToDocument_Test(const aParams: IvcmTestParamsPrim);
+    {* Создать ссылку на документ }
+   procedure Document_MakeHyperlinkToDocument_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Создать ссылку на документ }
   protected
    property HyperlinkDocID: Integer
@@ -54,35 +60,74 @@ begin
 //#UC END# *53EB17EF0306_4CDD18E80034_impl*
 end;//_HyperlinkToDocumentProducer_.NeedMakeHyperlinkToDocument
 
-procedure _HyperlinkToDocumentProducer_.MakeHyperlinkToDocument;
+procedure _HyperlinkToDocumentProducer_.File_MakeHyperlinkToDocument_Test(const aParams: IvcmTestParamsPrim);
  {* Создать ссылку на документ }
-//#UC START# *4CDD18A20143_4CDD18E80034_var*
-//#UC END# *4CDD18A20143_4CDD18E80034_var*
+//#UC START# *4CDD18A20143_4CDD18E80034test_var*
+//#UC END# *4CDD18A20143_4CDD18E80034test_var*
 begin
-//#UC START# *4CDD18A20143_4CDD18E80034_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4CDD18A20143_4CDD18E80034_impl*
-end;//_HyperlinkToDocumentProducer_.MakeHyperlinkToDocument
+//#UC START# *4CDD18A20143_4CDD18E80034test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (HyperlinkDocID > 0) AND
+  (not l3IsNil(HyperlinkDocumentName)) AND
+  NeedMakeHyperlinkToDocument;
+ // - http://mdp.garant.ru/pages/viewpage.action?pageId=561019302
+//#UC END# *4CDD18A20143_4CDD18E80034test_impl*
+end;//_HyperlinkToDocumentProducer_.File_MakeHyperlinkToDocument_Test
 
-procedure _HyperlinkToDocumentProducer_.MakeHyperlinkToDocument;
+procedure _HyperlinkToDocumentProducer_.File_MakeHyperlinkToDocument_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Создать ссылку на документ }
-//#UC START# *4CDD5C3901E0_4CDD18E80034_var*
-//#UC END# *4CDD5C3901E0_4CDD18E80034_var*
+//#UC START# *4CDD18A20143_4CDD18E80034exec_var*
+//#UC END# *4CDD18A20143_4CDD18E80034exec_var*
 begin
-//#UC START# *4CDD5C3901E0_4CDD18E80034_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4CDD5C3901E0_4CDD18E80034_impl*
-end;//_HyperlinkToDocumentProducer_.MakeHyperlinkToDocument
+//#UC START# *4CDD18A20143_4CDD18E80034exec_impl*
+ l3System.SetClipboardData(
+  TevConstStringData.Make(
+   TevdHyperlinkInfo.Make(HyperlinkDocumentName,
+                          TevAddress_C(HyperlinkDocID, HyperlinkSubID){$IfDef XE4}.rTafwAddress{$EndIf},
+                          str_HyperlinkToDocumentProducerAppInfo.AsCStr),
+                          nil));
+ Say(inf_HyperlinkToDocumentProducerLinkMade);                         
+//#UC END# *4CDD18A20143_4CDD18E80034exec_impl*
+end;//_HyperlinkToDocumentProducer_.File_MakeHyperlinkToDocument_Execute
 
-procedure _HyperlinkToDocumentProducer_.MakeHyperlinkToDocument;
+procedure _HyperlinkToDocumentProducer_.Text_MakeHyperlinkToDocument_Test(const aParams: IvcmTestParamsPrim);
  {* Создать ссылку на документ }
-//#UC START# *4CDE7C2C0258_4CDD18E80034_var*
-//#UC END# *4CDE7C2C0258_4CDD18E80034_var*
+//#UC START# *4CDD5C3901E0_4CDD18E80034test_var*
+//#UC END# *4CDD5C3901E0_4CDD18E80034test_var*
 begin
-//#UC START# *4CDE7C2C0258_4CDD18E80034_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4CDE7C2C0258_4CDD18E80034_impl*
-end;//_HyperlinkToDocumentProducer_.MakeHyperlinkToDocument
+//#UC START# *4CDD5C3901E0_4CDD18E80034test_impl*
+ File_MakeHyperlinkToDocument_Test(aParams);
+//#UC END# *4CDD5C3901E0_4CDD18E80034test_impl*
+end;//_HyperlinkToDocumentProducer_.Text_MakeHyperlinkToDocument_Test
+
+procedure _HyperlinkToDocumentProducer_.Text_MakeHyperlinkToDocument_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Создать ссылку на документ }
+//#UC START# *4CDD5C3901E0_4CDD18E80034exec_var*
+//#UC END# *4CDD5C3901E0_4CDD18E80034exec_var*
+begin
+//#UC START# *4CDD5C3901E0_4CDD18E80034exec_impl*
+ File_MakeHyperlinkToDocument_Execute(aParams);
+//#UC END# *4CDD5C3901E0_4CDD18E80034exec_impl*
+end;//_HyperlinkToDocumentProducer_.Text_MakeHyperlinkToDocument_Execute
+
+procedure _HyperlinkToDocumentProducer_.Document_MakeHyperlinkToDocument_Test(const aParams: IvcmTestParamsPrim);
+ {* Создать ссылку на документ }
+//#UC START# *4CDE7C2C0258_4CDD18E80034test_var*
+//#UC END# *4CDE7C2C0258_4CDD18E80034test_var*
+begin
+//#UC START# *4CDE7C2C0258_4CDD18E80034test_impl*
+ File_MakeHyperlinkToDocument_Test(aParams);
+//#UC END# *4CDE7C2C0258_4CDD18E80034test_impl*
+end;//_HyperlinkToDocumentProducer_.Document_MakeHyperlinkToDocument_Test
+
+procedure _HyperlinkToDocumentProducer_.Document_MakeHyperlinkToDocument_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Создать ссылку на документ }
+//#UC START# *4CDE7C2C0258_4CDD18E80034exec_var*
+//#UC END# *4CDE7C2C0258_4CDD18E80034exec_var*
+begin
+//#UC START# *4CDE7C2C0258_4CDD18E80034exec_impl*
+ File_MakeHyperlinkToDocument_Execute(aParams);
+//#UC END# *4CDE7C2C0258_4CDD18E80034exec_impl*
+end;//_HyperlinkToDocumentProducer_.Document_MakeHyperlinkToDocument_Execute
 
 {$EndIf HyperlinkToDocumentProducer_imp_impl}
 

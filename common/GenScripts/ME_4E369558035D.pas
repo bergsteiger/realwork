@@ -55,6 +55,7 @@ uses
  , l3MessageID
 ;
 
+{$If NOT Defined(NoVCM)}
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\ListAnalizeUserTypes.imp.pas}
 
 procedure TPrimListAnalizeForm.UpdateTabAction(aSender: TObject);
@@ -79,7 +80,6 @@ begin
 //#UC END# *4E36B63D016B_4E369558035D_impl*
 end;//TPrimListAnalizeForm.ExecuteTabAction
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimListAnalizeForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4E369558035D_var*
@@ -98,9 +98,7 @@ begin
  end;//Parent <> nil
 //#UC END# *49803F5503AA_4E369558035D_impl*
 end;//TPrimListAnalizeForm.DoInit
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimListAnalizeForm.BecomeActive;
 //#UC START# *4A8AE0FA03B2_4E369558035D_var*
 //#UC END# *4A8AE0FA03B2_4E369558035D_var*
@@ -112,13 +110,13 @@ begin
  // TdmStdRes.MakeListAnalizer(dsDocumentList.MakeAnalizeTree);
 //#UC END# *4A8AE0FA03B2_4E369558035D_impl*
 end;//TPrimListAnalizeForm.BecomeActive
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimListAnalizeForm);
  {* Регистрация PrimListAnalize }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

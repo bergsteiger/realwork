@@ -16,16 +16,6 @@ uses
 ;
 
 type
- // ptNewTheme
-
- // ptEditPosting
-
- // ptDeletePosting
-
- // SavePostList
-
- // ExportSelected
-
  // PostingToolBar
 
  // SearchSupport

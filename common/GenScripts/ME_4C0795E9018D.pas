@@ -44,6 +44,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 function TK210043423.GetEnabled: Boolean;
 //#UC START# *4C07996901BE_4C0795E9018D_var*
 //#UC END# *4C07996901BE_4C0795E9018D_var*
@@ -69,6 +70,7 @@ end;//TK210043423.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(TK210043423.Suite);
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

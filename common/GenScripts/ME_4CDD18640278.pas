@@ -12,15 +12,9 @@ uses
 ;
 
 type
- // MakeHyperlinkToDocument
-
  // File
 
- // MakeHyperlinkToDocument
-
  // Text
-
- // MakeHyperlinkToDocument
 
  // Document
 

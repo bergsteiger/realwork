@@ -15,7 +15,7 @@ uses
 
 type
  TMemorySizeTest = class(TTestCase)
-  public
+  published
    procedure DoIt;
  end;//TMemorySizeTest
 {$IfEnd} // Defined(nsTest)

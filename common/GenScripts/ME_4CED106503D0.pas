@@ -63,13 +63,13 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
+{$If NOT Defined(NoVCM)}
 {$Include w:\common\components\rtl\Garant\ScriptEngine\ClipboardOperations.imp.pas}
 
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
 
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\HotSpotTools.imp.pas}
 
-{$If NOT Defined(NoVCM)}
 procedure THotSpotSelectionTest.Process(aForm: TPrimTextLoadForm);
  {* Собственно процесс обработки текста }
 //#UC START# *4BE13147032C_4CED106503D0_var*
@@ -94,7 +94,6 @@ begin
  end; // if l_HotSpotTester.GetAdvancedHotSpot(aForm.Text.View,
 //#UC END# *4BE13147032C_4CED106503D0_impl*
 end;//THotSpotSelectionTest.Process
-{$IfEnd} // NOT Defined(NoVCM)
 
 function THotSpotSelectionTest.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -107,6 +106,7 @@ function THotSpotSelectionTest.GetModelElementGUID: AnsiString;
 begin
  Result := '4CED106503D0';
 end;//THotSpotSelectionTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

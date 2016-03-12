@@ -13,32 +13,6 @@ uses
 ;
 
 type
- // Ascending
-
- // Descending
-
- // SortDirection
-
- // Sort
-
- // AnalizeList
-
- // SortForReminders
-
- // Ascending
-
- // Descending
-
- // SortDirectionForReminders
-
- // OrAnotherListForReminders
-
- // AndAnotherListForReminders
-
- // AndNotAnotherListForReminders
-
- // SpecifyListForReminders
-
  // List
 
  // CRList
@@ -47,15 +21,9 @@ type
 
  // Reminder
 
- // WorkWithList
-
  // List
 
  // DocumentInList
-
- // RemoveFromControl
-
- // AddToControl
 
  // SelectedDocuments
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

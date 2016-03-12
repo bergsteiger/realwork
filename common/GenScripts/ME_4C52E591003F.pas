@@ -13,21 +13,7 @@ uses
 ;
 
 type
- // Drug
-
- // MedicFirm
-
- // OpenDocument
-
- // Drug
-
- // MedicFirm
-
- // OpenList
-
  // MedicListSynchroView
-
- // CountryFilter
 
  // MedicFirmList
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

@@ -14,10 +14,6 @@ uses
 ;
 
 type
- // AttributesCopy
-
- // Copy
-
  // Edit
 
  // Table

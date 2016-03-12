@@ -27,7 +27,7 @@ type
    function OutputFolderName: AnsiString; override;
     {* Папка, в которую пишутся выходные файлы. }
    {$IfEnd} // NOT Defined(NotTunedDUnit)
-  public
+  published
    procedure DoIt;
  end;//TCheckingFilesInFolderTest
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
@@ -43,6 +43,7 @@ uses
  , SysUtils
 ;
 
+{$If NOT Defined(NotTunedDUnit)}
 procedure TCheckingFilesInFolderTest.DoIt;
 //#UC START# *51B1AEC2015B_51B1ADF20017_var*
 
@@ -72,7 +73,6 @@ begin
  Result := '51B1ADF20017';
 end;//TCheckingFilesInFolderTest.GetModelElementGUID
 
-{$If NOT Defined(NotTunedDUnit)}
 function TCheckingFilesInFolderTest.OutputFolderName: AnsiString;
  {* Папка, в которую пишутся выходные файлы. }
 //#UC START# *51B1A75D0367_51B1ADF20017_var*

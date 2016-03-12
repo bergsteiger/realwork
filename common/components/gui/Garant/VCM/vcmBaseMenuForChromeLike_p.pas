@@ -30,8 +30,9 @@ uses
  , tc6PublicInfo
 ;
 
+{$If NOT Defined(NoVGScene)}
 type
- TvcmBaseMenuForChromeLikeFriend = {final} class(TvcmBaseMenuForChromeLike)
+ TvcmBaseMenuForChromeLikeFriend = {abstract} class(TvcmBaseMenuForChromeLike)
   {* ƒруг к классу TvcmBaseMenuForChromeLike }
  end;//TvcmBaseMenuForChromeLikeFriend
 
@@ -119,6 +120,7 @@ end;
 initialization
  _RegisterPublicInformation5;
  _RegisterPublicInformation6;
-{$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+{$IfEnd} // NOT Defined(NoVGScene)
 
+{$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 end.

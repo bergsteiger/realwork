@@ -13,18 +13,6 @@ uses
 ;
 
 type
- // Russian
-
- // English
-
- // French
-
- // Deutch
-
- // Italian
-
- // Spanish
-
  // Lang
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 

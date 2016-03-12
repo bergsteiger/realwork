@@ -52,9 +52,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4B7AB0B6016E_4C35A13B0201_impl*
 end;//TArchi2.CommandLineKey
-{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$If NOT Defined(NotTunedDUnit)}
 class function TArchi2.TimesPage: Integer;
  {* Страница для вывода замеров времени }
 //#UC START# *4B7C0B43005B_4C35A13B0201_var*
@@ -64,9 +62,7 @@ begin
  Result := 224789164;
 //#UC END# *4B7C0B43005B_4C35A13B0201_impl*
 end;//TArchi2.TimesPage
-{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$If NOT Defined(NotTunedDUnit)}
 class function TArchi2.ResultsPage: Integer;
  {* Страница для вывода результатов тестов }
 //#UC START# *4B7C0B670215_4C35A13B0201_var*

@@ -17,15 +17,6 @@ uses
 type
  TPrimTurnOffTimeMachineOptionsForm = class(TPrimTurnOffTimeMachineForm)
   {* Выключить Машину времени / Изменить дату }
-  public
-   {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
-    {* OK }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
-    {* Отмена }
-   {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimTurnOffTimeMachineOptionsForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -38,30 +29,6 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
 ;
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimTurnOffTimeMachineOptionsForm.Ok;
- {* OK }
-//#UC START# *4C762A1501FC_4C8A171801CA_var*
-//#UC END# *4C762A1501FC_4C8A171801CA_var*
-begin
-//#UC START# *4C762A1501FC_4C8A171801CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762A1501FC_4C8A171801CA_impl*
-end;//TPrimTurnOffTimeMachineOptionsForm.Ok
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimTurnOffTimeMachineOptionsForm.Cancel;
- {* Отмена }
-//#UC START# *4C762AB601E1_4C8A171801CA_var*
-//#UC END# *4C762AB601E1_4C8A171801CA_var*
-begin
-//#UC START# *4C762AB601E1_4C8A171801CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762AB601E1_4C8A171801CA_impl*
-end;//TPrimTurnOffTimeMachineOptionsForm.Cancel
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

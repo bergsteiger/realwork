@@ -26,6 +26,8 @@ implementation
 uses
  l3ImplUses
 ;
-{$IfEnd} // Defined(ServerTasks)
 
+{$If NOT Defined(Nemesis)}
+{$IfEnd} // NOT Defined(Nemesis)
+{$IfEnd} // Defined(ServerTasks)
 end.

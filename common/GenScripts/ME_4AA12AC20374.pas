@@ -90,6 +90,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 var g_Tfs_Tips: Tfs_Tips = nil;
  {* Экземпляр синглетона Tfs_Tips }
 
@@ -166,7 +167,6 @@ begin
 //#UC END# *47A042E100E2_4AA12AC20374_impl*
 end;//Tfs_Tips.InitFields
 
-{$If NOT Defined(NoVCM)}
 class function Tfs_Tips.GetInstance: TvcmFormSetFactoryPrim;
 //#UC START# *4FFE854A009B_4AA12AC20374_var*
 //#UC END# *4FFE854A009B_4AA12AC20374_var*
@@ -175,11 +175,11 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4FFE854A009B_4AA12AC20374_impl*
 end;//Tfs_Tips.GetInstance
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_fsTipsCaption.Init;
  {* Инициализация str_fsTipsCaption }
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

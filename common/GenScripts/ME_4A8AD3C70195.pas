@@ -14,27 +14,9 @@ uses
 ;
 
 type
- // Cancel
-
  // Result
 
- // Search
-
- // Print
-
- // AttributesSelect
-
- // ConsultationMark
-
- // Analize
-
- // Ok
-
  // Result
-
- // Close
-
- // Cancel
 
  // Result
 {$IfEnd} // NOT Defined(NoVCM)

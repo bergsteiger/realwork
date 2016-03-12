@@ -28,6 +28,6 @@ uses
  , SupportKeyWords
  {$IfEnd} // NOT Defined(NoVCM)
 ;
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(InsiderTest)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(InsiderTest)
 end.

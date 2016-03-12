@@ -107,10 +107,18 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
+   procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
     {* Отмена }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure MemUsage; override;
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_GetState(var State: TvcmOperationStateIndex);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure Common_MemUsage_Execute(const aParams: IvcmExecuteParamsPrim);
    constructor Create(AOwner: TComponent); override;
  end;//TMainForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -802,15 +810,39 @@ begin
 end;//TMainForm.RequestCheckFindBack
 
 {$If NOT Defined(NoVCM)}
-procedure TMainForm.Cancel;
+procedure TMainForm.Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
  {* Отмена }
-//#UC START# *4AC5D61E0284_4A952BA3006D_var*
-//#UC END# *4AC5D61E0284_4A952BA3006D_var*
+//#UC START# *4AC5D61E0284_4A952BA3006Dtest_var*
+//#UC END# *4AC5D61E0284_4A952BA3006Dtest_var*
 begin
-//#UC START# *4AC5D61E0284_4A952BA3006D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AC5D61E0284_4A952BA3006D_impl*
-end;//TMainForm.Cancel
+//#UC START# *4AC5D61E0284_4A952BA3006Dtest_impl*
+ aParams.Op.Flag[vcm_ofVisible] := False;
+//#UC END# *4AC5D61E0284_4A952BA3006Dtest_impl*
+end;//TMainForm.Result_Cancel_Test
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TMainForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отмена }
+//#UC START# *4AC5D61E0284_4A952BA3006Dexec_var*
+//#UC END# *4AC5D61E0284_4A952BA3006Dexec_var*
+begin
+//#UC START# *4AC5D61E0284_4A952BA3006Dexec_impl*
+ Dispatcher.History.Back;
+//#UC END# *4AC5D61E0284_4A952BA3006Dexec_impl*
+end;//TMainForm.Result_Cancel_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TMainForm.Result_Cancel_GetState(var State: TvcmOperationStateIndex);
+ {* Отмена }
+//#UC START# *4AC5D61E0284_4A952BA3006Dgetstate_var*
+//#UC END# *4AC5D61E0284_4A952BA3006Dgetstate_var*
+begin
+//#UC START# *4AC5D61E0284_4A952BA3006Dgetstate_impl*
+ // - ничего не делаем
+//#UC END# *4AC5D61E0284_4A952BA3006Dgetstate_impl*
+end;//TMainForm.Result_Cancel_GetState
 {$IfEnd} // NOT Defined(NoVCM)
 
 procedure TMainForm.AnotherSearchCancelled;
@@ -983,14 +1015,16 @@ begin
 //#UC END# *4F86BFBF01AE_4A952BA3006D_impl*
 end;//TMainForm.CheckInconic
 
-procedure TMainForm.MemUsage;
-//#UC START# *4F88213001DE_4A952BA3006D_var*
-//#UC END# *4F88213001DE_4A952BA3006D_var*
+procedure TMainForm.Common_MemUsage_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4F88213001DE_4A952BA3006Dexec_var*
+//#UC END# *4F88213001DE_4A952BA3006Dexec_var*
 begin
-//#UC START# *4F88213001DE_4A952BA3006D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4F88213001DE_4A952BA3006D_impl*
-end;//TMainForm.MemUsage
+//#UC START# *4F88213001DE_4A952BA3006Dexec_impl*
+ {$IfOpt D+}
+ TMemoryUsageForm.Make(vcmMakeParams);
+ {$EndIf}
+//#UC END# *4F88213001DE_4A952BA3006Dexec_impl*
+end;//TMainForm.Common_MemUsage_Execute
 
 procedure TMainForm.nsNotification(aType: TnsNotificationType);
 //#UC START# *542BF11D00B6_4A952BA3006D_var*

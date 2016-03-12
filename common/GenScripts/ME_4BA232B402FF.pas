@@ -19,7 +19,7 @@ uses
 type
  _l3Notifier_Parent_ = Tl3SimpleObject;
  {$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
- TnsFolderFilterInfo = class(_l3Notifier_, InsFolderFilterInfo, Il3ChangeNotifier)
+ TnsFolderFilterInfo = class(_l3Notifier_, InsFolderFilterInfo)
   private
    f_FilterType: TnsFolderFilter;
    f_FilterFor: TnsFolderFilterFor;

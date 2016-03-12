@@ -61,7 +61,6 @@ begin
  evAutoBlock.CreateBlockStructure(aForm.Text);
 //#UC END# *4BE13147032C_4D0256A60243_impl*
 end;//TAutoBlockTest.Process
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TAutoBlockTest.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -74,6 +73,7 @@ function TAutoBlockTest.GetModelElementGUID: AnsiString;
 begin
  Result := '4D0256A60243';
 end;//TAutoBlockTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

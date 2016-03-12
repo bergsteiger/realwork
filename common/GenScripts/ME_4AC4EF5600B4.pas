@@ -122,25 +122,33 @@ type
   public
    class function MakeSingleChild: IbsContactList; reintroduce;
    {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
+   procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
     {* Отмена }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
-    {* OK }
-   {$IfEnd} // NOT Defined(NoVCM)
-   procedure Add; override;
-   {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
-    {* OK }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Отмена }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure History; override;
-   procedure UserFilter; override;
-   procedure OpenChatWindow; override;
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_Test(const aParams: IvcmTestParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_GetState(var State: TvcmOperationStateIndex);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure Chat_Add_Test(const aParams: IvcmTestParamsPrim);
+   procedure Chat_Add_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Chat_History_Test(const aParams: IvcmTestParamsPrim);
+   procedure Chat_History_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Chat_UserFilter_Test(const aParams: IvcmTestParamsPrim);
+   procedure Chat_UserFilter_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Chat_OpenChatWindow_Test(const aParams: IvcmTestParamsPrim);
+   procedure Chat_OpenChatWindow_Execute(const aParams: IvcmExecuteParamsPrim);
    {$If NOT Defined(NoVCM)}
    procedure NotifyUserTypeSet; override;
    {$IfEnd} // NOT Defined(NoVCM)
@@ -180,6 +188,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 type
  // ExcludeAddAndHistoryForAddContact
 
@@ -453,89 +462,204 @@ begin
 //#UC END# *4A728A4900FD_4AC4EF5600B4_impl*
 end;//TPrimContactListForm.NotifyContactListChanged
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimContactListForm.Cancel;
+procedure TPrimContactListForm.Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
  {* Отмена }
-//#UC START# *4A8AD46D0226_4AC4EF5600B4_var*
-//#UC END# *4A8AD46D0226_4AC4EF5600B4_var*
+//#UC START# *4A8AD46D0226_4AC4EF5600B4test_var*
+//#UC END# *4A8AD46D0226_4AC4EF5600B4test_var*
 begin
-//#UC START# *4A8AD46D0226_4AC4EF5600B4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A8AD46D0226_4AC4EF5600B4_impl*
-end;//TPrimContactListForm.Cancel
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4A8AD46D0226_4AC4EF5600B4test_impl*
+ // - ничего не делаем
+//#UC END# *4A8AD46D0226_4AC4EF5600B4test_impl*
+end;//TPrimContactListForm.Result_Cancel_Test
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimContactListForm.Ok;
- {* OK }
-//#UC START# *4A97EBE702F8_4AC4EF5600B4_var*
-//#UC END# *4A97EBE702F8_4AC4EF5600B4_var*
-begin
-//#UC START# *4A97EBE702F8_4AC4EF5600B4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A97EBE702F8_4AC4EF5600B4_impl*
-end;//TPrimContactListForm.Ok
-{$IfEnd} // NOT Defined(NoVCM)
-
-procedure TPrimContactListForm.Add;
-//#UC START# *4C2B245F01F2_4AC4EF5600B4_var*
-//#UC END# *4C2B245F01F2_4AC4EF5600B4_var*
-begin
-//#UC START# *4C2B245F01F2_4AC4EF5600B4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C2B245F01F2_4AC4EF5600B4_impl*
-end;//TPrimContactListForm.Add
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimContactListForm.Ok;
- {* OK }
-//#UC START# *4C762A1501FC_4AC4EF5600B4_var*
-//#UC END# *4C762A1501FC_4AC4EF5600B4_var*
-begin
-//#UC START# *4C762A1501FC_4AC4EF5600B4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762A1501FC_4AC4EF5600B4_impl*
-end;//TPrimContactListForm.Ok
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimContactListForm.Cancel;
+procedure TPrimContactListForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Отмена }
-//#UC START# *4C762AB601E1_4AC4EF5600B4_var*
-//#UC END# *4C762AB601E1_4AC4EF5600B4_var*
+//#UC START# *4A8AD46D0226_4AC4EF5600B4exec_var*
+//#UC END# *4A8AD46D0226_4AC4EF5600B4exec_var*
 begin
-//#UC START# *4C762AB601E1_4AC4EF5600B4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762AB601E1_4AC4EF5600B4_impl*
-end;//TPrimContactListForm.Cancel
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4A8AD46D0226_4AC4EF5600B4exec_impl*
+ ModalResult := mrCancel;
+//#UC END# *4A8AD46D0226_4AC4EF5600B4exec_impl*
+end;//TPrimContactListForm.Result_Cancel_Execute
 
-procedure TPrimContactListForm.History;
-//#UC START# *4C84CC2E0253_4AC4EF5600B4_var*
-//#UC END# *4C84CC2E0253_4AC4EF5600B4_var*
+procedure TPrimContactListForm.Result_Ok_Test(const aParams: IvcmTestParamsPrim);
+ {* OK }
+//#UC START# *4A97EBE702F8_4AC4EF5600B4test_var*
+//#UC END# *4A97EBE702F8_4AC4EF5600B4test_var*
 begin
-//#UC START# *4C84CC2E0253_4AC4EF5600B4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C84CC2E0253_4AC4EF5600B4_impl*
-end;//TPrimContactListForm.History
+//#UC START# *4A97EBE702F8_4AC4EF5600B4test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := AddingContact and (trContactList.GetCurrentNode <> nil)
+//#UC END# *4A97EBE702F8_4AC4EF5600B4test_impl*
+end;//TPrimContactListForm.Result_Ok_Test
 
-procedure TPrimContactListForm.UserFilter;
-//#UC START# *4C84D2AD01D0_4AC4EF5600B4_var*
-//#UC END# *4C84D2AD01D0_4AC4EF5600B4_var*
+procedure TPrimContactListForm.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* OK }
+//#UC START# *4A97EBE702F8_4AC4EF5600B4exec_var*
+//#UC END# *4A97EBE702F8_4AC4EF5600B4exec_var*
 begin
-//#UC START# *4C84D2AD01D0_4AC4EF5600B4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C84D2AD01D0_4AC4EF5600B4_impl*
-end;//TPrimContactListForm.UserFilter
+//#UC START# *4A97EBE702F8_4AC4EF5600B4exec_impl*
+ DoAddContact;
+//#UC END# *4A97EBE702F8_4AC4EF5600B4exec_impl*
+end;//TPrimContactListForm.Result_Ok_Execute
 
-procedure TPrimContactListForm.OpenChatWindow;
-//#UC START# *4C84D2C001D5_4AC4EF5600B4_var*
-//#UC END# *4C84D2C001D5_4AC4EF5600B4_var*
+procedure TPrimContactListForm.Result_Ok_GetState(var State: TvcmOperationStateIndex);
+ {* OK }
+//#UC START# *4A97EBE702F8_4AC4EF5600B4getstate_var*
+//#UC END# *4A97EBE702F8_4AC4EF5600B4getstate_var*
 begin
-//#UC START# *4C84D2C001D5_4AC4EF5600B4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C84D2C001D5_4AC4EF5600B4_impl*
-end;//TPrimContactListForm.OpenChatWindow
+//#UC START# *4A97EBE702F8_4AC4EF5600B4getstate_impl*
+ // - ничего не делаем
+//#UC END# *4A97EBE702F8_4AC4EF5600B4getstate_impl*
+end;//TPrimContactListForm.Result_Ok_GetState
+
+procedure TPrimContactListForm.Chat_Add_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C2B245F01F2_4AC4EF5600B4test_var*
+//#UC END# *4C2B245F01F2_4AC4EF5600B4test_var*
+begin
+//#UC START# *4C2B245F01F2_4AC4EF5600B4test_impl*
+ // - ничего не делаем
+//#UC END# *4C2B245F01F2_4AC4EF5600B4test_impl*
+end;//TPrimContactListForm.Chat_Add_Test
+
+procedure TPrimContactListForm.Chat_Add_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C2B245F01F2_4AC4EF5600B4exec_var*
+//#UC END# *4C2B245F01F2_4AC4EF5600B4exec_var*
+begin
+//#UC START# *4C2B245F01F2_4AC4EF5600B4exec_impl*
+ TdmStdRes.MakeChatDispatcher.ShowAddUserDialog;
+//#UC END# *4C2B245F01F2_4AC4EF5600B4exec_impl*
+end;//TPrimContactListForm.Chat_Add_Execute
+
+procedure TPrimContactListForm.Chat_History_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C84CC2E0253_4AC4EF5600B4test_var*
+//#UC END# *4C84CC2E0253_4AC4EF5600B4test_var*
+begin
+//#UC START# *4C84CC2E0253_4AC4EF5600B4test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not AddingContact and (trContactList.GetCurrentNode <> nil);
+//#UC END# *4C84CC2E0253_4AC4EF5600B4test_impl*
+end;//TPrimContactListForm.Chat_History_Test
+
+procedure TPrimContactListForm.Chat_History_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C84CC2E0253_4AC4EF5600B4exec_var*
+//#UC END# *4C84CC2E0253_4AC4EF5600B4exec_var*
+begin
+//#UC START# *4C84CC2E0253_4AC4EF5600B4exec_impl*
+ TdmStdRes.MakeChatDispatcher.OpenChatHistory(trContactList.GetCurrentNode);
+//#UC END# *4C84CC2E0253_4AC4EF5600B4exec_impl*
+end;//TPrimContactListForm.Chat_History_Execute
+
+procedure TPrimContactListForm.Chat_UserFilter_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C84D2AD01D0_4AC4EF5600B4test_var*
+var
+ l_Strings: IvcmStrings;
+//#UC END# *4C84D2AD01D0_4AC4EF5600B4test_var*
+begin
+//#UC START# *4C84D2AD01D0_4AC4EF5600B4test_impl*
+ l_Strings := aParams.Op.SubItems;
+ if Assigned(l_Strings) then
+ begin
+  if (l_Strings.Count = 0) or f_NeedFillFilterList then
+  begin
+   ContactTypeMapHelper.FillStrings(l_Strings);
+   f_NeedFillFilterList := False;
+  end;//(l_Strings.Count = 0) or f_NeedFillFilterList
+  aParams.Op.SelectedString := ContactTypeMap[f_CurrentFlagFilter].AsCStr;
+ end;//if Assigned(l_Strings) then
+//#UC END# *4C84D2AD01D0_4AC4EF5600B4test_impl*
+end;//TPrimContactListForm.Chat_UserFilter_Test
+
+procedure TPrimContactListForm.Chat_UserFilter_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C84D2AD01D0_4AC4EF5600B4exec_var*
+var
+ l_TreeSource: Il3SimpleTree;
+ l_Current: Integer;
+ l_CurrentFlagFilter: TContactListFilterTypes;
+ l_FilterableTree: Il3FilterableTree;
+ l_TreeFilters: InsUserFlagsFilters;
+
+ function lp_MakeFilter: InsUserFlagsFilter;
+ begin
+  case f_CurrentFlagFilter of
+   clftNone:
+    Result := nil;
+   clftActive:                        
+    Result := TnsUserFlagsFilter.Make(UFF_USER_ACTIVE);
+   else
+   begin
+    Result := nil;
+    Assert(False);
+   end;
+  end;
+ end;
+
+//#UC END# *4C84D2AD01D0_4AC4EF5600B4exec_var*
+begin
+//#UC START# *4C84D2AD01D0_4AC4EF5600B4exec_impl*
+ with trContactList do
+ begin
+  l_CurrentFlagFilter := ContactTypeMapHelper.DisplayNameToValue(aParams.SelectedString);
+
+
+  if (l_CurrentFlagFilter <> f_CurrentFlagFilter) and
+     Supports(TreeStruct, Il3FilterableTree, l_FilterableTree) and
+     Supports(l_FilterableTree.CloneFilters, InsUserFlagsFilters, l_TreeFilters) then
+  begin
+   f_CurrentFlagFilter := l_CurrentFlagFilter;
+   l_TreeSource := l_FilterableTree.MakeFiltered(l_TreeFilters.
+                                           SetUserFlag(lp_MakeFilter).
+                                           SetContext(ContextFilter.ActiveContext),
+                                           GetCurrentNode,
+                                           l_Current,
+                                           True,
+                                           True);
+
+
+  end
+  else
+   l_TreeSource := TreeStruct;
+  if Assigned(l_TreeSource) then
+  begin
+   Changing;
+   try
+    LockChangeSelected;
+    try
+     ContextFilter.BeginAssignState;
+     try
+      TreeStruct := l_TreeSource;
+     finally
+      ContextFilter.EndAssignState;
+     end;
+    finally
+     UnLockChangeSelected;
+    end;
+   finally
+    Changed;
+   end;
+   Current := l_Current;
+  end;
+  ContextFilter.UpdateIsContextWrong;
+ end;
+//#UC END# *4C84D2AD01D0_4AC4EF5600B4exec_impl*
+end;//TPrimContactListForm.Chat_UserFilter_Execute
+
+procedure TPrimContactListForm.Chat_OpenChatWindow_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C84D2C001D5_4AC4EF5600B4test_var*
+//#UC END# *4C84D2C001D5_4AC4EF5600B4test_var*
+begin
+//#UC START# *4C84D2C001D5_4AC4EF5600B4test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not AddingContact and (trContactList.GetCurrentNode <> nil)
+//#UC END# *4C84D2C001D5_4AC4EF5600B4test_impl*
+end;//TPrimContactListForm.Chat_OpenChatWindow_Test
+
+procedure TPrimContactListForm.Chat_OpenChatWindow_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C84D2C001D5_4AC4EF5600B4exec_var*
+//#UC END# *4C84D2C001D5_4AC4EF5600B4exec_var*
+begin
+//#UC START# *4C84D2C001D5_4AC4EF5600B4exec_impl*
+ if not AddingContact then
+  TdmStdRes.MakeChatDispatcher.OpenChatWindow(trContactList.GetCurrentNode);
+//#UC END# *4C84D2C001D5_4AC4EF5600B4exec_impl*
+end;//TPrimContactListForm.Chat_OpenChatWindow_Execute
 
 procedure TPrimContactListForm.Cleanup;
  {* Функция очистки полей объекта. }
@@ -548,7 +672,6 @@ begin
 //#UC END# *479731C50290_4AC4EF5600B4_impl*
 end;//TPrimContactListForm.Cleanup
 
-{$If NOT Defined(NoVCM)}
 function TPrimContactListForm.DoSaveState(out theState: IvcmBase;
  aStateType: TvcmStateType;
  aForClone: Boolean): Boolean;
@@ -566,9 +689,7 @@ begin
   Result := false;
 //#UC END# *49806ED503D5_4AC4EF5600B4_impl*
 end;//TPrimContactListForm.DoSaveState
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TPrimContactListForm.DoLoadState(const aState: IvcmBase;
  aStateType: TvcmStateType): Boolean;
  {* Загружает состояние формы. Для перекрытия в потомках }
@@ -590,9 +711,7 @@ begin
   Result := false;
 //#UC END# *49807428008C_4AC4EF5600B4_impl*
 end;//TPrimContactListForm.DoLoadState
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimContactListForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AC4EF5600B4_var*
@@ -645,9 +764,7 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AC4EF5600B4_impl*
 end;//TPrimContactListForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimContactListForm.NotifyUserTypeSet;
 //#UC START# *4D78E2BB0211_4AC4EF5600B4_var*
 //#UC END# *4D78E2BB0211_4AC4EF5600B4_var*
@@ -657,9 +774,7 @@ begin
  trContactList.FooterVisible := not AddingContact; 
 //#UC END# *4D78E2BB0211_4AC4EF5600B4_impl*
 end;//TPrimContactListForm.NotifyUserTypeSet
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimContactListForm.FormInsertedIntoContainer;
 //#UC START# *4F7C65380244_4AC4EF5600B4_var*
 //#UC END# *4F7C65380244_4AC4EF5600B4_var*
@@ -669,7 +784,6 @@ begin
  Windows.SetFocus(trContactList.Handle);
 //#UC END# *4F7C65380244_4AC4EF5600B4_impl*
 end;//TPrimContactListForm.FormInsertedIntoContainer
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_chatContactsCaption.Init;
@@ -686,6 +800,7 @@ initialization
  TtfwClassRef.Register(TPrimContactListForm);
  {* Регистрация PrimContactList }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

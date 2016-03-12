@@ -81,6 +81,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 var g_Tfs_Admin: Tfs_Admin = nil;
  {* Экземпляр синглетона Tfs_Admin }
 
@@ -172,7 +173,6 @@ begin
 //#UC END# *47A042E100E2_4AA5128C0195_impl*
 end;//Tfs_Admin.InitFields
 
-{$If NOT Defined(NoVCM)}
 class function Tfs_Admin.GetInstance: TvcmFormSetFactoryPrim;
 //#UC START# *4FFE854A009B_4AA5128C0195_var*
 //#UC END# *4FFE854A009B_4AA5128C0195_var*
@@ -181,13 +181,13 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4FFE854A009B_4AA5128C0195_impl*
 end;//Tfs_Admin.GetInstance
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_fszGroup_Navigator_admGroupListCaption.Init;
  {* Инициализация str_fszGroup_Navigator_admGroupListCaption }
  str_fsAdminCaption.Init;
  {* Инициализация str_fsAdminCaption }
-{$IfEnd} // Defined(Admin)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(Admin)
 end.

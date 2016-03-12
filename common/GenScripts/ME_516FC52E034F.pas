@@ -125,6 +125,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки CompInfo Header Strings }
  str_Name: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'Name'; rValue : 'Название');
@@ -349,7 +350,6 @@ begin
 //#UC END# *47EA4E9002C6_516FC52E034F_impl*
 end;//TPrimCompInfoForm.FinishDataUpdate
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimCompInfoForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_516FC52E034F_var*
@@ -360,9 +360,7 @@ begin
  TvcmTabbedContainerFormDispatcher.Instance.UpdateTabCaption(As_IvcmEntityForm, DoGetTabCaption);
 //#UC END# *49803F5503AA_516FC52E034F_impl*
 end;//TPrimCompInfoForm.DoInit
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimCompInfoForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_516FC52E034F_var*
@@ -434,9 +432,7 @@ begin
  InitVisualRepresentationData;
 //#UC END# *4A8E8F2E0195_516FC52E034F_impl*
 end;//TPrimCompInfoForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TPrimCompInfoForm.DoGetTabCaption: IvcmCString;
 //#UC START# *53F1C6EF02C9_516FC52E034F_var*
 //#UC END# *53F1C6EF02C9_516FC52E034F_var*
@@ -445,9 +441,8 @@ begin
  Result := l3CStr(CurUserType.Caption);
 //#UC END# *53F1C6EF02C9_516FC52E034F_impl*
 end;//TPrimCompInfoForm.DoGetTabCaption
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 function TPrimCompInfoForm.DoGetTabImageIndex: Integer;
 //#UC START# *543E3AA801D0_516FC52E034F_var*
 //#UC END# *543E3AA801D0_516FC52E034F_var*
@@ -456,7 +451,7 @@ begin
  Result := NsTabIconIndex(titComplectInfo);
 //#UC END# *543E3AA801D0_516FC52E034F_impl*
 end;//TPrimCompInfoForm.DoGetTabImageIndex
-{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 initialization
  str_Name.Init;
@@ -467,6 +462,7 @@ initialization
  TtfwClassRef.Register(TPrimCompInfoForm);
  {* Регистрация PrimCompInfo }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

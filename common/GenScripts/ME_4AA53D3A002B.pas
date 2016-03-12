@@ -67,6 +67,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 var g_Tfs_SendConsultation: Tfs_SendConsultation = nil;
  {* Экземпляр синглетона Tfs_SendConsultation }
 
@@ -134,7 +135,6 @@ begin
 //#UC END# *47A042E100E2_4AA53D3A002B_impl*
 end;//Tfs_SendConsultation.InitFields
 
-{$If NOT Defined(NoVCM)}
 class function Tfs_SendConsultation.GetInstance: TvcmFormSetFactoryPrim;
 //#UC START# *4FFE854A009B_4AA53D3A002B_var*
 //#UC END# *4FFE854A009B_4AA53D3A002B_var*
@@ -143,13 +143,13 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4FFE854A009B_4AA53D3A002B_impl*
 end;//Tfs_SendConsultation.GetInstance
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_fszQueryCard_Parent_utqcSendConsultationCaption.Init;
  {* Инициализация str_fszQueryCard_Parent_utqcSendConsultationCaption }
  str_fsSendConsultationCaption.Init;
  {* Инициализация str_fsSendConsultationCaption }
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

@@ -66,9 +66,7 @@ begin
  Result := 9;
 //#UC END# *4C1B13B6016B_4C1F00340164_impl*
 end;//TK219120094.GetScrollLineCount2Down
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TK219120094.GetScrollLineCount2Up: Integer;
  {* количество строк для прокрутки вверх }
 //#UC START# *4C1B140B002A_4C1F00340164_var*
@@ -78,9 +76,7 @@ begin
  Result := 0;
 //#UC END# *4C1B140B002A_4C1F00340164_impl*
 end;//TK219120094.GetScrollLineCount2Up
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TK219120094.CheckTopAnchor(const aView: InevInputView);
  {* проверить якорь начала отрисовки после окончания прокрутки }
 //#UC START# *4C1F0A260192_4C1F00340164_var*
@@ -95,7 +91,6 @@ begin
  CheckFalse((l_Inner.Obj.PID = 7) and l_Inner.AtStart, 'TopAnchor должен быть еще в предыдующей строке');
 //#UC END# *4C1F0A260192_4C1F00340164_impl*
 end;//TK219120094.CheckTopAnchor
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TK219120094.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -111,6 +106,7 @@ end;//TK219120094.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(TK219120094.Suite);
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

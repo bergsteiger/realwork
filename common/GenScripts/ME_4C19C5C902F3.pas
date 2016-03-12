@@ -66,9 +66,7 @@ begin
  Result := 12;
 //#UC END# *4C07AC6F036D_4C19C5C902F3_impl*
 end;//TK217691845.GetNormalFontSize
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TK217691845.FormExtent: TPoint;
  {* Размеры формы }
 //#UC START# *4C08CF700318_4C19C5C902F3_var*
@@ -79,9 +77,7 @@ begin
  Result.Y := 603;
 //#UC END# *4C08CF700318_4C19C5C902F3_impl*
 end;//TK217691845.FormExtent
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TK217691845.SendKey: Boolean;
  {* Управлять ли окном реактора посредсвом посылки клавиш, а не вызова методов редактора }
 //#UC START# *4C091B9A0305_4C19C5C902F3_var*
@@ -91,7 +87,6 @@ begin
  Result := True;
 //#UC END# *4C091B9A0305_4C19C5C902F3_impl*
 end;//TK217691845.SendKey
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TK217691845.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -107,6 +102,7 @@ end;//TK217691845.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(TK217691845.Suite);
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

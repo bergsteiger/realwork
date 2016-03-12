@@ -26,6 +26,7 @@ uses
  , ImgList
  {$IfEnd} // NOT Defined(NoVCL)
  , nsNodeBaseList
+ , l3Interfaces
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
@@ -76,14 +77,16 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   procedure SetRoot; override;
-   procedure RefreshValues; override;
+   procedure AttributeTree_SetRoot_Execute(const aTag: Il3CString);
+   procedure AttributeTree_SetRoot(const aParams: IvcmExecuteParamsPrim);
+   procedure SelectedList_RefreshValues_Execute(const aData: InsSelectedAttributesIterators);
+   procedure SelectedList_RefreshValues(const aParams: IvcmExecuteParamsPrim);
    {$If NOT Defined(NoVCM)}
-   procedure ExpandAll; override;
+   procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
     {* Развернуть все }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure CollapseAll; override;
+   procedure Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
     {* Свернуть все }
    {$IfEnd} // NOT Defined(NoVCM)
   private
@@ -115,6 +118,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки utSelectedAttributesLocalConstants }
  str_utSelectedAttributesCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utSelectedAttributesCaption'; rValue : 'Поиск: Выбранные значения реквизита');
@@ -385,49 +389,91 @@ begin
 //#UC END# *4AF410CF023F_497EC3B20359_impl*
 end;//TPrimSelectedAttributesForm.GetTreeNode
 
-procedure TPrimSelectedAttributesForm.SetRoot;
-//#UC START# *4AF3EBC001C4_497EC3B20359_var*
-//#UC END# *4AF3EBC001C4_497EC3B20359_var*
+procedure TPrimSelectedAttributesForm.AttributeTree_SetRoot_Execute(const aTag: Il3CString);
+//#UC START# *4AF3EBC001C4_497EC3B20359exec_var*
+//#UC END# *4AF3EBC001C4_497EC3B20359exec_var*
 begin
-//#UC START# *4AF3EBC001C4_497EC3B20359_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF3EBC001C4_497EC3B20359_impl*
-end;//TPrimSelectedAttributesForm.SetRoot
+//#UC START# *4AF3EBC001C4_497EC3B20359exec_impl*
+ GetTaggedTreeInfo.Tag := aTag
+//#UC END# *4AF3EBC001C4_497EC3B20359exec_impl*
+end;//TPrimSelectedAttributesForm.AttributeTree_SetRoot_Execute
 
-procedure TPrimSelectedAttributesForm.RefreshValues;
-//#UC START# *4AF40D070123_497EC3B20359_var*
-//#UC END# *4AF40D070123_497EC3B20359_var*
+procedure TPrimSelectedAttributesForm.AttributeTree_SetRoot(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4AF40D070123_497EC3B20359_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF40D070123_497EC3B20359_impl*
-end;//TPrimSelectedAttributesForm.RefreshValues
+ with (aParams.Data As IAttributeTree_SetRoot_Params) do
+  Self.AttributeTree_SetRoot_Execute(Tag);
+end;//TPrimSelectedAttributesForm.AttributeTree_SetRoot
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimSelectedAttributesForm.ExpandAll;
+procedure TPrimSelectedAttributesForm.SelectedList_RefreshValues_Execute(const aData: InsSelectedAttributesIterators);
+//#UC START# *4AF40D070123_497EC3B20359exec_var*
+var
+ l_CurNode     : Il3SimpleNode;
+ l_Node        : INodeBase;
+ l_OpInterface : InsLogicOperation;
+ l_Op          : TLogicOperation;
+//#UC END# *4AF40D070123_497EC3B20359exec_var*
+begin
+//#UC START# *4AF40D070123_497EC3B20359exec_impl*
+ l_Op := loNone;
+ l_CurNode := SelectedTree.GetCurrentNode;
+ try
+  if not Supports(l_CurNode, INodeBase, l_Node) then
+   if Supports(l_CurNode, InsLogicOperation, l_OpInterface) then
+    l_Op := l_OpInterface.Operation;
+
+  SelectedTree.CTree.CRootNode.ReleaseChilds;
+
+  if Assigned(aData.OrIterator) then
+   AddNodes(loOr, aData.OrIterator);
+  if Assigned(aData.AndIterator) then
+   AddNodes(loAnd, aData.AndIterator);
+  if Assigned(aData.NotIterator) then
+   AddNodes(loNot, aData.NotIterator);
+
+  f_InternalOp := True;
+  try
+   if l_OpInterface <> nil then
+    SelectedTree.GotoOnNode(GetTreeNode(TnsLogicNode.Make(l_Op)))
+   else
+    if l_Node <> nil then
+     SelectedTree.GotoOnNode(GetTreeNode(TnsSelectedNode.Make(l_Node)))
+    else
+     SelectedTree.GotoOnNode(SelectedTree.TreeStruct.RootNode);
+  finally
+   f_InternalOp := False;
+  end;
+ finally
+  l_CurNode := nil;
+ end;
+//#UC END# *4AF40D070123_497EC3B20359exec_impl*
+end;//TPrimSelectedAttributesForm.SelectedList_RefreshValues_Execute
+
+procedure TPrimSelectedAttributesForm.SelectedList_RefreshValues(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As ISelectedList_RefreshValues_Params) do
+  Self.SelectedList_RefreshValues_Execute(Data);
+end;//TPrimSelectedAttributesForm.SelectedList_RefreshValues
+
+procedure TPrimSelectedAttributesForm.Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
  {* Развернуть все }
-//#UC START# *4BDAF7880236_497EC3B20359_var*
-//#UC END# *4BDAF7880236_497EC3B20359_var*
+//#UC START# *4BDAF7880236_497EC3B20359test_var*
+//#UC END# *4BDAF7880236_497EC3B20359test_var*
 begin
-//#UC START# *4BDAF7880236_497EC3B20359_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BDAF7880236_497EC3B20359_impl*
-end;//TPrimSelectedAttributesForm.ExpandAll
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4BDAF7880236_497EC3B20359test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := SelectedTree.TreeStruct.RootNode.HasChild;
+//#UC END# *4BDAF7880236_497EC3B20359test_impl*
+end;//TPrimSelectedAttributesForm.Tree_ExpandAll_Test
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimSelectedAttributesForm.CollapseAll;
+procedure TPrimSelectedAttributesForm.Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
  {* Свернуть все }
-//#UC START# *4BDAF7A2005C_497EC3B20359_var*
-//#UC END# *4BDAF7A2005C_497EC3B20359_var*
+//#UC START# *4BDAF7A2005C_497EC3B20359test_var*
+//#UC END# *4BDAF7A2005C_497EC3B20359test_var*
 begin
-//#UC START# *4BDAF7A2005C_497EC3B20359_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BDAF7A2005C_497EC3B20359_impl*
-end;//TPrimSelectedAttributesForm.CollapseAll
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4BDAF7A2005C_497EC3B20359test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := SelectedTree.TreeStruct.RootNode.HasChild;
+//#UC END# *4BDAF7A2005C_497EC3B20359test_impl*
+end;//TPrimSelectedAttributesForm.Tree_CollapseAll_Test
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimSelectedAttributesForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
  const aNew: IvcmViewAreaController);
  {* Изменился источник данных. Для перекрытия в потомках }
@@ -456,9 +502,7 @@ begin
  end;//dsSelectedAttributes <> nil
 //#UC END# *497469C90140_497EC3B20359_impl*
 end;//TPrimSelectedAttributesForm.NotifyDataSourceChanged
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimSelectedAttributesForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_497EC3B20359_var*
@@ -470,9 +514,7 @@ begin
  f_InternalOp := False;
 //#UC END# *49803F5503AA_497EC3B20359_impl*
 end;//TPrimSelectedAttributesForm.DoInit
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimSelectedAttributesForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_497EC3B20359_var*
@@ -499,7 +541,6 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_497EC3B20359_impl*
 end;//TPrimSelectedAttributesForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_utSelectedAttributesCaption.Init;
@@ -508,5 +549,6 @@ initialization
  TtfwClassRef.Register(TPrimSelectedAttributesForm);
  {* Регистрация PrimSelectedAttributes }
 {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

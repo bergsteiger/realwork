@@ -9,19 +9,19 @@ interface
 
 uses
  l3IntfUses
- , SearchUnit
- , FiltersUnit
  , l3Interfaces
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , l3TreeInterfaces
  , DynamicTreeUnit
+ , SearchUnit
+ , FiltersUnit
  {$If Defined(Nemesis)}
  , nscNewInterfaces
  {$IfEnd} // Defined(Nemesis)
  , nsTypes
  , SearchInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type

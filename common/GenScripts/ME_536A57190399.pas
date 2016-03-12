@@ -29,6 +29,7 @@ uses
  , tc6PublicInfo
 ;
 
+{$If NOT Defined(NoVGScene)}
 function TvgRemindersLine_Get_Count(Self: TvgRemindersLine): Integer;
 //#UC START# *536B5DA30257_536A57190399get_var*
 //#UC END# *536B5DA30257_536A57190399get_var*
@@ -113,6 +114,7 @@ end;
 initialization
  _RegisterPublicInformation5;
  _RegisterPublicInformation6;
-{$IfEnd} // NOT Defined(XE)
+{$IfEnd} // NOT Defined(NoVGScene)
 
+{$IfEnd} // NOT Defined(XE)
 end.

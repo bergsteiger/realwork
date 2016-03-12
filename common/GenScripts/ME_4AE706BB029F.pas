@@ -33,6 +33,7 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , FoldersUnit
+ , BaseTypesUnit
 ;
 
 type
@@ -125,21 +126,45 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
   public
-   function GetState: TFoldersInfoType; override;
+   function FolderElement_GetState_Execute: TFoldersInfoType;
     {* Возвращает статус элемента }
-   procedure SetLoadInfo; override;
+   procedure FolderElement_GetState(const aParams: IvcmExecuteParamsPrim);
+    {* Возвращает статус элемента }
+   procedure FolderElement_SetLoadInfo_Execute(const aForm: IvcmEntityForm;
+    const aFolderFilterInfo: InsFolderFilterInfo;
+    const aCaption: Il3CString;
+    const aData: IUnknown;
+    anOp: TListLogicOperation);
     {* Устанавливает параметры элемента }
-   procedure SetContent; override;
+   procedure FolderElement_SetLoadInfo(const aParams: IvcmExecuteParamsPrim);
+    {* Устанавливает параметры элемента }
+   procedure FolderElement_SetContent_Execute(const aNode: IeeNode;
+    aIsNewFolder: Boolean = False);
     {* SetContent }
-   procedure SetSaveInfo; override;
-   procedure SetState; override;
-   procedure UpdateRights; override;
-   procedure ResetModificationOnDelete; override;
-   procedure SetFocus; override;
-   procedure Redraw; override;
-   procedure ExternalOk; override;
-   procedure FolderShareChanged; override;
-   procedure DisableSecurityPage; override;
+   procedure FolderElement_SetContent(const aParams: IvcmExecuteParamsPrim);
+    {* SetContent }
+   procedure FolderElement_SetSaveInfo_Execute(const aForm: IvcmEntityForm;
+    const aFilterInfo: InsFolderFilterInfo;
+    anElementType: TFoldersElementType;
+    const anEntity: IEntityBase;
+    aSaveAs: Boolean);
+   procedure FolderElement_SetSaveInfo(const aParams: IvcmExecuteParamsPrim);
+   procedure FolderElement_SetState_Execute(aInfoType: TFoldersInfoType);
+   procedure FolderElement_SetState(const aParams: IvcmExecuteParamsPrim);
+   procedure UsersRights_UpdateRights_Execute(const aNode: IeeNode);
+   procedure UsersRights_UpdateRights(const aParams: IvcmExecuteParamsPrim);
+   procedure FolderElement_ResetModificationOnDelete_Execute(const aNode: IeeNode);
+   procedure FolderElement_ResetModificationOnDelete(const aParams: IvcmExecuteParamsPrim);
+   procedure FolderElement_SetFocus_Execute;
+   procedure FolderElement_SetFocus(const aParams: IvcmExecuteParamsPrim);
+   procedure FolderElement_Redraw_Execute;
+   procedure FolderElement_Redraw(const aParams: IvcmExecuteParamsPrim);
+   procedure Result_ExternalOk_Execute;
+   procedure Result_ExternalOk(const aParams: IvcmExecuteParamsPrim);
+   procedure UsersRights_FolderShareChanged_Execute;
+   procedure UsersRights_FolderShareChanged(const aParams: IvcmExecuteParamsPrim);
+   procedure FolderElement_DisableSecurityPage_Execute;
+   procedure FolderElement_DisableSecurityPage(const aParams: IvcmExecuteParamsPrim);
    {$If NOT Defined(NoVCM)}
    procedure SetActiveControl; override;
     {* Устанавливает текущий контрол. Какой? Сама форма решает. Для перекрытия в потомках }
@@ -853,116 +878,404 @@ begin
 //#UC END# *51BED56C0178_4AE706BB029F_impl*
 end;//TPrimFoldersElementInfoForm.CheckUnsaved
 
-function TPrimFoldersElementInfoForm.GetState: TFoldersInfoType;
+function TPrimFoldersElementInfoForm.FolderElement_GetState_Execute: TFoldersInfoType;
  {* Возвращает статус элемента }
-//#UC START# *4AE7073F0388_4AE706BB029F_var*
-//#UC END# *4AE7073F0388_4AE706BB029F_var*
+//#UC START# *4AE7073F0388_4AE706BB029Fexec_var*
+//#UC END# *4AE7073F0388_4AE706BB029Fexec_var*
 begin
-//#UC START# *4AE7073F0388_4AE706BB029F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE7073F0388_4AE706BB029F_impl*
-end;//TPrimFoldersElementInfoForm.GetState
+//#UC START# *4AE7073F0388_4AE706BB029Fexec_impl*
+ if (Parent = nil) or Parent.Visible then
+  Result := f_CurType
+ else
+  Result := fiNone;
+//#UC END# *4AE7073F0388_4AE706BB029Fexec_impl*
+end;//TPrimFoldersElementInfoForm.FolderElement_GetState_Execute
 
-procedure TPrimFoldersElementInfoForm.SetLoadInfo;
+procedure TPrimFoldersElementInfoForm.FolderElement_GetState(const aParams: IvcmExecuteParamsPrim);
+ {* Возвращает статус элемента }
+begin
+ with (aParams.Data As IFolderElement_GetState_Params) do
+  ResultValue := Self.FolderElement_GetState_Execute;
+end;//TPrimFoldersElementInfoForm.FolderElement_GetState
+
+procedure TPrimFoldersElementInfoForm.FolderElement_SetLoadInfo_Execute(const aForm: IvcmEntityForm;
+ const aFolderFilterInfo: InsFolderFilterInfo;
+ const aCaption: Il3CString;
+ const aData: IUnknown;
+ anOp: TListLogicOperation);
  {* Устанавливает параметры элемента }
-//#UC START# *4AE74E1C007F_4AE706BB029F_var*
-//#UC END# *4AE74E1C007F_4AE706BB029F_var*
+//#UC START# *4AE74E1C007F_4AE706BB029Fexec_var*
+//#UC END# *4AE74E1C007F_4AE706BB029Fexec_var*
 begin
-//#UC START# *4AE74E1C007F_4AE706BB029F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE74E1C007F_4AE706BB029F_impl*
-end;//TPrimFoldersElementInfoForm.SetLoadInfo
+//#UC START# *4AE74E1C007F_4AE706BB029Fexec_impl*
+ f_RequestingForm := aForm;
+ if (Aggregate <> nil) then
+ begin
+  op_Folders_FiltrateByFilterInfo.Call(Aggregate, aFolderFilterInfo);
+  Op_FolderElement_DisableFilter.Call(Aggregate);
 
-procedure TPrimFoldersElementInfoForm.SetContent;
+  if (aCaption <> nil) then
+   Op_AdditionInfo_SetCaption.Call(Aggregate, aCaption)
+  else
+   Op_AdditionInfo_SetCaption.Call(Aggregate, vcmCStr(str_SelectCaption));
+ end;//Aggregate <> nil
+
+ f_UserLoadParam := aData;
+ f_Op := anOp;
+//#UC END# *4AE74E1C007F_4AE706BB029Fexec_impl*
+end;//TPrimFoldersElementInfoForm.FolderElement_SetLoadInfo_Execute
+
+procedure TPrimFoldersElementInfoForm.FolderElement_SetLoadInfo(const aParams: IvcmExecuteParamsPrim);
+ {* Устанавливает параметры элемента }
+begin
+ with (aParams.Data As IFolderElement_SetLoadInfo_Params) do
+  Self.FolderElement_SetLoadInfo_Execute(Form, FolderFilterInfo, Caption, Data, nOp);
+end;//TPrimFoldersElementInfoForm.FolderElement_SetLoadInfo
+
+procedure TPrimFoldersElementInfoForm.FolderElement_SetContent_Execute(const aNode: IeeNode;
+ aIsNewFolder: Boolean = False);
  {* SetContent }
-//#UC START# *4AE85279013B_4AE706BB029F_var*
-//#UC END# *4AE85279013B_4AE706BB029F_var*
+//#UC START# *4AE85279013B_4AE706BB029Fexec_var*
+var
+ l_AdapterNode: INode;
+//#UC END# *4AE85279013B_4AE706BB029Fexec_var*
 begin
-//#UC START# *4AE85279013B_4AE706BB029F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE85279013B_4AE706BB029F_impl*
-end;//TPrimFoldersElementInfoForm.SetContent
+//#UC START# *4AE85279013B_4AE706BB029Fexec_impl*
+ if (aNode <> nil) then
+ begin
+  if not l3IEQ(f_CurNode, aNode) then
+  begin
+   if CheckModifiedState then
+   begin
+    if Ask(qr_SaveItemQuery) then
+     SaveCurInfo;
+   end;
+   f_CurNode := aNode;
+  end
+  else
+   Exit;
+ end//aNode <> nil
+ else
+  f_CurNode := nil;
 
-procedure TPrimFoldersElementInfoForm.SetSaveInfo;
-//#UC START# *4AE857EF0085_4AE706BB029F_var*
-//#UC END# *4AE857EF0085_4AE706BB029F_var*
-begin
-//#UC START# *4AE857EF0085_4AE706BB029F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE857EF0085_4AE706BB029F_impl*
-end;//TPrimFoldersElementInfoForm.SetSaveInfo
+ if (Parent = nil) or
+    Parent.Visible then
+ begin
+  if not aIsNewFolder and
+     (f_CurType = fiNewFolder) then
+  begin
+   f_CurType := fiEdit;
+   InfoName.CCaption := vcmCStr(cInfoCaptions[f_CurType]^);
+  end;
 
-procedure TPrimFoldersElementInfoForm.SetState;
-//#UC START# *4AE9C01201BA_4AE706BB029F_var*
-//#UC END# *4AE9C01201BA_4AE706BB029F_var*
-begin
-//#UC START# *4AE9C01201BA_4AE706BB029F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE9C01201BA_4AE706BB029F_impl*
-end;//TPrimFoldersElementInfoForm.SetState
+  if (f_CurType <> fiSave) then
+   ShowCurInfo
+  else
+   if Supports(f_CurNode, INode, l_AdapterNode) and
+      (TFoldersItemType(l_AdapterNode.GetObjectType) = FIT_FOLDER) then
+    ShowSavedInfo
+   else
+   begin
+    ShowCurInfo(TFoldersItemType(l_AdapterNode.GetObjectType) = cTypeMap[f_SavedObjType]);
+   end;
+ end;
+ AfterSaveExceptionCheck;
+//#UC END# *4AE85279013B_4AE706BB029Fexec_impl*
+end;//TPrimFoldersElementInfoForm.FolderElement_SetContent_Execute
 
-procedure TPrimFoldersElementInfoForm.UpdateRights;
-//#UC START# *4AEEC5EA03DC_4AE706BB029F_var*
-//#UC END# *4AEEC5EA03DC_4AE706BB029F_var*
+procedure TPrimFoldersElementInfoForm.FolderElement_SetContent(const aParams: IvcmExecuteParamsPrim);
+ {* SetContent }
 begin
-//#UC START# *4AEEC5EA03DC_4AE706BB029F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AEEC5EA03DC_4AE706BB029F_impl*
-end;//TPrimFoldersElementInfoForm.UpdateRights
+ with (aParams.Data As IFolderElement_SetContent_Params) do
+  Self.FolderElement_SetContent_Execute(Node, IsNewFolder);
+end;//TPrimFoldersElementInfoForm.FolderElement_SetContent
 
-procedure TPrimFoldersElementInfoForm.ResetModificationOnDelete;
-//#UC START# *4AEEC8810299_4AE706BB029F_var*
-//#UC END# *4AEEC8810299_4AE706BB029F_var*
-begin
-//#UC START# *4AEEC8810299_4AE706BB029F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AEEC8810299_4AE706BB029F_impl*
-end;//TPrimFoldersElementInfoForm.ResetModificationOnDelete
+procedure TPrimFoldersElementInfoForm.FolderElement_SetSaveInfo_Execute(const aForm: IvcmEntityForm;
+ const aFilterInfo: InsFolderFilterInfo;
+ anElementType: TFoldersElementType;
+ const anEntity: IEntityBase;
+ aSaveAs: Boolean);
+//#UC START# *4AE857EF0085_4AE706BB029Fexec_var*
 
-procedure TPrimFoldersElementInfoForm.SetFocus;
-//#UC START# *4AF46E0C017F_4AE706BB029F_var*
-//#UC END# *4AF46E0C017F_4AE706BB029F_var*
-begin
-//#UC START# *4AF46E0C017F_4AE706BB029F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF46E0C017F_4AE706BB029F_impl*
-end;//TPrimFoldersElementInfoForm.SetFocus
+ procedure lp_FoldersFiltrate;
+ begin
+  if (Aggregate <> nil) then
+  begin
+   Assert(aFilterInfo <> nil);
+   Op_Folders_FiltrateByFilterInfo.Call(Aggregate, aFilterInfo);
+  end;//Aggregate <> nil
+ end;//procedure lp_FoldersFiltrate;
 
-procedure TPrimFoldersElementInfoForm.Redraw;
-//#UC START# *4AF4727C0020_4AE706BB029F_var*
-//#UC END# *4AF4727C0020_4AE706BB029F_var*
+var
+ l_List: IDynList;
+ l_Query: IQuery;
+ l_Bookmark: IBookmark;
+ l_CurFolder: IeeNode;
+//#UC END# *4AE857EF0085_4AE706BB029Fexec_var*
 begin
-//#UC START# *4AF4727C0020_4AE706BB029F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF4727C0020_4AE706BB029F_impl*
-end;//TPrimFoldersElementInfoForm.Redraw
+//#UC START# *4AE857EF0085_4AE706BB029Fexec_impl*
+ f_SaveControlState := cbUnChecked;
+ f_SavedObjType := anElementType;
+ case f_SavedObjType of
+  fetBookmark, fetDrugBookMark :
+   begin
+    if Supports(anEntity, IBookmark, l_Bookmark) then
+     try
+      f_SavedName := nsGetBookmarkName(l_Bookmark);
+      f_SavedComment := nsGetBookmarkComment(l_Bookmark);
+     finally
+      l_Bookmark := nil;
+     end;
+    l_CurFolder := UserFoldersTree.BookmarkSavedFolder;
+   end;//fetBookmark, fetDrugBookMark
+  fetList, fetDrugList:
+   begin
+    if Supports(anEntity, IDynList, l_List) then
+     try
+      f_SavedName := bsListName(l_List);
+      f_SavedComment := nil;
+     finally
+      l_List := nil;
+     end;
+    l_CurFolder := UserFoldersTree.ListSavedFolder;
+   end;//fetList, fetDrugList
+  fetQuery    :
+   begin
+    if Supports(anEntity, IQuery, l_Query) then
+     try
+      f_SavedName := nsCreateQueryName(l_Query);
+      f_SavedComment := nil;
+     finally
+      l_Query := nil;
+     end;
+    l_CurFolder := UserFoldersTree.QuerySavedFolder;
+   end;//fetQuery
+(*  fetFilter   :
+   begin
+    if Supports(anEntity, IQuery, l_Query) then
+     try
+      case l_Query.GetType of
+       QT_KEYWORD:
+        f_SavedName := vcmFmt(str_SituationFilterName, [DateTimeToStr(Now)]);
+       QT_ATTRIBUTE{,
+       QT_OLD_ATTRIBUTE}:
+        f_SavedName := vcmFmt(str_AttributesFilterName, [DateTimeToStr(Now)]);
+//       QT_OLD_FILTER:
+//        f_SavedName := vcmFmt(str_SimpleFilterName, [DateTimeToStr(Now)]);
+       QT_PUBLISHED_SOURCE:
+        f_SavedName := vcmFmt(str_PublishSourceFilterName, [DateTimeToStr(Now)]);
+       QT_BASE_SEARCH:
+        f_SavedName := vcmFmt(str_BaseSearchFilterName, [DateTimeToStr(Now)]);
+       QT_PHARM_SEARCH:
+        f_SavedName := vcmFmt(str_InpharmSearchFilterName, [DateTimeToStr(Now)]);
+       else
+        Assert(false); 
+      end;//case l_Query.GetType
+      f_SavedComment := nil;
+     finally
+      l_Query := nil;
+     end;//try..finally
+    l_CurFolder := UserFoldersTree.QuerySavedFolder;
+   end;//fetFilter*)
+   else
+    Assert(false);
+ end;//case f_SavedObjType
+ f_SavedObject := anEntity;
+ f_SaveAsFlag := aSaveAs;
+ if (l_CurFolder <> nil) then
+  Op_Folders_SetCurrent.Call(Aggregate, l_CurFolder);
+ f_RequestingForm := aForm;
+ lp_FoldersFiltrate;
+//#UC END# *4AE857EF0085_4AE706BB029Fexec_impl*
+end;//TPrimFoldersElementInfoForm.FolderElement_SetSaveInfo_Execute
 
-procedure TPrimFoldersElementInfoForm.ExternalOk;
-//#UC START# *4AF4768A0372_4AE706BB029F_var*
-//#UC END# *4AF4768A0372_4AE706BB029F_var*
+procedure TPrimFoldersElementInfoForm.FolderElement_SetSaveInfo(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4AF4768A0372_4AE706BB029F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF4768A0372_4AE706BB029F_impl*
-end;//TPrimFoldersElementInfoForm.ExternalOk
+ with (aParams.Data As IFolderElement_SetSaveInfo_Params) do
+  Self.FolderElement_SetSaveInfo_Execute(Form, FilterInfo, nElementType, nEntity, SaveAs);
+end;//TPrimFoldersElementInfoForm.FolderElement_SetSaveInfo
 
-procedure TPrimFoldersElementInfoForm.FolderShareChanged;
-//#UC START# *4AF4797100E8_4AE706BB029F_var*
-//#UC END# *4AF4797100E8_4AE706BB029F_var*
+procedure TPrimFoldersElementInfoForm.FolderElement_SetState_Execute(aInfoType: TFoldersInfoType);
+//#UC START# *4AE9C01201BA_4AE706BB029Fexec_var*
+//#UC END# *4AE9C01201BA_4AE706BB029Fexec_var*
 begin
-//#UC START# *4AF4797100E8_4AE706BB029F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF4797100E8_4AE706BB029F_impl*
-end;//TPrimFoldersElementInfoForm.FolderShareChanged
+//#UC START# *4AE9C01201BA_4AE706BB029Fexec_impl*
+ f_CurType := aInfoType;
+ InfoName.CCaption := vcmCStr(cInfoCaptions[f_CurType]^);
 
-procedure TPrimFoldersElementInfoForm.DisableSecurityPage;
-//#UC START# *4AF814650325_4AE706BB029F_var*
-//#UC END# *4AF814650325_4AE706BB029F_var*
+ SetReadOnlyState(f_CurType in [fiNone, fiLoad, fiSelect]);
+
+ if not ((f_CurType = fiNewFolder) or
+         ((f_CurType = fiEdit) and (f_SavedObjType = fetNone) and
+         CheckAdapterNodeType(f_CurNode, FIT_FOLDER))) then
+  if (f_CurType = fiSave) then
+   ShowSavedInfo;
+//#UC END# *4AE9C01201BA_4AE706BB029Fexec_impl*
+end;//TPrimFoldersElementInfoForm.FolderElement_SetState_Execute
+
+procedure TPrimFoldersElementInfoForm.FolderElement_SetState(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4AF814650325_4AE706BB029F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF814650325_4AE706BB029F_impl*
-end;//TPrimFoldersElementInfoForm.DisableSecurityPage
+ with (aParams.Data As IFolderElement_SetState_Params) do
+  Self.FolderElement_SetState_Execute(InfoType);
+end;//TPrimFoldersElementInfoForm.FolderElement_SetState
+
+procedure TPrimFoldersElementInfoForm.UsersRights_UpdateRights_Execute(const aNode: IeeNode);
+//#UC START# *4AEEC5EA03DC_4AE706BB029Fexec_var*
+//#UC END# *4AEEC5EA03DC_4AE706BB029Fexec_var*
+begin
+//#UC START# *4AEEC5EA03DC_4AE706BB029Fexec_impl*
+ LoadFolderRights(aNode);
+//#UC END# *4AEEC5EA03DC_4AE706BB029Fexec_impl*
+end;//TPrimFoldersElementInfoForm.UsersRights_UpdateRights_Execute
+
+procedure TPrimFoldersElementInfoForm.UsersRights_UpdateRights(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IUsersRights_UpdateRights_Params) do
+  Self.UsersRights_UpdateRights_Execute(Node);
+end;//TPrimFoldersElementInfoForm.UsersRights_UpdateRights
+
+procedure TPrimFoldersElementInfoForm.FolderElement_ResetModificationOnDelete_Execute(const aNode: IeeNode);
+//#UC START# *4AEEC8810299_4AE706BB029Fexec_var*
+//#UC END# *4AEEC8810299_4AE706BB029Fexec_var*
+begin
+//#UC START# *4AEEC8810299_4AE706BB029Fexec_impl*
+ if l3IEQ(f_CurNode, aNode) and CheckModifiedState then
+ begin
+  DropModifiedState;
+  FolderElement_SetContent_Execute(aNode);
+ end;//l3IEQ(f_CurNode, aNode)..
+//#UC END# *4AEEC8810299_4AE706BB029Fexec_impl*
+end;//TPrimFoldersElementInfoForm.FolderElement_ResetModificationOnDelete_Execute
+
+procedure TPrimFoldersElementInfoForm.FolderElement_ResetModificationOnDelete(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IFolderElement_ResetModificationOnDelete_Params) do
+  Self.FolderElement_ResetModificationOnDelete_Execute(Node);
+end;//TPrimFoldersElementInfoForm.FolderElement_ResetModificationOnDelete
+
+procedure TPrimFoldersElementInfoForm.FolderElement_SetFocus_Execute;
+//#UC START# *4AF46E0C017F_4AE706BB029Fexec_var*
+//#UC END# *4AF46E0C017F_4AE706BB029Fexec_var*
+begin
+//#UC START# *4AF46E0C017F_4AE706BB029Fexec_impl*
+ Windows.SetFocus(ElementName.Handle);
+//#UC END# *4AF46E0C017F_4AE706BB029Fexec_impl*
+end;//TPrimFoldersElementInfoForm.FolderElement_SetFocus_Execute
+
+procedure TPrimFoldersElementInfoForm.FolderElement_SetFocus(const aParams: IvcmExecuteParamsPrim);
+begin
+ Self.FolderElement_SetFocus_Execute;
+end;//TPrimFoldersElementInfoForm.FolderElement_SetFocus
+
+procedure TPrimFoldersElementInfoForm.FolderElement_Redraw_Execute;
+//#UC START# *4AF4727C0020_4AE706BB029Fexec_var*
+var
+ l_AdapterNode: INode;
+//#UC END# *4AF4727C0020_4AE706BB029Fexec_var*
+begin
+//#UC START# *4AF4727C0020_4AE706BB029Fexec_impl*
+ if (f_CurType <> fiSave) then
+  ShowCurInfo
+ else
+ if Supports(f_CurNode, INode, l_AdapterNode) and
+    (TFoldersItemType(l_AdapterNode.GetObjectType) = FIT_FOLDER) then
+  ShowSavedInfo
+ else
+  ShowCurInfo;
+//#UC END# *4AF4727C0020_4AE706BB029Fexec_impl*
+end;//TPrimFoldersElementInfoForm.FolderElement_Redraw_Execute
+
+procedure TPrimFoldersElementInfoForm.FolderElement_Redraw(const aParams: IvcmExecuteParamsPrim);
+begin
+ Self.FolderElement_Redraw_Execute;
+end;//TPrimFoldersElementInfoForm.FolderElement_Redraw
+
+procedure TPrimFoldersElementInfoForm.Result_ExternalOk_Execute;
+//#UC START# *4AF4768A0372_4AE706BB029Fexec_var*
+var
+ l_AdapterNode: INode;
+ l_OpsResult: Boolean;
+//#UC END# *4AF4768A0372_4AE706BB029Fexec_var*
+begin
+//#UC START# *4AF4768A0372_4AE706BB029Fexec_impl*
+ if f_CurType in [fiLoad, fiSelect, fiSave] then
+ begin
+  case f_CurType of
+   fiLoad,
+   fiSelect:
+      begin
+       if Supports(f_CurNode, INode, l_AdapterNode) and
+          (TFoldersItemType(l_AdapterNode.GetObjectType) <> FIT_FOLDER) then
+        l_OpsResult := SendChosenObject
+       else
+        l_OpsResult := False;
+
+       l_AdapterNode := nil;
+      end;
+   fiSave :
+      begin
+       if CheckFolderElementRights(f_CurNode, faModify) then
+        l_OpsResult := SaveOrOverrideCurObj
+       else
+        l_OpsResult := False;
+
+       l_AdapterNode := nil;
+      end;
+   else
+    l_OpsResult := False;
+  end;
+
+  if l_OpsResult then
+  begin
+   if (Aggregate <> nil) then
+    if Container.AsForm.ZoneType = vcm_ztManualModal then
+     Op_AdditionInfo_Close.Call(Aggregate, mrOK)
+    else
+    begin
+     f_CurType := fiNone;
+     Container.Operation(TdmStdRes.opcode_AdditionInfo_Hide);
+    end;
+  end;
+ end;
+//#UC END# *4AF4768A0372_4AE706BB029Fexec_impl*
+end;//TPrimFoldersElementInfoForm.Result_ExternalOk_Execute
+
+procedure TPrimFoldersElementInfoForm.Result_ExternalOk(const aParams: IvcmExecuteParamsPrim);
+begin
+ Self.Result_ExternalOk_Execute;
+end;//TPrimFoldersElementInfoForm.Result_ExternalOk
+
+procedure TPrimFoldersElementInfoForm.UsersRights_FolderShareChanged_Execute;
+//#UC START# *4AF4797100E8_4AE706BB029Fexec_var*
+//#UC END# *4AF4797100E8_4AE706BB029Fexec_var*
+begin
+//#UC START# *4AF4797100E8_4AE706BB029Fexec_impl*
+ with f_FolderSecurity do
+ begin
+  ShareChanged;
+  Modified := False;
+ end;
+//#UC END# *4AF4797100E8_4AE706BB029Fexec_impl*
+end;//TPrimFoldersElementInfoForm.UsersRights_FolderShareChanged_Execute
+
+procedure TPrimFoldersElementInfoForm.UsersRights_FolderShareChanged(const aParams: IvcmExecuteParamsPrim);
+begin
+ Self.UsersRights_FolderShareChanged_Execute;
+end;//TPrimFoldersElementInfoForm.UsersRights_FolderShareChanged
+
+procedure TPrimFoldersElementInfoForm.FolderElement_DisableSecurityPage_Execute;
+//#UC START# *4AF814650325_4AE706BB029Fexec_var*
+//#UC END# *4AF814650325_4AE706BB029Fexec_var*
+begin
+//#UC START# *4AF814650325_4AE706BB029Fexec_impl*
+ cbShared.Enabled := False;
+//#UC END# *4AF814650325_4AE706BB029Fexec_impl*
+end;//TPrimFoldersElementInfoForm.FolderElement_DisableSecurityPage_Execute
+
+procedure TPrimFoldersElementInfoForm.FolderElement_DisableSecurityPage(const aParams: IvcmExecuteParamsPrim);
+begin
+ Self.FolderElement_DisableSecurityPage_Execute;
+end;//TPrimFoldersElementInfoForm.FolderElement_DisableSecurityPage
 
 procedure TPrimFoldersElementInfoForm.Cleanup;
  {* Функция очистки полей объекта. }

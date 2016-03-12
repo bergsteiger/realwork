@@ -43,6 +43,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 function TK219124086.GetFolder: AnsiString;
  {* Папка в которую входит тест }
 begin
@@ -57,6 +58,7 @@ end;//TK219124086.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(TK219124086.Suite);
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

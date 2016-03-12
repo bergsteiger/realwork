@@ -13,14 +13,6 @@ uses
 ;
 
 type
- // Clear
-
- // Disable
-
- // Enable
-
- // Disable
-
  // DocumentsCache
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 

@@ -24,7 +24,7 @@ type
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-  public
+  published
    procedure DoIt;
  end;//TL3XMLWriterTest
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
@@ -42,6 +42,7 @@ uses
  , l3Types
 ;
 
+{$If NOT Defined(NotTunedDUnit)}
 procedure TL3XMLWriterTest.BuildXML;
 //#UC START# *55AE3F340080_55AE3EAE00F3_var*
 var
@@ -113,6 +114,7 @@ end;//TL3XMLWriterTest.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(TL3XMLWriterTest.Suite);
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

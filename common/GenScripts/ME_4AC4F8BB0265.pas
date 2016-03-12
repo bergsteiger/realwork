@@ -68,20 +68,24 @@ type
   public
    class function Make(const aData: InsTurnOnTimeMachine): Result; reintroduce;
    {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
+   procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
     {* Отмена }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
-    {* OK }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
-    {* OK }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_Test(const aParams: IvcmTestParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_GetState(var State: TvcmOperationStateIndex);
+    {* OK }
    {$IfEnd} // NOT Defined(NoVCM)
   private
    property Controller: InsTurnOnTimeMachine
@@ -133,6 +137,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimTurnOnTimeMachineForm.DoOk;
 //#UC START# *4AC5E0A802CA_4AC4F8BB0265_var*
 //#UC END# *4AC5E0A802CA_4AC4F8BB0265_var*
@@ -227,53 +232,55 @@ begin
  end;//try..finally
 end;//TPrimTurnOnTimeMachineForm.Make
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimTurnOnTimeMachineForm.Cancel;
+procedure TPrimTurnOnTimeMachineForm.Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
  {* Отмена }
-//#UC START# *4A8AD46D0226_4AC4F8BB0265_var*
-//#UC END# *4A8AD46D0226_4AC4F8BB0265_var*
+//#UC START# *4A8AD46D0226_4AC4F8BB0265test_var*
+//#UC END# *4A8AD46D0226_4AC4F8BB0265test_var*
 begin
-//#UC START# *4A8AD46D0226_4AC4F8BB0265_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A8AD46D0226_4AC4F8BB0265_impl*
-end;//TPrimTurnOnTimeMachineForm.Cancel
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4A8AD46D0226_4AC4F8BB0265test_impl*
+ aParams.Op.Flag[vcm_ofVisible] := False;
+//#UC END# *4A8AD46D0226_4AC4F8BB0265test_impl*
+end;//TPrimTurnOnTimeMachineForm.Result_Cancel_Test
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimTurnOnTimeMachineForm.Ok;
- {* OK }
-//#UC START# *4A97EBE702F8_4AC4F8BB0265_var*
-//#UC END# *4A97EBE702F8_4AC4F8BB0265_var*
-begin
-//#UC START# *4A97EBE702F8_4AC4F8BB0265_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A97EBE702F8_4AC4F8BB0265_impl*
-end;//TPrimTurnOnTimeMachineForm.Ok
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimTurnOnTimeMachineForm.Ok;
- {* OK }
-//#UC START# *4C762A1501FC_4AC4F8BB0265_var*
-//#UC END# *4C762A1501FC_4AC4F8BB0265_var*
-begin
-//#UC START# *4C762A1501FC_4AC4F8BB0265_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762A1501FC_4AC4F8BB0265_impl*
-end;//TPrimTurnOnTimeMachineForm.Ok
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimTurnOnTimeMachineForm.Cancel;
+procedure TPrimTurnOnTimeMachineForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Отмена }
-//#UC START# *4C762AB601E1_4AC4F8BB0265_var*
-//#UC END# *4C762AB601E1_4AC4F8BB0265_var*
+//#UC START# *4A8AD46D0226_4AC4F8BB0265exec_var*
+//#UC END# *4A8AD46D0226_4AC4F8BB0265exec_var*
 begin
-//#UC START# *4C762AB601E1_4AC4F8BB0265_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762AB601E1_4AC4F8BB0265_impl*
-end;//TPrimTurnOnTimeMachineForm.Cancel
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4A8AD46D0226_4AC4F8BB0265exec_impl*
+ ModalResult := mrCancel;
+//#UC END# *4A8AD46D0226_4AC4F8BB0265exec_impl*
+end;//TPrimTurnOnTimeMachineForm.Result_Cancel_Execute
+
+procedure TPrimTurnOnTimeMachineForm.Result_Ok_Test(const aParams: IvcmTestParamsPrim);
+ {* OK }
+//#UC START# *4A97EBE702F8_4AC4F8BB0265test_var*
+//#UC END# *4A97EBE702F8_4AC4F8BB0265test_var*
+begin
+//#UC START# *4A97EBE702F8_4AC4F8BB0265test_impl*
+ aParams.Op.Flag[vcm_ofVisible] := False;
+//#UC END# *4A97EBE702F8_4AC4F8BB0265test_impl*
+end;//TPrimTurnOnTimeMachineForm.Result_Ok_Test
+
+procedure TPrimTurnOnTimeMachineForm.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* OK }
+//#UC START# *4A97EBE702F8_4AC4F8BB0265exec_var*
+//#UC END# *4A97EBE702F8_4AC4F8BB0265exec_var*
+begin
+//#UC START# *4A97EBE702F8_4AC4F8BB0265exec_impl*
+ DoOk;
+//#UC END# *4A97EBE702F8_4AC4F8BB0265exec_impl*
+end;//TPrimTurnOnTimeMachineForm.Result_Ok_Execute
+
+procedure TPrimTurnOnTimeMachineForm.Result_Ok_GetState(var State: TvcmOperationStateIndex);
+ {* OK }
+//#UC START# *4A97EBE702F8_4AC4F8BB0265getstate_var*
+//#UC END# *4A97EBE702F8_4AC4F8BB0265getstate_var*
+begin
+//#UC START# *4A97EBE702F8_4AC4F8BB0265getstate_impl*
+ // - ничего не делаем
+//#UC END# *4A97EBE702F8_4AC4F8BB0265getstate_impl*
+end;//TPrimTurnOnTimeMachineForm.Result_Ok_GetState
 
 procedure TPrimTurnOnTimeMachineForm.Cleanup;
  {* Функция очистки полей объекта. }
@@ -286,7 +293,6 @@ begin
 //#UC END# *479731C50290_4AC4F8BB0265_impl*
 end;//TPrimTurnOnTimeMachineForm.Cleanup
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimTurnOnTimeMachineForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AC4F8BB0265_var*
@@ -374,7 +380,6 @@ begin
  Self.ClientHeight := btnOk.Top + btnOk.Height + 18;
 //#UC END# *4A8E8F2E0195_4AC4F8BB0265_impl*
 end;//TPrimTurnOnTimeMachineForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimTurnOnTimeMachineForm.ClearFields;
 begin
@@ -382,7 +387,6 @@ begin
  inherited;
 end;//TPrimTurnOnTimeMachineForm.ClearFields
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimTurnOnTimeMachineForm.SetupFormLayout;
  {* Тут можно настроить внешний вид формы }
 //#UC START# *529332B40230_4AC4F8BB0265_var*
@@ -399,13 +403,13 @@ begin
  Position := poScreenCenter;
 //#UC END# *529332B40230_4AC4F8BB0265_impl*
 end;//TPrimTurnOnTimeMachineForm.SetupFormLayout
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimTurnOnTimeMachineForm);
  {* Регистрация PrimTurnOnTimeMachine }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

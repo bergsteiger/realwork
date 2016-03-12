@@ -17,7 +17,7 @@ type
    function GetEtalonData: TEtalonData; virtual; abstract;
    function ArrayToEtalon(const aData: array of _ItemType_): TEtalonData;
     {* Вспомогательная функция появившаяся оттого, что динамические массивы умеют к открытым приводиться автоматом, а обратно - нет }
-  public
+  published
    procedure DoIt;
  end;//_StackTest_
 

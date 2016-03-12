@@ -101,16 +101,12 @@ type
    procedure ClearFields; override;
   public
    {$If NOT Defined(NoVCM)}
-   procedure ExpandAll; override;
+   procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
     {* Развернуть все }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure CollapseAll; override;
+   procedure Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
     {* Свернуть все }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Delete; override;
-    {* Удалить }
    {$IfEnd} // NOT Defined(NoVCM)
   protected
    property NeedShowCurrentDiction: Boolean
@@ -391,39 +387,27 @@ begin
 end;//TPrimCommonDictionOptionsForm.CurrentUpdated
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimCommonDictionOptionsForm.ExpandAll;
+procedure TPrimCommonDictionOptionsForm.Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
  {* Развернуть все }
-//#UC START# *4BDAF7880236_4C87A1DF00B4_var*
-//#UC END# *4BDAF7880236_4C87A1DF00B4_var*
+//#UC START# *4BDAF7880236_4C87A1DF00B4test_var*
+//#UC END# *4BDAF7880236_4C87A1DF00B4test_var*
 begin
-//#UC START# *4BDAF7880236_4C87A1DF00B4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BDAF7880236_4C87A1DF00B4_impl*
-end;//TPrimCommonDictionOptionsForm.ExpandAll
+//#UC START# *4BDAF7880236_4C87A1DF00B4test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4BDAF7880236_4C87A1DF00B4test_impl*
+end;//TPrimCommonDictionOptionsForm.Tree_ExpandAll_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimCommonDictionOptionsForm.CollapseAll;
+procedure TPrimCommonDictionOptionsForm.Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
  {* Свернуть все }
-//#UC START# *4BDAF7A2005C_4C87A1DF00B4_var*
-//#UC END# *4BDAF7A2005C_4C87A1DF00B4_var*
+//#UC START# *4BDAF7A2005C_4C87A1DF00B4test_var*
+//#UC END# *4BDAF7A2005C_4C87A1DF00B4test_var*
 begin
-//#UC START# *4BDAF7A2005C_4C87A1DF00B4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BDAF7A2005C_4C87A1DF00B4_impl*
-end;//TPrimCommonDictionOptionsForm.CollapseAll
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimCommonDictionOptionsForm.Delete;
- {* Удалить }
-//#UC START# *4C7D0CC90052_4C87A1DF00B4_var*
-//#UC END# *4C7D0CC90052_4C87A1DF00B4_var*
-begin
-//#UC START# *4C7D0CC90052_4C87A1DF00B4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7D0CC90052_4C87A1DF00B4_impl*
-end;//TPrimCommonDictionOptionsForm.Delete
+//#UC START# *4BDAF7A2005C_4C87A1DF00B4test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4BDAF7A2005C_4C87A1DF00B4test_impl*
+end;//TPrimCommonDictionOptionsForm.Tree_CollapseAll_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimCommonDictionOptionsForm.Cleanup;

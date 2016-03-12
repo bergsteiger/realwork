@@ -34,6 +34,9 @@ uses
  , SearchLite_Strange_Controls
  , PrimPrimListInterfaces
  , bsTypes
+ , eeInterfaces
+ , nsTypes
+ , FiltersUnit
  , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy

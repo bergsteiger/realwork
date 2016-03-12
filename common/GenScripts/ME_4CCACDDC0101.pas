@@ -13,19 +13,7 @@ uses
 ;
 
 type
- // Add
-
- // CreateList
-
- // Sort
-
- // ClearAllStatus
-
  // ControlCenter
-
- // Open
-
- // ClearStatus
 
  // ControledObject
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

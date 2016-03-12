@@ -28,7 +28,7 @@ type
    {$If NOT Defined(NotTunedDUnit)}
    function NeedCreateEtalonsWhileCheckingOutputWithInput: Boolean; override;
    {$IfEnd} // NOT Defined(NotTunedDUnit)
-  public
+  published
    procedure DoIt;
  end;//TArchiStorageTest
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
@@ -50,6 +50,7 @@ uses
  , TestFrameWork
 ;
 
+{$If NOT Defined(NotTunedDUnit)}
 procedure TArchiStorageTest.DoIt;
 //#UC START# *4FA137EE02D3_4FA137DD03E4_var*
 var
@@ -245,7 +246,6 @@ begin
  Result := '4FA137DD03E4';
 end;//TArchiStorageTest.GetModelElementGUID
 
-{$If NOT Defined(NotTunedDUnit)}
 function TArchiStorageTest.NeedCreateEtalonsWhileCheckingOutputWithInput: Boolean;
 //#UC START# *4FA164500031_4FA137DD03E4_var*
 //#UC END# *4FA164500031_4FA137DD03E4_var*

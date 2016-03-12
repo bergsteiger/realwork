@@ -57,11 +57,15 @@ type
    function NeedClose: Boolean; override;
   public
    {$If NOT Defined(NoVCM)}
-   procedure OkExt; override;
+   procedure Result_OkExt_Test(const aParams: IvcmTestParamsPrim);
     {* OK }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure OkExt; override;
+   procedure Result_OkExt_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_OkExt_GetState(var State: TvcmOperationStateIndex);
     {* OK }
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -168,27 +172,66 @@ begin
 end;//TBaseChatWindowForm.HistoryCleaned
 
 {$If NOT Defined(NoVCM)}
-procedure TBaseChatWindowForm.OkExt;
+procedure TBaseChatWindowForm.Result_OkExt_Test(const aParams: IvcmTestParamsPrim);
  {* OK }
-//#UC START# *4A8AD47D0357_4A6EA44C0038_var*
-//#UC END# *4A8AD47D0357_4A6EA44C0038_var*
+//#UC START# *4A8AD47D0357_4A6EA44C0038test_var*
+//#UC END# *4A8AD47D0357_4A6EA44C0038test_var*
 begin
-//#UC START# *4A8AD47D0357_4A6EA44C0038_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A8AD47D0357_4A6EA44C0038_impl*
-end;//TBaseChatWindowForm.OkExt
+//#UC START# *4A8AD47D0357_4A6EA44C0038test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := BottomEditor.TextSource.HasDocument AND
+  not BottomEditor.IsEmpty;
+//#UC END# *4A8AD47D0357_4A6EA44C0038test_impl*
+end;//TBaseChatWindowForm.Result_OkExt_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TBaseChatWindowForm.OkExt;
+procedure TBaseChatWindowForm.Result_OkExt_Execute(const aParams: IvcmExecuteParamsPrim);
  {* OK }
-//#UC START# *4C762D9B0224_4A6EA44C0038_var*
-//#UC END# *4C762D9B0224_4A6EA44C0038_var*
+//#UC START# *4A8AD47D0357_4A6EA44C0038exec_var*
+var
+ l_Memory: Tl3MemoryStream;
+ l_Message: InsChatMessage;
+const
+ cMaxSize = 1024*10;
+//#UC END# *4A8AD47D0357_4A6EA44C0038exec_var*
 begin
-//#UC START# *4C762D9B0224_4A6EA44C0038_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762D9B0224_4A6EA44C0038_impl*
-end;//TBaseChatWindowForm.OkExt
+//#UC START# *4A8AD47D0357_4A6EA44C0038exec_impl*
+ l_Memory := Tl3MemoryStream.Make;
+ try
+   BottomEditor.TextSource.DocumentContainer.TagReader.ReadTag(CF_EverestBin,
+                                                               l_Memory,
+                                                               TevdAllDocumentSubsEliminator.Make);
+  l_Memory.Position := 0;
+  if l_Memory.Size > cMaxSize then
+  begin
+   Say(war_ChatLimitReached);
+   Exit;
+  end;
+  try
+   l_Message := TdmStdRes.MakeChatDispatcher.SendMessage(UserID, l_Memory);
+  except
+   on EnsUnknownChatUser do
+    SafeClose;
+  end;
+  BottomEditor.TextSource.New;
+  AddToHistory(l_Message);
+ finally
+  FreeAndNil(l_Memory);
+ end;
+//#UC END# *4A8AD47D0357_4A6EA44C0038exec_impl*
+end;//TBaseChatWindowForm.Result_OkExt_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TBaseChatWindowForm.Result_OkExt_GetState(var State: TvcmOperationStateIndex);
+ {* OK }
+//#UC START# *4A8AD47D0357_4A6EA44C0038getstate_var*
+//#UC END# *4A8AD47D0357_4A6EA44C0038getstate_var*
+begin
+//#UC START# *4A8AD47D0357_4A6EA44C0038getstate_impl*
+ State := st_user_Result_OkExt_Chat;
+//#UC END# *4A8AD47D0357_4A6EA44C0038getstate_impl*
+end;//TBaseChatWindowForm.Result_OkExt_GetState
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}

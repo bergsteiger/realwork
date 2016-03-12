@@ -147,11 +147,19 @@ type
    function DoGetTabImageIndex: Integer; override;
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
   public
-   procedure SetListRoot; override;
-   procedure InitListRoot; override;
-   procedure Synchronize; override;
-   function GetRoot: Il3SimpleNode; override;
-   procedure Execute; override;
+   procedure Rubricator_SetListRoot_Execute(const aNode: Il3SimpleNode;
+    const aRootToKeep: INodeBase;
+    const aMenuSectionItemToKeep: ISectionItem);
+   procedure Rubricator_SetListRoot(const aParams: IvcmExecuteParamsPrim);
+   procedure Rubricator_InitListRoot_Execute(const aNode: Il3SimpleNode;
+    const aRootToKeep: INodeBase;
+    const aMenuSectionItemToKeep: ISectionItem);
+   procedure Rubricator_InitListRoot(const aParams: IvcmExecuteParamsPrim);
+   procedure Rubricator_Synchronize_Execute;
+   procedure Rubricator_Synchronize(const aParams: IvcmExecuteParamsPrim);
+   function Rubricator_GetRoot_Execute: Il3SimpleNode;
+   procedure Rubricator_GetRoot(const aParams: IvcmExecuteParamsPrim);
+   procedure Rubric_Execute_Execute(const aParams: IvcmExecuteParamsPrim);
   public
    property RubricatorList: TnscTreeViewWithAdapterDragDrop
     read f_RubricatorList;
@@ -571,50 +579,92 @@ begin
 //#UC END# *525E7A6300A6_4AA68CA10101_impl*
 end;//TPrimRubricatorForm.vcmEntityFormLoadState
 
-procedure TPrimRubricatorForm.SetListRoot;
-//#UC START# *4AA7805301DC_4AA68CA10101_var*
-//#UC END# *4AA7805301DC_4AA68CA10101_var*
+procedure TPrimRubricatorForm.Rubricator_SetListRoot_Execute(const aNode: Il3SimpleNode;
+ const aRootToKeep: INodeBase;
+ const aMenuSectionItemToKeep: ISectionItem);
+//#UC START# *4AA7805301DC_4AA68CA10101exec_var*
+//#UC END# *4AA7805301DC_4AA68CA10101exec_var*
 begin
-//#UC START# *4AA7805301DC_4AA68CA10101_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AA7805301DC_4AA68CA10101_impl*
-end;//TPrimRubricatorForm.SetListRoot
+//#UC START# *4AA7805301DC_4AA68CA10101exec_impl*
+ if (aNode <> nil) then
+  InternalSetRoot(aNode, aRootToKeep, aMenuSectionItemToKeep)
+ else
+ begin
+  CCaption := nil;
+  RubricatorList.TreeStruct.RootNode := nil;
+ end;//aNode <> nil
+//#UC END# *4AA7805301DC_4AA68CA10101exec_impl*
+end;//TPrimRubricatorForm.Rubricator_SetListRoot_Execute
 
-procedure TPrimRubricatorForm.InitListRoot;
-//#UC START# *4AA7806601AE_4AA68CA10101_var*
-//#UC END# *4AA7806601AE_4AA68CA10101_var*
+procedure TPrimRubricatorForm.Rubricator_SetListRoot(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4AA7806601AE_4AA68CA10101_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AA7806601AE_4AA68CA10101_impl*
-end;//TPrimRubricatorForm.InitListRoot
+ with (aParams.Data As IRubricator_SetListRoot_Params) do
+  Self.Rubricator_SetListRoot_Execute(Node, RootToKeep, MenuSectionItemToKeep);
+end;//TPrimRubricatorForm.Rubricator_SetListRoot
 
-procedure TPrimRubricatorForm.Synchronize;
-//#UC START# *4AA7809901AE_4AA68CA10101_var*
-//#UC END# *4AA7809901AE_4AA68CA10101_var*
+procedure TPrimRubricatorForm.Rubricator_InitListRoot_Execute(const aNode: Il3SimpleNode;
+ const aRootToKeep: INodeBase;
+ const aMenuSectionItemToKeep: ISectionItem);
+//#UC START# *4AA7806601AE_4AA68CA10101exec_var*
+//#UC END# *4AA7806601AE_4AA68CA10101exec_var*
 begin
-//#UC START# *4AA7809901AE_4AA68CA10101_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AA7809901AE_4AA68CA10101_impl*
-end;//TPrimRubricatorForm.Synchronize
+//#UC START# *4AA7806601AE_4AA68CA10101exec_impl*
+ if (aNode <> nil) then
+  InternalInitRoot(aNode, aRootToKeep, aMenuSectionItemToKeep)
+ else
+ begin
+  CCaption := nil;
+  RubricatorList.TreeStruct.RootNode := nil;
+ end;//aNode <> nil
+//#UC END# *4AA7806601AE_4AA68CA10101exec_impl*
+end;//TPrimRubricatorForm.Rubricator_InitListRoot_Execute
 
-function TPrimRubricatorForm.GetRoot: Il3SimpleNode;
-//#UC START# *4B02CFA303DA_4AA68CA10101_var*
-//#UC END# *4B02CFA303DA_4AA68CA10101_var*
+procedure TPrimRubricatorForm.Rubricator_InitListRoot(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4B02CFA303DA_4AA68CA10101_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4B02CFA303DA_4AA68CA10101_impl*
-end;//TPrimRubricatorForm.GetRoot
+ with (aParams.Data As IRubricator_InitListRoot_Params) do
+  Self.Rubricator_InitListRoot_Execute(Node, RootToKeep, MenuSectionItemToKeep);
+end;//TPrimRubricatorForm.Rubricator_InitListRoot
 
-procedure TPrimRubricatorForm.Execute;
-//#UC START# *4C4433150077_4AA68CA10101_var*
-//#UC END# *4C4433150077_4AA68CA10101_var*
+procedure TPrimRubricatorForm.Rubricator_Synchronize_Execute;
+//#UC START# *4AA7809901AE_4AA68CA10101exec_var*
+//#UC END# *4AA7809901AE_4AA68CA10101exec_var*
 begin
-//#UC START# *4C4433150077_4AA68CA10101_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C4433150077_4AA68CA10101_impl*
-end;//TPrimRubricatorForm.Execute
+//#UC START# *4AA7809901AE_4AA68CA10101exec_impl*
+ Op_Navigator_SetCurrent.Call(Aggregate, RubricatorList.TreeStruct.RootNode);
+//#UC END# *4AA7809901AE_4AA68CA10101exec_impl*
+end;//TPrimRubricatorForm.Rubricator_Synchronize_Execute
+
+procedure TPrimRubricatorForm.Rubricator_Synchronize(const aParams: IvcmExecuteParamsPrim);
+begin
+ Self.Rubricator_Synchronize_Execute;
+end;//TPrimRubricatorForm.Rubricator_Synchronize
+
+function TPrimRubricatorForm.Rubricator_GetRoot_Execute: Il3SimpleNode;
+//#UC START# *4B02CFA303DA_4AA68CA10101exec_var*
+//#UC END# *4B02CFA303DA_4AA68CA10101exec_var*
+begin
+//#UC START# *4B02CFA303DA_4AA68CA10101exec_impl*
+ if RubricatorList.IsTreeAssign then
+  Result := RubricatorList.TreeStruct.RootNode
+ else
+  Result := nil;
+//#UC END# *4B02CFA303DA_4AA68CA10101exec_impl*
+end;//TPrimRubricatorForm.Rubricator_GetRoot_Execute
+
+procedure TPrimRubricatorForm.Rubricator_GetRoot(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IRubricator_GetRoot_Params) do
+  ResultValue := Self.Rubricator_GetRoot_Execute;
+end;//TPrimRubricatorForm.Rubricator_GetRoot
+
+procedure TPrimRubricatorForm.Rubric_Execute_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C4433150077_4AA68CA10101exec_var*
+//#UC END# *4C4433150077_4AA68CA10101exec_var*
+begin
+//#UC START# *4C4433150077_4AA68CA10101exec_impl*
+ RubricExecute;
+//#UC END# *4C4433150077_4AA68CA10101exec_impl*
+end;//TPrimRubricatorForm.Rubric_Execute_Execute
 
 procedure TPrimRubricatorForm.Cleanup;
  {* Функция очистки полей объекта. }

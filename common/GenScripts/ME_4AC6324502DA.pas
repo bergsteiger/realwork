@@ -98,20 +98,12 @@ type
    procedure SetDates(const aDateReq: IqaDateReqDataHolder);
    class function Make(const aData: IqaDateReqDataHolder): IvcmEntityForm; reintroduce;
    {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Отмена }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
+   procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
     {* OK }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
-    {* OK }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
-    {* Отмена }
    {$IfEnd} // NOT Defined(NoVCM)
   public
    property Panel1: TvtPanel
@@ -149,6 +141,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimDefineSearchDateForm.pm_SetTypeDate(aValue: TTypeDate);
 //#UC START# *51B5AE3F0318_4AC6324502DAset_var*
 //#UC END# *51B5AE3F0318_4AC6324502DAset_var*
@@ -433,53 +426,27 @@ begin
 //#UC END# *51B5B5FB0354_4AC6324502DA_impl*
 end;//TPrimDefineSearchDateForm.CMDialogKey
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimDefineSearchDateForm.Cancel;
+procedure TPrimDefineSearchDateForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Отмена }
-//#UC START# *4A8AD46D0226_4AC6324502DA_var*
-//#UC END# *4A8AD46D0226_4AC6324502DA_var*
+//#UC START# *4A8AD46D0226_4AC6324502DAexec_var*
+//#UC END# *4A8AD46D0226_4AC6324502DAexec_var*
 begin
-//#UC START# *4A8AD46D0226_4AC6324502DA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A8AD46D0226_4AC6324502DA_impl*
-end;//TPrimDefineSearchDateForm.Cancel
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4A8AD46D0226_4AC6324502DAexec_impl*
+ ModalResult := mrCancel;
+//#UC END# *4A8AD46D0226_4AC6324502DAexec_impl*
+end;//TPrimDefineSearchDateForm.Result_Cancel_Execute
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimDefineSearchDateForm.Ok;
+procedure TPrimDefineSearchDateForm.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
  {* OK }
-//#UC START# *4A97EBE702F8_4AC6324502DA_var*
-//#UC END# *4A97EBE702F8_4AC6324502DA_var*
+//#UC START# *4A97EBE702F8_4AC6324502DAexec_var*
+//#UC END# *4A97EBE702F8_4AC6324502DAexec_var*
 begin
-//#UC START# *4A97EBE702F8_4AC6324502DA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A97EBE702F8_4AC6324502DA_impl*
-end;//TPrimDefineSearchDateForm.Ok
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimDefineSearchDateForm.Ok;
- {* OK }
-//#UC START# *4C762A1501FC_4AC6324502DA_var*
-//#UC END# *4C762A1501FC_4AC6324502DA_var*
-begin
-//#UC START# *4C762A1501FC_4AC6324502DA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762A1501FC_4AC6324502DA_impl*
-end;//TPrimDefineSearchDateForm.Ok
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimDefineSearchDateForm.Cancel;
- {* Отмена }
-//#UC START# *4C762AB601E1_4AC6324502DA_var*
-//#UC END# *4C762AB601E1_4AC6324502DA_var*
-begin
-//#UC START# *4C762AB601E1_4AC6324502DA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762AB601E1_4AC6324502DA_impl*
-end;//TPrimDefineSearchDateForm.Cancel
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4A97EBE702F8_4AC6324502DAexec_impl*
+ Assert(Assigned(f_DateReq));
+ if Save then
+  GetDates(f_DateReq);
+//#UC END# *4A97EBE702F8_4AC6324502DAexec_impl*
+end;//TPrimDefineSearchDateForm.Result_Ok_Execute
 
 procedure TPrimDefineSearchDateForm.Cleanup;
  {* Функция очистки полей объекта. }
@@ -493,7 +460,6 @@ begin
 //#UC END# *479731C50290_4AC6324502DA_impl*
 end;//TPrimDefineSearchDateForm.Cleanup
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimDefineSearchDateForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AC6324502DA_var*
@@ -665,13 +631,13 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AC6324502DA_impl*
 end;//TPrimDefineSearchDateForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimDefineSearchDateForm);
  {* Регистрация PrimDefineSearchDate }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

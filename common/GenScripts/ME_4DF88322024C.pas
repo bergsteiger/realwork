@@ -51,9 +51,9 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\PrintRowCompare.imp.pas}
 
-{$If NOT Defined(NoVCM)}
 procedure TPreviewTestBefore235875079WithRowCmp.DoVisit(aForm: TPrimTextLoadForm);
  {* Обработать текст }
 //#UC START# *4BE419AF0217_4DF88322024C_var*
@@ -79,7 +79,6 @@ begin
  end;
 //#UC END# *4BE419AF0217_4DF88322024C_impl*
 end;//TPreviewTestBefore235875079WithRowCmp.DoVisit
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TPreviewTestBefore235875079WithRowCmp.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -92,6 +91,7 @@ function TPreviewTestBefore235875079WithRowCmp.GetModelElementGUID: AnsiString;
 begin
  Result := '4DF88322024C';
 end;//TPreviewTestBefore235875079WithRowCmp.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

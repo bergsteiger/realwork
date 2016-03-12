@@ -157,11 +157,9 @@ uses
  , nsOpenUtils
 ;
 
+{$If NOT Defined(NoVCM)}
 type
- TPrimMainMenuState = class(Tl3ProtoObject{$If NOT Defined(NoVCM)}
- , IvcmBase
- {$IfEnd} // NOT Defined(NoVCM)
- )
+ TPrimMainMenuState = class(Tl3ProtoObject, IvcmBase)
   public
    class function Make: IvcmBase; reintroduce;
  end;//TPrimMainMenuState
@@ -445,7 +443,6 @@ begin
 //#UC END# *47EA4E9002C6_4958DD7002B6_impl*
 end;//TPrimMainMenuForm.FinishDataUpdate
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimMainMenuForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4958DD7002B6_var*
@@ -459,9 +456,7 @@ begin
  InitKeyboardNavigation;
 //#UC END# *49803F5503AA_4958DD7002B6_impl*
 end;//TPrimMainMenuForm.DoInit
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TPrimMainMenuForm.DoLoadState(const aState: IvcmBase;
  aStateType: TvcmStateType): Boolean;
  {* Загружает состояние формы. Для перекрытия в потомках }
@@ -474,9 +469,7 @@ begin
   LoadLastOpenDocs;
 //#UC END# *49807428008C_4958DD7002B6_impl*
 end;//TPrimMainMenuForm.DoLoadState
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimMainMenuForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4958DD7002B6_var*
@@ -492,9 +485,7 @@ begin
                                                         Self.NewSchool);
 //#UC END# *4A8E8F2E0195_4958DD7002B6_impl*
 end;//TPrimMainMenuForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TPrimMainMenuForm.SaveOwnFormState(out theState: IvcmBase;
  aStateType: TvcmStateType;
  aForClone: Boolean): Boolean;
@@ -512,7 +503,6 @@ begin
   Result := inherited SaveOwnFormState(theState, aStateType, aForClone);
 //#UC END# *4B4F49900003_4958DD7002B6_impl*
 end;//TPrimMainMenuForm.SaveOwnFormState
-{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimMainMenuForm.ClearFields;
 begin
@@ -525,6 +515,7 @@ initialization
  TtfwClassRef.Register(TPrimMainMenuForm);
  {* Регистрация PrimMainMenu }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

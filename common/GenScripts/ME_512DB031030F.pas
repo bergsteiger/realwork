@@ -33,6 +33,8 @@ uses
  , kwArchiEverestWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
 ;
-{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
 
+{$If NOT Defined(NoScripts)}
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
 end.

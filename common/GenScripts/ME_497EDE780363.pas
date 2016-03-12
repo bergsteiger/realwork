@@ -35,6 +35,9 @@ uses
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , afwNavigation
+ , l3TreeInterfaces
+ , eeInterfaces
+ , nsTypes
  , l3Interfaces
  , DocumentInterfaces
  , Classes
@@ -46,7 +49,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , Base_Operations_Strange_Controls
  , WorkWithDocumentInterfaces
- , l3TreeInterfaces
  , UnderControlUnit
  , BaseDocumentWithAttributesInterfaces
  {$If Defined(Nemesis)}
@@ -197,36 +199,71 @@ type
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
   public
    {$If NOT Defined(NoVCM)}
-   procedure Save; override;
+   procedure File_Save_Test(const aParams: IvcmTestParamsPrim);
     {* Сохранить }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure SaveToFolder; override;
+   {$If NOT Defined(NoVCM)}
+   procedure File_Save_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Сохранить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure File_SaveToFolder_Test(const aParams: IvcmTestParamsPrim);
     {* Сохранить в папки }
-   procedure LoadFromFolder; override;
+   procedure File_SaveToFolder_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Сохранить в папки }
+   procedure File_LoadFromFolder_Test(const aParams: IvcmTestParamsPrim);
     {* Загрузить из папок }
-   procedure OpenCorrespondentList; override;
+   procedure File_LoadFromFolder_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Загрузить из папок }
+   procedure Document_OpenCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
     {* Коллеги, это что? }
-   procedure OpenRespondentList; override;
+   procedure Document_OpenCorrespondentList_Execute(aKind: TlstCRType;
+    const aCRType: Il3SimpleNode);
     {* Коллеги, это что? }
-   procedure GetAttributesFrmAct; override;
+   procedure Document_OpenCorrespondentList(const aParams: IvcmExecuteParamsPrim);
+    {* Коллеги, это что? }
+   procedure Document_OpenRespondentList_Test(const aParams: IvcmTestParamsPrim);
+    {* Коллеги, это что? }
+   procedure Document_OpenRespondentList_Execute(aKind: TlstCRType;
+    const aCRType: Il3SimpleNode);
+    {* Коллеги, это что? }
+   procedure Document_OpenRespondentList(const aParams: IvcmExecuteParamsPrim);
+    {* Коллеги, это что? }
+   procedure Document_GetAttributesFrmAct_Test(const aParams: IvcmTestParamsPrim);
     {* Информация о документе }
-   function Load: Boolean; override;
+   procedure Document_GetAttributesFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Информация о документе }
+   function Loadable_Load_Execute(const aNode: IeeNode;
+    const aData: IUnknown;
+    anOp: TListLogicOperation = LLO_NONE): Boolean;
     {* Коллеги, кто может описать этот метод? }
-   procedure GetRelatedDocFrmAct; override;
+   procedure Loadable_Load(const aParams: IvcmExecuteParamsPrim);
+    {* Коллеги, кто может описать этот метод? }
+   procedure Document_GetRelatedDocFrmAct_Test(const aParams: IvcmTestParamsPrim);
     {* Справка к документу }
-   procedure GetCorrespondentList; override;
+   procedure Document_GetRelatedDocFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Справка к документу }
+   procedure Document_GetCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
     {* Ссылки на документ }
-   procedure GetRespondentList; override;
+   procedure Document_GetCorrespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Ссылки на документ }
+   procedure Document_GetRespondentList_Test(const aParams: IvcmTestParamsPrim);
     {* Ссылки из документа }
-   function AttributesCanBeClosed: Boolean; override;
+   procedure Document_GetRespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Ссылки из документа }
+   function Document_AttributesCanBeClosed_Execute: Boolean;
     {* Это кандидат на перенос в Facet или что-то подобное }
-   procedure GetCorrespondentListExFrmAct; override;
+   procedure Document_AttributesCanBeClosed(const aParams: IvcmExecuteParamsPrim);
+    {* Это кандидат на перенос в Facet или что-то подобное }
+   procedure Document_GetCorrespondentListExFrmAct_Test(const aParams: IvcmTestParamsPrim);
     {* Ссылки на документ (вид информации) }
-   procedure GetRespondentListExFrmAct; override;
+   procedure Document_GetCorrespondentListExFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Ссылки на документ (вид информации) }
+   procedure Document_GetRespondentListExFrmAct_Test(const aParams: IvcmTestParamsPrim);
     {* Ссылки из документа (вид информации) }
-   procedure GetGraphicImage; override;
-   procedure GetAttributesFrmAct; override;
-    {* Информация о документе }
+   procedure Document_GetRespondentListExFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Ссылки из документа (вид информации) }
+   procedure Document_GetGraphicImage_Test(const aParams: IvcmTestParamsPrim);
+   procedure Document_GetGraphicImage_Execute(const aParams: IvcmExecuteParamsPrim);
    constructor Create(AOwner: TComponent); override;
    {$If NOT Defined(NoVCM)}
    procedure SetPositionByDS; override;
@@ -285,7 +322,6 @@ uses
  , nsOpenUtils
  , FoldersUnit
  , Document_Const
- , nsTypes
  , bsTypesNew
  , nsDocumentPrintEvent
  , nsDocumentPrintPreviewEvent
@@ -699,86 +735,215 @@ begin
 end;//TPrimDocumentWithFlashForm.WMSetFocus
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimDocumentWithFlashForm.Save;
+procedure TPrimDocumentWithFlashForm.File_Save_Test(const aParams: IvcmTestParamsPrim);
  {* Сохранить }
-//#UC START# *495235F401C0_497EDE780363_var*
-//#UC END# *495235F401C0_497EDE780363_var*
+//#UC START# *495235F401C0_497EDE780363test_var*
+//#UC END# *495235F401C0_497EDE780363test_var*
 begin
-//#UC START# *495235F401C0_497EDE780363_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495235F401C0_497EDE780363_impl*
-end;//TPrimDocumentWithFlashForm.Save
+//#UC START# *495235F401C0_497EDE780363test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := false;
+//#UC END# *495235F401C0_497EDE780363test_impl*
+end;//TPrimDocumentWithFlashForm.File_Save_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
-procedure TPrimDocumentWithFlashForm.SaveToFolder;
+{$If NOT Defined(NoVCM)}
+procedure TPrimDocumentWithFlashForm.File_Save_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Сохранить }
+//#UC START# *495235F401C0_497EDE780363exec_var*
+//#UC END# *495235F401C0_497EDE780363exec_var*
+begin
+//#UC START# *495235F401C0_497EDE780363exec_impl*
+ Assert(false);
+//#UC END# *495235F401C0_497EDE780363exec_impl*
+end;//TPrimDocumentWithFlashForm.File_Save_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+procedure TPrimDocumentWithFlashForm.File_SaveToFolder_Test(const aParams: IvcmTestParamsPrim);
  {* Сохранить в папки }
-//#UC START# *49885D540232_497EDE780363_var*
-//#UC END# *49885D540232_497EDE780363_var*
+//#UC START# *49885D540232_497EDE780363test_var*
+//#UC END# *49885D540232_497EDE780363test_var*
 begin
-//#UC START# *49885D540232_497EDE780363_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49885D540232_497EDE780363_impl*
-end;//TPrimDocumentWithFlashForm.SaveToFolder
+//#UC START# *49885D540232_497EDE780363test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (Document <> nil);
+//#UC END# *49885D540232_497EDE780363test_impl*
+end;//TPrimDocumentWithFlashForm.File_SaveToFolder_Test
 
-procedure TPrimDocumentWithFlashForm.LoadFromFolder;
+procedure TPrimDocumentWithFlashForm.File_SaveToFolder_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Сохранить в папки }
+//#UC START# *49885D540232_497EDE780363exec_var*
+//#UC END# *49885D540232_497EDE780363exec_var*
+begin
+//#UC START# *49885D540232_497EDE780363exec_impl*
+ SetBookMark;
+//#UC END# *49885D540232_497EDE780363exec_impl*
+end;//TPrimDocumentWithFlashForm.File_SaveToFolder_Execute
+
+procedure TPrimDocumentWithFlashForm.File_LoadFromFolder_Test(const aParams: IvcmTestParamsPrim);
  {* Загрузить из папок }
-//#UC START# *49885D59018D_497EDE780363_var*
-//#UC END# *49885D59018D_497EDE780363_var*
+//#UC START# *49885D59018D_497EDE780363test_var*
+//#UC END# *49885D59018D_497EDE780363test_var*
 begin
-//#UC START# *49885D59018D_497EDE780363_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49885D59018D_497EDE780363_impl*
-end;//TPrimDocumentWithFlashForm.LoadFromFolder
+//#UC START# *49885D59018D_497EDE780363test_impl*
+ // - ничего не делаем
+//#UC END# *49885D59018D_497EDE780363test_impl*
+end;//TPrimDocumentWithFlashForm.File_LoadFromFolder_Test
 
-procedure TPrimDocumentWithFlashForm.OpenCorrespondentList;
+procedure TPrimDocumentWithFlashForm.File_LoadFromFolder_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Загрузить из папок }
+//#UC START# *49885D59018D_497EDE780363exec_var*
+//#UC END# *49885D59018D_497EDE780363exec_var*
+begin
+//#UC START# *49885D59018D_497EDE780363exec_impl*
+ TdmStdRes.SelectOpen(Self.as_IvcmEntityForm,
+                      dsBaseDocument.As_IucpFilterInfoFactory.MakeFilterInfo(ffBookmark),
+                      str_OpenBookmark);
+//#UC END# *49885D59018D_497EDE780363exec_impl*
+end;//TPrimDocumentWithFlashForm.File_LoadFromFolder_Execute
+
+procedure TPrimDocumentWithFlashForm.Document_OpenCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
  {* Коллеги, это что? }
-//#UC START# *4988752302F4_497EDE780363_var*
-//#UC END# *4988752302F4_497EDE780363_var*
+//#UC START# *4988752302F4_497EDE780363test_var*
+//#UC END# *4988752302F4_497EDE780363test_var*
 begin
-//#UC START# *4988752302F4_497EDE780363_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4988752302F4_497EDE780363_impl*
-end;//TPrimDocumentWithFlashForm.OpenCorrespondentList
+//#UC START# *4988752302F4_497EDE780363test_impl*
+ OpenCRListTest(aParams, crtCorrespondents);
+//#UC END# *4988752302F4_497EDE780363test_impl*
+end;//TPrimDocumentWithFlashForm.Document_OpenCorrespondentList_Test
 
-procedure TPrimDocumentWithFlashForm.OpenRespondentList;
+procedure TPrimDocumentWithFlashForm.Document_OpenCorrespondentList_Execute(aKind: TlstCRType;
+ const aCRType: Il3SimpleNode);
  {* Коллеги, это что? }
-//#UC START# *49888E8003B9_497EDE780363_var*
-//#UC END# *49888E8003B9_497EDE780363_var*
+//#UC START# *4988752302F4_497EDE780363exec_var*
+//#UC END# *4988752302F4_497EDE780363exec_var*
 begin
-//#UC START# *49888E8003B9_497EDE780363_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49888E8003B9_497EDE780363_impl*
-end;//TPrimDocumentWithFlashForm.OpenRespondentList
+//#UC START# *4988752302F4_497EDE780363exec_impl*
+ //if not Operation(TdmStdRes.opcode_Document_GetCorrespondentListExFrmAct).Done then
+  Assert(false);
+ //OpenCRListOpExecute(crtCorrespondents, aParams.CurrentNode);
+//#UC END# *4988752302F4_497EDE780363exec_impl*
+end;//TPrimDocumentWithFlashForm.Document_OpenCorrespondentList_Execute
 
-procedure TPrimDocumentWithFlashForm.GetAttributesFrmAct;
+procedure TPrimDocumentWithFlashForm.Document_OpenCorrespondentList(const aParams: IvcmExecuteParamsPrim);
+ {* Коллеги, это что? }
+begin
+ with (aParams.Data As IDocument_OpenCorrespondentList_Params) do
+  Self.Document_OpenCorrespondentList_Execute(Kind, CRType);
+end;//TPrimDocumentWithFlashForm.Document_OpenCorrespondentList
+
+procedure TPrimDocumentWithFlashForm.Document_OpenRespondentList_Test(const aParams: IvcmTestParamsPrim);
+ {* Коллеги, это что? }
+//#UC START# *49888E8003B9_497EDE780363test_var*
+//#UC END# *49888E8003B9_497EDE780363test_var*
+begin
+//#UC START# *49888E8003B9_497EDE780363test_impl*
+ OpenCRListTest(aParams, crtRespondents);
+//#UC END# *49888E8003B9_497EDE780363test_impl*
+end;//TPrimDocumentWithFlashForm.Document_OpenRespondentList_Test
+
+procedure TPrimDocumentWithFlashForm.Document_OpenRespondentList_Execute(aKind: TlstCRType;
+ const aCRType: Il3SimpleNode);
+ {* Коллеги, это что? }
+//#UC START# *49888E8003B9_497EDE780363exec_var*
+//#UC END# *49888E8003B9_497EDE780363exec_var*
+begin
+//#UC START# *49888E8003B9_497EDE780363exec_impl*
+ //if not Operation(TdmStdRes.opcode_Document_GetRespondentListExFrmAct).Done then
+  Assert(false);
+ //OpenCRListOpExecute(crtRespondents, aParams.CurrentNode);
+//#UC END# *49888E8003B9_497EDE780363exec_impl*
+end;//TPrimDocumentWithFlashForm.Document_OpenRespondentList_Execute
+
+procedure TPrimDocumentWithFlashForm.Document_OpenRespondentList(const aParams: IvcmExecuteParamsPrim);
+ {* Коллеги, это что? }
+begin
+ with (aParams.Data As IDocument_OpenRespondentList_Params) do
+  Self.Document_OpenRespondentList_Execute(Kind, CRType);
+end;//TPrimDocumentWithFlashForm.Document_OpenRespondentList
+
+procedure TPrimDocumentWithFlashForm.Document_GetAttributesFrmAct_Test(const aParams: IvcmTestParamsPrim);
  {* Информация о документе }
-//#UC START# *498891640253_497EDE780363_var*
-//#UC END# *498891640253_497EDE780363_var*
+//#UC START# *498891640253_497EDE780363test_var*
+//#UC END# *498891640253_497EDE780363test_var*
 begin
-//#UC START# *498891640253_497EDE780363_impl*
- !!! Needs to be implemented !!!
-//#UC END# *498891640253_497EDE780363_impl*
-end;//TPrimDocumentWithFlashForm.GetAttributesFrmAct
+//#UC START# *498891640253_497EDE780363test_impl*
+ OpenAttributesOpTest(aParams);
+//#UC END# *498891640253_497EDE780363test_impl*
+end;//TPrimDocumentWithFlashForm.Document_GetAttributesFrmAct_Test
 
-function TPrimDocumentWithFlashForm.Load: Boolean;
+procedure TPrimDocumentWithFlashForm.Document_GetAttributesFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Информация о документе }
+//#UC START# *498891640253_497EDE780363exec_var*
+//#UC END# *498891640253_497EDE780363exec_var*
+begin
+//#UC START# *498891640253_497EDE780363exec_impl*
+ OpenAttributesOpExecute;
+//#UC END# *498891640253_497EDE780363exec_impl*
+end;//TPrimDocumentWithFlashForm.Document_GetAttributesFrmAct_Execute
+
+function TPrimDocumentWithFlashForm.Loadable_Load_Execute(const aNode: IeeNode;
+ const aData: IUnknown;
+ anOp: TListLogicOperation = LLO_NONE): Boolean;
  {* Коллеги, кто может описать этот метод? }
-//#UC START# *49895A2102E8_497EDE780363_var*
-//#UC END# *49895A2102E8_497EDE780363_var*
+//#UC START# *49895A2102E8_497EDE780363exec_var*
+var
+ l_FolderNode : INode;
+ l_BaseEntity : IUnknown;
+//#UC END# *49895A2102E8_497EDE780363exec_var*
 begin
-//#UC START# *49895A2102E8_497EDE780363_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49895A2102E8_497EDE780363_impl*
-end;//TPrimDocumentWithFlashForm.Load
+//#UC START# *49895A2102E8_497EDE780363exec_impl*
+ Result := true;
+ if Supports(aNode, INode, l_FolderNode) then
+ try
+  try
+   l_FolderNode.Open(l_BaseEntity);
+  except
+   on ECanNotFindData do
+   begin
+    nsSayAdapterObjectMissing(Self, l_FolderNode);
+    Result := false;
+    Exit;
+   end;//on ECanNotFindData
+  end;//try..except
+  try
+   case TFoldersItemType(l_FolderNode.GetObjectType) of
+    FIT_BOOKMARK, FIT_PHARM_BOOKMARK:
+     TdmStdRes.OpenEntityAsDocument(l_BaseEntity, nil);
+   end;//case TFoldersItemType(l_FolderNode.GetObjectType)
+  finally
+   l_BaseEntity := nil;
+  end;//try..finally
+ finally
+  l_FolderNode := nil;
+ end;//try..finally
+//#UC END# *49895A2102E8_497EDE780363exec_impl*
+end;//TPrimDocumentWithFlashForm.Loadable_Load_Execute
 
-procedure TPrimDocumentWithFlashForm.GetRelatedDocFrmAct;
- {* Справка к документу }
-//#UC START# *498993C801DC_497EDE780363_var*
-//#UC END# *498993C801DC_497EDE780363_var*
+procedure TPrimDocumentWithFlashForm.Loadable_Load(const aParams: IvcmExecuteParamsPrim);
+ {* Коллеги, кто может описать этот метод? }
 begin
-//#UC START# *498993C801DC_497EDE780363_impl*
- !!! Needs to be implemented !!!
-//#UC END# *498993C801DC_497EDE780363_impl*
-end;//TPrimDocumentWithFlashForm.GetRelatedDocFrmAct
+ with (aParams.Data As ILoadable_Load_Params) do
+  ResultValue := Self.Loadable_Load_Execute(Node, Data, nOp);
+end;//TPrimDocumentWithFlashForm.Loadable_Load
+
+procedure TPrimDocumentWithFlashForm.Document_GetRelatedDocFrmAct_Test(const aParams: IvcmTestParamsPrim);
+ {* Справка к документу }
+//#UC START# *498993C801DC_497EDE780363test_var*
+//#UC END# *498993C801DC_497EDE780363test_var*
+begin
+//#UC START# *498993C801DC_497EDE780363test_impl*
+ OpenRelatedDocOpTest(aParams);
+//#UC END# *498993C801DC_497EDE780363test_impl*
+end;//TPrimDocumentWithFlashForm.Document_GetRelatedDocFrmAct_Test
+
+procedure TPrimDocumentWithFlashForm.Document_GetRelatedDocFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Справка к документу }
+//#UC START# *498993C801DC_497EDE780363exec_var*
+//#UC END# *498993C801DC_497EDE780363exec_var*
+begin
+//#UC START# *498993C801DC_497EDE780363exec_impl*
+ // ничего не делаем, т.к. это FormActivate - http://mdp.garant.ru/pages/viewpage.action?pageId=135136020&focusedCommentId=136258958#comment-136258958
+//#UC END# *498993C801DC_497EDE780363exec_impl*
+end;//TPrimDocumentWithFlashForm.Document_GetRelatedDocFrmAct_Execute
 
 procedure TPrimDocumentWithFlashForm.SetBookmark;
  {* Устанавливает закладку на текущее место текущего документа }
@@ -812,74 +977,120 @@ begin
 //#UC END# *4989CF90010A_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.CanAddBookmark
 
-procedure TPrimDocumentWithFlashForm.GetCorrespondentList;
+procedure TPrimDocumentWithFlashForm.Document_GetCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
  {* Ссылки на документ }
-//#UC START# *4989D65C0275_497EDE780363_var*
-//#UC END# *4989D65C0275_497EDE780363_var*
+//#UC START# *4989D65C0275_497EDE780363test_var*
+//#UC END# *4989D65C0275_497EDE780363test_var*
 begin
-//#UC START# *4989D65C0275_497EDE780363_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4989D65C0275_497EDE780363_impl*
-end;//TPrimDocumentWithFlashForm.GetCorrespondentList
+//#UC START# *4989D65C0275_497EDE780363test_impl*
+ OpenCRListOpTest(aParams, crtCorrespondents, False);
+//#UC END# *4989D65C0275_497EDE780363test_impl*
+end;//TPrimDocumentWithFlashForm.Document_GetCorrespondentList_Test
 
-procedure TPrimDocumentWithFlashForm.GetRespondentList;
+procedure TPrimDocumentWithFlashForm.Document_GetCorrespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Ссылки на документ }
+//#UC START# *4989D65C0275_497EDE780363exec_var*
+//#UC END# *4989D65C0275_497EDE780363exec_var*
+begin
+//#UC START# *4989D65C0275_497EDE780363exec_impl*
+ OpenCRListOpExecute(crtCorrespondents, nil);
+//#UC END# *4989D65C0275_497EDE780363exec_impl*
+end;//TPrimDocumentWithFlashForm.Document_GetCorrespondentList_Execute
+
+procedure TPrimDocumentWithFlashForm.Document_GetRespondentList_Test(const aParams: IvcmTestParamsPrim);
  {* Ссылки из документа }
-//#UC START# *4989D8430128_497EDE780363_var*
-//#UC END# *4989D8430128_497EDE780363_var*
+//#UC START# *4989D8430128_497EDE780363test_var*
+//#UC END# *4989D8430128_497EDE780363test_var*
 begin
-//#UC START# *4989D8430128_497EDE780363_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4989D8430128_497EDE780363_impl*
-end;//TPrimDocumentWithFlashForm.GetRespondentList
+//#UC START# *4989D8430128_497EDE780363test_impl*
+ OpenCRListOpTest(aParams, crtRespondents, False);
+//#UC END# *4989D8430128_497EDE780363test_impl*
+end;//TPrimDocumentWithFlashForm.Document_GetRespondentList_Test
 
-function TPrimDocumentWithFlashForm.AttributesCanBeClosed: Boolean;
+procedure TPrimDocumentWithFlashForm.Document_GetRespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Ссылки из документа }
+//#UC START# *4989D8430128_497EDE780363exec_var*
+//#UC END# *4989D8430128_497EDE780363exec_var*
+begin
+//#UC START# *4989D8430128_497EDE780363exec_impl*
+ OpenCRListOpExecute(crtRespondents, nil);
+//#UC END# *4989D8430128_497EDE780363exec_impl*
+end;//TPrimDocumentWithFlashForm.Document_GetRespondentList_Execute
+
+function TPrimDocumentWithFlashForm.Document_AttributesCanBeClosed_Execute: Boolean;
  {* Это кандидат на перенос в Facet или что-то подобное }
-//#UC START# *4989DE3702CF_497EDE780363_var*
-//#UC END# *4989DE3702CF_497EDE780363_var*
+//#UC START# *4989DE3702CF_497EDE780363exec_var*
+//#UC END# *4989DE3702CF_497EDE780363exec_var*
 begin
-//#UC START# *4989DE3702CF_497EDE780363_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4989DE3702CF_497EDE780363_impl*
-end;//TPrimDocumentWithFlashForm.AttributesCanBeClosed
+//#UC START# *4989DE3702CF_497EDE780363exec_impl*
+ Result := OpenAttributesOpCanBeClosed;
+//#UC END# *4989DE3702CF_497EDE780363exec_impl*
+end;//TPrimDocumentWithFlashForm.Document_AttributesCanBeClosed_Execute
 
-procedure TPrimDocumentWithFlashForm.GetCorrespondentListExFrmAct;
+procedure TPrimDocumentWithFlashForm.Document_AttributesCanBeClosed(const aParams: IvcmExecuteParamsPrim);
+ {* Это кандидат на перенос в Facet или что-то подобное }
+begin
+ with (aParams.Data As IDocument_AttributesCanBeClosed_Params) do
+  ResultValue := Self.Document_AttributesCanBeClosed_Execute;
+end;//TPrimDocumentWithFlashForm.Document_AttributesCanBeClosed
+
+procedure TPrimDocumentWithFlashForm.Document_GetCorrespondentListExFrmAct_Test(const aParams: IvcmTestParamsPrim);
  {* Ссылки на документ (вид информации) }
-//#UC START# *4AF329F6002A_497EDE780363_var*
-//#UC END# *4AF329F6002A_497EDE780363_var*
+//#UC START# *4AF329F6002A_497EDE780363test_var*
+//#UC END# *4AF329F6002A_497EDE780363test_var*
 begin
-//#UC START# *4AF329F6002A_497EDE780363_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF329F6002A_497EDE780363_impl*
-end;//TPrimDocumentWithFlashForm.GetCorrespondentListExFrmAct
+//#UC START# *4AF329F6002A_497EDE780363test_impl*
+ OpenCRListTest(aParams, crtCorrespondents);
+//#UC END# *4AF329F6002A_497EDE780363test_impl*
+end;//TPrimDocumentWithFlashForm.Document_GetCorrespondentListExFrmAct_Test
 
-procedure TPrimDocumentWithFlashForm.GetRespondentListExFrmAct;
+procedure TPrimDocumentWithFlashForm.Document_GetCorrespondentListExFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Ссылки на документ (вид информации) }
+//#UC START# *4AF329F6002A_497EDE780363exec_var*
+//#UC END# *4AF329F6002A_497EDE780363exec_var*
+begin
+//#UC START# *4AF329F6002A_497EDE780363exec_impl*
+ OpenCRListOpExecute(crtCorrespondents, aParams.CurrentNode);
+//#UC END# *4AF329F6002A_497EDE780363exec_impl*
+end;//TPrimDocumentWithFlashForm.Document_GetCorrespondentListExFrmAct_Execute
+
+procedure TPrimDocumentWithFlashForm.Document_GetRespondentListExFrmAct_Test(const aParams: IvcmTestParamsPrim);
  {* Ссылки из документа (вид информации) }
-//#UC START# *4AF329FD014D_497EDE780363_var*
-//#UC END# *4AF329FD014D_497EDE780363_var*
+//#UC START# *4AF329FD014D_497EDE780363test_var*
+//#UC END# *4AF329FD014D_497EDE780363test_var*
 begin
-//#UC START# *4AF329FD014D_497EDE780363_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF329FD014D_497EDE780363_impl*
-end;//TPrimDocumentWithFlashForm.GetRespondentListExFrmAct
+//#UC START# *4AF329FD014D_497EDE780363test_impl*
+ OpenCRListTest(aParams, crtRespondents);
+//#UC END# *4AF329FD014D_497EDE780363test_impl*
+end;//TPrimDocumentWithFlashForm.Document_GetRespondentListExFrmAct_Test
 
-procedure TPrimDocumentWithFlashForm.GetGraphicImage;
-//#UC START# *4C3C77CC012A_497EDE780363_var*
-//#UC END# *4C3C77CC012A_497EDE780363_var*
+procedure TPrimDocumentWithFlashForm.Document_GetRespondentListExFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Ссылки из документа (вид информации) }
+//#UC START# *4AF329FD014D_497EDE780363exec_var*
+//#UC END# *4AF329FD014D_497EDE780363exec_var*
 begin
-//#UC START# *4C3C77CC012A_497EDE780363_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3C77CC012A_497EDE780363_impl*
-end;//TPrimDocumentWithFlashForm.GetGraphicImage
+//#UC START# *4AF329FD014D_497EDE780363exec_impl*
+ OpenCRListOpExecute(crtRespondents, aParams.CurrentNode);
+//#UC END# *4AF329FD014D_497EDE780363exec_impl*
+end;//TPrimDocumentWithFlashForm.Document_GetRespondentListExFrmAct_Execute
 
-procedure TPrimDocumentWithFlashForm.GetAttributesFrmAct;
- {* Информация о документе }
-//#UC START# *4C7B9EBC01AC_497EDE780363_var*
-//#UC END# *4C7B9EBC01AC_497EDE780363_var*
+procedure TPrimDocumentWithFlashForm.Document_GetGraphicImage_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3C77CC012A_497EDE780363test_var*
+//#UC END# *4C3C77CC012A_497EDE780363test_var*
 begin
-//#UC START# *4C7B9EBC01AC_497EDE780363_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7B9EBC01AC_497EDE780363_impl*
-end;//TPrimDocumentWithFlashForm.GetAttributesFrmAct
+//#UC START# *4C3C77CC012A_497EDE780363test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := false;
+//#UC END# *4C3C77CC012A_497EDE780363test_impl*
+end;//TPrimDocumentWithFlashForm.Document_GetGraphicImage_Test
+
+procedure TPrimDocumentWithFlashForm.Document_GetGraphicImage_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3C77CC012A_497EDE780363exec_var*
+//#UC END# *4C3C77CC012A_497EDE780363exec_var*
+begin
+//#UC START# *4C3C77CC012A_497EDE780363exec_impl*
+ Assert(false);
+//#UC END# *4C3C77CC012A_497EDE780363exec_impl*
+end;//TPrimDocumentWithFlashForm.Document_GetGraphicImage_Execute
 
 function TPrimDocumentWithFlashForm.pm_GetFlashForPrint: TvtShockwaveFlashEx;
 //#UC START# *4CDACDBE00B2_497EDE780363get_var*

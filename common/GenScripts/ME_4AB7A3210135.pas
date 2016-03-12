@@ -131,14 +131,10 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
-   procedure OkExt; override;
+   procedure Result_OkExt_Execute(const aParams: IvcmExecuteParamsPrim);
     {* OK }
    {$IfEnd} // NOT Defined(NoVCM)
    function SupportDisabled: Boolean;
-   {$If NOT Defined(NoVCM)}
-   procedure OkExt; override;
-    {* OK }
-   {$IfEnd} // NOT Defined(NoVCM)
   public
    property pnlMain: TvtPanel
     read f_pnlMain;
@@ -452,15 +448,24 @@ begin
 end;//TPrimBaseSearchCardForm.JournalShrinked
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimBaseSearchCardForm.OkExt;
+procedure TPrimBaseSearchCardForm.Result_OkExt_Execute(const aParams: IvcmExecuteParamsPrim);
  {* OK }
-//#UC START# *4A8AD47D0357_4AB7A3210135_var*
-//#UC END# *4A8AD47D0357_4AB7A3210135_var*
+//#UC START# *4A8AD47D0357_4AB7A3210135exec_var*
+var
+ l_QueryProcessor: InsBaseSearchQueryDataProcessor;
+//#UC END# *4A8AD47D0357_4AB7A3210135exec_var*
 begin
-//#UC START# *4A8AD47D0357_4AB7A3210135_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A8AD47D0357_4AB7A3210135_impl*
-end;//TPrimBaseSearchCardForm.OkExt
+//#UC START# *4A8AD47D0357_4AB7A3210135exec_impl*
+ l_QueryProcessor := QueryProcessor;
+ if Assigned(l_QueryProcessor) then
+  try
+   l_QueryProcessor.RequestFind;
+  except
+   on ETryToFindEmptyContext do
+    Ask(inf_SimpleMainMenuSearchCondition);
+  end;//try..except
+//#UC END# *4A8AD47D0357_4AB7A3210135exec_impl*
+end;//TPrimBaseSearchCardForm.Result_OkExt_Execute
 {$IfEnd} // NOT Defined(NoVCM)
 
 function TPrimBaseSearchCardForm.SupportDisabled: Boolean;
@@ -490,18 +495,6 @@ begin
  Result := nil; 
 //#UC END# *4AD6EAA3034A_4AB7A3210135get_impl*
 end;//TPrimBaseSearchCardForm.Get_ContextSearcher
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimBaseSearchCardForm.OkExt;
- {* OK }
-//#UC START# *4C762D9B0224_4AB7A3210135_var*
-//#UC END# *4C762D9B0224_4AB7A3210135_var*
-begin
-//#UC START# *4C762D9B0224_4AB7A3210135_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762D9B0224_4AB7A3210135_impl*
-end;//TPrimBaseSearchCardForm.OkExt
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TPrimBaseSearchCardForm.Get_NeedSaveActiveClassBeforeSearch: Boolean;
 //#UC START# *4F1D607E0027_4AB7A3210135get_var*

@@ -15,6 +15,10 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , Folders_Strange_Controls
  , vtPanel
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , FoldersDomainInterfaces
 ;
 
 type
@@ -30,8 +34,10 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   procedure Close; override;
-   procedure SetState; override;
+   procedure AdditionInfo_Close_Execute(aModalResult: Integer = mrCancel);
+   procedure AdditionInfo_Close(const aParams: IvcmExecuteParamsPrim);
+   procedure FolderElement_SetState_Execute(aInfoType: TFoldersInfoType);
+   procedure FolderElement_SetState(const aParams: IvcmExecuteParamsPrim);
   public
    property ChildZone: TvtPanel
     read f_ChildZone;
@@ -54,30 +60,42 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки utFoldersInfoContainerLocalConstants }
  str_utFoldersInfoContainerCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utFoldersInfoContainerCaption'; rValue : 'Свойства папок (модальный диалог)');
   {* Заголовок пользовательского типа "Свойства папок (модальный диалог)" }
 
-procedure TPrimFoldersInfoForm.Close;
-//#UC START# *4AE9BF890271_4AE9BEEF0229_var*
-//#UC END# *4AE9BF890271_4AE9BEEF0229_var*
+procedure TPrimFoldersInfoForm.AdditionInfo_Close_Execute(aModalResult: Integer = mrCancel);
+//#UC START# *4AE9BF890271_4AE9BEEF0229exec_var*
+//#UC END# *4AE9BF890271_4AE9BEEF0229exec_var*
 begin
-//#UC START# *4AE9BF890271_4AE9BEEF0229_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE9BF890271_4AE9BEEF0229_impl*
-end;//TPrimFoldersInfoForm.Close
+//#UC START# *4AE9BF890271_4AE9BEEF0229exec_impl*
+ ModalResult := aModalResult;
+//#UC END# *4AE9BF890271_4AE9BEEF0229exec_impl*
+end;//TPrimFoldersInfoForm.AdditionInfo_Close_Execute
 
-procedure TPrimFoldersInfoForm.SetState;
-//#UC START# *4AE9C01201BA_4AE9BEEF0229_var*
-//#UC END# *4AE9C01201BA_4AE9BEEF0229_var*
+procedure TPrimFoldersInfoForm.AdditionInfo_Close(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4AE9C01201BA_4AE9BEEF0229_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE9C01201BA_4AE9BEEF0229_impl*
-end;//TPrimFoldersInfoForm.SetState
+ with (aParams.Data As IAdditionInfo_Close_Params) do
+  Self.AdditionInfo_Close_Execute(ModalResult);
+end;//TPrimFoldersInfoForm.AdditionInfo_Close
 
-{$If NOT Defined(NoVCM)}
+procedure TPrimFoldersInfoForm.FolderElement_SetState_Execute(aInfoType: TFoldersInfoType);
+//#UC START# *4AE9C01201BA_4AE9BEEF0229exec_var*
+//#UC END# *4AE9C01201BA_4AE9BEEF0229exec_var*
+begin
+//#UC START# *4AE9C01201BA_4AE9BEEF0229exec_impl*
+ CCaption := vcmCStr(cInfoCaptions[aInfoType]^);
+//#UC END# *4AE9C01201BA_4AE9BEEF0229exec_impl*
+end;//TPrimFoldersInfoForm.FolderElement_SetState_Execute
+
+procedure TPrimFoldersInfoForm.FolderElement_SetState(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IFolderElement_SetState_Params) do
+  Self.FolderElement_SetState_Execute(InfoType);
+end;//TPrimFoldersInfoForm.FolderElement_SetState
+
 procedure TPrimFoldersInfoForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AE9BEEF0229_var*
@@ -92,7 +110,6 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AE9BEEF0229_impl*
 end;//TPrimFoldersInfoForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_utFoldersInfoContainerCaption.Init;
@@ -101,6 +118,7 @@ initialization
  TtfwClassRef.Register(TPrimFoldersInfoForm);
  {* Регистрация PrimFoldersInfo }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

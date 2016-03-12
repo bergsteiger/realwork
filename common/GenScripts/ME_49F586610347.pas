@@ -60,6 +60,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 var g_Tfs_InternetAgent: Tfs_InternetAgent = nil;
  {* Экземпляр синглетона Tfs_InternetAgent }
 
@@ -112,7 +113,6 @@ begin
 //#UC END# *47A042E100E2_49F586610347_impl*
 end;//Tfs_InternetAgent.InitFields
 
-{$If NOT Defined(NoVCM)}
 class function Tfs_InternetAgent.GetInstance: TvcmFormSetFactoryPrim;
 //#UC START# *4FFE854A009B_49F586610347_var*
 //#UC END# *4FFE854A009B_49F586610347_var*
@@ -121,11 +121,11 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4FFE854A009B_49F586610347_impl*
 end;//Tfs_InternetAgent.GetInstance
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_fsInternetAgentCaption.Init;
  {* Инициализация str_fsInternetAgentCaption }
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

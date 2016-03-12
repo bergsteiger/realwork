@@ -66,9 +66,7 @@ begin
  Check(Self.ScrollCount > 2);
 //#UC END# *4BE419AF0217_4C6537870206_impl*
 end;//TK224133855.DoVisit
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TK224133855.FormExtent: TPoint;
  {* Размеры формы }
 //#UC START# *4C08CF700318_4C6537870206_var*
@@ -79,7 +77,6 @@ begin
  Result.Y := 768;
 //#UC END# *4C08CF700318_4C6537870206_impl*
 end;//TK224133855.FormExtent
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TK224133855.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -95,6 +92,7 @@ end;//TK224133855.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(TK224133855.Suite);
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

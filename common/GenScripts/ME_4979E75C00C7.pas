@@ -14,6 +14,7 @@ uses
  , Base_Operations_Strange_Controls
  , WorkWithListInterfaces
  , vtPanel
+ , nsTypes
  {$If Defined(Nemesis)}
  , nscNewInterfaces
  {$IfEnd} // Defined(Nemesis)
@@ -43,7 +44,8 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   procedure BecomeActive; override;
+   procedure SynchroView_BecomeActive_Execute(aFormType: TnsShowSynchroForm);
+   procedure SynchroView_BecomeActive(const aParams: IvcmExecuteParamsPrim);
   public
    property DocView: TvtPanel
     read f_DocView;
@@ -110,14 +112,31 @@ begin
 //#UC END# *497F16AC015A_4979E75C00C7_impl*
 end;//TPrimSynchroViewForm.DoTabActivate
 
-procedure TPrimSynchroViewForm.BecomeActive;
-//#UC START# *4AE9E3CC03C7_4979E75C00C7_var*
-//#UC END# *4AE9E3CC03C7_4979E75C00C7_var*
+procedure TPrimSynchroViewForm.SynchroView_BecomeActive_Execute(aFormType: TnsShowSynchroForm);
+//#UC START# *4AE9E3CC03C7_4979E75C00C7exec_var*
+//#UC END# *4AE9E3CC03C7_4979E75C00C7exec_var*
 begin
-//#UC START# *4AE9E3CC03C7_4979E75C00C7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE9E3CC03C7_4979E75C00C7_impl*
-end;//TPrimSynchroViewForm.BecomeActive
+//#UC START# *4AE9E3CC03C7_4979E75C00C7exec_impl*
+ case aFormType of
+  ssfRelated:
+   ViewArea.OpenRelatedDoc;
+  ssfAttribute:
+   ViewArea.OpenAttributes;
+  ssfAnnotation:
+   ViewArea.OpenAnnotation;
+  ssfSimilarDocuments:
+   ViewArea.OpenSimilarDocuments;
+ end;//case aFormType of
+ // Сделаем закладку активной
+ SetActiveInParent;
+//#UC END# *4AE9E3CC03C7_4979E75C00C7exec_impl*
+end;//TPrimSynchroViewForm.SynchroView_BecomeActive_Execute
+
+procedure TPrimSynchroViewForm.SynchroView_BecomeActive(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As ISynchroView_BecomeActive_Params) do
+  Self.SynchroView_BecomeActive_Execute(FormType);
+end;//TPrimSynchroViewForm.SynchroView_BecomeActive
 
 procedure TPrimSynchroViewForm.svSynchroViewQueryClose(aSender: TObject);
  {* Обработчик события svSynchroView.OnQueryClose }

@@ -69,9 +69,7 @@ begin
  Result := aDocument.Para[1].AsList;
 //#UC END# *4C346D4B0351_4C383752005F_impl*
 end;//TK200902351.GetTablePara
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TK200902351.DoVisit(aForm: TPrimTextLoadForm);
  {* Обработать текст }
 //#UC START# *4BE419AF0217_4C383752005F_var*
@@ -88,9 +86,7 @@ begin
  CheckTrue((l_Range <> nil) and (l_Range.Obj.PID = 2) and (l_Range.Obj^.OwnerObj.PID = 1), 'Не выделили среднюю ячейку в последней колонке!');
 //#UC END# *4BE419AF0217_4C383752005F_impl*
 end;//TK200902351.DoVisit
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TK200902351.SelectColumn(var aColID: Integer): Boolean;
  {* Выделить колонку aColID }
 //#UC START# *4C382DC50185_4C383752005F_var*
@@ -101,7 +97,6 @@ begin
  aColID := 2;
 //#UC END# *4C382DC50185_4C383752005F_impl*
 end;//TK200902351.SelectColumn
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TK200902351.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -117,6 +112,7 @@ end;//TK200902351.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(TK200902351.Suite);
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

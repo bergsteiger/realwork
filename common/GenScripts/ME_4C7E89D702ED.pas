@@ -20,11 +20,19 @@ type
  TPrimFoldersInfoOptionsForm = class(TPrimFoldersInfoForm)
   public
    {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
+   procedure Result_Ok_Test(const aParams: IvcmTestParamsPrim);
     {* OK }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
+   procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Отмена }
    {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimFoldersInfoOptionsForm
@@ -47,27 +55,79 @@ uses
 ;
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimFoldersInfoOptionsForm.Ok;
+procedure TPrimFoldersInfoOptionsForm.Result_Ok_Test(const aParams: IvcmTestParamsPrim);
  {* OK }
-//#UC START# *4C762A1501FC_4C7E89D702ED_var*
-//#UC END# *4C762A1501FC_4C7E89D702ED_var*
+//#UC START# *4C762A1501FC_4C7E89D702EDtest_var*
+var
+ l_Form : IvcmEntityForm;
+//#UC END# *4C762A1501FC_4C7E89D702EDtest_var*
 begin
-//#UC START# *4C762A1501FC_4C7E89D702ED_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762A1501FC_4C7E89D702ED_impl*
-end;//TPrimFoldersInfoOptionsForm.Ok
+//#UC START# *4C762A1501FC_4C7E89D702EDtest_impl*
+ if HasForm(vcm_ztChild, False, @l_Form) then
+  try
+   l_Form.Entity.Operation(TdmStdRes.opcode_ResultExt_Ok, aParams As IvcmTestParams);
+   aParams.Op.Flag[vcm_ofVisible] := True;
+  finally
+   l_Form := nil;
+  end
+ else
+ begin
+  aParams.Op.Flag[vcm_ofVisible] := False;
+  aParams.Op.Flag[vcm_ofEnabled] := False;
+ end;
+//#UC END# *4C762A1501FC_4C7E89D702EDtest_impl*
+end;//TPrimFoldersInfoOptionsForm.Result_Ok_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimFoldersInfoOptionsForm.Cancel;
- {* Отмена }
-//#UC START# *4C762C910358_4C7E89D702ED_var*
-//#UC END# *4C762C910358_4C7E89D702ED_var*
+procedure TPrimFoldersInfoOptionsForm.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* OK }
+//#UC START# *4C762A1501FC_4C7E89D702EDexec_var*
+var
+ l_Form : IvcmEntityForm;
+//#UC END# *4C762A1501FC_4C7E89D702EDexec_var*
 begin
-//#UC START# *4C762C910358_4C7E89D702ED_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762C910358_4C7E89D702ED_impl*
-end;//TPrimFoldersInfoOptionsForm.Cancel
+//#UC START# *4C762A1501FC_4C7E89D702EDexec_impl*
+ if HasForm(vcm_ztChild, False, @l_Form) then
+  try
+   l_Form.Entity.Operation(TdmStdRes.opcode_ResultExt_Ok, aParams As IvcmExecuteParams);
+  finally
+   l_Form := nil;
+  end;
+//#UC END# *4C762A1501FC_4C7E89D702EDexec_impl*
+end;//TPrimFoldersInfoOptionsForm.Result_Ok_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimFoldersInfoOptionsForm.Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
+ {* Отмена }
+//#UC START# *4C762C910358_4C7E89D702EDtest_var*
+//#UC END# *4C762C910358_4C7E89D702EDtest_var*
+begin
+//#UC START# *4C762C910358_4C7E89D702EDtest_impl*
+ aParams.Op.Flag[vcm_ofVisible] := True;
+ aParams.Op.Flag[vcm_ofEnabled] := True;
+//#UC END# *4C762C910358_4C7E89D702EDtest_impl*
+end;//TPrimFoldersInfoOptionsForm.Result_Cancel_Test
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimFoldersInfoOptionsForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отмена }
+//#UC START# *4C762C910358_4C7E89D702EDexec_var*
+var
+ l_Form : IvcmEntityForm;
+//#UC END# *4C762C910358_4C7E89D702EDexec_var*
+begin
+//#UC START# *4C762C910358_4C7E89D702EDexec_impl*
+ if HasForm(vcm_ztChild, False, @l_Form) then
+  try
+   l_Form.Entity.Operation(TdmStdRes.opcode_ResultExt_Cancel, aParams As IvcmExecuteParams);
+  finally
+   l_Form := nil;
+  end;
+//#UC END# *4C762C910358_4C7E89D702EDexec_impl*
+end;//TPrimFoldersInfoOptionsForm.Result_Cancel_Execute
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization

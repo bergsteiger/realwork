@@ -65,20 +65,20 @@ type
    function pm_GetcbPrintInfo: TvtCheckBox;
   public
    {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Отмена }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
+   procedure Result_Ok_Test(const aParams: IvcmTestParamsPrim);
     {* OK }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
+   procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
     {* OK }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
-    {* Отмена }
+   procedure Result_Ok_GetState(var State: TvcmOperationStateIndex);
+    {* OK }
    {$IfEnd} // NOT Defined(NoVCM)
   public
    property poDocumentNames: TvtRadioButton
@@ -242,51 +242,181 @@ begin
 end;//TPrimPrintDialogOptionsForm.pm_GetcbPrintInfo
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimPrintDialogOptionsForm.Cancel;
+procedure TPrimPrintDialogOptionsForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Отмена }
-//#UC START# *4A8AD46D0226_4C52BA5D01A8_var*
-//#UC END# *4A8AD46D0226_4C52BA5D01A8_var*
+//#UC START# *4A8AD46D0226_4C52BA5D01A8exec_var*
+//#UC END# *4A8AD46D0226_4C52BA5D01A8exec_var*
 begin
-//#UC START# *4A8AD46D0226_4C52BA5D01A8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A8AD46D0226_4C52BA5D01A8_impl*
-end;//TPrimPrintDialogOptionsForm.Cancel
+//#UC START# *4A8AD46D0226_4C52BA5D01A8exec_impl*
+ ModalResult := mrCancel;
+//#UC END# *4A8AD46D0226_4C52BA5D01A8exec_impl*
+end;//TPrimPrintDialogOptionsForm.Result_Cancel_Execute
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimPrintDialogOptionsForm.Ok;
+procedure TPrimPrintDialogOptionsForm.Result_Ok_Test(const aParams: IvcmTestParamsPrim);
  {* OK }
-//#UC START# *4A97EBE702F8_4C52BA5D01A8_var*
-//#UC END# *4A97EBE702F8_4C52BA5D01A8_var*
+//#UC START# *4A97EBE702F8_4C52BA5D01A8test_var*
+//#UC END# *4A97EBE702F8_4C52BA5D01A8test_var*
 begin
-//#UC START# *4A97EBE702F8_4C52BA5D01A8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A97EBE702F8_4C52BA5D01A8_impl*
-end;//TPrimPrintDialogOptionsForm.Ok
+//#UC START# *4A97EBE702F8_4C52BA5D01A8test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (f_Preview <> nil) and
+                                  f_Preview.HasText and
+                                  f_Preview.Printer.HasPrinter and
+                                  not (f_Preview.PreviewResetting or
+                                       f_Preview.InProcess);
+ {$If not defined(Admin) AND not defined(Monitorings)}
+ nsDisableOperationInTrialMode(aParams);
+ {$IfEnd} //not Admin AND not Monitorings
+//#UC END# *4A97EBE702F8_4C52BA5D01A8test_impl*
+end;//TPrimPrintDialogOptionsForm.Result_Ok_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimPrintDialogOptionsForm.Ok;
+procedure TPrimPrintDialogOptionsForm.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
  {* OK }
-//#UC START# *4C762A1501FC_4C52BA5D01A8_var*
-//#UC END# *4C762A1501FC_4C52BA5D01A8_var*
+//#UC START# *4A97EBE702F8_4C52BA5D01A8exec_var*
+var
+ l_Preview  : IafwComplexDocumentPreview;
+ l_Interval : String;
+ l_RangeMgr : Il3RangeManager;
+ l_SuperPreview: InsSuperComplexDocumentPreview;
+ l_MultiDocumentPreviewContainer: InsTreeMultiDocumentPreviewContainer;
+//#UC END# *4A97EBE702F8_4C52BA5D01A8exec_var*
 begin
-//#UC START# *4C762A1501FC_4C52BA5D01A8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762A1501FC_4C52BA5D01A8_impl*
-end;//TPrimPrintDialogOptionsForm.Ok
+//#UC START# *4A97EBE702F8_4C52BA5D01A8exec_impl*
+ if (f_Preview <> nil) then
+ begin
+  if Supports(f_Preview, InsSuperComplexDocumentPreview, l_SuperPreview) then
+  try
+   if poDocumentNames.Checked then
+    l_SuperPreview.SuperContentKind := ns_spkDocumentTitles;
+   if poDocumentTexts.Checked then
+   begin
+    l_SuperPreview.SuperContentKind := ns_spkDocumentTexts;
+    if rbPrintSelected.Checked then
+     Supports(l_SuperPreview.SuperCurrent.Selection, InsTreeMultiDocumentPreviewContainer, l_MultiDocumentPreviewContainer)
+    else
+     Supports(l_SuperPreview.SuperCurrent.Document, InsTreeMultiDocumentPreviewContainer, l_MultiDocumentPreviewContainer);
+    if not afw.Application.IsInternal and (l_MultiDocumentPreviewContainer.ApproxDocCount > c_MaxDocumentInListLimit) then
+    begin
+     Say(war_TryToPrintTooManyDocs,[c_MaxDocumentInListLimit]);
+     Exit;
+    end;
+    l_MultiDocumentPreviewContainer.Prepare;
+   end
+   else
+    if Assigned(l_SuperPreview.DocumentTexts) then
+    begin
+     if rbPrintSelected.Checked then
+      Supports(l_SuperPreview.DocumentTexts.Selection, InsTreeMultiDocumentPreviewContainer, l_MultiDocumentPreviewContainer)
+     else
+      Supports(l_SuperPreview.DocumentTexts.Document, InsTreeMultiDocumentPreviewContainer, l_MultiDocumentPreviewContainer);
+     if (l_MultiDocumentPreviewContainer.ApproxDocCount > c_MaxTotalDocumentInListLimit) then
+     begin
+      Say(war_TryToPrintTooManyTotalDocs,[c_MaxTotalDocumentInListLimit]);
+      Exit;
+     end;
+    end;
+  finally
+   l_SuperPreview := nil;
+  end;
+  if Supports(f_Preview, IafwComplexDocumentPreview, l_Preview) then
+   try
+    if rbPrintCurrent.Checked then
+     l_Preview.ContentKind := afw_pckDocument
+    else
+    if rbPrintAll.Checked then
+     l_Preview.ContentKind := afw_pckDocument
+    else
+    if rbPrintSelected.Checked then
+     l_Preview.ContentKind := afw_pckSelection
+    else
+    if rbPrintInterval.Checked then
+     l_Preview.ContentKind := afw_pckDocument;
+   finally
+    l_Preview := nil;
+   end;//try..finally
+  f_Preview.Printer.PrinterIndex := cbPrinter.ItemIndex;
+  if rbPrintCurrent.Checked then
+   l_Interval := IntToStr(Succ(f_Preview.CurrentPage))
+  else
+  if rbPrintInterval.Checked then
+   l_Interval := l3Str(edPrintInterval.Text)
+  else
+   l_Interval := '';
+  try
+   l_RangeMgr := Tl3RangeManager.Make(l_Interval);
+  except
+   on ERangeManagerParseError do
+   begin
+    Say(err_PageRangeParse);
+    FocusControl(edPrintInterval);
+    Exit;
+   end;
+   on EConvertError do
+   begin
+    Say(err_PageRangeParse);
+    FocusControl(edPrintInterval);
+    Exit;
+   end;
+   on EIntOverflow do
+   begin
+    Say(err_PageRangeParse);
+    FocusControl(edPrintInterval);
+    Exit;
+   end;
+  end;//try..except
+
+  try
+   f_Preview.Print(TafwPagesInterval(cbOddEven.ItemIndex),
+                   l_RangeMgr,
+                   edCopyCount.AsInteger,
+                   '',
+                   CollateCheckBox.CHecked);
+  except
+   on EevNothingToPrint do
+   begin
+    Say(err_PageRangeParse);
+    FocusControl(edPrintInterval);
+    Exit;
+   end;
+   on EevInvalidPrintMargins do
+   begin
+    ModalResult := mrCancel;
+    raise;
+   end;
+  end;
+  if cbPrintInfo.Checked AND
+     Supports(f_Preview, IafwComplexDocumentPreview, l_Preview) then
+   try
+    if (l_Preview.Info <> nil) then
+    begin
+     // - печатаем справку
+     l_Preview.Info.Print(afw_piAll, nil,
+                          edCopyCount.AsInteger,
+                          '',
+                          CollateCheckBox.CHecked);
+    end;
+   finally
+    l_Preview := nil;
+   end;//try..finally
+  ModalResult := mrOk;
+ end;//f_Preview <> nil
+//#UC END# *4A97EBE702F8_4C52BA5D01A8exec_impl*
+end;//TPrimPrintDialogOptionsForm.Result_Ok_Execute
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimPrintDialogOptionsForm.Cancel;
- {* Отмена }
-//#UC START# *4C762AB601E1_4C52BA5D01A8_var*
-//#UC END# *4C762AB601E1_4C52BA5D01A8_var*
+procedure TPrimPrintDialogOptionsForm.Result_Ok_GetState(var State: TvcmOperationStateIndex);
+ {* OK }
+//#UC START# *4A97EBE702F8_4C52BA5D01A8getstate_var*
+//#UC END# *4A97EBE702F8_4C52BA5D01A8getstate_var*
 begin
-//#UC START# *4C762AB601E1_4C52BA5D01A8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762AB601E1_4C52BA5D01A8_impl*
-end;//TPrimPrintDialogOptionsForm.Cancel
+//#UC START# *4A97EBE702F8_4C52BA5D01A8getstate_impl*
+ State := st_user_Result_Ok_Print;
+//#UC END# *4A97EBE702F8_4C52BA5D01A8getstate_impl*
+end;//TPrimPrintDialogOptionsForm.Result_Ok_GetState
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization

@@ -57,11 +57,11 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
 
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\ScrollSupport.imp.pas}
 
-{$If NOT Defined(NoVCM)}
 procedure TScrollByArrow.DoVisit(aForm: TPrimTextLoadForm);
  {* Обработать текст }
 //#UC START# *4BE419AF0217_4CE282AD019D_var*
@@ -77,7 +77,6 @@ begin
  end;//while not Text.View.IsDocumentTailVisible
 //#UC END# *4BE419AF0217_4CE282AD019D_impl*
 end;//TScrollByArrow.DoVisit
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TScrollByArrow.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -90,6 +89,7 @@ function TScrollByArrow.GetModelElementGUID: AnsiString;
 begin
  Result := '4CE282AD019D';
 end;//TScrollByArrow.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

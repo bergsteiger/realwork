@@ -45,9 +45,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
+{$If NOT Defined(NoVCL)}
 {$Include w:\common\components\rtl\Garant\ScriptEngine\kwControlFromStackWord.imp.pas}
 
-{$If NOT Defined(NoVCL)}
 procedure TkwNscTreeViewWord.DoControl(aControl: TControl;
  const aCtx: TtfwContext);
 //#UC START# *4F212C3A015A_512FA1800269_var*
@@ -58,11 +58,11 @@ begin
  DoWithNscTreeView(aControl as TnscTreeView, aCtx);
 //#UC END# *4F212C3A015A_512FA1800269_impl*
 end;//TkwNscTreeViewWord.DoControl
-{$IfEnd} // NOT Defined(NoVCL)
 
 initialization
  TkwNscTreeViewWord.RegisterClass;
  {* Регистрация TkwNscTreeViewWord }
-{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCL)
 
+{$IfEnd} // NOT Defined(NoScripts)
 end.

@@ -35,7 +35,7 @@ type
    {$If NOT Defined(NotTunedDUnit)}
    function FileNameForOutput: AnsiString; override;
    {$IfEnd} // NOT Defined(NotTunedDUnit)
-  public
+  published
    procedure DoIt;
  end;//TStgIndexTest
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
@@ -58,6 +58,7 @@ uses
  , m3StgMgr
 ;
 
+{$If NOT Defined(NotTunedDUnit)}
 procedure TStgIndexTest.DoIt;
 //#UC START# *4F19335D01E9_4F193294011F_var*
 var
@@ -137,7 +138,6 @@ begin
 //#UC END# *4F19335D01E9_4F193294011F_impl*
 end;//TStgIndexTest.DoIt
 
-{$If NOT Defined(NotTunedDUnit)}
 function TStgIndexTest.FileForOutput: AnsiString;
  {* Стандартный файл для вывода, для текщего теста }
 //#UC START# *4B4F588B0241_4F193294011F_var*
@@ -148,7 +148,6 @@ begin
  // Result := Copy(Result, 1, Length(Result) - 4);
 //#UC END# *4B4F588B0241_4F193294011F_impl*
 end;//TStgIndexTest.FileForOutput
-{$IfEnd} // NOT Defined(NotTunedDUnit)
 
 function TStgIndexTest.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -162,7 +161,6 @@ begin
  Result := '4F193294011F';
 end;//TStgIndexTest.GetModelElementGUID
 
-{$If NOT Defined(NotTunedDUnit)}
 function TStgIndexTest.FileNameForOutput: AnsiString;
 //#UC START# *4DCA41A20364_4F193294011F_var*
 //#UC END# *4DCA41A20364_4F193294011F_var*

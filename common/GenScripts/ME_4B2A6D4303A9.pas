@@ -121,7 +121,7 @@ type
    function GetLabels: AnsiString;
     {* ¬озвращает метки страницы с тестами }
    class procedure write(const aStr: AnsiString); override;
-   class procedure writeln(const aStr: AnsiString); override;
+   class procedure writeln(const aStr: AnsiString = ''); override;
    procedure Cleanup; override;
    procedure InitFields; override;
    function NeedsMilliseconds: Boolean; override;
@@ -2120,7 +2120,7 @@ begin
 //#UC END# *4B2A6CBC008B_4B2A6CEB0377_impl*
 end;//TKTestListener.write
 
-class procedure TKTestListener.writeln(const aStr: AnsiString);
+class procedure TKTestListener.writeln(const aStr: AnsiString = '');
 //#UC START# *4B2A6CCF00BB_4B2A6CEB0377_var*
 //#UC END# *4B2A6CCF00BB_4B2A6CEB0377_var*
 begin

@@ -13,18 +13,6 @@ uses
 ;
 
 type
- // OpenNewWindowByUser
-
- // GetWindowList
-
- // CascadeWindows
-
- // TileWindowsHorizontal
-
- // TileWindowsVertical
-
- // CloseAllWindows
-
  // Common
 {$IfEnd} // NOT Defined(NoVCM)
 

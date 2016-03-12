@@ -18,7 +18,6 @@ type
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes.imp.pas}
  TPrimWarningBaloonOptionsForm = class(_BaloonWarningUserTypes_)
   public
-   procedure TimeMachineOffAndReset; override;
    {$If NOT Defined(NoVCM)}
    function IsBaloon: Boolean; override;
    {$IfEnd} // NOT Defined(NoVCM)
@@ -45,15 +44,6 @@ type
  // IncludePrint
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes.imp.pas}
-
-procedure TPrimWarningBaloonOptionsForm.TimeMachineOffAndReset;
-//#UC START# *4C7F753E02BC_4EA599F501CF_var*
-//#UC END# *4C7F753E02BC_4EA599F501CF_var*
-begin
-//#UC START# *4C7F753E02BC_4EA599F501CF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7F753E02BC_4EA599F501CF_impl*
-end;//TPrimWarningBaloonOptionsForm.TimeMachineOffAndReset
 
 {$If NOT Defined(NoVCM)}
 function TPrimWarningBaloonOptionsForm.IsBaloon: Boolean;

@@ -55,9 +55,9 @@ uses
  , l3BatchService
 ;
 
+{$If Defined(nsTest) AND Defined(InsiderTest)}
 {$Include w:\common\components\gui\Garant\VCM\AppTesting\VCMAppTester.imp.pas}
 
-{$If Defined(nsTest)}
 class function TVCMSandBoxTestRes.CalcBatchMode: Boolean;
 //#UC START# *4F79BCC902C5_523024100274_var*
 //#UC END# *4F79BCC902C5_523024100274_var*
@@ -67,6 +67,6 @@ begin
  Result := KTestRunner.NeedKTestRunner([]);
 //#UC END# *4F79BCC902C5_523024100274_impl*
 end;//TVCMSandBoxTestRes.CalcBatchMode
-{$IfEnd} // Defined(nsTest)
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
 
 end.

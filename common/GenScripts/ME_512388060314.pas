@@ -50,9 +50,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4B7AB0B6016E_512388060314_impl*
 end;//TtoKTPrime.CommandLineKey
-{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$If NOT Defined(NotTunedDUnit)}
 class function TtoKTPrime.TimesPage: Integer;
  {* Страница для вывода замеров времени }
 //#UC START# *4B7C0B43005B_512388060314_var*
@@ -62,9 +60,7 @@ begin
  Result := 431377634;
 //#UC END# *4B7C0B43005B_512388060314_impl*
 end;//TtoKTPrime.TimesPage
-{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$If NOT Defined(NotTunedDUnit)}
 class function TtoKTPrime.ResultsPage: Integer;
  {* Страница для вывода результатов тестов }
 //#UC START# *4B7C0B670215_512388060314_var*

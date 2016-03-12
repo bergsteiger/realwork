@@ -15,7 +15,7 @@ uses
 
 type
  TIntStackTest = {final} class(TTestCase)
-  public
+  published
    procedure DoIt;
  end;//TIntStackTest
 {$IfEnd} // Defined(nsTest)

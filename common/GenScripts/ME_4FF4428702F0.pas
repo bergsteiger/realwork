@@ -83,6 +83,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 var g_Tfs_AACContents: Tfs_AACContents = nil;
  {* Экземпляр синглетона Tfs_AACContents }
 
@@ -154,7 +155,6 @@ begin
 //#UC END# *47A042E100E2_4FF4428702F0_impl*
 end;//Tfs_AACContents.InitFields
 
-{$If NOT Defined(NoVCM)}
 class function Tfs_AACContents.GetInstance: TvcmFormSetFactoryPrim;
 //#UC START# *4FFE854A009B_4FF4428702F0_var*
 //#UC END# *4FFE854A009B_4FF4428702F0_var*

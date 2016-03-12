@@ -57,9 +57,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4B7AB0B6016E_4E9EE25001F7_impl*
 end;//TtoKT.CommandLineKey
-{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$If NOT Defined(NotTunedDUnit)}
 class function TtoKT.TimesPage: Integer;
  {* Страница для вывода замеров времени }
 //#UC START# *4B7C0B43005B_4E9EE25001F7_var*
@@ -72,9 +70,7 @@ begin
   Result := 356071770;
 //#UC END# *4B7C0B43005B_4E9EE25001F7_impl*
 end;//TtoKT.TimesPage
-{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$If NOT Defined(NotTunedDUnit)}
 class function TtoKT.ResultsPage: Integer;
  {* Страница для вывода результатов тестов }
 //#UC START# *4B7C0B670215_4E9EE25001F7_var*
@@ -87,9 +83,7 @@ begin
   Result := 356071766;
 //#UC END# *4B7C0B670215_4E9EE25001F7_impl*
 end;//TtoKT.ResultsPage
-{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$If NOT Defined(NotTunedDUnit)}
 class function TtoKT.IsGK: Boolean;
  {* Тесты запущены ГК }
 //#UC START# *4BEA9969001B_4E9EE25001F7_var*

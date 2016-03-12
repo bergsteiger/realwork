@@ -65,8 +65,10 @@ type
    procedure SetTabCaption(const aTabCaption: IvcmCString); override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   function GetVScrollBar: TvtScrollBar; override;
-   procedure SetJumpTo; override;
+   function AACTextContainer_GetVScrollBar_Execute(aLeft: Boolean): TvtScrollBar;
+   procedure AACTextContainer_GetVScrollBar(const aParams: IvcmExecuteParamsPrim);
+   procedure AACTextContainer_SetJumpTo_Execute(aJumpTo: TevJumpToEvent);
+   procedure AACTextContainer_SetJumpTo(const aParams: IvcmExecuteParamsPrim);
   public
    property pnBack: TvtProportionalPanel
     read f_pnBack;
@@ -117,23 +119,35 @@ begin
 //#UC END# *503CE3500038_4FF2E935019A_impl*
 end;//TAACContainerPrimForm.DoSetJumpTo
 
-function TAACContainerPrimForm.GetVScrollBar: TvtScrollBar;
-//#UC START# *5005237D0210_4FF2E935019A_var*
-//#UC END# *5005237D0210_4FF2E935019A_var*
+function TAACContainerPrimForm.AACTextContainer_GetVScrollBar_Execute(aLeft: Boolean): TvtScrollBar;
+//#UC START# *5005237D0210_4FF2E935019Aexec_var*
+//#UC END# *5005237D0210_4FF2E935019Aexec_var*
 begin
-//#UC START# *5005237D0210_4FF2E935019A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5005237D0210_4FF2E935019A_impl*
-end;//TAACContainerPrimForm.GetVScrollBar
+//#UC START# *5005237D0210_4FF2E935019Aexec_impl*
+ Result := DoGetVScrollBar(aLeft);
+//#UC END# *5005237D0210_4FF2E935019Aexec_impl*
+end;//TAACContainerPrimForm.AACTextContainer_GetVScrollBar_Execute
 
-procedure TAACContainerPrimForm.SetJumpTo;
-//#UC START# *5006ED2300F9_4FF2E935019A_var*
-//#UC END# *5006ED2300F9_4FF2E935019A_var*
+procedure TAACContainerPrimForm.AACTextContainer_GetVScrollBar(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *5006ED2300F9_4FF2E935019A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5006ED2300F9_4FF2E935019A_impl*
-end;//TAACContainerPrimForm.SetJumpTo
+ with (aParams.Data As IAACTextContainer_GetVScrollBar_Params) do
+  ResultValue := Self.AACTextContainer_GetVScrollBar_Execute(Left);
+end;//TAACContainerPrimForm.AACTextContainer_GetVScrollBar
+
+procedure TAACContainerPrimForm.AACTextContainer_SetJumpTo_Execute(aJumpTo: TevJumpToEvent);
+//#UC START# *5006ED2300F9_4FF2E935019Aexec_var*
+//#UC END# *5006ED2300F9_4FF2E935019Aexec_var*
+begin
+//#UC START# *5006ED2300F9_4FF2E935019Aexec_impl*
+ DoSetJumpTo(aJumpTo);
+//#UC END# *5006ED2300F9_4FF2E935019Aexec_impl*
+end;//TAACContainerPrimForm.AACTextContainer_SetJumpTo_Execute
+
+procedure TAACContainerPrimForm.AACTextContainer_SetJumpTo(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IAACTextContainer_SetJumpTo_Params) do
+  Self.AACTextContainer_SetJumpTo_Execute(JumpTo);
+end;//TAACContainerPrimForm.AACTextContainer_SetJumpTo
 
 {$If NOT Defined(NoVCM)}
 procedure TAACContainerPrimForm.InitControls;

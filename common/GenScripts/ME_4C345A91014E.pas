@@ -65,11 +65,11 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\SelectTablePart.imp.pas}
 
-{$If NOT Defined(NoVCM)}
 procedure TTableToolsTest.CheckOperation(aForm: TPrimTextLoadForm);
  {* Проверка после применения инструмента. }
 //#UC START# *4C9999C50326_4C345A91014E_var*
@@ -79,9 +79,7 @@ begin
  
 //#UC END# *4C9999C50326_4C345A91014E_impl*
 end;//TTableToolsTest.CheckOperation
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TTableToolsTest.Process(aForm: TPrimTextLoadForm);
  {* Собственно процесс обработки текста }
 //#UC START# *4BE13147032C_4C345A91014E_var*
@@ -92,7 +90,6 @@ begin
  inherited Process(aForm);
 //#UC END# *4BE13147032C_4C345A91014E_impl*
 end;//TTableToolsTest.Process
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TTableToolsTest.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -105,6 +102,7 @@ function TTableToolsTest.GetModelElementGUID: AnsiString;
 begin
  Result := '4C345A91014E';
 end;//TTableToolsTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

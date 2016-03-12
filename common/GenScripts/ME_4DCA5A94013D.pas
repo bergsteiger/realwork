@@ -59,11 +59,11 @@ begin
  DoTextForm(aForm As TExTextForm, aCtx);
 //#UC END# *4EB25DE00396_4DCA5A94013D_impl*
 end;//TkwExTextFormWord.DoForm
-{$IfEnd} // NOT Defined(NoVCL)
 
 initialization
  TkwExTextFormWord.RegisterClass;
  {* Регистрация TkwExTextFormWord }
-{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCL)
 
+{$IfEnd} // NOT Defined(NoScripts)
 end.

@@ -55,6 +55,7 @@ uses
  , PrimSaveLoadOptionsForBaseSearch_slqtBaseSearch_UserType
 ;
 
+{$If NOT Defined(NoVCM)}
 procedure TBaseSearchModule.TryAnotherBaseSearch(const aContainer: IvcmContainer;
  const aProcessor: InsBaseSearchResultProcessor;
  TryFullList: Boolean = False);
@@ -163,6 +164,7 @@ end;//TBaseSearchModule.MakeBaseSearchCard
 initialization
  fm_NewBaseSearchForm.SetFactory(TNewBaseSearchForm.Make);
  {* Регистрация фабрики формы NewBaseSearch }
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

@@ -46,6 +46,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 function TK182157315.GetFolder: AnsiString;
  {* Папка в которую входит тест }
 begin
@@ -71,6 +72,7 @@ end;//TK182157315.EtalonNeedsXE
 
 initialization
  TestFramework.RegisterTest(TK182157315.Suite);
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

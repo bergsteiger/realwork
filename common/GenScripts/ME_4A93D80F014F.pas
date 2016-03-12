@@ -174,6 +174,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 var g_Relogin: THandle;
 
 function TPrimLoginForm.pm_GetLogin: Il3CString;
@@ -676,7 +677,6 @@ begin
 end;//TPrimLoginForm.CreateParams
 {$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimLoginForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4A93D80F014F_var*
@@ -686,7 +686,6 @@ begin
 
 //#UC END# *4A8E8F2E0195_4A93D80F014F_impl*
 end;//TPrimLoginForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCL)}
 function TPrimLoginForm.IsRealInstance: Boolean;
@@ -720,5 +719,6 @@ initialization
  TtfwClassRef.Register(TPrimLoginForm);
  {* Регистрация PrimLogin }
 {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

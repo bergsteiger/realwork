@@ -20,16 +20,8 @@ uses
 type
  TPrimPostingsListOptionsForm = class(TPrimPostingsListForm)
   public
-   {$If NOT Defined(NoVCM)}
-   procedure ExpandAll; override;
-    {* Развернуть все }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure CollapseAll; override;
-    {* Свернуть все }
-   {$IfEnd} // NOT Defined(NoVCM)
-   procedure ActivatePostingsListForm; override;
-   procedure ptEditPosting; override;
+   procedure SearchSupport_ActivatePostingsListForm_Execute;
+   procedure SearchSupport_ActivatePostingsListForm(const aParams: IvcmExecuteParamsPrim);
  end;//TPrimPostingsListOptionsForm
 {$IfEnd} // NOT Defined(Admin)
 
@@ -52,47 +44,27 @@ uses
 type
  // ExcludeTree
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimPostingsListOptionsForm.ExpandAll;
- {* Развернуть все }
-//#UC START# *4BDAF7880236_4DF789BF02EF_var*
-//#UC END# *4BDAF7880236_4DF789BF02EF_var*
+procedure TPrimPostingsListOptionsForm.SearchSupport_ActivatePostingsListForm_Execute;
+//#UC START# *553FAEED007A_4DF789BF02EFexec_var*
+var
+ C: TWinControl;
+//#UC END# *553FAEED007A_4DF789BF02EFexec_var*
 begin
-//#UC START# *4BDAF7880236_4DF789BF02EF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BDAF7880236_4DF789BF02EF_impl*
-end;//TPrimPostingsListOptionsForm.ExpandAll
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *553FAEED007A_4DF789BF02EFexec_impl*
+ C := Self;
+ while Assigned(C.Parent) do
+  C := C.Parent;
+ SetForegroundWindow(C.Handle);
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimPostingsListOptionsForm.CollapseAll;
- {* Свернуть все }
-//#UC START# *4BDAF7A2005C_4DF789BF02EF_var*
-//#UC END# *4BDAF7A2005C_4DF789BF02EF_var*
-begin
-//#UC START# *4BDAF7A2005C_4DF789BF02EF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BDAF7A2005C_4DF789BF02EF_impl*
-end;//TPrimPostingsListOptionsForm.CollapseAll
-{$IfEnd} // NOT Defined(NoVCM)
+ if Tl3TabbedContainersDispatcher.Instance.NeedUseTabs then
+  Tl3TabbedContainersDispatcher.Instance.ActivateForm(Self);
+//#UC END# *553FAEED007A_4DF789BF02EFexec_impl*
+end;//TPrimPostingsListOptionsForm.SearchSupport_ActivatePostingsListForm_Execute
 
-procedure TPrimPostingsListOptionsForm.ActivatePostingsListForm;
-//#UC START# *553FAEED007A_4DF789BF02EF_var*
-//#UC END# *553FAEED007A_4DF789BF02EF_var*
+procedure TPrimPostingsListOptionsForm.SearchSupport_ActivatePostingsListForm(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *553FAEED007A_4DF789BF02EF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *553FAEED007A_4DF789BF02EF_impl*
-end;//TPrimPostingsListOptionsForm.ActivatePostingsListForm
-
-procedure TPrimPostingsListOptionsForm.ptEditPosting;
-//#UC START# *4C84EE1D0024_4DF789BF02EF_var*
-//#UC END# *4C84EE1D0024_4DF789BF02EF_var*
-begin
-//#UC START# *4C84EE1D0024_4DF789BF02EF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C84EE1D0024_4DF789BF02EF_impl*
-end;//TPrimPostingsListOptionsForm.ptEditPosting
+ Self.SearchSupport_ActivatePostingsListForm_Execute;
+end;//TPrimPostingsListOptionsForm.SearchSupport_ActivatePostingsListForm
 
 initialization
 {$If NOT Defined(NoScripts)}

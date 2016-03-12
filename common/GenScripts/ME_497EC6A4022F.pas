@@ -23,6 +23,8 @@ uses
  , ImgList
  {$IfEnd} // NOT Defined(NoVCL)
  , l3TreeInterfaces
+ , DynamicTreeUnit
+ , l3Interfaces
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
@@ -60,15 +62,18 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   procedure SetParent; override;
-   procedure ExtSetRoot; override;
-   procedure SetRoot; override;
+   procedure AttributeTree_SetParent_Execute(const aParent: Il3SimpleNode);
+   procedure AttributeTree_SetParent(const aParams: IvcmExecuteParamsPrim);
+   procedure AttributeTree_ExtSetRoot_Execute(const aRoot: INodeBase);
+   procedure AttributeTree_ExtSetRoot(const aParams: IvcmExecuteParamsPrim);
+   procedure AttributeTree_SetRoot_Execute(const aTag: Il3CString);
+   procedure AttributeTree_SetRoot(const aParams: IvcmExecuteParamsPrim);
    {$If NOT Defined(NoVCM)}
-   procedure ExpandAll; override;
+   procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
     {* Развернуть все }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure CollapseAll; override;
+   procedure Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
     {* Свернуть все }
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -190,55 +195,100 @@ begin
 //#UC END# *497465F501B7_497EC6A4022F_impl*
 end;//TPrimTreeAttributeFirstLevelForm.CurrentChangedNotification
 
-procedure TPrimTreeAttributeFirstLevelForm.SetParent;
-//#UC START# *4AEF129601AC_497EC6A4022F_var*
-//#UC END# *4AEF129601AC_497EC6A4022F_var*
+procedure TPrimTreeAttributeFirstLevelForm.AttributeTree_SetParent_Execute(const aParent: Il3SimpleNode);
+//#UC START# *4AEF129601AC_497EC6A4022Fexec_var*
+//#UC END# *4AEF129601AC_497EC6A4022Fexec_var*
 begin
-//#UC START# *4AEF129601AC_497EC6A4022F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AEF129601AC_497EC6A4022F_impl*
-end;//TPrimTreeAttributeFirstLevelForm.SetParent
+//#UC START# *4AEF129601AC_497EC6A4022Fexec_impl*
+ UpdateCurrent(aParent);
+//#UC END# *4AEF129601AC_497EC6A4022Fexec_impl*
+end;//TPrimTreeAttributeFirstLevelForm.AttributeTree_SetParent_Execute
 
-procedure TPrimTreeAttributeFirstLevelForm.ExtSetRoot;
-//#UC START# *4AEF14460025_497EC6A4022F_var*
-//#UC END# *4AEF14460025_497EC6A4022F_var*
+procedure TPrimTreeAttributeFirstLevelForm.AttributeTree_SetParent(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4AEF14460025_497EC6A4022F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AEF14460025_497EC6A4022F_impl*
-end;//TPrimTreeAttributeFirstLevelForm.ExtSetRoot
+ with (aParams.Data As IAttributeTree_SetParent_Params) do
+  Self.AttributeTree_SetParent_Execute(Parent);
+end;//TPrimTreeAttributeFirstLevelForm.AttributeTree_SetParent
 
-procedure TPrimTreeAttributeFirstLevelForm.SetRoot;
-//#UC START# *4AF3EBC001C4_497EC6A4022F_var*
-//#UC END# *4AF3EBC001C4_497EC6A4022F_var*
+procedure TPrimTreeAttributeFirstLevelForm.AttributeTree_ExtSetRoot_Execute(const aRoot: INodeBase);
+//#UC START# *4AEF14460025_497EC6A4022Fexec_var*
+//#UC END# *4AEF14460025_497EC6A4022Fexec_var*
 begin
-//#UC START# *4AF3EBC001C4_497EC6A4022F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF3EBC001C4_497EC6A4022F_impl*
-end;//TPrimTreeAttributeFirstLevelForm.SetRoot
+//#UC START# *4AEF14460025_497EC6A4022Fexec_impl*
+ Inc(f_InternalMove);
+ try
+  with FirstLevelContent do
+   if (TreeStruct <> nil) then
+   begin
+    Changing;
+    try
+     TreeStruct := TnsAttributeOneLevelTreeStruct.Make(aRoot, TreeStruct);
+    finally
+     Changed;
+    end;//try..finally
+   end//TreeStruct <> nil
+   else // в эту ветку попадать не должны
+    Assert(False);
+  CCaption := l3CStr(FirstLevelContent.TreeStruct.RootNode);
+ finally
+  Dec(f_InternalMove);
+ end;//try..finally
+//#UC END# *4AEF14460025_497EC6A4022Fexec_impl*
+end;//TPrimTreeAttributeFirstLevelForm.AttributeTree_ExtSetRoot_Execute
+
+procedure TPrimTreeAttributeFirstLevelForm.AttributeTree_ExtSetRoot(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IAttributeTree_ExtSetRoot_Params) do
+  Self.AttributeTree_ExtSetRoot_Execute(Root);
+end;//TPrimTreeAttributeFirstLevelForm.AttributeTree_ExtSetRoot
+
+procedure TPrimTreeAttributeFirstLevelForm.AttributeTree_SetRoot_Execute(const aTag: Il3CString);
+//#UC START# *4AF3EBC001C4_497EC6A4022Fexec_var*
+//#UC END# *4AF3EBC001C4_497EC6A4022Fexec_var*
+begin
+//#UC START# *4AF3EBC001C4_497EC6A4022Fexec_impl*
+ Inc(f_InternalMove);
+ try
+  FirstLevelContent.TreeStruct :=
+   TnsAttributeOneLevelTreeStruct.Make(aTag,
+                                       FirstLevelContent.ShowRoot,
+                                       True);
+  if Assigned(FirstLevelContent.TreeStruct.RootNode) then
+   CCaption := l3CStr(FirstLevelContent.TreeStruct.RootNode);
+ finally
+  Dec(f_InternalMove);
+ end;//try..finally
+//#UC END# *4AF3EBC001C4_497EC6A4022Fexec_impl*
+end;//TPrimTreeAttributeFirstLevelForm.AttributeTree_SetRoot_Execute
+
+procedure TPrimTreeAttributeFirstLevelForm.AttributeTree_SetRoot(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IAttributeTree_SetRoot_Params) do
+  Self.AttributeTree_SetRoot_Execute(Tag);
+end;//TPrimTreeAttributeFirstLevelForm.AttributeTree_SetRoot
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimTreeAttributeFirstLevelForm.ExpandAll;
+procedure TPrimTreeAttributeFirstLevelForm.Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
  {* Развернуть все }
-//#UC START# *4BDAF7880236_497EC6A4022F_var*
-//#UC END# *4BDAF7880236_497EC6A4022F_var*
+//#UC START# *4BDAF7880236_497EC6A4022Ftest_var*
+//#UC END# *4BDAF7880236_497EC6A4022Ftest_var*
 begin
-//#UC START# *4BDAF7880236_497EC6A4022F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BDAF7880236_497EC6A4022F_impl*
-end;//TPrimTreeAttributeFirstLevelForm.ExpandAll
+//#UC START# *4BDAF7880236_497EC6A4022Ftest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4BDAF7880236_497EC6A4022Ftest_impl*
+end;//TPrimTreeAttributeFirstLevelForm.Tree_ExpandAll_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimTreeAttributeFirstLevelForm.CollapseAll;
+procedure TPrimTreeAttributeFirstLevelForm.Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
  {* Свернуть все }
-//#UC START# *4BDAF7A2005C_497EC6A4022F_var*
-//#UC END# *4BDAF7A2005C_497EC6A4022F_var*
+//#UC START# *4BDAF7A2005C_497EC6A4022Ftest_var*
+//#UC END# *4BDAF7A2005C_497EC6A4022Ftest_var*
 begin
-//#UC START# *4BDAF7A2005C_497EC6A4022F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BDAF7A2005C_497EC6A4022F_impl*
-end;//TPrimTreeAttributeFirstLevelForm.CollapseAll
+//#UC START# *4BDAF7A2005C_497EC6A4022Ftest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4BDAF7A2005C_497EC6A4022Ftest_impl*
+end;//TPrimTreeAttributeFirstLevelForm.Tree_CollapseAll_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimTreeAttributeFirstLevelForm.InitFields;

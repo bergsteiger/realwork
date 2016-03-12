@@ -24,7 +24,7 @@ type
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-  public
+  published
    procedure DoIt;
  end;//TAACFiltersTest
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
@@ -60,6 +60,7 @@ uses
  , TestFrameWork
 ;
 
+{$If NOT Defined(NotTunedDUnit)}
 procedure TAACFiltersTest.DoIt;
 //#UC START# *4EA570A1013B_4EA5222A020E_var*
 var
@@ -126,6 +127,7 @@ function TAACFiltersTest.GetModelElementGUID: AnsiString;
 begin
  Result := '4EA5222A020E';
 end;//TAACFiltersTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

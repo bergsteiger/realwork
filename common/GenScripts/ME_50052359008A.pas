@@ -11,10 +11,10 @@ interface
 uses
  l3IntfUses
  , vtScrollBar
+ , evCustomEditorWindow
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , evCustomEditorWindow
 ;
 
 type

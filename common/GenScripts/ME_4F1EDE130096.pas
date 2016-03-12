@@ -36,6 +36,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 var g_TnsBaseSearchFormGUIDFactory: TnsBaseSearchFormGUIDFactory = nil;
  {* Экземпляр синглетона TnsBaseSearchFormGUIDFactory }
 
@@ -61,6 +62,7 @@ begin
  end;
  Result := g_TnsBaseSearchFormGUIDFactory;
 end;//TnsBaseSearchFormGUIDFactory.Instance
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

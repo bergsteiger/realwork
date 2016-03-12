@@ -44,6 +44,7 @@ uses
  , nsDocumentContainerSub
 ;
 
+{$If Defined(Nemesis)}
 function TnsF1DocumentContainerPrim.DocumentForFindPara: Tl3Tag;
 //#UC START# *506982B0037E_4C6A7C010114_var*
 //#UC END# *506982B0037E_4C6A7C010114_var*
@@ -96,6 +97,7 @@ begin
   Result := inherited DoGetSubEx(anID, aLayerID)*);
 //#UC END# *47F27721012A_4C6A7C010114_impl*
 end;//TnsF1DocumentContainerPrim.DoGetSubEx
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // Defined(Nemesis)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

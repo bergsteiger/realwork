@@ -25,7 +25,7 @@ uses
 ;
 
 type
- TPrimSettingsForm = class(TvcmContainerForm, Il3CommandTarget)
+ TPrimSettingsForm = class(TvcmContainerForm)
   {* Настройка конфигурации }
   private
    f_Filled: Boolean;
@@ -59,24 +59,22 @@ As implemented in TCustomForm, CloseQuery polls any MDI children by calling thei
   public
    class function Make(const aData: InsConfigSettingsInfo): Il3CommandTarget; reintroduce;
    {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Отмена }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
-    {* OK }
-   {$IfEnd} // NOT Defined(NoVCM)
-   procedure RestoreConf; override;
-   procedure SaveAsDefaultConf; override;
-   procedure RestoreAllSettings; override;
-   {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
+   procedure Result_Ok_Test(const aParams: IvcmTestParamsPrim);
     {* OK }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
-    {* Отмена }
+   procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* OK }
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure Result_RestoreConf_Test(const aParams: IvcmTestParamsPrim);
+   procedure Result_RestoreConf_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Result_SaveAsDefaultConf_Test(const aParams: IvcmTestParamsPrim);
+   procedure Result_SaveAsDefaultConf_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Result_RestoreAllSettings_Execute(const aParams: IvcmExecuteParamsPrim);
  end;//TPrimSettingsForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -110,6 +108,7 @@ uses
  , SysUtils
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки cutSettingsLocalConstants }
  str_cutSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cutSettingsCaption'; rValue : 'Настройка конфигурации');
@@ -171,80 +170,94 @@ begin
 //#UC END# *5264FF0A0241_4AC63ADF023F_impl*
 end;//TPrimSettingsForm.vcmContainerFormKeyDown
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimSettingsForm.Cancel;
+procedure TPrimSettingsForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Отмена }
-//#UC START# *4A8AD46D0226_4AC63ADF023F_var*
-//#UC END# *4A8AD46D0226_4AC63ADF023F_var*
+//#UC START# *4A8AD46D0226_4AC63ADF023Fexec_var*
+//#UC END# *4A8AD46D0226_4AC63ADF023Fexec_var*
 begin
-//#UC START# *4A8AD46D0226_4AC63ADF023F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A8AD46D0226_4AC63ADF023F_impl*
-end;//TPrimSettingsForm.Cancel
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4A8AD46D0226_4AC63ADF023Fexec_impl*
+ f_ManagerConf.Load(False);
+ ModalResult := mrCancel;
+//#UC END# *4A8AD46D0226_4AC63ADF023Fexec_impl*
+end;//TPrimSettingsForm.Result_Cancel_Execute
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimSettingsForm.Ok;
+procedure TPrimSettingsForm.Result_Ok_Test(const aParams: IvcmTestParamsPrim);
  {* OK }
-//#UC START# *4A97EBE702F8_4AC63ADF023F_var*
-//#UC END# *4A97EBE702F8_4AC63ADF023F_var*
+//#UC START# *4A97EBE702F8_4AC63ADF023Ftest_var*
+//#UC END# *4A97EBE702F8_4AC63ADF023Ftest_var*
 begin
-//#UC START# *4A97EBE702F8_4AC63ADF023F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A97EBE702F8_4AC63ADF023F_impl*
-end;//TPrimSettingsForm.Ok
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4A97EBE702F8_4AC63ADF023Ftest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := f_ManagerConf.IsOverallModified;
+//#UC END# *4A97EBE702F8_4AC63ADF023Ftest_impl*
+end;//TPrimSettingsForm.Result_Ok_Test
 
-procedure TPrimSettingsForm.RestoreConf;
-//#UC START# *4C4084490250_4AC63ADF023F_var*
-//#UC END# *4C4084490250_4AC63ADF023F_var*
-begin
-//#UC START# *4C4084490250_4AC63ADF023F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C4084490250_4AC63ADF023F_impl*
-end;//TPrimSettingsForm.RestoreConf
-
-procedure TPrimSettingsForm.SaveAsDefaultConf;
-//#UC START# *4C40845C0212_4AC63ADF023F_var*
-//#UC END# *4C40845C0212_4AC63ADF023F_var*
-begin
-//#UC START# *4C40845C0212_4AC63ADF023F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C40845C0212_4AC63ADF023F_impl*
-end;//TPrimSettingsForm.SaveAsDefaultConf
-
-procedure TPrimSettingsForm.RestoreAllSettings;
-//#UC START# *4C4084670039_4AC63ADF023F_var*
-//#UC END# *4C4084670039_4AC63ADF023F_var*
-begin
-//#UC START# *4C4084670039_4AC63ADF023F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C4084670039_4AC63ADF023F_impl*
-end;//TPrimSettingsForm.RestoreAllSettings
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimSettingsForm.Ok;
+procedure TPrimSettingsForm.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
  {* OK }
-//#UC START# *4C762A1501FC_4AC63ADF023F_var*
-//#UC END# *4C762A1501FC_4AC63ADF023F_var*
+//#UC START# *4A97EBE702F8_4AC63ADF023Fexec_var*
+//#UC END# *4A97EBE702F8_4AC63ADF023Fexec_var*
 begin
-//#UC START# *4C762A1501FC_4AC63ADF023F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762A1501FC_4AC63ADF023F_impl*
-end;//TPrimSettingsForm.Ok
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4A97EBE702F8_4AC63ADF023Fexec_impl*
+ try
+  f_ManagerConf.Save(False);
+  ModalResult := mrOk;
+ except
+  on E : EDuplicateConfName do
+   Say(err_DublicateConfName, [E.ConfName]);
+  on E : ECRSettingsAreEqual do
+   Say(inf_SettingsAreEqual);
+  on E : EConfigNotSaved do ;
+ end;
+//#UC END# *4A97EBE702F8_4AC63ADF023Fexec_impl*
+end;//TPrimSettingsForm.Result_Ok_Execute
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimSettingsForm.Cancel;
- {* Отмена }
-//#UC START# *4C762AB601E1_4AC63ADF023F_var*
-//#UC END# *4C762AB601E1_4AC63ADF023F_var*
+procedure TPrimSettingsForm.Result_RestoreConf_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C4084490250_4AC63ADF023Ftest_var*
+//#UC END# *4C4084490250_4AC63ADF023Ftest_var*
 begin
-//#UC START# *4C762AB601E1_4AC63ADF023F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762AB601E1_4AC63ADF023F_impl*
-end;//TPrimSettingsForm.Cancel
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4C4084490250_4AC63ADF023Ftest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := f_ManagerConf.Modified or f_ManagerConf.IsDifferFromDefault;
+//#UC END# *4C4084490250_4AC63ADF023Ftest_impl*
+end;//TPrimSettingsForm.Result_RestoreConf_Test
+
+procedure TPrimSettingsForm.Result_RestoreConf_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C4084490250_4AC63ADF023Fexec_var*
+//#UC END# *4C4084490250_4AC63ADF023Fexec_var*
+begin
+//#UC START# *4C4084490250_4AC63ADF023Fexec_impl*
+ if Ask(qr_RestoreDefaultValuesConf) then
+  f_ManagerConf.Load(True);
+//#UC END# *4C4084490250_4AC63ADF023Fexec_impl*
+end;//TPrimSettingsForm.Result_RestoreConf_Execute
+
+procedure TPrimSettingsForm.Result_SaveAsDefaultConf_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C40845C0212_4AC63ADF023Ftest_var*
+//#UC END# *4C40845C0212_4AC63ADF023Ftest_var*
+begin
+//#UC START# *4C40845C0212_4AC63ADF023Ftest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not f_ManagerConf.IsPredefined
+  and (f_ManagerConf.Modified or f_ManagerConf.IsDifferFromDefault);
+//#UC END# *4C40845C0212_4AC63ADF023Ftest_impl*
+end;//TPrimSettingsForm.Result_SaveAsDefaultConf_Test
+
+procedure TPrimSettingsForm.Result_SaveAsDefaultConf_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C40845C0212_4AC63ADF023Fexec_var*
+//#UC END# *4C40845C0212_4AC63ADF023Fexec_var*
+begin
+//#UC START# *4C40845C0212_4AC63ADF023Fexec_impl*
+ if Ask(qr_SaveAsDefaultValuesConf) then
+  f_ManagerConf.Save(True);
+//#UC END# *4C40845C0212_4AC63ADF023Fexec_impl*
+end;//TPrimSettingsForm.Result_SaveAsDefaultConf_Execute
+
+procedure TPrimSettingsForm.Result_RestoreAllSettings_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C4084670039_4AC63ADF023Fexec_var*
+//#UC END# *4C4084670039_4AC63ADF023Fexec_var*
+begin
+//#UC START# *4C4084670039_4AC63ADF023Fexec_impl*
+ if Ask(qr_RestoreAllSettings) then
+  f_ManagerConf.RestoreAllSettings;
+//#UC END# *4C4084670039_4AC63ADF023Fexec_impl*
+end;//TPrimSettingsForm.Result_RestoreAllSettings_Execute
 
 procedure TPrimSettingsForm.Cleanup;
  {* Функция очистки полей объекта. }
@@ -287,7 +300,6 @@ begin
 end;//TPrimSettingsForm.CloseQuery
 {$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimSettingsForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AC63ADF023F_var*
@@ -302,7 +314,6 @@ begin
  OnKeyDown := vcmContainerFormKeyDown;
 //#UC END# *4A8E8F2E0195_4AC63ADF023F_impl*
 end;//TPrimSettingsForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCL)}
 procedure TPrimSettingsForm.DoShow;
@@ -330,7 +341,6 @@ begin
 end;//TPrimSettingsForm.DoShow
 {$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimSettingsForm.DoOnShowModal;
 //#UC START# *5445EA440078_4AC63ADF023F_var*
 var
@@ -346,7 +356,6 @@ begin
  //http://mdp.garant.ru/pages/viewpage.action?pageId=567555348
 //#UC END# *5445EA440078_4AC63ADF023F_impl*
 end;//TPrimSettingsForm.DoOnShowModal
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_cutSettingsCaption.Init;
@@ -355,6 +364,7 @@ initialization
  TtfwClassRef.Register(TPrimSettingsForm);
  {* Регистрация PrimSettings }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

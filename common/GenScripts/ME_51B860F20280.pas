@@ -23,11 +23,11 @@ type
  TPrimDictionOptionsForm = class(TPrimDictionForm)
   public
    {$If NOT Defined(NoVCM)}
-   procedure ExpandAll; override;
+   procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
     {* Развернуть все }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure CollapseAll; override;
+   procedure Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
     {* Свернуть все }
    {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimDictionOptionsForm
@@ -44,27 +44,27 @@ uses
 ;
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimDictionOptionsForm.ExpandAll;
+procedure TPrimDictionOptionsForm.Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
  {* Развернуть все }
-//#UC START# *4BDAF7880236_51B860F20280_var*
-//#UC END# *4BDAF7880236_51B860F20280_var*
+//#UC START# *4BDAF7880236_51B860F20280test_var*
+//#UC END# *4BDAF7880236_51B860F20280test_var*
 begin
-//#UC START# *4BDAF7880236_51B860F20280_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BDAF7880236_51B860F20280_impl*
-end;//TPrimDictionOptionsForm.ExpandAll
+//#UC START# *4BDAF7880236_51B860F20280test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4BDAF7880236_51B860F20280test_impl*
+end;//TPrimDictionOptionsForm.Tree_ExpandAll_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimDictionOptionsForm.CollapseAll;
+procedure TPrimDictionOptionsForm.Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
  {* Свернуть все }
-//#UC START# *4BDAF7A2005C_51B860F20280_var*
-//#UC END# *4BDAF7A2005C_51B860F20280_var*
+//#UC START# *4BDAF7A2005C_51B860F20280test_var*
+//#UC END# *4BDAF7A2005C_51B860F20280test_var*
 begin
-//#UC START# *4BDAF7A2005C_51B860F20280_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BDAF7A2005C_51B860F20280_impl*
-end;//TPrimDictionOptionsForm.CollapseAll
+//#UC START# *4BDAF7A2005C_51B860F20280test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4BDAF7A2005C_51B860F20280test_impl*
+end;//TPrimDictionOptionsForm.Tree_CollapseAll_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization

@@ -61,9 +61,7 @@ begin
  Result := 'bbb';
 //#UC END# *4BE051200169_4C5183260027_impl*
 end;//TK229213001.StringForSearch
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TK229213001.StringForReplace: AnsiString;
  {* Строка для замены }
 //#UC START# *4BE0513800C9_4C5183260027_var*
@@ -73,7 +71,6 @@ begin
  Result := #13#10;
 //#UC END# *4BE0513800C9_4C5183260027_impl*
 end;//TK229213001.StringForReplace
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TK229213001.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -89,6 +86,7 @@ end;//TK229213001.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(TK229213001.Suite);
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

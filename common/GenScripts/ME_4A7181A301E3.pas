@@ -18,6 +18,7 @@ uses
  , DocumentUnit
  , DocumentInterfaces
  , bsTypesNew
+ , DocumentAndListInterfaces
  , l3ProtoObjectWithCOMQI
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
@@ -123,6 +124,7 @@ uses
  , SysUtils
 ;
 
+{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TsdsCompareEditions;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSource.imp.pas}
@@ -181,7 +183,6 @@ begin
  Result := Self;
 end;//TsdsCompareEditions.As_IsdsEditionsHolder
 
-{$If NOT Defined(NoVCM)}
 function TsdsCompareEditions.MakeData: _SetDataType_;
  {* Данные сборки. }
 //#UC START# *47F3778403D9_4A7181A301E3_var*
@@ -191,7 +192,6 @@ begin
  Result := TsdsCompareEditionsState.Make(InitialUseCaseData, InitialUseCaseData.EditionForCompare);
 //#UC END# *47F3778403D9_4A7181A301E3_impl*
 end;//TsdsCompareEditions.MakeData
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TsdsCompareEditions.pm_GetLeft: IdsLeftEdition;
 //#UC START# *4A6D579203BC_4A7181A301E3get_var*
@@ -295,7 +295,6 @@ begin
 //#UC END# *5214A46601C7_4A7181A301E3get_impl*
 end;//TsdsCompareEditions.Get_Position
 
-{$If NOT Defined(NoVCM)}
 procedure TsdsCompareEditions.ClearAreas;
  {* Очищает ссылки на области ввода }
 //#UC START# *4938F7E702B7_4A7181A301E3_var*
@@ -305,9 +304,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4938F7E702B7_4A7181A301E3_impl*
 end;//TsdsCompareEditions.ClearAreas
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TsdsCompareEditions.DoGetFormSetImageIndex: Integer;
 //#UC START# *53B3BF9C00EF_4A7181A301E3_var*
 //#UC END# *53B3BF9C00EF_4A7181A301E3_var*

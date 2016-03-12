@@ -56,6 +56,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  c_MaxLength = 50;
 
@@ -130,6 +131,7 @@ begin
  f_NeedForbid := false;
 //#UC END# *47A042E100E2_491D9D81001D_impl*
 end;//TdsForbidAutoregistration.InitFields
-{$IfEnd} // Defined(Admin)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(Admin)
 end.

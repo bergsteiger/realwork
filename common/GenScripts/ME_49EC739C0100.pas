@@ -27,7 +27,9 @@ type
  TPrimInternetAgentModule = {abstract} class
   {* Модуль для [Интернет-агента|$144575249] }
   protected
-   procedure InternetAgent;
+   procedure PrimInternetAgent_InternetAgent_Test(const aParams: IvcmTestParamsPrim);
+    {* Новости онлайн }
+   procedure PrimInternetAgent_InternetAgent_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Новости онлайн }
   public
    procedure MakeInternetAgent(const anURL: Il3CString;
@@ -87,15 +89,30 @@ begin
 //#UC END# *49ECAADA03C7_49EC739C0100_impl*
 end;//TPrimInternetAgentModule.MakeInternetAgent
 
-procedure TPrimInternetAgentModule.InternetAgent;
+procedure TPrimInternetAgentModule.PrimInternetAgent_InternetAgent_Test(const aParams: IvcmTestParamsPrim);
  {* Новости онлайн }
-//#UC START# *4A979E9B0245_49EC739C0100_var*
-//#UC END# *4A979E9B0245_49EC739C0100_var*
+//#UC START# *4A979E9B0245_49EC739C0100test_var*
+//#UC END# *4A979E9B0245_49EC739C0100test_var*
 begin
-//#UC START# *4A979E9B0245_49EC739C0100_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A979E9B0245_49EC739C0100_impl*
-end;//TPrimInternetAgentModule.InternetAgent
+//#UC START# *4A979E9B0245_49EC739C0100test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := defDataAdapter.IsInternetAgentEnabled;
+ aParams.Op.Flag[vcm_ofVisible] := aParams.Op.Flag[vcm_ofEnabled];
+//#UC END# *4A979E9B0245_49EC739C0100test_impl*
+end;//TPrimInternetAgentModule.PrimInternetAgent_InternetAgent_Test
+
+procedure TPrimInternetAgentModule.PrimInternetAgent_InternetAgent_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Новости онлайн }
+//#UC START# *4A979E9B0245_49EC739C0100exec_var*
+//#UC END# *4A979E9B0245_49EC739C0100exec_var*
+begin
+//#UC START# *4A979E9B0245_49EC739C0100exec_impl*
+ {if afw.Application.LocaleInfo.Language = afw_lngEnglish then
+  MakeInternetAgent(l3CStr(ciitEnglishGarant), DefaultContainer)
+ else}
+  MakeInternetAgent(l3CStr(ciitGarant), DefaultContainer);
+ TnsOpenInternetAgentEvent.Log;
+//#UC END# *4A979E9B0245_49EC739C0100exec_impl*
+end;//TPrimInternetAgentModule.PrimInternetAgent_InternetAgent_Execute
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

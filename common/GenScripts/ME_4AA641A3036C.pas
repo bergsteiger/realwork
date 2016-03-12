@@ -185,6 +185,7 @@ uses
  , Base_Operations_Strange_Controls
 ;
 
+{$If NOT Defined(NoVCM)}
 function TSearchModule.DefineFilterForm(const aQuery: IQuery): TnsFilterForm;
  {* определить тип формы фильтры }
 //#UC START# *4AA64AFA0360_4AA641A3036C_var*
@@ -1103,6 +1104,7 @@ begin
  inherited;
 //#UC END# *479731C50290_4AA641A3036C_impl*
 end;//TSearchModule.Cleanup
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

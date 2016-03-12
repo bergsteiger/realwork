@@ -22,7 +22,7 @@ type
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-  public
+  published
    procedure DoIt;
  end;//Tl3StringToStringMapTest
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
@@ -40,6 +40,7 @@ uses
  , l3String
 ;
 
+{$If NOT Defined(NotTunedDUnit)}
 procedure Tl3StringToStringMapTest.DoIt;
 //#UC START# *569F68230027_569F67CE017B_var*
 var
@@ -86,6 +87,7 @@ end;//Tl3StringToStringMapTest.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(Tl3StringToStringMapTest.Suite);
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

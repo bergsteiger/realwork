@@ -60,6 +60,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 var g_Tfs_ViewChangedFragments: Tfs_ViewChangedFragments = nil;
  {* Экземпляр синглетона Tfs_ViewChangedFragments }
 
@@ -107,7 +108,6 @@ begin
 //#UC END# *47A042E100E2_4DDCBC5C0211_impl*
 end;//Tfs_ViewChangedFragments.InitFields
 
-{$If NOT Defined(NoVCM)}
 class function Tfs_ViewChangedFragments.GetInstance: TvcmFormSetFactoryPrim;
 //#UC START# *4FFE854A009B_4DDCBC5C0211_var*
 //#UC END# *4FFE854A009B_4DDCBC5C0211_var*

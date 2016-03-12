@@ -39,6 +39,7 @@ uses
  , tc6PublicInfo
 ;
 
+{$If Defined(Nemesis)}
 function TnsDocumentsList_GetSubID(Self: TnscTreeView): Integer;
 //#UC START# *499C444C01B8_499C264700BD_var*
 var
@@ -68,7 +69,10 @@ begin
  end;//with Self
 end;//TnsDocumentsList_GetSubID
 
-function TnsDocumentsList_NodeIndexByDocNumber(Self: TnscTreeView): AnsiString;
+function TnsDocumentsList_NodeIndexByDocNumber(Self: TnscTreeView;
+ const DocNumbers: AnsiString;
+ MaxDocsToCheck: Integer;
+ IsDrawDbgInfo: Boolean): AnsiString;
  {* Коллеги, это что? }
 //#UC START# *499C49B50383_499C264700BD_var*
 var
@@ -162,7 +166,8 @@ begin
  end;//with Self
 end;//TnsDocumentsList_NodeIndexByDocNumber
 
-procedure TnsDocumentsList_GoToNodeByIndex(Self: TnscTreeView);
+procedure TnsDocumentsList_GoToNodeByIndex(Self: TnscTreeView;
+ NodeIndex: Integer);
  {* Переходит на ноду по индексу (какому, видимому или абсолутному?) }
 //#UC START# *499C5013009E_499C264700BD_var*
 //#UC END# *499C5013009E_499C264700BD_var*
@@ -266,7 +271,7 @@ procedure TnsDocumentsList_NodeIndexByDocNumber_Pub5(Instance: TObject; Args: PV
 begin
  Assert(Instance is TnscTreeView);
  try
-  Value := (TnsDocumentsList_NodeIndexByDocNumber(TnscTreeView(Instance)));
+  Value := (TnsDocumentsList_NodeIndexByDocNumber(TnscTreeView(Instance), __coerce_String(Args^[0]), OleVariant(Args^[1]), OleVariant(Args^[2])));
  except
   // - гасим исключения
   Value := Unassigned;
@@ -277,7 +282,7 @@ procedure TnsDocumentsList_GoToNodeByIndex_Pub5(Instance: TObject; Args: PVarian
 begin
  Assert(Instance is TnscTreeView);
  try
-  TnsDocumentsList_GoToNodeByIndex(TnscTreeView(Instance));
+  TnsDocumentsList_GoToNodeByIndex(TnscTreeView(Instance), OleVariant(Args^[0]));
  except
   // - гасим исключения
  end;//try..except
@@ -330,8 +335,8 @@ end;
 procedure _RegisterPublicInformation5;
 begin
  tc5PublicInfo._RegisterMethod(TnscTreeView, tc5OpenAppClasses.mtInvoke, 'GetSubID', TypeInfo(Integer), [], [], TnsDocumentsList_GetSubID_Pub5);
- tc5PublicInfo._RegisterMethod(TnscTreeView, tc5OpenAppClasses.mtInvoke, 'NodeIndexByDocNumber', TypeInfo(AnsiString), [], [], TnsDocumentsList_NodeIndexByDocNumber_Pub5);
- tc5PublicInfo._RegisterMethod(TnscTreeView, tc5OpenAppClasses.mtInvoke, 'GoToNodeByIndex', nil, [], [], TnsDocumentsList_GoToNodeByIndex_Pub5);
+ tc5PublicInfo._RegisterMethod(TnscTreeView, tc5OpenAppClasses.mtInvoke, 'NodeIndexByDocNumber', TypeInfo(AnsiString), [TypeInfo(AnsiString), TypeInfo(Integer), TypeInfo(Boolean)], ['DocNumbers', 'MaxDocsToCheck', 'IsDrawDbgInfo'], TnsDocumentsList_NodeIndexByDocNumber_Pub5);
+ tc5PublicInfo._RegisterMethod(TnscTreeView, tc5OpenAppClasses.mtInvoke, 'GoToNodeByIndex', nil, [TypeInfo(Integer)], ['NodeIndex'], TnsDocumentsList_GoToNodeByIndex_Pub5);
  tc5PublicInfo._RegisterMethod(TnscTreeView, tc5OpenAppClasses.mtGet, 'Position', TypeInfo(Longword), [], [], TnsDocumentsList_Get_Position_Pub5);
  tc5PublicInfo._RegisterMethod(TnscTreeView, tc5OpenAppClasses.mtGet, 'PositionType', TypeInfo(AnsiString), [], [], TnsDocumentsList_Get_PositionType_Pub5);
  tc5PublicInfo._RegisterMethod(TnscTreeView, tc5OpenAppClasses.mtGet, 'Relevance', TypeInfo(SmallInt), [], [], TnsDocumentsList_Get_Relevance_Pub5);
@@ -353,7 +358,7 @@ procedure TnsDocumentsList_NodeIndexByDocNumber_Pub6(Instance: TObject; Args: PV
 begin
  Assert(Instance is TnscTreeView);
  try
-  Value := (TnsDocumentsList_NodeIndexByDocNumber(TnscTreeView(Instance)));
+  Value := (TnsDocumentsList_NodeIndexByDocNumber(TnscTreeView(Instance), __coerce_String(Args^[0]), OleVariant(Args^[1]), OleVariant(Args^[2])));
  except
   // - гасим исключения
   Value := Unassigned;
@@ -364,7 +369,7 @@ procedure TnsDocumentsList_GoToNodeByIndex_Pub6(Instance: TObject; Args: PVarian
 begin
  Assert(Instance is TnscTreeView);
  try
-  TnsDocumentsList_GoToNodeByIndex(TnscTreeView(Instance));
+  TnsDocumentsList_GoToNodeByIndex(TnscTreeView(Instance), OleVariant(Args^[0]));
  except
   // - гасим исключения
  end;//try..except
@@ -417,8 +422,8 @@ end;
 procedure _RegisterPublicInformation6;
 begin
  tc6PublicInfo._RegisterMethod(TnscTreeView, tc6OpenAppClasses.mtInvoke, 'GetSubID', TypeInfo(Integer), [], [], TnsDocumentsList_GetSubID_Pub6);
- tc6PublicInfo._RegisterMethod(TnscTreeView, tc6OpenAppClasses.mtInvoke, 'NodeIndexByDocNumber', TypeInfo(AnsiString), [], [], TnsDocumentsList_NodeIndexByDocNumber_Pub6);
- tc6PublicInfo._RegisterMethod(TnscTreeView, tc6OpenAppClasses.mtInvoke, 'GoToNodeByIndex', nil, [], [], TnsDocumentsList_GoToNodeByIndex_Pub6);
+ tc6PublicInfo._RegisterMethod(TnscTreeView, tc6OpenAppClasses.mtInvoke, 'NodeIndexByDocNumber', TypeInfo(AnsiString), [TypeInfo(AnsiString), TypeInfo(Integer), TypeInfo(Boolean)], ['DocNumbers', 'MaxDocsToCheck', 'IsDrawDbgInfo'], TnsDocumentsList_NodeIndexByDocNumber_Pub6);
+ tc6PublicInfo._RegisterMethod(TnscTreeView, tc6OpenAppClasses.mtInvoke, 'GoToNodeByIndex', nil, [TypeInfo(Integer)], ['NodeIndex'], TnsDocumentsList_GoToNodeByIndex_Pub6);
  tc6PublicInfo._RegisterMethod(TnscTreeView, tc6OpenAppClasses.mtGet, 'Position', TypeInfo(Longword), [], [], TnsDocumentsList_Get_Position_Pub6);
  tc6PublicInfo._RegisterMethod(TnscTreeView, tc6OpenAppClasses.mtGet, 'PositionType', TypeInfo(AnsiString), [], [], TnsDocumentsList_Get_PositionType_Pub6);
  tc6PublicInfo._RegisterMethod(TnscTreeView, tc6OpenAppClasses.mtGet, 'Relevance', TypeInfo(SmallInt), [], [], TnsDocumentsList_Get_Relevance_Pub6);
@@ -428,6 +433,7 @@ end;
 initialization
  _RegisterPublicInformation5;
  _RegisterPublicInformation6;
-{$IfEnd} // NOT Defined(XE)
+{$IfEnd} // Defined(Nemesis)
 
+{$IfEnd} // NOT Defined(XE)
 end.

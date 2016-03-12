@@ -21,10 +21,18 @@ type
  TPrimUserPropertyOptionsForm = class(TPrimUserPropertyForm)
   public
    {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
+   procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
     {* Отмена }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure Save; override;
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure Result_Save_Test(const aParams: IvcmTestParamsPrim);
+    {* Сохранить }
+   procedure Result_Save_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Сохранить }
+   procedure Result_Save_GetState(var State: TvcmOperationStateIndex);
     {* Сохранить }
  end;//TPrimUserPropertyOptionsForm
 {$IfEnd} // Defined(Admin)
@@ -40,26 +48,66 @@ uses
 ;
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimUserPropertyOptionsForm.Cancel;
+procedure TPrimUserPropertyOptionsForm.Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
  {* Отмена }
-//#UC START# *4C762C910358_4C8A0B4500F0_var*
-//#UC END# *4C762C910358_4C8A0B4500F0_var*
+//#UC START# *4C762C910358_4C8A0B4500F0test_var*
+//#UC END# *4C762C910358_4C8A0B4500F0test_var*
 begin
-//#UC START# *4C762C910358_4C8A0B4500F0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762C910358_4C8A0B4500F0_impl*
-end;//TPrimUserPropertyOptionsForm.Cancel
+//#UC START# *4C762C910358_4C8A0B4500F0test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := Assigned(dsUserProperty) and dsUserProperty.IsChanged;
+//#UC END# *4C762C910358_4C8A0B4500F0test_impl*
+end;//TPrimUserPropertyOptionsForm.Result_Cancel_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
-procedure TPrimUserPropertyOptionsForm.Save;
- {* Сохранить }
-//#UC START# *4C7BB8DD0057_4C8A0B4500F0_var*
-//#UC END# *4C7BB8DD0057_4C8A0B4500F0_var*
+{$If NOT Defined(NoVCM)}
+procedure TPrimUserPropertyOptionsForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отмена }
+//#UC START# *4C762C910358_4C8A0B4500F0exec_var*
+var
+ l_NeedNotify: Boolean;
+//#UC END# *4C762C910358_4C8A0B4500F0exec_var*
 begin
-//#UC START# *4C7BB8DD0057_4C8A0B4500F0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7BB8DD0057_4C8A0B4500F0_impl*
-end;//TPrimUserPropertyOptionsForm.Save
+//#UC START# *4C762C910358_4C8A0B4500F0exec_impl*
+ l_NeedNotify := Assigned(dsUserProperty) and dsUserProperty.IsNewUser;
+ RestoreFields;
+ if l_NeedNotify then
+  dsUserProperty.CreateUserFinished(False);
+//#UC END# *4C762C910358_4C8A0B4500F0exec_impl*
+end;//TPrimUserPropertyOptionsForm.Result_Cancel_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+procedure TPrimUserPropertyOptionsForm.Result_Save_Test(const aParams: IvcmTestParamsPrim);
+ {* Сохранить }
+//#UC START# *4C7BB8DD0057_4C8A0B4500F0test_var*
+//#UC END# *4C7BB8DD0057_4C8A0B4500F0test_var*
+begin
+//#UC START# *4C7BB8DD0057_4C8A0B4500F0test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := f_IsCorrectInfo and Assigned(dsUserProperty) and dsUserProperty.IsChanged;
+//#UC END# *4C7BB8DD0057_4C8A0B4500F0test_impl*
+end;//TPrimUserPropertyOptionsForm.Result_Save_Test
+
+procedure TPrimUserPropertyOptionsForm.Result_Save_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Сохранить }
+//#UC START# *4C7BB8DD0057_4C8A0B4500F0exec_var*
+//#UC END# *4C7BB8DD0057_4C8A0B4500F0exec_var*
+begin
+//#UC START# *4C7BB8DD0057_4C8A0B4500F0exec_impl*
+ SaveChangedProfile(dsUserProperty);
+//#UC END# *4C7BB8DD0057_4C8A0B4500F0exec_impl*
+end;//TPrimUserPropertyOptionsForm.Result_Save_Execute
+
+procedure TPrimUserPropertyOptionsForm.Result_Save_GetState(var State: TvcmOperationStateIndex);
+ {* Сохранить }
+//#UC START# *4C7BB8DD0057_4C8A0B4500F0getstate_var*
+//#UC END# *4C7BB8DD0057_4C8A0B4500F0getstate_var*
+begin
+//#UC START# *4C7BB8DD0057_4C8A0B4500F0getstate_impl*
+ if Assigned(dsUserProperty) and dsUserProperty.IsNewUser then
+  State := st_user_Result_Save_Create
+ else
+  State := vcm_DefaultOperationState;
+//#UC END# *4C7BB8DD0057_4C8A0B4500F0getstate_impl*
+end;//TPrimUserPropertyOptionsForm.Result_Save_GetState
 
 initialization
 {$If NOT Defined(NoScripts)}

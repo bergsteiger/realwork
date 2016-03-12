@@ -56,20 +56,24 @@ type
   public
    class function Make(const aData: Il3SimpleTree): Result; reintroduce;
    {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
+   procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
     {* Отмена }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
-    {* OK }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
-    {* OK }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_Test(const aParams: IvcmTestParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_GetState(var State: TvcmOperationStateIndex);
+    {* OK }
    {$IfEnd} // NOT Defined(NoVCM)
   public
    property BackgroundPanel: TvtPanel
@@ -102,6 +106,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки listAnalizeLocalConstants }
  str_listAnalizeCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'listAnalizeCaption'; rValue : 'Анализ списка');
@@ -201,53 +206,56 @@ begin
  end;//try..finally
 end;//TPrimListAnalizerForm.Make
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimListAnalizerForm.Cancel;
+procedure TPrimListAnalizerForm.Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
  {* Отмена }
-//#UC START# *4A8AD46D0226_4AA0CE2B0073_var*
-//#UC END# *4A8AD46D0226_4AA0CE2B0073_var*
+//#UC START# *4A8AD46D0226_4AA0CE2B0073test_var*
+//#UC END# *4A8AD46D0226_4AA0CE2B0073test_var*
 begin
-//#UC START# *4A8AD46D0226_4AA0CE2B0073_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A8AD46D0226_4AA0CE2B0073_impl*
-end;//TPrimListAnalizerForm.Cancel
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4A8AD46D0226_4AA0CE2B0073test_impl*
+ // Do nothing
+//#UC END# *4A8AD46D0226_4AA0CE2B0073test_impl*
+end;//TPrimListAnalizerForm.Result_Cancel_Test
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimListAnalizerForm.Ok;
- {* OK }
-//#UC START# *4A97EBE702F8_4AA0CE2B0073_var*
-//#UC END# *4A97EBE702F8_4AA0CE2B0073_var*
-begin
-//#UC START# *4A97EBE702F8_4AA0CE2B0073_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A97EBE702F8_4AA0CE2B0073_impl*
-end;//TPrimListAnalizerForm.Ok
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimListAnalizerForm.Ok;
- {* OK }
-//#UC START# *4C762A1501FC_4AA0CE2B0073_var*
-//#UC END# *4C762A1501FC_4AA0CE2B0073_var*
-begin
-//#UC START# *4C762A1501FC_4AA0CE2B0073_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762A1501FC_4AA0CE2B0073_impl*
-end;//TPrimListAnalizerForm.Ok
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimListAnalizerForm.Cancel;
+procedure TPrimListAnalizerForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Отмена }
-//#UC START# *4C762AB601E1_4AA0CE2B0073_var*
-//#UC END# *4C762AB601E1_4AA0CE2B0073_var*
+//#UC START# *4A8AD46D0226_4AA0CE2B0073exec_var*
+//#UC END# *4A8AD46D0226_4AA0CE2B0073exec_var*
 begin
-//#UC START# *4C762AB601E1_4AA0CE2B0073_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762AB601E1_4AA0CE2B0073_impl*
-end;//TPrimListAnalizerForm.Cancel
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4A8AD46D0226_4AA0CE2B0073exec_impl*
+ ModalResult := mrCancel;
+//#UC END# *4A8AD46D0226_4AA0CE2B0073exec_impl*
+end;//TPrimListAnalizerForm.Result_Cancel_Execute
+
+procedure TPrimListAnalizerForm.Result_Ok_Test(const aParams: IvcmTestParamsPrim);
+ {* OK }
+//#UC START# *4A97EBE702F8_4AA0CE2B0073test_var*
+//#UC END# *4A97EBE702F8_4AA0CE2B0073test_var*
+begin
+//#UC START# *4A97EBE702F8_4AA0CE2B0073test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := CanOpen(ListTree.GetCurrentNode);
+//#UC END# *4A97EBE702F8_4AA0CE2B0073test_impl*
+end;//TPrimListAnalizerForm.Result_Ok_Test
+
+procedure TPrimListAnalizerForm.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* OK }
+//#UC START# *4A97EBE702F8_4AA0CE2B0073exec_var*
+//#UC END# *4A97EBE702F8_4AA0CE2B0073exec_var*
+begin
+//#UC START# *4A97EBE702F8_4AA0CE2B0073exec_impl*
+ if TryOpen(ListTree.GetCurrentNode) then
+  ModalResult := mrOk;
+//#UC END# *4A97EBE702F8_4AA0CE2B0073exec_impl*
+end;//TPrimListAnalizerForm.Result_Ok_Execute
+
+procedure TPrimListAnalizerForm.Result_Ok_GetState(var State: TvcmOperationStateIndex);
+ {* OK }
+//#UC START# *4A97EBE702F8_4AA0CE2B0073getstate_var*
+//#UC END# *4A97EBE702F8_4AA0CE2B0073getstate_var*
+begin
+//#UC START# *4A97EBE702F8_4AA0CE2B0073getstate_impl*
+ State := st_user_Result_Ok_Analize;
+//#UC END# *4A97EBE702F8_4AA0CE2B0073getstate_impl*
+end;//TPrimListAnalizerForm.Result_Ok_GetState
 
 procedure TPrimListAnalizerForm.FinishDataUpdate;
 //#UC START# *47EA4E9002C6_4AA0CE2B0073_var*
@@ -259,7 +267,6 @@ begin
 //#UC END# *47EA4E9002C6_4AA0CE2B0073_impl*
 end;//TPrimListAnalizerForm.FinishDataUpdate
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimListAnalizerForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4AA0CE2B0073_var*
@@ -269,9 +276,7 @@ begin
  ListTree.Images := nsSearchRes.SearchItemsImageList;
 //#UC END# *49803F5503AA_4AA0CE2B0073_impl*
 end;//TPrimListAnalizerForm.DoInit
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimListAnalizerForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AA0CE2B0073_var*
@@ -304,7 +309,6 @@ begin
  end;        
 //#UC END# *4A8E8F2E0195_4AA0CE2B0073_impl*
 end;//TPrimListAnalizerForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_listAnalizeCaption.Init;
@@ -313,6 +317,7 @@ initialization
  TtfwClassRef.Register(TPrimListAnalizerForm);
  {* Регистрация PrimListAnalizer }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

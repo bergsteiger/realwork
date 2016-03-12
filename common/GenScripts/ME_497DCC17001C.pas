@@ -26,6 +26,7 @@ uses
  , vtOutliner
  , l3Tree_TLB
  , FiltersUnit
+ , nsTypes
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
@@ -111,7 +112,7 @@ type
    procedure SetActiveFilter(const aNode: IeeNode);
    procedure SetActiveFilters;
    procedure ClearFilters;
-   procedure DeselectAll; overload;
+   procedure DeselectAll;
    {$If NOT Defined(NoVCM)}
    procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
     const aNew: IvcmViewAreaController); override;
@@ -137,15 +138,27 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   function Load: Boolean; override;
+   function Loadable_Load_Execute(const aNode: IeeNode;
+    const aData: IUnknown;
+    anOp: TListLogicOperation = LLO_NONE): Boolean;
     {* Коллеги, кто может описать этот метод? }
-   procedure ActivateNode; override;
-   function GetSelected: IFiltersFromQuery; override;
-   procedure SetNewContent; override;
-   procedure DeselectAll; override;
-   procedure Activate; override;
+   procedure Loadable_Load(const aParams: IvcmExecuteParamsPrim);
+    {* Коллеги, кто может описать этот метод? }
+   procedure Filter_ActivateNode_Execute(const aNode: Il3Node);
+   procedure Filter_ActivateNode(const aParams: IvcmExecuteParamsPrim);
+   function Filters_GetSelected_Execute: IFiltersFromQuery;
+   procedure Filters_GetSelected(const aParams: IvcmExecuteParamsPrim);
+   procedure List_SetNewContent_Execute;
+   procedure List_SetNewContent(const aParams: IvcmExecuteParamsPrim);
+   procedure Filters_DeselectAll_Execute;
+   procedure Filters_DeselectAll(const aParams: IvcmExecuteParamsPrim);
+   procedure Filter_Activate_Test(const aParams: IvcmTestParamsPrim);
     {* Применить фильтр }
-   procedure CreateFilter; override;
+   procedure Filter_Activate_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Применить фильтр }
+   procedure Filter_Activate_GetState(var State: TvcmOperationStateIndex);
+    {* Применить фильтр }
+   procedure Filter_CreateFilter_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Добавить фильтр из сохраненных запросов }
   public
    property FiltersList: TnscTreeViewWithAdapterDragDrop
@@ -582,71 +595,210 @@ begin
 //#UC END# *51BB3A14022C_497DCC17001C_impl*
 end;//TPrimFiltersForm.DeselectAll
 
-function TPrimFiltersForm.Load: Boolean;
+function TPrimFiltersForm.Loadable_Load_Execute(const aNode: IeeNode;
+ const aData: IUnknown;
+ anOp: TListLogicOperation = LLO_NONE): Boolean;
  {* Коллеги, кто может описать этот метод? }
-//#UC START# *49895A2102E8_497DCC17001C_var*
-//#UC END# *49895A2102E8_497DCC17001C_var*
-begin
-//#UC START# *49895A2102E8_497DCC17001C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49895A2102E8_497DCC17001C_impl*
-end;//TPrimFiltersForm.Load
+//#UC START# *49895A2102E8_497DCC17001Cexec_var*
+var
+ l_Node: INode;
 
-procedure TPrimFiltersForm.ActivateNode;
-//#UC START# *4AEECBA3030B_497DCC17001C_var*
-//#UC END# *4AEECBA3030B_497DCC17001C_var*
-begin
-//#UC START# *4AEECBA3030B_497DCC17001C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AEECBA3030B_497DCC17001C_impl*
-end;//TPrimFiltersForm.ActivateNode
+ l_BaseEntity: IUnknown;
+ l_Query: IQuery;
 
-function TPrimFiltersForm.GetSelected: IFiltersFromQuery;
-//#UC START# *4AF2B1AC02F8_497DCC17001C_var*
-//#UC END# *4AF2B1AC02F8_497DCC17001C_var*
+ //l_FoldersNode: InsFoldersNode;
+//#UC END# *49895A2102E8_497DCC17001Cexec_var*
 begin
-//#UC START# *4AF2B1AC02F8_497DCC17001C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF2B1AC02F8_497DCC17001C_impl*
-end;//TPrimFiltersForm.GetSelected
+//#UC START# *49895A2102E8_497DCC17001Cexec_impl*
+ //Assert(False);
+ Result := true;
+ if Supports(aNode, INode, l_Node) then
+  try
+   l_Node.Open(l_BaseEntity);
+   try
+    if Supports(l_BaseEntity, IQuery, l_Query) then
+     try
+      Result := (TdmStdRes.CreateFilter(l_Query) = mrOk);
+(*      if (l_Query.GetFilterType <> FT_NO_FILTER) then
+      begin
+       Say(msg_QueryIsAlreadyFilterError);
+       Result := false;
+      end//l_Query.GetFilterType <> FT_NO_FILTER
+      else
+      begin
+       if Supports(aNode, InsFoldersNode, l_FoldersNode) then
+        try
+         try
+          l_FoldersNode.SetFilterStatus(FT_REGULAR);
+         except
+          on EAccessDenied do
+          begin
+           Say(err_CanNotEditQuery);
+           Result := false;
+          end;//on EAccessDenied
+         end;//try..except
+        finally
+         l_FoldersNode := nil;
+        end;//try..finally
+      end;*)
+     finally
+      l_Query := nil;
+     end;//try..finally
+   finally
+    l_BaseEntity := nil;
+   end;//try..finally
+  finally
+   l_Node := nil;
+  end;//try..finally
+//#UC END# *49895A2102E8_497DCC17001Cexec_impl*
+end;//TPrimFiltersForm.Loadable_Load_Execute
 
-procedure TPrimFiltersForm.SetNewContent;
-//#UC START# *4AF81DE902B6_497DCC17001C_var*
-//#UC END# *4AF81DE902B6_497DCC17001C_var*
+procedure TPrimFiltersForm.Loadable_Load(const aParams: IvcmExecuteParamsPrim);
+ {* Коллеги, кто может описать этот метод? }
 begin
-//#UC START# *4AF81DE902B6_497DCC17001C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF81DE902B6_497DCC17001C_impl*
-end;//TPrimFiltersForm.SetNewContent
+ with (aParams.Data As ILoadable_Load_Params) do
+  ResultValue := Self.Loadable_Load_Execute(Node, Data, nOp);
+end;//TPrimFiltersForm.Loadable_Load
 
-procedure TPrimFiltersForm.DeselectAll;
-//#UC START# *4AF8598C0277_497DCC17001C_var*
-//#UC END# *4AF8598C0277_497DCC17001C_var*
+procedure TPrimFiltersForm.Filter_ActivateNode_Execute(const aNode: Il3Node);
+//#UC START# *4AEECBA3030B_497DCC17001Cexec_var*
+var
+ l_Node: Il3Node;
+//#UC END# *4AEECBA3030B_497DCC17001Cexec_var*
 begin
-//#UC START# *4AF8598C0277_497DCC17001C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF8598C0277_497DCC17001C_impl*
-end;//TPrimFiltersForm.DeselectAll
+//#UC START# *4AEECBA3030B_497DCC17001Cexec_impl*
+ l_Node := aNode;
+ ChangeActiveStatus(FiltersList, l_Node,
+                    (FiltersList.CTree.NodeFlags[l_Node] and nfSelected = 0));
+//#UC END# *4AEECBA3030B_497DCC17001Cexec_impl*
+end;//TPrimFiltersForm.Filter_ActivateNode_Execute
 
-procedure TPrimFiltersForm.Activate;
+procedure TPrimFiltersForm.Filter_ActivateNode(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IFilter_ActivateNode_Params) do
+  Self.Filter_ActivateNode_Execute(Node);
+end;//TPrimFiltersForm.Filter_ActivateNode
+
+function TPrimFiltersForm.Filters_GetSelected_Execute: IFiltersFromQuery;
+//#UC START# *4AF2B1AC02F8_497DCC17001Cexec_var*
+var
+ l_Tree: IeeTree;
+ l_Node: IeeNode;
+ l_Filter: IFilterFromQuery;
+ l_FiltersIntf: IFiltersFromQuery;
+//#UC END# *4AF2B1AC02F8_497DCC17001Cexec_var*
+begin
+//#UC START# *4AF2B1AC02F8_497DCC17001Cexec_impl*
+ l_Tree := FiltersList.TreeView.Tree;
+ l_FiltersIntf := defDataAdapter.NativeAdapter.MakeFiltersFromQuery;
+ Result := l_FiltersIntf;
+ l_Node := l_Tree.GetNextSelected(l_Tree.Root);
+ while Assigned(l_Node) do
+  if Supports(l_Node, IFilterFromQuery, l_Filter) then
+  try
+   l_FiltersIntf.Add(l_Filter);
+   l_Node := l_Tree.GetNextSelected(l_Node);
+  finally
+   l_Filter := nil;
+  end;
+//#UC END# *4AF2B1AC02F8_497DCC17001Cexec_impl*
+end;//TPrimFiltersForm.Filters_GetSelected_Execute
+
+procedure TPrimFiltersForm.Filters_GetSelected(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IFilters_GetSelected_Params) do
+  ResultValue := Self.Filters_GetSelected_Execute;
+end;//TPrimFiltersForm.Filters_GetSelected
+
+procedure TPrimFiltersForm.List_SetNewContent_Execute;
+//#UC START# *4AF81DE902B6_497DCC17001Cexec_var*
+//#UC END# *4AF81DE902B6_497DCC17001Cexec_var*
+begin
+//#UC START# *4AF81DE902B6_497DCC17001Cexec_impl*
+ SetActiveFilters;
+//#UC END# *4AF81DE902B6_497DCC17001Cexec_impl*
+end;//TPrimFiltersForm.List_SetNewContent_Execute
+
+procedure TPrimFiltersForm.List_SetNewContent(const aParams: IvcmExecuteParamsPrim);
+begin
+ Self.List_SetNewContent_Execute;
+end;//TPrimFiltersForm.List_SetNewContent
+
+procedure TPrimFiltersForm.Filters_DeselectAll_Execute;
+//#UC START# *4AF8598C0277_497DCC17001Cexec_var*
+//#UC END# *4AF8598C0277_497DCC17001Cexec_var*
+begin
+//#UC START# *4AF8598C0277_497DCC17001Cexec_impl*
+ DeselectAll;
+//#UC END# *4AF8598C0277_497DCC17001Cexec_impl*
+end;//TPrimFiltersForm.Filters_DeselectAll_Execute
+
+procedure TPrimFiltersForm.Filters_DeselectAll(const aParams: IvcmExecuteParamsPrim);
+begin
+ Self.Filters_DeselectAll_Execute;
+end;//TPrimFiltersForm.Filters_DeselectAll
+
+procedure TPrimFiltersForm.Filter_Activate_Test(const aParams: IvcmTestParamsPrim);
  {* Применить фильтр }
-//#UC START# *4C7D3A81021B_497DCC17001C_var*
-//#UC END# *4C7D3A81021B_497DCC17001C_var*
+//#UC START# *4C7D3A81021B_497DCC17001Ctest_var*
+//#UC END# *4C7D3A81021B_497DCC17001Ctest_var*
 begin
-//#UC START# *4C7D3A81021B_497DCC17001C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7D3A81021B_497DCC17001C_impl*
-end;//TPrimFiltersForm.Activate
+//#UC START# *4C7D3A81021B_497DCC17001Ctest_impl*
+ with FiltersList.TreeView do
+  aParams.Op.Flag[vcm_ofEnabled] := Tree.Root.HasChild and (CurrentNode <> nil);
+//#UC END# *4C7D3A81021B_497DCC17001Ctest_impl*
+end;//TPrimFiltersForm.Filter_Activate_Test
 
-procedure TPrimFiltersForm.CreateFilter;
- {* Добавить фильтр из сохраненных запросов }
-//#UC START# *4D0B5FBF0310_497DCC17001C_var*
-//#UC END# *4D0B5FBF0310_497DCC17001C_var*
+procedure TPrimFiltersForm.Filter_Activate_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Применить фильтр }
+//#UC START# *4C7D3A81021B_497DCC17001Cexec_var*
+var
+ l_CurNode: Il3Node;
+//#UC END# *4C7D3A81021B_497DCC17001Cexec_var*
 begin
-//#UC START# *4D0B5FBF0310_497DCC17001C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4D0B5FBF0310_497DCC17001C_impl*
-end;//TPrimFiltersForm.CreateFilter
+//#UC START# *4C7D3A81021B_497DCC17001Cexec_impl*
+ l_CurNode := FiltersList.CurrentCNode;
+ ChangeActiveStatus(FiltersList,
+                    l_CurNode,
+                    (FiltersList.CTree.NodeFlags[l_CurNode] and nfSelected = 0));
+//#UC END# *4C7D3A81021B_497DCC17001Cexec_impl*
+end;//TPrimFiltersForm.Filter_Activate_Execute
+
+procedure TPrimFiltersForm.Filter_Activate_GetState(var State: TvcmOperationStateIndex);
+ {* Применить фильтр }
+//#UC START# *4C7D3A81021B_497DCC17001Cgetstate_var*
+var
+ l_CurNode: IeeNode;
+//#UC END# *4C7D3A81021B_497DCC17001Cgetstate_var*
+begin
+//#UC START# *4C7D3A81021B_497DCC17001Cgetstate_impl*
+ State := vcm_DefaultOperationState;
+ with FiltersList.TreeView do
+  if Tree.Root.HasChild then
+  begin
+   l_CurNode := CurrentNode;
+   try
+    if l_CurNode <> nil then
+     if NodeFlags[l_CurNode] and nfSelected <> 0 then
+      State := st_user_Filter_Activate_Deactivate;
+   finally
+    l_CurNode := nil;
+   end;
+  end;
+//#UC END# *4C7D3A81021B_497DCC17001Cgetstate_impl*
+end;//TPrimFiltersForm.Filter_Activate_GetState
+
+procedure TPrimFiltersForm.Filter_CreateFilter_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Добавить фильтр из сохраненных запросов }
+//#UC START# *4D0B5FBF0310_497DCC17001Cexec_var*
+//#UC END# *4D0B5FBF0310_497DCC17001Cexec_var*
+begin
+//#UC START# *4D0B5FBF0310_497DCC17001Cexec_impl*
+ TdmStdRes.SelectOpen(Self.As_IvcmEntityForm,
+                      TnsFolderFilterInfo.Make(ffQuery, ns_ffNone),
+                      str_CreateFilter);
+//#UC END# *4D0B5FBF0310_497DCC17001Cexec_impl*
+end;//TPrimFiltersForm.Filter_CreateFilter_Execute
 
 {$If NOT Defined(NoVCM)}
 procedure TPrimFiltersForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;

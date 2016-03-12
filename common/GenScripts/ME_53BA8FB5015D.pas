@@ -22,7 +22,7 @@ type
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-  public
+  published
    procedure DoIt;
  end;//TRegisteredTasksTest
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
@@ -46,6 +46,7 @@ uses
  , k2Base
 ;
 
+{$If NOT Defined(NotTunedDUnit)}
 type
  RddTaskItemFriend = class of TddTaskItemFriend;
 
@@ -104,6 +105,7 @@ end;//TRegisteredTasksTest.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(TRegisteredTasksTest.Suite);
-{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
 end.

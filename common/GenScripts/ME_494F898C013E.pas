@@ -14,28 +14,6 @@ uses
 ;
 
 type
- {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
- // Controlled
- {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
-
- {$If Defined(Admin)}
- // User
- {$IfEnd} // Defined(Admin)
-
- {$If Defined(Admin)}
- // MultiUsers
- {$IfEnd} // Defined(Admin)
-
- {$If Defined(Admin)}
- // Group
- {$IfEnd} // Defined(Admin)
-
- {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
- // Contact
- {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
-
- // Delete
-
  // Edit
 
  // File

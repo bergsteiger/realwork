@@ -22,11 +22,19 @@ type
   {* Оценка ответа }
   public
    {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
+   procedure Result_Ok_Test(const aParams: IvcmTestParamsPrim);
     {* OK }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
+   procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_GetState(var State: TvcmOperationStateIndex);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Отмена }
    {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimConsultationMarkOptionsForm
@@ -48,27 +56,68 @@ uses
 ;
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimConsultationMarkOptionsForm.Ok;
+procedure TPrimConsultationMarkOptionsForm.Result_Ok_Test(const aParams: IvcmTestParamsPrim);
  {* OK }
-//#UC START# *4C762A1501FC_4C84E097023A_var*
-//#UC END# *4C762A1501FC_4C84E097023A_var*
+//#UC START# *4C762A1501FC_4C84E097023Atest_var*
+//#UC END# *4C762A1501FC_4C84E097023Atest_var*
 begin
-//#UC START# *4C762A1501FC_4C84E097023A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762A1501FC_4C84E097023A_impl*
-end;//TPrimConsultationMarkOptionsForm.Ok
+//#UC START# *4C762A1501FC_4C84E097023Atest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := Assigned(dsMark) and dsMark.CanSend;
+//#UC END# *4C762A1501FC_4C84E097023Atest_impl*
+end;//TPrimConsultationMarkOptionsForm.Result_Ok_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimConsultationMarkOptionsForm.Cancel;
- {* Отмена }
-//#UC START# *4C762AB601E1_4C84E097023A_var*
-//#UC END# *4C762AB601E1_4C84E097023A_var*
+procedure TPrimConsultationMarkOptionsForm.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* OK }
+//#UC START# *4C762A1501FC_4C84E097023Aexec_var*
+//#UC END# *4C762A1501FC_4C84E097023Aexec_var*
 begin
-//#UC START# *4C762AB601E1_4C84E097023A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762AB601E1_4C84E097023A_impl*
-end;//TPrimConsultationMarkOptionsForm.Cancel
+//#UC START# *4C762A1501FC_4C84E097023Aexec_impl*
+ if Assigned(dsMark) and dsMark.CanSend then
+ begin
+  if mComment.TextLen > c_TextCommentLen then
+  begin
+   Say(err_LimitCharsReached, [c_TextCommentLen]);
+   Exit;
+  end;
+  dsMark.Comment := mComment.Buffer;
+  try
+   dsMark.Send;
+   ModalResult := mrOk;
+  except
+   on ENoConnection do
+    Say(war_NoConnection);
+   on ENoSubscription do
+    Say(war_NoSubscription, [defDataAdapter.GetDealerInfo]);
+  end;
+ end;//if Assigned(dsMark) and dsMark.CanSend then
+//#UC END# *4C762A1501FC_4C84E097023Aexec_impl*
+end;//TPrimConsultationMarkOptionsForm.Result_Ok_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimConsultationMarkOptionsForm.Result_Ok_GetState(var State: TvcmOperationStateIndex);
+ {* OK }
+//#UC START# *4C762A1501FC_4C84E097023Agetstate_var*
+//#UC END# *4C762A1501FC_4C84E097023Agetstate_var*
+begin
+//#UC START# *4C762A1501FC_4C84E097023Agetstate_impl*
+ State := st_user_Result_Ok_ConsultationMark; 
+//#UC END# *4C762A1501FC_4C84E097023Agetstate_impl*
+end;//TPrimConsultationMarkOptionsForm.Result_Ok_GetState
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimConsultationMarkOptionsForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отмена }
+//#UC START# *4C762AB601E1_4C84E097023Aexec_var*
+//#UC END# *4C762AB601E1_4C84E097023Aexec_var*
+begin
+//#UC START# *4C762AB601E1_4C84E097023Aexec_impl*
+ ModalResult := mrCancel;
+//#UC END# *4C762AB601E1_4C84E097023Aexec_impl*
+end;//TPrimConsultationMarkOptionsForm.Result_Cancel_Execute
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization

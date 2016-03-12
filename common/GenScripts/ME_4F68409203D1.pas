@@ -22,7 +22,7 @@ type
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-  public
+  published
    procedure DoIt;
  end;//TRegExpTest
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
@@ -43,6 +43,7 @@ uses
  , l3Filer
 ;
 
+{$If NOT Defined(NotTunedDUnit)}
 procedure TRegExpTest.DoIt;
 //#UC START# *4F6840D602F3_4F68409203D1_var*
 var
@@ -159,6 +160,7 @@ function TRegExpTest.GetModelElementGUID: AnsiString;
 begin
  Result := '4F68409203D1';
 end;//TRegExpTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

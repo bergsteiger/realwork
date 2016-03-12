@@ -23,7 +23,9 @@ type
    procedure RegisterInDispatcher; override;
    procedure UnRegisterInDispatcher; override;
   public
-   procedure ClearHistory; override;
+   procedure Chat_ClearHistory_Test(const aParams: IvcmTestParamsPrim);
+    {* Очистить историю }
+   procedure Chat_ClearHistory_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Очистить историю }
  end;//TBaseHistoryWindowForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -71,15 +73,27 @@ begin
 //#UC END# *4A6EA6000339_4A6EA45C01C4_impl*
 end;//TBaseHistoryWindowForm.UnRegisterInDispatcher
 
-procedure TBaseHistoryWindowForm.ClearHistory;
+procedure TBaseHistoryWindowForm.Chat_ClearHistory_Test(const aParams: IvcmTestParamsPrim);
  {* Очистить историю }
-//#UC START# *4A8AE24D003F_4A6EA45C01C4_var*
-//#UC END# *4A8AE24D003F_4A6EA45C01C4_var*
+//#UC START# *4A8AE24D003F_4A6EA45C01C4test_var*
+//#UC END# *4A8AE24D003F_4A6EA45C01C4test_var*
 begin
-//#UC START# *4A8AE24D003F_4A6EA45C01C4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A8AE24D003F_4A6EA45C01C4_impl*
-end;//TBaseHistoryWindowForm.ClearHistory
+//#UC START# *4A8AE24D003F_4A6EA45C01C4test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := HistoryEditor.TextSource.HasDocument AND
+  not (HistoryEditor.Selection.Cursor.atStart and HistoryEditor.Selection.Cursor.atEnd(HistoryEditor.View));
+//#UC END# *4A8AE24D003F_4A6EA45C01C4test_impl*
+end;//TBaseHistoryWindowForm.Chat_ClearHistory_Test
+
+procedure TBaseHistoryWindowForm.Chat_ClearHistory_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Очистить историю }
+//#UC START# *4A8AE24D003F_4A6EA45C01C4exec_var*
+//#UC END# *4A8AE24D003F_4A6EA45C01C4exec_var*
+begin
+//#UC START# *4A8AE24D003F_4A6EA45C01C4exec_impl*
+ TdmStdRes.MakeChatDispatcher.ClearHistory(UserID);
+ HistoryEditor.TextSource.New;
+//#UC END# *4A8AE24D003F_4A6EA45C01C4exec_impl*
+end;//TBaseHistoryWindowForm.Chat_ClearHistory_Execute
 
 initialization
  str_utChatHistoryCaption.Init;

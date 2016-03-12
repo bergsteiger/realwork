@@ -25,40 +25,10 @@ type
  TPrimNavigatorOptionsForm = class(TPrimNavigatorForm)
   {* Меню }
   public
-   {$If NOT Defined(NoVCM)}
-   procedure Cut; override;
-    {* Вырезать }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Paste; override;
-    {* Вставка }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Undo; override;
-    {* Отмена }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Redo; override;
-    {* Возврат }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure SelectAll; override;
-    {* Выделить всё }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Deselect; override;
-    {* Снять выделение }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Copy; override;
-    {* Копировать }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Delete; override;
-    {* Удалить }
-   {$IfEnd} // NOT Defined(NoVCM)
-   procedure Info; override;
-   procedure Execute; override;
+   procedure NavigatorElement_Info_Test(const aParams: IvcmTestParamsPrim);
+   procedure NavigatorElement_Info_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure NavigatorElement_Execute_Test(const aParams: IvcmTestParamsPrim);
+   procedure NavigatorElement_Execute_Execute(const aParams: IvcmExecuteParamsPrim);
  end;//TPrimNavigatorOptionsForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -77,119 +47,57 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimNavigatorOptionsForm.Cut;
- {* Вырезать }
-//#UC START# *4951285702E1_4C87A47E0036_var*
-//#UC END# *4951285702E1_4C87A47E0036_var*
+procedure TPrimNavigatorOptionsForm.NavigatorElement_Info_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C87A50402CC_4C87A47E0036test_var*
+//#UC END# *4C87A50402CC_4C87A47E0036test_var*
 begin
-//#UC START# *4951285702E1_4C87A47E0036_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4951285702E1_4C87A47E0036_impl*
-end;//TPrimNavigatorOptionsForm.Cut
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4C87A50402CC_4C87A47E0036test_impl*
+ // до реализации информации на INodeBase
+ aParams.Op.Flag[vcm_ofVisible] := False;
+//#UC END# *4C87A50402CC_4C87A47E0036test_impl*
+end;//TPrimNavigatorOptionsForm.NavigatorElement_Info_Test
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimNavigatorOptionsForm.Paste;
- {* Вставка }
-//#UC START# *49EDFA3701B0_4C87A47E0036_var*
-//#UC END# *49EDFA3701B0_4C87A47E0036_var*
+procedure TPrimNavigatorOptionsForm.NavigatorElement_Info_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C87A50402CC_4C87A47E0036exec_var*
+var
+ l_l3Node : Il3SimpleNode;
+ l_Node   : INodeBase;
+//#UC END# *4C87A50402CC_4C87A47E0036exec_var*
 begin
-//#UC START# *49EDFA3701B0_4C87A47E0036_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EDFA3701B0_4C87A47E0036_impl*
-end;//TPrimNavigatorOptionsForm.Paste
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4C87A50402CC_4C87A47E0036exec_impl*
+ l_l3Node := NavigatorTree.GetCurrentNode;
+ if Supports(l_l3Node, INodeBase, l_Node) then
+  Say(inf_AnyInformation, [nsGetHint(l_Node)]);
+//#UC END# *4C87A50402CC_4C87A47E0036exec_impl*
+end;//TPrimNavigatorOptionsForm.NavigatorElement_Info_Execute
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimNavigatorOptionsForm.Undo;
- {* Отмена }
-//#UC START# *49EDFCA2006D_4C87A47E0036_var*
-//#UC END# *49EDFCA2006D_4C87A47E0036_var*
+procedure TPrimNavigatorOptionsForm.NavigatorElement_Execute_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C87A52E02F7_4C87A47E0036test_var*
+var
+ l_Node: Il3SimpleNode;
+//#UC END# *4C87A52E02F7_4C87A47E0036test_var*
 begin
-//#UC START# *49EDFCA2006D_4C87A47E0036_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EDFCA2006D_4C87A47E0036_impl*
-end;//TPrimNavigatorOptionsForm.Undo
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4C87A52E02F7_4C87A47E0036test_impl*
+ with NavigatorTree do
+ begin
+  l_Node := GetCurrentNode;
+  try
+   aParams.Op.Flag[vcm_ofVisible] := (l_Node <> nil) and not l_Node.HasChild;
+  finally
+   l_Node := nil;
+  end;//try..finally
+ end;//with NavigatorTree do
+//#UC END# *4C87A52E02F7_4C87A47E0036test_impl*
+end;//TPrimNavigatorOptionsForm.NavigatorElement_Execute_Test
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimNavigatorOptionsForm.Redo;
- {* Возврат }
-//#UC START# *49EDFCB100BC_4C87A47E0036_var*
-//#UC END# *49EDFCB100BC_4C87A47E0036_var*
+procedure TPrimNavigatorOptionsForm.NavigatorElement_Execute_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C87A52E02F7_4C87A47E0036exec_var*
+//#UC END# *4C87A52E02F7_4C87A47E0036exec_var*
 begin
-//#UC START# *49EDFCB100BC_4C87A47E0036_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EDFCB100BC_4C87A47E0036_impl*
-end;//TPrimNavigatorOptionsForm.Redo
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimNavigatorOptionsForm.SelectAll;
- {* Выделить всё }
-//#UC START# *49EE01AA02BE_4C87A47E0036_var*
-//#UC END# *49EE01AA02BE_4C87A47E0036_var*
-begin
-//#UC START# *49EE01AA02BE_4C87A47E0036_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EE01AA02BE_4C87A47E0036_impl*
-end;//TPrimNavigatorOptionsForm.SelectAll
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimNavigatorOptionsForm.Deselect;
- {* Снять выделение }
-//#UC START# *49EE01BC022E_4C87A47E0036_var*
-//#UC END# *49EE01BC022E_4C87A47E0036_var*
-begin
-//#UC START# *49EE01BC022E_4C87A47E0036_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EE01BC022E_4C87A47E0036_impl*
-end;//TPrimNavigatorOptionsForm.Deselect
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimNavigatorOptionsForm.Copy;
- {* Копировать }
-//#UC START# *4C7D0C7B0185_4C87A47E0036_var*
-//#UC END# *4C7D0C7B0185_4C87A47E0036_var*
-begin
-//#UC START# *4C7D0C7B0185_4C87A47E0036_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7D0C7B0185_4C87A47E0036_impl*
-end;//TPrimNavigatorOptionsForm.Copy
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimNavigatorOptionsForm.Delete;
- {* Удалить }
-//#UC START# *4C7D0CC90052_4C87A47E0036_var*
-//#UC END# *4C7D0CC90052_4C87A47E0036_var*
-begin
-//#UC START# *4C7D0CC90052_4C87A47E0036_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7D0CC90052_4C87A47E0036_impl*
-end;//TPrimNavigatorOptionsForm.Delete
-{$IfEnd} // NOT Defined(NoVCM)
-
-procedure TPrimNavigatorOptionsForm.Info;
-//#UC START# *4C87A50402CC_4C87A47E0036_var*
-//#UC END# *4C87A50402CC_4C87A47E0036_var*
-begin
-//#UC START# *4C87A50402CC_4C87A47E0036_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C87A50402CC_4C87A47E0036_impl*
-end;//TPrimNavigatorOptionsForm.Info
-
-procedure TPrimNavigatorOptionsForm.Execute;
-//#UC START# *4C87A52E02F7_4C87A47E0036_var*
-//#UC END# *4C87A52E02F7_4C87A47E0036_var*
-begin
-//#UC START# *4C87A52E02F7_4C87A47E0036_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C87A52E02F7_4C87A47E0036_impl*
-end;//TPrimNavigatorOptionsForm.Execute
+//#UC START# *4C87A52E02F7_4C87A47E0036exec_impl*
+ ExecuteCurrentElement;
+//#UC END# *4C87A52E02F7_4C87A47E0036exec_impl*
+end;//TPrimNavigatorOptionsForm.NavigatorElement_Execute_Execute
 
 initialization
 {$If NOT Defined(NoScripts)}

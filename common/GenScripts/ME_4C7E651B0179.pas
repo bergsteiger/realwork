@@ -43,8 +43,8 @@ type
    procedure ChildNodeAdded(const aNode: Il3SimpleNode);
     {* был добавлен дочерний узел }
    function BeginEdit(const aNode: IeeNode;
-    WithPositioning: Boolean;
-    IsNewFolder: Boolean): Boolean; override;
+    WithPositioning: Boolean = False;
+    IsNewFolder: Boolean = False): Boolean; override;
    procedure EndEdit(const aNode: IeeNode); override;
    function DeleteNode(const aNode: IeeNode;
     aAskConfirmation: Boolean): TnsDeleteResult; override;
@@ -59,37 +59,66 @@ type
    procedure ClearFields; override;
   public
    {$If NOT Defined(NoVCM)}
-   procedure ExpandAll; override;
+   procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
     {* Развернуть все }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure CollapseAll; override;
+   procedure Tree_ExpandAll_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Развернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
     {* Свернуть все }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure OpenQuery; override;
-   procedure ExecuteQuery; override;
+   procedure SavedQuery_OpenQuery_Test(const aParams: IvcmTestParamsPrim);
+   procedure SavedQuery_OpenQuery_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure SavedQuery_ExecuteQuery_Test(const aParams: IvcmTestParamsPrim);
+   procedure SavedQuery_ExecuteQuery_Execute(const aParams: IvcmExecuteParamsPrim);
    {$If NOT Defined(NoVCM)}
-   procedure Delete; override;
+   procedure Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
     {* Удалить }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure Filtrate; override;
-   procedure New; override;
-   procedure AddToControl; override;
-   procedure DelFromControl; override;
-   procedure SetShare; override;
-   procedure ExportToXML; override;
-   procedure ImportFromXML; override;
-   procedure Edit; override;
-   procedure EditExt; override;
-   procedure Open; override;
-   procedure OpenNewWindow; override;
-   procedure ControlStatus; override;
-   procedure ExportForIntegration; override;
-   procedure Open; override;
-   procedure GiveMark; override;
-   procedure ShowConsultationInfo; override;
-   procedure ImportConsultation; override;
-   procedure CreateFilter; override;
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure Folders_Filtrate_Test(const aParams: IvcmTestParamsPrim);
+   procedure Folders_Filtrate_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Folder_New_Test(const aParams: IvcmTestParamsPrim);
+   procedure Folder_New_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Folder_AddToControl_Test(const aParams: IvcmTestParamsPrim);
+   procedure Folder_AddToControl_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Folder_DelFromControl_Test(const aParams: IvcmTestParamsPrim);
+   procedure Folder_DelFromControl_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Folder_SetShare_Test(const aParams: IvcmTestParamsPrim);
+   procedure Folder_SetShare_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Folder_ExportToXML_Test(const aParams: IvcmTestParamsPrim);
+   procedure Folder_ExportToXML_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Folder_ImportFromXML_Test(const aParams: IvcmTestParamsPrim);
+   procedure Folder_ImportFromXML_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure FolderElement_Edit_Test(const aParams: IvcmTestParamsPrim);
+   procedure FolderElement_Edit_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure FolderElement_EditExt_Test(const aParams: IvcmTestParamsPrim);
+   procedure FolderElement_EditExt_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure FolderElement_Open_Test(const aParams: IvcmTestParamsPrim);
+   procedure FolderElement_Open_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure FolderElement_OpenNewWindow_Test(const aParams: IvcmTestParamsPrim);
+   procedure FolderElement_OpenNewWindow_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure FolderElement_ControlStatus_Test(const aParams: IvcmTestParamsPrim);
+   procedure FolderElement_ControlStatus_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure FolderElement_ExportForIntegration_Test(const aParams: IvcmTestParamsPrim);
+   procedure FolderElement_ExportForIntegration_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Consultation_Open_Test(const aParams: IvcmTestParamsPrim);
+   procedure Consultation_Open_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Consultation_GiveMark_Test(const aParams: IvcmTestParamsPrim);
+   procedure Consultation_GiveMark_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Consultation_ShowConsultationInfo_Test(const aParams: IvcmTestParamsPrim);
+   procedure Consultation_ShowConsultationInfo_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Consultation_ImportConsultation_Test(const aParams: IvcmTestParamsPrim);
+   procedure Consultation_ImportConsultation_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure SavedQuery_CreateFilter_Test(const aParams: IvcmTestParamsPrim);
+    {* Создать фильтр... }
+   procedure SavedQuery_CreateFilter_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Создать фильтр... }
    {$If NOT Defined(NoVCM)}
    procedure SetActiveControl; override;
@@ -249,8 +278,8 @@ begin
 end;//TPrimFoldersTreeOptionsForm.ChildNodeAdded
 
 function TPrimFoldersTreeOptionsForm.BeginEdit(const aNode: IeeNode;
- WithPositioning: Boolean;
- IsNewFolder: Boolean): Boolean;
+ WithPositioning: Boolean = False;
+ IsNewFolder: Boolean = False): Boolean;
 //#UC START# *4AE718F90254_4C7E651B0179_var*
 var
  l_Coord  : TRect;
@@ -414,211 +443,816 @@ begin
 end;//TPrimFoldersTreeOptionsForm.GetFoldersInfo
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimFoldersTreeOptionsForm.ExpandAll;
+procedure TPrimFoldersTreeOptionsForm.Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
  {* Развернуть все }
-//#UC START# *4BDAF7880236_4C7E651B0179_var*
-//#UC END# *4BDAF7880236_4C7E651B0179_var*
+//#UC START# *4BDAF7880236_4C7E651B0179test_var*
+//#UC END# *4BDAF7880236_4C7E651B0179test_var*
 begin
-//#UC START# *4BDAF7880236_4C7E651B0179_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BDAF7880236_4C7E651B0179_impl*
-end;//TPrimFoldersTreeOptionsForm.ExpandAll
+//#UC START# *4BDAF7880236_4C7E651B0179test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := FoldersTree.TreeView.Current >= 0;
+//#UC END# *4BDAF7880236_4C7E651B0179test_impl*
+end;//TPrimFoldersTreeOptionsForm.Tree_ExpandAll_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimFoldersTreeOptionsForm.CollapseAll;
+procedure TPrimFoldersTreeOptionsForm.Tree_ExpandAll_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Развернуть все }
+//#UC START# *4BDAF7880236_4C7E651B0179exec_var*
+//#UC END# *4BDAF7880236_4C7E651B0179exec_var*
+begin
+//#UC START# *4BDAF7880236_4C7E651B0179exec_impl*
+ FoldersTree.TreeView.Tree.Changing;
+ try
+  aParams.CallControl;
+ finally
+  FoldersTree.TreeView.Tree.Changed;
+ end;
+//#UC END# *4BDAF7880236_4C7E651B0179exec_impl*
+end;//TPrimFoldersTreeOptionsForm.Tree_ExpandAll_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimFoldersTreeOptionsForm.Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
  {* Свернуть все }
-//#UC START# *4BDAF7A2005C_4C7E651B0179_var*
-//#UC END# *4BDAF7A2005C_4C7E651B0179_var*
+//#UC START# *4BDAF7A2005C_4C7E651B0179test_var*
+//#UC END# *4BDAF7A2005C_4C7E651B0179test_var*
 begin
-//#UC START# *4BDAF7A2005C_4C7E651B0179_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BDAF7A2005C_4C7E651B0179_impl*
-end;//TPrimFoldersTreeOptionsForm.CollapseAll
+//#UC START# *4BDAF7A2005C_4C7E651B0179test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := FoldersTree.TreeView.Current >= 0;
+//#UC END# *4BDAF7A2005C_4C7E651B0179test_impl*
+end;//TPrimFoldersTreeOptionsForm.Tree_CollapseAll_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
-procedure TPrimFoldersTreeOptionsForm.OpenQuery;
-//#UC START# *4C3F3421036A_4C7E651B0179_var*
-//#UC END# *4C3F3421036A_4C7E651B0179_var*
+procedure TPrimFoldersTreeOptionsForm.SavedQuery_OpenQuery_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3F3421036A_4C7E651B0179test_var*
+var
+ l_Node: INode;
+//#UC END# *4C3F3421036A_4C7E651B0179test_var*
 begin
-//#UC START# *4C3F3421036A_4C7E651B0179_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3F3421036A_4C7E651B0179_impl*
-end;//TPrimFoldersTreeOptionsForm.OpenQuery
+//#UC START# *4C3F3421036A_4C7E651B0179test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not IsInSaveLoadState and
+  Supports(FoldersTree.TreeView.CurrentNode, INode, l_Node) and
+  (TFoldersItemType(l_Node.GetObjectType) = FIT_QUERY) and
+  (l_Node.GetFlags and NF_IN_COMMENTS = 0);
+//#UC END# *4C3F3421036A_4C7E651B0179test_impl*
+end;//TPrimFoldersTreeOptionsForm.SavedQuery_OpenQuery_Test
 
-procedure TPrimFoldersTreeOptionsForm.ExecuteQuery;
-//#UC START# *4C3F342E02AF_4C7E651B0179_var*
-//#UC END# *4C3F342E02AF_4C7E651B0179_var*
+procedure TPrimFoldersTreeOptionsForm.SavedQuery_OpenQuery_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3F3421036A_4C7E651B0179exec_var*
+var
+ l_eeNode      : IeeNode;
+ l_AdapterNode : INode;
+ l_BaseEntity  : IUnknown;
+//#UC END# *4C3F3421036A_4C7E651B0179exec_var*
 begin
-//#UC START# *4C3F342E02AF_4C7E651B0179_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3F342E02AF_4C7E651B0179_impl*
-end;//TPrimFoldersTreeOptionsForm.ExecuteQuery
+//#UC START# *4C3F3421036A_4C7E651B0179exec_impl*
+ with FoldersTree.TreeView do
+ begin
+  l_eeNode := CurrentNode;
+  try
+   if Supports(l_eeNode, INode, l_AdapterNode) then
+    try
+     try
+      l_AdapterNode.Open(l_BaseEntity);
+     except
+      on ECanNotFindData do
+       exit; //TODO: нода "пропала" что делать?
+     end;
+     try
+      OpenQuery(l_BaseEntity);
+     finally
+      l_BaseEntity := nil;
+     end;
+    finally
+     l_AdapterNode := nil;
+    end;
+  finally
+   l_eeNode := nil;
+  end;
+ end;
+//#UC END# *4C3F3421036A_4C7E651B0179exec_impl*
+end;//TPrimFoldersTreeOptionsForm.SavedQuery_OpenQuery_Execute
+
+procedure TPrimFoldersTreeOptionsForm.SavedQuery_ExecuteQuery_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3F342E02AF_4C7E651B0179test_var*
+//#UC END# *4C3F342E02AF_4C7E651B0179test_var*
+begin
+//#UC START# *4C3F342E02AF_4C7E651B0179test_impl*
+ SavedQuery_OpenQuery_Test(aParams);
+//#UC END# *4C3F342E02AF_4C7E651B0179test_impl*
+end;//TPrimFoldersTreeOptionsForm.SavedQuery_ExecuteQuery_Test
+
+procedure TPrimFoldersTreeOptionsForm.SavedQuery_ExecuteQuery_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3F342E02AF_4C7E651B0179exec_var*
+var
+ l_eeNode : IeeNode;
+ l_AdapterNode : INode;
+ l_BaseEntity : IUnknown;
+ l_Query: IQuery;
+//#UC END# *4C3F342E02AF_4C7E651B0179exec_var*
+begin
+//#UC START# *4C3F342E02AF_4C7E651B0179exec_impl*
+ with FoldersTree.TreeView do
+ begin
+  l_eeNode := CurrentNode;
+  try
+   if Supports(l_eeNode, INode, l_AdapterNode) then
+    try
+     try
+      l_AdapterNode.Open(l_BaseEntity);
+     except
+      on ECanNotFindData do
+       Exit; //TODO: нода "пропала" что делать?
+     end;
+     Assert(l_BaseEntity <> nil);
+     try
+      l_Query := l_BaseEntity As IQuery;
+      try
+       if l_Query.GetType = QT_BASE_SEARCH then
+        OpenQuery(l_Query);
+       nsSearch(l_Query, nil, nil, NativeMainForm);
+      finally
+       l_Query := nil;
+      end;
+     finally
+      l_BaseEntity := nil;
+     end;//try..finally
+    finally
+     l_AdapterNode := nil;
+    end;//try..finally
+  finally
+   l_eeNode := nil;
+  end;//try..finally
+ end;//with FoldersTree.TreeView
+//#UC END# *4C3F342E02AF_4C7E651B0179exec_impl*
+end;//TPrimFoldersTreeOptionsForm.SavedQuery_ExecuteQuery_Execute
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimFoldersTreeOptionsForm.Delete;
+procedure TPrimFoldersTreeOptionsForm.Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
  {* Удалить }
-//#UC START# *4C7D0CC90052_4C7E651B0179_var*
-//#UC END# *4C7D0CC90052_4C7E651B0179_var*
+//#UC START# *4C7D0CC90052_4C7E651B0179test_var*
+//#UC END# *4C7D0CC90052_4C7E651B0179test_var*
 begin
-//#UC START# *4C7D0CC90052_4C7E651B0179_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7D0CC90052_4C7E651B0179_impl*
-end;//TPrimFoldersTreeOptionsForm.Delete
+//#UC START# *4C7D0CC90052_4C7E651B0179test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (dsFoldersTree <> nil) and dsFoldersTree.CanDelete(FoldersTree.GetCurrentNode);
+//#UC END# *4C7D0CC90052_4C7E651B0179test_impl*
+end;//TPrimFoldersTreeOptionsForm.Edit_Delete_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
-procedure TPrimFoldersTreeOptionsForm.Filtrate;
-//#UC START# *4C7E65DF016E_4C7E651B0179_var*
-//#UC END# *4C7E65DF016E_4C7E651B0179_var*
+{$If NOT Defined(NoVCM)}
+procedure TPrimFoldersTreeOptionsForm.Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Удалить }
+//#UC START# *4C7D0CC90052_4C7E651B0179exec_var*
+//#UC END# *4C7D0CC90052_4C7E651B0179exec_var*
 begin
-//#UC START# *4C7E65DF016E_4C7E651B0179_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7E65DF016E_4C7E651B0179_impl*
-end;//TPrimFoldersTreeOptionsForm.Filtrate
+//#UC START# *4C7D0CC90052_4C7E651B0179exec_impl*
+ FolderElement_InternalDelete_Execute(nil);
+//#UC END# *4C7D0CC90052_4C7E651B0179exec_impl*
+end;//TPrimFoldersTreeOptionsForm.Edit_Delete_Execute
+{$IfEnd} // NOT Defined(NoVCM)
 
-procedure TPrimFoldersTreeOptionsForm.New;
-//#UC START# *4C7E66850144_4C7E651B0179_var*
-//#UC END# *4C7E66850144_4C7E651B0179_var*
+procedure TPrimFoldersTreeOptionsForm.Folders_Filtrate_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C7E65DF016E_4C7E651B0179test_var*
+var
+ l_Strings     : IvcmStrings;
+ l_FoldersInfo : InsFoldersInfo;
+ l_StringSource: InsStringsSource;
+//#UC END# *4C7E65DF016E_4C7E651B0179test_var*
 begin
-//#UC START# *4C7E66850144_4C7E651B0179_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7E66850144_4C7E651B0179_impl*
-end;//TPrimFoldersTreeOptionsForm.New
+//#UC START# *4C7E65DF016E_4C7E651B0179test_impl*
+ l_FoldersInfo := FoldersInfo;
+ if l_FoldersInfo <> nil then
+  try
+   aParams.Op.Flag[vcm_ofEnabled] := not l_FoldersInfo.CantChangeFilter;
+   if l_FoldersInfo.CantChangeFilter then
+    aParams.Op.Font.ForeColor := clLtGray
+   else
+    aParams.Op.Font.ForeColor := clBlack;
 
-procedure TPrimFoldersTreeOptionsForm.AddToControl;
-//#UC START# *4C7E66990246_4C7E651B0179_var*
-//#UC END# *4C7E66990246_4C7E651B0179_var*
-begin
-//#UC START# *4C7E66990246_4C7E651B0179_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7E66990246_4C7E651B0179_impl*
-end;//TPrimFoldersTreeOptionsForm.AddToControl
+   l_Strings := aParams.Op.SubItems;
+   if (l_Strings <> nil) then
+   begin
+    aParams.Op.SelectedString := f_FilterMap.
+     ValueToDisplayName(ord(l_FoldersInfo.FilterInfo.FilterType));
+    if l_Strings.Count = 0 then
+     if Supports(f_FilterMap, InsStringsSource, l_StringSource) then
+      l_StringSource.FillStrings(l_Strings);
+   end;
+  finally
+   l_FoldersInfo := nil;
+  end
+ else
+  aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4C7E65DF016E_4C7E651B0179test_impl*
+end;//TPrimFoldersTreeOptionsForm.Folders_Filtrate_Test
 
-procedure TPrimFoldersTreeOptionsForm.DelFromControl;
-//#UC START# *4C7E66B102FB_4C7E651B0179_var*
-//#UC END# *4C7E66B102FB_4C7E651B0179_var*
+procedure TPrimFoldersTreeOptionsForm.Folders_Filtrate_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C7E65DF016E_4C7E651B0179exec_var*
+var
+ l_FoldersInfo : InsFoldersInfo;
+ l_Index       : Integer;
+//#UC END# *4C7E65DF016E_4C7E651B0179exec_var*
 begin
-//#UC START# *4C7E66B102FB_4C7E651B0179_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7E66B102FB_4C7E651B0179_impl*
-end;//TPrimFoldersTreeOptionsForm.DelFromControl
+//#UC START# *4C7E65DF016E_4C7E651B0179exec_impl*
+ l_FoldersInfo := FoldersInfo;
+ if (l_FoldersInfo <> nil) then
+  try
+   l_Index := aParams.ItemIndex;
+   if (l_Index >= 0) then
+   begin
+    l_FoldersInfo.CantChangeFilter := False;
+    if (f_OldFilter = -1) then
+     f_OldFilter := Byte(l_FoldersInfo.FilterInfo.FilterType);
+    l_FoldersInfo.FilterInfo.FilterType := TnsFolderFilter(l_Index);
+   end//l_Index >= 0
+   else
+    l_FoldersInfo.FilterInfo.FilterType := TnsFolderFilter(f_FilterMap.
+     DisplayNameToValue(aParams.SelectedString));
+   if (FoldersTree.TreeView.Current < 0) then
+   // - если отфильтровалось все - то сбрасываем текущий у формы со свойствами.
+    op_FolderElement_SetContent.Call(Aggregate, nil);
+  finally
+   l_FoldersInfo := nil;
+  end;//try..finally
+//#UC END# *4C7E65DF016E_4C7E651B0179exec_impl*
+end;//TPrimFoldersTreeOptionsForm.Folders_Filtrate_Execute
 
-procedure TPrimFoldersTreeOptionsForm.SetShare;
-//#UC START# *4C7E66C70264_4C7E651B0179_var*
-//#UC END# *4C7E66C70264_4C7E651B0179_var*
+procedure TPrimFoldersTreeOptionsForm.Folder_New_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C7E66850144_4C7E651B0179test_var*
+var
+ l_eeNode : IeeNode;
+//#UC END# *4C7E66850144_4C7E651B0179test_var*
 begin
-//#UC START# *4C7E66C70264_4C7E651B0179_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7E66C70264_4C7E651B0179_impl*
-end;//TPrimFoldersTreeOptionsForm.SetShare
+//#UC START# *4C7E66850144_4C7E651B0179test_impl*
+ if Aggregate <> nil then
+ begin
+  if (Op_FolderElement_GetState.Call(Aggregate) in [fiLoad, fiSelect]) then
+   aParams.Op.Flag[vcm_ofEnabled] := False
+  else
+   with FoldersTree.TreeView do
+   begin
+    l_eeNode := GetCurrentFolder(CurrentNode);
+    try
+     if (l_eeNode <> nil) and (l_eeNode.GetLevelForParent(Tree.Root) < cMaxFoldersDepth) then
+      aParams.Op.Flag[vcm_ofEnabled] := CheckFolderElementRights(l_eeNode, faAddChild)
+     else
+      aParams.Op.Flag[vcm_ofEnabled] := False;
+    finally
+     l_eeNode := nil;
+    end;
+   end;
+ end
+ else
+  aParams.Op.Flag[vcm_ofEnabled] := True;
+//#UC END# *4C7E66850144_4C7E651B0179test_impl*
+end;//TPrimFoldersTreeOptionsForm.Folder_New_Test
 
-procedure TPrimFoldersTreeOptionsForm.ExportToXML;
-//#UC START# *4C7E66DC00F5_4C7E651B0179_var*
-//#UC END# *4C7E66DC00F5_4C7E651B0179_var*
+procedure TPrimFoldersTreeOptionsForm.Folder_New_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C7E66850144_4C7E651B0179exec_var*
+var
+ l_CurFolder,
+ l_CurRoot: IeeNode;
+//#UC END# *4C7E66850144_4C7E651B0179exec_var*
 begin
-//#UC START# *4C7E66DC00F5_4C7E651B0179_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7E66DC00F5_4C7E651B0179_impl*
-end;//TPrimFoldersTreeOptionsForm.ExportToXML
+//#UC START# *4C7E66850144_4C7E651B0179exec_impl*
+ with FoldersTree.TreeView do
+ begin
+  l_CurRoot := GetCurrentFolder(CurrentNode);
+  if l_CurRoot = nil then
+   l_CurRoot := Tree.Root;
+  try
+   l_CurFolder := UserFoldersTree.CreateFolder(CreateUniqName(l_CurRoot),
+                                               l_CurRoot as Il3Node,
+                                               nil,
+                                               nsFindInsertPosition(l_CurRoot as Il3Node,
+                                                                    nil,
+                                                                    True)) as IeeNode;
 
-procedure TPrimFoldersTreeOptionsForm.ImportFromXML;
-//#UC START# *4C7E66F60347_4C7E651B0179_var*
-//#UC END# *4C7E66F60347_4C7E651B0179_var*
-begin
-//#UC START# *4C7E66F60347_4C7E651B0179_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7E66F60347_4C7E651B0179_impl*
-end;//TPrimFoldersTreeOptionsForm.ImportFromXML
+   if l_CurFolder <> nil then
+    try
+     if not BeginEdit(l_CurFolder, True, True) then
+      DeleteNode(l_CurFolder, False);
+    finally
+     l_CurFolder := nil;
+    end;
+  finally
+   l_CurRoot := nil;
+  end;
+ end;
+//#UC END# *4C7E66850144_4C7E651B0179exec_impl*
+end;//TPrimFoldersTreeOptionsForm.Folder_New_Execute
 
-procedure TPrimFoldersTreeOptionsForm.Edit;
-//#UC START# *4C7E679702DA_4C7E651B0179_var*
-//#UC END# *4C7E679702DA_4C7E651B0179_var*
+procedure TPrimFoldersTreeOptionsForm.Folder_AddToControl_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C7E66990246_4C7E651B0179test_var*
+var
+ l_Node: INode;
+//#UC END# *4C7E66990246_4C7E651B0179test_var*
 begin
-//#UC START# *4C7E679702DA_4C7E651B0179_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7E679702DA_4C7E651B0179_impl*
-end;//TPrimFoldersTreeOptionsForm.Edit
+//#UC START# *4C7E66990246_4C7E651B0179test_impl*
+ with FoldersTree.TreeView do
+  aParams.Op.Flag[vcm_ofEnabled] := (Current < 0) and
+   Assigned(Aggregate) and not IsInSaveLoadState and
+   Supports(CurrentNode, INode, l_Node) and
+   (TFoldersItemType(l_Node.GetObjectType) = FIT_FOLDER) and
+   not nsHasNodeAnyFlag(CurrentNode, [affExternal, affInComment]);
+//#UC END# *4C7E66990246_4C7E651B0179test_impl*
+end;//TPrimFoldersTreeOptionsForm.Folder_AddToControl_Test
 
-procedure TPrimFoldersTreeOptionsForm.EditExt;
-//#UC START# *4C7E67B301FD_4C7E651B0179_var*
-//#UC END# *4C7E67B301FD_4C7E651B0179_var*
-begin
-//#UC START# *4C7E67B301FD_4C7E651B0179_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7E67B301FD_4C7E651B0179_impl*
-end;//TPrimFoldersTreeOptionsForm.EditExt
+procedure TPrimFoldersTreeOptionsForm.Folder_AddToControl_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C7E66990246_4C7E651B0179exec_var*
 
-procedure TPrimFoldersTreeOptionsForm.Open;
-//#UC START# *4C7E67CE01CB_4C7E651B0179_var*
-//#UC END# *4C7E67CE01CB_4C7E651B0179_var*
-begin
-//#UC START# *4C7E67CE01CB_4C7E651B0179_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7E67CE01CB_4C7E651B0179_impl*
-end;//TPrimFoldersTreeOptionsForm.Open
+ function SetControlStatus(const anIntf: IeeNode) : Boolean;
+ var
+  l_FoldersNode : InsFoldersNode;
+ begin
+  if Supports(anIntf, InsFoldersNode, l_FoldersNode) then
+   try
+    l_FoldersNode.SetUnderControlStatus(True);
+   finally
+    l_FoldersNode := nil;
+   end;
 
-procedure TPrimFoldersTreeOptionsForm.OpenNewWindow;
-//#UC START# *4C7E685801E5_4C7E651B0179_var*
-//#UC END# *4C7E685801E5_4C7E651B0179_var*
-begin
-//#UC START# *4C7E685801E5_4C7E651B0179_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7E685801E5_4C7E651B0179_impl*
-end;//TPrimFoldersTreeOptionsForm.OpenNewWindow
+  Result := False;
+ end;
 
-procedure TPrimFoldersTreeOptionsForm.ControlStatus;
-//#UC START# *4C7E68D602DB_4C7E651B0179_var*
-//#UC END# *4C7E68D602DB_4C7E651B0179_var*
+//#UC END# *4C7E66990246_4C7E651B0179exec_var*
 begin
-//#UC START# *4C7E68D602DB_4C7E651B0179_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7E68D602DB_4C7E651B0179_impl*
-end;//TPrimFoldersTreeOptionsForm.ControlStatus
+//#UC START# *4C7E66990246_4C7E651B0179exec_impl*
+ if Ask(qr_SetControlStatus) then
+  FoldersTree.TreeView.CurrentNode.IterateF(eeL2NA(@SetControlStatus));
+//#UC END# *4C7E66990246_4C7E651B0179exec_impl*
+end;//TPrimFoldersTreeOptionsForm.Folder_AddToControl_Execute
 
-procedure TPrimFoldersTreeOptionsForm.ExportForIntegration;
-//#UC START# *4C7E68E900DC_4C7E651B0179_var*
-//#UC END# *4C7E68E900DC_4C7E651B0179_var*
+procedure TPrimFoldersTreeOptionsForm.Folder_DelFromControl_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C7E66B102FB_4C7E651B0179test_var*
+//#UC END# *4C7E66B102FB_4C7E651B0179test_var*
 begin
-//#UC START# *4C7E68E900DC_4C7E651B0179_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7E68E900DC_4C7E651B0179_impl*
-end;//TPrimFoldersTreeOptionsForm.ExportForIntegration
+//#UC START# *4C7E66B102FB_4C7E651B0179test_impl*
+ Folder_AddToControl_Test(aParams);
+//#UC END# *4C7E66B102FB_4C7E651B0179test_impl*
+end;//TPrimFoldersTreeOptionsForm.Folder_DelFromControl_Test
 
-procedure TPrimFoldersTreeOptionsForm.Open;
-//#UC START# *4C7E6AE10291_4C7E651B0179_var*
-//#UC END# *4C7E6AE10291_4C7E651B0179_var*
-begin
-//#UC START# *4C7E6AE10291_4C7E651B0179_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7E6AE10291_4C7E651B0179_impl*
-end;//TPrimFoldersTreeOptionsForm.Open
+procedure TPrimFoldersTreeOptionsForm.Folder_DelFromControl_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C7E66B102FB_4C7E651B0179exec_var*
 
-procedure TPrimFoldersTreeOptionsForm.GiveMark;
-//#UC START# *4C7E6AF2031C_4C7E651B0179_var*
-//#UC END# *4C7E6AF2031C_4C7E651B0179_var*
-begin
-//#UC START# *4C7E6AF2031C_4C7E651B0179_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7E6AF2031C_4C7E651B0179_impl*
-end;//TPrimFoldersTreeOptionsForm.GiveMark
+ function SetControlStatus(const anIntf: IeeNode) : Boolean;
+ var
+  l_FoldersNode : InsFoldersNode;
+ begin
+  if Supports(anIntf, InsFoldersNode, l_FoldersNode) then
+   try
+    l_FoldersNode.SetUnderControlStatus(False);
+   finally
+    l_FoldersNode := nil;
+   end;
 
-procedure TPrimFoldersTreeOptionsForm.ShowConsultationInfo;
-//#UC START# *4C7E6B1A019D_4C7E651B0179_var*
-//#UC END# *4C7E6B1A019D_4C7E651B0179_var*
-begin
-//#UC START# *4C7E6B1A019D_4C7E651B0179_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7E6B1A019D_4C7E651B0179_impl*
-end;//TPrimFoldersTreeOptionsForm.ShowConsultationInfo
+  Result := False;
+ end;
 
-procedure TPrimFoldersTreeOptionsForm.ImportConsultation;
-//#UC START# *4C7E6B310055_4C7E651B0179_var*
-//#UC END# *4C7E6B310055_4C7E651B0179_var*
+//#UC END# *4C7E66B102FB_4C7E651B0179exec_var*
 begin
-//#UC START# *4C7E6B310055_4C7E651B0179_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7E6B310055_4C7E651B0179_impl*
-end;//TPrimFoldersTreeOptionsForm.ImportConsultation
+//#UC START# *4C7E66B102FB_4C7E651B0179exec_impl*
+ if Ask(qr_DelControlStatus) then
+  FoldersTree.TreeView.CurrentNode.IterateF(eeL2NA(@SetControlStatus));
+//#UC END# *4C7E66B102FB_4C7E651B0179exec_impl*
+end;//TPrimFoldersTreeOptionsForm.Folder_DelFromControl_Execute
+
+procedure TPrimFoldersTreeOptionsForm.Folder_SetShare_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C7E66C70264_4C7E651B0179test_var*
+var
+ l_Node: INode;
+//#UC END# *4C7E66C70264_4C7E651B0179test_var*
+begin
+//#UC START# *4C7E66C70264_4C7E651B0179test_impl*
+ // Enabled
+ with FoldersTree.TreeView do
+  aParams.Op.Flag[vcm_ofEnabled] := not IsInSaveLoadState and
+   Supports(CurrentNode, INode, l_Node) and
+   CheckFolderElementRights(CurrentNode, faChangeRights) and
+   not (l_Node.GetFlags and NF_IN_SHARED = NF_IN_SHARED);
+ // Checked
+ if aParams.Op.Flag[vcm_ofEnabled] then
+   aParams.Op.Flag[vcm_ofChecked] := (l_Node.GetFlags and NF_SHARED = NF_SHARED);
+//#UC END# *4C7E66C70264_4C7E651B0179test_impl*
+end;//TPrimFoldersTreeOptionsForm.Folder_SetShare_Test
+
+procedure TPrimFoldersTreeOptionsForm.Folder_SetShare_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C7E66C70264_4C7E651B0179exec_var*
+var
+ l_Node : INode;
+//#UC END# *4C7E66C70264_4C7E651B0179exec_var*
+begin
+//#UC START# *4C7E66C70264_4C7E651B0179exec_impl*
+ FoldersTree.Changing;
+ try
+  DoSetShare(FoldersTree.TreeView.CurrentNode);
+  if Supports(FoldersTree.TreeView.CurrentNode, INode, l_Node) then
+  try
+   UserFoldersTree.DropUserRightsCache(l_Node);
+  finally
+   l_Node := nil;
+  end;
+ finally
+  FoldersTree.Changed;
+ end;
+//#UC END# *4C7E66C70264_4C7E651B0179exec_impl*
+end;//TPrimFoldersTreeOptionsForm.Folder_SetShare_Execute
+
+procedure TPrimFoldersTreeOptionsForm.Folder_ExportToXML_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C7E66DC00F5_4C7E651B0179test_var*
+//#UC END# *4C7E66DC00F5_4C7E651B0179test_var*
+begin
+//#UC START# *4C7E66DC00F5_4C7E651B0179test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (dsFoldersTree <> nil) and
+  dsFoldersTree.CanExportToXML(FoldersTree.GetCurrentNode);
+//#UC END# *4C7E66DC00F5_4C7E651B0179test_impl*
+end;//TPrimFoldersTreeOptionsForm.Folder_ExportToXML_Test
+
+procedure TPrimFoldersTreeOptionsForm.Folder_ExportToXML_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C7E66DC00F5_4C7E651B0179exec_var*
+var
+ l_FO : TOpenDialog;
+//#UC END# *4C7E66DC00F5_4C7E651B0179exec_var*
+begin
+//#UC START# *4C7E66DC00F5_4C7E651B0179exec_impl*
+ if (dsFoldersTree <> nil) then
+ begin
+  l_FO := TvtSaveDialog.Create(Self);
+  try
+   with l_FO do
+   begin
+    Options := Options + [ofOverwritePrompt, ofPathMustExist];
+    Filter := vcmConstString(str_FolderFilter);
+    Title := vcmConstString(str_ExportFolderTitle);
+    DefaultExt := vcmConstString(str_XMLFileExtension);
+    FilterIndex := 1;
+    FileName := l3PStr(nsPrepareFileName(vcmFmt(vcmCStr(str_FolderFileNamePattern),[l3CStr(FoldersTree.GetCurrentNode)])));
+   end;
+   if l_FO.Execute then
+   try
+    dsFoldersTree.ExportToXML(FoldersTree.GetCurrentNode, l3PCharLen(l_FO.FileName));
+   except
+    on EAccessDenied do
+     Say(err_ExportFolderError, [FoldersTree.GetCurrentNode]);
+    on EInvalidEntityType do
+     Say(err_ExportFolderError, [FoldersTree.GetCurrentNode]);
+   end;//try..except
+  finally
+   FreeAndNil(l_FO);
+  end;//try..except
+ end;//dsFoldersTree <> nil
+//#UC END# *4C7E66DC00F5_4C7E651B0179exec_impl*
+end;//TPrimFoldersTreeOptionsForm.Folder_ExportToXML_Execute
+
+procedure TPrimFoldersTreeOptionsForm.Folder_ImportFromXML_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C7E66F60347_4C7E651B0179test_var*
+//#UC END# *4C7E66F60347_4C7E651B0179test_var*
+begin
+//#UC START# *4C7E66F60347_4C7E651B0179test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (dsFoldersTree <> nil) and
+  dsFoldersTree.CanImportFromXML(FoldersTree.GetCurrentNode);
+//#UC END# *4C7E66F60347_4C7E651B0179test_impl*
+end;//TPrimFoldersTreeOptionsForm.Folder_ImportFromXML_Test
+
+procedure TPrimFoldersTreeOptionsForm.Folder_ImportFromXML_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C7E66F60347_4C7E651B0179exec_var*
+var
+ l_FO : TOpenDialog;
+//#UC END# *4C7E66F60347_4C7E651B0179exec_var*
+begin
+//#UC START# *4C7E66F60347_4C7E651B0179exec_impl*
+ if (dsFoldersTree <> nil) then
+ begin
+  l_FO := TOpenDialog.Create(Self);
+  try
+   with l_FO do
+   begin
+    Filter := vcmConstString(str_FolderFilter);
+    Title := vcmConstString(str_ImportFolderTitle);
+    DefaultExt := vcmConstString(str_XMLFileExtension);
+    FilterIndex := 1;
+    FileName := '';
+   end;
+   if l_FO.Execute then
+   try
+    dsFoldersTree.ImportFromXML(FoldersTree.GetCurrentNode, l3PCharLen(l_FO.FileName));
+   except
+    on EAccessDenied do
+     Say(err_ExportFolderError, [FoldersTree.GetCurrentNode]);
+    on EInvalidEntityType do
+     Say(err_ExportFolderError, [FoldersTree.GetCurrentNode]);
+   end;//try..except
+  finally
+   FreeAndNil(l_FO);
+  end;//try..except
+ end;//dsFoldersTree <> nil
+//#UC END# *4C7E66F60347_4C7E651B0179exec_impl*
+end;//TPrimFoldersTreeOptionsForm.Folder_ImportFromXML_Execute
+
+procedure TPrimFoldersTreeOptionsForm.FolderElement_Edit_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C7E679702DA_4C7E651B0179test_var*
+//#UC END# *4C7E679702DA_4C7E651B0179test_var*
+begin
+//#UC START# *4C7E679702DA_4C7E651B0179test_impl*
+ if (FoldersTree.TreeView.Current < 0) then
+  aParams.Op.Flag[vcm_ofEnabled] := False
+ else
+ if (Aggregate <> nil) then
+ begin
+  case Op_FolderElement_GetState.Call(Aggregate) of
+   fiNone      : aParams.Op.Flag[vcm_ofChecked] := False;
+   fiNewFolder : aParams.Op.Flag[vcm_ofEnabled] := False;
+   fiEdit      : aParams.Op.Flag[vcm_ofChecked] := True;
+   else
+    aParams.Op.Flag[vcm_ofEnabled] := False;
+  end//case Op_FolderElement_GetState.Call(Aggregate)
+ end//Aggregate <> nil
+ else
+  aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4C7E679702DA_4C7E651B0179test_impl*
+end;//TPrimFoldersTreeOptionsForm.FolderElement_Edit_Test
+
+procedure TPrimFoldersTreeOptionsForm.FolderElement_Edit_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C7E679702DA_4C7E651B0179exec_var*
+//#UC END# *4C7E679702DA_4C7E651B0179exec_var*
+begin
+//#UC START# *4C7E679702DA_4C7E651B0179exec_impl*
+ FolderElement_InternalEdit_Execute(FoldersTree.TreeView.CurrentNode, false);
+//#UC END# *4C7E679702DA_4C7E651B0179exec_impl*
+end;//TPrimFoldersTreeOptionsForm.FolderElement_Edit_Execute
+
+procedure TPrimFoldersTreeOptionsForm.FolderElement_EditExt_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C7E67B301FD_4C7E651B0179test_var*
+//#UC END# *4C7E67B301FD_4C7E651B0179test_var*
+begin
+//#UC START# *4C7E67B301FD_4C7E651B0179test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not (FoldersTree.TreeView.Current < 0);
+//#UC END# *4C7E67B301FD_4C7E651B0179test_impl*
+end;//TPrimFoldersTreeOptionsForm.FolderElement_EditExt_Test
+
+procedure TPrimFoldersTreeOptionsForm.FolderElement_EditExt_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C7E67B301FD_4C7E651B0179exec_var*
+//#UC END# *4C7E67B301FD_4C7E651B0179exec_var*
+begin
+//#UC START# *4C7E67B301FD_4C7E651B0179exec_impl*
+ FolderElement_InternalEdit_Execute(FoldersTree.TreeView.CurrentNode, true);
+//#UC END# *4C7E67B301FD_4C7E651B0179exec_impl*
+end;//TPrimFoldersTreeOptionsForm.FolderElement_EditExt_Execute
+
+procedure TPrimFoldersTreeOptionsForm.FolderElement_Open_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C7E67CE01CB_4C7E651B0179test_var*
+var
+ l_Node: INode;
+//#UC END# *4C7E67CE01CB_4C7E651B0179test_var*
+begin
+//#UC START# *4C7E67CE01CB_4C7E651B0179test_impl*
+ with FoldersTree.TreeView do
+  aParams.Op.Flag[vcm_ofEnabled] := (Current < 0) and
+   not IsInSaveLoadState and Supports(CurrentNode, INode, l_Node) and
+   not (TFoldersItemType(l_Node.GetObjectType) in [FIT_FOLDER]);
+//#UC END# *4C7E67CE01CB_4C7E651B0179test_impl*
+end;//TPrimFoldersTreeOptionsForm.FolderElement_Open_Test
+
+procedure TPrimFoldersTreeOptionsForm.FolderElement_Open_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C7E67CE01CB_4C7E651B0179exec_var*
+//#UC END# *4C7E67CE01CB_4C7E651B0179exec_var*
+begin
+//#UC START# *4C7E67CE01CB_4C7E651B0179exec_impl*
+ OpenFolderElement(self.as_IvcmEntityForm, FoldersTree.GetCurrentNode, vcm_okInCurrentTab);
+//#UC END# *4C7E67CE01CB_4C7E651B0179exec_impl*
+end;//TPrimFoldersTreeOptionsForm.FolderElement_Open_Execute
+
+procedure TPrimFoldersTreeOptionsForm.FolderElement_OpenNewWindow_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C7E685801E5_4C7E651B0179test_var*
+var
+ l_Node: INode;
+//#UC END# *4C7E685801E5_4C7E651B0179test_var*
+begin
+//#UC START# *4C7E685801E5_4C7E651B0179test_impl*
+ with FoldersTree.TreeView do
+  aParams.Op.Flag[vcm_ofEnabled] := (Current < 0) and
+   not IsInSaveLoadState and Supports(CurrentNode, INode, l_Node) and
+   not (TFoldersItemType(l_Node.GetObjectType) in [FIT_FOLDER, FIT_OLD_HISTORY]);
+//#UC END# *4C7E685801E5_4C7E651B0179test_impl*
+end;//TPrimFoldersTreeOptionsForm.FolderElement_OpenNewWindow_Test
+
+procedure TPrimFoldersTreeOptionsForm.FolderElement_OpenNewWindow_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C7E685801E5_4C7E651B0179exec_var*
+//#UC END# *4C7E685801E5_4C7E651B0179exec_var*
+begin
+//#UC START# *4C7E685801E5_4C7E651B0179exec_impl*
+ OpenFolderElement(self.as_IvcmEntityForm, FoldersTree.GetCurrentNode, vcm_okInNewWindow);
+//#UC END# *4C7E685801E5_4C7E651B0179exec_impl*
+end;//TPrimFoldersTreeOptionsForm.FolderElement_OpenNewWindow_Execute
+
+procedure TPrimFoldersTreeOptionsForm.FolderElement_ControlStatus_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C7E68D602DB_4C7E651B0179test_var*
+var
+ l_Node: INode;
+ l_Controllable : IControllable;
+//#UC END# *4C7E68D602DB_4C7E651B0179test_var*
+begin
+//#UC START# *4C7E68D602DB_4C7E651B0179test_impl*
+ // Enabled
+ aParams.Op.Flag[vcm_ofEnabled] := not IsInSaveLoadState;
+
+ try
+  if aParams.Op.Flag[vcm_ofEnabled] then
+  begin
+   if Supports(FoldersTree.TreeView.CurrentNode, INode, l_Node) then
+   begin
+    // Пока на контроль можно поставить только Закладки
+    aParams.Op.Flag[vcm_ofEnabled] :=
+     (TFoldersItemType(l_Node.GetObjectType) in
+      [FIT_BOOKMARK, FIT_PHARM_BOOKMARK]) and
+     not nsHasNodeAnyFlag(l_Node, [affInExternal]);
+
+    if aParams.Op.Flag[vcm_ofEnabled] then
+    begin
+     // begin http://mdp.garant.ru/pages/viewpage.action?pageId=268346048
+     if Supports(l_Node, IControllable, l_Controllable) then
+      try
+       Assert(l_Controllable <> nil);
+       aParams.Op.Flag[vcm_ofEnabled] := (l_Controllable <> nil) AND
+                                         l_Controllable.GetCanSetToControl;
+      finally
+       l_Controllable := nil;
+      end//try..finally
+     else
+      aParams.Op.Flag[vcm_ofEnabled] := false;
+     // end http://mdp.garant.ru/pages/viewpage.action?pageId=268346048
+    end;//aParams.Op.Flag[vcm_ofEnabled]
+   end//Supports(FoldersTree.TreeView.CurrentNode, INode, l_Node)
+   else
+    aParams.Op.Flag[vcm_ofEnabled] := false;
+  end;//aParams.Op.Flag[vcm_ofEnabled]
+
+  // Checked
+  if aParams.Op.Flag[vcm_ofEnabled] then
+   aParams.Op.Flag[vcm_ofChecked] :=
+    (l_Node <> nil) AND
+    ((l_Node.GetFlags and NF_CONTROLLED) = NF_CONTROLLED);
+ finally
+  l_Node := nil;
+ end//try..finally
+//#UC END# *4C7E68D602DB_4C7E651B0179test_impl*
+end;//TPrimFoldersTreeOptionsForm.FolderElement_ControlStatus_Test
+
+procedure TPrimFoldersTreeOptionsForm.FolderElement_ControlStatus_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C7E68D602DB_4C7E651B0179exec_var*
+var
+ l_eeNode      : IeeNode;
+ l_FoldersNode : InsFoldersNode;
+//#UC END# *4C7E68D602DB_4C7E651B0179exec_var*
+begin
+//#UC START# *4C7E68D602DB_4C7E651B0179exec_impl*
+ with FoldersTree.TreeView do
+ begin
+  l_eeNode := CurrentNode;
+  try
+   if Supports(l_eeNode, InsFoldersNode, l_FoldersNode) then
+    try
+     l_FoldersNode.ChangeUnderControlStatus;
+    finally
+     l_FoldersNode := nil;
+    end;//try..finally
+  finally
+   l_eeNode := nil;
+  end;//try..finally
+ end;//with FoldersTree.TreeView
+//#UC END# *4C7E68D602DB_4C7E651B0179exec_impl*
+end;//TPrimFoldersTreeOptionsForm.FolderElement_ControlStatus_Execute
+
+procedure TPrimFoldersTreeOptionsForm.FolderElement_ExportForIntegration_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C7E68E900DC_4C7E651B0179test_var*
+//#UC END# *4C7E68E900DC_4C7E651B0179test_var*
+begin
+//#UC START# *4C7E68E900DC_4C7E651B0179test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := defDataAdapter.IntergationExportEnabled and
+  (dsFoldersTree <> nil) and
+  dsFoldersTree.CanExportForIntegration(FoldersTree.GetCurrentNode);
+//#UC END# *4C7E68E900DC_4C7E651B0179test_impl*
+end;//TPrimFoldersTreeOptionsForm.FolderElement_ExportForIntegration_Test
+
+procedure TPrimFoldersTreeOptionsForm.FolderElement_ExportForIntegration_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C7E68E900DC_4C7E651B0179exec_var*
+//#UC END# *4C7E68E900DC_4C7E651B0179exec_var*
+begin
+//#UC START# *4C7E68E900DC_4C7E651B0179exec_impl*
+ if (dsFoldersTree <> nil) then
+ try
+  dsFoldersTree.ExportForIntegration(FoldersTree.GetCurrentNode);
+ except
+  on EInvalidEntityType do
+   Say(err_CanNotExport);
+ end;//try..except
+//#UC END# *4C7E68E900DC_4C7E651B0179exec_impl*
+end;//TPrimFoldersTreeOptionsForm.FolderElement_ExportForIntegration_Execute
+
+procedure TPrimFoldersTreeOptionsForm.Consultation_Open_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C7E6AE10291_4C7E651B0179test_var*
+//#UC END# *4C7E6AE10291_4C7E651B0179test_var*
+begin
+//#UC START# *4C7E6AE10291_4C7E651B0179test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (dsFoldersTree <> nil) and
+  dsFoldersTree.CanBeOpenAsConsultation(FoldersTree.GetCurrentNode);
+//#UC END# *4C7E6AE10291_4C7E651B0179test_impl*
+end;//TPrimFoldersTreeOptionsForm.Consultation_Open_Test
+
+procedure TPrimFoldersTreeOptionsForm.Consultation_Open_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C7E6AE10291_4C7E651B0179exec_var*
+//#UC END# *4C7E6AE10291_4C7E651B0179exec_var*
+begin
+//#UC START# *4C7E6AE10291_4C7E651B0179exec_impl*
+ OpenFolderElement(self.as_IvcmEntityForm, FoldersTree.GetCurrentNode, vcm_okInCurrentTab);
+//#UC END# *4C7E6AE10291_4C7E651B0179exec_impl*
+end;//TPrimFoldersTreeOptionsForm.Consultation_Open_Execute
+
+procedure TPrimFoldersTreeOptionsForm.Consultation_GiveMark_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C7E6AF2031C_4C7E651B0179test_var*
+//#UC END# *4C7E6AF2031C_4C7E651B0179test_var*
+begin
+//#UC START# *4C7E6AF2031C_4C7E651B0179test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (dsFoldersTree <> nil) and
+  dsFoldersTree.CanGiveMarkOnConsultation(FoldersTree.GetCurrentNode);
+//#UC END# *4C7E6AF2031C_4C7E651B0179test_impl*
+end;//TPrimFoldersTreeOptionsForm.Consultation_GiveMark_Test
+
+procedure TPrimFoldersTreeOptionsForm.Consultation_GiveMark_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C7E6AF2031C_4C7E651B0179exec_var*
+//#UC END# *4C7E6AF2031C_4C7E651B0179exec_var*
+begin
+//#UC START# *4C7E6AF2031C_4C7E651B0179exec_impl*
+ if (dsFoldersTree <> nil) then
+ begin
+  if dsFoldersTree.CanGiveMarkOnConsultation(FoldersTree.GetCurrentNode) then
+   TdmStdRes.GiveMarkOnConsultation(FoldersTree.GetCurrentNode);
+ end;//dsFoldersTree <> nil
+//#UC END# *4C7E6AF2031C_4C7E651B0179exec_impl*
+end;//TPrimFoldersTreeOptionsForm.Consultation_GiveMark_Execute
+
+procedure TPrimFoldersTreeOptionsForm.Consultation_ShowConsultationInfo_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C7E6B1A019D_4C7E651B0179test_var*
+//#UC END# *4C7E6B1A019D_4C7E651B0179test_var*
+begin
+//#UC START# *4C7E6B1A019D_4C7E651B0179test_impl*
+ aParams.Op.Flag[vcm_ofVisible] := False;
+  // - эта операция от которой нужен только ShortCut, показывать;
+//#UC END# *4C7E6B1A019D_4C7E651B0179test_impl*
+end;//TPrimFoldersTreeOptionsForm.Consultation_ShowConsultationInfo_Test
+
+procedure TPrimFoldersTreeOptionsForm.Consultation_ShowConsultationInfo_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C7E6B1A019D_4C7E651B0179exec_var*
+//#UC END# *4C7E6B1A019D_4C7E651B0179exec_var*
+begin
+//#UC START# *4C7E6B1A019D_4C7E651B0179exec_impl*
+ nsWriteLetterAboutConsultation(FoldersTree.GetCurrentNode);
+//#UC END# *4C7E6B1A019D_4C7E651B0179exec_impl*
+end;//TPrimFoldersTreeOptionsForm.Consultation_ShowConsultationInfo_Execute
+
+procedure TPrimFoldersTreeOptionsForm.Consultation_ImportConsultation_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C7E6B310055_4C7E651B0179test_var*
+//#UC END# *4C7E6B310055_4C7E651B0179test_var*
+begin
+//#UC START# *4C7E6B310055_4C7E651B0179test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (dsFoldersTree <> nil)
+  and dsFoldersTree.CanImportConsultation(FoldersTree.GetCurrentNode);
+//#UC END# *4C7E6B310055_4C7E651B0179test_impl*
+end;//TPrimFoldersTreeOptionsForm.Consultation_ImportConsultation_Test
+
+procedure TPrimFoldersTreeOptionsForm.Consultation_ImportConsultation_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C7E6B310055_4C7E651B0179exec_var*
+var
+ l_FO : TOpenDialog;
+//#UC END# *4C7E6B310055_4C7E651B0179exec_var*
+begin
+//#UC START# *4C7E6B310055_4C7E651B0179exec_impl*
+ if (dsFoldersTree <> nil) then
+ begin
+  l_FO := TOpenDialog.Create(Self);
+  try
+   with l_FO do
+   begin
+    Filter := vcmConstString(str_ConsultationFilter);
+    Title := vcmConstString(str_ImportConsultationCaption);
+    DefaultExt := vcmConstString(str_XMLFileExtension);
+    FilterIndex := 1;
+   end;
+   if l_FO.Execute then
+   try
+    dsFoldersTree.ImportConsultation(l3PCharLen(l_FO.FileName));
+   except
+    on EAccessDenied do
+     Say(err_FileReadErrorF, [l_FO.FileName]);
+    on EInvalidXMLType do
+     Say(err_InvalidFileFormat);
+   end;
+  finally
+   FreeAndNil(l_FO);
+  end;
+ end;//dsFoldersTree <> nil
+//#UC END# *4C7E6B310055_4C7E651B0179exec_impl*
+end;//TPrimFoldersTreeOptionsForm.Consultation_ImportConsultation_Execute
 
 procedure TPrimFoldersTreeOptionsForm.DoFoldersTreeCurrentChanged(Sender: TObject;
  NewCurrent: Integer;
@@ -642,15 +1276,55 @@ begin
 //#UC END# *4C7E808A035E_4C7E651B0179_impl*
 end;//TPrimFoldersTreeOptionsForm.DoFoldersTreeCurrentChanged
 
-procedure TPrimFoldersTreeOptionsForm.CreateFilter;
+procedure TPrimFoldersTreeOptionsForm.SavedQuery_CreateFilter_Test(const aParams: IvcmTestParamsPrim);
  {* Создать фильтр... }
-//#UC START# *4CB5802D00CB_4C7E651B0179_var*
-//#UC END# *4CB5802D00CB_4C7E651B0179_var*
+//#UC START# *4CB5802D00CB_4C7E651B0179test_var*
+//#UC END# *4CB5802D00CB_4C7E651B0179test_var*
 begin
-//#UC START# *4CB5802D00CB_4C7E651B0179_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4CB5802D00CB_4C7E651B0179_impl*
-end;//TPrimFoldersTreeOptionsForm.CreateFilter
+//#UC START# *4CB5802D00CB_4C7E651B0179test_impl*
+ SavedQuery_OpenQuery_Test(aParams);
+//#UC END# *4CB5802D00CB_4C7E651B0179test_impl*
+end;//TPrimFoldersTreeOptionsForm.SavedQuery_CreateFilter_Test
+
+procedure TPrimFoldersTreeOptionsForm.SavedQuery_CreateFilter_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Создать фильтр... }
+//#UC START# *4CB5802D00CB_4C7E651B0179exec_var*
+var
+ l_eeNode      : IeeNode;
+ l_AdapterNode : INode;
+ l_BaseEntity  : IUnknown;
+ l_Query: IQuery;
+//#UC END# *4CB5802D00CB_4C7E651B0179exec_var*
+begin
+//#UC START# *4CB5802D00CB_4C7E651B0179exec_impl*
+ with FoldersTree.TreeView do
+ begin
+  l_eeNode := CurrentNode;
+  try
+   if Supports(l_eeNode, INode, l_AdapterNode) then
+    try
+     try
+      l_AdapterNode.Open(l_BaseEntity);
+     except
+      on ECanNotFindData do
+       exit; //TODO: нода "пропала" что делать?
+     end;//try..except
+     try
+      Supports(l_BaseEntity, IQuery, l_Query);
+      Assert(Assigned(l_Query));
+      TdmStdRes.CreateFilter(l_Query);
+     finally
+      l_BaseEntity := nil;
+     end;//try..finally
+    finally
+     l_AdapterNode := nil;
+    end;//try..finally
+  finally
+   l_eeNode := nil;
+  end;//try..finally
+ end;//with FoldersTree.TreeView
+//#UC END# *4CB5802D00CB_4C7E651B0179exec_impl*
+end;//TPrimFoldersTreeOptionsForm.SavedQuery_CreateFilter_Execute
 
 {$If NOT Defined(NoVCM)}
 procedure TPrimFoldersTreeOptionsForm.DoInit(aFromHistory: Boolean);

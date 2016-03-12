@@ -32,7 +32,7 @@ type
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-  public
+  published
    procedure DoIt;
  end;//TEVDtoRTFRender
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
@@ -53,6 +53,7 @@ uses
  , TestFrameWork
 ;
 
+{$If NOT Defined(NotTunedDUnit)}
 procedure TEVDtoRTFRender.DoIt;
 //#UC START# *52BAFCD800D9_52BAFC960080_var*
 var
@@ -219,7 +220,6 @@ begin
 //#UC END# *54BF91620371_52BAFC960080_impl*
 end;//TEVDtoRTFRender.GetHiddenStyles
 
-{$If NOT Defined(NotTunedDUnit)}
 function TEVDtoRTFRender.FileForOutput: AnsiString;
  {* Стандартный файл для вывода, для текщего теста }
 //#UC START# *4B4F588B0241_52BAFC960080_var*
@@ -229,7 +229,6 @@ begin
  Result := OutputPath + KPage + '.rtf';
 //#UC END# *4B4F588B0241_52BAFC960080_impl*
 end;//TEVDtoRTFRender.FileForOutput
-{$IfEnd} // NOT Defined(NotTunedDUnit)
 
 function TEVDtoRTFRender.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -242,6 +241,7 @@ function TEVDtoRTFRender.GetModelElementGUID: AnsiString;
 begin
  Result := '52BAFC960080';
 end;//TEVDtoRTFRender.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

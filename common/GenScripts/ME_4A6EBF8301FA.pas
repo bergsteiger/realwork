@@ -86,6 +86,7 @@ uses
  , CompareEditions_FormDefinitions_Controls
 ;
 
+{$If NOT Defined(NoVCM)}
 var g_Tfs_CompareEditions: Tfs_CompareEditions = nil;
  {* Экземпляр синглетона Tfs_CompareEditions }
 
@@ -162,7 +163,6 @@ begin
 //#UC END# *47A042E100E2_4A6EBF8301FA_impl*
 end;//Tfs_CompareEditions.InitFields
 
-{$If NOT Defined(NoVCM)}
 class function Tfs_CompareEditions.GetInstance: TvcmFormSetFactoryPrim;
 //#UC START# *4FFE854A009B_4A6EBF8301FA_var*
 //#UC END# *4FFE854A009B_4A6EBF8301FA_var*
@@ -171,11 +171,11 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4FFE854A009B_4A6EBF8301FA_impl*
 end;//Tfs_CompareEditions.GetInstance
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_fsCompareEditionsCaption.Init;
  {* Инициализация str_fsCompareEditionsCaption }
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

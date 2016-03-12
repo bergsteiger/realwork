@@ -48,24 +48,44 @@
    {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
-   procedure Print; override;
+   procedure File_Print_Test(const aParams: IvcmTestParamsPrim);
     {* Печать }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure PrintDialog; override;
+   procedure File_Print_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Печать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
     {* Печать... }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure PrintPreview; override;
+   procedure File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Печать... }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
     {* Предварительный просмотр }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Save; override;
+   procedure File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Предварительный просмотр }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_Save_Test(const aParams: IvcmTestParamsPrim);
     {* Сохранить }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure ToMSWord; override;
+   {$If NOT Defined(NoVCM)}
+   procedure File_Save_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Сохранить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure File_ToMSWord_Test(const aParams: IvcmTestParamsPrim);
     {* Экспорт в Word }
-   procedure SendMailAsAttachment; override;
+   procedure File_ToMSWord_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Экспорт в Word }
+   procedure File_SendMailAsAttachment_Test(const aParams: IvcmTestParamsPrim);
+    {* Послать по e-mail }
+   procedure File_SendMailAsAttachment_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Послать по e-mail }
   protected
    property TextSource: TnscTextSource
@@ -419,72 +439,189 @@ begin
 end;//_BaseTextOperations_.AddBookmark
 
 {$If NOT Defined(NoVCM)}
-procedure _BaseTextOperations_.Print;
+procedure _BaseTextOperations_.File_Print_Test(const aParams: IvcmTestParamsPrim);
  {* Печать }
-//#UC START# *49521D8E0295_4AE1A69E0156_var*
-//#UC END# *49521D8E0295_4AE1A69E0156_var*
+//#UC START# *49521D8E0295_4AE1A69E0156test_var*
+//#UC END# *49521D8E0295_4AE1A69E0156test_var*
 begin
-//#UC START# *49521D8E0295_4AE1A69E0156_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49521D8E0295_4AE1A69E0156_impl*
-end;//_BaseTextOperations_.Print
+//#UC START# *49521D8E0295_4AE1A69E0156test_impl*
+ aParams.CallControl;
+ if aParams.Op.Flag[vcm_ofEnabled] then
+  aParams.Op.Flag[vcm_ofEnabled] := HasDoc;
+ if aParams.Op.Flag[vcm_ofEnabled] then
+  aParams.Op.Flag[vcm_ofEnabled] := Printer.Printers.Count > 0;
+ nsDisableOperationInTrialMode(aParams);
+//#UC END# *49521D8E0295_4AE1A69E0156test_impl*
+end;//_BaseTextOperations_.File_Print_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure _BaseTextOperations_.PrintDialog;
+procedure _BaseTextOperations_.File_Print_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Печать }
+//#UC START# *49521D8E0295_4AE1A69E0156exec_var*
+var
+ l_Preview: IafwComplexDocumentPreview;
+//#UC END# *49521D8E0295_4AE1A69E0156exec_var*
+begin
+//#UC START# *49521D8E0295_4AE1A69E0156exec_impl*
+ l_Preview := MakePreview;
+ try
+  l_Preview.Print;
+ finally
+  l_Preview := nil;
+ end;//try..finally
+//#UC END# *49521D8E0295_4AE1A69E0156exec_impl*
+end;//_BaseTextOperations_.File_Print_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure _BaseTextOperations_.File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
  {* Печать... }
-//#UC START# *495220DE0298_4AE1A69E0156_var*
-//#UC END# *495220DE0298_4AE1A69E0156_var*
+//#UC START# *495220DE0298_4AE1A69E0156test_var*
+//#UC END# *495220DE0298_4AE1A69E0156test_var*
 begin
-//#UC START# *495220DE0298_4AE1A69E0156_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495220DE0298_4AE1A69E0156_impl*
-end;//_BaseTextOperations_.PrintDialog
+//#UC START# *495220DE0298_4AE1A69E0156test_impl*
+ aParams.CallControl;
+ if aParams.Op.Flag[vcm_ofEnabled] then
+  aParams.Op.Flag[vcm_ofEnabled] := HasDoc;
+//#UC END# *495220DE0298_4AE1A69E0156test_impl*
+end;//_BaseTextOperations_.File_PrintDialog_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure _BaseTextOperations_.PrintPreview;
+procedure _BaseTextOperations_.File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Печать... }
+//#UC START# *495220DE0298_4AE1A69E0156exec_var*
+//#UC END# *495220DE0298_4AE1A69E0156exec_var*
+begin
+//#UC START# *495220DE0298_4AE1A69E0156exec_impl*
+ DocumentPrint(True);
+//#UC END# *495220DE0298_4AE1A69E0156exec_impl*
+end;//_BaseTextOperations_.File_PrintDialog_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure _BaseTextOperations_.File_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
  {* Предварительный просмотр }
-//#UC START# *495220F2033A_4AE1A69E0156_var*
-//#UC END# *495220F2033A_4AE1A69E0156_var*
+//#UC START# *495220F2033A_4AE1A69E0156test_var*
+//#UC END# *495220F2033A_4AE1A69E0156test_var*
 begin
-//#UC START# *495220F2033A_4AE1A69E0156_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495220F2033A_4AE1A69E0156_impl*
-end;//_BaseTextOperations_.PrintPreview
+//#UC START# *495220F2033A_4AE1A69E0156test_impl*
+ aParams.CallControl;
+ if aParams.Op.Flag[vcm_ofEnabled] then
+  aParams.Op.Flag[vcm_ofEnabled] := HasDoc;
+ if aParams.Op.Flag[vcm_ofEnabled] then
+  aParams.Op.Flag[vcm_ofEnabled] := Printer.Printers.Count > 0;
+//#UC END# *495220F2033A_4AE1A69E0156test_impl*
+end;//_BaseTextOperations_.File_PrintPreview_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure _BaseTextOperations_.Save;
- {* Сохранить }
-//#UC START# *495235F401C0_4AE1A69E0156_var*
-//#UC END# *495235F401C0_4AE1A69E0156_var*
+procedure _BaseTextOperations_.File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Предварительный просмотр }
+//#UC START# *495220F2033A_4AE1A69E0156exec_var*
+//#UC END# *495220F2033A_4AE1A69E0156exec_var*
 begin
-//#UC START# *495235F401C0_4AE1A69E0156_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495235F401C0_4AE1A69E0156_impl*
-end;//_BaseTextOperations_.Save
+//#UC START# *495220F2033A_4AE1A69E0156exec_impl*
+ TnsDocumentPrintPreviewEvent.Log(DocumentForExport);
+ aParams.CallControl;
+//#UC END# *495220F2033A_4AE1A69E0156exec_impl*
+end;//_BaseTextOperations_.File_PrintPreview_Execute
 {$IfEnd} // NOT Defined(NoVCM)
 
-procedure _BaseTextOperations_.ToMSWord;
- {* Экспорт в Word }
-//#UC START# *495238EB0160_4AE1A69E0156_var*
-//#UC END# *495238EB0160_4AE1A69E0156_var*
+{$If NOT Defined(NoVCM)}
+procedure _BaseTextOperations_.File_Save_Test(const aParams: IvcmTestParamsPrim);
+ {* Сохранить }
+//#UC START# *495235F401C0_4AE1A69E0156test_var*
+//#UC END# *495235F401C0_4AE1A69E0156test_var*
 begin
-//#UC START# *495238EB0160_4AE1A69E0156_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495238EB0160_4AE1A69E0156_impl*
-end;//_BaseTextOperations_.ToMSWord
+//#UC START# *495235F401C0_4AE1A69E0156test_impl*
+ NotEmptyDocumentWithTrialModeTest(aParams);
+//#UC END# *495235F401C0_4AE1A69E0156test_impl*
+end;//_BaseTextOperations_.File_Save_Test
+{$IfEnd} // NOT Defined(NoVCM)
 
-procedure _BaseTextOperations_.SendMailAsAttachment;
- {* Послать по e-mail }
-//#UC START# *495253870002_4AE1A69E0156_var*
-//#UC END# *495253870002_4AE1A69E0156_var*
+{$If NOT Defined(NoVCM)}
+procedure _BaseTextOperations_.File_Save_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Сохранить }
+//#UC START# *495235F401C0_4AE1A69E0156exec_var*
+//#UC END# *495235F401C0_4AE1A69E0156exec_var*
 begin
-//#UC START# *495253870002_4AE1A69E0156_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495253870002_4AE1A69E0156_impl*
-end;//_BaseTextOperations_.SendMailAsAttachment
+//#UC START# *495235F401C0_4AE1A69E0156exec_impl*
+ DocumentExport(ekDisk, Text.HasSelection);
+//#UC END# *495235F401C0_4AE1A69E0156exec_impl*
+end;//_BaseTextOperations_.File_Save_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+procedure _BaseTextOperations_.File_ToMSWord_Test(const aParams: IvcmTestParamsPrim);
+ {* Экспорт в Word }
+//#UC START# *495238EB0160_4AE1A69E0156test_var*
+//#UC END# *495238EB0160_4AE1A69E0156test_var*
+begin
+//#UC START# *495238EB0160_4AE1A69E0156test_impl*
+ File_Save_Test(aParams);
+ TnsToMSWordOp.Test(aParams);
+//#UC END# *495238EB0160_4AE1A69E0156test_impl*
+end;//_BaseTextOperations_.File_ToMSWord_Test
+
+procedure _BaseTextOperations_.File_ToMSWord_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Экспорт в Word }
+//#UC START# *495238EB0160_4AE1A69E0156exec_var*
+var
+ lExportSelection : Boolean;
+const
+ cMap: array [Boolean] of TnsExportKind = (ekShell, ekActiveWord);
+//#UC END# *495238EB0160_4AE1A69E0156exec_var*
+begin
+//#UC START# *495238EB0160_4AE1A69E0156exec_impl*
+ lExportSelection := Text.HasSelection;
+ // Экспортировать выделенные фрагменты в Word
+ if (lExportSelection) then
+  case MessageDlg(str_ExportSelectionToWord) of
+    -1:
+     // - выделение
+     ;
+    -2:
+     lExportSelection := False;
+    mrCancel:
+     Exit;
+  end;//case MessageDlg(str_ExportSelectionToWord)
+ DocumentExport(cMap[aParams.ItemIndex>1], lExportSelection);
+//#UC END# *495238EB0160_4AE1A69E0156exec_impl*
+end;//_BaseTextOperations_.File_ToMSWord_Execute
+
+procedure _BaseTextOperations_.File_SendMailAsAttachment_Test(const aParams: IvcmTestParamsPrim);
+ {* Послать по e-mail }
+//#UC START# *495253870002_4AE1A69E0156test_var*
+//#UC END# *495253870002_4AE1A69E0156test_var*
+begin
+//#UC START# *495253870002_4AE1A69E0156test_impl*
+ NotEmptyDocumentWithTrialModeTest(aParams);
+//#UC END# *495253870002_4AE1A69E0156test_impl*
+end;//_BaseTextOperations_.File_SendMailAsAttachment_Test
+
+procedure _BaseTextOperations_.File_SendMailAsAttachment_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Послать по e-mail }
+//#UC START# *495253870002_4AE1A69E0156exec_var*
+var
+ l_ExportSelection : Boolean;
+//#UC END# *495253870002_4AE1A69E0156exec_var*
+begin
+//#UC START# *495253870002_4AE1A69E0156exec_impl*
+ l_ExportSelection := Text.HasSelection;
+ // Экспортировать выделенные фрагменты в Word
+ if (l_ExportSelection) then
+  case MessageDlg(str_DocumentEMailSelection) of
+    -1:
+     ; // выделение
+    -2:
+     l_ExportSelection := False;
+    mrCancel:
+     Exit;
+  end;//case MessageDlg(str_DocumentEMailSelection)
+ DocumentExport(ekEMail, l_ExportSelection);
+//#UC END# *495253870002_4AE1A69E0156exec_impl*
+end;//_BaseTextOperations_.File_SendMailAsAttachment_Execute
 
 {$If NOT Defined(NoVCM)}
 procedure _BaseTextOperations_.InitControls;

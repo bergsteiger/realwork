@@ -57,6 +57,7 @@ uses
  , SysUtils
 ;
 
+{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TsdsInternetAgent;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
@@ -70,7 +71,6 @@ begin
 //#UC END# *4A37A70E01DE_49ECA984005Fget_impl*
 end;//TsdsInternetAgent.pm_GetMainViewArea
 
-{$If NOT Defined(NoVCM)}
 procedure TsdsInternetAgent.ClearAreas;
  {* Очищает ссылки на области ввода }
 //#UC START# *4938F7E702B7_49ECA984005F_var*

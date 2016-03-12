@@ -68,6 +68,7 @@ uses
  , deDocInfo
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки Обзор изменений документа }
  str_cnevChangesBetweenEditions: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cnevChangesBetweenEditions'; rValue : 'Обзор изменений документа: ');
@@ -142,6 +143,7 @@ end;//TdsChangesBetweenEditions.ClearFields
 initialization
  str_cnevChangesBetweenEditions.Init;
  {* Инициализация str_cnevChangesBetweenEditions }
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

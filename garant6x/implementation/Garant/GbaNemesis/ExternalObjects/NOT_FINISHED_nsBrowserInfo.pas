@@ -16,6 +16,7 @@ implementation
 uses
  l3ImplUses
  , nsRegistryHelper
+ , l3WinVersionHelper
 ;
 
 end.

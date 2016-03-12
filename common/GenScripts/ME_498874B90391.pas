@@ -11,24 +11,20 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3IntfUses
- , BaseSearchInterfaces
  , DocumentUnit
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , DocumentAndListInterfaces
  , DocumentDomainInterfaces
  , F1TagDataProviderInterface
+ , BaseSearchInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  // Editions
 
  // System
-
- // ModifyLink
-
- // InsertHyperlink
 
  // Selection
 
@@ -38,87 +34,25 @@ type
 
  // Picture
 
- // InText
-
- // GetTypedCorrespondentList
-
- // PrintPreview
-
- // Select
-
- // GetSimilarDocsToBlock
-
  // DocumentBlock
-
- // Corr
-
- // UserCR1
-
- // Corr
-
- // UserCR2
 
  // DocumentBlockHeader
 
  // WarnOnControl
 
- // On
-
- // Off
-
- // TimeMachineOnOff
-
  // TasksPanel
-
- // Drug
-
- // OpenContentsFrmAct
 
  // Document
 
  // ExternalObject
 
- // Hide
-
- // ShowInfo
-
  // WarnRedaction
 
- // Hide
-
- // ShowInfo
-
- // MachineOn
-
- // MachineOff
-
- // TimeMachineOnOffNew
-
  // WarnTimeMachine
-
- // Hide
-
- // ShowInfo
 
  // WarnJuror
 
  // BookmarkIcon
-
- // GarantHidden
-
- // GarantShown
-
- // UserShown
-
- // UserHidden
-
- // Invisible
-
- // VersionShown
-
- // VersionHidden
-
- // HideShow
 
  // UserCommentIcon
 
@@ -126,69 +60,15 @@ type
 
  // Text
 
- // TimeMachineOffAndReset
-
- // ActualRedaction
-
- // TimeMachineOff
-
  // Warning
-
- // RemWarnJuror
-
- // RemWarnTimeMachineOn
-
- // RemWarnRedaction
-
- // RemWarnOnControl
-
- // RemWarnIsAbolished
-
- // RemWarnTimeMachineException
-
- // RemWarnPreActive
-
- // RemWarnTimeMachineWarning
-
- // ViewInactualDocument
 
  // Reminder
 
- // ShowText
-
- // Annotation
-
- // ShowAttributes
-
- // ShowRelated
-
- // ShowUserCRList1
-
- // ShowUserCRList2
-
- // SimilarDocuments
-
  // SynchroView
-
- // OpenNewWindow
-
- // OpenNewTab
 
  // Edition
 
- // Copy
-
  // Attribute
-
- // Resize
-
- // Enlarge
-
- // Shrink
-
- // ActualSize
-
- // FitInWIndow
 
  // Picture
 
@@ -196,39 +76,19 @@ type
 
  // DocumentSubPanel
 
- // DoCompareEditions
-
- // BuildChangedFragments
-
  // Editions
 
  // DocumentBlockBookmarks
 
- // GoToIntranet
-
  // IntranetSourcePoint
-
- // Open
-
- // OpenNewWindow
-
- // OpenNewTab
 
  // Picture
 
- // ChangesButton
-
  // Document
-
- // CopySubNumber
 
  // SubsPanel
 
  // BaseSearchPresentationHolder
-
- // SelectWord
-
- // SelectPara
 
  // Text
 

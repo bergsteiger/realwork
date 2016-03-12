@@ -28,7 +28,7 @@ type
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-  public
+  published
    procedure DoIt;
  end;//TEmptyFormTest
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
@@ -47,6 +47,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NotTunedDUnit)}
 {$Include w:\common\components\gui\Garant\Daily\FormProducer.imp.pas}
 
 procedure TEmptyFormTest.DoIt;
@@ -88,6 +89,7 @@ function TEmptyFormTest.GetModelElementGUID: AnsiString;
 begin
  Result := '51D5285300B7';
 end;//TEmptyFormTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 end.

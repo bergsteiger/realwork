@@ -60,7 +60,8 @@ type
    function DoGetTabCaption: IvcmCString; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   procedure ShowSplitter; override;
+   procedure Common_ShowSplitter_Execute;
+   procedure Common_ShowSplitter(const aParams: IvcmExecuteParamsPrim);
    {$If NOT Defined(NoVCM)}
    procedure NotifyUserTypeSet; override;
    {$IfEnd} // NOT Defined(NoVCM)
@@ -88,6 +89,9 @@ uses
  , SearchLite_Strange_Controls
  , PrimPrimListInterfaces
  , bsTypes
+ , eeInterfaces
+ , nsTypes
+ , FiltersUnit
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
@@ -123,14 +127,22 @@ begin
 //#UC END# *4D7F8B4A0214_4D7A69F9028C_impl*
 end;//TPrimDictionContainerForm.ChildZoneQueryResize
 
-procedure TPrimDictionContainerForm.ShowSplitter;
-//#UC START# *4AE8744002F3_4D7A69F9028C_var*
-//#UC END# *4AE8744002F3_4D7A69F9028C_var*
+procedure TPrimDictionContainerForm.Common_ShowSplitter_Execute;
+//#UC START# *4AE8744002F3_4D7A69F9028Cexec_var*
+//#UC END# *4AE8744002F3_4D7A69F9028Cexec_var*
 begin
-//#UC START# *4AE8744002F3_4D7A69F9028C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE8744002F3_4D7A69F9028C_impl*
-end;//TPrimDictionContainerForm.ShowSplitter
+//#UC START# *4AE8744002F3_4D7A69F9028Cexec_impl*
+ if aVisible then
+  ChildZone.SizeableSides := [szTop]
+ else
+  ChildZone.SizeableSides := [];
+//#UC END# *4AE8744002F3_4D7A69F9028Cexec_impl*
+end;//TPrimDictionContainerForm.Common_ShowSplitter_Execute
+
+procedure TPrimDictionContainerForm.Common_ShowSplitter(const aParams: IvcmExecuteParamsPrim);
+begin
+ Self.Common_ShowSplitter_Execute;
+end;//TPrimDictionContainerForm.Common_ShowSplitter
 
 {$If NOT Defined(NoVCM)}
 procedure TPrimDictionContainerForm.InitControls;

@@ -42,7 +42,7 @@ type
    function OutputFolderName: AnsiString; override;
     {* Папка, в которую пишутся выходные файлы. }
    {$IfEnd} // NOT Defined(NotTunedDUnit)
-  public
+  published
    procedure DoExport;
     {* Собственно, экспорт }
   public

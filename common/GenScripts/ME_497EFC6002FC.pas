@@ -88,27 +88,41 @@ type
    procedure ClearFields; override;
   public
    {$If NOT Defined(NoVCM)}
-   procedure OkExt; override;
+   procedure Result_OkExt_Test(const aParams: IvcmTestParamsPrim);
     {* OK }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
-    {* Отмена }
-   {$IfEnd} // NOT Defined(NoVCM)
-   function GetQuery: TnsQueryInfo; override;
-   function IsQuerySaved: Boolean; override;
-   procedure SetQuery; override;
-   procedure SetRoot; override;
-   procedure ClearQuery; override;
-   procedure ClearAll; override;
-   {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
-    {* Отмена }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure OkExt; override;
+   procedure Result_OkExt_Execute(const aParams: IvcmExecuteParamsPrim);
     {* OK }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_OkExt_GetState(var State: TvcmOperationStateIndex);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_GetState(var State: TvcmOperationStateIndex);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   function SearchParameters_GetQuery_Execute(aIgnoreError: Boolean = False): TnsQueryInfo;
+   procedure SearchParameters_GetQuery(const aParams: IvcmExecuteParamsPrim);
+   function SearchParameters_IsQuerySaved_Execute: Boolean;
+   procedure SearchParameters_IsQuerySaved(const aParams: IvcmExecuteParamsPrim);
+   procedure SearchParameters_SetQuery_Execute(const aQuery: IQuery);
+   procedure SearchParameters_SetQuery(const aParams: IvcmExecuteParamsPrim);
+   procedure AttributeTree_SetRoot_Execute(const aTag: Il3CString);
+   procedure AttributeTree_SetRoot(const aParams: IvcmExecuteParamsPrim);
+   procedure SearchParameters_ClearQuery_Execute;
+   procedure SearchParameters_ClearQuery(const aParams: IvcmExecuteParamsPrim);
+   procedure Result_ClearAll_Test(const aParams: IvcmTestParamsPrim);
+   procedure Result_ClearAll_Execute(const aParams: IvcmExecuteParamsPrim);
   protected
    {$If NOT Defined(Admin)}
    property FormState: InsQueryFormState
@@ -264,106 +278,204 @@ end;//TPrimAttributeSelectForm.GetFormState
 {$IfEnd} // NOT Defined(Admin)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimAttributeSelectForm.OkExt;
+procedure TPrimAttributeSelectForm.Result_OkExt_Test(const aParams: IvcmTestParamsPrim);
  {* OK }
-//#UC START# *4A8AD47D0357_497EFC6002FC_var*
-//#UC END# *4A8AD47D0357_497EFC6002FC_var*
+//#UC START# *4A8AD47D0357_497EFC6002FCtest_var*
+//#UC END# *4A8AD47D0357_497EFC6002FCtest_var*
 begin
-//#UC START# *4A8AD47D0357_497EFC6002FC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A8AD47D0357_497EFC6002FC_impl*
-end;//TPrimAttributeSelectForm.OkExt
+//#UC START# *4A8AD47D0357_497EFC6002FCtest_impl*
+ // - ничего не делаем
+//#UC END# *4A8AD47D0357_497EFC6002FCtest_impl*
+end;//TPrimAttributeSelectForm.Result_OkExt_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimAttributeSelectForm.Cancel;
- {* Отмена }
-//#UC START# *4AC5D61E0284_497EFC6002FC_var*
-//#UC END# *4AC5D61E0284_497EFC6002FC_var*
-begin
-//#UC START# *4AC5D61E0284_497EFC6002FC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AC5D61E0284_497EFC6002FC_impl*
-end;//TPrimAttributeSelectForm.Cancel
-{$IfEnd} // NOT Defined(NoVCM)
-
-function TPrimAttributeSelectForm.GetQuery: TnsQueryInfo;
-//#UC START# *4AE884E803AA_497EFC6002FC_var*
-//#UC END# *4AE884E803AA_497EFC6002FC_var*
-begin
-//#UC START# *4AE884E803AA_497EFC6002FC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE884E803AA_497EFC6002FC_impl*
-end;//TPrimAttributeSelectForm.GetQuery
-
-function TPrimAttributeSelectForm.IsQuerySaved: Boolean;
-//#UC START# *4AE8A577027D_497EFC6002FC_var*
-//#UC END# *4AE8A577027D_497EFC6002FC_var*
-begin
-//#UC START# *4AE8A577027D_497EFC6002FC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE8A577027D_497EFC6002FC_impl*
-end;//TPrimAttributeSelectForm.IsQuerySaved
-
-procedure TPrimAttributeSelectForm.SetQuery;
-//#UC START# *4AEF213001F0_497EFC6002FC_var*
-//#UC END# *4AEF213001F0_497EFC6002FC_var*
-begin
-//#UC START# *4AEF213001F0_497EFC6002FC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AEF213001F0_497EFC6002FC_impl*
-end;//TPrimAttributeSelectForm.SetQuery
-
-procedure TPrimAttributeSelectForm.SetRoot;
-//#UC START# *4AF3EBC001C4_497EFC6002FC_var*
-//#UC END# *4AF3EBC001C4_497EFC6002FC_var*
-begin
-//#UC START# *4AF3EBC001C4_497EFC6002FC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF3EBC001C4_497EFC6002FC_impl*
-end;//TPrimAttributeSelectForm.SetRoot
-
-procedure TPrimAttributeSelectForm.ClearQuery;
-//#UC START# *4AF92B09017F_497EFC6002FC_var*
-//#UC END# *4AF92B09017F_497EFC6002FC_var*
-begin
-//#UC START# *4AF92B09017F_497EFC6002FC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF92B09017F_497EFC6002FC_impl*
-end;//TPrimAttributeSelectForm.ClearQuery
-
-procedure TPrimAttributeSelectForm.ClearAll;
-//#UC START# *4C2DFEE000BA_497EFC6002FC_var*
-//#UC END# *4C2DFEE000BA_497EFC6002FC_var*
-begin
-//#UC START# *4C2DFEE000BA_497EFC6002FC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C2DFEE000BA_497EFC6002FC_impl*
-end;//TPrimAttributeSelectForm.ClearAll
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimAttributeSelectForm.Cancel;
- {* Отмена }
-//#UC START# *4C762C910358_497EFC6002FC_var*
-//#UC END# *4C762C910358_497EFC6002FC_var*
-begin
-//#UC START# *4C762C910358_497EFC6002FC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762C910358_497EFC6002FC_impl*
-end;//TPrimAttributeSelectForm.Cancel
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimAttributeSelectForm.OkExt;
+procedure TPrimAttributeSelectForm.Result_OkExt_Execute(const aParams: IvcmExecuteParamsPrim);
  {* OK }
-//#UC START# *4C762D9B0224_497EFC6002FC_var*
-//#UC END# *4C762D9B0224_497EFC6002FC_var*
+//#UC START# *4A8AD47D0357_497EFC6002FCexec_var*
+//#UC END# *4A8AD47D0357_497EFC6002FCexec_var*
 begin
-//#UC START# *4C762D9B0224_497EFC6002FC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762D9B0224_497EFC6002FC_impl*
-end;//TPrimAttributeSelectForm.OkExt
+//#UC START# *4A8AD47D0357_497EFC6002FCexec_impl*
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=290259092
+ // if not (UserType in [utAttributeSelect]) then // отключаем условие, а то http://mdp.garant.ru/pages/viewpage.action?pageId=327812892
+ Op_AttributeTree_AddNodeIfEmpty.Call(Aggregate);
+
+ ModalResult := mrOk;
+//#UC END# *4A8AD47D0357_497EFC6002FCexec_impl*
+end;//TPrimAttributeSelectForm.Result_OkExt_Execute
 {$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimAttributeSelectForm.Result_OkExt_GetState(var State: TvcmOperationStateIndex);
+ {* OK }
+//#UC START# *4A8AD47D0357_497EFC6002FCgetstate_var*
+//#UC END# *4A8AD47D0357_497EFC6002FCgetstate_var*
+begin
+//#UC START# *4A8AD47D0357_497EFC6002FCgetstate_impl*
+ State := st_user_Result_OkExt_AttributesSelect
+//#UC END# *4A8AD47D0357_497EFC6002FCgetstate_impl*
+end;//TPrimAttributeSelectForm.Result_OkExt_GetState
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimAttributeSelectForm.Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
+ {* Отмена }
+//#UC START# *4AC5D61E0284_497EFC6002FCtest_var*
+//#UC END# *4AC5D61E0284_497EFC6002FCtest_var*
+begin
+//#UC START# *4AC5D61E0284_497EFC6002FCtest_impl*
+ // - ничего не делаем
+//#UC END# *4AC5D61E0284_497EFC6002FCtest_impl*
+end;//TPrimAttributeSelectForm.Result_Cancel_Test
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimAttributeSelectForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отмена }
+//#UC START# *4AC5D61E0284_497EFC6002FCexec_var*
+//#UC END# *4AC5D61E0284_497EFC6002FCexec_var*
+begin
+//#UC START# *4AC5D61E0284_497EFC6002FCexec_impl*
+ ModalResult := mrCancel;
+//#UC END# *4AC5D61E0284_497EFC6002FCexec_impl*
+end;//TPrimAttributeSelectForm.Result_Cancel_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimAttributeSelectForm.Result_Cancel_GetState(var State: TvcmOperationStateIndex);
+ {* Отмена }
+//#UC START# *4AC5D61E0284_497EFC6002FCgetstate_var*
+//#UC END# *4AC5D61E0284_497EFC6002FCgetstate_var*
+begin
+//#UC START# *4AC5D61E0284_497EFC6002FCgetstate_impl*
+ // - ничего не делаем
+//#UC END# *4AC5D61E0284_497EFC6002FCgetstate_impl*
+end;//TPrimAttributeSelectForm.Result_Cancel_GetState
+{$IfEnd} // NOT Defined(NoVCM)
+
+function TPrimAttributeSelectForm.SearchParameters_GetQuery_Execute(aIgnoreError: Boolean = False): TnsQueryInfo;
+//#UC START# *4AE884E803AA_497EFC6002FCexec_var*
+//#UC END# *4AE884E803AA_497EFC6002FCexec_var*
+begin
+//#UC START# *4AE884E803AA_497EFC6002FCexec_impl*
+ {$If not Defined(Admin)}
+ l3FillChar(Result, SizeOf(Result));
+ if (GetFormState.Query <> nil) then
+  GetFormState.Query.Clear;
+ Result.rQuery := FillQuery;
+ Result.rAskFilters := true;
+ {$Else}
+ Assert(false);
+ {$IfEnd}
+//#UC END# *4AE884E803AA_497EFC6002FCexec_impl*
+end;//TPrimAttributeSelectForm.SearchParameters_GetQuery_Execute
+
+procedure TPrimAttributeSelectForm.SearchParameters_GetQuery(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As ISearchParameters_GetQuery_Params) do
+  ResultValue := Self.SearchParameters_GetQuery_Execute(IgnoreError);
+end;//TPrimAttributeSelectForm.SearchParameters_GetQuery
+
+function TPrimAttributeSelectForm.SearchParameters_IsQuerySaved_Execute: Boolean;
+//#UC START# *4AE8A577027D_497EFC6002FCexec_var*
+//#UC END# *4AE8A577027D_497EFC6002FCexec_var*
+begin
+//#UC START# *4AE8A577027D_497EFC6002FCexec_impl*
+ {$If not Defined(Admin)}
+ Result := //nsIsQuerySaved(GetFormState.Query);
+           TtasSaveLoadProxy.Instance.IsQuerySaved(GetFormState.Query);
+ {$Else}
+ Result := false;
+ Assert(false);
+ {$IfEnd}
+//#UC END# *4AE8A577027D_497EFC6002FCexec_impl*
+end;//TPrimAttributeSelectForm.SearchParameters_IsQuerySaved_Execute
+
+procedure TPrimAttributeSelectForm.SearchParameters_IsQuerySaved(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As ISearchParameters_IsQuerySaved_Params) do
+  ResultValue := Self.SearchParameters_IsQuerySaved_Execute;
+end;//TPrimAttributeSelectForm.SearchParameters_IsQuerySaved
+
+procedure TPrimAttributeSelectForm.SearchParameters_SetQuery_Execute(const aQuery: IQuery);
+//#UC START# *4AEF213001F0_497EFC6002FCexec_var*
+//#UC END# *4AEF213001F0_497EFC6002FCexec_var*
+begin
+//#UC START# *4AEF213001F0_497EFC6002FCexec_impl*
+ {$If not Defined(Admin)}
+ GetFormState.Query := nil;
+
+ // Очищаем текущие выбранные значения
+ Op_AttributeTree_DropAllLogicSelection.Call(Aggregate, True, True);
+
+ if (aQuery <> nil) then
+ begin
+  GetFormState.Query := aQuery;
+  // Заполняем список выбранных значений из Query
+  op_AttributeTree_LoadQuery.Call(Aggregate, GetFormState.Query);
+ end;//aQuery <> nil
+ {$Else}
+ Assert(false);
+ {$IfEnd}
+//#UC END# *4AEF213001F0_497EFC6002FCexec_impl*
+end;//TPrimAttributeSelectForm.SearchParameters_SetQuery_Execute
+
+procedure TPrimAttributeSelectForm.SearchParameters_SetQuery(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As ISearchParameters_SetQuery_Params) do
+  Self.SearchParameters_SetQuery_Execute(Query);
+end;//TPrimAttributeSelectForm.SearchParameters_SetQuery
+
+procedure TPrimAttributeSelectForm.AttributeTree_SetRoot_Execute(const aTag: Il3CString);
+//#UC START# *4AF3EBC001C4_497EFC6002FCexec_var*
+//#UC END# *4AF3EBC001C4_497EFC6002FCexec_var*
+begin
+//#UC START# *4AF3EBC001C4_497EFC6002FCexec_impl*
+ {$ifndef admin}
+ GetFormState.Tag := aTag;
+ {$endif}
+ if (UserType = utAttributeSelect) then
+  CCaption := nsGetCaption(TnsAttributeTreeCacheNew.Instance.AttributeRoot[aTag]);
+//#UC END# *4AF3EBC001C4_497EFC6002FCexec_impl*
+end;//TPrimAttributeSelectForm.AttributeTree_SetRoot_Execute
+
+procedure TPrimAttributeSelectForm.AttributeTree_SetRoot(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IAttributeTree_SetRoot_Params) do
+  Self.AttributeTree_SetRoot_Execute(Tag);
+end;//TPrimAttributeSelectForm.AttributeTree_SetRoot
+
+procedure TPrimAttributeSelectForm.SearchParameters_ClearQuery_Execute;
+//#UC START# *4AF92B09017F_497EFC6002FCexec_var*
+//#UC END# *4AF92B09017F_497EFC6002FCexec_var*
+begin
+//#UC START# *4AF92B09017F_497EFC6002FCexec_impl*
+ Op_AttributeTree_DropAllLogicSelection.Call(Aggregate, True, True, False);
+//#UC END# *4AF92B09017F_497EFC6002FCexec_impl*
+end;//TPrimAttributeSelectForm.SearchParameters_ClearQuery_Execute
+
+procedure TPrimAttributeSelectForm.SearchParameters_ClearQuery(const aParams: IvcmExecuteParamsPrim);
+begin
+ Self.SearchParameters_ClearQuery_Execute;
+end;//TPrimAttributeSelectForm.SearchParameters_ClearQuery
+
+procedure TPrimAttributeSelectForm.Result_ClearAll_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C2DFEE000BA_497EFC6002FCtest_var*
+//#UC END# *4C2DFEE000BA_497EFC6002FCtest_var*
+begin
+//#UC START# *4C2DFEE000BA_497EFC6002FCtest_impl*
+ // - ничего не делаем
+//#UC END# *4C2DFEE000BA_497EFC6002FCtest_impl*
+end;//TPrimAttributeSelectForm.Result_ClearAll_Test
+
+procedure TPrimAttributeSelectForm.Result_ClearAll_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C2DFEE000BA_497EFC6002FCexec_var*
+//#UC END# *4C2DFEE000BA_497EFC6002FCexec_var*
+begin
+//#UC START# *4C2DFEE000BA_497EFC6002FCexec_impl*
+ Op_AttributeTree_DropAllLogicSelection.Call(Aggregate, True, True, False);
+//#UC END# *4C2DFEE000BA_497EFC6002FCexec_impl*
+end;//TPrimAttributeSelectForm.Result_ClearAll_Execute
 
 procedure TPrimAttributeSelectForm.Cleanup;
  {* Функция очистки полей объекта. }

@@ -20,7 +20,7 @@ type
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-  public
+  published
    procedure DoIt;
  end;//TLongintListTest
 {$IfEnd} // Defined(nsTest)
@@ -36,6 +36,7 @@ uses
  , TestFrameWork
 ;
 
+{$If NOT Defined(NotTunedDUnit)}
 procedure TLongintListTest.DoIt;
 //#UC START# *515D7BE60141_515D7BB10393_var*
 const
@@ -81,6 +82,7 @@ end;//TLongintListTest.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(TLongintListTest.Suite);
-{$IfEnd} // Defined(nsTest)
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
+{$IfEnd} // Defined(nsTest)
 end.

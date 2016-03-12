@@ -20,7 +20,7 @@ type
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-  public
+  published
    procedure LoadGK;
     {* Загрузка ГК }
    procedure LoadBigTableFromTextEVD;

@@ -29,6 +29,7 @@ uses
  , tc6PublicInfo
 ;
 
+{$If NOT Defined(NoVCL)}
 function TMenuItem_Get_Caption(Self: TMenuItem): AnsiString;
 //#UC START# *49A3EA0603D1_499AF24802D2get_var*
 //#UC END# *49A3EA0603D1_499AF24802D2get_var*
@@ -329,6 +330,7 @@ end;
 initialization
  _RegisterPublicInformation5;
  _RegisterPublicInformation6;
-{$IfEnd} // NOT Defined(XE)
+{$IfEnd} // NOT Defined(NoVCL)
 
+{$IfEnd} // NOT Defined(XE)
 end.

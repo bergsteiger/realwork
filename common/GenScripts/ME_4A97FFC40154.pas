@@ -16,28 +16,6 @@ uses
 type
  // Result
 
- // None
-
- // NewFolder
-
- // Edit
-
- // Load
-
- // Select
-
- // FolderSave
-
- // Ok
-
- // Bookmark
-
- // List
-
- // Query
-
- // Append
-
  // ResultExt
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 

@@ -126,25 +126,45 @@ type
   public
    class function MakeSingleChild(aIsFilter: Boolean): File; reintroduce;
    {$If NOT Defined(NoVCM)}
-   procedure PrintDialog; override;
+   procedure File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
     {* Печать... }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure PrintPreview; override;
+   procedure File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Печать... }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
     {* Предварительный просмотр }
    {$IfEnd} // NOT Defined(NoVCM)
-   function IsQueryEmpty: Boolean; override;
-   function GetQuery: TnsQueryInfo; override;
-   function IsQuerySaved: Boolean; override;
-   procedure SetQuery; override;
-   procedure ClearQuery; override;
-   procedure QueryNotSaved; override;
-   procedure ClearMistakes; override;
-   procedure QuerySaved; override;
-   procedure ExpandCollapse; override;
-   procedure DeleteAll; override;
-   procedure CreateAttr; override;
-   procedure OpenTreeSelection; override;
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Предварительный просмотр }
+   {$IfEnd} // NOT Defined(NoVCM)
+   function SearchParameters_IsQueryEmpty_Execute: Boolean;
+   procedure SearchParameters_IsQueryEmpty(const aParams: IvcmExecuteParamsPrim);
+   function SearchParameters_GetQuery_Execute(aIgnoreError: Boolean = False): TnsQueryInfo;
+   procedure SearchParameters_GetQuery(const aParams: IvcmExecuteParamsPrim);
+   function SearchParameters_IsQuerySaved_Execute: Boolean;
+   procedure SearchParameters_IsQuerySaved(const aParams: IvcmExecuteParamsPrim);
+   procedure SearchParameters_SetQuery_Execute(const aQuery: IQuery);
+   procedure SearchParameters_SetQuery(const aParams: IvcmExecuteParamsPrim);
+   procedure SearchParameters_ClearQuery_Execute;
+   procedure SearchParameters_ClearQuery(const aParams: IvcmExecuteParamsPrim);
+   procedure SearchParameter_QueryNotSaved_Execute;
+   procedure SearchParameter_QueryNotSaved(const aParams: IvcmExecuteParamsPrim);
+   procedure SearchParameter_ClearMistakes_Execute;
+   procedure SearchParameter_ClearMistakes(const aParams: IvcmExecuteParamsPrim);
+   procedure SearchParameter_QuerySaved_Execute;
+   procedure SearchParameter_QuerySaved(const aParams: IvcmExecuteParamsPrim);
+   procedure CardOperation_ExpandCollapse_Test(const aParams: IvcmTestParamsPrim);
+   procedure CardOperation_ExpandCollapse_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure CardOperation_DeleteAll_Test(const aParams: IvcmTestParamsPrim);
+   procedure CardOperation_DeleteAll_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure CardOperation_CreateAttr_Test(const aParams: IvcmTestParamsPrim);
+   procedure CardOperation_CreateAttr_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure CardOperation_OpenTreeSelection_Test(const aParams: IvcmTestParamsPrim);
+   procedure CardOperation_OpenTreeSelection_Execute(const aParams: IvcmExecuteParamsPrim);
   public
    property Editor: TevQueryCardEditor
     read f_Editor;
@@ -911,136 +931,392 @@ begin
 end;//TPrimQueryCardForm.vcmEntityFormSaveState
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimQueryCardForm.PrintDialog;
+procedure TPrimQueryCardForm.File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
  {* Печать... }
-//#UC START# *495220DE0298_497EBA4301CA_var*
-//#UC END# *495220DE0298_497EBA4301CA_var*
+//#UC START# *495220DE0298_497EBA4301CAtest_var*
+//#UC END# *495220DE0298_497EBA4301CAtest_var*
 begin
-//#UC START# *495220DE0298_497EBA4301CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495220DE0298_497EBA4301CA_impl*
-end;//TPrimQueryCardForm.PrintDialog
+//#UC START# *495220DE0298_497EBA4301CAtest_impl*
+ File_PrintPreview_Test(aParams);
+ {$IFNDEF Admin}
+ if UserType = utqcPostingOrder then
+  if aParams.Op.Flag[vcm_ofEnabled] then
+   if (afw.Application = nil) OR (afw.Application.PrintManager = nil) OR
+      not afw.Application.PrintManager.CanPrint then
+    aParams.Op.Flag[vcm_ofEnabled] := false;
+ {$ENDIF Admin}
+//#UC END# *495220DE0298_497EBA4301CAtest_impl*
+end;//TPrimQueryCardForm.File_PrintDialog_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimQueryCardForm.PrintPreview;
- {* Предварительный просмотр }
-//#UC START# *495220F2033A_497EBA4301CA_var*
-//#UC END# *495220F2033A_497EBA4301CA_var*
+procedure TPrimQueryCardForm.File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Печать... }
+//#UC START# *495220DE0298_497EBA4301CAexec_var*
+//#UC END# *495220DE0298_497EBA4301CAexec_var*
 begin
-//#UC START# *495220F2033A_497EBA4301CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495220F2033A_497EBA4301CA_impl*
-end;//TPrimQueryCardForm.PrintPreview
+//#UC START# *495220DE0298_497EBA4301CAexec_impl*
+ {$IFNDEF Admin}
+ if CheckQuery then
+  if (afw.Application <> nil) and (afw.Application.PrintManager <> nil) then
+   afw.Application.PrintManager.PrintDialog(MakePreview);
+ {$ENDIF Admin}
+//#UC END# *495220DE0298_497EBA4301CAexec_impl*
+end;//TPrimQueryCardForm.File_PrintDialog_Execute
 {$IfEnd} // NOT Defined(NoVCM)
 
-function TPrimQueryCardForm.IsQueryEmpty: Boolean;
-//#UC START# *4AE879D00143_497EBA4301CA_var*
-//#UC END# *4AE879D00143_497EBA4301CA_var*
+{$If NOT Defined(NoVCM)}
+procedure TPrimQueryCardForm.File_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
+ {* Предварительный просмотр }
+//#UC START# *495220F2033A_497EBA4301CAtest_var*
+//#UC END# *495220F2033A_497EBA4301CAtest_var*
 begin
-//#UC START# *4AE879D00143_497EBA4301CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE879D00143_497EBA4301CA_impl*
-end;//TPrimQueryCardForm.IsQueryEmpty
+//#UC START# *495220F2033A_497EBA4301CAtest_impl*
+ {$IFNDEF Admin}
+ if UserType = utqcPostingOrder then
+ begin
+  if aParams.Op.Flag[vcm_ofEnabled] then
+   aParams.Op.Flag[vcm_ofEnabled] := (UserType = utqcPostingOrder) and
+    (Printer.Printers.Count > 0);
+ end
+ else
+  aParams.Op.Flag[vcm_ofEnabled] := False;
+ {$ELSE Admin}
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+ {$ENDIF Admin}
+//#UC END# *495220F2033A_497EBA4301CAtest_impl*
+end;//TPrimQueryCardForm.File_PrintPreview_Test
+{$IfEnd} // NOT Defined(NoVCM)
 
-function TPrimQueryCardForm.GetQuery: TnsQueryInfo;
-//#UC START# *4AE884E803AA_497EBA4301CA_var*
-//#UC END# *4AE884E803AA_497EBA4301CA_var*
+{$If NOT Defined(NoVCM)}
+procedure TPrimQueryCardForm.File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Предварительный просмотр }
+//#UC START# *495220F2033A_497EBA4301CAexec_var*
+//#UC END# *495220F2033A_497EBA4301CAexec_var*
 begin
-//#UC START# *4AE884E803AA_497EBA4301CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE884E803AA_497EBA4301CA_impl*
-end;//TPrimQueryCardForm.GetQuery
+//#UC START# *495220F2033A_497EBA4301CAexec_impl*
+ {$IFNDEF Admin}
+ if CheckQuery then
+  if (afw.Application <> nil) AND (afw.Application.PrintManager <> nil) then
+  begin
+   TnsPostingsTreeSingle.Instance.OldModifed := f_MgrSearch.Modified;
+   afw.Application.PrintManager.ShowPreview(MakePreview);
+  end;
+ {$ENDIF Admin}
+//#UC END# *495220F2033A_497EBA4301CAexec_impl*
+end;//TPrimQueryCardForm.File_PrintPreview_Execute
+{$IfEnd} // NOT Defined(NoVCM)
 
-function TPrimQueryCardForm.IsQuerySaved: Boolean;
-//#UC START# *4AE8A577027D_497EBA4301CA_var*
-//#UC END# *4AE8A577027D_497EBA4301CA_var*
+function TPrimQueryCardForm.SearchParameters_IsQueryEmpty_Execute: Boolean;
+//#UC START# *4AE879D00143_497EBA4301CAexec_var*
+//#UC END# *4AE879D00143_497EBA4301CAexec_var*
 begin
-//#UC START# *4AE8A577027D_497EBA4301CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE8A577027D_497EBA4301CA_impl*
-end;//TPrimQueryCardForm.IsQuerySaved
+//#UC START# *4AE879D00143_497EBA4301CAexec_impl*
+ Result := not f_MgrSearch.IsSomeFieldFilled(True);
+//#UC END# *4AE879D00143_497EBA4301CAexec_impl*
+end;//TPrimQueryCardForm.SearchParameters_IsQueryEmpty_Execute
 
-procedure TPrimQueryCardForm.SetQuery;
-//#UC START# *4AEF213001F0_497EBA4301CA_var*
-//#UC END# *4AEF213001F0_497EBA4301CA_var*
+procedure TPrimQueryCardForm.SearchParameters_IsQueryEmpty(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4AEF213001F0_497EBA4301CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AEF213001F0_497EBA4301CA_impl*
-end;//TPrimQueryCardForm.SetQuery
+ with (aParams.Data As ISearchParameters_IsQueryEmpty_Params) do
+  ResultValue := Self.SearchParameters_IsQueryEmpty_Execute;
+end;//TPrimQueryCardForm.SearchParameters_IsQueryEmpty
 
-procedure TPrimQueryCardForm.ClearQuery;
-//#UC START# *4AF92B09017F_497EBA4301CA_var*
-//#UC END# *4AF92B09017F_497EBA4301CA_var*
+function TPrimQueryCardForm.SearchParameters_GetQuery_Execute(aIgnoreError: Boolean = False): TnsQueryInfo;
+//#UC START# *4AE884E803AA_497EBA4301CAexec_var*
+//#UC END# *4AE884E803AA_497EBA4301CAexec_var*
 begin
-//#UC START# *4AF92B09017F_497EBA4301CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF92B09017F_497EBA4301CA_impl*
-end;//TPrimQueryCardForm.ClearQuery
+//#UC START# *4AE884E803AA_497EBA4301CAexec_impl*
+ l3FillChar(Result, SizeOf(Result));
+ try
+  Result.rIsQueryForFilter := f_IsFilter;
+  f_MgrSearch.Save(aIgnoreError);
+  if (f_MgrSearch.QueryCard.CardType = ev_qtConsultations) then
+  begin
+   SaveConsultationCreditnails;
+   if (dsQuery <> nil) then
+    dsQuery.IsQuerySaved := True;
+   f_MgrSearch.Modified := False;
+  end;//f_MgrSearch.QueryCard.CardType = ev_qtConsultations
+ except
+  on E: EqaException do
+  begin
+   HandleException(E);
+   Result.rHasErrors := true;
+  end;//on E: EqaException
+ end;//try..except
 
-procedure TPrimQueryCardForm.QueryNotSaved;
-//#UC START# *4AF9370C012B_497EBA4301CA_var*
-//#UC END# *4AF9370C012B_497EBA4301CA_var*
-begin
-//#UC START# *4AF9370C012B_497EBA4301CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF9370C012B_497EBA4301CA_impl*
-end;//TPrimQueryCardForm.QueryNotSaved
+ if not Result.rHasErrors then
+ begin
+  Result.rQuery := f_MgrSearch.Query;
+  afw.ProcessMessages;
+ end;//not Result.rHasErrors
+ 
+ Result.rAskFilters := true;
+//#UC END# *4AE884E803AA_497EBA4301CAexec_impl*
+end;//TPrimQueryCardForm.SearchParameters_GetQuery_Execute
 
-procedure TPrimQueryCardForm.ClearMistakes;
-//#UC START# *4AF9373C02B6_497EBA4301CA_var*
-//#UC END# *4AF9373C02B6_497EBA4301CA_var*
+procedure TPrimQueryCardForm.SearchParameters_GetQuery(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4AF9373C02B6_497EBA4301CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF9373C02B6_497EBA4301CA_impl*
-end;//TPrimQueryCardForm.ClearMistakes
+ with (aParams.Data As ISearchParameters_GetQuery_Params) do
+  ResultValue := Self.SearchParameters_GetQuery_Execute(IgnoreError);
+end;//TPrimQueryCardForm.SearchParameters_GetQuery
 
-procedure TPrimQueryCardForm.QuerySaved;
-//#UC START# *4AF9393802B0_497EBA4301CA_var*
-//#UC END# *4AF9393802B0_497EBA4301CA_var*
+function TPrimQueryCardForm.SearchParameters_IsQuerySaved_Execute: Boolean;
+//#UC START# *4AE8A577027D_497EBA4301CAexec_var*
+//#UC END# *4AE8A577027D_497EBA4301CAexec_var*
 begin
-//#UC START# *4AF9393802B0_497EBA4301CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF9393802B0_497EBA4301CA_impl*
-end;//TPrimQueryCardForm.QuerySaved
+//#UC START# *4AE8A577027D_497EBA4301CAexec_impl*
+ if Assigned(f_MgrSearch) then
+  Result := nsIsQuerySaved(f_MgrSearch.Query)
+ else
+  Result := false; 
+//#UC END# *4AE8A577027D_497EBA4301CAexec_impl*
+end;//TPrimQueryCardForm.SearchParameters_IsQuerySaved_Execute
 
-procedure TPrimQueryCardForm.ExpandCollapse;
-//#UC START# *4C2E116E0315_497EBA4301CA_var*
-//#UC END# *4C2E116E0315_497EBA4301CA_var*
+procedure TPrimQueryCardForm.SearchParameters_IsQuerySaved(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4C2E116E0315_497EBA4301CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C2E116E0315_497EBA4301CA_impl*
-end;//TPrimQueryCardForm.ExpandCollapse
+ with (aParams.Data As ISearchParameters_IsQuerySaved_Params) do
+  ResultValue := Self.SearchParameters_IsQuerySaved_Execute;
+end;//TPrimQueryCardForm.SearchParameters_IsQuerySaved
 
-procedure TPrimQueryCardForm.DeleteAll;
-//#UC START# *4C2E117F022C_497EBA4301CA_var*
-//#UC END# *4C2E117F022C_497EBA4301CA_var*
+procedure TPrimQueryCardForm.SearchParameters_SetQuery_Execute(const aQuery: IQuery);
+//#UC START# *4AEF213001F0_497EBA4301CAexec_var*
+//#UC END# *4AEF213001F0_497EBA4301CAexec_var*
 begin
-//#UC START# *4C2E117F022C_497EBA4301CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C2E117F022C_497EBA4301CA_impl*
-end;//TPrimQueryCardForm.DeleteAll
+//#UC START# *4AEF213001F0_497EBA4301CAexec_impl*
+ Editor.TextSource.Lock(Self);
+ try
+  if (aQuery <> nil) then
+  begin
+   f_MgrSearch.Query := aQuery;
+   {$IFDEF Monitorings}
+   f_MgrSearch.Modified := False;
+   CCaption := vcmCStr(str_ChangePrivateNewsLine);
+   {$ENDIF Monitorings}
+  end//aQuery <> nil
+  else
+  begin
+   {$IFDEF Monitorings}
+   f_MgrSearch.Modified := False;
+   CCaption := vcmCStr(str_CreatePrivateNewsLine);
+   {$ENDIF Monitorings}
+  end;//aQuery <> nil
+ finally
+  Editor.TextSource.UnLock(Self); 
+ end;//try..finally 
+//#UC END# *4AEF213001F0_497EBA4301CAexec_impl*
+end;//TPrimQueryCardForm.SearchParameters_SetQuery_Execute
 
-procedure TPrimQueryCardForm.CreateAttr;
-//#UC START# *4C2E118B010B_497EBA4301CA_var*
-//#UC END# *4C2E118B010B_497EBA4301CA_var*
+procedure TPrimQueryCardForm.SearchParameters_SetQuery(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4C2E118B010B_497EBA4301CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C2E118B010B_497EBA4301CA_impl*
-end;//TPrimQueryCardForm.CreateAttr
+ with (aParams.Data As ISearchParameters_SetQuery_Params) do
+  Self.SearchParameters_SetQuery_Execute(Query);
+end;//TPrimQueryCardForm.SearchParameters_SetQuery
 
-procedure TPrimQueryCardForm.OpenTreeSelection;
-//#UC START# *4C2E11960124_497EBA4301CA_var*
-//#UC END# *4C2E11960124_497EBA4301CA_var*
+procedure TPrimQueryCardForm.SearchParameters_ClearQuery_Execute;
+//#UC START# *4AF92B09017F_497EBA4301CAexec_var*
+//#UC END# *4AF92B09017F_497EBA4301CAexec_var*
 begin
-//#UC START# *4C2E11960124_497EBA4301CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C2E11960124_497EBA4301CA_impl*
-end;//TPrimQueryCardForm.OpenTreeSelection
+//#UC START# *4AF92B09017F_497EBA4301CAexec_impl*
+ Editor.TextSource.Lock(Self);
+ try
+  if Assigned(f_MgrSearch) then
+  begin
+   f_MgrSearch.Clear;
+   // Заплатка - "контролы модели" деражет ссылку на Para, которому при очистке
+   // текста пытаются сказать InvalidateShape. Но он похоже отвязан от View
+   // И мапы во вью не перестраиваются => появляется мусор.
+   // 1. "контролы модели" НЕ ДОЛЖНЫ ДЕРЖАТь PARA. А сами должны быть PARA
+   // 2. Манипулировать с текстом должен курсор и никакой прямой записи в k2_tiText!
+   Editor.View.ClearShapes;
+   if (f_MgrSearch.QueryCard.CardType = ev_qtConsultations) then
+   begin
+    LoadConsultationCreditnails;
+    f_MgrSearch.Modified := False;
+   end//f_MgrSearch.QueryCard.CardType = ev_qtConsultations
+  end;//Assigned(f_MgrSearch)
+  Editor.Invalidate;
+ finally
+  Editor.TextSource.UnLock(Self);
+ end;//try..finally
+//#UC END# *4AF92B09017F_497EBA4301CAexec_impl*
+end;//TPrimQueryCardForm.SearchParameters_ClearQuery_Execute
+
+procedure TPrimQueryCardForm.SearchParameters_ClearQuery(const aParams: IvcmExecuteParamsPrim);
+begin
+ Self.SearchParameters_ClearQuery_Execute;
+end;//TPrimQueryCardForm.SearchParameters_ClearQuery
+
+procedure TPrimQueryCardForm.SearchParameter_QueryNotSaved_Execute;
+//#UC START# *4AF9370C012B_497EBA4301CAexec_var*
+//#UC END# *4AF9370C012B_497EBA4301CAexec_var*
+begin
+//#UC START# *4AF9370C012B_497EBA4301CAexec_impl*
+ f_MgrSearch.Modified := True;
+//#UC END# *4AF9370C012B_497EBA4301CAexec_impl*
+end;//TPrimQueryCardForm.SearchParameter_QueryNotSaved_Execute
+
+procedure TPrimQueryCardForm.SearchParameter_QueryNotSaved(const aParams: IvcmExecuteParamsPrim);
+begin
+ Self.SearchParameter_QueryNotSaved_Execute;
+end;//TPrimQueryCardForm.SearchParameter_QueryNotSaved
+
+procedure TPrimQueryCardForm.SearchParameter_ClearMistakes_Execute;
+//#UC START# *4AF9373C02B6_497EBA4301CAexec_var*
+//#UC END# *4AF9373C02B6_497EBA4301CAexec_var*
+begin
+//#UC START# *4AF9373C02B6_497EBA4301CAexec_impl*
+ f_MgrSearch.ClearContextMistakes;
+//#UC END# *4AF9373C02B6_497EBA4301CAexec_impl*
+end;//TPrimQueryCardForm.SearchParameter_ClearMistakes_Execute
+
+procedure TPrimQueryCardForm.SearchParameter_ClearMistakes(const aParams: IvcmExecuteParamsPrim);
+begin
+ Self.SearchParameter_ClearMistakes_Execute;
+end;//TPrimQueryCardForm.SearchParameter_ClearMistakes
+
+procedure TPrimQueryCardForm.SearchParameter_QuerySaved_Execute;
+//#UC START# *4AF9393802B0_497EBA4301CAexec_var*
+//#UC END# *4AF9393802B0_497EBA4301CAexec_var*
+begin
+//#UC START# *4AF9393802B0_497EBA4301CAexec_impl*
+ {$IFDEF Monitorings}
+ CCaption := vcmCStr(str_ChangePrivateNewsLine);
+ {$ENDIF Monitorings}
+//#UC END# *4AF9393802B0_497EBA4301CAexec_impl*
+end;//TPrimQueryCardForm.SearchParameter_QuerySaved_Execute
+
+procedure TPrimQueryCardForm.SearchParameter_QuerySaved(const aParams: IvcmExecuteParamsPrim);
+begin
+ Self.SearchParameter_QuerySaved_Execute;
+end;//TPrimQueryCardForm.SearchParameter_QuerySaved
+
+procedure TPrimQueryCardForm.CardOperation_ExpandCollapse_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C2E116E0315_497EBA4301CAtest_var*
+var
+ l_Control : IevCustomEditorControl;
+//#UC END# *4C2E116E0315_497EBA4301CAtest_var*
+begin
+//#UC START# *4C2E116E0315_497EBA4301CAtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+ if f_MgrSearch <> nil then
+ begin
+  l_Control := evGetCustomControl(Editor.Selection.Cursor.MostInner.Obj^.AsObject);
+  if (l_Control <> nil) then
+   aParams.Op.Flag[vcm_ofEnabled] := l_Control.ControlType = ev_ctCollapsedPanel;
+ end;
+//#UC END# *4C2E116E0315_497EBA4301CAtest_impl*
+end;//TPrimQueryCardForm.CardOperation_ExpandCollapse_Test
+
+procedure TPrimQueryCardForm.CardOperation_ExpandCollapse_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C2E116E0315_497EBA4301CAexec_var*
+var
+ l_Group   : IevQueryGroup; 
+ l_Control : IevCustomEditorControl;
+//#UC END# *4C2E116E0315_497EBA4301CAexec_var*
+begin
+//#UC START# *4C2E116E0315_497EBA4301CAexec_impl*
+ if f_MgrSearch <> nil then
+ begin
+  l_Control := evGetCustomControl(Editor.Selection.Cursor.MostInner.Obj^.AsObject);
+  if (l_Control <> nil) then   
+   if Supports(l_Control, IevQueryGroup, l_Group) then
+    if l_Group.CanCollapsed then
+     l_Group.Expanded := not l_Group.Expanded;
+ end;
+//#UC END# *4C2E116E0315_497EBA4301CAexec_impl*
+end;//TPrimQueryCardForm.CardOperation_ExpandCollapse_Execute
+
+procedure TPrimQueryCardForm.CardOperation_DeleteAll_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C2E117F022C_497EBA4301CAtest_var*
+var
+ l_Req: IqaReq; 
+//#UC END# *4C2E117F022C_497EBA4301CAtest_var*
+begin
+//#UC START# *4C2E117F022C_497EBA4301CAtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+ if f_MgrSearch <> nil then
+ begin
+  l_Req := f_MgrSearch.GetCurrentReq;
+  if l_Req <> nil then
+   aParams.Op.Flag[vcm_ofEnabled] := l_Req.Multi and l_Req.IsSet;
+ end;//if f_MgrSearch <> nil then
+//#UC END# *4C2E117F022C_497EBA4301CAtest_impl*
+end;//TPrimQueryCardForm.CardOperation_DeleteAll_Test
+
+procedure TPrimQueryCardForm.CardOperation_DeleteAll_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C2E117F022C_497EBA4301CAexec_var*
+//#UC END# *4C2E117F022C_497EBA4301CAexec_var*
+begin
+//#UC START# *4C2E117F022C_497EBA4301CAexec_impl*
+ Editor.TextSource.Lock(Self);
+ try
+  if Assigned(f_MgrSearch) then
+   f_MgrSearch.DeleteAll;
+ finally
+  Editor.TextSource.UnLock(Self);
+ end; 
+//#UC END# *4C2E117F022C_497EBA4301CAexec_impl*
+end;//TPrimQueryCardForm.CardOperation_DeleteAll_Execute
+
+procedure TPrimQueryCardForm.CardOperation_CreateAttr_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C2E118B010B_497EBA4301CAtest_var*
+var
+ l_Req : IqaReq;
+ l_BTN : IevEditorControlButton;
+//#UC END# *4C2E118B010B_497EBA4301CAtest_var*
+begin
+//#UC START# *4C2E118B010B_497EBA4301CAtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+ if Assigned(f_MgrSearch) then
+ begin
+  l_Req := f_MgrSearch.GetCurrentReq;
+  if (l_Req <> nil) and l_Req.Multi then
+  begin
+   l_BTN := f_MgrSearch.GetCurrentField.FindButton(ev_btLogical);
+   aParams.Op.Flag[vcm_ofEnabled] := Assigned(l_BTN) and l_BTN.Visible;
+  end;//if (l_Req <> nil) and l_Req.Multi then
+ end;//if Assigned(f_MgrSearch) then
+//#UC END# *4C2E118B010B_497EBA4301CAtest_impl*
+end;//TPrimQueryCardForm.CardOperation_CreateAttr_Test
+
+procedure TPrimQueryCardForm.CardOperation_CreateAttr_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C2E118B010B_497EBA4301CAexec_var*
+//#UC END# *4C2E118B010B_497EBA4301CAexec_var*
+begin
+//#UC START# *4C2E118B010B_497EBA4301CAexec_impl*
+ if Assigned(f_MgrSearch) then
+  f_MgrSearch.AddValue(Editor.View);
+//#UC END# *4C2E118B010B_497EBA4301CAexec_impl*
+end;//TPrimQueryCardForm.CardOperation_CreateAttr_Execute
+
+procedure TPrimQueryCardForm.CardOperation_OpenTreeSelection_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C2E11960124_497EBA4301CAtest_var*
+var
+ l_Req : IqaReq; 
+//#UC END# *4C2E11960124_497EBA4301CAtest_var*
+begin
+//#UC START# *4C2E11960124_497EBA4301CAtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+ if Assigned(f_MgrSearch) then
+ begin
+  l_Req := f_MgrSearch.GetCurrentReq; 
+  if l_Req <> nil then 
+   aParams.Op.Flag[vcm_ofEnabled] := l_Req.Multi and l_Req.CanOpenTree;
+ end;//if Assigned(f_MgrSearch) then
+//#UC END# *4C2E11960124_497EBA4301CAtest_impl*
+end;//TPrimQueryCardForm.CardOperation_OpenTreeSelection_Test
+
+procedure TPrimQueryCardForm.CardOperation_OpenTreeSelection_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C2E11960124_497EBA4301CAexec_var*
+//#UC END# *4C2E11960124_497EBA4301CAexec_var*
+begin
+//#UC START# *4C2E11960124_497EBA4301CAexec_impl*
+ if Assigned(f_MgrSearch) then
+  f_MgrSearch.OpenSelectWindow;
+//#UC END# *4C2E11960124_497EBA4301CAexec_impl*
+end;//TPrimQueryCardForm.CardOperation_OpenTreeSelection_Execute
 
 procedure TPrimQueryCardForm.Cleanup;
  {* Функция очистки полей объекта. }

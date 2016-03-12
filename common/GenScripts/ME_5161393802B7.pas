@@ -15,7 +15,7 @@ uses
 
 type
  TRefcountedTest = class(TTestCase)
-  public
+  published
    procedure DoIt;
  end;//TRefcountedTest
 {$IfEnd} // Defined(nsTest)

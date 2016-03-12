@@ -253,9 +253,9 @@ type
    function GetVisibleBookmarksCount(const aBookmarks: IeeSubList): Integer;
    function GetVisibleBookmark(const aBookmarks: IeeSubList;
     anIndex: Integer = 0): IeeSub;
-   procedure EditBookmark(anID: Integer); overload;
+   procedure EditBookmark(anID: Integer);
    function NeedShowIntranetWarning: Boolean;
-   procedure GoToIntranet; overload;
+   procedure GoToIntranet;
    procedure CheckForcedQueryForIntranet;
    procedure RequiestCheckForcedQueryForInternet;
    procedure UpdateSubPanelDescription;
@@ -309,12 +309,12 @@ type
    function ExtractRangeFromContents(const aData: IUnknown;
     aUserType: Integer): InevRange; virtual; abstract;
    procedure ExportBlock(const aRange: InevRange;
-    ToActiveWindow: Boolean); overload; virtual; abstract;
-   procedure SelectBlock(const aRange: InevRange); overload; virtual; abstract;
-   procedure CopyBlock(const aRange: InevRange); overload; virtual; abstract;
-   procedure PrintBlock(const aRange: InevRange); overload; virtual; abstract;
-   procedure PrintDialogBlock(const aRange: InevRange); overload; virtual; abstract;
-   procedure PreviewBlock(const aRange: InevRange); overload; virtual; abstract;
+    ToActiveWindow: Boolean); virtual; abstract;
+   procedure SelectBlock(const aRange: InevRange); virtual; abstract;
+   procedure CopyBlock(const aRange: InevRange); virtual; abstract;
+   procedure PrintBlock(const aRange: InevRange); virtual; abstract;
+   procedure PrintDialogBlock(const aRange: InevRange); virtual; abstract;
+   procedure PreviewBlock(const aRange: InevRange); virtual; abstract;
    function FindBookmarkInText(const aBookmark: IBookmark;
     out aSub: IeeSub): Boolean; virtual; abstract;
    procedure InitHyperLink(const aHyperLink: IevHyperlink;
@@ -340,7 +340,7 @@ type
    function DoProcessExternalOperation(const anOperation: IExternalOperation): Boolean; override;
     {* Обработчик внешней операции }
    procedure GotoPoint(aPointID: Cardinal;
-    aPointType: TDocumentPositionType); override;
+    aPointType: TDocumentPositionType = Sub); override;
     {* Переход на точку в документе }
    procedure OpenRedactionLocalLink(const aDocument: IDocument;
     aSub: Cardinal;
@@ -462,174 +462,311 @@ type
    function DoGetNeedAddFormToTasksPanel: Boolean; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   procedure OpenCorrespondentList; override;
+   procedure Document_OpenCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
     {* Коллеги, это что? }
-   procedure OpenRespondentList; override;
+   procedure Document_OpenCorrespondentList_Execute(aKind: TlstCRType;
+    const aCRType: Il3SimpleNode);
     {* Коллеги, это что? }
-   procedure GetAttributesFrmAct; override;
+   procedure Document_OpenCorrespondentList(const aParams: IvcmExecuteParamsPrim);
+    {* Коллеги, это что? }
+   procedure Document_OpenRespondentList_Test(const aParams: IvcmTestParamsPrim);
+    {* Коллеги, это что? }
+   procedure Document_OpenRespondentList_Execute(aKind: TlstCRType;
+    const aCRType: Il3SimpleNode);
+    {* Коллеги, это что? }
+   procedure Document_OpenRespondentList(const aParams: IvcmExecuteParamsPrim);
+    {* Коллеги, это что? }
+   procedure Document_GetAttributesFrmAct_Test(const aParams: IvcmTestParamsPrim);
     {* Информация о документе }
-   function Load: Boolean; override;
+   procedure Document_GetAttributesFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Информация о документе }
+   function Loadable_Load_Execute(const aNode: IeeNode;
+    const aData: IUnknown;
+    anOp: TListLogicOperation = LLO_NONE): Boolean;
     {* Коллеги, кто может описать этот метод? }
-   procedure GetRelatedDocFrmAct; override;
+   procedure Loadable_Load(const aParams: IvcmExecuteParamsPrim);
+    {* Коллеги, кто может описать этот метод? }
+   procedure Document_GetRelatedDocFrmAct_Test(const aParams: IvcmTestParamsPrim);
     {* Справка к документу }
-   procedure GetCorrespondentList; override;
+   procedure Document_GetRelatedDocFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Справка к документу }
+   procedure Document_GetCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
     {* Ссылки на документ }
-   procedure GetRespondentList; override;
+   procedure Document_GetCorrespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Ссылки на документ }
+   procedure Document_GetRespondentList_Test(const aParams: IvcmTestParamsPrim);
     {* Ссылки из документа }
-   function AttributesCanBeClosed: Boolean; override;
+   procedure Document_GetRespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Ссылки из документа }
+   function Document_AttributesCanBeClosed_Execute: Boolean;
     {* Это кандидат на перенос в Facet или что-то подобное }
-   procedure CommonDocumentOpenNewWindow; override;
+   procedure Document_AttributesCanBeClosed(const aParams: IvcmExecuteParamsPrim);
+    {* Это кандидат на перенос в Facet или что-то подобное }
+   procedure Document_CommonDocumentOpenNewWindow_Execute(aUserType: Integer);
     {* Что это? }
-   procedure TimeMachineStateChange; override;
-   procedure RedactionOnID; override;
-   function FindExplanation: Boolean; override;
+   procedure Document_CommonDocumentOpenNewWindow(const aParams: IvcmExecuteParamsPrim);
+    {* Что это? }
+   procedure System_TimeMachineStateChange_Execute(aStayInCurrentRedaction: Boolean = False);
+   procedure System_TimeMachineStateChange(const aParams: IvcmExecuteParamsPrim);
+   procedure Redactions_RedactionOnID_Execute(aRedactionID: TRedactionID);
+   procedure Redactions_RedactionOnID(const aParams: IvcmExecuteParamsPrim);
+   function Document_FindExplanation_Execute: Boolean;
     {* Найти толкование }
-   procedure FindInDict; override;
+   procedure Document_FindExplanation(const aParams: IvcmExecuteParamsPrim);
+    {* Найти толкование }
+   procedure Selection_FindInDict_Test(const aParams: IvcmTestParamsPrim);
     {* Найти в Толковом словаре }
-   function SetPosition: Boolean; override;
-   procedure SetActive; override;
-   procedure ExportBlock; override;
-   function GetCurrentPosition: Integer; override;
-   procedure SelectBlock; override;
-   procedure CopyBlock; override;
-   procedure PrintBlock; override;
-   procedure PrintDialogBlock; override;
-   procedure PreviewBlock; override;
-   procedure ShowRespondentListToPart; override;
-   procedure ShowCorrespondentListToPart; override;
-   procedure ModifyBookmarkNotify; override;
-   procedure AddBookmarkFromContents; override;
-   procedure GetCorrespondentListExFrmAct; override;
+   procedure Selection_FindInDict_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Найти в Толковом словаре }
+   function Document_SetPosition_Execute(aPointID: Cardinal;
+    aPointType: TDocumentPositionType = Sub;
+    aUserType: Integer = 0): Boolean;
+   procedure Document_SetPosition(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_SetActive_Execute(aUserType: Integer);
+   procedure Document_SetActive(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_ExportBlock_Execute(const aData: IUnknown;
+    aUserType: Integer;
+    aToActiveWindow: Boolean);
+   procedure Document_ExportBlock(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_GetCurrentPosition_Test(const aParams: IvcmTestParamsPrim);
+   function Document_GetCurrentPosition_Execute: Integer;
+   procedure Document_GetCurrentPosition(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_SelectBlock_Execute(const aData: IUnknown;
+    aUserType: Integer);
+   procedure Document_SelectBlock(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_CopyBlock_Execute(const aData: IUnknown;
+    aUserType: Integer);
+   procedure Document_CopyBlock(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_PrintBlock_Execute(const aData: IUnknown;
+    aUserType: Integer);
+   procedure Document_PrintBlock(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_PrintDialogBlock_Execute(const aData: IUnknown;
+    aUserType: Integer);
+   procedure Document_PrintDialogBlock(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_PreviewBlock_Execute(const aData: IUnknown;
+    aUserType: Integer);
+   procedure Document_PreviewBlock(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_ShowRespondentListToPart_Execute(const aList: IPositionList;
+    const aCurrent: Il3SimpleNode = nil);
+   procedure Document_ShowRespondentListToPart(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_ShowCorrespondentListToPart_Execute(const aList: IPositionList;
+    const aCurrent: Il3SimpleNode = nil);
+   procedure Document_ShowCorrespondentListToPart(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_ModifyBookmarkNotify_Execute(const anEntity: IUnknown);
+   procedure Document_ModifyBookmarkNotify(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_AddBookmarkFromContents_Execute(const aTag: Il3TagRef);
+   procedure Document_AddBookmarkFromContents(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_GetCorrespondentListExFrmAct_Test(const aParams: IvcmTestParamsPrim);
     {* Ссылки на документ (вид информации) }
-   procedure GetRespondentListExFrmAct; override;
+   procedure Document_GetCorrespondentListExFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Ссылки на документ (вид информации) }
+   procedure Document_GetRespondentListExFrmAct_Test(const aParams: IvcmTestParamsPrim);
     {* Ссылки из документа (вид информации) }
-   procedure TimeMachineOnOff; override;
-   procedure TimeMachineOffAndReset; override;
-   procedure OpenNotSureTopic; override;
-   procedure ActualRedaction; override;
-   procedure ToggleFoundWords; override;
+   procedure Document_GetRespondentListExFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Ссылки из документа (вид информации) }
+   procedure TimeMachine_TimeMachineOnOff_Test(const aParams: IvcmTestParamsPrim);
+   procedure TimeMachine_TimeMachineOnOff_Execute;
+   procedure TimeMachine_TimeMachineOnOff(const aParams: IvcmExecuteParamsPrim);
+   procedure TimeMachine_TimeMachineOffAndReset_Test(const aParams: IvcmTestParamsPrim);
+   procedure TimeMachine_TimeMachineOffAndReset_Execute;
+   procedure TimeMachine_TimeMachineOffAndReset(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_OpenNotSureTopic_Execute;
+   procedure Document_OpenNotSureTopic(const aParams: IvcmExecuteParamsPrim);
+   procedure Redactions_ActualRedaction_Test(const aParams: IvcmTestParamsPrim);
+   procedure Redactions_ActualRedaction_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Edit_ToggleFoundWords_Test(const aParams: IvcmTestParamsPrim);
     {* Подсвечивать найденный контекст }
-   function GotoPara: Boolean; override;
-   procedure TimeMachineOnOffNew; override;
+   procedure Edit_ToggleFoundWords_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Подсвечивать найденный контекст }
+   function Document_GotoPara_Execute(const aPara: Il3TagRef;
+    aUserType: Integer): Boolean;
+   procedure Document_GotoPara(const aParams: IvcmExecuteParamsPrim);
+   procedure TimeMachine_TimeMachineOnOffNew_Test(const aParams: IvcmTestParamsPrim);
     {* Включить Машину времени }
-   procedure OpenRedactionListFrmAct; override;
+   procedure TimeMachine_TimeMachineOnOffNew_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Включить Машину времени }
+   procedure TimeMachine_TimeMachineOnOffNew_GetState(var State: TvcmOperationStateIndex);
+    {* Включить Машину времени }
+   procedure Redactions_OpenRedactionListFrmAct_Test(const aParams: IvcmTestParamsPrim);
     {* Список редакций }
-   function GetParaForPositionning: IeeLeafPara; override;
-   procedure GetCorrespondentList; override;
-   procedure GetRespondentList; override;
-   procedure GetTypedCorrespondentList; override;
-   procedure GetTypedRespondentList; override;
-   procedure GetAnnotationDocFrmAct; override;
-   procedure SimilarDocuments; override;
-   procedure UserCR1; override;
-   procedure UserCR2; override;
-   procedure GetTypedCorrespondentList; override;
-   procedure PrevRedaction; override;
-   procedure NextRedaction; override;
-   procedure AddToControl; override;
-   procedure ShowCorrespondentListToPart; override;
-   procedure ShowRespondentListToPart; override;
-   procedure ClearStatusSettings; override;
+   procedure Redactions_OpenRedactionListFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Список редакций }
+   procedure Redactions_OpenRedactionListFrmAct_GetState(var State: TvcmOperationStateIndex);
+    {* Список редакций }
+   procedure Document_GetParaForPositionning_Test(const aParams: IvcmTestParamsPrim);
+   function Document_GetParaForPositionning_Execute: IeeLeafPara;
+   procedure Document_GetParaForPositionning(const aParams: IvcmExecuteParamsPrim);
+   procedure DocumentBlock_GetCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
+   procedure DocumentBlock_GetCorrespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure DocumentBlock_GetRespondentList_Test(const aParams: IvcmTestParamsPrim);
+   procedure DocumentBlock_GetRespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure DocumentBlock_GetTypedCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
+   procedure DocumentBlock_GetTypedCorrespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure DocumentBlock_GetTypedCorrespondentList_GetState(var State: TvcmOperationStateIndex);
+   procedure DocumentBlock_GetTypedRespondentList_Test(const aParams: IvcmTestParamsPrim);
+   procedure DocumentBlock_GetTypedRespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_GetAnnotationDocFrmAct_Test(const aParams: IvcmTestParamsPrim);
+   procedure Document_GetAnnotationDocFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_SimilarDocuments_Test(const aParams: IvcmTestParamsPrim);
+   procedure Document_SimilarDocuments_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure DocumentBlockHeader_UserCR1_Test(const aParams: IvcmTestParamsPrim);
+   procedure DocumentBlockHeader_UserCR1_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure DocumentBlockHeader_UserCR1_GetState(var State: TvcmOperationStateIndex);
+   procedure DocumentBlockHeader_UserCR2_Test(const aParams: IvcmTestParamsPrim);
+   procedure DocumentBlockHeader_UserCR2_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure DocumentBlockHeader_UserCR2_GetState(var State: TvcmOperationStateIndex);
+   procedure DocumentBlockHeader_GetTypedCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
+   procedure DocumentBlockHeader_GetTypedCorrespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Redactions_PrevRedaction_Test(const aParams: IvcmTestParamsPrim);
+   procedure Redactions_PrevRedaction_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Redactions_NextRedaction_Test(const aParams: IvcmTestParamsPrim);
+   procedure Redactions_NextRedaction_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Text_AddToControl_Test(const aParams: IvcmTestParamsPrim);
+   procedure Text_AddToControl_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Text_AddToControl_GetState(var State: TvcmOperationStateIndex);
+   procedure Selection_ShowCorrespondentListToPart_Test(const aParams: IvcmTestParamsPrim);
+   procedure Selection_ShowCorrespondentListToPart_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Selection_ShowRespondentListToPart_Test(const aParams: IvcmTestParamsPrim);
+   procedure Selection_ShowRespondentListToPart_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure WarnOnControl_ClearStatusSettings_Test(const aParams: IvcmTestParamsPrim);
     {* Способ сброса статуса "изменен" }
-   procedure TimeMachineOnOff; override;
-   procedure AddBookmark; override;
-   procedure ToMSWord; override;
-   procedure Print; override;
-   procedure PrintDialog; override;
-   procedure AddBookmark; override;
+   procedure WarnOnControl_ClearStatusSettings_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Способ сброса статуса "изменен" }
+   procedure TasksPanel_TimeMachineOnOff_Test(const aParams: IvcmTestParamsPrim);
+   procedure TasksPanel_TimeMachineOnOff_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure TasksPanel_TimeMachineOnOff_GetState(var State: TvcmOperationStateIndex);
+   procedure DocumentBlockHeader_AddBookmark_Test(const aParams: IvcmTestParamsPrim);
+   procedure DocumentBlockHeader_AddBookmark_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure DocumentBlockHeader_ToMSWord_Test(const aParams: IvcmTestParamsPrim);
+   procedure DocumentBlockHeader_ToMSWord_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure DocumentBlockHeader_Print_Test(const aParams: IvcmTestParamsPrim);
+   procedure DocumentBlockHeader_Print_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure DocumentBlockHeader_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
+   procedure DocumentBlockHeader_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure DocumentBlockBookmarks_AddBookmark_Test(const aParams: IvcmTestParamsPrim);
     {* Установить закладку на фрагмент }
-   procedure ToMSWord; override;
-   procedure PrintDialog; override;
-   procedure Copy; override;
-   procedure Print; override;
-   procedure OpenContentsFrmAct; override;
-   procedure ShowDocumentPicture; override;
-   procedure Open; override;
-   procedure Save; override;
-   procedure OpenActualRedaction; override;
-   procedure ShowInfo; override;
-   procedure TimeMachineOnOffNew; override;
-   procedure ShowInfo; override;
-   procedure ShowChanges; override;
+   procedure DocumentBlockBookmarks_AddBookmark_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Установить закладку на фрагмент }
+   procedure DocumentBlock_ToMSWord_Test(const aParams: IvcmTestParamsPrim);
+   procedure DocumentBlock_ToMSWord_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure DocumentBlock_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
+   procedure DocumentBlock_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure DocumentBlock_Copy_Test(const aParams: IvcmTestParamsPrim);
+   procedure DocumentBlock_Copy_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure DocumentBlock_Print_Test(const aParams: IvcmTestParamsPrim);
+   procedure DocumentBlock_Print_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_OpenContentsFrmAct_Test(const aParams: IvcmTestParamsPrim);
+   procedure Document_OpenContentsFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_OpenContentsFrmAct_GetState(var State: TvcmOperationStateIndex);
+   procedure Document_ShowDocumentPicture_Test(const aParams: IvcmTestParamsPrim);
+   procedure Document_ShowDocumentPicture_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure ExternalObject_Open_Test(const aParams: IvcmTestParamsPrim);
+   procedure ExternalObject_Open_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure ExternalObject_Save_Test(const aParams: IvcmTestParamsPrim);
+   procedure ExternalObject_Save_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure WarnRedaction_OpenActualRedaction_Test(const aParams: IvcmTestParamsPrim);
+   procedure WarnRedaction_OpenActualRedaction_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure WarnTimeMachine_ShowInfo_Test(const aParams: IvcmTestParamsPrim);
+   procedure WarnTimeMachine_ShowInfo_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure WarnTimeMachine_ShowInfo_GetState(var State: TvcmOperationStateIndex);
+   procedure WarnTimeMachine_TimeMachineOnOffNew_Test(const aParams: IvcmTestParamsPrim);
+   procedure WarnTimeMachine_TimeMachineOnOffNew_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure WarnTimeMachine_TimeMachineOnOffNew_GetState(var State: TvcmOperationStateIndex);
+   procedure WarnJuror_ShowInfo_Test(const aParams: IvcmTestParamsPrim);
+   procedure WarnJuror_ShowInfo_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure WarnJuror_ShowInfo_GetState(var State: TvcmOperationStateIndex);
+   procedure WarnOnControl_ShowChanges_Test(const aParams: IvcmTestParamsPrim);
     {* Показать изменения }
-   procedure ClearStatus; override;
+   procedure WarnOnControl_ShowChanges_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Показать изменения }
+   procedure WarnOnControl_ClearStatus_Test(const aParams: IvcmTestParamsPrim);
     {* Сбросить статус "изменен" }
-   procedure Delete; override;
-   procedure Edit; override;
-   procedure Delete; override;
-   procedure HideShow; override;
-   procedure Delete; override;
-   procedure AddUserComment; override;
-   procedure GetGraphicImage; override;
-   procedure DocumentSynchroOpenWindow; override;
-   procedure DocumentSynchroOpenNewWindow; override;
-   procedure DictListOpenFrmAct; override;
-   procedure GotoBookmark; override;
-   procedure LiteratureListForDictionary; override;
-   procedure EditBookmark; override;
-   procedure DeleteBookmark; override;
-   procedure AddBookmark; override;
-   procedure OpenNewWindow; override;
-   procedure OpenProducedDrugList; override;
-   procedure OpenSimilarDrugList; override;
-   procedure InsertHyperlink; override;
+   procedure WarnOnControl_ClearStatus_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Сбросить статус "изменен" }
+   procedure BookmarkIcon_Delete_Test(const aParams: IvcmTestParamsPrim);
+   procedure BookmarkIcon_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure BookmarkIcon_Edit_Test(const aParams: IvcmTestParamsPrim);
+   procedure BookmarkIcon_Edit_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure UserCommentIcon_Delete_Test(const aParams: IvcmTestParamsPrim);
+   procedure UserCommentIcon_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure UserCommentIcon_HideShow_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure UserCommentIcon_HideShow_GetState(var State: TvcmOperationStateIndex);
+   procedure UserComment_Delete_Test(const aParams: IvcmTestParamsPrim);
+   procedure UserComment_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Text_AddUserComment_Test(const aParams: IvcmTestParamsPrim);
+   procedure Text_AddUserComment_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_GetGraphicImage_Test(const aParams: IvcmTestParamsPrim);
+   procedure Document_GetGraphicImage_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_DocumentSynchroOpenWindow_Test(const aParams: IvcmTestParamsPrim);
+   procedure Document_DocumentSynchroOpenWindow_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_DocumentSynchroOpenNewWindow_Test(const aParams: IvcmTestParamsPrim);
+   procedure Document_DocumentSynchroOpenNewWindow_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_DictListOpenFrmAct_Test(const aParams: IvcmTestParamsPrim);
+   procedure Document_DictListOpenFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_GotoBookmark_Test(const aParams: IvcmTestParamsPrim);
+   procedure Document_GotoBookmark_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_LiteratureListForDictionary_Test(const aParams: IvcmTestParamsPrim);
+   procedure Document_LiteratureListForDictionary_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Text_EditBookmark_Test(const aParams: IvcmTestParamsPrim);
+   procedure Text_EditBookmark_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Text_DeleteBookmark_Test(const aParams: IvcmTestParamsPrim);
+   procedure Text_DeleteBookmark_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Text_AddBookmark_Test(const aParams: IvcmTestParamsPrim);
+   procedure Text_AddBookmark_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Text_OpenNewWindow_Test(const aParams: IvcmTestParamsPrim);
+   procedure Text_OpenNewWindow_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_OpenProducedDrugList_Test(const aParams: IvcmTestParamsPrim);
+   procedure Document_OpenProducedDrugList_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_OpenSimilarDrugList_Test(const aParams: IvcmTestParamsPrim);
+   procedure Document_OpenSimilarDrugList_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Selection_InsertHyperlink_Test(const aParams: IvcmTestParamsPrim);
     {* Поставить ссылку... }
-   procedure GetAttributesFrmAct; override;
-    {* Информация о документе }
-   procedure OpenContentsFrmAct; override;
-    {* Структура документа }
-   procedure TimeMachineOnOffNew; override;
-    {* Включить Машину времени }
-   procedure HideShow; override;
-    {* Скрыть/Показать }
-   procedure TimeMachineOnOff; override;
-    {* Включить Машину времени с календарной даты\Выключить Машину времени }
-   procedure ShowInfo; override;
+   procedure Selection_InsertHyperlink_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Поставить ссылку... }
+   procedure Selection_InsertHyperlink_GetState(var State: TvcmOperationStateIndex);
+    {* Поставить ссылку... }
+   procedure WarnRedaction_ShowInfo_Test(const aParams: IvcmTestParamsPrim);
     {* Показать текст предупреждения }
-   procedure ShowInfo; override;
+   procedure WarnRedaction_ShowInfo_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Показать текст предупреждения }
-   procedure TimeMachineOnOffNew; override;
-    {* Включить/Выключить Машину времени }
-   procedure ShowInfo; override;
+   procedure WarnRedaction_ShowInfo_GetState(var State: TvcmOperationStateIndex);
     {* Показать текст предупреждения }
-   procedure GetTypedCorrespondentList; override;
-    {* Ссылки на фрагмент (вид информации) }
-   procedure UserCR1; override;
-    {* Пользовательские ссылки на документ (ссылки из документа) 1 }
-   procedure UserCR2; override;
-    {* Пользовательские ссылки на документ (ссылки из документа) 2 }
-   procedure AddToControl; override;
-    {* Поставить на контроль }
-   procedure PrintPreview; override;
-   procedure Select; override;
-   procedure ViewChangedFragments; override;
+   procedure DocumentBlock_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
+   procedure DocumentBlock_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure DocumentBlock_Select_Test(const aParams: IvcmTestParamsPrim);
+   procedure DocumentBlock_Select_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_ViewChangedFragments_Test(const aParams: IvcmTestParamsPrim);
     {* Обзор изменений документа }
-   procedure UpdateSubPanel; override;
-   procedure OpenRedactionListFrmAct; override;
-    {* Список редакций }
-   procedure GoToIntranet; override;
-   procedure Open; override;
+   procedure Document_ViewChangedFragments_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Обзор изменений документа }
+   procedure DocumentSubPanel_UpdateSubPanel_Execute;
+   procedure DocumentSubPanel_UpdateSubPanel(const aParams: IvcmExecuteParamsPrim);
+   procedure IntranetSourcePoint_GoToIntranet_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Picture_Open_Test(const aParams: IvcmTestParamsPrim);
     {* Открыть в текущем окне }
-   procedure OpenNewWindow; override;
+   procedure Picture_Open_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Открыть в текущем окне }
+   procedure Picture_OpenNewWindow_Test(const aParams: IvcmTestParamsPrim);
     {* Открыть в новом окне }
-   function GetBaseSearchPresentation: InsBaseSearchPresentation; override;
-   procedure SelectWord; override;
-   procedure SelectPara; override;
-   procedure OpenNewTab; override;
+   procedure Picture_OpenNewWindow_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Открыть в новом окне }
+   function BaseSearchPresentationHolder_GetBaseSearchPresentation_Execute: InsBaseSearchPresentation;
+   procedure BaseSearchPresentationHolder_GetBaseSearchPresentation(const aParams: IvcmExecuteParamsPrim);
+   procedure Text_SelectWord_Test(const aParams: IvcmTestParamsPrim);
+   procedure Text_SelectWord_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Text_SelectPara_Test(const aParams: IvcmTestParamsPrim);
+   procedure Text_SelectPara_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Picture_OpenNewTab_Test(const aParams: IvcmTestParamsPrim);
     {* Открыть в новой вкладке }
-   procedure CommonDocumentOpenNewTab; override;
-   procedure GetSimilarDocsToBlock; override;
-   {$If NOT Defined(NoVCM)}
-   procedure Copy; override;
-    {* Копировать }
-   {$IfEnd} // NOT Defined(NoVCM)
+   procedure Picture_OpenNewTab_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Открыть в новой вкладке }
+   procedure Document_CommonDocumentOpenNewTab_Execute(aUserType: Integer);
+   procedure Document_CommonDocumentOpenNewTab(const aParams: IvcmExecuteParamsPrim);
+   procedure DocumentBlock_GetSimilarDocsToBlock_Test(const aParams: IvcmTestParamsPrim);
+   procedure DocumentBlock_GetSimilarDocsToBlock_Execute(const aParams: IvcmExecuteParamsPrim);
    {$If NOT Defined(NoVCM)}
    procedure SetPositionByDS; override;
     {* Вызывается когда нужно изменить позицию используя источник данных. [$136258455] }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Paste; override;
-    {* Вставка }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    function NeedDrawCaption: Boolean; override;
@@ -2809,55 +2946,197 @@ begin
 //#UC END# *497F16AC015A_49539DBA029D_impl*
 end;//TExTextForm.DoTabActivate
 
-procedure TExTextForm.OpenCorrespondentList;
+procedure TExTextForm.Document_OpenCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
  {* Коллеги, это что? }
-//#UC START# *4988752302F4_49539DBA029D_var*
-//#UC END# *4988752302F4_49539DBA029D_var*
+//#UC START# *4988752302F4_49539DBA029Dtest_var*
+//#UC END# *4988752302F4_49539DBA029Dtest_var*
 begin
-//#UC START# *4988752302F4_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4988752302F4_49539DBA029D_impl*
-end;//TExTextForm.OpenCorrespondentList
+//#UC START# *4988752302F4_49539DBA029Dtest_impl*
+ TypedCRToPartTest(aParams, crtCorrespondents);
+//#UC END# *4988752302F4_49539DBA029Dtest_impl*
+end;//TExTextForm.Document_OpenCorrespondentList_Test
 
-procedure TExTextForm.OpenRespondentList;
+procedure TExTextForm.Document_OpenCorrespondentList_Execute(aKind: TlstCRType;
+ const aCRType: Il3SimpleNode);
  {* Коллеги, это что? }
-//#UC START# *49888E8003B9_49539DBA029D_var*
-//#UC END# *49888E8003B9_49539DBA029D_var*
+//#UC START# *4988752302F4_49539DBA029Dexec_var*
+//#UC END# *4988752302F4_49539DBA029Dexec_var*
 begin
-//#UC START# *49888E8003B9_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49888E8003B9_49539DBA029D_impl*
-end;//TExTextForm.OpenRespondentList
+//#UC START# *4988752302F4_49539DBA029Dexec_impl*
+ if not Operation(TdmStdRes.opcode_Document_GetCorrespondentListExFrmAct) then
+  Assert(false);
+ if not OpenCRList(aKind, aCRType, True) then
+  Assert(false);
+  //GetCorrespondentListEx(aParams.ItemIndex, bsConvertFilteredCRNode(aParams.CurrentNode));
+//#UC END# *4988752302F4_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_OpenCorrespondentList_Execute
 
-procedure TExTextForm.GetAttributesFrmAct;
+procedure TExTextForm.Document_OpenCorrespondentList(const aParams: IvcmExecuteParamsPrim);
+ {* Коллеги, это что? }
+begin
+ with (aParams.Data As IDocument_OpenCorrespondentList_Params) do
+  Self.Document_OpenCorrespondentList_Execute(Kind, CRType);
+end;//TExTextForm.Document_OpenCorrespondentList
+
+procedure TExTextForm.Document_OpenRespondentList_Test(const aParams: IvcmTestParamsPrim);
+ {* Коллеги, это что? }
+//#UC START# *49888E8003B9_49539DBA029Dtest_var*
+//#UC END# *49888E8003B9_49539DBA029Dtest_var*
+begin
+//#UC START# *49888E8003B9_49539DBA029Dtest_impl*
+ TypedCRToPartTest(aParams, crtRespondents);
+//#UC END# *49888E8003B9_49539DBA029Dtest_impl*
+end;//TExTextForm.Document_OpenRespondentList_Test
+
+procedure TExTextForm.Document_OpenRespondentList_Execute(aKind: TlstCRType;
+ const aCRType: Il3SimpleNode);
+ {* Коллеги, это что? }
+//#UC START# *49888E8003B9_49539DBA029Dexec_var*
+//#UC END# *49888E8003B9_49539DBA029Dexec_var*
+begin
+//#UC START# *49888E8003B9_49539DBA029Dexec_impl*
+ if not Operation(TdmStdRes.opcode_Document_GetRespondentListExFrmAct) then
+  Assert(false);
+ if not OpenCRList(aKind, aCRType, false) then
+  Assert(false);
+  //GetRespondentListEx(aParams.ItemIndex, aParams.CurrentNode);
+//#UC END# *49888E8003B9_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_OpenRespondentList_Execute
+
+procedure TExTextForm.Document_OpenRespondentList(const aParams: IvcmExecuteParamsPrim);
+ {* Коллеги, это что? }
+begin
+ with (aParams.Data As IDocument_OpenRespondentList_Params) do
+  Self.Document_OpenRespondentList_Execute(Kind, CRType);
+end;//TExTextForm.Document_OpenRespondentList
+
+procedure TExTextForm.Document_GetAttributesFrmAct_Test(const aParams: IvcmTestParamsPrim);
  {* Информация о документе }
-//#UC START# *498891640253_49539DBA029D_var*
-//#UC END# *498891640253_49539DBA029D_var*
+//#UC START# *498891640253_49539DBA029Dtest_var*
+//#UC END# *498891640253_49539DBA029Dtest_var*
 begin
-//#UC START# *498891640253_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *498891640253_49539DBA029D_impl*
-end;//TExTextForm.GetAttributesFrmAct
+//#UC START# *498891640253_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] :=
+  (not (UserType in [dftAACContentsLeft, dftAACContentsRight])) AND
+  ((UserType in [dftAACLeft, dftAACRight]) OR
+    (ZoneType <> vcm_ztChild));
+ if aParams.Op.Flag[vcm_ofEnabled] then
+  OpenAttributesOpTest(aParams);
+//#UC END# *498891640253_49539DBA029Dtest_impl*
+end;//TExTextForm.Document_GetAttributesFrmAct_Test
 
-function TExTextForm.Load: Boolean;
+procedure TExTextForm.Document_GetAttributesFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Информация о документе }
+//#UC START# *498891640253_49539DBA029Dexec_var*
+//#UC END# *498891640253_49539DBA029Dexec_var*
+begin
+//#UC START# *498891640253_49539DBA029Dexec_impl*
+ OpenAttributesOpExecute;
+//#UC END# *498891640253_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_GetAttributesFrmAct_Execute
+
+function TExTextForm.Loadable_Load_Execute(const aNode: IeeNode;
+ const aData: IUnknown;
+ anOp: TListLogicOperation = LLO_NONE): Boolean;
  {* Коллеги, кто может описать этот метод? }
-//#UC START# *49895A2102E8_49539DBA029D_var*
-//#UC END# *49895A2102E8_49539DBA029D_var*
+//#UC START# *49895A2102E8_49539DBA029Dexec_var*
+var
+ l_FolderNode : INode;
+ l_BaseEntity : IUnknown;
+ l_Hyperlink  : IevHyperlink;
+ l_HyperlinkUndo: InevOp;
+//#UC END# *49895A2102E8_49539DBA029Dexec_var*
 begin
-//#UC START# *49895A2102E8_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49895A2102E8_49539DBA029D_impl*
-end;//TExTextForm.Load
+//#UC START# *49895A2102E8_49539DBA029Dexec_impl*
+ Result := true;
+ if Supports(aNode, INode, l_FolderNode) then
+  try
+   if not Supports(aData, IevHyperlink, l_Hyperlink) then
+    if not Supports(aData, Il3CString) then
+     Supports(Text.Selection, IevHyperlink, l_Hyperlink);
 
-procedure TExTextForm.GetRelatedDocFrmAct;
- {* Справка к документу }
-//#UC START# *498993C801DC_49539DBA029D_var*
-//#UC END# *498993C801DC_49539DBA029D_var*
+   try
+    l_FolderNode.Open(l_BaseEntity);
+   except
+    on ECanNotFindData do
+    begin
+     nsSayAdapterObjectMissing(Self, l_FolderNode);
+     Result := false;
+     Exit;
+    end;//on ECanNotFindData
+   end;//try..except
+   try
+    if (l_Hyperlink = nil) then
+     case TFoldersItemType(l_FolderNode.GetObjectType) of
+       FIT_LIST: ;
+        // !Stub! Пока не нужно
+       FIT_QUERY: ;
+        // !Stub! Пока не нужно
+       FIT_BOOKMARK,
+       FIT_PHARM_BOOKMARK:
+        TdmStdres.OpenEntityAsDocument(l_BaseEntity, nil);
+     end//case TFoldersItemType(l_FolderNode.GetObjectType)
+    else
+    if (l_Hyperlink.ID >= 0) then
+     try
+      l_HyperlinkUndo := Text.StartOp;
+      try
+       if not l_Hyperlink.Exists then
+        l_Hyperlink.Insert;
+       try
+        InitHyperLink(l_Hyperlink, l_BaseEntity);
+       except
+        on EUnsupported do
+        begin
+         Say(err_UnsupportedHyperlinkTarget);
+         Result := false;
+         Exit;
+        end;//on EUnsupported
+       end;//try..except
+      finally
+       l_HyperlinkUndo := nil;
+      end;//try..finally
+     finally
+      l_Hyperlink := nil;
+     end;//try..finally
+   finally
+    l_BaseEntity := nil;
+   end;//try..finally
+  finally
+   l_FolderNode := nil;
+  end;//try..finally
+//#UC END# *49895A2102E8_49539DBA029Dexec_impl*
+end;//TExTextForm.Loadable_Load_Execute
+
+procedure TExTextForm.Loadable_Load(const aParams: IvcmExecuteParamsPrim);
+ {* Коллеги, кто может описать этот метод? }
 begin
-//#UC START# *498993C801DC_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *498993C801DC_49539DBA029D_impl*
-end;//TExTextForm.GetRelatedDocFrmAct
+ with (aParams.Data As ILoadable_Load_Params) do
+  ResultValue := Self.Loadable_Load_Execute(Node, Data, nOp);
+end;//TExTextForm.Loadable_Load
+
+procedure TExTextForm.Document_GetRelatedDocFrmAct_Test(const aParams: IvcmTestParamsPrim);
+ {* Справка к документу }
+//#UC START# *498993C801DC_49539DBA029Dtest_var*
+//#UC END# *498993C801DC_49539DBA029Dtest_var*
+begin
+//#UC START# *498993C801DC_49539DBA029Dtest_impl*
+(* aParams.Op.Flag[vcm_ofEnabled] := (ZoneType <> vcm_ztChild);*)
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=380047003
+ if aParams.Op.Flag[vcm_ofEnabled] then
+  OpenRelatedDocOpTest(aParams);
+//#UC END# *498993C801DC_49539DBA029Dtest_impl*
+end;//TExTextForm.Document_GetRelatedDocFrmAct_Test
+
+procedure TExTextForm.Document_GetRelatedDocFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Справка к документу }
+//#UC START# *498993C801DC_49539DBA029Dexec_var*
+//#UC END# *498993C801DC_49539DBA029Dexec_var*
+begin
+//#UC START# *498993C801DC_49539DBA029Dexec_impl*
+ // ничего не делаем, т.к. это FormActivate - http://mdp.garant.ru/pages/viewpage.action?pageId=135136020&focusedCommentId=136258958#comment-136258958
+//#UC END# *498993C801DC_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_GetRelatedDocFrmAct_Execute
 
 procedure TExTextForm.SetBookmark;
  {* Устанавливает закладку на текущее место текущего документа }
@@ -2879,35 +3158,72 @@ begin
 //#UC END# *4989CF90010A_49539DBA029D_impl*
 end;//TExTextForm.CanAddBookmark
 
-procedure TExTextForm.GetCorrespondentList;
+procedure TExTextForm.Document_GetCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
  {* Ссылки на документ }
-//#UC START# *4989D65C0275_49539DBA029D_var*
-//#UC END# *4989D65C0275_49539DBA029D_var*
+//#UC START# *4989D65C0275_49539DBA029Dtest_var*
+//#UC END# *4989D65C0275_49539DBA029Dtest_var*
 begin
-//#UC START# *4989D65C0275_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4989D65C0275_49539DBA029D_impl*
-end;//TExTextForm.GetCorrespondentList
+//#UC START# *4989D65C0275_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := GetCorrespondentListTest;
+//#UC END# *4989D65C0275_49539DBA029Dtest_impl*
+end;//TExTextForm.Document_GetCorrespondentList_Test
 
-procedure TExTextForm.GetRespondentList;
+procedure TExTextForm.Document_GetCorrespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Ссылки на документ }
+//#UC START# *4989D65C0275_49539DBA029Dexec_var*
+//#UC END# *4989D65C0275_49539DBA029Dexec_var*
+begin
+//#UC START# *4989D65C0275_49539DBA029Dexec_impl*
+ OpenCRListOpExecute(crtCorrespondents, nil);
+//#UC END# *4989D65C0275_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_GetCorrespondentList_Execute
+
+procedure TExTextForm.Document_GetRespondentList_Test(const aParams: IvcmTestParamsPrim);
  {* Ссылки из документа }
-//#UC START# *4989D8430128_49539DBA029D_var*
-//#UC END# *4989D8430128_49539DBA029D_var*
+//#UC START# *4989D8430128_49539DBA029Dtest_var*
+//#UC END# *4989D8430128_49539DBA029Dtest_var*
 begin
-//#UC START# *4989D8430128_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4989D8430128_49539DBA029D_impl*
-end;//TExTextForm.GetRespondentList
+//#UC START# *4989D8430128_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := GetRespondentListTest;
+//#UC END# *4989D8430128_49539DBA029Dtest_impl*
+end;//TExTextForm.Document_GetRespondentList_Test
 
-function TExTextForm.AttributesCanBeClosed: Boolean;
- {* Это кандидат на перенос в Facet или что-то подобное }
-//#UC START# *4989DE3702CF_49539DBA029D_var*
-//#UC END# *4989DE3702CF_49539DBA029D_var*
+procedure TExTextForm.Document_GetRespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Ссылки из документа }
+//#UC START# *4989D8430128_49539DBA029Dexec_var*
+//#UC END# *4989D8430128_49539DBA029Dexec_var*
 begin
-//#UC START# *4989DE3702CF_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4989DE3702CF_49539DBA029D_impl*
-end;//TExTextForm.AttributesCanBeClosed
+//#UC START# *4989D8430128_49539DBA029Dexec_impl*
+ OpenCRListOpExecute(crtRespondents, nil);
+//#UC END# *4989D8430128_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_GetRespondentList_Execute
+
+function TExTextForm.Document_AttributesCanBeClosed_Execute: Boolean;
+ {* Это кандидат на перенос в Facet или что-то подобное }
+//#UC START# *4989DE3702CF_49539DBA029Dexec_var*
+const
+ c_CanCloseFormTypes = [
+  dftNone,
+  dftDocument,
+  dftDictEntry,
+  dftTips,
+  dftMedDictEntry,
+  dftMedicFirm
+ ];
+//#UC END# *4989DE3702CF_49539DBA029Dexec_var*
+begin
+//#UC START# *4989DE3702CF_49539DBA029Dexec_impl*
+ Result := (UserType in c_CanCloseFormTypes) and
+           OpenAttributesOpCanBeClosed;
+//#UC END# *4989DE3702CF_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_AttributesCanBeClosed_Execute
+
+procedure TExTextForm.Document_AttributesCanBeClosed(const aParams: IvcmExecuteParamsPrim);
+ {* Это кандидат на перенос в Facet или что-то подобное }
+begin
+ with (aParams.Data As IDocument_AttributesCanBeClosed_Params) do
+  ResultValue := Self.Document_AttributesCanBeClosed_Execute;
+end;//TExTextForm.Document_AttributesCanBeClosed
 
 function TExTextForm.DocumentIsValid: Boolean;
  {* Есть ли документ, готовый к работе }
@@ -3000,7 +3316,7 @@ begin
 end;//TExTextForm.DoProcessExternalOperation
 
 procedure TExTextForm.GotoPoint(aPointID: Cardinal;
- aPointType: TDocumentPositionType);
+ aPointType: TDocumentPositionType = Sub);
  {* Переход на точку в документе }
 //#UC START# *4A8164E801AE_49539DBA029D_var*
 var
@@ -3129,274 +3445,683 @@ begin
 //#UC END# *4A8AAD450084_49539DBA029Dget_impl*
 end;//TExTextForm.pm_GetTextWithComments
 
-procedure TExTextForm.CommonDocumentOpenNewWindow;
+procedure TExTextForm.Document_CommonDocumentOpenNewWindow_Execute(aUserType: Integer);
  {* Что это? }
-//#UC START# *4A8EF02E007D_49539DBA029D_var*
-//#UC END# *4A8EF02E007D_49539DBA029D_var*
+//#UC START# *4A8EF02E007D_49539DBA029Dexec_var*
+var
+ l_NewDocument : IDocument;
+ l_Cont        : IvcmContainer;
+ l_TopPara     : IeePara;
+//#UC END# *4A8EF02E007D_49539DBA029Dexec_var*
 begin
-//#UC START# *4A8EF02E007D_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A8EF02E007D_49539DBA029D_impl*
-end;//TExTextForm.CommonDocumentOpenNewWindow
+//#UC START# *4A8EF02E007D_49539DBA029Dexec_impl*
+ // операция может быть вызвана для формы с конкретным UserType
 
-procedure TExTextForm.TimeMachineStateChange;
-//#UC START# *4A8EF367029E_49539DBA029D_var*
-//#UC END# *4A8EF367029E_49539DBA029D_var*
+ if not CheckParamForUserType(aUserType) then
+  Exit;
+ OpenDocumentInNewContainer(vcm_okInNewWindow);
+//#UC END# *4A8EF02E007D_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_CommonDocumentOpenNewWindow_Execute
+
+procedure TExTextForm.Document_CommonDocumentOpenNewWindow(const aParams: IvcmExecuteParamsPrim);
+ {* Что это? }
 begin
-//#UC START# *4A8EF367029E_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A8EF367029E_49539DBA029D_impl*
-end;//TExTextForm.TimeMachineStateChange
+ with (aParams.Data As IDocument_CommonDocumentOpenNewWindow_Params) do
+  Self.Document_CommonDocumentOpenNewWindow_Execute(UserType);
+end;//TExTextForm.Document_CommonDocumentOpenNewWindow
 
-procedure TExTextForm.RedactionOnID;
-//#UC START# *4A8EF4B50044_49539DBA029D_var*
-//#UC END# *4A8EF4B50044_49539DBA029D_var*
+procedure TExTextForm.System_TimeMachineStateChange_Execute(aStayInCurrentRedaction: Boolean = False);
+//#UC START# *4A8EF367029E_49539DBA029Dexec_var*
+//#UC END# *4A8EF367029E_49539DBA029Dexec_var*
 begin
-//#UC START# *4A8EF4B50044_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A8EF4B50044_49539DBA029D_impl*
-end;//TExTextForm.RedactionOnID
+//#UC START# *4A8EF367029E_49539DBA029Dexec_impl*
+ if (UserType = dftDocument) then
+ begin
+  if not defDataAdapter.TimeMachine.IsOn then
+  begin
+   if aStayInCurrentRedaction then
+    f_DontResetRedactions := True;
+   if not f_DontResetRedactions then
+    SetActualRedaction
+   else
+   // чтобы не было пустой вкладки как в http://mdp.garant.ru/pages/viewpage.action?pageId=342866563
+   // добавляем ниже проверку - and dsDocument.TimeMachineOff
+   if Visible and Assigned(dsDocument) and dsDocument.TimeMachineOff then
+    DocumentSet.OpenWarning;
+  end//not defDataAdapter.TimeMachine.IsOn
+  else
+  if not ReloadRedaction(defDataAdapter.TimeMachine.Date) and
+     Visible and Assigned(dsDocument) and dsDocument.TimeMachineOff then
+   DocumentSet.OpenWarning;
+ end;//UserType = dftDocument
+ f_DontResetRedactions := False;
+//#UC END# *4A8EF367029E_49539DBA029Dexec_impl*
+end;//TExTextForm.System_TimeMachineStateChange_Execute
 
-function TExTextForm.FindExplanation: Boolean;
+procedure TExTextForm.System_TimeMachineStateChange(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As ISystem_TimeMachineStateChange_Params) do
+  Self.System_TimeMachineStateChange_Execute(StayInCurrentRedaction);
+end;//TExTextForm.System_TimeMachineStateChange
+
+procedure TExTextForm.Redactions_RedactionOnID_Execute(aRedactionID: TRedactionID);
+//#UC START# *4A8EF4B50044_49539DBA029Dexec_var*
+//#UC END# *4A8EF4B50044_49539DBA029Dexec_var*
+begin
+//#UC START# *4A8EF4B50044_49539DBA029Dexec_impl*
+ if (UserType = dftDocument) and
+    (Document <> nil) then
+  ReloadRedaction(crtID, aRedactionID);
+//#UC END# *4A8EF4B50044_49539DBA029Dexec_impl*
+end;//TExTextForm.Redactions_RedactionOnID_Execute
+
+procedure TExTextForm.Redactions_RedactionOnID(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IRedactions_RedactionOnID_Params) do
+  Self.Redactions_RedactionOnID_Execute(RedactionID);
+end;//TExTextForm.Redactions_RedactionOnID
+
+function TExTextForm.Document_FindExplanation_Execute: Boolean;
  {* Найти толкование }
-//#UC START# *4A9D26B80015_49539DBA029D_var*
-//#UC END# *4A9D26B80015_49539DBA029D_var*
+//#UC START# *4A9D26B80015_49539DBA029Dexec_var*
+//#UC END# *4A9D26B80015_49539DBA029Dexec_var*
 begin
-//#UC START# *4A9D26B80015_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A9D26B80015_49539DBA029D_impl*
-end;//TExTextForm.FindExplanation
+//#UC START# *4A9D26B80015_49539DBA029Dexec_impl*
+ Result := true;
+ if Text.HasSelection then
+  DoFindInDict
+ else
+  Result := false;
+//#UC END# *4A9D26B80015_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_FindExplanation_Execute
 
-procedure TExTextForm.FindInDict;
+procedure TExTextForm.Document_FindExplanation(const aParams: IvcmExecuteParamsPrim);
+ {* Найти толкование }
+begin
+ with (aParams.Data As IDocument_FindExplanation_Params) do
+  ResultValue := Self.Document_FindExplanation_Execute;
+end;//TExTextForm.Document_FindExplanation
+
+procedure TExTextForm.Selection_FindInDict_Test(const aParams: IvcmTestParamsPrim);
  {* Найти в Толковом словаре }
-//#UC START# *4A9D3FC50134_49539DBA029D_var*
-//#UC END# *4A9D3FC50134_49539DBA029D_var*
+//#UC START# *4A9D3FC50134_49539DBA029Dtest_var*
+//#UC END# *4A9D3FC50134_49539DBA029Dtest_var*
 begin
-//#UC START# *4A9D3FC50134_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A9D3FC50134_49539DBA029D_impl*
-end;//TExTextForm.FindInDict
+//#UC START# *4A9D3FC50134_49539DBA029Dtest_impl*
+ if aParams.Op.Flag[vcm_ofEnabled] then 
+  aParams.Op.Flag[vcm_ofEnabled] := (Document <> nil) and
+                                   (not IsPictureUnderCursor) and
+                                   defDataAdapter.IsExplanatoryExists;
+//#UC END# *4A9D3FC50134_49539DBA029Dtest_impl*
+end;//TExTextForm.Selection_FindInDict_Test
 
-function TExTextForm.SetPosition: Boolean;
-//#UC START# *4AE9D38A02DA_49539DBA029D_var*
-//#UC END# *4AE9D38A02DA_49539DBA029D_var*
+procedure TExTextForm.Selection_FindInDict_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Найти в Толковом словаре }
+//#UC START# *4A9D3FC50134_49539DBA029Dexec_var*
+//#UC END# *4A9D3FC50134_49539DBA029Dexec_var*
 begin
-//#UC START# *4AE9D38A02DA_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE9D38A02DA_49539DBA029D_impl*
-end;//TExTextForm.SetPosition
+//#UC START# *4A9D3FC50134_49539DBA029Dexec_impl*
+ DoFindInDict;
+//#UC END# *4A9D3FC50134_49539DBA029Dexec_impl*
+end;//TExTextForm.Selection_FindInDict_Execute
 
-procedure TExTextForm.SetActive;
-//#UC START# *4AE9D9AF02FE_49539DBA029D_var*
-//#UC END# *4AE9D9AF02FE_49539DBA029D_var*
+function TExTextForm.Document_SetPosition_Execute(aPointID: Cardinal;
+ aPointType: TDocumentPositionType = Sub;
+ aUserType: Integer = 0): Boolean;
+//#UC START# *4AE9D38A02DA_49539DBA029Dexec_var*
+//#UC END# *4AE9D38A02DA_49539DBA029Dexec_var*
 begin
-//#UC START# *4AE9D9AF02FE_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE9D9AF02FE_49539DBA029D_impl*
-end;//TExTextForm.SetActive
+//#UC START# *4AE9D38A02DA_49539DBA029Dexec_impl*
+ if not CheckParamForUserType(aUserType) then
+ begin
+  Result := false;
+  Exit;
+ end;//not CheckParamForUserType(aUserType)
+ Result := true;
+ GoToPoint(aPointID, aPointType)
+//#UC END# *4AE9D38A02DA_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_SetPosition_Execute
 
-procedure TExTextForm.ExportBlock;
-//#UC START# *4AE9DC070264_49539DBA029D_var*
-//#UC END# *4AE9DC070264_49539DBA029D_var*
+procedure TExTextForm.Document_SetPosition(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4AE9DC070264_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE9DC070264_49539DBA029D_impl*
-end;//TExTextForm.ExportBlock
+ with (aParams.Data As IDocument_SetPosition_Params) do
+  ResultValue := Self.Document_SetPosition_Execute(PointID, PointType, UserType);
+end;//TExTextForm.Document_SetPosition
 
-function TExTextForm.GetCurrentPosition: Integer;
-//#UC START# *4AEAF9C000D8_49539DBA029D_var*
-//#UC END# *4AEAF9C000D8_49539DBA029D_var*
+procedure TExTextForm.Document_SetActive_Execute(aUserType: Integer);
+//#UC START# *4AE9D9AF02FE_49539DBA029Dexec_var*
+//#UC END# *4AE9D9AF02FE_49539DBA029Dexec_var*
 begin
-//#UC START# *4AEAF9C000D8_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AEAF9C000D8_49539DBA029D_impl*
-end;//TExTextForm.GetCurrentPosition
+//#UC START# *4AE9D9AF02FE_49539DBA029Dexec_impl*
+ if (ZoneType = vcm_ztChild) and
+    (UserType = aUserType) then
+ begin
+  if IsActiveInParent then
+   SetInactiveInParent
+  else
+   SetActiveInParent;
+ end;//ZoneType = vcm_ztChild
+//#UC END# *4AE9D9AF02FE_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_SetActive_Execute
 
-procedure TExTextForm.SelectBlock;
-//#UC START# *4AEB097001C3_49539DBA029D_var*
-//#UC END# *4AEB097001C3_49539DBA029D_var*
+procedure TExTextForm.Document_SetActive(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4AEB097001C3_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AEB097001C3_49539DBA029D_impl*
-end;//TExTextForm.SelectBlock
+ with (aParams.Data As IDocument_SetActive_Params) do
+  Self.Document_SetActive_Execute(UserType);
+end;//TExTextForm.Document_SetActive
 
-procedure TExTextForm.CopyBlock;
-//#UC START# *4AEB09C50287_49539DBA029D_var*
-//#UC END# *4AEB09C50287_49539DBA029D_var*
+procedure TExTextForm.Document_ExportBlock_Execute(const aData: IUnknown;
+ aUserType: Integer;
+ aToActiveWindow: Boolean);
+//#UC START# *4AE9DC070264_49539DBA029Dexec_var*
+//#UC END# *4AE9DC070264_49539DBA029Dexec_var*
 begin
-//#UC START# *4AEB09C50287_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AEB09C50287_49539DBA029D_impl*
-end;//TExTextForm.CopyBlock
+//#UC START# *4AE9DC070264_49539DBA029Dexec_impl*
+ ExportBlock(ExtractRangeFromContents(aData, aUserType), aToActiveWindow);
+//#UC END# *4AE9DC070264_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_ExportBlock_Execute
 
-procedure TExTextForm.PrintBlock;
-//#UC START# *4AEB0A1C0270_49539DBA029D_var*
-//#UC END# *4AEB0A1C0270_49539DBA029D_var*
+procedure TExTextForm.Document_ExportBlock(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4AEB0A1C0270_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AEB0A1C0270_49539DBA029D_impl*
-end;//TExTextForm.PrintBlock
+ with (aParams.Data As IDocument_ExportBlock_Params) do
+  Self.Document_ExportBlock_Execute(Data, UserType, ToActiveWindow);
+end;//TExTextForm.Document_ExportBlock
 
-procedure TExTextForm.PrintDialogBlock;
-//#UC START# *4AEB0A550165_49539DBA029D_var*
-//#UC END# *4AEB0A550165_49539DBA029D_var*
+procedure TExTextForm.Document_GetCurrentPosition_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4AEAF9C000D8_49539DBA029Dtest_var*
+//#UC END# *4AEAF9C000D8_49539DBA029Dtest_var*
 begin
-//#UC START# *4AEB0A550165_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AEB0A550165_49539DBA029D_impl*
-end;//TExTextForm.PrintDialogBlock
+//#UC START# *4AEAF9C000D8_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (UserType in [dftDocument, dftMedicFirm]);
+//#UC END# *4AEAF9C000D8_49539DBA029Dtest_impl*
+end;//TExTextForm.Document_GetCurrentPosition_Test
 
-procedure TExTextForm.PreviewBlock;
-//#UC START# *4AEB0A8E002E_49539DBA029D_var*
-//#UC END# *4AEB0A8E002E_49539DBA029D_var*
+function TExTextForm.Document_GetCurrentPosition_Execute: Integer;
+//#UC START# *4AEAF9C000D8_49539DBA029Dexec_var*
+var
+ l_CurSub : IeeSub;
+//#UC END# *4AEAF9C000D8_49539DBA029Dexec_var*
 begin
-//#UC START# *4AEB0A8E002E_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AEB0A8E002E_49539DBA029D_impl*
-end;//TExTextForm.PreviewBlock
+//#UC START# *4AEAF9C000D8_49539DBA029Dexec_impl*
+ l_CurSub := Text.GetNearestSubByCursor;
+ try
+  if (l_CurSub <> nil) then
+   Result := l_CurSub.ID
+  else
+   Result := -1;
+ finally
+  l_CurSub := nil;
+ end;//try..finally
+//#UC END# *4AEAF9C000D8_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_GetCurrentPosition_Execute
 
-procedure TExTextForm.ShowRespondentListToPart;
-//#UC START# *4AEEEE970141_49539DBA029D_var*
-//#UC END# *4AEEEE970141_49539DBA029D_var*
+procedure TExTextForm.Document_GetCurrentPosition(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4AEEEE970141_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AEEEE970141_49539DBA029D_impl*
-end;//TExTextForm.ShowRespondentListToPart
+ with (aParams.Data As IDocument_GetCurrentPosition_Params) do
+  ResultValue := Self.Document_GetCurrentPosition_Execute;
+end;//TExTextForm.Document_GetCurrentPosition
 
-procedure TExTextForm.ShowCorrespondentListToPart;
-//#UC START# *4AEEEEB7027C_49539DBA029D_var*
-//#UC END# *4AEEEEB7027C_49539DBA029D_var*
+procedure TExTextForm.Document_SelectBlock_Execute(const aData: IUnknown;
+ aUserType: Integer);
+//#UC START# *4AEB097001C3_49539DBA029Dexec_var*
+//#UC END# *4AEB097001C3_49539DBA029Dexec_var*
 begin
-//#UC START# *4AEEEEB7027C_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AEEEEB7027C_49539DBA029D_impl*
-end;//TExTextForm.ShowCorrespondentListToPart
+//#UC START# *4AEB097001C3_49539DBA029Dexec_impl*
+ SelectBlock(ExtractRangeFromContents(aData, aUserType));
+//#UC END# *4AEB097001C3_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_SelectBlock_Execute
 
-procedure TExTextForm.ModifyBookmarkNotify;
-//#UC START# *4AEEF7F40304_49539DBA029D_var*
-//#UC END# *4AEEF7F40304_49539DBA029D_var*
+procedure TExTextForm.Document_SelectBlock(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4AEEF7F40304_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AEEF7F40304_49539DBA029D_impl*
-end;//TExTextForm.ModifyBookmarkNotify
+ with (aParams.Data As IDocument_SelectBlock_Params) do
+  Self.Document_SelectBlock_Execute(Data, UserType);
+end;//TExTextForm.Document_SelectBlock
 
-procedure TExTextForm.AddBookmarkFromContents;
-//#UC START# *4AEEF87B00E1_49539DBA029D_var*
-//#UC END# *4AEEF87B00E1_49539DBA029D_var*
+procedure TExTextForm.Document_CopyBlock_Execute(const aData: IUnknown;
+ aUserType: Integer);
+//#UC START# *4AEB09C50287_49539DBA029Dexec_var*
+//#UC END# *4AEB09C50287_49539DBA029Dexec_var*
 begin
-//#UC START# *4AEEF87B00E1_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AEEF87B00E1_49539DBA029D_impl*
-end;//TExTextForm.AddBookmarkFromContents
+//#UC START# *4AEB09C50287_49539DBA029Dexec_impl*
+ CopyBlock(ExtractRangeFromContents(aData, aUserType));
+//#UC END# *4AEB09C50287_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_CopyBlock_Execute
 
-procedure TExTextForm.GetCorrespondentListExFrmAct;
+procedure TExTextForm.Document_CopyBlock(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IDocument_CopyBlock_Params) do
+  Self.Document_CopyBlock_Execute(Data, UserType);
+end;//TExTextForm.Document_CopyBlock
+
+procedure TExTextForm.Document_PrintBlock_Execute(const aData: IUnknown;
+ aUserType: Integer);
+//#UC START# *4AEB0A1C0270_49539DBA029Dexec_var*
+//#UC END# *4AEB0A1C0270_49539DBA029Dexec_var*
+begin
+//#UC START# *4AEB0A1C0270_49539DBA029Dexec_impl*
+ PrintBlock(ExtractRangeFromContents(aData, aUserType));
+//#UC END# *4AEB0A1C0270_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_PrintBlock_Execute
+
+procedure TExTextForm.Document_PrintBlock(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IDocument_PrintBlock_Params) do
+  Self.Document_PrintBlock_Execute(Data, UserType);
+end;//TExTextForm.Document_PrintBlock
+
+procedure TExTextForm.Document_PrintDialogBlock_Execute(const aData: IUnknown;
+ aUserType: Integer);
+//#UC START# *4AEB0A550165_49539DBA029Dexec_var*
+//#UC END# *4AEB0A550165_49539DBA029Dexec_var*
+begin
+//#UC START# *4AEB0A550165_49539DBA029Dexec_impl*
+ PrintDialogBlock(ExtractRangeFromContents(aData, aUserType));
+//#UC END# *4AEB0A550165_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_PrintDialogBlock_Execute
+
+procedure TExTextForm.Document_PrintDialogBlock(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IDocument_PrintDialogBlock_Params) do
+  Self.Document_PrintDialogBlock_Execute(Data, UserType);
+end;//TExTextForm.Document_PrintDialogBlock
+
+procedure TExTextForm.Document_PreviewBlock_Execute(const aData: IUnknown;
+ aUserType: Integer);
+//#UC START# *4AEB0A8E002E_49539DBA029Dexec_var*
+//#UC END# *4AEB0A8E002E_49539DBA029Dexec_var*
+begin
+//#UC START# *4AEB0A8E002E_49539DBA029Dexec_impl*
+ PreviewBlock(ExtractRangeFromContents(aData, aUserType));
+//#UC END# *4AEB0A8E002E_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_PreviewBlock_Execute
+
+procedure TExTextForm.Document_PreviewBlock(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IDocument_PreviewBlock_Params) do
+  Self.Document_PreviewBlock_Execute(Data, UserType);
+end;//TExTextForm.Document_PreviewBlock
+
+procedure TExTextForm.Document_ShowRespondentListToPart_Execute(const aList: IPositionList;
+ const aCurrent: Il3SimpleNode = nil);
+//#UC START# *4AEEEE970141_49539DBA029Dexec_var*
+//#UC END# *4AEEEE970141_49539DBA029Dexec_var*
+begin
+//#UC START# *4AEEEE970141_49539DBA029Dexec_impl*
+ if (UserType in [dftDocument, dftAACLeft]) then
+  OpenCRListToPart(crtRespondents, aCurrent, aList);
+//#UC END# *4AEEEE970141_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_ShowRespondentListToPart_Execute
+
+procedure TExTextForm.Document_ShowRespondentListToPart(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IDocument_ShowRespondentListToPart_Params) do
+  Self.Document_ShowRespondentListToPart_Execute(List, Current);
+end;//TExTextForm.Document_ShowRespondentListToPart
+
+procedure TExTextForm.Document_ShowCorrespondentListToPart_Execute(const aList: IPositionList;
+ const aCurrent: Il3SimpleNode = nil);
+//#UC START# *4AEEEEB7027C_49539DBA029Dexec_var*
+//#UC END# *4AEEEEB7027C_49539DBA029Dexec_var*
+begin
+//#UC START# *4AEEEEB7027C_49539DBA029Dexec_impl*
+ if (UserType in [dftDocument, dftAACLeft]) then
+  OpenCRListToPart(crtCorrespondents, aCurrent, aList);
+//#UC END# *4AEEEEB7027C_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_ShowCorrespondentListToPart_Execute
+
+procedure TExTextForm.Document_ShowCorrespondentListToPart(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IDocument_ShowCorrespondentListToPart_Params) do
+  Self.Document_ShowCorrespondentListToPart_Execute(List, Current);
+end;//TExTextForm.Document_ShowCorrespondentListToPart
+
+procedure TExTextForm.Document_ModifyBookmarkNotify_Execute(const anEntity: IUnknown);
+//#UC START# *4AEEF7F40304_49539DBA029Dexec_var*
+var
+ l_Bookmark : IBookmark;
+ l_Sub      : IeeSub;
+//#UC END# *4AEEF7F40304_49539DBA029Dexec_var*
+begin
+//#UC START# *4AEEF7F40304_49539DBA029Dexec_impl*
+ if (Document <> nil) and
+    (Text.Editor.Data.Document.Bookmarks.Count > 0) and
+    Supports(anEntity, IBookmark, l_Bookmark) then
+  try
+   if FindBookmarkInText(l_Bookmark, l_Sub) then
+    try
+     l_Sub.Name := nsGetBookmarkName(l_Bookmark).AsWStr;
+    finally
+     l_Sub := nil;
+    end;//try..finally
+  finally
+   l_Bookmark := nil;
+  end;//try..finally
+//#UC END# *4AEEF7F40304_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_ModifyBookmarkNotify_Execute
+
+procedure TExTextForm.Document_ModifyBookmarkNotify(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IDocument_ModifyBookmarkNotify_Params) do
+  Self.Document_ModifyBookmarkNotify_Execute(nEntity);
+end;//TExTextForm.Document_ModifyBookmarkNotify
+
+procedure TExTextForm.Document_AddBookmarkFromContents_Execute(const aTag: Il3TagRef);
+//#UC START# *4AEEF87B00E1_49539DBA029Dexec_var*
+var
+ l_eePara: IeePara;
+//#UC END# *4AEEF87B00E1_49539DBA029Dexec_var*
+begin
+//#UC START# *4AEEF87B00E1_49539DBA029Dexec_impl*
+ if (Document <> nil) and
+    (aTag <> nil) then
+ begin
+  l_eePara := TeePara.Make(aTag.AsObject.Box, Text As IeeDocumentEx);
+  try
+   AddBookmark(eeFindNumberedPara(l_eePara, Text as IeeDocumentEx));
+  finally
+   l_eePara := nil;
+  end;
+ end;//Document <> nil
+//#UC END# *4AEEF87B00E1_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_AddBookmarkFromContents_Execute
+
+procedure TExTextForm.Document_AddBookmarkFromContents(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IDocument_AddBookmarkFromContents_Params) do
+  Self.Document_AddBookmarkFromContents_Execute(Tag);
+end;//TExTextForm.Document_AddBookmarkFromContents
+
+procedure TExTextForm.Document_GetCorrespondentListExFrmAct_Test(const aParams: IvcmTestParamsPrim);
  {* Ссылки на документ (вид информации) }
-//#UC START# *4AF329F6002A_49539DBA029D_var*
-//#UC END# *4AF329F6002A_49539DBA029D_var*
+//#UC START# *4AF329F6002A_49539DBA029Dtest_var*
+//#UC END# *4AF329F6002A_49539DBA029Dtest_var*
 begin
-//#UC START# *4AF329F6002A_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF329F6002A_49539DBA029D_impl*
-end;//TExTextForm.GetCorrespondentListExFrmAct
+//#UC START# *4AF329F6002A_49539DBA029Dtest_impl*
+ TypedCRToPartTest(aParams, crtCorrespondents);
+//#UC END# *4AF329F6002A_49539DBA029Dtest_impl*
+end;//TExTextForm.Document_GetCorrespondentListExFrmAct_Test
 
-procedure TExTextForm.GetRespondentListExFrmAct;
+procedure TExTextForm.Document_GetCorrespondentListExFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Ссылки на документ (вид информации) }
+//#UC START# *4AF329F6002A_49539DBA029Dexec_var*
+//#UC END# *4AF329F6002A_49539DBA029Dexec_var*
+begin
+//#UC START# *4AF329F6002A_49539DBA029Dexec_impl*
+ if (aParams.CurrentNode <> nil) OR (aParams.ItemIndex >= 0) then
+  GetCorrespondentListEx(aParams.ItemIndex, bsConvertFilteredCRNode(aParams.CurrentNode));
+//#UC END# *4AF329F6002A_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_GetCorrespondentListExFrmAct_Execute
+
+procedure TExTextForm.Document_GetRespondentListExFrmAct_Test(const aParams: IvcmTestParamsPrim);
  {* Ссылки из документа (вид информации) }
-//#UC START# *4AF329FD014D_49539DBA029D_var*
-//#UC END# *4AF329FD014D_49539DBA029D_var*
+//#UC START# *4AF329FD014D_49539DBA029Dtest_var*
+//#UC END# *4AF329FD014D_49539DBA029Dtest_var*
 begin
-//#UC START# *4AF329FD014D_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF329FD014D_49539DBA029D_impl*
-end;//TExTextForm.GetRespondentListExFrmAct
+//#UC START# *4AF329FD014D_49539DBA029Dtest_impl*
+ TypedCRToPartTest(aParams, crtRespondents);
+//#UC END# *4AF329FD014D_49539DBA029Dtest_impl*
+end;//TExTextForm.Document_GetRespondentListExFrmAct_Test
 
-procedure TExTextForm.TimeMachineOnOff;
-//#UC START# *4AF83BDB03AE_49539DBA029D_var*
-//#UC END# *4AF83BDB03AE_49539DBA029D_var*
+procedure TExTextForm.Document_GetRespondentListExFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Ссылки из документа (вид информации) }
+//#UC START# *4AF329FD014D_49539DBA029Dexec_var*
+//#UC END# *4AF329FD014D_49539DBA029Dexec_var*
 begin
-//#UC START# *4AF83BDB03AE_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF83BDB03AE_49539DBA029D_impl*
-end;//TExTextForm.TimeMachineOnOff
+//#UC START# *4AF329FD014D_49539DBA029Dexec_impl*
+ if (aParams.CurrentNode <> nil) OR (aParams.ItemIndex >= 0) then
+  GetRespondentListEx(aParams.ItemIndex, aParams.CurrentNode);
+//#UC END# *4AF329FD014D_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_GetRespondentListExFrmAct_Execute
 
-procedure TExTextForm.TimeMachineOffAndReset;
-//#UC START# *4AF83BEB0393_49539DBA029D_var*
-//#UC END# *4AF83BEB0393_49539DBA029D_var*
+procedure TExTextForm.TimeMachine_TimeMachineOnOff_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4AF83BDB03AE_49539DBA029Dtest_var*
+//#UC END# *4AF83BDB03AE_49539DBA029Dtest_var*
 begin
-//#UC START# *4AF83BEB0393_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF83BEB0393_49539DBA029D_impl*
-end;//TExTextForm.TimeMachineOffAndReset
+//#UC START# *4AF83BDB03AE_49539DBA029Dtest_impl*
+ with aParams do
+ begin
+  Op.Flag[vcm_ofEnabled] := Assigned(Document) and
+   (not Document.GetNotTm or DefDataAdapter.TimeMachine.IsOn);
+  if Op.Flag[vcm_ofEnabled] then
+   Op.Flag[vcm_ofChecked] := defDataAdapter.TimeMachine.IsOn;
+ end;//with aParams do
+//#UC END# *4AF83BDB03AE_49539DBA029Dtest_impl*
+end;//TExTextForm.TimeMachine_TimeMachineOnOff_Test
 
-procedure TExTextForm.OpenNotSureTopic;
-//#UC START# *4AF83C3D01DA_49539DBA029D_var*
-//#UC END# *4AF83C3D01DA_49539DBA029D_var*
+procedure TExTextForm.TimeMachine_TimeMachineOnOff_Execute;
+//#UC START# *4AF83BDB03AE_49539DBA029Dexec_var*
+//#UC END# *4AF83BDB03AE_49539DBA029Dexec_var*
 begin
-//#UC START# *4AF83C3D01DA_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF83C3D01DA_49539DBA029D_impl*
-end;//TExTextForm.OpenNotSureTopic
+//#UC START# *4AF83BDB03AE_49539DBA029Dexec_impl*
+ f_DontResetRedactions := true;
+ TimeMachineOnOff;
+//#UC END# *4AF83BDB03AE_49539DBA029Dexec_impl*
+end;//TExTextForm.TimeMachine_TimeMachineOnOff_Execute
 
-procedure TExTextForm.ActualRedaction;
-//#UC START# *4AFAF4900270_49539DBA029D_var*
-//#UC END# *4AFAF4900270_49539DBA029D_var*
+procedure TExTextForm.TimeMachine_TimeMachineOnOff(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4AFAF4900270_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AFAF4900270_49539DBA029D_impl*
-end;//TExTextForm.ActualRedaction
+ Self.TimeMachine_TimeMachineOnOff_Execute;
+end;//TExTextForm.TimeMachine_TimeMachineOnOff
 
-procedure TExTextForm.ToggleFoundWords;
+procedure TExTextForm.TimeMachine_TimeMachineOffAndReset_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4AF83BEB0393_49539DBA029Dtest_var*
+//#UC END# *4AF83BEB0393_49539DBA029Dtest_var*
+begin
+//#UC START# *4AF83BEB0393_49539DBA029Dtest_impl*
+ if aParams.Op.Flag[vcm_ofEnabled] then
+  aParams.Op.Flag[vcm_ofEnabled] := defDataAdapter.TimeMachine.IsOn;
+//#UC END# *4AF83BEB0393_49539DBA029Dtest_impl*
+end;//TExTextForm.TimeMachine_TimeMachineOffAndReset_Test
+
+procedure TExTextForm.TimeMachine_TimeMachineOffAndReset_Execute;
+//#UC START# *4AF83BEB0393_49539DBA029Dexec_var*
+//#UC END# *4AF83BEB0393_49539DBA029Dexec_var*
+begin
+//#UC START# *4AF83BEB0393_49539DBA029Dexec_impl*
+ TimeMachineOnOff(True);
+//#UC END# *4AF83BEB0393_49539DBA029Dexec_impl*
+end;//TExTextForm.TimeMachine_TimeMachineOffAndReset_Execute
+
+procedure TExTextForm.TimeMachine_TimeMachineOffAndReset(const aParams: IvcmExecuteParamsPrim);
+begin
+ Self.TimeMachine_TimeMachineOffAndReset_Execute;
+end;//TExTextForm.TimeMachine_TimeMachineOffAndReset
+
+procedure TExTextForm.Document_OpenNotSureTopic_Execute;
+//#UC START# *4AF83C3D01DA_49539DBA029Dexec_var*
+var
+ l_Document: IDocument;
+//#UC END# *4AF83C3D01DA_49539DBA029Dexec_var*
+begin
+//#UC START# *4AF83C3D01DA_49539DBA029Dexec_impl*
+ if (UserType = dftDocument) then
+ begin
+  l_Document := defDataAdapter.TimeMachine.NotSureHelp;
+  if Assigned(l_Document) then
+   try
+    TdmStdRes.OpenDocumentWithCheck(TdeDocInfo.Make(l_Document), NativeMainForm);
+   finally
+    l_Document := nil;
+   end;//try..finally
+ end;//UserType = dftDocument
+//#UC END# *4AF83C3D01DA_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_OpenNotSureTopic_Execute
+
+procedure TExTextForm.Document_OpenNotSureTopic(const aParams: IvcmExecuteParamsPrim);
+begin
+ Self.Document_OpenNotSureTopic_Execute;
+end;//TExTextForm.Document_OpenNotSureTopic
+
+procedure TExTextForm.Redactions_ActualRedaction_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4AFAF4900270_49539DBA029Dtest_var*
+//#UC END# *4AFAF4900270_49539DBA029Dtest_var*
+begin
+//#UC START# *4AFAF4900270_49539DBA029Dtest_impl*
+ if EnableRedactionOps(aParams) and Assigned(ViewArea) then
+  aParams.Op.Flag[vcm_ofChecked] := TdmStdRes.IsCurEditionActual(ViewArea.DocInfo.Doc);
+//#UC END# *4AFAF4900270_49539DBA029Dtest_impl*
+end;//TExTextForm.Redactions_ActualRedaction_Test
+
+procedure TExTextForm.Redactions_ActualRedaction_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4AFAF4900270_49539DBA029Dexec_var*
+//#UC END# *4AFAF4900270_49539DBA029Dexec_var*
+begin
+//#UC START# *4AFAF4900270_49539DBA029Dexec_impl*
+ SetActualRedaction;
+//#UC END# *4AFAF4900270_49539DBA029Dexec_impl*
+end;//TExTextForm.Redactions_ActualRedaction_Execute
+
+procedure TExTextForm.Edit_ToggleFoundWords_Test(const aParams: IvcmTestParamsPrim);
  {* Подсвечивать найденный контекст }
-//#UC START# *4AFD4230031F_49539DBA029D_var*
-//#UC END# *4AFD4230031F_49539DBA029D_var*
+//#UC START# *4AFD4230031F_49539DBA029Dtest_var*
+//#UC END# *4AFD4230031F_49539DBA029Dtest_var*
 begin
-//#UC START# *4AFD4230031F_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AFD4230031F_49539DBA029D_impl*
-end;//TExTextForm.ToggleFoundWords
+//#UC START# *4AFD4230031F_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofChecked] := (Text.ExcludeSuper = []);
+//#UC END# *4AFD4230031F_49539DBA029Dtest_impl*
+end;//TExTextForm.Edit_ToggleFoundWords_Test
 
-function TExTextForm.GotoPara: Boolean;
-//#UC START# *4AFD4A45003B_49539DBA029D_var*
-//#UC END# *4AFD4A45003B_49539DBA029D_var*
+procedure TExTextForm.Edit_ToggleFoundWords_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Подсвечивать найденный контекст }
+//#UC START# *4AFD4230031F_49539DBA029Dexec_var*
+//#UC END# *4AFD4230031F_49539DBA029Dexec_var*
 begin
-//#UC START# *4AFD4A45003B_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AFD4A45003B_49539DBA029D_impl*
-end;//TExTextForm.GotoPara
+//#UC START# *4AFD4230031F_49539DBA029Dexec_impl*
+ with Text do
+  if (ExcludeSuper = []) then
+   ExcludeSuper := [ev_slFoundWords]
+  else
+   ExcludeSuper := [];
+//#UC END# *4AFD4230031F_49539DBA029Dexec_impl*
+end;//TExTextForm.Edit_ToggleFoundWords_Execute
 
-procedure TExTextForm.TimeMachineOnOffNew;
+function TExTextForm.Document_GotoPara_Execute(const aPara: Il3TagRef;
+ aUserType: Integer): Boolean;
+//#UC START# *4AFD4A45003B_49539DBA029Dexec_var*
+var
+ l_O : InevObject;
+//#UC END# *4AFD4A45003B_49539DBA029Dexec_var*
+begin
+//#UC START# *4AFD4A45003B_49539DBA029Dexec_impl*
+ if not CheckParamForUserType(aUserType) then
+ begin
+  Result := false;
+  Exit;
+ end;//not CheckParamForUserType(aUserType)
+ Result := true;
+ if not aPara.AsObject.QT(InevObject, l_O) then
+  Assert(false);
+ Text.GotoTag(l_O);
+//#UC END# *4AFD4A45003B_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_GotoPara_Execute
+
+procedure TExTextForm.Document_GotoPara(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IDocument_GotoPara_Params) do
+  ResultValue := Self.Document_GotoPara_Execute(Para, UserType);
+end;//TExTextForm.Document_GotoPara
+
+procedure TExTextForm.TimeMachine_TimeMachineOnOffNew_Test(const aParams: IvcmTestParamsPrim);
  {* Включить Машину времени }
-//#UC START# *4B261EC80086_49539DBA029D_var*
-//#UC END# *4B261EC80086_49539DBA029D_var*
+//#UC START# *4B261EC80086_49539DBA029Dtest_var*
+//#UC END# *4B261EC80086_49539DBA029Dtest_var*
 begin
-//#UC START# *4B261EC80086_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4B261EC80086_49539DBA029D_impl*
-end;//TExTextForm.TimeMachineOnOffNew
+//#UC START# *4B261EC80086_49539DBA029Dtest_impl*
+ with aParams do
+ begin
+  Op.Flag[vcm_ofEnabled] := Assigned(Document)
+   and (not Document.GetNotTm or DefDataAdapter.TimeMachine.IsOn)
+   and not (UserType in [dftAACContentsRight, dftAACContentsLeft]);
+  if Op.Flag[vcm_ofEnabled] then
+   Op.Flag[vcm_ofChecked] := defDataAdapter.TimeMachine.IsOn;
+ end;//with aParams do
+//#UC END# *4B261EC80086_49539DBA029Dtest_impl*
+end;//TExTextForm.TimeMachine_TimeMachineOnOffNew_Test
 
-procedure TExTextForm.OpenRedactionListFrmAct;
+procedure TExTextForm.TimeMachine_TimeMachineOnOffNew_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Включить Машину времени }
+//#UC START# *4B261EC80086_49539DBA029Dexec_var*
+//#UC END# *4B261EC80086_49539DBA029Dexec_var*
+begin
+//#UC START# *4B261EC80086_49539DBA029Dexec_impl*
+ if DefDataAdapter.TimeMachine.IsOn then
+  TdmStdRes.OpenTurnOffTimeMachine(InsTurnOffTimeMachine(Self))
+ else
+  TdmStdRes.OpenTurnOnTimeMachine(InsTurnOnTimeMachine(Self));
+//#UC END# *4B261EC80086_49539DBA029Dexec_impl*
+end;//TExTextForm.TimeMachine_TimeMachineOnOffNew_Execute
+
+procedure TExTextForm.TimeMachine_TimeMachineOnOffNew_GetState(var State: TvcmOperationStateIndex);
+ {* Включить Машину времени }
+//#UC START# *4B261EC80086_49539DBA029Dgetstate_var*
+//#UC END# *4B261EC80086_49539DBA029Dgetstate_var*
+begin
+//#UC START# *4B261EC80086_49539DBA029Dgetstate_impl*
+ if (Document <> nil) then
+ begin
+  if not defDataAdapter.TimeMachine.IsOn then
+   State := st_user_TimeMachine_TimeMachineOnOffNew_MachineOn
+  else
+   State := st_user_TimeMachine_TimeMachineOnOffNew_MachineOff;
+ end//Document <> nil
+ else
+  State := vcm_DefaultOperationState;
+//#UC END# *4B261EC80086_49539DBA029Dgetstate_impl*
+end;//TExTextForm.TimeMachine_TimeMachineOnOffNew_GetState
+
+procedure TExTextForm.Redactions_OpenRedactionListFrmAct_Test(const aParams: IvcmTestParamsPrim);
  {* Список редакций }
-//#UC START# *4B262F9701DE_49539DBA029D_var*
-//#UC END# *4B262F9701DE_49539DBA029D_var*
+//#UC START# *4B262F9701DE_49539DBA029Dtest_var*
+//#UC END# *4B262F9701DE_49539DBA029Dtest_var*
 begin
-//#UC START# *4B262F9701DE_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4B262F9701DE_49539DBA029D_impl*
-end;//TExTextForm.OpenRedactionListFrmAct
+//#UC START# *4B262F9701DE_49539DBA029Dtest_impl*
+ EnableRedactionOps(aParams);
+//#UC END# *4B262F9701DE_49539DBA029Dtest_impl*
+end;//TExTextForm.Redactions_OpenRedactionListFrmAct_Test
 
-function TExTextForm.GetParaForPositionning: IeeLeafPara;
-//#UC START# *4B506F4D0196_49539DBA029D_var*
-//#UC END# *4B506F4D0196_49539DBA029D_var*
+procedure TExTextForm.Redactions_OpenRedactionListFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Список редакций }
+//#UC START# *4B262F9701DE_49539DBA029Dexec_var*
+//#UC END# *4B262F9701DE_49539DBA029Dexec_var*
 begin
-//#UC START# *4B506F4D0196_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4B506F4D0196_49539DBA029D_impl*
-end;//TExTextForm.GetParaForPositionning
+//#UC START# *4B262F9701DE_49539DBA029Dexec_impl*
+ OpenRedactionList;
+//#UC END# *4B262F9701DE_49539DBA029Dexec_impl*
+end;//TExTextForm.Redactions_OpenRedactionListFrmAct_Execute
+
+procedure TExTextForm.Redactions_OpenRedactionListFrmAct_GetState(var State: TvcmOperationStateIndex);
+ {* Список редакций }
+//#UC START# *4B262F9701DE_49539DBA029Dgetstate_var*
+//#UC END# *4B262F9701DE_49539DBA029Dgetstate_var*
+begin
+//#UC START# *4B262F9701DE_49539DBA029Dgetstate_impl*
+ State := vcm_DefaultOperationState;
+//#UC END# *4B262F9701DE_49539DBA029Dgetstate_impl*
+end;//TExTextForm.Redactions_OpenRedactionListFrmAct_GetState
+
+procedure TExTextForm.Document_GetParaForPositionning_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4B506F4D0196_49539DBA029Dtest_var*
+//#UC END# *4B506F4D0196_49539DBA029Dtest_var*
+begin
+//#UC START# *4B506F4D0196_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (UserType in [dftDocument, dftMedicFirm]);
+//#UC END# *4B506F4D0196_49539DBA029Dtest_impl*
+end;//TExTextForm.Document_GetParaForPositionning_Test
+
+function TExTextForm.Document_GetParaForPositionning_Execute: IeeLeafPara;
+//#UC START# *4B506F4D0196_49539DBA029Dexec_var*
+//#UC END# *4B506F4D0196_49539DBA029Dexec_var*
+begin
+//#UC START# *4B506F4D0196_49539DBA029Dexec_impl*
+ Result := GetParaForPositionning;
+//#UC END# *4B506F4D0196_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_GetParaForPositionning_Execute
+
+procedure TExTextForm.Document_GetParaForPositionning(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IDocument_GetParaForPositionning_Params) do
+  ResultValue := Self.Document_GetParaForPositionning_Execute;
+end;//TExTextForm.Document_GetParaForPositionning
 
 function TExTextForm.NeedGotoNeighbours: Boolean;
  {* Надо ли переходить на соседей блока }
@@ -3408,729 +4133,1926 @@ begin
 //#UC END# *4C068AB5026A_49539DBA029D_impl*
 end;//TExTextForm.NeedGotoNeighbours
 
-procedure TExTextForm.GetCorrespondentList;
-//#UC START# *4C2AEDB3003B_49539DBA029D_var*
-//#UC END# *4C2AEDB3003B_49539DBA029D_var*
+procedure TExTextForm.DocumentBlock_GetCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C2AEDB3003B_49539DBA029Dtest_var*
+//#UC END# *4C2AEDB3003B_49539DBA029Dtest_var*
 begin
-//#UC START# *4C2AEDB3003B_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C2AEDB3003B_49539DBA029D_impl*
-end;//TExTextForm.GetCorrespondentList
+//#UC START# *4C2AEDB3003B_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := false;
+//#UC END# *4C2AEDB3003B_49539DBA029Dtest_impl*
+end;//TExTextForm.DocumentBlock_GetCorrespondentList_Test
 
-procedure TExTextForm.GetRespondentList;
-//#UC START# *4C2AEDC503CC_49539DBA029D_var*
-//#UC END# *4C2AEDC503CC_49539DBA029D_var*
+procedure TExTextForm.DocumentBlock_GetCorrespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C2AEDB3003B_49539DBA029Dexec_var*
+//#UC END# *4C2AEDB3003B_49539DBA029Dexec_var*
 begin
-//#UC START# *4C2AEDC503CC_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C2AEDC503CC_49539DBA029D_impl*
-end;//TExTextForm.GetRespondentList
+//#UC START# *4C2AEDB3003B_49539DBA029Dexec_impl*
+ Assert(false, 'Это контекстная операция');
+//#UC END# *4C2AEDB3003B_49539DBA029Dexec_impl*
+end;//TExTextForm.DocumentBlock_GetCorrespondentList_Execute
 
-procedure TExTextForm.GetTypedCorrespondentList;
-//#UC START# *4C2AEDDA0335_49539DBA029D_var*
-//#UC END# *4C2AEDDA0335_49539DBA029D_var*
+procedure TExTextForm.DocumentBlock_GetRespondentList_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C2AEDC503CC_49539DBA029Dtest_var*
+//#UC END# *4C2AEDC503CC_49539DBA029Dtest_var*
 begin
-//#UC START# *4C2AEDDA0335_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C2AEDDA0335_49539DBA029D_impl*
-end;//TExTextForm.GetTypedCorrespondentList
+//#UC START# *4C2AEDC503CC_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := false;
+//#UC END# *4C2AEDC503CC_49539DBA029Dtest_impl*
+end;//TExTextForm.DocumentBlock_GetRespondentList_Test
 
-procedure TExTextForm.GetTypedRespondentList;
-//#UC START# *4C2AEDE7028C_49539DBA029D_var*
-//#UC END# *4C2AEDE7028C_49539DBA029D_var*
+procedure TExTextForm.DocumentBlock_GetRespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C2AEDC503CC_49539DBA029Dexec_var*
+//#UC END# *4C2AEDC503CC_49539DBA029Dexec_var*
 begin
-//#UC START# *4C2AEDE7028C_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C2AEDE7028C_49539DBA029D_impl*
-end;//TExTextForm.GetTypedRespondentList
+//#UC START# *4C2AEDC503CC_49539DBA029Dexec_impl*
+ Assert(false, 'Это контекстная операция');
+//#UC END# *4C2AEDC503CC_49539DBA029Dexec_impl*
+end;//TExTextForm.DocumentBlock_GetRespondentList_Execute
 
-procedure TExTextForm.GetAnnotationDocFrmAct;
-//#UC START# *4C3AA77E00A3_49539DBA029D_var*
-//#UC END# *4C3AA77E00A3_49539DBA029D_var*
+procedure TExTextForm.DocumentBlock_GetTypedCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C2AEDDA0335_49539DBA029Dtest_var*
+//#UC END# *4C2AEDDA0335_49539DBA029Dtest_var*
 begin
-//#UC START# *4C3AA77E00A3_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3AA77E00A3_49539DBA029D_impl*
-end;//TExTextForm.GetAnnotationDocFrmAct
+//#UC START# *4C2AEDDA0335_49539DBA029Dtest_impl*
+ ExcludeRootSub(aParams);
+ if aParams.Op.Flag[vcm_ofEnabled] then
+  CorrespondentsToSubTest(aParams);
+//#UC END# *4C2AEDDA0335_49539DBA029Dtest_impl*
+end;//TExTextForm.DocumentBlock_GetTypedCorrespondentList_Test
 
-procedure TExTextForm.SimilarDocuments;
-//#UC START# *4C3AA78E024D_49539DBA029D_var*
-//#UC END# *4C3AA78E024D_49539DBA029D_var*
+procedure TExTextForm.DocumentBlock_GetTypedCorrespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C2AEDDA0335_49539DBA029Dexec_var*
+var
+ l_eeSub: IeeSub;
+//#UC END# *4C2AEDDA0335_49539DBA029Dexec_var*
 begin
-//#UC START# *4C3AA78E024D_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3AA78E024D_49539DBA029D_impl*
-end;//TExTextForm.SimilarDocuments
+//#UC START# *4C2AEDDA0335_49539DBA029Dexec_impl*
+ TnsUseDocumentSubPanelOperationEvent.Instance.Log;
+ l_eeSub := ExtractSubFromSubPanel(aParams.Target);
+ if Assigned(l_eeSub) then
+  OpenCRListToPart(crtCorrespondents,
+                   bsConvertFilteredCRNode(aParams.CurrentNode),
+                   MakePositionListBySub(l_eeSub.ID));
+//#UC END# *4C2AEDDA0335_49539DBA029Dexec_impl*
+end;//TExTextForm.DocumentBlock_GetTypedCorrespondentList_Execute
 
-procedure TExTextForm.UserCR1;
-//#UC START# *4C3ADF860163_49539DBA029D_var*
-//#UC END# *4C3ADF860163_49539DBA029D_var*
+procedure TExTextForm.DocumentBlock_GetTypedCorrespondentList_GetState(var State: TvcmOperationStateIndex);
+//#UC START# *4C2AEDDA0335_49539DBA029Dgetstate_var*
+//#UC END# *4C2AEDDA0335_49539DBA029Dgetstate_var*
 begin
-//#UC START# *4C3ADF860163_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3ADF860163_49539DBA029D_impl*
-end;//TExTextForm.UserCR1
+//#UC START# *4C2AEDDA0335_49539DBA029Dgetstate_impl*
+ State := st_user_DocumentBlock_GetTypedCorrespondentList_InText;
+//#UC END# *4C2AEDDA0335_49539DBA029Dgetstate_impl*
+end;//TExTextForm.DocumentBlock_GetTypedCorrespondentList_GetState
 
-procedure TExTextForm.UserCR2;
-//#UC START# *4C3ADF950028_49539DBA029D_var*
-//#UC END# *4C3ADF950028_49539DBA029D_var*
+procedure TExTextForm.DocumentBlock_GetTypedRespondentList_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C2AEDE7028C_49539DBA029Dtest_var*
+//#UC END# *4C2AEDE7028C_49539DBA029Dtest_var*
 begin
-//#UC START# *4C3ADF950028_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3ADF950028_49539DBA029D_impl*
-end;//TExTextForm.UserCR2
+//#UC START# *4C2AEDE7028C_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := false;
+//#UC END# *4C2AEDE7028C_49539DBA029Dtest_impl*
+end;//TExTextForm.DocumentBlock_GetTypedRespondentList_Test
 
-procedure TExTextForm.GetTypedCorrespondentList;
-//#UC START# *4C3ADFA5018F_49539DBA029D_var*
-//#UC END# *4C3ADFA5018F_49539DBA029D_var*
+procedure TExTextForm.DocumentBlock_GetTypedRespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C2AEDE7028C_49539DBA029Dexec_var*
+//#UC END# *4C2AEDE7028C_49539DBA029Dexec_var*
 begin
-//#UC START# *4C3ADFA5018F_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3ADFA5018F_49539DBA029D_impl*
-end;//TExTextForm.GetTypedCorrespondentList
+//#UC START# *4C2AEDE7028C_49539DBA029Dexec_impl*
+ Assert(false, 'Это контекстная операция');
+//#UC END# *4C2AEDE7028C_49539DBA029Dexec_impl*
+end;//TExTextForm.DocumentBlock_GetTypedRespondentList_Execute
 
-procedure TExTextForm.PrevRedaction;
-//#UC START# *4C3AE0950253_49539DBA029D_var*
-//#UC END# *4C3AE0950253_49539DBA029D_var*
+procedure TExTextForm.Document_GetAnnotationDocFrmAct_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3AA77E00A3_49539DBA029Dtest_var*
+//#UC END# *4C3AA77E00A3_49539DBA029Dtest_var*
 begin
-//#UC START# *4C3AE0950253_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3AE0950253_49539DBA029D_impl*
-end;//TExTextForm.PrevRedaction
+//#UC START# *4C3AA77E00A3_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := defDataAdapter.Monitoring.IsExist and
+  (ZoneType <> vcm_ztChild) and (Document <> nil) and
+  Assigned(dsDocument) and DocumentSet.HasAnnotation
+//#UC END# *4C3AA77E00A3_49539DBA029Dtest_impl*
+end;//TExTextForm.Document_GetAnnotationDocFrmAct_Test
 
-procedure TExTextForm.NextRedaction;
-//#UC START# *4C3AE0CD0079_49539DBA029D_var*
-//#UC END# *4C3AE0CD0079_49539DBA029D_var*
+procedure TExTextForm.Document_GetAnnotationDocFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3AA77E00A3_49539DBA029Dexec_var*
+//#UC END# *4C3AA77E00A3_49539DBA029Dexec_var*
 begin
-//#UC START# *4C3AE0CD0079_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3AE0CD0079_49539DBA029D_impl*
-end;//TExTextForm.NextRedaction
+//#UC START# *4C3AA77E00A3_49539DBA029Dexec_impl*
+ // - ничего не делаем, т.к. это FormActivate
+//#UC END# *4C3AA77E00A3_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_GetAnnotationDocFrmAct_Execute
 
-procedure TExTextForm.AddToControl;
-//#UC START# *4C3AFAD90234_49539DBA029D_var*
-//#UC END# *4C3AFAD90234_49539DBA029D_var*
+procedure TExTextForm.Document_SimilarDocuments_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3AA78E024D_49539DBA029Dtest_var*
+//#UC END# *4C3AA78E024D_49539DBA029Dtest_var*
 begin
-//#UC START# *4C3AFAD90234_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3AFAD90234_49539DBA029D_impl*
-end;//TExTextForm.AddToControl
+//#UC START# *4C3AA78E024D_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (dsDocument <> nil) and dsDocument.HasSimilarDocuments;
+//#UC END# *4C3AA78E024D_49539DBA029Dtest_impl*
+end;//TExTextForm.Document_SimilarDocuments_Test
 
-procedure TExTextForm.ShowCorrespondentListToPart;
-//#UC START# *4C3AFB450234_49539DBA029D_var*
-//#UC END# *4C3AFB450234_49539DBA029D_var*
+procedure TExTextForm.Document_SimilarDocuments_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3AA78E024D_49539DBA029Dexec_var*
+//#UC END# *4C3AA78E024D_49539DBA029Dexec_var*
 begin
-//#UC START# *4C3AFB450234_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3AFB450234_49539DBA029D_impl*
-end;//TExTextForm.ShowCorrespondentListToPart
+//#UC START# *4C3AA78E024D_49539DBA029Dexec_impl*
+ if (dsDocument <> nil) then
+  dsDocument.OpenSimilarDocuments;
+//#UC END# *4C3AA78E024D_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_SimilarDocuments_Execute
 
-procedure TExTextForm.ShowRespondentListToPart;
-//#UC START# *4C3AFB51020D_49539DBA029D_var*
-//#UC END# *4C3AFB51020D_49539DBA029D_var*
+procedure TExTextForm.DocumentBlockHeader_UserCR1_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3ADF860163_49539DBA029Dtest_var*
+//#UC END# *4C3ADF860163_49539DBA029Dtest_var*
 begin
-//#UC START# *4C3AFB51020D_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3AFB51020D_49539DBA029D_impl*
-end;//TExTextForm.ShowRespondentListToPart
+//#UC START# *4C3ADF860163_49539DBA029Dtest_impl*
+ DisableOperation(aParams);
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=273590436
+ {CheckIsDocumentSub(aParams);
+ if aParams.Op.Flag[vcm_ofEnabled] and Assigned(dsDocument) then
+  with DocumentSet.UserCRListInfo[ulFirst] do
+  begin
+   aParams.Op.Flag[vcm_ofEnabled] := Has;
+   if Has then
+   begin
+    aParams.Op.Flag[vcm_ofEnabled] := Has;
+    aParams.Op.Hint := vcmFmt(vcmCStr(str_CorrespondetsDocumentSuffix),
+     [Caption]);
+    aParams.Op.Caption := vcmFmt(vcmCStr(str_CorrespondetsDocumentSuffix),
+     [Caption]);
+   end//UserCRListInfo[ulFirst].ListType <> crtNone
+   else
+    aParams.Op.Hint := nil;
+  end//with DocumentSet
+ else
+  aParams.Op.Flag[vcm_ofEnabled] := False;
+ aParams.Op.Flag[vcm_ofChecked] := False;}
+//#UC END# *4C3ADF860163_49539DBA029Dtest_impl*
+end;//TExTextForm.DocumentBlockHeader_UserCR1_Test
 
-procedure TExTextForm.ClearStatusSettings;
+procedure TExTextForm.DocumentBlockHeader_UserCR1_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3ADF860163_49539DBA029Dexec_var*
+//#UC END# *4C3ADF860163_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3ADF860163_49539DBA029Dexec_impl*
+ TnsUseDocumentSubPanelOperationEvent.Instance.Log;
+//#UC END# *4C3ADF860163_49539DBA029Dexec_impl*
+end;//TExTextForm.DocumentBlockHeader_UserCR1_Execute
+
+procedure TExTextForm.DocumentBlockHeader_UserCR1_GetState(var State: TvcmOperationStateIndex);
+//#UC START# *4C3ADF860163_49539DBA029Dgetstate_var*
+//#UC END# *4C3ADF860163_49539DBA029Dgetstate_var*
+begin
+//#UC START# *4C3ADF860163_49539DBA029Dgetstate_impl*
+ if (dsDocument <> nil) then
+ begin
+  if (DocumentSet.UserCRListInfo[ulFirst].ListType = crtCorrespondents) then
+   State := st_user_DocumentBlockHeader_UserCR1_Corr
+  else
+   State := vcm_DefaultOperationState;
+ end//dsDocument <> nil
+ else
+  State := vcm_DefaultOperationState;
+//#UC END# *4C3ADF860163_49539DBA029Dgetstate_impl*
+end;//TExTextForm.DocumentBlockHeader_UserCR1_GetState
+
+procedure TExTextForm.DocumentBlockHeader_UserCR2_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3ADF950028_49539DBA029Dtest_var*
+//#UC END# *4C3ADF950028_49539DBA029Dtest_var*
+begin
+//#UC START# *4C3ADF950028_49539DBA029Dtest_impl*
+ DisableOperation(aParams);
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=273590436
+ {CheckIsDocumentSub(aParams);
+ if aParams.Op.Flag[vcm_ofEnabled] and Assigned(dsDocument) then
+  with DocumentSet.UserCRListInfo[ulSecond] do
+  begin
+   aParams.Op.Flag[vcm_ofEnabled] := Has;
+   if Has then
+   begin
+    aParams.Op.Hint := vcmFmt(vcmCStr(str_CorrespondetsDocumentSuffix),
+     [Caption]);
+    aParams.Op.Caption := vcmFmt(vcmCStr(str_CorrespondetsDocumentSuffix),
+     [Caption]);
+   end//UserCRSheetTypes[ulSecond] <> crtNone
+   else
+    aParams.Op.Hint := nil;
+  end//with DocumentSet
+ else
+  aParams.Op.Flag[vcm_ofEnabled] := False;
+ aParams.Op.Flag[vcm_ofChecked] := False;}
+//#UC END# *4C3ADF950028_49539DBA029Dtest_impl*
+end;//TExTextForm.DocumentBlockHeader_UserCR2_Test
+
+procedure TExTextForm.DocumentBlockHeader_UserCR2_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3ADF950028_49539DBA029Dexec_var*
+//#UC END# *4C3ADF950028_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3ADF950028_49539DBA029Dexec_impl*
+ TnsUseDocumentSubPanelOperationEvent.Instance.Log;
+//#UC END# *4C3ADF950028_49539DBA029Dexec_impl*
+end;//TExTextForm.DocumentBlockHeader_UserCR2_Execute
+
+procedure TExTextForm.DocumentBlockHeader_UserCR2_GetState(var State: TvcmOperationStateIndex);
+//#UC START# *4C3ADF950028_49539DBA029Dgetstate_var*
+//#UC END# *4C3ADF950028_49539DBA029Dgetstate_var*
+begin
+//#UC START# *4C3ADF950028_49539DBA029Dgetstate_impl*
+ if (dsDocument <> nil) then
+ begin
+  if (DocumentSet.UserCRListInfo[ulSecond].ListType = crtCorrespondents) then
+   State := st_user_DocumentBlockHeader_UserCR2_Corr
+  else
+   State := vcm_DefaultOperationState;
+ end//dsDocument <> nil
+ else
+  State := vcm_DefaultOperationState;
+//#UC END# *4C3ADF950028_49539DBA029Dgetstate_impl*
+end;//TExTextForm.DocumentBlockHeader_UserCR2_GetState
+
+procedure TExTextForm.DocumentBlockHeader_GetTypedCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3ADFA5018F_49539DBA029Dtest_var*
+//#UC END# *4C3ADFA5018F_49539DBA029Dtest_var*
+begin
+//#UC START# *4C3ADFA5018F_49539DBA029Dtest_impl*
+ CheckIsDocumentSub(aParams);
+ aParams.Op.Flag[vcm_ofChecked] := False;
+ if aParams.Op.Flag[vcm_ofEnabled] then
+  CorrespondentsToSubTest(aParams);
+//#UC END# *4C3ADFA5018F_49539DBA029Dtest_impl*
+end;//TExTextForm.DocumentBlockHeader_GetTypedCorrespondentList_Test
+
+procedure TExTextForm.DocumentBlockHeader_GetTypedCorrespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3ADFA5018F_49539DBA029Dexec_var*
+//#UC END# *4C3ADFA5018F_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3ADFA5018F_49539DBA029Dexec_impl*
+ Document_GetCorrespondentListExFrmAct_Execute(aParams);
+ TnsUseDocumentSubPanelOperationEvent.Instance.Log;
+//#UC END# *4C3ADFA5018F_49539DBA029Dexec_impl*
+end;//TExTextForm.DocumentBlockHeader_GetTypedCorrespondentList_Execute
+
+procedure TExTextForm.Redactions_PrevRedaction_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3AE0950253_49539DBA029Dtest_var*
+//#UC END# *4C3AE0950253_49539DBA029Dtest_var*
+begin
+//#UC START# *4C3AE0950253_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (ViewArea <> nil) and ViewArea.HasPrevRedaction;
+//#UC END# *4C3AE0950253_49539DBA029Dtest_impl*
+end;//TExTextForm.Redactions_PrevRedaction_Test
+
+procedure TExTextForm.Redactions_PrevRedaction_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3AE0950253_49539DBA029Dexec_var*
+//#UC END# *4C3AE0950253_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3AE0950253_49539DBA029Dexec_impl*
+ // Получение предыдущей редакции
+ ReloadRedaction(crtPrevious);
+//#UC END# *4C3AE0950253_49539DBA029Dexec_impl*
+end;//TExTextForm.Redactions_PrevRedaction_Execute
+
+procedure TExTextForm.Redactions_NextRedaction_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3AE0CD0079_49539DBA029Dtest_var*
+//#UC END# *4C3AE0CD0079_49539DBA029Dtest_var*
+begin
+//#UC START# *4C3AE0CD0079_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (ViewArea <> nil) and
+  ViewArea.HasNextRedaction;
+//#UC END# *4C3AE0CD0079_49539DBA029Dtest_impl*
+end;//TExTextForm.Redactions_NextRedaction_Test
+
+procedure TExTextForm.Redactions_NextRedaction_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3AE0CD0079_49539DBA029Dexec_var*
+//#UC END# *4C3AE0CD0079_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3AE0CD0079_49539DBA029Dexec_impl*
+ // Получение следующей редакции
+ ReloadRedaction(crtNext);
+//#UC END# *4C3AE0CD0079_49539DBA029Dexec_impl*
+end;//TExTextForm.Redactions_NextRedaction_Execute
+
+procedure TExTextForm.Text_AddToControl_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3AFAD90234_49539DBA029Dtest_var*
+//#UC END# *4C3AFAD90234_49539DBA029Dtest_var*
+begin
+//#UC START# *4C3AFAD90234_49539DBA029Dtest_impl*
+ Document_AddToControl_Test(aParams);
+//#UC END# *4C3AFAD90234_49539DBA029Dtest_impl*
+end;//TExTextForm.Text_AddToControl_Test
+
+procedure TExTextForm.Text_AddToControl_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3AFAD90234_49539DBA029Dexec_var*
+//#UC END# *4C3AFAD90234_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3AFAD90234_49539DBA029Dexec_impl*
+ Document_AddToControl_Execute(aParams);
+//#UC END# *4C3AFAD90234_49539DBA029Dexec_impl*
+end;//TExTextForm.Text_AddToControl_Execute
+
+procedure TExTextForm.Text_AddToControl_GetState(var State: TvcmOperationStateIndex);
+//#UC START# *4C3AFAD90234_49539DBA029Dgetstate_var*
+var
+ l_Controllable : IControllable;
+//#UC END# *4C3AFAD90234_49539DBA029Dgetstate_var*
+begin
+//#UC START# *4C3AFAD90234_49539DBA029Dgetstate_impl*
+ if Supports(Document, IControllable, l_Controllable) then
+  try
+   if l_Controllable.GetControlled then
+    State := st_user_Text_AddToControl_RemoveFromControl
+   else
+    State := vcm_DefaultOperationState;
+  finally
+   l_Controllable := nil;
+  end;//try..finally
+//#UC END# *4C3AFAD90234_49539DBA029Dgetstate_impl*
+end;//TExTextForm.Text_AddToControl_GetState
+
+procedure TExTextForm.Selection_ShowCorrespondentListToPart_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3AFB450234_49539DBA029Dtest_var*
+//#UC END# *4C3AFB450234_49539DBA029Dtest_var*
+begin
+//#UC START# *4C3AFB450234_49539DBA029Dtest_impl*
+ CRToPartTest(aParams, crtCorrespondents);
+//#UC END# *4C3AFB450234_49539DBA029Dtest_impl*
+end;//TExTextForm.Selection_ShowCorrespondentListToPart_Test
+
+procedure TExTextForm.Selection_ShowCorrespondentListToPart_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3AFB450234_49539DBA029Dexec_var*
+//#UC END# *4C3AFB450234_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3AFB450234_49539DBA029Dexec_impl*
+ CRToPartExecute(aParams, crtCorrespondents);
+//#UC END# *4C3AFB450234_49539DBA029Dexec_impl*
+end;//TExTextForm.Selection_ShowCorrespondentListToPart_Execute
+
+procedure TExTextForm.Selection_ShowRespondentListToPart_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3AFB51020D_49539DBA029Dtest_var*
+//#UC END# *4C3AFB51020D_49539DBA029Dtest_var*
+begin
+//#UC START# *4C3AFB51020D_49539DBA029Dtest_impl*
+ CRToPartTest(aParams, crtRespondents);
+//#UC END# *4C3AFB51020D_49539DBA029Dtest_impl*
+end;//TExTextForm.Selection_ShowRespondentListToPart_Test
+
+procedure TExTextForm.Selection_ShowRespondentListToPart_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3AFB51020D_49539DBA029Dexec_var*
+//#UC END# *4C3AFB51020D_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3AFB51020D_49539DBA029Dexec_impl*
+ CRToPartExecute(aParams, crtRespondents);
+//#UC END# *4C3AFB51020D_49539DBA029Dexec_impl*
+end;//TExTextForm.Selection_ShowRespondentListToPart_Execute
+
+procedure TExTextForm.WarnOnControl_ClearStatusSettings_Test(const aParams: IvcmTestParamsPrim);
  {* Способ сброса статуса "изменен" }
-//#UC START# *4C3AFBA702E4_49539DBA029D_var*
-//#UC END# *4C3AFBA702E4_49539DBA029D_var*
+//#UC START# *4C3AFBA702E4_49539DBA029Dtest_var*
+var
+ l_Strings : IvcmStrings;
+ l_StringsSource: InsStringsSource;
+//#UC END# *4C3AFBA702E4_49539DBA029Dtest_var*
 begin
-//#UC START# *4C3AFBA702E4_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3AFBA702E4_49539DBA029D_impl*
-end;//TExTextForm.ClearStatusSettings
+//#UC START# *4C3AFBA702E4_49539DBA029Dtest_impl*
+ l_Strings := aParams.Op.SubItems;
+ if (l_Strings = nil) then
+  Exit;
+ if (l_Strings.Count = 0) and
+  Supports(f_ControlMap, InsStringsSource, l_StringsSource) then
+ try
+  l_StringsSource.FillStrings(l_Strings);
+ finally
+  l_StringsSource := nil;
+ end;//try..finally
+ aParams.Op.SelectedString := f_ControlMap.
+  ValueToDisplayName(afw.Settings.LoadString(pi_DropChangeStatus, dv_DropChangeStatus));
+//#UC END# *4C3AFBA702E4_49539DBA029Dtest_impl*
+end;//TExTextForm.WarnOnControl_ClearStatusSettings_Test
 
-procedure TExTextForm.TimeMachineOnOff;
-//#UC START# *4C3AFC1302FF_49539DBA029D_var*
-//#UC END# *4C3AFC1302FF_49539DBA029D_var*
+procedure TExTextForm.WarnOnControl_ClearStatusSettings_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Способ сброса статуса "изменен" }
+//#UC START# *4C3AFBA702E4_49539DBA029Dexec_var*
+var l_Str: Il3CString;
+//#UC END# *4C3AFBA702E4_49539DBA029Dexec_var*
 begin
-//#UC START# *4C3AFC1302FF_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3AFC1302FF_49539DBA029D_impl*
-end;//TExTextForm.TimeMachineOnOff
+//#UC START# *4C3AFBA702E4_49539DBA029Dexec_impl*
+ l_Str := f_ControlMap.DisplayNameToValue(aParams.SelectedString);
+ if not l3Same(afw.Settings.LoadString(pi_DropChangeStatus, dv_DropChangeStatus), l_Str) then
+ begin
+  afw.Settings.SaveString(pi_DropChangeStatus, l_Str);
+  CheckControllableState([dcsAfterReview, dcsExitFromSystem]);
+ end;//if GetString(pi_DropChangeStatus,
+//#UC END# *4C3AFBA702E4_49539DBA029Dexec_impl*
+end;//TExTextForm.WarnOnControl_ClearStatusSettings_Execute
 
-procedure TExTextForm.AddBookmark;
-//#UC START# *4C3B17DC02C4_49539DBA029D_var*
-//#UC END# *4C3B17DC02C4_49539DBA029D_var*
+procedure TExTextForm.TasksPanel_TimeMachineOnOff_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3AFC1302FF_49539DBA029Dtest_var*
+//#UC END# *4C3AFC1302FF_49539DBA029Dtest_var*
 begin
-//#UC START# *4C3B17DC02C4_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3B17DC02C4_49539DBA029D_impl*
-end;//TExTextForm.AddBookmark
+//#UC START# *4C3AFC1302FF_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := Assigned(Document) and
+  (not Document.GetNotTm or DefDataAdapter.TimeMachine.IsOn);
+//#UC END# *4C3AFC1302FF_49539DBA029Dtest_impl*
+end;//TExTextForm.TasksPanel_TimeMachineOnOff_Test
 
-procedure TExTextForm.ToMSWord;
-//#UC START# *4C3B17ED0192_49539DBA029D_var*
-//#UC END# *4C3B17ED0192_49539DBA029D_var*
+procedure TExTextForm.TasksPanel_TimeMachineOnOff_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3AFC1302FF_49539DBA029Dexec_var*
+var
+ l_Date: Il3CString;
+//#UC END# *4C3AFC1302FF_49539DBA029Dexec_var*
 begin
-//#UC START# *4C3B17ED0192_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3B17ED0192_49539DBA029D_impl*
-end;//TExTextForm.ToMSWord
+//#UC START# *4C3AFC1302FF_49539DBA029Dexec_impl*
+ if DefDataAdapter.TimeMachine.IsOn then
+  TimeMachineOnOff
+ else
+ begin
+  l_Date := vcmSelectDate(l3CStr(vcmConstString(
+   str_CalendarCaptionTimeMachineOn)), nil);
+  if not l3IsNil(l_Date) then
+   TurnOnTimeMachine(l_Date);
+ end;//if DefDataAdapter.TimeMachine.IsOn then
+//#UC END# *4C3AFC1302FF_49539DBA029Dexec_impl*
+end;//TExTextForm.TasksPanel_TimeMachineOnOff_Execute
 
-procedure TExTextForm.Print;
-//#UC START# *4C3B17FF03D2_49539DBA029D_var*
-//#UC END# *4C3B17FF03D2_49539DBA029D_var*
+procedure TExTextForm.TasksPanel_TimeMachineOnOff_GetState(var State: TvcmOperationStateIndex);
+//#UC START# *4C3AFC1302FF_49539DBA029Dgetstate_var*
+//#UC END# *4C3AFC1302FF_49539DBA029Dgetstate_var*
 begin
-//#UC START# *4C3B17FF03D2_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3B17FF03D2_49539DBA029D_impl*
-end;//TExTextForm.Print
+//#UC START# *4C3AFC1302FF_49539DBA029Dgetstate_impl*
+ if DefDataAdapter.TimeMachine.IsOn then
+  State := st_user_TasksPanel_TimeMachineOnOff_Off
+ else
+  State := st_user_TasksPanel_TimeMachineOnOff_On;
+//#UC END# *4C3AFC1302FF_49539DBA029Dgetstate_impl*
+end;//TExTextForm.TasksPanel_TimeMachineOnOff_GetState
 
-procedure TExTextForm.PrintDialog;
-//#UC START# *4C3B180E038F_49539DBA029D_var*
-//#UC END# *4C3B180E038F_49539DBA029D_var*
+procedure TExTextForm.DocumentBlockHeader_AddBookmark_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3B17DC02C4_49539DBA029Dtest_var*
+//#UC END# *4C3B17DC02C4_49539DBA029Dtest_var*
 begin
-//#UC START# *4C3B180E038F_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3B180E038F_49539DBA029D_impl*
-end;//TExTextForm.PrintDialog
+//#UC START# *4C3B17DC02C4_49539DBA029Dtest_impl*
+ DisableOperation(aParams);
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=469280508
+ //CheckIsDocumentSub(aParams);
+//#UC END# *4C3B17DC02C4_49539DBA029Dtest_impl*
+end;//TExTextForm.DocumentBlockHeader_AddBookmark_Test
 
-procedure TExTextForm.AddBookmark;
+procedure TExTextForm.DocumentBlockHeader_AddBookmark_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3B17DC02C4_49539DBA029Dexec_var*
+//#UC END# *4C3B17DC02C4_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3B17DC02C4_49539DBA029Dexec_impl*
+ DocumentBlockBookmarks_AddBookmark_Execute(aParams);
+//#UC END# *4C3B17DC02C4_49539DBA029Dexec_impl*
+end;//TExTextForm.DocumentBlockHeader_AddBookmark_Execute
+
+procedure TExTextForm.DocumentBlockHeader_ToMSWord_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3B17ED0192_49539DBA029Dtest_var*
+//#UC END# *4C3B17ED0192_49539DBA029Dtest_var*
+begin
+//#UC START# *4C3B17ED0192_49539DBA029Dtest_impl*
+// DisableOperation(aParams);
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=273590436
+ CheckIsDocumentSub(aParams);
+ if aParams.Op.Flag[vcm_ofEnabled] then
+  NotEmptyDocumentWithTrialModeTest(aParams);
+ TnsToMSWordOp.Test(aParams);
+//#UC END# *4C3B17ED0192_49539DBA029Dtest_impl*
+end;//TExTextForm.DocumentBlockHeader_ToMSWord_Test
+
+procedure TExTextForm.DocumentBlockHeader_ToMSWord_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3B17ED0192_49539DBA029Dexec_var*
+const
+ cMap: array [Boolean] of TnsExportKind = (ekShell, ekActiveWord);
+//#UC END# *4C3B17ED0192_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3B17ED0192_49539DBA029Dexec_impl*
+ DocumentExport(cMap[aParams.ItemIndex > 1], False);
+ TnsUseDocumentSubPanelOperationEvent.Instance.Log;
+//#UC END# *4C3B17ED0192_49539DBA029Dexec_impl*
+end;//TExTextForm.DocumentBlockHeader_ToMSWord_Execute
+
+procedure TExTextForm.DocumentBlockHeader_Print_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3B17FF03D2_49539DBA029Dtest_var*
+//#UC END# *4C3B17FF03D2_49539DBA029Dtest_var*
+begin
+//#UC START# *4C3B17FF03D2_49539DBA029Dtest_impl*
+// DisableOperation(aParams);
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=273590436
+ File_Print_Test(aParams);
+ nsDisableOperationInTrialMode(aParams);
+ CheckIsDocumentSub(aParams);
+//#UC END# *4C3B17FF03D2_49539DBA029Dtest_impl*
+end;//TExTextForm.DocumentBlockHeader_Print_Test
+
+procedure TExTextForm.DocumentBlockHeader_Print_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3B17FF03D2_49539DBA029Dexec_var*
+//#UC END# *4C3B17FF03D2_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3B17FF03D2_49539DBA029Dexec_impl*
+ DocumentPrint;
+ TnsUseDocumentSubPanelOperationEvent.Instance.Log;
+//#UC END# *4C3B17FF03D2_49539DBA029Dexec_impl*
+end;//TExTextForm.DocumentBlockHeader_Print_Execute
+
+procedure TExTextForm.DocumentBlockHeader_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3B180E038F_49539DBA029Dtest_var*
+//#UC END# *4C3B180E038F_49539DBA029Dtest_var*
+begin
+//#UC START# *4C3B180E038F_49539DBA029Dtest_impl*
+// DisableOperation(aParams);
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=273590436
+ File_Print_Test(aParams);
+ nsDisableOperationInTrialMode(aParams);
+ CheckIsDocumentSub(aParams);
+//#UC END# *4C3B180E038F_49539DBA029Dtest_impl*
+end;//TExTextForm.DocumentBlockHeader_PrintDialog_Test
+
+procedure TExTextForm.DocumentBlockHeader_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3B180E038F_49539DBA029Dexec_var*
+var
+ l_Preview: IafwComplexDocumentPreview;
+//#UC END# *4C3B180E038F_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3B180E038F_49539DBA029Dexec_impl*
+ if (afw.Application <> nil) AND (afw.Application.PrintManager <> nil) then
+ begin
+  l_Preview := MakePreview;
+  try
+   afw.Application.PrintManager.PrintDialog(l_Preview);
+   TnsUseDocumentSubPanelOperationEvent.Instance.Log;
+  finally
+   l_Preview := nil;
+  end;//try..finally
+ end;//if (afw.Application <> nil) AND...
+//#UC END# *4C3B180E038F_49539DBA029Dexec_impl*
+end;//TExTextForm.DocumentBlockHeader_PrintDialog_Execute
+
+procedure TExTextForm.DocumentBlockBookmarks_AddBookmark_Test(const aParams: IvcmTestParamsPrim);
  {* Установить закладку на фрагмент }
-//#UC START# *4C3B1AEA0127_49539DBA029D_var*
-//#UC END# *4C3B1AEA0127_49539DBA029D_var*
+//#UC START# *4C3B1AEA0127_49539DBA029Dtest_var*
+//#UC END# *4C3B1AEA0127_49539DBA029Dtest_var*
 begin
-//#UC START# *4C3B1AEA0127_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3B1AEA0127_49539DBA029D_impl*
-end;//TExTextForm.AddBookmark
+//#UC START# *4C3B1AEA0127_49539DBA029Dtest_impl*
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=469280508
+ DisableOperation(aParams);
+//#UC END# *4C3B1AEA0127_49539DBA029Dtest_impl*
+end;//TExTextForm.DocumentBlockBookmarks_AddBookmark_Test
 
-procedure TExTextForm.ToMSWord;
-//#UC START# *4C3B1AFB0270_49539DBA029D_var*
-//#UC END# *4C3B1AFB0270_49539DBA029D_var*
+procedure TExTextForm.DocumentBlockBookmarks_AddBookmark_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Установить закладку на фрагмент }
+//#UC START# *4C3B1AEA0127_49539DBA029Dexec_var*
+var
+ l_eeSub: IeeSub;
+//#UC END# *4C3B1AEA0127_49539DBA029Dexec_var*
 begin
-//#UC START# *4C3B1AFB0270_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3B1AFB0270_49539DBA029D_impl*
-end;//TExTextForm.ToMSWord
+//#UC START# *4C3B1AEA0127_49539DBA029Dexec_impl*
+ if (Document <> nil) and
+    Supports(aParams.Target, IeeSub, l_eeSub) and
+    (l_eeSub.LayerID = Ord(ev_sbtSub)) then
+ begin
+  AddBookmark(l_eeSub.LeafPara);
+  TnsUseDocumentSubPanelOperationEvent.Instance.Log;
+ end;//Document <> nil..
+//#UC END# *4C3B1AEA0127_49539DBA029Dexec_impl*
+end;//TExTextForm.DocumentBlockBookmarks_AddBookmark_Execute
 
-procedure TExTextForm.PrintDialog;
-//#UC START# *4C3B1B0F0237_49539DBA029D_var*
-//#UC END# *4C3B1B0F0237_49539DBA029D_var*
+procedure TExTextForm.DocumentBlock_ToMSWord_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3B1AFB0270_49539DBA029Dtest_var*
+//#UC END# *4C3B1AFB0270_49539DBA029Dtest_var*
 begin
-//#UC START# *4C3B1B0F0237_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3B1B0F0237_49539DBA029D_impl*
-end;//TExTextForm.PrintDialog
+//#UC START# *4C3B1AFB0270_49539DBA029Dtest_impl*
+ DisableOperation(aParams);
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=273590436
+ {ExcludeRootSub(aParams);
+ nsDisableOperationInTrialMode(aParams);
+ TnsToMSWordOp.Test(aParams);}
+//#UC END# *4C3B1AFB0270_49539DBA029Dtest_impl*
+end;//TExTextForm.DocumentBlock_ToMSWord_Test
 
-procedure TExTextForm.Copy;
-//#UC START# *4C3B1B1D003C_49539DBA029D_var*
-//#UC END# *4C3B1B1D003C_49539DBA029D_var*
+procedure TExTextForm.DocumentBlock_ToMSWord_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3B1AFB0270_49539DBA029Dexec_var*
+//#UC END# *4C3B1AFB0270_49539DBA029Dexec_var*
 begin
-//#UC START# *4C3B1B1D003C_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3B1B1D003C_49539DBA029D_impl*
-end;//TExTextForm.Copy
+//#UC START# *4C3B1AFB0270_49539DBA029Dexec_impl*
+ Assert(False);
+ //TnsUseDocumentSubPanelOperationEvent.Instance.Log;
+ //ExportBlock(ExtractRangeFromSubPanel(aParams), aParams.ItemIndex > 1);
+//#UC END# *4C3B1AFB0270_49539DBA029Dexec_impl*
+end;//TExTextForm.DocumentBlock_ToMSWord_Execute
 
-procedure TExTextForm.Print;
-//#UC START# *4C3B241401AA_49539DBA029D_var*
-//#UC END# *4C3B241401AA_49539DBA029D_var*
+procedure TExTextForm.DocumentBlock_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3B1B0F0237_49539DBA029Dtest_var*
+//#UC END# *4C3B1B0F0237_49539DBA029Dtest_var*
 begin
-//#UC START# *4C3B241401AA_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3B241401AA_49539DBA029D_impl*
-end;//TExTextForm.Print
+//#UC START# *4C3B1B0F0237_49539DBA029Dtest_impl*
+ DisableOperation(aParams);
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=273590436
+ {ExcludeRootSub(aParams);
+ nsDisableOperationInTrialMode(aParams);}
+//#UC END# *4C3B1B0F0237_49539DBA029Dtest_impl*
+end;//TExTextForm.DocumentBlock_PrintDialog_Test
 
-procedure TExTextForm.OpenContentsFrmAct;
-//#UC START# *4C3B3754034D_49539DBA029D_var*
-//#UC END# *4C3B3754034D_49539DBA029D_var*
+procedure TExTextForm.DocumentBlock_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3B1B0F0237_49539DBA029Dexec_var*
+//#UC END# *4C3B1B0F0237_49539DBA029Dexec_var*
 begin
-//#UC START# *4C3B3754034D_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3B3754034D_49539DBA029D_impl*
-end;//TExTextForm.OpenContentsFrmAct
+//#UC START# *4C3B1B0F0237_49539DBA029Dexec_impl*
+ Assert(False);
+ //TnsUseDocumentSubPanelOperationEvent.Instance.Log;
+ //PrintDialogBlock(ExtractRangeFromSubPanel(aParams));
+//#UC END# *4C3B1B0F0237_49539DBA029Dexec_impl*
+end;//TExTextForm.DocumentBlock_PrintDialog_Execute
 
-procedure TExTextForm.ShowDocumentPicture;
-//#UC START# *4C3B3792000E_49539DBA029D_var*
-//#UC END# *4C3B3792000E_49539DBA029D_var*
+procedure TExTextForm.DocumentBlock_Copy_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3B1B1D003C_49539DBA029Dtest_var*
+//#UC END# *4C3B1B1D003C_49539DBA029Dtest_var*
 begin
-//#UC START# *4C3B3792000E_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3B3792000E_49539DBA029D_impl*
-end;//TExTextForm.ShowDocumentPicture
+//#UC START# *4C3B1B1D003C_49539DBA029Dtest_impl*
+ DisableOperation(aParams);
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=273590436
+ {ExcludeRootSub(aParams);
+ nsDisableOperationInTrialMode(aParams);}
+//#UC END# *4C3B1B1D003C_49539DBA029Dtest_impl*
+end;//TExTextForm.DocumentBlock_Copy_Test
 
-procedure TExTextForm.Open;
-//#UC START# *4C3B49DB03BC_49539DBA029D_var*
-//#UC END# *4C3B49DB03BC_49539DBA029D_var*
+procedure TExTextForm.DocumentBlock_Copy_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3B1B1D003C_49539DBA029Dexec_var*
+//#UC END# *4C3B1B1D003C_49539DBA029Dexec_var*
 begin
-//#UC START# *4C3B49DB03BC_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3B49DB03BC_49539DBA029D_impl*
-end;//TExTextForm.Open
+//#UC START# *4C3B1B1D003C_49539DBA029Dexec_impl*
+ Assert(False);
+ //TnsUseDocumentSubPanelOperationEvent.Instance.Log;
+ //CopyBlock(ExtractRangeFromSubPanel(aParams));
+//#UC END# *4C3B1B1D003C_49539DBA029Dexec_impl*
+end;//TExTextForm.DocumentBlock_Copy_Execute
 
-procedure TExTextForm.Save;
-//#UC START# *4C3B49EA00C4_49539DBA029D_var*
-//#UC END# *4C3B49EA00C4_49539DBA029D_var*
+procedure TExTextForm.DocumentBlock_Print_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3B241401AA_49539DBA029Dtest_var*
+//#UC END# *4C3B241401AA_49539DBA029Dtest_var*
 begin
-//#UC START# *4C3B49EA00C4_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3B49EA00C4_49539DBA029D_impl*
-end;//TExTextForm.Save
+//#UC START# *4C3B241401AA_49539DBA029Dtest_impl*
+ DisableOperation(aParams);
+//#UC END# *4C3B241401AA_49539DBA029Dtest_impl*
+end;//TExTextForm.DocumentBlock_Print_Test
 
-procedure TExTextForm.OpenActualRedaction;
-//#UC START# *4C3B4A7D029B_49539DBA029D_var*
-//#UC END# *4C3B4A7D029B_49539DBA029D_var*
+procedure TExTextForm.DocumentBlock_Print_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3B241401AA_49539DBA029Dexec_var*
+//#UC END# *4C3B241401AA_49539DBA029Dexec_var*
 begin
-//#UC START# *4C3B4A7D029B_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3B4A7D029B_49539DBA029D_impl*
-end;//TExTextForm.OpenActualRedaction
+//#UC START# *4C3B241401AA_49539DBA029Dexec_impl*
+ Assert(false, 'Не заказывали');
+//#UC END# *4C3B241401AA_49539DBA029Dexec_impl*
+end;//TExTextForm.DocumentBlock_Print_Execute
 
-procedure TExTextForm.ShowInfo;
-//#UC START# *4C3B500B0126_49539DBA029D_var*
-//#UC END# *4C3B500B0126_49539DBA029D_var*
+procedure TExTextForm.Document_OpenContentsFrmAct_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3B3754034D_49539DBA029Dtest_var*
+//#UC END# *4C3B3754034D_49539DBA029Dtest_var*
 begin
-//#UC START# *4C3B500B0126_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3B500B0126_49539DBA029D_impl*
-end;//TExTextForm.ShowInfo
+//#UC START# *4C3B3754034D_49539DBA029Dtest_impl*
+ if Assigned(Aggregate) then
+ begin
+  // Есть ли у документа оглавление
+  if (DocumentWithContents <> nil) then
+  begin
+   aParams.Op.Flag[vcm_ofEnabled] := (DocumentWithContents.dsContents <> nil)
+                                     and not DocumentWithContents.dsContents.Empty
+   // begin - http://mdp.garant.ru/pages/viewpage.action?pageId=342331306
+                                     or (Text.TextSource.ContentsTree <> nil) and (Text.TextSource.ContentsTree.CountView > 0);
+   // end - http://mdp.garant.ru/pages/viewpage.action?pageId=342331306
+   if aParams.Op.Flag[vcm_ofEnabled] then
+    if Op_Contents_IsContentsVisible.Call(Aggregate) then
+     aParams.Op.Flag[vcm_ofChecked] := true;
+  end//DocumentWithContents <> nil
+  else
+   aParams.Op.Flag[vcm_ofEnabled] := false;
+ end;//Assigned(Aggregate)
+//#UC END# *4C3B3754034D_49539DBA029Dtest_impl*
+end;//TExTextForm.Document_OpenContentsFrmAct_Test
 
-procedure TExTextForm.TimeMachineOnOffNew;
-//#UC START# *4C3B504A0202_49539DBA029D_var*
-//#UC END# *4C3B504A0202_49539DBA029D_var*
+procedure TExTextForm.Document_OpenContentsFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3B3754034D_49539DBA029Dexec_var*
+//#UC END# *4C3B3754034D_49539DBA029Dexec_var*
 begin
-//#UC START# *4C3B504A0202_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3B504A0202_49539DBA029D_impl*
-end;//TExTextForm.TimeMachineOnOffNew
+//#UC START# *4C3B3754034D_49539DBA029Dexec_impl*
+ if not Op_Contents_ToggleContentsVisibility.Call(Aggregate) then
+  OpenContents(ns_comForce);
+//#UC END# *4C3B3754034D_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_OpenContentsFrmAct_Execute
 
-procedure TExTextForm.ShowInfo;
-//#UC START# *4C3B52D6021F_49539DBA029D_var*
-//#UC END# *4C3B52D6021F_49539DBA029D_var*
+procedure TExTextForm.Document_OpenContentsFrmAct_GetState(var State: TvcmOperationStateIndex);
+//#UC START# *4C3B3754034D_49539DBA029Dgetstate_var*
+//#UC END# *4C3B3754034D_49539DBA029Dgetstate_var*
 begin
-//#UC START# *4C3B52D6021F_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3B52D6021F_49539DBA029D_impl*
-end;//TExTextForm.ShowInfo
+//#UC START# *4C3B3754034D_49539DBA029Dgetstate_impl*
+ if (UserType = dftDrug) then
+  State := st_user_Document_OpenContentsFrmAct_Drug
+ else
+  State := vcm_DefaultOperationState;
+//#UC END# *4C3B3754034D_49539DBA029Dgetstate_impl*
+end;//TExTextForm.Document_OpenContentsFrmAct_GetState
 
-procedure TExTextForm.ShowChanges;
+procedure TExTextForm.Document_ShowDocumentPicture_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3B3792000E_49539DBA029Dtest_var*
+//#UC END# *4C3B3792000E_49539DBA029Dtest_var*
+begin
+//#UC START# *4C3B3792000E_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := afw.Application.IsInternal;
+//#UC END# *4C3B3792000E_49539DBA029Dtest_impl*
+end;//TExTextForm.Document_ShowDocumentPicture_Test
+
+procedure TExTextForm.Document_ShowDocumentPicture_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3B3792000E_49539DBA029Dexec_var*
+//#UC END# *4C3B3792000E_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3B3792000E_49539DBA029Dexec_impl*
+ if afw.Application.IsInternal then
+  try
+   DefDataAdapter.CommonInterfaces.ShowPicturesOnNumber(Document.GetInternalId);
+  except
+   on EWorkingParamsNotFound do
+    Say(err_ShowPictureInvalidParams);
+   on EExternalApplicationError do ;
+  end;
+//#UC END# *4C3B3792000E_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_ShowDocumentPicture_Execute
+
+procedure TExTextForm.ExternalObject_Open_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3B49DB03BC_49539DBA029Dtest_var*
+var
+ l_eeHotSpot: IeeHotSpot;
+//#UC END# *4C3B49DB03BC_49539DBA029Dtest_var*
+begin
+//#UC START# *4C3B49DB03BC_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := Supports(aParams.Target, IeeHotSpot, l_eeHotSpot) and
+  (l_eeHotSpot.Hyperlink <> nil) and (l_eeHotSpot.Hyperlink.Address{$IfDef XE4}.rTafwAddress{$EndIf}.TypeID = CI_BLOB);
+//#UC END# *4C3B49DB03BC_49539DBA029Dtest_impl*
+end;//TExTextForm.ExternalObject_Open_Test
+
+procedure TExTextForm.ExternalObject_Open_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3B49DB03BC_49539DBA029Dexec_var*
+var
+ l_HotSpot: IeeHotSpot;
+//#UC END# *4C3B49DB03BC_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3B49DB03BC_49539DBA029Dexec_impl*
+ if Supports(aParams.Target, IeeHotSpot, l_HotSpot) and (l_HotSpot.Hyperlink <> nil) then
+  nsProcessHyperLink(l_HotSpot.Hyperlink, False, Self, Aggregate, Document);
+//#UC END# *4C3B49DB03BC_49539DBA029Dexec_impl*
+end;//TExTextForm.ExternalObject_Open_Execute
+
+procedure TExTextForm.ExternalObject_Save_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3B49EA00C4_49539DBA029Dtest_var*
+//#UC END# *4C3B49EA00C4_49539DBA029Dtest_var*
+begin
+//#UC START# *4C3B49EA00C4_49539DBA029Dtest_impl*
+ ExternalObject_Open_Test(aParams);
+//#UC END# *4C3B49EA00C4_49539DBA029Dtest_impl*
+end;//TExTextForm.ExternalObject_Save_Test
+
+procedure TExTextForm.ExternalObject_Save_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3B49EA00C4_49539DBA029Dexec_var*
+var
+ l_HotSpot: IeeHotSpot;
+//#UC END# *4C3B49EA00C4_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3B49EA00C4_49539DBA029Dexec_impl*
+ if Supports(aParams.Target, IeeHotSpot, l_HotSpot) and (l_HotSpot.Hyperlink <> nil) then
+ try
+  nsSaveHyperLinkExternalObject(l_HotSpot.Hyperlink, Self, Document);
+ finally
+  l_HotSpot := nil;
+ end;//if Supports(aParams.Target, IeeHotSpot, l_HotSpot) and
+//#UC END# *4C3B49EA00C4_49539DBA029Dexec_impl*
+end;//TExTextForm.ExternalObject_Save_Execute
+
+procedure TExTextForm.WarnRedaction_OpenActualRedaction_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3B4A7D029B_49539DBA029Dtest_var*
+//#UC END# *4C3B4A7D029B_49539DBA029Dtest_var*
+begin
+//#UC START# *4C3B4A7D029B_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := FormIsMainInDocumentSet;
+//#UC END# *4C3B4A7D029B_49539DBA029Dtest_impl*
+end;//TExTextForm.WarnRedaction_OpenActualRedaction_Test
+
+procedure TExTextForm.WarnRedaction_OpenActualRedaction_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3B4A7D029B_49539DBA029Dexec_var*
+//#UC END# *4C3B4A7D029B_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3B4A7D029B_49539DBA029Dexec_impl*
+ if Assigned(ViewArea) and
+    not TdmStdRes.IsCurEditionActual(ViewArea.DocInfo.Doc) then
+  SetActualRedaction;
+//#UC END# *4C3B4A7D029B_49539DBA029Dexec_impl*
+end;//TExTextForm.WarnRedaction_OpenActualRedaction_Execute
+
+procedure TExTextForm.WarnTimeMachine_ShowInfo_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3B500B0126_49539DBA029Dtest_var*
+//#UC END# *4C3B500B0126_49539DBA029Dtest_var*
+begin
+//#UC START# *4C3B500B0126_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofVisible] := Assigned(dsDocument) and
+  Assigned(DocumentSet) and
+  DocumentSet.HasTimeMachineWarning;
+//#UC END# *4C3B500B0126_49539DBA029Dtest_impl*
+end;//TExTextForm.WarnTimeMachine_ShowInfo_Test
+
+procedure TExTextForm.WarnTimeMachine_ShowInfo_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3B500B0126_49539DBA029Dexec_var*
+//#UC END# *4C3B500B0126_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3B500B0126_49539DBA029Dexec_impl*
+ ShowWarningPage(true{false{True}, cTimeMachineWarningSub);
+              // ^ - незачем ничего закрывать, если вызываем с медали
+              // http://mdp.garant.ru/pages/viewpage.action?pageId=266898633&focusedCommentId=285508953#comment-285508953
+              // А вот и есть "зачем" - http://mdp.garant.ru/pages/viewpage.action?pageId=287219564
+//#UC END# *4C3B500B0126_49539DBA029Dexec_impl*
+end;//TExTextForm.WarnTimeMachine_ShowInfo_Execute
+
+procedure TExTextForm.WarnTimeMachine_ShowInfo_GetState(var State: TvcmOperationStateIndex);
+//#UC START# *4C3B500B0126_49539DBA029Dgetstate_var*
+var l_Form: IvcmEntityForm;
+//#UC END# *4C3B500B0126_49539DBA029Dgetstate_var*
+begin
+//#UC START# *4C3B500B0126_49539DBA029Dgetstate_impl*
+ if Assigned(Aggregate) and Aggregate.HasForm(fm_WarningForm.rFormID, @l_Form) and
+  l_Form.IsActiveInParent then
+  State := st_user_WarnTimeMachine_ShowInfo_Hide
+ else
+  State := vcm_DefaultOperationState;
+//#UC END# *4C3B500B0126_49539DBA029Dgetstate_impl*
+end;//TExTextForm.WarnTimeMachine_ShowInfo_GetState
+
+procedure TExTextForm.WarnTimeMachine_TimeMachineOnOffNew_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3B504A0202_49539DBA029Dtest_var*
+//#UC END# *4C3B504A0202_49539DBA029Dtest_var*
+begin
+//#UC START# *4C3B504A0202_49539DBA029Dtest_impl*
+ // - ничего не делаем
+//#UC END# *4C3B504A0202_49539DBA029Dtest_impl*
+end;//TExTextForm.WarnTimeMachine_TimeMachineOnOffNew_Test
+
+procedure TExTextForm.WarnTimeMachine_TimeMachineOnOffNew_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3B504A0202_49539DBA029Dexec_var*
+//#UC END# *4C3B504A0202_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3B504A0202_49539DBA029Dexec_impl*
+ TimeMachine_TimeMachineOnOffNew_Execute(aParams);
+//#UC END# *4C3B504A0202_49539DBA029Dexec_impl*
+end;//TExTextForm.WarnTimeMachine_TimeMachineOnOffNew_Execute
+
+procedure TExTextForm.WarnTimeMachine_TimeMachineOnOffNew_GetState(var State: TvcmOperationStateIndex);
+//#UC START# *4C3B504A0202_49539DBA029Dgetstate_var*
+//#UC END# *4C3B504A0202_49539DBA029Dgetstate_var*
+begin
+//#UC START# *4C3B504A0202_49539DBA029Dgetstate_impl*
+ TimeMachine_TimeMachineOnOffNew_GetState(State);
+//#UC END# *4C3B504A0202_49539DBA029Dgetstate_impl*
+end;//TExTextForm.WarnTimeMachine_TimeMachineOnOffNew_GetState
+
+procedure TExTextForm.WarnJuror_ShowInfo_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3B52D6021F_49539DBA029Dtest_var*
+//#UC END# *4C3B52D6021F_49539DBA029Dtest_var*
+begin
+//#UC START# *4C3B52D6021F_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := FormIsMainInDocumentSet;
+//#UC END# *4C3B52D6021F_49539DBA029Dtest_impl*
+end;//TExTextForm.WarnJuror_ShowInfo_Test
+
+procedure TExTextForm.WarnJuror_ShowInfo_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3B52D6021F_49539DBA029Dexec_var*
+//#UC END# *4C3B52D6021F_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3B52D6021F_49539DBA029Dexec_impl*
+ ShowWarningPage(true{false{True}, cSimpleWarningSub);
+              // ^ - незачем ничего закрывать, если вызываем с медали
+              // http://mdp.garant.ru/pages/viewpage.action?pageId=266898633&focusedCommentId=285508953#comment-285508953
+              // А вот и есть "зачем" - http://mdp.garant.ru/pages/viewpage.action?pageId=287219564
+//#UC END# *4C3B52D6021F_49539DBA029Dexec_impl*
+end;//TExTextForm.WarnJuror_ShowInfo_Execute
+
+procedure TExTextForm.WarnJuror_ShowInfo_GetState(var State: TvcmOperationStateIndex);
+//#UC START# *4C3B52D6021F_49539DBA029Dgetstate_var*
+var l_Form: IvcmEntityForm;
+//#UC END# *4C3B52D6021F_49539DBA029Dgetstate_var*
+begin
+//#UC START# *4C3B52D6021F_49539DBA029Dgetstate_impl*
+ if Assigned(Aggregate) and Aggregate.HasForm(fm_WarningForm.rFormID, @l_Form) and
+  l_Form.IsActiveInParent then
+  State := st_user_WarnJuror_ShowInfo_Hide
+ else
+  State := vcm_DefaultOperationState;
+//#UC END# *4C3B52D6021F_49539DBA029Dgetstate_impl*
+end;//TExTextForm.WarnJuror_ShowInfo_GetState
+
+procedure TExTextForm.WarnOnControl_ShowChanges_Test(const aParams: IvcmTestParamsPrim);
  {* Показать изменения }
-//#UC START# *4C3B5337022E_49539DBA029D_var*
-//#UC END# *4C3B5337022E_49539DBA029D_var*
+//#UC START# *4C3B5337022E_49539DBA029Dtest_var*
+var
+ l_Controllable : IControllable;
+//#UC END# *4C3B5337022E_49539DBA029Dtest_var*
 begin
-//#UC START# *4C3B5337022E_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3B5337022E_49539DBA029D_impl*
-end;//TExTextForm.ShowChanges
+//#UC START# *4C3B5337022E_49539DBA029Dtest_impl*
+ Document_CompareEditions_Test(aParams);
+ if aParams.Op.Flag[vcm_ofEnabled] and
+  Supports(Document, IControllable, l_Controllable) then
+  aParams.Op.Flag[vcm_ofEnabled] := (l_Controllable.GetControlStatus and CS_CHANGED) = CS_CHANGED;
+//#UC END# *4C3B5337022E_49539DBA029Dtest_impl*
+end;//TExTextForm.WarnOnControl_ShowChanges_Test
 
-procedure TExTextForm.ClearStatus;
+procedure TExTextForm.WarnOnControl_ShowChanges_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Показать изменения }
+//#UC START# *4C3B5337022E_49539DBA029Dexec_var*
+//#UC END# *4C3B5337022E_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3B5337022E_49539DBA029Dexec_impl*
+ Document_CompareEditions_Execute(aParams);
+//#UC END# *4C3B5337022E_49539DBA029Dexec_impl*
+end;//TExTextForm.WarnOnControl_ShowChanges_Execute
+
+procedure TExTextForm.WarnOnControl_ClearStatus_Test(const aParams: IvcmTestParamsPrim);
  {* Сбросить статус "изменен" }
-//#UC START# *4C3B535F0064_49539DBA029D_var*
-//#UC END# *4C3B535F0064_49539DBA029D_var*
+//#UC START# *4C3B535F0064_49539DBA029Dtest_var*
+//#UC END# *4C3B535F0064_49539DBA029Dtest_var*
 begin
-//#UC START# *4C3B535F0064_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3B535F0064_49539DBA029D_impl*
-end;//TExTextForm.ClearStatus
+//#UC START# *4C3B535F0064_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofVisible] := (ucpUnderControl <> nil) and ucpUnderControl.HasControlStatus;
+//#UC END# *4C3B535F0064_49539DBA029Dtest_impl*
+end;//TExTextForm.WarnOnControl_ClearStatus_Test
 
-procedure TExTextForm.Delete;
-//#UC START# *4C3C71290115_49539DBA029D_var*
-//#UC END# *4C3C71290115_49539DBA029D_var*
+procedure TExTextForm.WarnOnControl_ClearStatus_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Сбросить статус "изменен" }
+//#UC START# *4C3B535F0064_49539DBA029Dexec_var*
+//#UC END# *4C3B535F0064_49539DBA029Dexec_var*
 begin
-//#UC START# *4C3C71290115_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3C71290115_49539DBA029D_impl*
-end;//TExTextForm.Delete
+//#UC START# *4C3B535F0064_49539DBA029Dexec_impl*
+ if (ucpUnderControl <> nil) then
+ begin
+  ucpUnderControl.ClearControlStatus;
+  UpdateUnderControlList;
+ end;//ViewArea <> nil
+//#UC END# *4C3B535F0064_49539DBA029Dexec_impl*
+end;//TExTextForm.WarnOnControl_ClearStatus_Execute
 
-procedure TExTextForm.Edit;
-//#UC START# *4C3C7131036E_49539DBA029D_var*
-//#UC END# *4C3C7131036E_49539DBA029D_var*
+procedure TExTextForm.BookmarkIcon_Delete_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3C71290115_49539DBA029Dtest_var*
+var
+ l_eeSub: IeeSub;
+//#UC END# *4C3C71290115_49539DBA029Dtest_var*
 begin
-//#UC START# *4C3C7131036E_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3C7131036E_49539DBA029D_impl*
-end;//TExTextForm.Edit
+//#UC START# *4C3C71290115_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := Supports(aParams.Target, IeeSub, l_eeSub) and (l_eeSub.LayerID = Ord(ev_sbtBookmark));
+//#UC END# *4C3C71290115_49539DBA029Dtest_impl*
+end;//TExTextForm.BookmarkIcon_Delete_Test
 
-procedure TExTextForm.Delete;
-//#UC START# *4C3C71D20351_49539DBA029D_var*
-//#UC END# *4C3C71D20351_49539DBA029D_var*
+procedure TExTextForm.BookmarkIcon_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3C71290115_49539DBA029Dexec_var*
+var
+ l_eeSub: IeeSub;
+//#UC END# *4C3C71290115_49539DBA029Dexec_var*
 begin
-//#UC START# *4C3C71D20351_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3C71D20351_49539DBA029D_impl*
-end;//TExTextForm.Delete
+//#UC START# *4C3C71290115_49539DBA029Dexec_impl*
+ if Supports(aParams.Target, IeeSub, l_eeSub) and (l_eeSub.LayerID = Ord(ev_sbtBookmark)) then
+ try
+  case nsDeleteBookmark(l_eeSub.ID, Text.TextSource.DocumentContainer) of
+// Теперь не нужно, т.к. закладка удаляется у всех документов в кэше через нотификацию.
+//   drOk: l_eeSub.Delete;
+   drDenied: Say(err_CanNotDeleteBookmark);
+  end;
+ finally
+  l_eeSub := nil;
+ end;
+//#UC END# *4C3C71290115_49539DBA029Dexec_impl*
+end;//TExTextForm.BookmarkIcon_Delete_Execute
 
-procedure TExTextForm.HideShow;
-//#UC START# *4C3C71E4033D_49539DBA029D_var*
-//#UC END# *4C3C71E4033D_49539DBA029D_var*
+procedure TExTextForm.BookmarkIcon_Edit_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3C7131036E_49539DBA029Dtest_var*
+//#UC END# *4C3C7131036E_49539DBA029Dtest_var*
 begin
-//#UC START# *4C3C71E4033D_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3C71E4033D_49539DBA029D_impl*
-end;//TExTextForm.HideShow
+//#UC START# *4C3C7131036E_49539DBA029Dtest_impl*
+ BookmarkIcon_Delete_Test(aParams); // в dfm-е была ссылка на один и тот же метод
+//#UC END# *4C3C7131036E_49539DBA029Dtest_impl*
+end;//TExTextForm.BookmarkIcon_Edit_Test
 
-procedure TExTextForm.Delete;
-//#UC START# *4C3C74C603B6_49539DBA029D_var*
-//#UC END# *4C3C74C603B6_49539DBA029D_var*
+procedure TExTextForm.BookmarkIcon_Edit_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3C7131036E_49539DBA029Dexec_var*
+var
+ l_eeSub: IeeSub;
+//#UC END# *4C3C7131036E_49539DBA029Dexec_var*
 begin
-//#UC START# *4C3C74C603B6_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3C74C603B6_49539DBA029D_impl*
-end;//TExTextForm.Delete
+//#UC START# *4C3C7131036E_49539DBA029Dexec_impl*
+ if Supports(aParams.Target, IeeSub, l_eeSub) and (l_eeSub.LayerID = Ord(ev_sbtBookmark)) then
+ try
+  EditBookmark(l_eeSub.ID);
+ finally
+  l_eeSub := nil;
+ end;
+//#UC END# *4C3C7131036E_49539DBA029Dexec_impl*
+end;//TExTextForm.BookmarkIcon_Edit_Execute
 
-procedure TExTextForm.AddUserComment;
-//#UC START# *4C3C75240091_49539DBA029D_var*
-//#UC END# *4C3C75240091_49539DBA029D_var*
+procedure TExTextForm.UserCommentIcon_Delete_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3C71D20351_49539DBA029Dtest_var*
+var
+ l_eeSub: IeeSub;
+//#UC END# *4C3C71D20351_49539DBA029Dtest_var*
 begin
-//#UC START# *4C3C75240091_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3C75240091_49539DBA029D_impl*
-end;//TExTextForm.AddUserComment
+//#UC START# *4C3C71D20351_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := Supports(aParams.Target, IeeSub, l_eeSub) and
+  (l_eeSub.LayerID = Ord(ev_sbtMark)) and
+  not Text.IsStaticText and (l_eeSub.Flag = 2);
+//#UC END# *4C3C71D20351_49539DBA029Dtest_impl*
+end;//TExTextForm.UserCommentIcon_Delete_Test
 
-procedure TExTextForm.GetGraphicImage;
-//#UC START# *4C3C77CC012A_49539DBA029D_var*
-//#UC END# *4C3C77CC012A_49539DBA029D_var*
+procedure TExTextForm.UserCommentIcon_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3C71D20351_49539DBA029Dexec_var*
+var
+ l_eeSub: IeeSub;
+//#UC END# *4C3C71D20351_49539DBA029Dexec_var*
 begin
-//#UC START# *4C3C77CC012A_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3C77CC012A_49539DBA029D_impl*
-end;//TExTextForm.GetGraphicImage
+//#UC START# *4C3C71D20351_49539DBA029Dexec_impl*
+ if Supports(aParams.Target, IeeSub, l_eeSub) and
+    (l_eeSub.LayerID = Ord(ev_sbtMark)) and
+    (l_eeSub.Para <> nil) then
+  // Удаляем параграф на который указывает метка
+  l_eeSub.Para.Delete;
+//#UC END# *4C3C71D20351_49539DBA029Dexec_impl*
+end;//TExTextForm.UserCommentIcon_Delete_Execute
 
-procedure TExTextForm.DocumentSynchroOpenWindow;
-//#UC START# *4C3EA65F0233_49539DBA029D_var*
-//#UC END# *4C3EA65F0233_49539DBA029D_var*
+procedure TExTextForm.UserCommentIcon_HideShow_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3C71E4033D_49539DBA029Dexec_var*
+var
+ l_eeSub: IeeSub;
+ l_Status: Bool;
+//#UC END# *4C3C71E4033D_49539DBA029Dexec_var*
 begin
-//#UC START# *4C3EA65F0233_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3EA65F0233_49539DBA029D_impl*
-end;//TExTextForm.DocumentSynchroOpenWindow
+//#UC START# *4C3C71E4033D_49539DBA029Dexec_impl*
+ if Supports(aParams.Target, IeeSub, l_eeSub) and (l_eeSub.LayerID = Ord(ev_sbtMark)) then
+ begin
+  case l_eeSub.Flag of
+   1: begin
+       l_Status := not Text.ShowComments;
+       Text.ShowComments := l_Status;
+      end;//1
+   2: begin
+       l_Status := not Text.ShowUserComments;
+       Text.ShowUserComments := l_Status;
+      end;//2
+   3: begin
+       InvertVersionCommentsVisibleByUser;
+       if Text.ShowVersionComments then
+        l_eeSub.Select;
+       // http://mdp.garant.ru/pages/viewpage.action?pageId=235868034
+      end;//3
+  end; // case l_eeSub.Flag
+ end;//Supports(aParams.Target, IeeSub, l_eeSub)
+ l_eeSub := nil;
+//#UC END# *4C3C71E4033D_49539DBA029Dexec_impl*
+end;//TExTextForm.UserCommentIcon_HideShow_Execute
 
-procedure TExTextForm.DocumentSynchroOpenNewWindow;
-//#UC START# *4C3EA671007A_49539DBA029D_var*
-//#UC END# *4C3EA671007A_49539DBA029D_var*
+procedure TExTextForm.UserCommentIcon_HideShow_GetState(var State: TvcmOperationStateIndex);
+//#UC START# *4C3C71E4033D_49539DBA029Dgetstate_var*
+var
+ l_eeSub : IeeSub;
+//#UC END# *4C3C71E4033D_49539DBA029Dgetstate_var*
 begin
-//#UC START# *4C3EA671007A_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3EA671007A_49539DBA029D_impl*
-end;//TExTextForm.DocumentSynchroOpenNewWindow
+//#UC START# *4C3C71E4033D_49539DBA029Dgetstate_impl*
+ with SubPanel.ScreenToClient(Mouse.CursorPos) do
+  SubPanel.CheckSubOnPoint(X, Y, l_eeSub);
+ if (l_eeSub <> nil) and
+    (l_eeSub.LayerID = Ord(ev_sbtMark)) then
+ begin
+  case l_eeSub.Flag of
+   1 : if Text.ShowComments then
+        State := st_user_UserCommentIcon_HideShow_GarantShown
+       else
+        State := st_user_UserCommentIcon_HideShow_GarantHidden;
+   2 : if Text.ShowUserComments then
+        State := st_user_UserCommentIcon_HideShow_UserShown
+       else
+        State := st_user_UserCommentIcon_HideShow_UserHidden;
+   3 : if Text.ShowVersionComments then
+        State := st_user_UserCommentIcon_HideShow_VersionShown
+       else
+        State := st_user_UserCommentIcon_HideShow_VersionHidden;
+  end; // case l_eeSub.Flag
+ end//Supports(aParams.Target, IeeSub, l_eeSub)
+ else
+  State := st_user_UserCommentIcon_HideShow_Invisible;
+ l_eeSub := nil;
+//#UC END# *4C3C71E4033D_49539DBA029Dgetstate_impl*
+end;//TExTextForm.UserCommentIcon_HideShow_GetState
 
-procedure TExTextForm.DictListOpenFrmAct;
-//#UC START# *4C3EA90300E1_49539DBA029D_var*
-//#UC END# *4C3EA90300E1_49539DBA029D_var*
+procedure TExTextForm.UserComment_Delete_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3C74C603B6_49539DBA029Dtest_var*
+var
+ l_eeHotSpot: IeeHotSpot;
+ l_eeTextPara: IeeTextPara;
+ l_EP: IeePara;
+//#UC END# *4C3C74C603B6_49539DBA029Dtest_var*
 begin
-//#UC START# *4C3EA90300E1_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3EA90300E1_49539DBA029D_impl*
-end;//TExTextForm.DictListOpenFrmAct
+//#UC START# *4C3C74C603B6_49539DBA029Dtest_impl*
+ if Supports(aParams.Target, IeeHotSpot, l_eeHotSpot) and Supports(l_eeHotSpot.Para, IeeTextPara, l_eeTextPara) then
+  aParams.Op.Flag[vcm_ofEnabled] := l_eeTextPara.IsUserComment and not Text.IsStaticText
+ else
+ begin
+  l_EP := LeafParaUnderCursor;
+  aParams.Op.Flag[vcm_ofEnabled] := (l_EP <> nil) and l_EP.IsUserComment;
+ end;
+//#UC END# *4C3C74C603B6_49539DBA029Dtest_impl*
+end;//TExTextForm.UserComment_Delete_Test
 
-procedure TExTextForm.GotoBookmark;
-//#UC START# *4C3EBF860139_49539DBA029D_var*
-//#UC END# *4C3EBF860139_49539DBA029D_var*
+procedure TExTextForm.UserComment_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3C74C603B6_49539DBA029Dexec_var*
+var
+ l_eeHotSpot: IeeHotSpot;
+ l_EP: IeePara;
+//#UC END# *4C3C74C603B6_49539DBA029Dexec_var*
 begin
-//#UC START# *4C3EBF860139_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3EBF860139_49539DBA029D_impl*
-end;//TExTextForm.GotoBookmark
+//#UC START# *4C3C74C603B6_49539DBA029Dexec_impl*
+ if Supports(aParams.Target, IeeHotSpot, l_eeHotSpot) and (l_eeHotSpot.Para <> nil) and (l_eeHotSpot.Para.Block <> nil) then
+  (l_eeHotSpot.Para.Block As IeePara).Delete
+ else
+ begin
+  l_EP := LeafParaUnderCursor;
+  if l_EP.IsUserComment then
+   if (l_EP.Block <> nil) then
+    (l_EP.Block As IeePara).Delete;
+ end;
+//#UC END# *4C3C74C603B6_49539DBA029Dexec_impl*
+end;//TExTextForm.UserComment_Delete_Execute
 
-procedure TExTextForm.LiteratureListForDictionary;
-//#UC START# *4C3ED13D03A5_49539DBA029D_var*
-//#UC END# *4C3ED13D03A5_49539DBA029D_var*
+procedure TExTextForm.Text_AddUserComment_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3C75240091_49539DBA029Dtest_var*
+var
+ l_HotSpot: IeeHotSpot;
+ l_EP: IeePara;
+//#UC END# *4C3C75240091_49539DBA029Dtest_var*
 begin
-//#UC START# *4C3ED13D03A5_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3ED13D03A5_49539DBA029D_impl*
-end;//TExTextForm.LiteratureListForDictionary
+//#UC START# *4C3C75240091_49539DBA029Dtest_impl*
+ if (UserType in [dftAACContentsRight, dftAACContentsLeft, dftAACRight]) then
+  aParams.Op.Flag[vcm_ofVisible] := False;
 
-procedure TExTextForm.EditBookmark;
-//#UC START# *4C3ED54100A2_49539DBA029D_var*
-//#UC END# *4C3ED54100A2_49539DBA029D_var*
+ if (aParams.Control is TeeEditor) and TeeEditor(aParams.Control).CanUserModify then
+  if (Document <> nil) then
+  begin
+   if (aParams.Target <> nil) and Supports(aParams.Target, IeeHotSpot, l_HotSpot) then
+    l_EP := l_HotSpot.Para
+   else
+    l_EP := LeafParaUnderCursor;
+
+   if (l_EP <> nil) then
+    if l_EP.AsObject.IsKindOf(k2_typLeafPara) then
+    begin
+     aParams.Op.Flag[vcm_ofEnabled] := True;
+     Exit;
+    end;
+  end;
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4C3C75240091_49539DBA029Dtest_impl*
+end;//TExTextForm.Text_AddUserComment_Test
+
+procedure TExTextForm.Text_AddUserComment_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3C75240091_49539DBA029Dexec_var*
+var
+ l_eeHotSpot: IeeHotSpot;
+ l_Obj: InevObject;
+ l_EP: IeePara;
+//#UC END# *4C3C75240091_49539DBA029Dexec_var*
 begin
-//#UC START# *4C3ED54100A2_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3ED54100A2_49539DBA029D_impl*
-end;//TExTextForm.EditBookmark
+//#UC START# *4C3C75240091_49539DBA029Dexec_impl*
+ if Supports(aParams.Target, IeeHotSpot, l_eeHotSpot) then
+  l_EP := l_eeHotSpot.Para
+ else
+  l_EP := LeafParaUnderCursor;
 
-procedure TExTextForm.DeleteBookmark;
-//#UC START# *4C3ED54D03D4_49539DBA029D_var*
-//#UC END# *4C3ED54D03D4_49539DBA029D_var*
+ if (l_EP <> nil) then
+ begin
+  if not Text.ShowUserComments then
+   Text.ShowUserComments := True;
+   if l_EP.AsObject.QT(InevObject, l_Obj, Text.Processor) then
+   try
+    InevSelection(Text.Selection).SelectPoint(l_Obj.MakePoint, false);
+    Text.InsertUserComment;
+   finally
+    l_Obj := nil;
+   end;//try..finally
+ end;//l_EP <> nil
+//#UC END# *4C3C75240091_49539DBA029Dexec_impl*
+end;//TExTextForm.Text_AddUserComment_Execute
+
+procedure TExTextForm.Document_GetGraphicImage_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3C77CC012A_49539DBA029Dtest_var*
+//#UC END# *4C3C77CC012A_49539DBA029Dtest_var*
 begin
-//#UC START# *4C3ED54D03D4_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3ED54D03D4_49539DBA029D_impl*
-end;//TExTextForm.DeleteBookmark
+//#UC START# *4C3C77CC012A_49539DBA029Dtest_impl*
+ with aParams do
+  Op.Flag[vcm_ofEnabled] := (Document <> nil) and Document.HasInternetImage;
+//#UC END# *4C3C77CC012A_49539DBA029Dtest_impl*
+end;//TExTextForm.Document_GetGraphicImage_Test
 
-procedure TExTextForm.AddBookmark;
-//#UC START# *4C3ED5D502AE_49539DBA029D_var*
-//#UC END# *4C3ED5D502AE_49539DBA029D_var*
+procedure TExTextForm.Document_GetGraphicImage_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3C77CC012A_49539DBA029Dexec_var*
+var
+ l_ExternalLink: IExternalLink;
+//#UC END# *4C3C77CC012A_49539DBA029Dexec_var*
 begin
-//#UC START# *4C3ED5D502AE_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3ED5D502AE_49539DBA029D_impl*
-end;//TExTextForm.AddBookmark
+//#UC START# *4C3C77CC012A_49539DBA029Dexec_impl*
+(* if (aParams.Count >= 1) and Supports(aParams.AsIU[0], IExternalLink, l_ExternalLink) then
+ else*)
+  if (Document <> nil) and Document.HasInternetImage then
+   Document.GetInternetImageUrl(0, l_ExternalLink);
+ if (l_ExternalLink <> nil) then
+  try
+   nsExecuteExternalLink(l_ExternalLink);
+  finally
+   l_ExternalLink := nil;
+  end;
+//#UC END# *4C3C77CC012A_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_GetGraphicImage_Execute
 
-procedure TExTextForm.OpenNewWindow;
-//#UC START# *4C3ED7190010_49539DBA029D_var*
-//#UC END# *4C3ED7190010_49539DBA029D_var*
+procedure TExTextForm.Document_DocumentSynchroOpenWindow_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3EA65F0233_49539DBA029Dtest_var*
+//#UC END# *4C3EA65F0233_49539DBA029Dtest_var*
 begin
-//#UC START# *4C3ED7190010_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3ED7190010_49539DBA029D_impl*
-end;//TExTextForm.OpenNewWindow
+//#UC START# *4C3EA65F0233_49539DBA029Dtest_impl*
+ if aParams.Op.Flag[vcm_ofEnabled] then
+  aParams.Op.Flag[vcm_ofEnabled] := TextSource.HasDocument;
+//#UC END# *4C3EA65F0233_49539DBA029Dtest_impl*
+end;//TExTextForm.Document_DocumentSynchroOpenWindow_Test
 
-procedure TExTextForm.OpenProducedDrugList;
-//#UC START# *4C3EDBA7030C_49539DBA029D_var*
-//#UC END# *4C3EDBA7030C_49539DBA029D_var*
+procedure TExTextForm.Document_DocumentSynchroOpenWindow_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3EA65F0233_49539DBA029Dexec_var*
+//#UC END# *4C3EA65F0233_49539DBA029Dexec_var*
 begin
-//#UC START# *4C3EDBA7030C_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3EDBA7030C_49539DBA029D_impl*
-end;//TExTextForm.OpenProducedDrugList
+//#UC START# *4C3EA65F0233_49539DBA029Dexec_impl*
+ if HasDoc then
+  OpenInWindow(False);
+//#UC END# *4C3EA65F0233_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_DocumentSynchroOpenWindow_Execute
 
-procedure TExTextForm.OpenSimilarDrugList;
-//#UC START# *4C3EDBB80283_49539DBA029D_var*
-//#UC END# *4C3EDBB80283_49539DBA029D_var*
+procedure TExTextForm.Document_DocumentSynchroOpenNewWindow_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3EA671007A_49539DBA029Dtest_var*
+//#UC END# *4C3EA671007A_49539DBA029Dtest_var*
 begin
-//#UC START# *4C3EDBB80283_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3EDBB80283_49539DBA029D_impl*
-end;//TExTextForm.OpenSimilarDrugList
+//#UC START# *4C3EA671007A_49539DBA029Dtest_impl*
+ if aParams.Op.Flag[vcm_ofEnabled] then
+  aParams.Op.Flag[vcm_ofEnabled] := TextSource.HasDocument;
+//#UC END# *4C3EA671007A_49539DBA029Dtest_impl*
+end;//TExTextForm.Document_DocumentSynchroOpenNewWindow_Test
 
-procedure TExTextForm.InsertHyperlink;
+procedure TExTextForm.Document_DocumentSynchroOpenNewWindow_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3EA671007A_49539DBA029Dexec_var*
+//#UC END# *4C3EA671007A_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3EA671007A_49539DBA029Dexec_impl*
+ if HasDoc then
+  OpenInWindow;
+//#UC END# *4C3EA671007A_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_DocumentSynchroOpenNewWindow_Execute
+
+procedure TExTextForm.Document_DictListOpenFrmAct_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3EA90300E1_49539DBA029Dtest_var*
+//var
+// l_Form: IvcmEntityForm;
+//#UC END# *4C3EA90300E1_49539DBA029Dtest_var*
+begin
+//#UC START# *4C3EA90300E1_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=290266547
+ (*if NativeMainForm.HasForm(fm_enDiction.rFormID, vcm_ztNavigator, True, @l_Form) then
+ try
+  aParams.Op.Flag[vcm_ofEnabled] := not l_Form.IsActiveInParent;
+ finally
+  l_Form := nil;
+ end;{try..finally}*)
+//#UC END# *4C3EA90300E1_49539DBA029Dtest_impl*
+end;//TExTextForm.Document_DictListOpenFrmAct_Test
+
+procedure TExTextForm.Document_DictListOpenFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3EA90300E1_49539DBA029Dexec_var*
+//var
+// l_Form: IvcmEntityForm;
+//#UC END# *4C3EA90300E1_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3EA90300E1_49539DBA029Dexec_impl*
+ Assert(False);
+(* if NativeMainForm.HasForm(fm_enDiction.rFormID, vcm_ztNavigator, True, @l_Form) then
+ try
+  l_Form.SetActiveInParent;
+ finally
+  l_Form := nil;
+ end;{try..finally}*)
+//#UC END# *4C3EA90300E1_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_DictListOpenFrmAct_Execute
+
+procedure TExTextForm.Document_GotoBookmark_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3EBF860139_49539DBA029Dtest_var*
+var
+ l_Count,
+ l_Index: Integer;
+ l_BookmarkList: IeeSubList;
+//#UC END# *4C3EBF860139_49539DBA029Dtest_var*
+begin
+//#UC START# *4C3EBF860139_49539DBA029Dtest_impl*
+// Получение текущего списка закладок
+ if (Document <> nil) then
+ begin
+  l_BookmarkList := Text.Editor.Data.Document.Bookmarks;
+  try
+   l_Count := GetVisibleBookmarksCount(l_BookmarkList);
+   if (l_Count > 0) then
+   begin
+    with aParams.Op.SubItems do
+    begin
+     Clear;
+     for l_Index := 0 to Pred(l_BookmarkList.Count) do
+      if l_BookmarkList.Subs[l_Index].Flags and ev_sfOwn = ev_sfOwn then
+       Add(l_BookmarkList.Subs[l_Index].Name);
+    end;//with aParams.Op.SubItems
+   end//l_Count > 0
+   else
+    aParams.Op.Flag[vcm_ofEnabled] := False;
+  finally
+   l_BookmarkList := nil;
+  end;//try..finally
+ end//Document <> nil
+ else
+  aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4C3EBF860139_49539DBA029Dtest_impl*
+end;//TExTextForm.Document_GotoBookmark_Test
+
+procedure TExTextForm.Document_GotoBookmark_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3EBF860139_49539DBA029Dexec_var*
+var
+ l_Count,
+ l_Index: Integer;
+ l_BookmarkList: IeeSubList;
+ l_Sub: IeeSub;
+//#UC END# *4C3EBF860139_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3EBF860139_49539DBA029Dexec_impl*
+ l_Index := aParams.ItemIndex;
+ if (l_Index >= 0) then
+ begin
+  l_BookmarkList := Text.Editor.Data.Document.Bookmarks;
+  l_Count := GetVisibleBookmarksCount(l_BookmarkList);
+  if (l_Index = 0) then
+  begin
+   if (f_LastBookmarkIndex >= Pred(l_Count)) then
+    f_LastBookmarkIndex := 0
+   else
+    Inc(f_LastBookmarkIndex);
+   l_Index := f_LastBookmarkIndex;
+  end//l_Index = 0
+  else
+  begin
+   Dec(l_Index);
+   f_LastBookmarkIndex := l_Index;
+  end;//l_Index = 0
+  l_Sub := GetVisibleBookmark(l_BookmarkList, l_Index);
+  if (l_Sub <> nil) and
+     l_Sub.Exists then
+   l_Sub.Select;
+ end;//l_Index >= 0
+//#UC END# *4C3EBF860139_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_GotoBookmark_Execute
+
+procedure TExTextForm.Document_LiteratureListForDictionary_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3ED13D03A5_49539DBA029Dtest_var*
+//#UC END# *4C3ED13D03A5_49539DBA029Dtest_var*
+begin
+//#UC START# *4C3ED13D03A5_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofVisible] := (DictionDocument <> nil) and DictionDocument.IsMainDiction;
+//#UC END# *4C3ED13D03A5_49539DBA029Dtest_impl*
+end;//TExTextForm.Document_LiteratureListForDictionary_Test
+
+procedure TExTextForm.Document_LiteratureListForDictionary_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3ED13D03A5_49539DBA029Dexec_var*
+//#UC END# *4C3ED13D03A5_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3ED13D03A5_49539DBA029Dexec_impl*
+ if (DictionDocument <> nil) then
+  DictionDocument.OpenLiteratureList;
+//#UC END# *4C3ED13D03A5_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_LiteratureListForDictionary_Execute
+
+procedure TExTextForm.Text_EditBookmark_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3ED54100A2_49539DBA029Dtest_var*
+var
+ l_eeHotSpot: IeeHotSpot;
+//#UC END# *4C3ED54100A2_49539DBA029Dtest_var*
+begin
+//#UC START# *4C3ED54100A2_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := Supports(aParams.Target, IeeHotSpot, l_eeHotSpot) and
+  (l_eeHotSpot.Para <> nil) and HasVisibleBookmarks(l_eeHotSpot.Para.Bookmarks);
+//#UC END# *4C3ED54100A2_49539DBA029Dtest_impl*
+end;//TExTextForm.Text_EditBookmark_Test
+
+procedure TExTextForm.Text_EditBookmark_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3ED54100A2_49539DBA029Dexec_var*
+var
+ l_eeHotSpot: IeeHotSpot;
+ l_Bookmark: IeeSub;
+//#UC END# *4C3ED54100A2_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3ED54100A2_49539DBA029Dexec_impl*
+ if Supports(aParams.Target, IeeHotSpot, l_eeHotSpot) and
+    (l_eeHotSpot.Para <> nil) then
+ try
+  l_Bookmark := GetVisibleBookmark(l_eeHotSpot.Para.BookMarks);
+  try
+   if Assigned(l_Bookmark) then
+    EditBookmark(l_Bookmark.ID);
+  finally
+   l_Bookmark := nil;
+  end;
+ finally
+  l_eeHotSpot := nil;
+ end;
+//#UC END# *4C3ED54100A2_49539DBA029Dexec_impl*
+end;//TExTextForm.Text_EditBookmark_Execute
+
+procedure TExTextForm.Text_DeleteBookmark_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3ED54D03D4_49539DBA029Dtest_var*
+//#UC END# *4C3ED54D03D4_49539DBA029Dtest_var*
+begin
+//#UC START# *4C3ED54D03D4_49539DBA029Dtest_impl*
+ Text_EditBookmark_Test(aParams);
+//#UC END# *4C3ED54D03D4_49539DBA029Dtest_impl*
+end;//TExTextForm.Text_DeleteBookmark_Test
+
+procedure TExTextForm.Text_DeleteBookmark_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3ED54D03D4_49539DBA029Dexec_var*
+var
+ l_eeHotSpot: IeeHotSpot;
+ l_Bookmark: IeeSub;
+//#UC END# *4C3ED54D03D4_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3ED54D03D4_49539DBA029Dexec_impl*
+ if Supports(aParams.Target, IeeHotSpot, l_eeHotSpot) and
+    (l_eeHotSpot.Para <> nil) then
+ try
+  l_Bookmark := GetVisibleBookmark(l_eeHotSpot.Para.BookMarks);
+  try
+   if Assigned(l_Bookmark) then
+   case nsDeleteBookmark(l_Bookmark.ID, Text.TextSource.DocumentContainer) of
+//   Теперь не нужно, т.к. закладка удаляется у всех документов в кэше через нотификацию.
+//    drOk: l_eeHotSpot.Para.BookMarks.Subs[0].Delete;
+    drDenied: Say(err_CanNotDeleteBookmark);
+   end;
+  finally
+   l_Bookmark := nil;
+  end;
+ finally
+  l_eeHotSpot := nil;
+ end;
+//#UC END# *4C3ED54D03D4_49539DBA029Dexec_impl*
+end;//TExTextForm.Text_DeleteBookmark_Execute
+
+procedure TExTextForm.Text_AddBookmark_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3ED5D502AE_49539DBA029Dtest_var*
+var
+ l_eeHotSpot: IeeHotSpot;
+// l_Para: IeeLeafPara;
+// l_Picture: IeePicture;
+//#UC END# *4C3ED5D502AE_49539DBA029Dtest_var*
+begin
+//#UC START# *4C3ED5D502AE_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (Document <> nil) and
+   Supports(aParams.Target, IeeHotSpot, l_eeHotSpot) and
+   (l_eeHotSpot.Para <> nil) and
+   Supports(l_eeHotSpot.Para, IeeLeafPara{, l_Para});
+// * Old Code. Проверка допустимости установки закладки
+// * Нахождение параграфа с номером теперь делается в _OnExecute
+// begin
+//  if (l_eeHotSpot.Para.ID >= 0) then
+//  begin
+//   if (l_eeHotSpot.Para.ID > 0) or
+//      Supports(l_eeHotSpot.Para, IeePicture, l_Picture) then
+//    aParams.Op.Flag[vcm_ofVisible] := True;
+//  end
+//  else
+//   aParams.Op.Flag[vcm_ofVisible] := False;
+// end
+
+ l_eeHotSpot := nil;
+//#UC END# *4C3ED5D502AE_49539DBA029Dtest_impl*
+end;//TExTextForm.Text_AddBookmark_Test
+
+procedure TExTextForm.Text_AddBookmark_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3ED5D502AE_49539DBA029Dexec_var*
+var
+ l_eeHotSpot: IeeHotSpot;
+//#UC END# *4C3ED5D502AE_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3ED5D502AE_49539DBA029Dexec_impl*
+ if (Document <> nil) and
+    Supports(aParams.Target, IeeHotSpot, l_eeHotSpot) and
+    (l_eeHotSpot.Para <> nil) then
+ try
+  AddBookmark(eeFindNumberedPara(l_eeHotSpot.Para, Text as IeeDocumentEx));
+ finally
+  l_eeHotSpot := nil;
+ end;
+//#UC END# *4C3ED5D502AE_49539DBA029Dexec_impl*
+end;//TExTextForm.Text_AddBookmark_Execute
+
+procedure TExTextForm.Text_OpenNewWindow_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3ED7190010_49539DBA029Dtest_var*
+//#UC END# *4C3ED7190010_49539DBA029Dtest_var*
+begin
+//#UC START# *4C3ED7190010_49539DBA029Dtest_impl*
+ // В ААК тоже должен быть пункт контекстного меню "Открыть текущий документ в
+ // новом окне"
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=484815594
+ aParams.Op.Flag[vcm_ofEnabled] := (UserType in [dftDocument, dftMedicFirm,
+  dftAACContentsRight, dftAACLeft]) and
+  (Document <> nil);
+//#UC END# *4C3ED7190010_49539DBA029Dtest_impl*
+end;//TExTextForm.Text_OpenNewWindow_Test
+
+procedure TExTextForm.Text_OpenNewWindow_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3ED7190010_49539DBA029Dexec_var*
+//#UC END# *4C3ED7190010_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3ED7190010_49539DBA029Dexec_impl*
+ if Assigned(dsDocument) then
+  OpenInWindow
+ else
+  op_Document_CommonDocumentOpenNewWindow.Call(Self.As_IvcmEntityForm, UserType);
+//#UC END# *4C3ED7190010_49539DBA029Dexec_impl*
+end;//TExTextForm.Text_OpenNewWindow_Execute
+
+procedure TExTextForm.Document_OpenProducedDrugList_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3EDBA7030C_49539DBA029Dtest_var*
+//#UC END# *4C3EDBA7030C_49539DBA029Dtest_var*
+begin
+//#UC START# *4C3EDBA7030C_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (MedicFirmDocument <> nil);
+ aParams.Op.Flag[vcm_ofVisible] := defDataAdapter.IsInpharmExists;
+//#UC END# *4C3EDBA7030C_49539DBA029Dtest_impl*
+end;//TExTextForm.Document_OpenProducedDrugList_Test
+
+procedure TExTextForm.Document_OpenProducedDrugList_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3EDBA7030C_49539DBA029Dexec_var*
+//#UC END# *4C3EDBA7030C_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3EDBA7030C_49539DBA029Dexec_impl*
+ if (MedicFirmDocument <> nil) then
+  MedicFirmDocument.OpenDrugList; 
+//#UC END# *4C3EDBA7030C_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_OpenProducedDrugList_Execute
+
+procedure TExTextForm.Document_OpenSimilarDrugList_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3EDBB80283_49539DBA029Dtest_var*
+//#UC END# *4C3EDBB80283_49539DBA029Dtest_var*
+begin
+//#UC START# *4C3EDBB80283_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (DrugDocument <> nil);
+ aParams.Op.Flag[vcm_ofVisible] := defDataAdapter.IsInpharmExists;
+//#UC END# *4C3EDBB80283_49539DBA029Dtest_impl*
+end;//TExTextForm.Document_OpenSimilarDrugList_Test
+
+procedure TExTextForm.Document_OpenSimilarDrugList_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3EDBB80283_49539DBA029Dexec_var*
+//#UC END# *4C3EDBB80283_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3EDBB80283_49539DBA029Dexec_impl*
+ if (DrugDocument <> nil) then
+  DrugDocument.OpenDrugInternationalNameSynonims;
+//#UC END# *4C3EDBB80283_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_OpenSimilarDrugList_Execute
+
+procedure TExTextForm.Selection_InsertHyperlink_Test(const aParams: IvcmTestParamsPrim);
  {* Поставить ссылку... }
-//#UC START# *4C7B96FA02DA_49539DBA029D_var*
-//#UC END# *4C7B96FA02DA_49539DBA029D_var*
+//#UC START# *4C7B96FA02DA_49539DBA029Dtest_var*
+var
+ l_Hyperlink : IevHyperlink;
+ l_TempPara  : IeePara;
+ l_TextPara  : IeeTextPara;
+ l_Selection : InevSelection;
+//#UC END# *4C7B96FA02DA_49539DBA029Dtest_var*
 begin
-//#UC START# *4C7B96FA02DA_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7B96FA02DA_49539DBA029D_impl*
-end;//TExTextForm.InsertHyperlink
+//#UC START# *4C7B96FA02DA_49539DBA029Dtest_impl*
+ if (aParams.Control is TevCustomEditor) then
+ begin
+  l_Selection := TevCustomEditor(aParams.Control).Selection;
+  if (l_Selection <> nil) and not l_Selection.IsMulti then
+  begin
+   if Supports(l_Selection, IevHyperlink, l_Hyperlink) then
+   try
+    if (l_Hyperlink.ID < 0) then
+     aParams.Op.Flag[vcm_ofEnabled] := False
+    else
+    begin
+     l_TempPara := TeePara.Make(l_Hyperlink.Para.AsObject, aParams.Control as IeeDocumentEx);
+     try
+      if Supports(l_TempPara, IeeTextPara, l_TextPara) then
+      try
+       if not l_TextPara.IsUserComment or l3IsNil(l_TextPara.Text) then
+        aParams.Op.Flag[vcm_ofEnabled] := False;
+      finally
+       l_TextPara := nil;
+      end//try..finally
+      else
+       aParams.Op.Flag[vcm_ofEnabled] := False;
+     finally
+      l_TempPara := nil;
+     end;
+    end;//l_Hyperlink.ID < 0
+   finally
+    l_Hyperlink := nil;
+   end//try..finally
+   else
+    aParams.Op.Flag[vcm_ofEnabled] := False;
+  end
+  else
+   aParams.Op.Flag[vcm_ofEnabled] := False;
 
-procedure TExTextForm.GetAttributesFrmAct;
- {* Информация о документе }
-//#UC START# *4C7B9EBC01AC_49539DBA029D_var*
-//#UC END# *4C7B9EBC01AC_49539DBA029D_var*
+  if (aParams.Control is TevEditorWithOperations) and aParams.Op.Flag[vcm_ofEnabled] then
+   aParams.Op.Flag[vcm_ofEnabled] := not TevEditorWithOperations(aParams.Control).IsReadOnlyTarget(aParams.Target);
+ end//aParams.Control Is TevCustomEditor
+ else
+  aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4C7B96FA02DA_49539DBA029Dtest_impl*
+end;//TExTextForm.Selection_InsertHyperlink_Test
+
+procedure TExTextForm.Selection_InsertHyperlink_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Поставить ссылку... }
+//#UC START# *4C7B96FA02DA_49539DBA029Dexec_var*
+var
+ l_Caption   : TvcmStringID;
+ l_Hyperlink : IevHyperlink;
+//#UC END# *4C7B96FA02DA_49539DBA029Dexec_var*
 begin
-//#UC START# *4C7B9EBC01AC_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7B9EBC01AC_49539DBA029D_impl*
-end;//TExTextForm.GetAttributesFrmAct
+//#UC START# *4C7B96FA02DA_49539DBA029Dexec_impl*
+ if (aParams.Control Is TevCustomEditor) then
+ begin
+  if Supports(TevCustomEditor(aParams.Control).Selection, IevHyperlink, l_Hyperlink) then
+   try
+    if (l_Hyperlink.ID >= 0) then
+    begin
+     if not l_Hyperlink.Exists then
+      l_Caption := str_SetHyperLink
+     else
+      l_Caption := str_ChangeHyperLink;
+     TdmStdRes.SelectOpenWithUserData(Self.As_IvcmEntityForm,
+                                      FilterInfoFactory.MakeFilterInfo(ffNone, sfMyDocumentsAndCommon),
+                                      l_Caption,
+                                      l_Hyperlink);
+    end;//l_Hyperlink.ID
+   finally
+    l_Hyperlink := nil;
+   end;//try..finally
+ end;//aParams.Control Is TevCustomEditor
+//#UC END# *4C7B96FA02DA_49539DBA029Dexec_impl*
+end;//TExTextForm.Selection_InsertHyperlink_Execute
 
-procedure TExTextForm.OpenContentsFrmAct;
- {* Структура документа }
-//#UC START# *4C7BA9CB0179_49539DBA029D_var*
-//#UC END# *4C7BA9CB0179_49539DBA029D_var*
+procedure TExTextForm.Selection_InsertHyperlink_GetState(var State: TvcmOperationStateIndex);
+ {* Поставить ссылку... }
+//#UC START# *4C7B96FA02DA_49539DBA029Dgetstate_var*
+var
+ l_Hyperlink : IevHyperlink;
+ l_Selection : InevSelection;
+//#UC END# *4C7B96FA02DA_49539DBA029Dgetstate_var*
 begin
-//#UC START# *4C7BA9CB0179_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7BA9CB0179_49539DBA029D_impl*
-end;//TExTextForm.OpenContentsFrmAct
+//#UC START# *4C7B96FA02DA_49539DBA029Dgetstate_impl*
+ State := vcm_DefaultOperationState;
+ l_Selection := Text.Selection;
+ if (l_Selection <> nil) AND not l_Selection.IsMulti then
+ begin
+  if Supports(l_Selection, IevHyperlink, l_Hyperlink) then
+   try
+    if (l_Hyperlink.ID > 0) then
+     State := st_user_Selection_InsertHyperlink_ModifyLink;
+   finally
+    l_Hyperlink := nil;
+   end//try..finally
+ end;//(l_Selection <> nil) AND not l_Selection.IsMulti
+//#UC END# *4C7B96FA02DA_49539DBA029Dgetstate_impl*
+end;//TExTextForm.Selection_InsertHyperlink_GetState
 
-procedure TExTextForm.TimeMachineOnOffNew;
- {* Включить Машину времени }
-//#UC START# *4C7BD34501EB_49539DBA029D_var*
-//#UC END# *4C7BD34501EB_49539DBA029D_var*
-begin
-//#UC START# *4C7BD34501EB_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7BD34501EB_49539DBA029D_impl*
-end;//TExTextForm.TimeMachineOnOffNew
-
-procedure TExTextForm.HideShow;
- {* Скрыть/Показать }
-//#UC START# *4C7BD3C2000C_49539DBA029D_var*
-//#UC END# *4C7BD3C2000C_49539DBA029D_var*
-begin
-//#UC START# *4C7BD3C2000C_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7BD3C2000C_49539DBA029D_impl*
-end;//TExTextForm.HideShow
-
-procedure TExTextForm.TimeMachineOnOff;
- {* Включить Машину времени с календарной даты\Выключить Машину времени }
-//#UC START# *4C7BD60003B6_49539DBA029D_var*
-//#UC END# *4C7BD60003B6_49539DBA029D_var*
-begin
-//#UC START# *4C7BD60003B6_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7BD60003B6_49539DBA029D_impl*
-end;//TExTextForm.TimeMachineOnOff
-
-procedure TExTextForm.ShowInfo;
+procedure TExTextForm.WarnRedaction_ShowInfo_Test(const aParams: IvcmTestParamsPrim);
  {* Показать текст предупреждения }
-//#UC START# *4C7D345C006D_49539DBA029D_var*
-//#UC END# *4C7D345C006D_49539DBA029D_var*
+//#UC START# *4C7D354603D3_49539DBA029Dtest_var*
+//#UC END# *4C7D354603D3_49539DBA029Dtest_var*
 begin
-//#UC START# *4C7D345C006D_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7D345C006D_49539DBA029D_impl*
-end;//TExTextForm.ShowInfo
+//#UC START# *4C7D354603D3_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := FormIsMainInDocumentSet;
+//#UC END# *4C7D354603D3_49539DBA029Dtest_impl*
+end;//TExTextForm.WarnRedaction_ShowInfo_Test
 
-procedure TExTextForm.ShowInfo;
+procedure TExTextForm.WarnRedaction_ShowInfo_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Показать текст предупреждения }
-//#UC START# *4C7D34A903C5_49539DBA029D_var*
-//#UC END# *4C7D34A903C5_49539DBA029D_var*
+//#UC START# *4C7D354603D3_49539DBA029Dexec_var*
+//#UC END# *4C7D354603D3_49539DBA029Dexec_var*
 begin
-//#UC START# *4C7D34A903C5_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7D34A903C5_49539DBA029D_impl*
-end;//TExTextForm.ShowInfo
+//#UC START# *4C7D354603D3_49539DBA029Dexec_impl*
+ ShowWarningPage(true{false{True}, cEditionWarningSub);
+              // ^ - незачем ничего закрывать, если вызываем с медали
+              // http://mdp.garant.ru/pages/viewpage.action?pageId=266898633&focusedCommentId=285508953#comment-285508953
+              // А вот и есть "зачем" - http://mdp.garant.ru/pages/viewpage.action?pageId=287219564
+//#UC END# *4C7D354603D3_49539DBA029Dexec_impl*
+end;//TExTextForm.WarnRedaction_ShowInfo_Execute
 
-procedure TExTextForm.TimeMachineOnOffNew;
- {* Включить/Выключить Машину времени }
-//#UC START# *4C7D34DE02D2_49539DBA029D_var*
-//#UC END# *4C7D34DE02D2_49539DBA029D_var*
-begin
-//#UC START# *4C7D34DE02D2_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7D34DE02D2_49539DBA029D_impl*
-end;//TExTextForm.TimeMachineOnOffNew
-
-procedure TExTextForm.ShowInfo;
+procedure TExTextForm.WarnRedaction_ShowInfo_GetState(var State: TvcmOperationStateIndex);
  {* Показать текст предупреждения }
-//#UC START# *4C7D354603D3_49539DBA029D_var*
-//#UC END# *4C7D354603D3_49539DBA029D_var*
+//#UC START# *4C7D354603D3_49539DBA029Dgetstate_var*
+var l_Form: IvcmEntityForm;
+//#UC END# *4C7D354603D3_49539DBA029Dgetstate_var*
 begin
-//#UC START# *4C7D354603D3_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7D354603D3_49539DBA029D_impl*
-end;//TExTextForm.ShowInfo
+//#UC START# *4C7D354603D3_49539DBA029Dgetstate_impl*
+ if Assigned(Aggregate) and Aggregate.HasForm(fm_WarningForm.rFormID, @l_Form) and
+  l_Form.IsActiveInParent then
+  State := st_user_WarnRedaction_ShowInfo_Hide
+ else
+  State := vcm_DefaultOperationState;
+//#UC END# *4C7D354603D3_49539DBA029Dgetstate_impl*
+end;//TExTextForm.WarnRedaction_ShowInfo_GetState
 
-procedure TExTextForm.GetTypedCorrespondentList;
- {* Ссылки на фрагмент (вид информации) }
-//#UC START# *4C7D362C01B2_49539DBA029D_var*
-//#UC END# *4C7D362C01B2_49539DBA029D_var*
+procedure TExTextForm.DocumentBlock_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C879306001C_49539DBA029Dtest_var*
+//#UC END# *4C879306001C_49539DBA029Dtest_var*
 begin
-//#UC START# *4C7D362C01B2_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7D362C01B2_49539DBA029D_impl*
-end;//TExTextForm.GetTypedCorrespondentList
+//#UC START# *4C879306001C_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4C879306001C_49539DBA029Dtest_impl*
+end;//TExTextForm.DocumentBlock_PrintPreview_Test
 
-procedure TExTextForm.UserCR1;
- {* Пользовательские ссылки на документ (ссылки из документа) 1 }
-//#UC START# *4C7D36900317_49539DBA029D_var*
-//#UC END# *4C7D36900317_49539DBA029D_var*
+procedure TExTextForm.DocumentBlock_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C879306001C_49539DBA029Dexec_var*
+//#UC END# *4C879306001C_49539DBA029Dexec_var*
 begin
-//#UC START# *4C7D36900317_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7D36900317_49539DBA029D_impl*
-end;//TExTextForm.UserCR1
+//#UC START# *4C879306001C_49539DBA029Dexec_impl*
+ Assert(false);
+//#UC END# *4C879306001C_49539DBA029Dexec_impl*
+end;//TExTextForm.DocumentBlock_PrintPreview_Execute
 
-procedure TExTextForm.UserCR2;
- {* Пользовательские ссылки на документ (ссылки из документа) 2 }
-//#UC START# *4C7D36C40097_49539DBA029D_var*
-//#UC END# *4C7D36C40097_49539DBA029D_var*
+procedure TExTextForm.DocumentBlock_Select_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C87931D00FC_49539DBA029Dtest_var*
+//#UC END# *4C87931D00FC_49539DBA029Dtest_var*
 begin
-//#UC START# *4C7D36C40097_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7D36C40097_49539DBA029D_impl*
-end;//TExTextForm.UserCR2
+//#UC START# *4C87931D00FC_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4C87931D00FC_49539DBA029Dtest_impl*
+end;//TExTextForm.DocumentBlock_Select_Test
 
-procedure TExTextForm.AddToControl;
- {* Поставить на контроль }
-//#UC START# *4C7D39A7029B_49539DBA029D_var*
-//#UC END# *4C7D39A7029B_49539DBA029D_var*
+procedure TExTextForm.DocumentBlock_Select_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C87931D00FC_49539DBA029Dexec_var*
+//#UC END# *4C87931D00FC_49539DBA029Dexec_var*
 begin
-//#UC START# *4C7D39A7029B_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7D39A7029B_49539DBA029D_impl*
-end;//TExTextForm.AddToControl
+//#UC START# *4C87931D00FC_49539DBA029Dexec_impl*
+ Assert(false);
+//#UC END# *4C87931D00FC_49539DBA029Dexec_impl*
+end;//TExTextForm.DocumentBlock_Select_Execute
 
-procedure TExTextForm.PrintPreview;
-//#UC START# *4C879306001C_49539DBA029D_var*
-//#UC END# *4C879306001C_49539DBA029D_var*
-begin
-//#UC START# *4C879306001C_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C879306001C_49539DBA029D_impl*
-end;//TExTextForm.PrintPreview
-
-procedure TExTextForm.Select;
-//#UC START# *4C87931D00FC_49539DBA029D_var*
-//#UC END# *4C87931D00FC_49539DBA029D_var*
-begin
-//#UC START# *4C87931D00FC_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C87931D00FC_49539DBA029D_impl*
-end;//TExTextForm.Select
-
-procedure TExTextForm.ViewChangedFragments;
+procedure TExTextForm.Document_ViewChangedFragments_Test(const aParams: IvcmTestParamsPrim);
  {* Обзор изменений документа }
-//#UC START# *4DDCBABC03B7_49539DBA029D_var*
-//#UC END# *4DDCBABC03B7_49539DBA029D_var*
+//#UC START# *4DDCBABC03B7_49539DBA029Dtest_var*
+//#UC END# *4DDCBABC03B7_49539DBA029Dtest_var*
 begin
-//#UC START# *4DDCBABC03B7_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDCBABC03B7_49539DBA029D_impl*
-end;//TExTextForm.ViewChangedFragments
+//#UC START# *4DDCBABC03B7_49539DBA029Dtest_impl*
+ Document_CompareEditions_Test(aParams);
+//#UC END# *4DDCBABC03B7_49539DBA029Dtest_impl*
+end;//TExTextForm.Document_ViewChangedFragments_Test
 
-procedure TExTextForm.UpdateSubPanel;
-//#UC START# *4DF20436002A_49539DBA029D_var*
-//#UC END# *4DF20436002A_49539DBA029D_var*
+procedure TExTextForm.Document_ViewChangedFragments_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Обзор изменений документа }
+//#UC START# *4DDCBABC03B7_49539DBA029Dexec_var*
+//#UC END# *4DDCBABC03B7_49539DBA029Dexec_var*
 begin
-//#UC START# *4DF20436002A_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DF20436002A_49539DBA029D_impl*
-end;//TExTextForm.UpdateSubPanel
+//#UC START# *4DDCBABC03B7_49539DBA029Dexec_impl*
+ TdmStdRes.ViewChangedFragmentsForPrevEdition(Self.Document);
+//#UC END# *4DDCBABC03B7_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_ViewChangedFragments_Execute
 
-procedure TExTextForm.OpenRedactionListFrmAct;
- {* Список редакций }
-//#UC START# *4ED8CF5700E7_49539DBA029D_var*
-//#UC END# *4ED8CF5700E7_49539DBA029D_var*
+procedure TExTextForm.DocumentSubPanel_UpdateSubPanel_Execute;
+//#UC START# *4DF20436002A_49539DBA029Dexec_var*
+//#UC END# *4DF20436002A_49539DBA029Dexec_var*
 begin
-//#UC START# *4ED8CF5700E7_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4ED8CF5700E7_49539DBA029D_impl*
-end;//TExTextForm.OpenRedactionListFrmAct
+//#UC START# *4DF20436002A_49539DBA029Dexec_impl*
+ UpdateSubPanelDescription;
+//#UC END# *4DF20436002A_49539DBA029Dexec_impl*
+end;//TExTextForm.DocumentSubPanel_UpdateSubPanel_Execute
 
-procedure TExTextForm.GoToIntranet;
-//#UC START# *4F184B42019E_49539DBA029D_var*
-//#UC END# *4F184B42019E_49539DBA029D_var*
+procedure TExTextForm.DocumentSubPanel_UpdateSubPanel(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4F184B42019E_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4F184B42019E_49539DBA029D_impl*
-end;//TExTextForm.GoToIntranet
+ Self.DocumentSubPanel_UpdateSubPanel_Execute;
+end;//TExTextForm.DocumentSubPanel_UpdateSubPanel
 
-procedure TExTextForm.Open;
+procedure TExTextForm.IntranetSourcePoint_GoToIntranet_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4F184B42019E_49539DBA029Dexec_var*
+//#UC END# *4F184B42019E_49539DBA029Dexec_var*
+begin
+//#UC START# *4F184B42019E_49539DBA029Dexec_impl*
+ GoToIntranetPrim(false);
+//#UC END# *4F184B42019E_49539DBA029Dexec_impl*
+end;//TExTextForm.IntranetSourcePoint_GoToIntranet_Execute
+
+procedure TExTextForm.Picture_Open_Test(const aParams: IvcmTestParamsPrim);
  {* Открыть в текущем окне }
-//#UC START# *4F672A7903C1_49539DBA029D_var*
-//#UC END# *4F672A7903C1_49539DBA029D_var*
+//#UC START# *4F672A7903C1_49539DBA029Dtest_var*
+//#UC END# *4F672A7903C1_49539DBA029Dtest_var*
 begin
-//#UC START# *4F672A7903C1_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4F672A7903C1_49539DBA029D_impl*
-end;//TExTextForm.Open
+//#UC START# *4F672A7903C1_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := IsPictureUnderCursor and (aParams.Control = Text);
+//#UC END# *4F672A7903C1_49539DBA029Dtest_impl*
+end;//TExTextForm.Picture_Open_Test
 
-procedure TExTextForm.OpenNewWindow;
+procedure TExTextForm.Picture_Open_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Открыть в текущем окне }
+//#UC START# *4F672A7903C1_49539DBA029Dexec_var*
+var
+ l_EP : IeePara;
+ l_Picture : IeePicture;
+//#UC END# *4F672A7903C1_49539DBA029Dexec_var*
+begin
+//#UC START# *4F672A7903C1_49539DBA029Dexec_impl*
+ l_EP := LeafParaUnderCursor;
+ if Supports(l_EP, IeePicture, l_Picture) then
+  OpenPicture(l_EP, l_Picture);
+//#UC END# *4F672A7903C1_49539DBA029Dexec_impl*
+end;//TExTextForm.Picture_Open_Execute
+
+procedure TExTextForm.Picture_OpenNewWindow_Test(const aParams: IvcmTestParamsPrim);
  {* Открыть в новом окне }
-//#UC START# *4F672A9C0083_49539DBA029D_var*
-//#UC END# *4F672A9C0083_49539DBA029D_var*
+//#UC START# *4F672A9C0083_49539DBA029Dtest_var*
+//#UC END# *4F672A9C0083_49539DBA029Dtest_var*
 begin
-//#UC START# *4F672A9C0083_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4F672A9C0083_49539DBA029D_impl*
-end;//TExTextForm.OpenNewWindow
+//#UC START# *4F672A9C0083_49539DBA029Dtest_impl*
+ Picture_Open_Test(aParams);
+//#UC END# *4F672A9C0083_49539DBA029Dtest_impl*
+end;//TExTextForm.Picture_OpenNewWindow_Test
 
-function TExTextForm.GetBaseSearchPresentation: InsBaseSearchPresentation;
-//#UC START# *5072D45A035C_49539DBA029D_var*
-//#UC END# *5072D45A035C_49539DBA029D_var*
+procedure TExTextForm.Picture_OpenNewWindow_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Открыть в новом окне }
+//#UC START# *4F672A9C0083_49539DBA029Dexec_var*
+var
+ l_EP : IeePara;
+ l_Picture : IeePicture;
+//#UC END# *4F672A9C0083_49539DBA029Dexec_var*
 begin
-//#UC START# *5072D45A035C_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5072D45A035C_49539DBA029D_impl*
-end;//TExTextForm.GetBaseSearchPresentation
+//#UC START# *4F672A9C0083_49539DBA029Dexec_impl*
+ l_EP := LeafParaUnderCursor;
+ if Supports(l_EP, IeePicture, l_Picture) then
+  OpenPicture(l_EP, l_Picture, vcm_okInNewWindow);
+//#UC END# *4F672A9C0083_49539DBA029Dexec_impl*
+end;//TExTextForm.Picture_OpenNewWindow_Execute
 
-procedure TExTextForm.SelectWord;
-//#UC START# *528777B1010F_49539DBA029D_var*
-//#UC END# *528777B1010F_49539DBA029D_var*
+function TExTextForm.BaseSearchPresentationHolder_GetBaseSearchPresentation_Execute: InsBaseSearchPresentation;
+//#UC START# *5072D45A035C_49539DBA029Dexec_var*
+//#UC END# *5072D45A035C_49539DBA029Dexec_var*
 begin
-//#UC START# *528777B1010F_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *528777B1010F_49539DBA029D_impl*
-end;//TExTextForm.SelectWord
+//#UC START# *5072D45A035C_49539DBA029Dexec_impl*
+ Assert(UserType = dftAACLeft);
+ Result := Self;
+//#UC END# *5072D45A035C_49539DBA029Dexec_impl*
+end;//TExTextForm.BaseSearchPresentationHolder_GetBaseSearchPresentation_Execute
 
-procedure TExTextForm.SelectPara;
-//#UC START# *528777C803B4_49539DBA029D_var*
-//#UC END# *528777C803B4_49539DBA029D_var*
+procedure TExTextForm.BaseSearchPresentationHolder_GetBaseSearchPresentation(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *528777C803B4_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *528777C803B4_49539DBA029D_impl*
-end;//TExTextForm.SelectPara
+ with (aParams.Data As IBaseSearchPresentationHolder_GetBaseSearchPresentation_Params) do
+  ResultValue := Self.BaseSearchPresentationHolder_GetBaseSearchPresentation_Execute;
+end;//TExTextForm.BaseSearchPresentationHolder_GetBaseSearchPresentation
+
+procedure TExTextForm.Text_SelectWord_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *528777B1010F_49539DBA029Dtest_var*
+var
+ l_eeHotSpot: IeeHotSpot;
+//#UC END# *528777B1010F_49539DBA029Dtest_var*
+begin
+//#UC START# *528777B1010F_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not ((Document = nil) or
+  (Supports(aParams.Target, IeeHotSpot, l_eeHotSpot) and l_eeHotSpot.InSelection));
+//#UC END# *528777B1010F_49539DBA029Dtest_impl*
+end;//TExTextForm.Text_SelectWord_Test
+
+procedure TExTextForm.Text_SelectWord_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *528777B1010F_49539DBA029Dexec_var*
+//#UC END# *528777B1010F_49539DBA029Dexec_var*
+begin
+//#UC START# *528777B1010F_49539DBA029Dexec_impl*
+ Text.Select(ev_stWord);
+//#UC END# *528777B1010F_49539DBA029Dexec_impl*
+end;//TExTextForm.Text_SelectWord_Execute
+
+procedure TExTextForm.Text_SelectPara_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *528777C803B4_49539DBA029Dtest_var*
+//#UC END# *528777C803B4_49539DBA029Dtest_var*
+begin
+//#UC START# *528777C803B4_49539DBA029Dtest_impl*
+ Text_SelectWord_Test(aParams);
+//#UC END# *528777C803B4_49539DBA029Dtest_impl*
+end;//TExTextForm.Text_SelectPara_Test
+
+procedure TExTextForm.Text_SelectPara_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *528777C803B4_49539DBA029Dexec_var*
+//#UC END# *528777C803B4_49539DBA029Dexec_var*
+begin
+//#UC START# *528777C803B4_49539DBA029Dexec_impl*
+ Text.Select(ev_stPara);
+//#UC END# *528777C803B4_49539DBA029Dexec_impl*
+end;//TExTextForm.Text_SelectPara_Execute
 
 procedure TExTextForm.OpenRedactionGlobalLink(const aDocument: IDocument;
  aSub: Cardinal;
@@ -4284,15 +6206,30 @@ begin
 //#UC END# *53A303BE03A8_49539DBA029D_impl*
 end;//TExTextForm.OpenRedactionGlobalLink
 
-procedure TExTextForm.OpenNewTab;
+procedure TExTextForm.Picture_OpenNewTab_Test(const aParams: IvcmTestParamsPrim);
  {* Открыть в новой вкладке }
-//#UC START# *53DF276802DD_49539DBA029D_var*
-//#UC END# *53DF276802DD_49539DBA029D_var*
+//#UC START# *53DF276802DD_49539DBA029Dtest_var*
+//#UC END# *53DF276802DD_49539DBA029Dtest_var*
 begin
-//#UC START# *53DF276802DD_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53DF276802DD_49539DBA029D_impl*
-end;//TExTextForm.OpenNewTab
+//#UC START# *53DF276802DD_49539DBA029Dtest_impl*
+ Picture_OpenNewWindow_Test(aParams);
+//#UC END# *53DF276802DD_49539DBA029Dtest_impl*
+end;//TExTextForm.Picture_OpenNewTab_Test
+
+procedure TExTextForm.Picture_OpenNewTab_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Открыть в новой вкладке }
+//#UC START# *53DF276802DD_49539DBA029Dexec_var*
+var
+ l_EP : IeePara;
+ l_Picture : IeePicture;
+//#UC END# *53DF276802DD_49539DBA029Dexec_var*
+begin
+//#UC START# *53DF276802DD_49539DBA029Dexec_impl*
+ l_EP := LeafParaUnderCursor;
+ if Supports(l_EP, IeePicture, l_Picture) then
+  OpenPicture(l_EP, l_Picture, vcm_okInNewTab);
+//#UC END# *53DF276802DD_49539DBA029Dexec_impl*
+end;//TExTextForm.Picture_OpenNewTab_Execute
 
 procedure TExTextForm.TabBecomeActive;
 //#UC START# *54868B67034A_49539DBA029D_var*
@@ -4312,23 +6249,49 @@ begin
 //#UC END# *54868B84029F_49539DBA029D_impl*
 end;//TExTextForm.TabBecomeInactive
 
-procedure TExTextForm.CommonDocumentOpenNewTab;
-//#UC START# *55545C63026E_49539DBA029D_var*
-//#UC END# *55545C63026E_49539DBA029D_var*
+procedure TExTextForm.Document_CommonDocumentOpenNewTab_Execute(aUserType: Integer);
+//#UC START# *55545C63026E_49539DBA029Dexec_var*
+//#UC END# *55545C63026E_49539DBA029Dexec_var*
 begin
-//#UC START# *55545C63026E_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *55545C63026E_49539DBA029D_impl*
-end;//TExTextForm.CommonDocumentOpenNewTab
+//#UC START# *55545C63026E_49539DBA029Dexec_impl*
+ if not CheckParamForUserType(aUserType) then
+  Exit;
+ OpenDocumentInNewContainer(vcm_okInNewTab);
+//#UC END# *55545C63026E_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_CommonDocumentOpenNewTab_Execute
 
-procedure TExTextForm.GetSimilarDocsToBlock;
-//#UC START# *5587AA310201_49539DBA029D_var*
-//#UC END# *5587AA310201_49539DBA029D_var*
+procedure TExTextForm.Document_CommonDocumentOpenNewTab(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *5587AA310201_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5587AA310201_49539DBA029D_impl*
-end;//TExTextForm.GetSimilarDocsToBlock
+ with (aParams.Data As IDocument_CommonDocumentOpenNewTab_Params) do
+  Self.Document_CommonDocumentOpenNewTab_Execute(UserType);
+end;//TExTextForm.Document_CommonDocumentOpenNewTab
+
+procedure TExTextForm.DocumentBlock_GetSimilarDocsToBlock_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *5587AA310201_49539DBA029Dtest_var*
+var
+ l_eeSub: IeeSub;
+//#UC END# *5587AA310201_49539DBA029Dtest_var*
+begin
+//#UC START# *5587AA310201_49539DBA029Dtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := TextSource.HasDocument
+                               and Supports(aParams.Target, IeeSub, l_eeSub)
+                               and (l_eeSub.LayerID = Ord(ev_sbtSub))
+                               and Assigned(sdsDocInfo)
+                               and sdsDocInfo.HasSimilarToFragment(l_eeSub.ID);
+//#UC END# *5587AA310201_49539DBA029Dtest_impl*
+end;//TExTextForm.DocumentBlock_GetSimilarDocsToBlock_Test
+
+procedure TExTextForm.DocumentBlock_GetSimilarDocsToBlock_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *5587AA310201_49539DBA029Dexec_var*
+var
+ l_eeSub: IeeSub;
+//#UC END# *5587AA310201_49539DBA029Dexec_var*
+begin
+//#UC START# *5587AA310201_49539DBA029Dexec_impl*
+ if (dsDocument <> nil) and Supports(aParams.Target, IeeSub, l_eeSub) then
+  dsDocument.OpenSimilarDocumentsToFragment(l_eeSub.ID);
+//#UC END# *5587AA310201_49539DBA029Dexec_impl*
+end;//TExTextForm.DocumentBlock_GetSimilarDocsToBlock_Execute
 
 procedure TExTextForm.dftDrugSynchroViewQueryOpen(aSender: TObject);
  {* Обработчик события dftDrugSynchroView.OnQueryOpen }
@@ -4538,18 +6501,6 @@ begin
 //#UC END# *47EA8B9601FE_49539DBA029D_impl*
 end;//TExTextForm.SettingsReplaceFinish
 
-{$If NOT Defined(NoVCM)}
-procedure TExTextForm.Copy;
- {* Копировать }
-//#UC START# *4951284902BD_49539DBA029D_var*
-//#UC END# *4951284902BD_49539DBA029D_var*
-begin
-//#UC START# *4951284902BD_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4951284902BD_49539DBA029D_impl*
-end;//TExTextForm.Copy
-{$IfEnd} // NOT Defined(NoVCM)
-
 procedure TExTextForm.UserSettingsChanged;
  {* Изменились настройки пользователя }
 //#UC START# *4958BE910345_49539DBA029D_var*
@@ -4704,18 +6655,6 @@ begin
  ChangePositionByDataSource;
 //#UC END# *498953170108_49539DBA029D_impl*
 end;//TExTextForm.SetPositionByDS
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TExTextForm.Paste;
- {* Вставка }
-//#UC START# *49EDFA3701B0_49539DBA029D_var*
-//#UC END# *49EDFA3701B0_49539DBA029D_var*
-begin
-//#UC START# *49EDFA3701B0_49539DBA029D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EDFA3701B0_49539DBA029D_impl*
-end;//TExTextForm.Paste
 {$IfEnd} // NOT Defined(NoVCM)
 
 function TExTextForm.DoMakeLinkDocInfo(const aDocument: IDocument;

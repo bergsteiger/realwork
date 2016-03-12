@@ -26,7 +26,7 @@ type
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
    {$IfEnd} // Defined(nsTest)
-  public
+  published
    procedure DoIt;
  end;//TarchiExportActionTest
 {$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
@@ -41,6 +41,7 @@ uses
  {$IfEnd} // Defined(nsTest)
 ;
 
+{$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
 procedure TarchiExportActionTest.DoIt;
 //#UC START# *5395D1AB0313_5395D124034E_var*
 //#UC END# *5395D1AB0313_5395D124034E_var*
@@ -50,24 +51,21 @@ begin
 //#UC END# *5395D1AB0313_5395D124034E_impl*
 end;//TarchiExportActionTest.DoIt
 
-{$If Defined(nsTest)}
 function TarchiExportActionTest.GetFolder: AnsiString;
  {* Папка в которую входит тест }
 begin
  Result := 'Tasked Actions';
 end;//TarchiExportActionTest.GetFolder
-{$IfEnd} // Defined(nsTest)
 
-{$If Defined(nsTest)}
 function TarchiExportActionTest.GetModelElementGUID: AnsiString;
  {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '5395D124034E';
 end;//TarchiExportActionTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest)
 
 initialization
  TestFramework.RegisterTest(TarchiExportActionTest.Suite);
-{$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
 
+{$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
 end.

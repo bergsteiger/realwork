@@ -50,9 +50,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4B7AB0B6016E_4F5F53F900AB_impl*
 end;//TItsLAW.CommandLineKey
-{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$If NOT Defined(NotTunedDUnit)}
 class function TItsLAW.TimesPage: Integer;
  {* Страница для вывода замеров времени }
 //#UC START# *4B7C0B43005B_4F5F53F900AB_var*
@@ -62,9 +60,7 @@ begin
  Result := 344753963;
 //#UC END# *4B7C0B43005B_4F5F53F900AB_impl*
 end;//TItsLAW.TimesPage
-{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$If NOT Defined(NotTunedDUnit)}
 class function TItsLAW.ResultsPage: Integer;
  {* Страница для вывода результатов тестов }
 //#UC START# *4B7C0B670215_4F5F53F900AB_var*

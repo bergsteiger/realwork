@@ -55,9 +55,9 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
 
-{$If NOT Defined(NoVCM)}
 procedure TSelectPtTest.DoVisit(aForm: TPrimTextLoadForm);
  {* Обработать текст }
 //#UC START# *4BE419AF0217_4BF4E6650245_var*
@@ -69,7 +69,6 @@ begin
  {$R-}
 //#UC END# *4BE419AF0217_4BF4E6650245_impl*
 end;//TSelectPtTest.DoVisit
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TSelectPtTest.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -82,6 +81,7 @@ function TSelectPtTest.GetModelElementGUID: AnsiString;
 begin
  Result := '4BF4E6650245';
 end;//TSelectPtTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

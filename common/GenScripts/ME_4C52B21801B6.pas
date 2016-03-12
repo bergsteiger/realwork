@@ -23,23 +23,21 @@ type
   {* Редактор стилей }
   public
    {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Отмена }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
-    {* OK }
-   {$IfEnd} // NOT Defined(NoVCM)
-   procedure Restore; override;
-   procedure SaveAsDefault; override;
-   {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
+   procedure Result_Ok_Test(const aParams: IvcmTestParamsPrim);
     {* OK }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
-    {* Отмена }
+   procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* OK }
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure Result_Restore_Test(const aParams: IvcmTestParamsPrim);
+   procedure Result_Restore_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Result_SaveAsDefault_Test(const aParams: IvcmTestParamsPrim);
+   procedure Result_SaveAsDefault_Execute(const aParams: IvcmExecuteParamsPrim);
  end;//TPrimStyleEditorContainerOptionsForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -58,70 +56,82 @@ uses
 ;
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimStyleEditorContainerOptionsForm.Cancel;
+procedure TPrimStyleEditorContainerOptionsForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Отмена }
-//#UC START# *4A8AD46D0226_4C52B21801B6_var*
-//#UC END# *4A8AD46D0226_4C52B21801B6_var*
+//#UC START# *4A8AD46D0226_4C52B21801B6exec_var*
+//#UC END# *4A8AD46D0226_4C52B21801B6exec_var*
 begin
-//#UC START# *4A8AD46D0226_4C52B21801B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A8AD46D0226_4C52B21801B6_impl*
-end;//TPrimStyleEditorContainerOptionsForm.Cancel
+//#UC START# *4A8AD46D0226_4C52B21801B6exec_impl*
+ ModalResult := mrCancel;
+//#UC END# *4A8AD46D0226_4C52B21801B6exec_impl*
+end;//TPrimStyleEditorContainerOptionsForm.Result_Cancel_Execute
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimStyleEditorContainerOptionsForm.Ok;
+procedure TPrimStyleEditorContainerOptionsForm.Result_Ok_Test(const aParams: IvcmTestParamsPrim);
  {* OK }
-//#UC START# *4A97EBE702F8_4C52B21801B6_var*
-//#UC END# *4A97EBE702F8_4C52B21801B6_var*
+//#UC START# *4A97EBE702F8_4C52B21801B6test_var*
+//#UC END# *4A97EBE702F8_4C52B21801B6test_var*
 begin
-//#UC START# *4A97EBE702F8_4C52B21801B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A97EBE702F8_4C52B21801B6_impl*
-end;//TPrimStyleEditorContainerOptionsForm.Ok
+//#UC START# *4A97EBE702F8_4C52B21801B6test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := f_SettingsInfo.Modified;
+//#UC END# *4A97EBE702F8_4C52B21801B6test_impl*
+end;//TPrimStyleEditorContainerOptionsForm.Result_Ok_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
-procedure TPrimStyleEditorContainerOptionsForm.Restore;
-//#UC START# *4C52B34E0125_4C52B21801B6_var*
-//#UC END# *4C52B34E0125_4C52B21801B6_var*
-begin
-//#UC START# *4C52B34E0125_4C52B21801B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C52B34E0125_4C52B21801B6_impl*
-end;//TPrimStyleEditorContainerOptionsForm.Restore
-
-procedure TPrimStyleEditorContainerOptionsForm.SaveAsDefault;
-//#UC START# *4C52B36B01B3_4C52B21801B6_var*
-//#UC END# *4C52B36B01B3_4C52B21801B6_var*
-begin
-//#UC START# *4C52B36B01B3_4C52B21801B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C52B36B01B3_4C52B21801B6_impl*
-end;//TPrimStyleEditorContainerOptionsForm.SaveAsDefault
-
 {$If NOT Defined(NoVCM)}
-procedure TPrimStyleEditorContainerOptionsForm.Ok;
+procedure TPrimStyleEditorContainerOptionsForm.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
  {* OK }
-//#UC START# *4C762A1501FC_4C52B21801B6_var*
-//#UC END# *4C762A1501FC_4C52B21801B6_var*
+//#UC START# *4A97EBE702F8_4C52B21801B6exec_var*
+//#UC END# *4A97EBE702F8_4C52B21801B6exec_var*
 begin
-//#UC START# *4C762A1501FC_4C52B21801B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762A1501FC_4C52B21801B6_impl*
-end;//TPrimStyleEditorContainerOptionsForm.Ok
+//#UC START# *4A97EBE702F8_4C52B21801B6exec_impl*
+ Op_StyleEditor_SaveStyleTable.Call(Aggregate, false);
+ ModalResult := mrOk;
+//#UC END# *4A97EBE702F8_4C52B21801B6exec_impl*
+end;//TPrimStyleEditorContainerOptionsForm.Result_Ok_Execute
 {$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimStyleEditorContainerOptionsForm.Cancel;
- {* Отмена }
-//#UC START# *4C762AB601E1_4C52B21801B6_var*
-//#UC END# *4C762AB601E1_4C52B21801B6_var*
+procedure TPrimStyleEditorContainerOptionsForm.Result_Restore_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C52B34E0125_4C52B21801B6test_var*
+//#UC END# *4C52B34E0125_4C52B21801B6test_var*
 begin
-//#UC START# *4C762AB601E1_4C52B21801B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762AB601E1_4C52B21801B6_impl*
-end;//TPrimStyleEditorContainerOptionsForm.Cancel
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4C52B34E0125_4C52B21801B6test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := f_SettingsInfo.Modified or f_SettingsInfo.IsDifferFromDefault;
+//#UC END# *4C52B34E0125_4C52B21801B6test_impl*
+end;//TPrimStyleEditorContainerOptionsForm.Result_Restore_Test
+
+procedure TPrimStyleEditorContainerOptionsForm.Result_Restore_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C52B34E0125_4C52B21801B6exec_var*
+//#UC END# *4C52B34E0125_4C52B21801B6exec_var*
+begin
+//#UC START# *4C52B34E0125_4C52B21801B6exec_impl*
+ if not Ask(qr_RestoreDefaultValuesStyleTable) then
+  Exit;
+ Op_StyleEditor_RestoreStyleTable.Call(Aggregate, true);
+//#UC END# *4C52B34E0125_4C52B21801B6exec_impl*
+end;//TPrimStyleEditorContainerOptionsForm.Result_Restore_Execute
+
+procedure TPrimStyleEditorContainerOptionsForm.Result_SaveAsDefault_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C52B36B01B3_4C52B21801B6test_var*
+//#UC END# *4C52B36B01B3_4C52B21801B6test_var*
+begin
+//#UC START# *4C52B36B01B3_4C52B21801B6test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not f_SettingsInfo.IsPredefined and
+                                  (f_SettingsInfo.Modified or f_SettingsInfo.IsDifferFromDefault);
+//#UC END# *4C52B36B01B3_4C52B21801B6test_impl*
+end;//TPrimStyleEditorContainerOptionsForm.Result_SaveAsDefault_Test
+
+procedure TPrimStyleEditorContainerOptionsForm.Result_SaveAsDefault_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C52B36B01B3_4C52B21801B6exec_var*
+//#UC END# *4C52B36B01B3_4C52B21801B6exec_var*
+begin
+//#UC START# *4C52B36B01B3_4C52B21801B6exec_impl*
+ if not Ask(qr_SaveAsDefaultValuesStyleTable) then
+  Exit;
+ Op_StyleEditor_SaveStyleTable.Call(Aggregate, true); 
+//#UC END# *4C52B36B01B3_4C52B21801B6exec_impl*
+end;//TPrimStyleEditorContainerOptionsForm.Result_SaveAsDefault_Execute
 
 initialization
 {$If NOT Defined(NoScripts)}

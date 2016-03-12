@@ -26,7 +26,7 @@ type
    function BuildSQL: AnsiString;
   protected
    function MakeFromTable(const aTable: IdaTableDescription;
-    const anAlias: AnsiString): IdaFromTable; override;
+    const anAlias: AnsiString = ''): IdaFromTable; override;
    procedure PrepareTable; override;
    procedure UnPrepareTable; override;
    procedure Cleanup; override;
@@ -96,7 +96,7 @@ begin
 end;//TpgTabledQuery.BuildSQL
 
 function TpgTabledQuery.MakeFromTable(const aTable: IdaTableDescription;
- const anAlias: AnsiString): IdaFromTable;
+ const anAlias: AnsiString = ''): IdaFromTable;
 //#UC START# *5600FFF80332_55F960D502F6_var*
 //#UC END# *5600FFF80332_55F960D502F6_var*
 begin

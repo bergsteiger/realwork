@@ -55,11 +55,11 @@ begin
  DoQueryCardForm(aForm As TPrimQueryCardForm, aCtx);
 //#UC END# *4EB25DE00396_4F69AE35012F_impl*
 end;//TkwQueryCardFormWord.DoForm
-{$IfEnd} // NOT Defined(NoVCL)
 
 initialization
  TkwQueryCardFormWord.RegisterClass;
  {* Регистрация TkwQueryCardFormWord }
-{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCL)
 
+{$IfEnd} // NOT Defined(NoScripts)
 end.

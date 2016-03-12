@@ -77,19 +77,30 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
-   procedure Delete; override;
+   procedure Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
     {* Удалить }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure Add; override;
-    {* Добавить }
-   procedure ChangeBaseAccess; override;
-   procedure Rename; override;
-    {* Переименовать группу }
-   procedure BecomeActive; override;
    {$If NOT Defined(NoVCM)}
-   procedure Delete; override;
+   procedure Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Удалить }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Delete_GetState(var State: TvcmOperationStateIndex);
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure Groups_Add_Test(const aParams: IvcmTestParamsPrim);
+    {* Добавить }
+   procedure Groups_Add_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Добавить }
+   procedure Groups_ChangeBaseAccess_Test(const aParams: IvcmTestParamsPrim);
+   procedure Groups_ChangeBaseAccess_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Groups_Rename_Test(const aParams: IvcmTestParamsPrim);
+    {* Переименовать группу }
+   procedure Groups_Rename_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Переименовать группу }
+   procedure Switcher_BecomeActive_Test(const aParams: IvcmTestParamsPrim);
+   procedure Switcher_BecomeActive_Execute;
+   procedure Switcher_BecomeActive(const aParams: IvcmExecuteParamsPrim);
   public
    property BackgroundPanel: TvtPanel
     read f_BackgroundPanel;
@@ -125,6 +136,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки admGroupListLocalConstants }
  str_admGroupListCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'admGroupListCaption'; rValue : 'Группы пользователей');
@@ -233,67 +245,144 @@ begin
 //#UC END# *5236F5CD009F_49EC75B5022C_impl*
 end;//TPrimGroupListForm.IsCurrentUsual
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimGroupListForm.Delete;
+procedure TPrimGroupListForm.Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
  {* Удалить }
-//#UC START# *494F89C30197_49EC75B5022C_var*
-//#UC END# *494F89C30197_49EC75B5022C_var*
+//#UC START# *494F89C30197_49EC75B5022Ctest_var*
+//#UC END# *494F89C30197_49EC75B5022Ctest_var*
 begin
-//#UC START# *494F89C30197_49EC75B5022C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *494F89C30197_49EC75B5022C_impl*
-end;//TPrimGroupListForm.Delete
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *494F89C30197_49EC75B5022Ctest_impl*
+ if aParams.Control = GroupsTree then
+  aParams.Op.Flag[vcm_ofEnabled] := IsCurrentUsual
+ else
+  if not aParams.CallControl then
+   aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *494F89C30197_49EC75B5022Ctest_impl*
+end;//TPrimGroupListForm.Edit_Delete_Test
 
-procedure TPrimGroupListForm.Add;
+procedure TPrimGroupListForm.Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Удалить }
+//#UC START# *494F89C30197_49EC75B5022Cexec_var*
+var
+ l_CurrentNode: Il3SimpleNode;
+ l_HasUsers: Boolean;
+//#UC END# *494F89C30197_49EC75B5022Cexec_var*
+begin
+//#UC START# *494F89C30197_49EC75B5022Cexec_impl*
+ if aParams.Control = GroupsTree then
+ begin
+  l_CurrentNode := GroupsTree.GetCurrentNode;
+  l_HasUsers := ViewArea.HasUsers(l_CurrentNode);
+  if l_HasUsers and not Ask(qr_DeleteNotEmptyGroup) then
+   Exit;
+  if not l_HasUsers and not Ask(qr_DeleteGroup, [l3CStr(l_CurrentNode)]) then
+   Exit;
+  ViewArea.DeleteGroup(l_CurrentNode);
+ end
+ else
+  aParams.CallControl;
+//#UC END# *494F89C30197_49EC75B5022Cexec_impl*
+end;//TPrimGroupListForm.Edit_Delete_Execute
+
+procedure TPrimGroupListForm.Edit_Delete_GetState(var State: TvcmOperationStateIndex);
+ {* Удалить }
+//#UC START# *494F89C30197_49EC75B5022Cgetstate_var*
+//#UC END# *494F89C30197_49EC75B5022Cgetstate_var*
+begin
+//#UC START# *494F89C30197_49EC75B5022Cgetstate_impl*
+ State := st_user_Edit_Delete_Group;
+//#UC END# *494F89C30197_49EC75B5022Cgetstate_impl*
+end;//TPrimGroupListForm.Edit_Delete_GetState
+
+procedure TPrimGroupListForm.Groups_Add_Test(const aParams: IvcmTestParamsPrim);
  {* Добавить }
-//#UC START# *49EC7545036C_49EC75B5022C_var*
-//#UC END# *49EC7545036C_49EC75B5022C_var*
+//#UC START# *49EC7545036C_49EC75B5022Ctest_var*
+//#UC END# *49EC7545036C_49EC75B5022Ctest_var*
 begin
-//#UC START# *49EC7545036C_49EC75B5022C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EC7545036C_49EC75B5022C_impl*
-end;//TPrimGroupListForm.Add
+//#UC START# *49EC7545036C_49EC75B5022Ctest_impl*
+// Do Nothing
+//#UC END# *49EC7545036C_49EC75B5022Ctest_impl*
+end;//TPrimGroupListForm.Groups_Add_Test
 
-procedure TPrimGroupListForm.ChangeBaseAccess;
-//#UC START# *49EC755501FB_49EC75B5022C_var*
-//#UC END# *49EC755501FB_49EC75B5022C_var*
+procedure TPrimGroupListForm.Groups_Add_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Добавить }
+//#UC START# *49EC7545036C_49EC75B5022Cexec_var*
+//#UC END# *49EC7545036C_49EC75B5022Cexec_var*
 begin
-//#UC START# *49EC755501FB_49EC75B5022C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EC755501FB_49EC75B5022C_impl*
-end;//TPrimGroupListForm.ChangeBaseAccess
+//#UC START# *49EC7545036C_49EC75B5022Cexec_impl*
+ try
+  ViewArea.CreateNewGroup;
+ except
+  on E: EDuplicateGroupName do
+   Say(war_GroupNameDuplicate, [nsCStr(E.Message)]);
+ end;
+//#UC END# *49EC7545036C_49EC75B5022Cexec_impl*
+end;//TPrimGroupListForm.Groups_Add_Execute
 
-procedure TPrimGroupListForm.Rename;
+procedure TPrimGroupListForm.Groups_ChangeBaseAccess_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *49EC755501FB_49EC75B5022Ctest_var*
+//#UC END# *49EC755501FB_49EC75B5022Ctest_var*
+begin
+//#UC START# *49EC755501FB_49EC75B5022Ctest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := IsCurrentUsual;
+//#UC END# *49EC755501FB_49EC75B5022Ctest_impl*
+end;//TPrimGroupListForm.Groups_ChangeBaseAccess_Test
+
+procedure TPrimGroupListForm.Groups_ChangeBaseAccess_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *49EC755501FB_49EC75B5022Cexec_var*
+//#UC END# *49EC755501FB_49EC75B5022Cexec_var*
+begin
+//#UC START# *49EC755501FB_49EC75B5022Cexec_impl*
+ ViewArea.ChangeBasesAccessForGroup(GroupsTree.GetCurrentNode);
+//#UC END# *49EC755501FB_49EC75B5022Cexec_impl*
+end;//TPrimGroupListForm.Groups_ChangeBaseAccess_Execute
+
+procedure TPrimGroupListForm.Groups_Rename_Test(const aParams: IvcmTestParamsPrim);
  {* Переименовать группу }
-//#UC START# *49EEF22D004A_49EC75B5022C_var*
-//#UC END# *49EEF22D004A_49EC75B5022C_var*
+//#UC START# *49EEF22D004A_49EC75B5022Ctest_var*
+//#UC END# *49EEF22D004A_49EC75B5022Ctest_var*
 begin
-//#UC START# *49EEF22D004A_49EC75B5022C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EEF22D004A_49EC75B5022C_impl*
-end;//TPrimGroupListForm.Rename
+//#UC START# *49EEF22D004A_49EC75B5022Ctest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := IsCurrentUsual;
+//#UC END# *49EEF22D004A_49EC75B5022Ctest_impl*
+end;//TPrimGroupListForm.Groups_Rename_Test
 
-procedure TPrimGroupListForm.BecomeActive;
-//#UC START# *4AEF3E8C02F5_49EC75B5022C_var*
-//#UC END# *4AEF3E8C02F5_49EC75B5022C_var*
+procedure TPrimGroupListForm.Groups_Rename_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Переименовать группу }
+//#UC START# *49EEF22D004A_49EC75B5022Cexec_var*
+//#UC END# *49EEF22D004A_49EC75B5022Cexec_var*
 begin
-//#UC START# *4AEF3E8C02F5_49EC75B5022C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AEF3E8C02F5_49EC75B5022C_impl*
-end;//TPrimGroupListForm.BecomeActive
+//#UC START# *49EEF22D004A_49EC75B5022Cexec_impl*
+ try
+  ViewArea.RenameGroup(GroupsTree.GetCurrentNode);
+ except
+  on E: EDuplicateGroupName do
+   Say(war_GroupNameDuplicate, [nsCStr(E.Message)]);
+ end;
+//#UC END# *49EEF22D004A_49EC75B5022Cexec_impl*
+end;//TPrimGroupListForm.Groups_Rename_Execute
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimGroupListForm.Delete;
- {* Удалить }
-//#UC START# *4C7D0CC90052_49EC75B5022C_var*
-//#UC END# *4C7D0CC90052_49EC75B5022C_var*
+procedure TPrimGroupListForm.Switcher_BecomeActive_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4AEF3E8C02F5_49EC75B5022Ctest_var*
+//#UC END# *4AEF3E8C02F5_49EC75B5022Ctest_var*
 begin
-//#UC START# *4C7D0CC90052_49EC75B5022C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7D0CC90052_49EC75B5022C_impl*
-end;//TPrimGroupListForm.Delete
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4AEF3E8C02F5_49EC75B5022Ctest_impl*
+ inherited;
+//#UC END# *4AEF3E8C02F5_49EC75B5022Ctest_impl*
+end;//TPrimGroupListForm.Switcher_BecomeActive_Test
+
+procedure TPrimGroupListForm.Switcher_BecomeActive_Execute;
+//#UC START# *4AEF3E8C02F5_49EC75B5022Cexec_var*
+//#UC END# *4AEF3E8C02F5_49EC75B5022Cexec_var*
+begin
+//#UC START# *4AEF3E8C02F5_49EC75B5022Cexec_impl*
+ SetActiveInParent;
+//#UC END# *4AEF3E8C02F5_49EC75B5022Cexec_impl*
+end;//TPrimGroupListForm.Switcher_BecomeActive_Execute
+
+procedure TPrimGroupListForm.Switcher_BecomeActive(const aParams: IvcmExecuteParamsPrim);
+begin
+ Self.Switcher_BecomeActive_Execute;
+end;//TPrimGroupListForm.Switcher_BecomeActive
 
 procedure TPrimGroupListForm.TreeViewInvalidate;
 //#UC START# *5492EBB90042_49EC75B5022C_var*
@@ -304,7 +393,6 @@ begin
 //#UC END# *5492EBB90042_49EC75B5022C_impl*
 end;//TPrimGroupListForm.TreeViewInvalidate
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimGroupListForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
  const aNew: IvcmViewAreaController);
  {* Изменился источник данных. Для перекрытия в потомках }
@@ -337,9 +425,7 @@ begin
  end;
 //#UC END# *497469C90140_49EC75B5022C_impl*
 end;//TPrimGroupListForm.NotifyDataSourceChanged
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimGroupListForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_49EC75B5022C_var*
@@ -375,7 +461,6 @@ begin
  UpdateStatusInfo; 
 //#UC END# *4A8E8F2E0195_49EC75B5022C_impl*
 end;//TPrimGroupListForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_admGroupListCaption.Init;
@@ -386,6 +471,7 @@ initialization
  TtfwClassRef.Register(TPrimGroupListForm);
  {* Регистрация PrimGroupList }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // Defined(Admin)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(Admin)
 end.

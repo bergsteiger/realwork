@@ -223,30 +223,31 @@ type
   public
    class function MakeSingleChild(const aData: InsBaseSearcherWindowData): InsSearchWindow; reintroduce;
    {$If NOT Defined(NoVCM)}
-   procedure OkExt; override;
+   procedure Result_OkExt_Test(const aParams: IvcmTestParamsPrim);
     {* OK }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
+   procedure Result_OkExt_Execute(const aParams: IvcmExecuteParamsPrim);
     {* OK }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
+   procedure Result_Ok_Test(const aParams: IvcmTestParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
     {* Отмена }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure CloseChild; override;
    {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
-    {* OK }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Отмена }
    {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure OkExt; override;
-    {* OK }
-   {$IfEnd} // NOT Defined(NoVCM)
+   procedure EnclosedForms_CloseChild_Test(const aParams: IvcmTestParamsPrim);
+   procedure EnclosedForms_CloseChild_Execute(const aParams: IvcmExecuteParamsPrim);
    {$If NOT Defined(NoVCM)}
    function NeedDrawCaption: Boolean; override;
     {* Нужно ли рисовать заголовок зоны }
@@ -315,13 +316,11 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 type
  _afwApplicationDataUpdate_Parent_ = Tl3ProtoObject;
  {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
- TnsBaseSearchFormState = class(_afwApplicationDataUpdate_, InsBaseSearchFormState{$If NOT Defined(NoVCM)}
- , IvcmBase
- {$IfEnd} // NOT Defined(NoVCM)
- )
+ TnsBaseSearchFormState = class(_afwApplicationDataUpdate_, InsBaseSearchFormState, IvcmBase)
   private
    f_ActiveClass: InsBaseSearchClass;
    f_Data: InsBaseSearcherWindowData;
@@ -1077,7 +1076,6 @@ begin
 //#UC END# *496B53C30337_4AB791130260_impl*
 end;//TPrimBaseSearchForm.ContextSearched
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimBaseSearchForm.Lock;
  {* отрисовка запрещена }
 //#UC START# *4995562701A0_4AB791130260_var*
@@ -1087,9 +1085,7 @@ begin
  // DoNothings;
 //#UC END# *4995562701A0_4AB791130260_impl*
 end;//TPrimBaseSearchForm.Lock
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimBaseSearchForm.BeforeUnlock;
  {* переходные процессы уже завершились, но отрисовка ещё запрещена }
 //#UC START# *4995563201CA_4AB791130260_var*
@@ -1099,9 +1095,7 @@ begin
  // DoNothings;
 //#UC END# *4995563201CA_4AB791130260_impl*
 end;//TPrimBaseSearchForm.BeforeUnlock
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimBaseSearchForm.Unlock;
  {* отрисовка разрешена }
 //#UC START# *4995563E01A9_4AB791130260_var*
@@ -1117,7 +1111,6 @@ begin
  end;//if not VCMCLosing then
 //#UC END# *4995563E01A9_4AB791130260_impl*
 end;//TPrimBaseSearchForm.Unlock
-{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimBaseSearchForm.CheckFragmentsCount;
 //#UC START# *49FFD8050279_4AB791130260_var*
@@ -1128,41 +1121,68 @@ begin
 //#UC END# *49FFD8050279_4AB791130260_impl*
 end;//TPrimBaseSearchForm.CheckFragmentsCount
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimBaseSearchForm.OkExt;
+procedure TPrimBaseSearchForm.Result_OkExt_Test(const aParams: IvcmTestParamsPrim);
  {* OK }
-//#UC START# *4A8AD47D0357_4AB791130260_var*
-//#UC END# *4A8AD47D0357_4AB791130260_var*
+//#UC START# *4A8AD47D0357_4AB791130260test_var*
+//#UC END# *4A8AD47D0357_4AB791130260test_var*
 begin
-//#UC START# *4A8AD47D0357_4AB791130260_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A8AD47D0357_4AB791130260_impl*
-end;//TPrimBaseSearchForm.OkExt
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4A8AD47D0357_4AB791130260test_impl*
+ aParams.Op.Flag[vcm_ofVisible] := False;
+//#UC END# *4A8AD47D0357_4AB791130260test_impl*
+end;//TPrimBaseSearchForm.Result_OkExt_Test
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimBaseSearchForm.Ok;
+procedure TPrimBaseSearchForm.Result_OkExt_Execute(const aParams: IvcmExecuteParamsPrim);
  {* OK }
-//#UC START# *4A97EBE702F8_4AB791130260_var*
-//#UC END# *4A97EBE702F8_4AB791130260_var*
+//#UC START# *4A8AD47D0357_4AB791130260exec_var*
+//#UC END# *4A8AD47D0357_4AB791130260exec_var*
 begin
-//#UC START# *4A97EBE702F8_4AB791130260_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A97EBE702F8_4AB791130260_impl*
-end;//TPrimBaseSearchForm.Ok
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4A8AD47D0357_4AB791130260exec_impl*
+ DoFindBtnClick;
+//#UC END# *4A8AD47D0357_4AB791130260exec_impl*
+end;//TPrimBaseSearchForm.Result_OkExt_Execute
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimBaseSearchForm.Cancel;
+procedure TPrimBaseSearchForm.Result_Ok_Test(const aParams: IvcmTestParamsPrim);
+ {* OK }
+//#UC START# *4A97EBE702F8_4AB791130260test_var*
+//#UC END# *4A97EBE702F8_4AB791130260test_var*
+begin
+//#UC START# *4A97EBE702F8_4AB791130260test_impl*
+ aParams.Op.Flag[vcm_ofVisible] := False;
+//#UC END# *4A97EBE702F8_4AB791130260test_impl*
+end;//TPrimBaseSearchForm.Result_Ok_Test
+
+procedure TPrimBaseSearchForm.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* OK }
+//#UC START# *4A97EBE702F8_4AB791130260exec_var*
+//#UC END# *4A97EBE702F8_4AB791130260exec_var*
+begin
+//#UC START# *4A97EBE702F8_4AB791130260exec_impl*
+ DoFindBtnClick;
+//#UC END# *4A97EBE702F8_4AB791130260exec_impl*
+end;//TPrimBaseSearchForm.Result_Ok_Execute
+
+procedure TPrimBaseSearchForm.Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
  {* Отмена }
-//#UC START# *4AC5D61E0284_4AB791130260_var*
-//#UC END# *4AC5D61E0284_4AB791130260_var*
+//#UC START# *4AC5D61E0284_4AB791130260test_var*
+//#UC END# *4AC5D61E0284_4AB791130260test_var*
 begin
-//#UC START# *4AC5D61E0284_4AB791130260_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AC5D61E0284_4AB791130260_impl*
-end;//TPrimBaseSearchForm.Cancel
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4AC5D61E0284_4AB791130260test_impl*
+ aParams.Op.Flag[vcm_ofVisible] := False;
+//#UC END# *4AC5D61E0284_4AB791130260test_impl*
+end;//TPrimBaseSearchForm.Result_Cancel_Test
+
+procedure TPrimBaseSearchForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отмена }
+//#UC START# *4AC5D61E0284_4AB791130260exec_var*
+//#UC END# *4AC5D61E0284_4AB791130260exec_var*
+begin
+//#UC START# *4AC5D61E0284_4AB791130260exec_impl*
+ if CloseBtnEnabled then
+  DoCloseBtnClick
+ else
+  aParams.DoneStatus := vcm_dsNotDone; 
+//#UC END# *4AC5D61E0284_4AB791130260exec_impl*
+end;//TPrimBaseSearchForm.Result_Cancel_Execute
 
 function TPrimBaseSearchForm.Get_Container: IvcmContainer;
 //#UC START# *4ACB63B502EA_4AB791130260get_var*
@@ -1173,50 +1193,23 @@ begin
 //#UC END# *4ACB63B502EA_4AB791130260get_impl*
 end;//TPrimBaseSearchForm.Get_Container
 
-procedure TPrimBaseSearchForm.CloseChild;
-//#UC START# *4C43D2F002EC_4AB791130260_var*
-//#UC END# *4C43D2F002EC_4AB791130260_var*
+procedure TPrimBaseSearchForm.EnclosedForms_CloseChild_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C43D2F002EC_4AB791130260test_var*
+//#UC END# *4C43D2F002EC_4AB791130260test_var*
 begin
-//#UC START# *4C43D2F002EC_4AB791130260_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C43D2F002EC_4AB791130260_impl*
-end;//TPrimBaseSearchForm.CloseChild
+//#UC START# *4C43D2F002EC_4AB791130260test_impl*
+ aParams.Op.Flag[vcm_ofVisible] := False;
+//#UC END# *4C43D2F002EC_4AB791130260test_impl*
+end;//TPrimBaseSearchForm.EnclosedForms_CloseChild_Test
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimBaseSearchForm.Ok;
- {* OK }
-//#UC START# *4C762A1501FC_4AB791130260_var*
-//#UC END# *4C762A1501FC_4AB791130260_var*
+procedure TPrimBaseSearchForm.EnclosedForms_CloseChild_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C43D2F002EC_4AB791130260exec_var*
+//#UC END# *4C43D2F002EC_4AB791130260exec_var*
 begin
-//#UC START# *4C762A1501FC_4AB791130260_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762A1501FC_4AB791130260_impl*
-end;//TPrimBaseSearchForm.Ok
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimBaseSearchForm.Cancel;
- {* Отмена }
-//#UC START# *4C762C910358_4AB791130260_var*
-//#UC END# *4C762C910358_4AB791130260_var*
-begin
-//#UC START# *4C762C910358_4AB791130260_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762C910358_4AB791130260_impl*
-end;//TPrimBaseSearchForm.Cancel
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimBaseSearchForm.OkExt;
- {* OK }
-//#UC START# *4C762D9B0224_4AB791130260_var*
-//#UC END# *4C762D9B0224_4AB791130260_var*
-begin
-//#UC START# *4C762D9B0224_4AB791130260_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762D9B0224_4AB791130260_impl*
-end;//TPrimBaseSearchForm.OkExt
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4C43D2F002EC_4AB791130260exec_impl*
+ DoCloseBtnClick;
+//#UC END# *4C43D2F002EC_4AB791130260exec_impl*
+end;//TPrimBaseSearchForm.EnclosedForms_CloseChild_Execute
 
 procedure TPrimBaseSearchForm.nsNotification(aType: TnsNotificationType);
 //#UC START# *542BF11D00B6_4AB791130260_var*
@@ -1362,7 +1355,6 @@ begin
 //#UC END# *47EA4E9002C6_4AB791130260_impl*
 end;//TPrimBaseSearchForm.FinishDataUpdate
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimBaseSearchForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4AB791130260_var*
@@ -1396,9 +1388,7 @@ begin
  TnsSearchWindowManager.Instance.Subscribe(Self);
 //#UC END# *49803F5503AA_4AB791130260_impl*
 end;//TPrimBaseSearchForm.DoInit
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TPrimBaseSearchForm.DoSaveState(out theState: IvcmBase;
  aStateType: TvcmStateType;
  aForClone: Boolean): Boolean;
@@ -1458,9 +1448,7 @@ begin
   Result := inherited DoSaveState(theState, aStateType, aForClone);
 //#UC END# *49806ED503D5_4AB791130260_impl*
 end;//TPrimBaseSearchForm.DoSaveState
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TPrimBaseSearchForm.DoLoadState(const aState: IvcmBase;
  aStateType: TvcmStateType): Boolean;
  {* Загружает состояние формы. Для перекрытия в потомках }
@@ -1502,9 +1490,7 @@ begin
   Result := inherited DoLoadState(aState, aStateType);
 //#UC END# *49807428008C_4AB791130260_impl*
 end;//TPrimBaseSearchForm.DoLoadState
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TPrimBaseSearchForm.NeedDrawCaption: Boolean;
  {* Нужно ли рисовать заголовок зоны }
 //#UC START# *4A84183701B9_4AB791130260_var*
@@ -1514,9 +1500,7 @@ begin
  Result := false;
 //#UC END# *4A84183701B9_4AB791130260_impl*
 end;//TPrimBaseSearchForm.NeedDrawCaption
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimBaseSearchForm.BecomeActive;
 //#UC START# *4A8AE0FA03B2_4AB791130260_var*
 //#UC END# *4A8AE0FA03B2_4AB791130260_var*
@@ -1526,9 +1510,7 @@ begin
  f_IsActive := True;
 //#UC END# *4A8AE0FA03B2_4AB791130260_impl*
 end;//TPrimBaseSearchForm.BecomeActive
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimBaseSearchForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AB791130260_var*
@@ -1552,9 +1534,7 @@ begin
  end;//with FlashTimer
 //#UC END# *4A8E8F2E0195_4AB791130260_impl*
 end;//TPrimBaseSearchForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimBaseSearchForm.BecomeInactive;
 //#UC START# *4AD5FA8E03DD_4AB791130260_var*
 //#UC END# *4AD5FA8E03DD_4AB791130260_var*
@@ -1563,9 +1543,7 @@ begin
  f_IsActive := False;
 //#UC END# *4AD5FA8E03DD_4AB791130260_impl*
 end;//TPrimBaseSearchForm.BecomeInactive
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimBaseSearchForm.CreateFormGUID(var theGUID: TGUID);
  {* Создаёт идентификатор формы. Для того, чтобы отличать однотипные формы друг от друга. В частности для истории. }
 //#UC START# *4EBBC63E032A_4AB791130260_var*
@@ -1586,7 +1564,6 @@ begin
   // http://mdp.garant.ru/pages/viewpage.action?pageId=330139744&focusedCommentId=330142549#comment-330142549
 //#UC END# *4EBBC63E032A_4AB791130260_impl*
 end;//TPrimBaseSearchForm.CreateFormGUID
-{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimBaseSearchForm.ClearFields;
 begin
@@ -1594,7 +1571,6 @@ begin
  inherited;
 end;//TPrimBaseSearchForm.ClearFields
 
-{$If NOT Defined(NoVCM)}
 function TPrimBaseSearchForm.DoGetNeedSaveToTabHistory: Boolean;
 //#UC START# *55B9F0BD0069_4AB791130260_var*
 //#UC END# *55B9F0BD0069_4AB791130260_var*
@@ -1603,7 +1579,6 @@ begin
  Result := not MainMenuLikeBaseSearch;
 //#UC END# *55B9F0BD0069_4AB791130260_impl*
 end;//TPrimBaseSearchForm.DoGetNeedSaveToTabHistory
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_BaseSearchCaption.Init;
@@ -1612,6 +1587,7 @@ initialization
  TtfwClassRef.Register(TPrimBaseSearchForm);
  {* Регистрация PrimBaseSearch }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

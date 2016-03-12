@@ -62,7 +62,8 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
   public
    class function Make(const aData: InsStyleTableSettingsInfo): StyleEditor; reintroduce;
-   procedure ReloadStyleTable; override;
+   procedure StyleEditor_ReloadStyleTable_Execute;
+   procedure StyleEditor_ReloadStyleTable(const aParams: IvcmExecuteParamsPrim);
   public
    property BackgroundPanel: TvtProportionalPanel
     read f_BackgroundPanel;
@@ -86,6 +87,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки utStyleEditorContainerLocalConstants }
  str_utStyleEditorContainerCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utStyleEditorContainerCaption'; rValue : 'Редактор стилей');
@@ -157,14 +159,19 @@ begin
 //#UC END# *526A55DF0164_4AC6402401E4_impl*
 end;//TPrimStyleEditorContainerForm.vcmContainerFormCloseQueryEx
 
-procedure TPrimStyleEditorContainerForm.ReloadStyleTable;
-//#UC START# *4AF8660E0079_4AC6402401E4_var*
-//#UC END# *4AF8660E0079_4AC6402401E4_var*
+procedure TPrimStyleEditorContainerForm.StyleEditor_ReloadStyleTable_Execute;
+//#UC START# *4AF8660E0079_4AC6402401E4exec_var*
+//#UC END# *4AF8660E0079_4AC6402401E4exec_var*
 begin
-//#UC START# *4AF8660E0079_4AC6402401E4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF8660E0079_4AC6402401E4_impl*
-end;//TPrimStyleEditorContainerForm.ReloadStyleTable
+//#UC START# *4AF8660E0079_4AC6402401E4exec_impl*
+ DoUpdateCaption;
+//#UC END# *4AF8660E0079_4AC6402401E4exec_impl*
+end;//TPrimStyleEditorContainerForm.StyleEditor_ReloadStyleTable_Execute
+
+procedure TPrimStyleEditorContainerForm.StyleEditor_ReloadStyleTable(const aParams: IvcmExecuteParamsPrim);
+begin
+ Self.StyleEditor_ReloadStyleTable_Execute;
+end;//TPrimStyleEditorContainerForm.StyleEditor_ReloadStyleTable
 
 procedure TPrimStyleEditorContainerForm.Cleanup;
  {* Функция очистки полей объекта. }
@@ -192,7 +199,6 @@ begin
 //#UC END# *47A042E100E2_4AC6402401E4_impl*
 end;//TPrimStyleEditorContainerForm.InitFields
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimStyleEditorContainerForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AC6402401E4_var*
@@ -244,7 +250,6 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AC6402401E4_impl*
 end;//TPrimStyleEditorContainerForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_utStyleEditorContainerCaption.Init;
@@ -253,6 +258,7 @@ initialization
  TtfwClassRef.Register(TPrimStyleEditorContainerForm);
  {* Регистрация PrimStyleEditorContainer }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

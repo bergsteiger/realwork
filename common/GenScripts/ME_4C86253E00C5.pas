@@ -21,19 +21,17 @@ type
  TPrimRedactionsOptionsForm = class(TPrimRedactionsForm)
   public
    {$If NOT Defined(NoVCM)}
-   procedure ExpandAll; override;
+   procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
     {* Развернуть все }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure CollapseAll; override;
+   procedure Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
     {* Свернуть все }
    {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Wrap; override;
-    {* Перенос по словам }
-   {$IfEnd} // NOT Defined(NoVCM)
-   procedure OpenNewWindow; override;
-   procedure OpenNewTab; override;
+   procedure Edition_OpenNewWindow_Test(const aParams: IvcmTestParamsPrim);
+   procedure Edition_OpenNewWindow_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Edition_OpenNewTab_Test(const aParams: IvcmTestParamsPrim);
+   procedure Edition_OpenNewTab_Execute(const aParams: IvcmExecuteParamsPrim);
  end;//TPrimRedactionsOptionsForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -50,58 +48,64 @@ uses
 ;
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimRedactionsOptionsForm.ExpandAll;
+procedure TPrimRedactionsOptionsForm.Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
  {* Развернуть все }
-//#UC START# *4BDAF7880236_4C86253E00C5_var*
-//#UC END# *4BDAF7880236_4C86253E00C5_var*
+//#UC START# *4BDAF7880236_4C86253E00C5test_var*
+//#UC END# *4BDAF7880236_4C86253E00C5test_var*
 begin
-//#UC START# *4BDAF7880236_4C86253E00C5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BDAF7880236_4C86253E00C5_impl*
-end;//TPrimRedactionsOptionsForm.ExpandAll
+//#UC START# *4BDAF7880236_4C86253E00C5test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4BDAF7880236_4C86253E00C5test_impl*
+end;//TPrimRedactionsOptionsForm.Tree_ExpandAll_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimRedactionsOptionsForm.CollapseAll;
+procedure TPrimRedactionsOptionsForm.Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
  {* Свернуть все }
-//#UC START# *4BDAF7A2005C_4C86253E00C5_var*
-//#UC END# *4BDAF7A2005C_4C86253E00C5_var*
+//#UC START# *4BDAF7A2005C_4C86253E00C5test_var*
+//#UC END# *4BDAF7A2005C_4C86253E00C5test_var*
 begin
-//#UC START# *4BDAF7A2005C_4C86253E00C5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BDAF7A2005C_4C86253E00C5_impl*
-end;//TPrimRedactionsOptionsForm.CollapseAll
+//#UC START# *4BDAF7A2005C_4C86253E00C5test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4BDAF7A2005C_4C86253E00C5test_impl*
+end;//TPrimRedactionsOptionsForm.Tree_CollapseAll_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimRedactionsOptionsForm.Wrap;
- {* Перенос по словам }
-//#UC START# *4BDAF7B803CF_4C86253E00C5_var*
-//#UC END# *4BDAF7B803CF_4C86253E00C5_var*
+procedure TPrimRedactionsOptionsForm.Edition_OpenNewWindow_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C862614021C_4C86253E00C5test_var*
+//#UC END# *4C862614021C_4C86253E00C5test_var*
 begin
-//#UC START# *4BDAF7B803CF_4C86253E00C5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BDAF7B803CF_4C86253E00C5_impl*
-end;//TPrimRedactionsOptionsForm.Wrap
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4C862614021C_4C86253E00C5test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not IsModalForm;
+//#UC END# *4C862614021C_4C86253E00C5test_impl*
+end;//TPrimRedactionsOptionsForm.Edition_OpenNewWindow_Test
 
-procedure TPrimRedactionsOptionsForm.OpenNewWindow;
-//#UC START# *4C862614021C_4C86253E00C5_var*
-//#UC END# *4C862614021C_4C86253E00C5_var*
+procedure TPrimRedactionsOptionsForm.Edition_OpenNewWindow_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C862614021C_4C86253E00C5exec_var*
+//#UC END# *4C862614021C_4C86253E00C5exec_var*
 begin
-//#UC START# *4C862614021C_4C86253E00C5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C862614021C_4C86253E00C5_impl*
-end;//TPrimRedactionsOptionsForm.OpenNewWindow
+//#UC START# *4C862614021C_4C86253E00C5exec_impl*
+ Op_Document_CommonDocumentOpenNewWindow.Call(Aggregate, dftDocument);
+//#UC END# *4C862614021C_4C86253E00C5exec_impl*
+end;//TPrimRedactionsOptionsForm.Edition_OpenNewWindow_Execute
 
-procedure TPrimRedactionsOptionsForm.OpenNewTab;
-//#UC START# *55544CF2027E_4C86253E00C5_var*
-//#UC END# *55544CF2027E_4C86253E00C5_var*
+procedure TPrimRedactionsOptionsForm.Edition_OpenNewTab_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *55544CF2027E_4C86253E00C5test_var*
+//#UC END# *55544CF2027E_4C86253E00C5test_var*
 begin
-//#UC START# *55544CF2027E_4C86253E00C5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *55544CF2027E_4C86253E00C5_impl*
-end;//TPrimRedactionsOptionsForm.OpenNewTab
+//#UC START# *55544CF2027E_4C86253E00C5test_impl*
+ Edition_OpenNewWindow_Test(aParams);
+//#UC END# *55544CF2027E_4C86253E00C5test_impl*
+end;//TPrimRedactionsOptionsForm.Edition_OpenNewTab_Test
+
+procedure TPrimRedactionsOptionsForm.Edition_OpenNewTab_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *55544CF2027E_4C86253E00C5exec_var*
+//#UC END# *55544CF2027E_4C86253E00C5exec_var*
+begin
+//#UC START# *55544CF2027E_4C86253E00C5exec_impl*
+ Op_Document_CommonDocumentOpenNewTab.Call(Aggregate, dftDocument);
+//#UC END# *55544CF2027E_4C86253E00C5exec_impl*
+end;//TPrimRedactionsOptionsForm.Edition_OpenNewTab_Execute
 
 initialization
 {$If NOT Defined(NoScripts)}

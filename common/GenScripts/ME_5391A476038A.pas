@@ -66,12 +66,16 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
+   procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
     {* OK }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure Clear; override;
+   procedure DocumentsCache_Clear_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Очистить кэш документов }
-   procedure Disable; override;
+   procedure DocumentsCache_Disable_Test(const aParams: IvcmTestParamsPrim);
+    {* Запретить кэш документов }
+   procedure DocumentsCache_Disable_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Запретить кэш документов }
+   procedure DocumentsCache_Disable_GetState(var State: TvcmOperationStateIndex);
     {* Запретить кэш документов }
   public
    property pnTagTree: TvtPanel
@@ -107,6 +111,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 procedure TMemoryUsagePrimForm.UpdateDocumentsInCacheCount;
 //#UC START# *5391C4630189_5391A476038A_var*
 //#UC END# *5391C4630189_5391A476038A_var*
@@ -116,39 +121,67 @@ begin
 //#UC END# *5391C4630189_5391A476038A_impl*
 end;//TMemoryUsagePrimForm.UpdateDocumentsInCacheCount
 
-{$If NOT Defined(NoVCM)}
-procedure TMemoryUsagePrimForm.Ok;
+procedure TMemoryUsagePrimForm.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
  {* OK }
-//#UC START# *4C762A1501FC_5391A476038A_var*
-//#UC END# *4C762A1501FC_5391A476038A_var*
+//#UC START# *4C762A1501FC_5391A476038Aexec_var*
+//#UC END# *4C762A1501FC_5391A476038Aexec_var*
 begin
-//#UC START# *4C762A1501FC_5391A476038A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762A1501FC_5391A476038A_impl*
-end;//TMemoryUsagePrimForm.Ok
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4C762A1501FC_5391A476038Aexec_impl*
+ ModalResult := mrOk;
+//#UC END# *4C762A1501FC_5391A476038Aexec_impl*
+end;//TMemoryUsagePrimForm.Result_Ok_Execute
 
-procedure TMemoryUsagePrimForm.Clear;
+procedure TMemoryUsagePrimForm.DocumentsCache_Clear_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Очистить кэш документов }
-//#UC START# *5391D18801D6_5391A476038A_var*
-//#UC END# *5391D18801D6_5391A476038A_var*
+//#UC START# *5391D18801D6_5391A476038Aexec_var*
+//#UC END# *5391D18801D6_5391A476038Aexec_var*
 begin
-//#UC START# *5391D18801D6_5391A476038A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5391D18801D6_5391A476038A_impl*
-end;//TMemoryUsagePrimForm.Clear
+//#UC START# *5391D18801D6_5391A476038Aexec_impl*
+ TevDocumentsCache.Clear;
+ UpdateDocumentsInCacheCount;
+//#UC END# *5391D18801D6_5391A476038Aexec_impl*
+end;//TMemoryUsagePrimForm.DocumentsCache_Clear_Execute
 
-procedure TMemoryUsagePrimForm.Disable;
+procedure TMemoryUsagePrimForm.DocumentsCache_Disable_Test(const aParams: IvcmTestParamsPrim);
  {* Запретить кэш документов }
-//#UC START# *5391D193004A_5391A476038A_var*
-//#UC END# *5391D193004A_5391A476038A_var*
+//#UC START# *5391D193004A_5391A476038Atest_var*
+//#UC END# *5391D193004A_5391A476038Atest_var*
 begin
-//#UC START# *5391D193004A_5391A476038A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5391D193004A_5391A476038A_impl*
-end;//TMemoryUsagePrimForm.Disable
+//#UC START# *5391D193004A_5391A476038Atest_impl*
+ //aParams.Op.Flag[vcm_ofChecked] := not g_evDocumentsCacheEnabled;
+//#UC END# *5391D193004A_5391A476038Atest_impl*
+end;//TMemoryUsagePrimForm.DocumentsCache_Disable_Test
 
-{$If NOT Defined(NoVCM)}
+procedure TMemoryUsagePrimForm.DocumentsCache_Disable_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Запретить кэш документов }
+//#UC START# *5391D193004A_5391A476038Aexec_var*
+//#UC END# *5391D193004A_5391A476038Aexec_var*
+begin
+//#UC START# *5391D193004A_5391A476038Aexec_impl*
+ if g_evDocumentsCacheEnabled then
+ begin
+  TevDocumentsCache.Clear;
+  UpdateDocumentsInCacheCount;
+  g_evDocumentsCacheEnabled := False;
+ end
+ else
+  g_evDocumentsCacheEnabled := True;
+//#UC END# *5391D193004A_5391A476038Aexec_impl*
+end;//TMemoryUsagePrimForm.DocumentsCache_Disable_Execute
+
+procedure TMemoryUsagePrimForm.DocumentsCache_Disable_GetState(var State: TvcmOperationStateIndex);
+ {* Запретить кэш документов }
+//#UC START# *5391D193004A_5391A476038Agetstate_var*
+//#UC END# *5391D193004A_5391A476038Agetstate_var*
+begin
+//#UC START# *5391D193004A_5391A476038Agetstate_impl*
+ if g_evDocumentsCacheEnabled then
+  State := st_user_DocumentsCache_Disable_Disable
+ else
+  State := st_user_DocumentsCache_Disable_Enable;
+//#UC END# *5391D193004A_5391A476038Agetstate_impl*
+end;//TMemoryUsagePrimForm.DocumentsCache_Disable_GetState
+
 procedure TMemoryUsagePrimForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_5391A476038A_var*
@@ -230,9 +263,7 @@ begin
  end;//not memClasses.Visible..
 //#UC END# *49803F5503AA_5391A476038A_impl*
 end;//TMemoryUsagePrimForm.DoInit
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TMemoryUsagePrimForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_5391A476038A_var*
@@ -344,13 +375,13 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_5391A476038A_impl*
 end;//TMemoryUsagePrimForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TMemoryUsagePrimForm);
  {* Регистрация MemoryUsagePrim }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

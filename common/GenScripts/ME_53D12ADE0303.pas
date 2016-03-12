@@ -29,6 +29,7 @@ uses
  , tc6PublicInfo
 ;
 
+{$If NOT Defined(NoVCL)}
 function TWinControl_Get_ControlCount(Self: TWinControl): Integer;
 //#UC START# *53D12BB30380_53D12ADE0303get_var*
 //#UC END# *53D12BB30380_53D12ADE0303get_var*
@@ -113,6 +114,7 @@ end;
 initialization
  _RegisterPublicInformation5;
  _RegisterPublicInformation6;
-{$IfEnd} // NOT Defined(XE)
+{$IfEnd} // NOT Defined(NoVCL)
 
+{$IfEnd} // NOT Defined(XE)
 end.

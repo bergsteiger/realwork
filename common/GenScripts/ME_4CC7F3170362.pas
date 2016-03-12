@@ -65,7 +65,6 @@ begin
  // Это тест просто для проверки отрисовки, поэтому ничего не делаем. 
 //#UC END# *4CAC45AE011E_4CC7F3170362_impl*
 end;//TDrawTest.DoBeforeDrawing
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TDrawTest.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -73,7 +72,6 @@ begin
  Result := 'EditorTests';
 end;//TDrawTest.GetFolder
 
-{$If NOT Defined(NoVCM)}
 function TDrawTest.UseFormExtentAsClientSize: Boolean;
  {* Использовать заданные размеры формы как размеры клиентской области - размеры формы пересчитываются относительно этих ограничений. }
 //#UC START# *4DA2F7900393_4CC7F3170362_var*
@@ -83,13 +81,13 @@ begin
  Result := True;
 //#UC END# *4DA2F7900393_4CC7F3170362_impl*
 end;//TDrawTest.UseFormExtentAsClientSize
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TDrawTest.GetModelElementGUID: AnsiString;
  {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4CC7F3170362';
 end;//TDrawTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

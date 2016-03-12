@@ -58,7 +58,7 @@ type
    function Get_UserID: TbsUserID;
    procedure ActivateChatWindow;
    procedure GotoPoint(aPointID: Cardinal;
-    aPointType: TDocumentPositionType); override;
+    aPointType: TDocumentPositionType = Sub); override;
     {* Переход на точку в документе }
    function HyperlinkDocument: IDocument; override;
     {* Документ ИЗ которого ведёт ссылка }
@@ -85,11 +85,15 @@ type
    class function MakeSingleChild(anUID: TbsUserID;
     const aName: Il3CString): IbsAbstractChatWindow; reintroduce;
    {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
+   procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
     {* Отмена }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_GetState(var State: TvcmOperationStateIndex);
     {* Отмена }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
@@ -266,7 +270,7 @@ begin
 end;//TAbstractHistoryForm.ActivateChatWindow
 
 procedure TAbstractHistoryForm.GotoPoint(aPointID: Cardinal;
- aPointType: TDocumentPositionType);
+ aPointType: TDocumentPositionType = Sub);
  {* Переход на точку в документе }
 //#UC START# *4A8164E801AE_4A6EA4310035_var*
 //#UC END# *4A8164E801AE_4A6EA4310035_var*
@@ -315,27 +319,40 @@ begin
 end;//TAbstractHistoryForm.pm_GetTextWithComments
 
 {$If NOT Defined(NoVCM)}
-procedure TAbstractHistoryForm.Cancel;
+procedure TAbstractHistoryForm.Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
  {* Отмена }
-//#UC START# *4AC5D61E0284_4A6EA4310035_var*
-//#UC END# *4AC5D61E0284_4A6EA4310035_var*
+//#UC START# *4AC5D61E0284_4A6EA4310035test_var*
+//#UC END# *4AC5D61E0284_4A6EA4310035test_var*
 begin
-//#UC START# *4AC5D61E0284_4A6EA4310035_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AC5D61E0284_4A6EA4310035_impl*
-end;//TAbstractHistoryForm.Cancel
+//#UC START# *4AC5D61E0284_4A6EA4310035test_impl*
+ // - ничего не делаем
+//#UC END# *4AC5D61E0284_4A6EA4310035test_impl*
+end;//TAbstractHistoryForm.Result_Cancel_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TAbstractHistoryForm.Cancel;
+procedure TAbstractHistoryForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Отмена }
-//#UC START# *4C762C910358_4A6EA4310035_var*
-//#UC END# *4C762C910358_4A6EA4310035_var*
+//#UC START# *4AC5D61E0284_4A6EA4310035exec_var*
+//#UC END# *4AC5D61E0284_4A6EA4310035exec_var*
 begin
-//#UC START# *4C762C910358_4A6EA4310035_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762C910358_4A6EA4310035_impl*
-end;//TAbstractHistoryForm.Cancel
+//#UC START# *4AC5D61E0284_4A6EA4310035exec_impl*
+ SafeClose;
+//#UC END# *4AC5D61E0284_4A6EA4310035exec_impl*
+end;//TAbstractHistoryForm.Result_Cancel_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TAbstractHistoryForm.Result_Cancel_GetState(var State: TvcmOperationStateIndex);
+ {* Отмена }
+//#UC START# *4AC5D61E0284_4A6EA4310035getstate_var*
+//#UC END# *4AC5D61E0284_4A6EA4310035getstate_var*
+begin
+//#UC START# *4AC5D61E0284_4A6EA4310035getstate_impl*
+ if NeedClose then
+  State := st_user_Result_Cancel_Close
+//#UC END# *4AC5D61E0284_4A6EA4310035getstate_impl*
+end;//TAbstractHistoryForm.Result_Cancel_GetState
 {$IfEnd} // NOT Defined(NoVCM)
 
 procedure TAbstractHistoryForm.OpenRedactionGlobalLink(const aDocument: IDocument;

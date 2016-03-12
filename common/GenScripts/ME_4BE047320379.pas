@@ -110,6 +110,7 @@ uses
  , Messages
 ;
 
+{$If NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts)}
 {$Include w:\common\components\gui\Garant\Daily\FormProducer.imp.pas}
 
 procedure TTextViaEditorProcessorPrim.Load(aForm: TPrimTextLoadForm;
@@ -486,6 +487,7 @@ function TTextViaEditorProcessorPrim.GetModelElementGUID: AnsiString;
 begin
  Result := '4BE047320379';
 end;//TTextViaEditorProcessorPrim.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
+{$IfEnd} // NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 end.

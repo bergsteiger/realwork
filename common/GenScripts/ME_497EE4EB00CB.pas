@@ -127,31 +127,51 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
-   procedure Print; override;
+   procedure File_Print_Test(const aParams: IvcmTestParamsPrim);
     {* Печать }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure PrintDialog; override;
+   procedure File_Print_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Печать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
     {* Печать... }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure PrintPreview; override;
+   procedure File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Печать... }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
     {* Предварительный просмотр }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Save; override;
+   procedure File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Предварительный просмотр }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_Save_Test(const aParams: IvcmTestParamsPrim);
     {* Сохранить }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure ToMSWord; override;
+   {$If NOT Defined(NoVCM)}
+   procedure File_Save_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Сохранить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure File_ToMSWord_Test(const aParams: IvcmTestParamsPrim);
     {* Экспорт в Word }
-   procedure SendMailAsAttachment; override;
+   procedure File_ToMSWord_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Экспорт в Word }
+   procedure File_SendMailAsAttachment_Test(const aParams: IvcmTestParamsPrim);
+    {* Послать по e-mail }
+   procedure File_SendMailAsAttachment_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Послать по e-mail }
    {$If NOT Defined(NoVCM)}
-   procedure ExpandAll; override;
+   procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
     {* Развернуть все }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure CollapseAll; override;
+   procedure Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
     {* Свернуть все }
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -214,6 +234,7 @@ uses
  , nsConst
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки mflMainLocalConstants }
  str_mflMainCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'mflMainCaption'; rValue : 'Фармацевтические фирмы (полный список)');
@@ -604,97 +625,205 @@ begin
 //#UC END# *51CC29600188_497EE4EB00CB_impl*
 end;//TPrimMedicFirmListForm.ContextFilterWrongContext
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimMedicFirmListForm.Print;
+procedure TPrimMedicFirmListForm.File_Print_Test(const aParams: IvcmTestParamsPrim);
  {* Печать }
-//#UC START# *49521D8E0295_497EE4EB00CB_var*
-//#UC END# *49521D8E0295_497EE4EB00CB_var*
+//#UC START# *49521D8E0295_497EE4EB00CBtest_var*
+//#UC END# *49521D8E0295_497EE4EB00CBtest_var*
 begin
-//#UC START# *49521D8E0295_497EE4EB00CB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49521D8E0295_497EE4EB00CB_impl*
-end;//TPrimMedicFirmListForm.Print
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *49521D8E0295_497EE4EB00CBtest_impl*
+ ListOpsWithTrialModeTest(aParams);
+//#UC END# *49521D8E0295_497EE4EB00CBtest_impl*
+end;//TPrimMedicFirmListForm.File_Print_Test
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimMedicFirmListForm.PrintDialog;
+procedure TPrimMedicFirmListForm.File_Print_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Печать }
+//#UC START# *49521D8E0295_497EE4EB00CBexec_var*
+var
+ l_Preview : IafwComplexDocumentPreview;
+//#UC END# *49521D8E0295_497EE4EB00CBexec_var*
+begin
+//#UC START# *49521D8E0295_497EE4EB00CBexec_impl*
+ l_Preview := MakePreview(False);
+ if (l_Preview <> nil) then
+  l_Preview.Print;
+//#UC END# *49521D8E0295_497EE4EB00CBexec_impl*
+end;//TPrimMedicFirmListForm.File_Print_Execute
+
+procedure TPrimMedicFirmListForm.File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
  {* Печать... }
-//#UC START# *495220DE0298_497EE4EB00CB_var*
-//#UC END# *495220DE0298_497EE4EB00CB_var*
+//#UC START# *495220DE0298_497EE4EB00CBtest_var*
+//#UC END# *495220DE0298_497EE4EB00CBtest_var*
 begin
-//#UC START# *495220DE0298_497EE4EB00CB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495220DE0298_497EE4EB00CB_impl*
-end;//TPrimMedicFirmListForm.PrintDialog
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *495220DE0298_497EE4EB00CBtest_impl*
+ ListOpsWithTrialModeTest(aParams);
+//#UC END# *495220DE0298_497EE4EB00CBtest_impl*
+end;//TPrimMedicFirmListForm.File_PrintDialog_Test
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimMedicFirmListForm.PrintPreview;
+procedure TPrimMedicFirmListForm.File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Печать... }
+//#UC START# *495220DE0298_497EE4EB00CBexec_var*
+var
+ l_Preview : IafwComplexDocumentPreview;
+//#UC END# *495220DE0298_497EE4EB00CBexec_var*
+begin
+//#UC START# *495220DE0298_497EE4EB00CBexec_impl*
+ if (afw.Application <> nil) AND (afw.Application.PrintManager <> nil) then
+ begin
+  l_Preview := MakePreview(True);
+  with l_Preview do
+  begin
+   if (ContentKind = afw_pckSelection) then
+    case MessageDlg(str_ListPrintSelectedConfirmation) of
+     -1:
+      ;
+     -2:
+      ContentKind := afw_pckDocument;
+     mrCancel:
+      Exit;
+    end;//MessageDlg(str_DocumentPrintSelectedConfirmation)
+  end;//with l_Preview
+  afw.Application.PrintManager.PrintDialog(l_Preview);
+ end;//if (afw.Application <> nil)...
+//#UC END# *495220DE0298_497EE4EB00CBexec_impl*
+end;//TPrimMedicFirmListForm.File_PrintDialog_Execute
+
+procedure TPrimMedicFirmListForm.File_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
  {* Предварительный просмотр }
-//#UC START# *495220F2033A_497EE4EB00CB_var*
-//#UC END# *495220F2033A_497EE4EB00CB_var*
+//#UC START# *495220F2033A_497EE4EB00CBtest_var*
+//#UC END# *495220F2033A_497EE4EB00CBtest_var*
 begin
-//#UC START# *495220F2033A_497EE4EB00CB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495220F2033A_497EE4EB00CB_impl*
-end;//TPrimMedicFirmListForm.PrintPreview
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *495220F2033A_497EE4EB00CBtest_impl*
+ ListOpsWithTrialModeTest(aParams);
+//#UC END# *495220F2033A_497EE4EB00CBtest_impl*
+end;//TPrimMedicFirmListForm.File_PrintPreview_Test
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimMedicFirmListForm.Save;
+procedure TPrimMedicFirmListForm.File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Предварительный просмотр }
+//#UC START# *495220F2033A_497EE4EB00CBexec_var*
+//#UC END# *495220F2033A_497EE4EB00CBexec_var*
+begin
+//#UC START# *495220F2033A_497EE4EB00CBexec_impl*
+ TdmStdRes.MakePreview(MakePreview(false));
+//#UC END# *495220F2033A_497EE4EB00CBexec_impl*
+end;//TPrimMedicFirmListForm.File_PrintPreview_Execute
+
+procedure TPrimMedicFirmListForm.File_Save_Test(const aParams: IvcmTestParamsPrim);
  {* Сохранить }
-//#UC START# *495235F401C0_497EE4EB00CB_var*
-//#UC END# *495235F401C0_497EE4EB00CB_var*
+//#UC START# *495235F401C0_497EE4EB00CBtest_var*
+//#UC END# *495235F401C0_497EE4EB00CBtest_var*
 begin
-//#UC START# *495235F401C0_497EE4EB00CB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495235F401C0_497EE4EB00CB_impl*
-end;//TPrimMedicFirmListForm.Save
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *495235F401C0_497EE4EB00CBtest_impl*
+ ListOpsWithTrialModeTest(aParams);
+//#UC END# *495235F401C0_497EE4EB00CBtest_impl*
+end;//TPrimMedicFirmListForm.File_Save_Test
 
-procedure TPrimMedicFirmListForm.ToMSWord;
+procedure TPrimMedicFirmListForm.File_Save_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Сохранить }
+//#UC START# *495235F401C0_497EE4EB00CBexec_var*
+//#UC END# *495235F401C0_497EE4EB00CBexec_var*
+begin
+//#UC START# *495235F401C0_497EE4EB00CBexec_impl*
+ ListExport(ekDisk, HasSelection);
+//#UC END# *495235F401C0_497EE4EB00CBexec_impl*
+end;//TPrimMedicFirmListForm.File_Save_Execute
+
+procedure TPrimMedicFirmListForm.File_ToMSWord_Test(const aParams: IvcmTestParamsPrim);
  {* Экспорт в Word }
-//#UC START# *495238EB0160_497EE4EB00CB_var*
-//#UC END# *495238EB0160_497EE4EB00CB_var*
+//#UC START# *495238EB0160_497EE4EB00CBtest_var*
+//#UC END# *495238EB0160_497EE4EB00CBtest_var*
 begin
-//#UC START# *495238EB0160_497EE4EB00CB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495238EB0160_497EE4EB00CB_impl*
-end;//TPrimMedicFirmListForm.ToMSWord
+//#UC START# *495238EB0160_497EE4EB00CBtest_impl*
+ ListOpsWithTrialModeTest(aParams);
+ TnsToMSWordOp.Test(aParams);
+//#UC END# *495238EB0160_497EE4EB00CBtest_impl*
+end;//TPrimMedicFirmListForm.File_ToMSWord_Test
 
-procedure TPrimMedicFirmListForm.SendMailAsAttachment;
+procedure TPrimMedicFirmListForm.File_ToMSWord_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Экспорт в Word }
+//#UC START# *495238EB0160_497EE4EB00CBexec_var*
+var
+ l_ExportSelection : Boolean;
+const
+ cMap: array [Boolean] of TnsExportKind = (ekShell, ekActiveWord);
+//#UC END# *495238EB0160_497EE4EB00CBexec_var*
+begin
+//#UC START# *495238EB0160_497EE4EB00CBexec_impl*
+ l_ExportSelection := HasSelection;
+ // Экспортировать выделенные фрагменты в Word
+ if (l_ExportSelection) then
+  case MessageDlg(str_ListExportSelectionToWord) of
+    -1:
+     // - выделение
+     ;
+    -2:
+     l_ExportSelection := False;
+    mrCancel:
+     Exit;
+  end;
+
+ if (ApproxExportCount(l_ExportSelection) > c_MaxTotalDocumentInListLimit) then
+  if not afw.Application.IsInternal or not afw.Settings.LoadBoolean(pi_List_ExportWORestrictions, dv_List_ExportWORestrictions) then
+  begin
+   Say(war_TryToExportTooManyTotalDocs, [c_MaxTotalDocumentInListLimit]);
+   Exit;
+  end;
+
+ ListExport(cMap[aParams.ItemIndex>1], l_ExportSelection);
+//#UC END# *495238EB0160_497EE4EB00CBexec_impl*
+end;//TPrimMedicFirmListForm.File_ToMSWord_Execute
+
+procedure TPrimMedicFirmListForm.File_SendMailAsAttachment_Test(const aParams: IvcmTestParamsPrim);
  {* Послать по e-mail }
-//#UC START# *495253870002_497EE4EB00CB_var*
-//#UC END# *495253870002_497EE4EB00CB_var*
+//#UC START# *495253870002_497EE4EB00CBtest_var*
+//#UC END# *495253870002_497EE4EB00CBtest_var*
 begin
-//#UC START# *495253870002_497EE4EB00CB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495253870002_497EE4EB00CB_impl*
-end;//TPrimMedicFirmListForm.SendMailAsAttachment
+//#UC START# *495253870002_497EE4EB00CBtest_impl*
+ ListOpsWithTrialModeTest(aParams);
+//#UC END# *495253870002_497EE4EB00CBtest_impl*
+end;//TPrimMedicFirmListForm.File_SendMailAsAttachment_Test
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimMedicFirmListForm.ExpandAll;
+procedure TPrimMedicFirmListForm.File_SendMailAsAttachment_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Послать по e-mail }
+//#UC START# *495253870002_497EE4EB00CBexec_var*
+var
+ l_ExportSelection : Boolean;
+//#UC END# *495253870002_497EE4EB00CBexec_var*
+begin
+//#UC START# *495253870002_497EE4EB00CBexec_impl*
+ l_ExportSelection := HasSelection;
+ // Экспортировать выделенные фрагменты в Word
+ if (l_ExportSelection) then
+  case MessageDlg(str_ListEMailSelection) of
+    -1:
+     ; // выделение
+    -2:
+     l_ExportSelection := False;
+    mrCancel:
+     Exit;
+  end;
+ ListExport(ekEMail, l_ExportSelection);
+//#UC END# *495253870002_497EE4EB00CBexec_impl*
+end;//TPrimMedicFirmListForm.File_SendMailAsAttachment_Execute
+
+procedure TPrimMedicFirmListForm.Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
  {* Развернуть все }
-//#UC START# *4BDAF7880236_497EE4EB00CB_var*
-//#UC END# *4BDAF7880236_497EE4EB00CB_var*
+//#UC START# *4BDAF7880236_497EE4EB00CBtest_var*
+//#UC END# *4BDAF7880236_497EE4EB00CBtest_var*
 begin
-//#UC START# *4BDAF7880236_497EE4EB00CB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BDAF7880236_497EE4EB00CB_impl*
-end;//TPrimMedicFirmListForm.ExpandAll
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4BDAF7880236_497EE4EB00CBtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4BDAF7880236_497EE4EB00CBtest_impl*
+end;//TPrimMedicFirmListForm.Tree_ExpandAll_Test
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimMedicFirmListForm.CollapseAll;
+procedure TPrimMedicFirmListForm.Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
  {* Свернуть все }
-//#UC START# *4BDAF7A2005C_497EE4EB00CB_var*
-//#UC END# *4BDAF7A2005C_497EE4EB00CB_var*
+//#UC START# *4BDAF7A2005C_497EE4EB00CBtest_var*
+//#UC END# *4BDAF7A2005C_497EE4EB00CBtest_var*
 begin
-//#UC START# *4BDAF7A2005C_497EE4EB00CB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BDAF7A2005C_497EE4EB00CB_impl*
-end;//TPrimMedicFirmListForm.CollapseAll
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4BDAF7A2005C_497EE4EB00CBtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4BDAF7A2005C_497EE4EB00CBtest_impl*
+end;//TPrimMedicFirmListForm.Tree_CollapseAll_Test
 
 procedure TPrimMedicFirmListForm.FinishDataUpdate;
 //#UC START# *47EA4E9002C6_497EE4EB00CB_var*
@@ -709,7 +838,6 @@ begin
 //#UC END# *47EA4E9002C6_497EE4EB00CB_impl*
 end;//TPrimMedicFirmListForm.FinishDataUpdate
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimMedicFirmListForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
  const aNew: IvcmViewAreaController);
  {* Изменился источник данных. Для перекрытия в потомках }
@@ -731,9 +859,7 @@ begin
  ContextFilter.UpdateIsContextWrong;
 //#UC END# *497469C90140_497EE4EB00CB_impl*
 end;//TPrimMedicFirmListForm.NotifyDataSourceChanged
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimMedicFirmListForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_497EE4EB00CB_var*
@@ -746,9 +872,7 @@ begin
  UpdateStatusInfo;
 //#UC END# *49803F5503AA_497EE4EB00CB_impl*
 end;//TPrimMedicFirmListForm.DoInit
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimMedicFirmListForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_497EE4EB00CB_var*
@@ -787,9 +911,7 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_497EE4EB00CB_impl*
 end;//TPrimMedicFirmListForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimMedicFirmListForm.FocusIsSetToUs;
 //#UC START# *4F7C6D6801F4_497EE4EB00CB_var*
 //#UC END# *4F7C6D6801F4_497EE4EB00CB_var*
@@ -799,9 +921,8 @@ begin
   ListTree.SetFocus;
 //#UC END# *4F7C6D6801F4_497EE4EB00CB_impl*
 end;//TPrimMedicFirmListForm.FocusIsSetToUs
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 function TPrimMedicFirmListForm.DoGetTabImageIndex: Integer;
 //#UC START# *543E3AA801D0_497EE4EB00CB_var*
 //#UC END# *543E3AA801D0_497EE4EB00CB_var*
@@ -810,9 +931,8 @@ begin
  Result := nsTabIconIndex(titMedicFirm);
 //#UC END# *543E3AA801D0_497EE4EB00CB_impl*
 end;//TPrimMedicFirmListForm.DoGetTabImageIndex
-{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
-{$If NOT Defined(NoVCM)}
 function TPrimMedicFirmListForm.IsAcceptable(aDataUpdate: Boolean): Boolean;
  {* Можно ли открывать форму в текущих условиях (например, на текущей базе) }
 //#UC START# *55127A5401DE_497EE4EB00CB_var*
@@ -822,7 +942,6 @@ begin
  Result := dsMedicFirmList.IsDataAvailable;
 //#UC END# *55127A5401DE_497EE4EB00CB_impl*
 end;//TPrimMedicFirmListForm.IsAcceptable
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_mflMainCaption.Init;
@@ -831,6 +950,7 @@ initialization
  TtfwClassRef.Register(TPrimMedicFirmListForm);
  {* Регистрация PrimMedicFirmList }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

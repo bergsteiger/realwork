@@ -16,12 +16,6 @@ uses
 type
  // Chat
 
- // History
-
- // UserFilter
-
- // OpenChatWindow
-
  // Chat
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 

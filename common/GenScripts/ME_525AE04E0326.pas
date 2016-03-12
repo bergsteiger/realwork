@@ -183,6 +183,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки Registration Form Controls' Hints }
  str_edPasswordHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'edPasswordHint'; rValue : 'Введите пароль для авторизации в системе');
@@ -575,7 +576,6 @@ begin
 end;//TPrimRegistrationForm.CreateParams
 {$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimRegistrationForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_525AE04E0326_var*
@@ -819,7 +819,6 @@ begin
  RepositionControls;
 //#UC END# *4A8E8F2E0195_525AE04E0326_impl*
 end;//TPrimRegistrationForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCL)}
 function TPrimRegistrationForm.IsRealInstance: Boolean;
@@ -849,6 +848,7 @@ initialization
  TtfwClassRef.Register(TPrimRegistrationForm);
  {* Регистрация PrimRegistration }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

@@ -22,7 +22,7 @@ type
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-  public
+  published
    procedure ToOldNSRC;
  end;//TEVDtoBothNSRCWriterTest
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)

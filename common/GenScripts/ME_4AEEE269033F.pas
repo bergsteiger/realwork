@@ -61,7 +61,8 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   procedure SetCurrent; override;
+   procedure Navigator_SetCurrent_Execute(const aNode: Il3SimpleNode);
+   procedure Navigator_SetCurrent(const aParams: IvcmExecuteParamsPrim);
   public
    property BackgroundPanel: TvtPanel
     read f_BackgroundPanel;
@@ -93,6 +94,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки utNavigatorLocalConstants }
  str_utNavigatorCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utNavigatorCaption'; rValue : 'Меню');
@@ -231,14 +233,28 @@ begin
 //#UC END# *4C87A9640232_4AEEE269033F_impl*
 end;//TPrimNavigatorForm.ExecuteCurrentElement
 
-procedure TPrimNavigatorForm.SetCurrent;
-//#UC START# *4AEEE2D40157_4AEEE269033F_var*
-//#UC END# *4AEEE2D40157_4AEEE269033F_var*
+procedure TPrimNavigatorForm.Navigator_SetCurrent_Execute(const aNode: Il3SimpleNode);
+//#UC START# *4AEEE2D40157_4AEEE269033Fexec_var*
+//#UC END# *4AEEE2D40157_4AEEE269033Fexec_var*
 begin
-//#UC START# *4AEEE2D40157_4AEEE269033F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AEEE2D40157_4AEEE269033F_impl*
-end;//TPrimNavigatorForm.SetCurrent
+//#UC START# *4AEEE2D40157_4AEEE269033Fexec_impl*
+ if f_Lock > 0 then
+  Exit;
+
+ Inc(f_Lock);
+ try
+  NavigatorTree.GotoOnNode(aNode);
+ finally
+  Dec(f_Lock);
+ end;//try..finally
+//#UC END# *4AEEE2D40157_4AEEE269033Fexec_impl*
+end;//TPrimNavigatorForm.Navigator_SetCurrent_Execute
+
+procedure TPrimNavigatorForm.Navigator_SetCurrent(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As INavigator_SetCurrent_Params) do
+  Self.Navigator_SetCurrent_Execute(Node);
+end;//TPrimNavigatorForm.Navigator_SetCurrent
 
 procedure TPrimNavigatorForm.Cleanup;
  {* Функция очистки полей объекта. }
@@ -252,7 +268,6 @@ begin
 //#UC END# *479731C50290_4AEEE269033F_impl*
 end;//TPrimNavigatorForm.Cleanup
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimNavigatorForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AEEE269033F_var*
@@ -296,7 +311,6 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AEEE269033F_impl*
 end;//TPrimNavigatorForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_utNavigatorCaption.Init;
@@ -307,6 +321,7 @@ initialization
  TtfwClassRef.Register(TPrimNavigatorForm);
  {* Регистрация PrimNavigator }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

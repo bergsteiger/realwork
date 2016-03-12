@@ -38,15 +38,15 @@ type
     out aParams: TdaDataProviderParams); override;
    procedure FillInConfig(aConfig: TddAppConfiguration;
     aParams: TdaDataProviderParams;
-    ForInfoOnly: Boolean); override;
+    ForInfoOnly: Boolean = False); override;
    procedure BuildConfig(aConfig: TddAppConfiguration;
-    const aProviderKey: AnsiString;
-    ForInfoOnly: Boolean); override;
+    const aProviderKey: AnsiString = '';
+    ForInfoOnly: Boolean = False); override;
    procedure LoadDBVersion(aParams: TdaDataProviderParams); override;
    function DoMakeProvider(aParams: TdaDataProviderParams;
     ForCheckLogin: Boolean;
     AllowClearLocks: Boolean;
-    SetGlobalProvider: Boolean): IdaDataProvider; override;
+    SetGlobalProvider: Boolean = True): IdaDataProvider; override;
    procedure LoginCheckSucceed(aParams: TdaDataProviderParams); override;
  end;//TcaDataProviderFactory
 {$IfEnd} // Defined(UsePostgres) AND Defined(TestComboAccess)
@@ -172,7 +172,7 @@ end;//TcaDataProviderFactory.FillOutConfig
 
 procedure TcaDataProviderFactory.FillInConfig(aConfig: TddAppConfiguration;
  aParams: TdaDataProviderParams;
- ForInfoOnly: Boolean);
+ ForInfoOnly: Boolean = False);
 //#UC START# *5512BB030346_56A86C020121_var*
 var
  l_Params: TcaDataProviderParams;
@@ -207,8 +207,8 @@ begin
 end;//TcaDataProviderFactory.FillInConfig
 
 procedure TcaDataProviderFactory.BuildConfig(aConfig: TddAppConfiguration;
- const aProviderKey: AnsiString;
- ForInfoOnly: Boolean);
+ const aProviderKey: AnsiString = '';
+ ForInfoOnly: Boolean = False);
 //#UC START# *5512BB1F023F_56A86C020121_var*
 var
  l_Item: TddBaseConfigItem;
@@ -257,7 +257,7 @@ end;//TcaDataProviderFactory.LoadDBVersion
 function TcaDataProviderFactory.DoMakeProvider(aParams: TdaDataProviderParams;
  ForCheckLogin: Boolean;
  AllowClearLocks: Boolean;
- SetGlobalProvider: Boolean): IdaDataProvider;
+ SetGlobalProvider: Boolean = True): IdaDataProvider;
 //#UC START# *551D06D402AF_56A86C020121_var*
 var
  l_Params: TcaDataProviderParams;

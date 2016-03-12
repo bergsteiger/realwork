@@ -57,7 +57,6 @@ begin
  Result := 12;
 //#UC END# *4C0E56F000A4_4C45569C0111_impl*
 end;//TK227477159.MaxHeight
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TK227477159.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -73,6 +72,7 @@ end;//TK227477159.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(TK227477159.Suite);
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

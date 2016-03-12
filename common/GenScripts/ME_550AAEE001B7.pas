@@ -54,6 +54,7 @@ uses
  , SysUtils
 ;
 
+{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TsdsInpharmMainMenu;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmTinyUseCaseController.imp.pas}
@@ -67,7 +68,6 @@ begin
 //#UC END# *550C0D1A00CC_550AAEE001B7get_impl*
 end;//TsdsInpharmMainMenu.pm_GetdsInpharmMainMenuData
 
-{$If NOT Defined(NoVCM)}
 procedure TsdsInpharmMainMenu.ClearAreas;
  {* Очищает ссылки на области ввода }
 //#UC START# *4938F7E702B7_550AAEE001B7_var*

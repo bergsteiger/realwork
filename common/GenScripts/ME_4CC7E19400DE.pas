@@ -15,9 +15,6 @@ uses
 
 type
  TPrimWorkJournalOptionsForm = class(TPrimWorkJournalForm)
-  public
-   procedure OpenQuery; override;
-   procedure ExecuteQuery; override;
  end;//TPrimWorkJournalOptionsForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -30,24 +27,6 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
 ;
-
-procedure TPrimWorkJournalOptionsForm.OpenQuery;
-//#UC START# *4C3F3421036A_4CC7E19400DE_var*
-//#UC END# *4C3F3421036A_4CC7E19400DE_var*
-begin
-//#UC START# *4C3F3421036A_4CC7E19400DE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3F3421036A_4CC7E19400DE_impl*
-end;//TPrimWorkJournalOptionsForm.OpenQuery
-
-procedure TPrimWorkJournalOptionsForm.ExecuteQuery;
-//#UC START# *4C3F342E02AF_4CC7E19400DE_var*
-//#UC END# *4C3F342E02AF_4CC7E19400DE_var*
-begin
-//#UC START# *4C3F342E02AF_4CC7E19400DE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3F342E02AF_4CC7E19400DE_impl*
-end;//TPrimWorkJournalOptionsForm.ExecuteQuery
 
 initialization
 {$If NOT Defined(NoScripts)}

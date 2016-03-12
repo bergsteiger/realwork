@@ -61,6 +61,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 function TComplexScrollParams.GetSubNumber(aFirst: Boolean): Integer;
 //#UC START# *4D7779F503A4_4D7777390386_var*
 //#UC END# *4D7779F503A4_4D7777390386_var*
@@ -70,7 +71,6 @@ begin
 //#UC END# *4D7779F503A4_4D7777390386_impl*
 end;//TComplexScrollParams.GetSubNumber
 
-{$If NOT Defined(NoVCM)}
 procedure TComplexScrollParams.DoVisit(aForm: TPrimTextLoadForm);
  {* Обработать текст }
 //#UC START# *4BE419AF0217_4D7777390386_var*
@@ -98,7 +98,6 @@ begin
  end;
 //#UC END# *4BE419AF0217_4D7777390386_impl*
 end;//TComplexScrollParams.DoVisit
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TComplexScrollParams.OpenLog: AnsiString;
 //#UC START# *4DAEB0DE00D1_4D7777390386_var*
@@ -130,7 +129,6 @@ begin
 end;//TComplexScrollParams.FileForOutput
 {$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$If NOT Defined(NoVCM)}
 function TComplexScrollParams.FormExtent: TPoint;
  {* Размеры формы }
 //#UC START# *4C08CF700318_4D7777390386_var*
@@ -141,7 +139,6 @@ begin
  Result.Y := 700;
 //#UC END# *4C08CF700318_4D7777390386_impl*
 end;//TComplexScrollParams.FormExtent
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TComplexScrollParams.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -154,6 +151,7 @@ function TComplexScrollParams.GetModelElementGUID: AnsiString;
 begin
  Result := '4D7777390386';
 end;//TComplexScrollParams.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

@@ -29,6 +29,7 @@ uses
  , tc6PublicInfo
 ;
 
+{$If NOT Defined(NoVCL)}
 function TMenu_Get_Items(Self: TMenu): TMenuItem;
 //#UC START# *49A3ED2A0248_49A3ECCB0366get_var*
 //#UC END# *49A3ED2A0248_49A3ECCB0366get_var*
@@ -76,6 +77,7 @@ end;
 initialization
  _RegisterPublicInformation5;
  _RegisterPublicInformation6;
-{$IfEnd} // NOT Defined(XE)
+{$IfEnd} // NOT Defined(NoVCL)
 
+{$IfEnd} // NOT Defined(XE)
 end.

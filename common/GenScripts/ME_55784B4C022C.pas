@@ -22,7 +22,7 @@ type
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-  public
+  published
    procedure TestAddAndDelete;
  end;//TtfwParserTokenListTest
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
@@ -42,6 +42,7 @@ uses
  , TestFrameWork
 ;
 
+{$If NOT Defined(NotTunedDUnit)}
 procedure TtfwParserTokenListTest.TestAddAndDelete;
 //#UC START# *55784B710001_55784B4C022C_var*
 
@@ -104,6 +105,7 @@ end;//TtfwParserTokenListTest.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(TtfwParserTokenListTest.Suite);
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

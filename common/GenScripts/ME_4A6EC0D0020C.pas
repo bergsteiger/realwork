@@ -94,15 +94,23 @@ type
   public
    procedure Sync(const aPara: TnsParaCoord);
     {* Синхронизировать позицию }
-   procedure PrevChange; override;
+   procedure Edition_PrevChange_Test(const aParams: IvcmTestParamsPrim);
     {* Предыдущее изменение }
-   procedure NextChange; override;
+   procedure Edition_PrevChange_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Предыдущее изменение }
+   procedure Edition_NextChange_Test(const aParams: IvcmTestParamsPrim);
     {* Следующее изменение }
-   procedure ReturnToDocument; override;
+   procedure Edition_NextChange_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Следующее изменение }
+   procedure Edition_ReturnToDocument_Test(const aParams: IvcmTestParamsPrim);
+    {* Вернуться в текст документа }
+   procedure Edition_ReturnToDocument_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Вернуться в текст документа }
    procedure CurrentChangedFragmentChanged(aParaID: Integer);
     {* Изменилось положение текущего изменённого фрагмента. Дёрнули у редактора курсор или скроллер. aParaID == GetParaForPositionning }
-   procedure ViewChangedFragments; override;
+   procedure Document_ViewChangedFragments_Test(const aParams: IvcmTestParamsPrim);
+    {* Обзор изменений документа }
+   procedure Document_ViewChangedFragments_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Обзор изменений документа }
   public
    property BackgroundPanel: TvtProportionalPanel
@@ -144,6 +152,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки utEditionsContainerLocalConstants }
  str_utEditionsContainerCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utEditionsContainerCaption'; rValue : 'Сравнение редакций документа');
@@ -315,25 +324,45 @@ begin
 //#UC END# *4A79AB290196_4A6EC0D0020C_impl*
 end;//TPrimEditionsContainerForm.Sync
 
-procedure TPrimEditionsContainerForm.PrevChange;
+procedure TPrimEditionsContainerForm.Edition_PrevChange_Test(const aParams: IvcmTestParamsPrim);
  {* Предыдущее изменение }
-//#UC START# *4A8996E000FF_4A6EC0D0020C_var*
-//#UC END# *4A8996E000FF_4A6EC0D0020C_var*
+//#UC START# *4A8996E000FF_4A6EC0D0020Ctest_var*
+//#UC END# *4A8996E000FF_4A6EC0D0020Ctest_var*
 begin
-//#UC START# *4A8996E000FF_4A6EC0D0020C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A8996E000FF_4A6EC0D0020C_impl*
-end;//TPrimEditionsContainerForm.PrevChange
+//#UC START# *4A8996E000FF_4A6EC0D0020Ctest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := CanFindChangedText(true);
+//#UC END# *4A8996E000FF_4A6EC0D0020Ctest_impl*
+end;//TPrimEditionsContainerForm.Edition_PrevChange_Test
 
-procedure TPrimEditionsContainerForm.NextChange;
- {* Следующее изменение }
-//#UC START# *4A8996FA03B8_4A6EC0D0020C_var*
-//#UC END# *4A8996FA03B8_4A6EC0D0020C_var*
+procedure TPrimEditionsContainerForm.Edition_PrevChange_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Предыдущее изменение }
+//#UC START# *4A8996E000FF_4A6EC0D0020Cexec_var*
+//#UC END# *4A8996E000FF_4A6EC0D0020Cexec_var*
 begin
-//#UC START# *4A8996FA03B8_4A6EC0D0020C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A8996FA03B8_4A6EC0D0020C_impl*
-end;//TPrimEditionsContainerForm.NextChange
+//#UC START# *4A8996E000FF_4A6EC0D0020Cexec_impl*
+ FindChangedText(true);
+//#UC END# *4A8996E000FF_4A6EC0D0020Cexec_impl*
+end;//TPrimEditionsContainerForm.Edition_PrevChange_Execute
+
+procedure TPrimEditionsContainerForm.Edition_NextChange_Test(const aParams: IvcmTestParamsPrim);
+ {* Следующее изменение }
+//#UC START# *4A8996FA03B8_4A6EC0D0020Ctest_var*
+//#UC END# *4A8996FA03B8_4A6EC0D0020Ctest_var*
+begin
+//#UC START# *4A8996FA03B8_4A6EC0D0020Ctest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := CanFindChangedText(false);
+//#UC END# *4A8996FA03B8_4A6EC0D0020Ctest_impl*
+end;//TPrimEditionsContainerForm.Edition_NextChange_Test
+
+procedure TPrimEditionsContainerForm.Edition_NextChange_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Следующее изменение }
+//#UC START# *4A8996FA03B8_4A6EC0D0020Cexec_var*
+//#UC END# *4A8996FA03B8_4A6EC0D0020Cexec_var*
+begin
+//#UC START# *4A8996FA03B8_4A6EC0D0020Cexec_impl*
+ FindChangedText(false);
+//#UC END# *4A8996FA03B8_4A6EC0D0020Cexec_impl*
+end;//TPrimEditionsContainerForm.Edition_NextChange_Execute
 
 procedure TPrimEditionsContainerForm.FillList(const aList: InscStatusBarItemDefsList);
  {* Заполняет список операций. Для перекрытия в потомках }
@@ -351,15 +380,25 @@ begin
 //#UC END# *4A8E5E4702C6_4A6EC0D0020C_impl*
 end;//TPrimEditionsContainerForm.FillList
 
-procedure TPrimEditionsContainerForm.ReturnToDocument;
+procedure TPrimEditionsContainerForm.Edition_ReturnToDocument_Test(const aParams: IvcmTestParamsPrim);
  {* Вернуться в текст документа }
-//#UC START# *4B1E37CE00C1_4A6EC0D0020C_var*
-//#UC END# *4B1E37CE00C1_4A6EC0D0020C_var*
+//#UC START# *4B1E37CE00C1_4A6EC0D0020Ctest_var*
+//#UC END# *4B1E37CE00C1_4A6EC0D0020Ctest_var*
 begin
-//#UC START# *4B1E37CE00C1_4A6EC0D0020C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4B1E37CE00C1_4A6EC0D0020C_impl*
-end;//TPrimEditionsContainerForm.ReturnToDocument
+//#UC START# *4B1E37CE00C1_4A6EC0D0020Ctest_impl*
+ // - ничего не делаем
+//#UC END# *4B1E37CE00C1_4A6EC0D0020Ctest_impl*
+end;//TPrimEditionsContainerForm.Edition_ReturnToDocument_Test
+
+procedure TPrimEditionsContainerForm.Edition_ReturnToDocument_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Вернуться в текст документа }
+//#UC START# *4B1E37CE00C1_4A6EC0D0020Cexec_var*
+//#UC END# *4B1E37CE00C1_4A6EC0D0020Cexec_var*
+begin
+//#UC START# *4B1E37CE00C1_4A6EC0D0020Cexec_impl*
+ Op_RightEdition_ReturnToDocument.Call(Aggregate);
+//#UC END# *4B1E37CE00C1_4A6EC0D0020Cexec_impl*
+end;//TPrimEditionsContainerForm.Edition_ReturnToDocument_Execute
 
 procedure TPrimEditionsContainerForm.CurrentChangedFragmentChanged(aParaID: Integer);
  {* Изменилось положение текущего изменённого фрагмента. Дёрнули у редактора курсор или скроллер. aParaID == GetParaForPositionning }
@@ -389,17 +428,27 @@ begin
 //#UC END# *4B54676B0132_4A6EC0D0020C_impl*
 end;//TPrimEditionsContainerForm.CurrentChangedFragmentChanged
 
-procedure TPrimEditionsContainerForm.ViewChangedFragments;
+procedure TPrimEditionsContainerForm.Document_ViewChangedFragments_Test(const aParams: IvcmTestParamsPrim);
  {* Обзор изменений документа }
-//#UC START# *4DDCBABC03B7_4A6EC0D0020C_var*
-//#UC END# *4DDCBABC03B7_4A6EC0D0020C_var*
+//#UC START# *4DDCBABC03B7_4A6EC0D0020Ctest_var*
+//#UC END# *4DDCBABC03B7_4A6EC0D0020Ctest_var*
 begin
-//#UC START# *4DDCBABC03B7_4A6EC0D0020C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDCBABC03B7_4A6EC0D0020C_impl*
-end;//TPrimEditionsContainerForm.ViewChangedFragments
+//#UC START# *4DDCBABC03B7_4A6EC0D0020Ctest_impl*
+ // - ничего не делаем
+//#UC END# *4DDCBABC03B7_4A6EC0D0020Ctest_impl*
+end;//TPrimEditionsContainerForm.Document_ViewChangedFragments_Test
 
-{$If NOT Defined(NoVCM)}
+procedure TPrimEditionsContainerForm.Document_ViewChangedFragments_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Обзор изменений документа }
+//#UC START# *4DDCBABC03B7_4A6EC0D0020Cexec_var*
+//#UC END# *4DDCBABC03B7_4A6EC0D0020Cexec_var*
+begin
+//#UC START# *4DDCBABC03B7_4A6EC0D0020Cexec_impl*
+ TdmStdRes.ViewChangedFragments(EditionsContainerData.Left.Document,
+                                EditionsContainerData.Right.Document);
+//#UC END# *4DDCBABC03B7_4A6EC0D0020Cexec_impl*
+end;//TPrimEditionsContainerForm.Document_ViewChangedFragments_Execute
+
 procedure TPrimEditionsContainerForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
  const aNew: IvcmViewAreaController);
  {* Изменился источник данных. Для перекрытия в потомках }
@@ -419,9 +468,7 @@ begin
  UpdateCaptionFromDS;
 //#UC END# *497469C90140_4A6EC0D0020C_impl*
 end;//TPrimEditionsContainerForm.NotifyDataSourceChanged
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimEditionsContainerForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4A6EC0D0020C_var*
@@ -432,9 +479,7 @@ begin
  UpdateCaptionFromDS;
 //#UC END# *49803F5503AA_4A6EC0D0020C_impl*
 end;//TPrimEditionsContainerForm.DoInit
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimEditionsContainerForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4A6EC0D0020C_var*
@@ -458,9 +503,7 @@ begin
  inherited;
 //#UC END# *4A8E8F2E0195_4A6EC0D0020C_impl*
 end;//TPrimEditionsContainerForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimEditionsContainerForm.FormInsertedIntoContainer;
 //#UC START# *4F7C65380244_4A6EC0D0020C_var*
 //#UC END# *4F7C65380244_4A6EC0D0020C_var*
@@ -469,7 +512,6 @@ begin
  inherited;
 //#UC END# *4F7C65380244_4A6EC0D0020C_impl*
 end;//TPrimEditionsContainerForm.FormInsertedIntoContainer
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_utEditionsContainerCaption.Init;
@@ -480,6 +522,7 @@ initialization
  TtfwClassRef.Register(TPrimEditionsContainerForm);
  {* Регистрация PrimEditionsContainer }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

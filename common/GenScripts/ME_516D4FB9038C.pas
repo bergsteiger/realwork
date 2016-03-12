@@ -15,7 +15,7 @@ uses
 
 type
  TmyInterfacedObjectTest = class(TTestCase)
-  public
+  published
    procedure DoIt;
  end;//TmyInterfacedObjectTest
 {$IfEnd} // Defined(nsTest)

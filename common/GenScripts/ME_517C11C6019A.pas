@@ -15,7 +15,7 @@ uses
 
 type
  TRoundedControlsTest = class(TTestCase)
-  public
+  published
    procedure DoIt;
  end;//TRoundedControlsTest
 {$IfEnd} // Defined(nsTest)

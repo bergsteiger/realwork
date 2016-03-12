@@ -61,7 +61,6 @@ begin
  aForm.Text.Document.Int64A[k2_tiMDPPageID] := $FAFAFAFAFEFEFEFE;
 //#UC END# *4BE13147032C_4E2EB2D50291_impl*
 end;//TK275780190.Process
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TK275780190.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -77,6 +76,7 @@ end;//TK275780190.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(TK275780190.Suite);
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

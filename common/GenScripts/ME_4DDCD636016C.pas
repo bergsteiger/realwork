@@ -114,7 +114,7 @@ type
    function RedactionCurrentPara: IeeLeafPara; override;
     {* Текущий параграф редакции для синхронизации с окном сравннения редакций }
    procedure GotoPoint(aPointID: Cardinal;
-    aPointType: TDocumentPositionType); override;
+    aPointType: TDocumentPositionType = Sub); override;
     {* Переход на точку в документе }
    function HyperlinkDocument: IDocument; override;
     {* Документ ИЗ которого ведёт ссылка }
@@ -143,18 +143,17 @@ type
    function ContinueSearchInWholeBase: Boolean; override;
    function GetRedactionOnLeftEdition: Integer; override;
   public
-   function SetPosition: Boolean; override;
-   procedure ReturnToDocument; override;
+   function Document_SetPosition_Execute(aPointID: Cardinal;
+    aPointType: TDocumentPositionType = Sub;
+    aUserType: Integer = 0): Boolean;
+   procedure Document_SetPosition(const aParams: IvcmExecuteParamsPrim);
+   procedure Edition_ReturnToDocument_Test(const aParams: IvcmTestParamsPrim);
     {* Вернуться в текст документа }
-   function GetParaForPositionning: IeeLeafPara; override;
-   {$If NOT Defined(NoVCM)}
-   procedure Print; override;
-    {* Печать }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure PrintDialog; override;
-    {* Печать... }
-   {$IfEnd} // NOT Defined(NoVCM)
+   procedure Edition_ReturnToDocument_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Вернуться в текст документа }
+   procedure Document_GetParaForPositionning_Test(const aParams: IvcmTestParamsPrim);
+   function Document_GetParaForPositionning_Execute: IeeLeafPara;
+   procedure Document_GetParaForPositionning(const aParams: IvcmExecuteParamsPrim);
  end;//TPrimChangesBetweenEditonsForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -256,6 +255,7 @@ uses
  , evEditorWithOperations
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки DocumentChangesLocalConstants }
  str_DocumentChangesCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'DocumentChangesCaption'; rValue : 'Изменения в документе');
@@ -395,7 +395,7 @@ begin
 end;//TPrimChangesBetweenEditonsForm.RedactionCurrentPara
 
 procedure TPrimChangesBetweenEditonsForm.GotoPoint(aPointID: Cardinal;
- aPointType: TDocumentPositionType);
+ aPointType: TDocumentPositionType = Sub);
  {* Переход на точку в документе }
 //#UC START# *4A8164E801AE_4DDCD636016C_var*
 var
@@ -526,24 +526,45 @@ begin
 //#UC END# *4AE1C9890311_4DDCD636016C_impl*
 end;//TPrimChangesBetweenEditonsForm.IsDrug
 
-function TPrimChangesBetweenEditonsForm.SetPosition: Boolean;
-//#UC START# *4AE9D38A02DA_4DDCD636016C_var*
-//#UC END# *4AE9D38A02DA_4DDCD636016C_var*
+function TPrimChangesBetweenEditonsForm.Document_SetPosition_Execute(aPointID: Cardinal;
+ aPointType: TDocumentPositionType = Sub;
+ aUserType: Integer = 0): Boolean;
+//#UC START# *4AE9D38A02DA_4DDCD636016Cexec_var*
+//#UC END# *4AE9D38A02DA_4DDCD636016Cexec_var*
 begin
-//#UC START# *4AE9D38A02DA_4DDCD636016C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE9D38A02DA_4DDCD636016C_impl*
-end;//TPrimChangesBetweenEditonsForm.SetPosition
+//#UC START# *4AE9D38A02DA_4DDCD636016Cexec_impl*
+ GotoPoint(aPointID, aPointType);
+ Result := true;
+//#UC END# *4AE9D38A02DA_4DDCD636016Cexec_impl*
+end;//TPrimChangesBetweenEditonsForm.Document_SetPosition_Execute
 
-procedure TPrimChangesBetweenEditonsForm.ReturnToDocument;
- {* Вернуться в текст документа }
-//#UC START# *4B1E37CE00C1_4DDCD636016C_var*
-//#UC END# *4B1E37CE00C1_4DDCD636016C_var*
+procedure TPrimChangesBetweenEditonsForm.Document_SetPosition(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4B1E37CE00C1_4DDCD636016C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4B1E37CE00C1_4DDCD636016C_impl*
-end;//TPrimChangesBetweenEditonsForm.ReturnToDocument
+ with (aParams.Data As IDocument_SetPosition_Params) do
+  ResultValue := Self.Document_SetPosition_Execute(PointID, PointType, UserType);
+end;//TPrimChangesBetweenEditonsForm.Document_SetPosition
+
+procedure TPrimChangesBetweenEditonsForm.Edition_ReturnToDocument_Test(const aParams: IvcmTestParamsPrim);
+ {* Вернуться в текст документа }
+//#UC START# *4B1E37CE00C1_4DDCD636016Ctest_var*
+//#UC END# *4B1E37CE00C1_4DDCD636016Ctest_var*
+begin
+//#UC START# *4B1E37CE00C1_4DDCD636016Ctest_impl*
+ // - ничего не делаем
+//#UC END# *4B1E37CE00C1_4DDCD636016Ctest_impl*
+end;//TPrimChangesBetweenEditonsForm.Edition_ReturnToDocument_Test
+
+procedure TPrimChangesBetweenEditonsForm.Edition_ReturnToDocument_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Вернуться в текст документа }
+//#UC START# *4B1E37CE00C1_4DDCD636016Cexec_var*
+//#UC END# *4B1E37CE00C1_4DDCD636016Cexec_var*
+begin
+//#UC START# *4B1E37CE00C1_4DDCD636016Cexec_impl*
+ TdmStdRes.OpenDocument(TdeDocInfo.Make(Document,
+                                        TbsDocPos_P(GetParaForPositionning)),
+                        nil);
+//#UC END# *4B1E37CE00C1_4DDCD636016Cexec_impl*
+end;//TPrimChangesBetweenEditonsForm.Edition_ReturnToDocument_Execute
 
 function TPrimChangesBetweenEditonsForm.DocumentForSearch: IDocument;
 //#UC START# *4B4EF0A200BD_4DDCD636016C_var*
@@ -554,14 +575,29 @@ begin
 //#UC END# *4B4EF0A200BD_4DDCD636016C_impl*
 end;//TPrimChangesBetweenEditonsForm.DocumentForSearch
 
-function TPrimChangesBetweenEditonsForm.GetParaForPositionning: IeeLeafPara;
-//#UC START# *4B506F4D0196_4DDCD636016C_var*
-//#UC END# *4B506F4D0196_4DDCD636016C_var*
+procedure TPrimChangesBetweenEditonsForm.Document_GetParaForPositionning_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4B506F4D0196_4DDCD636016Ctest_var*
+//#UC END# *4B506F4D0196_4DDCD636016Ctest_var*
 begin
-//#UC START# *4B506F4D0196_4DDCD636016C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4B506F4D0196_4DDCD636016C_impl*
-end;//TPrimChangesBetweenEditonsForm.GetParaForPositionning
+//#UC START# *4B506F4D0196_4DDCD636016Ctest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := true;
+//#UC END# *4B506F4D0196_4DDCD636016Ctest_impl*
+end;//TPrimChangesBetweenEditonsForm.Document_GetParaForPositionning_Test
+
+function TPrimChangesBetweenEditonsForm.Document_GetParaForPositionning_Execute: IeeLeafPara;
+//#UC START# *4B506F4D0196_4DDCD636016Cexec_var*
+//#UC END# *4B506F4D0196_4DDCD636016Cexec_var*
+begin
+//#UC START# *4B506F4D0196_4DDCD636016Cexec_impl*
+ Result := GetParaForPositionning;
+//#UC END# *4B506F4D0196_4DDCD636016Cexec_impl*
+end;//TPrimChangesBetweenEditonsForm.Document_GetParaForPositionning_Execute
+
+procedure TPrimChangesBetweenEditonsForm.Document_GetParaForPositionning(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IDocument_GetParaForPositionning_Params) do
+  ResultValue := Self.Document_GetParaForPositionning_Execute;
+end;//TPrimChangesBetweenEditonsForm.Document_GetParaForPositionning
 
 function TPrimChangesBetweenEditonsForm.Get_NeedSaveActiveClassBeforeSearch: Boolean;
 //#UC START# *4F1D607E0027_4DDCD636016Cget_var*
@@ -584,31 +620,6 @@ begin
 //#UC END# *53A303BE03A8_4DDCD636016C_impl*
 end;//TPrimChangesBetweenEditonsForm.OpenRedactionGlobalLink
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimChangesBetweenEditonsForm.Print;
- {* Печать }
-//#UC START# *49521D8E0295_4DDCD636016C_var*
-//#UC END# *49521D8E0295_4DDCD636016C_var*
-begin
-//#UC START# *49521D8E0295_4DDCD636016C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49521D8E0295_4DDCD636016C_impl*
-end;//TPrimChangesBetweenEditonsForm.Print
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimChangesBetweenEditonsForm.PrintDialog;
- {* Печать... }
-//#UC START# *495220DE0298_4DDCD636016C_var*
-//#UC END# *495220DE0298_4DDCD636016C_var*
-begin
-//#UC START# *495220DE0298_4DDCD636016C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495220DE0298_4DDCD636016C_impl*
-end;//TPrimChangesBetweenEditonsForm.PrintDialog
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
 procedure TPrimChangesBetweenEditonsForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4DDCD636016C_var*
@@ -643,7 +654,6 @@ begin
  end;//with Text
 //#UC END# *4A8E8F2E0195_4DDCD636016C_impl*
 end;//TPrimChangesBetweenEditonsForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TPrimChangesBetweenEditonsForm.ContinueSearchInWholeBase: Boolean;
 //#UC START# *4B4EF0D2016A_4DDCD636016C_var*
@@ -685,6 +695,7 @@ initialization
  TtfwClassRef.Register(TPrimChangesBetweenEditonsForm);
  {* Регистрация PrimChangesBetweenEditons }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

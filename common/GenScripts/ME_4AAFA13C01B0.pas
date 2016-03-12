@@ -70,11 +70,16 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   procedure ptNewTheme; override;
-   procedure ptEditPosting; override;
-   procedure ptDeletePosting; override;
-   procedure SavePostList; override;
-   procedure ExportSelected; override;
+   procedure PostingToolBar_ptNewTheme_Test(const aParams: IvcmTestParamsPrim);
+   procedure PostingToolBar_ptNewTheme_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure PostingToolBar_ptEditPosting_Test(const aParams: IvcmTestParamsPrim);
+   procedure PostingToolBar_ptEditPosting_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure PostingToolBar_ptDeletePosting_Test(const aParams: IvcmTestParamsPrim);
+   procedure PostingToolBar_ptDeletePosting_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure PostingToolBar_SavePostList_Test(const aParams: IvcmTestParamsPrim);
+   procedure PostingToolBar_SavePostList_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure PostingToolBar_ExportSelected_Test(const aParams: IvcmTestParamsPrim);
+   procedure PostingToolBar_ExportSelected_Execute(const aParams: IvcmExecuteParamsPrim);
   private
    property IsNeedSave: Boolean
     read pm_GetIsNeedSave;
@@ -123,6 +128,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки MyPostingListLocalConstants }
  str_MyPostingListCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'MyPostingListCaption'; rValue : 'ПРАЙМ. Моя новостная лента');
@@ -223,50 +229,165 @@ begin
 //#UC END# *52826586022D_4AAFA13C01B0_impl*
 end;//TPrimPostingsListForm.OnCaptionChange
 
-procedure TPrimPostingsListForm.ptNewTheme;
-//#UC START# *4C84EE020054_4AAFA13C01B0_var*
-//#UC END# *4C84EE020054_4AAFA13C01B0_var*
+procedure TPrimPostingsListForm.PostingToolBar_ptNewTheme_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C84EE020054_4AAFA13C01B0test_var*
+//#UC END# *4C84EE020054_4AAFA13C01B0test_var*
 begin
-//#UC START# *4C84EE020054_4AAFA13C01B0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C84EE020054_4AAFA13C01B0_impl*
-end;//TPrimPostingsListForm.ptNewTheme
+//#UC START# *4C84EE020054_4AAFA13C01B0test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := true;
+//#UC END# *4C84EE020054_4AAFA13C01B0test_impl*
+end;//TPrimPostingsListForm.PostingToolBar_ptNewTheme_Test
 
-procedure TPrimPostingsListForm.ptEditPosting;
-//#UC START# *4C84EE1D0024_4AAFA13C01B0_var*
-//#UC END# *4C84EE1D0024_4AAFA13C01B0_var*
+procedure TPrimPostingsListForm.PostingToolBar_ptNewTheme_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C84EE020054_4AAFA13C01B0exec_var*
+//#UC END# *4C84EE020054_4AAFA13C01B0exec_var*
 begin
-//#UC START# *4C84EE1D0024_4AAFA13C01B0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C84EE1D0024_4AAFA13C01B0_impl*
-end;//TPrimPostingsListForm.ptEditPosting
+//#UC START# *4C84EE020054_4AAFA13C01B0exec_impl*
+ if Save then
+ begin
+  TdmStdRes.OpenPostingOrder(nil, Container);
+  // - http://mdp.garant.ru/pages/viewpage.action?pageId=589529193
+  TnsPostingsTreeSingle.Instance.EditNodeIndex := -1;
+ end;//Save
+//#UC END# *4C84EE020054_4AAFA13C01B0exec_impl*
+end;//TPrimPostingsListForm.PostingToolBar_ptNewTheme_Execute
 
-procedure TPrimPostingsListForm.ptDeletePosting;
-//#UC START# *4C84EE3801EB_4AAFA13C01B0_var*
-//#UC END# *4C84EE3801EB_4AAFA13C01B0_var*
+procedure TPrimPostingsListForm.PostingToolBar_ptEditPosting_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C84EE1D0024_4AAFA13C01B0test_var*
+//#UC END# *4C84EE1D0024_4AAFA13C01B0test_var*
 begin
-//#UC START# *4C84EE3801EB_4AAFA13C01B0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C84EE3801EB_4AAFA13C01B0_impl*
-end;//TPrimPostingsListForm.ptDeletePosting
+//#UC START# *4C84EE1D0024_4AAFA13C01B0test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := Assigned(tvPostings.TreeView.CurrentNode);
+//#UC END# *4C84EE1D0024_4AAFA13C01B0test_impl*
+end;//TPrimPostingsListForm.PostingToolBar_ptEditPosting_Test
 
-procedure TPrimPostingsListForm.SavePostList;
-//#UC START# *4C84EE590206_4AAFA13C01B0_var*
-//#UC END# *4C84EE590206_4AAFA13C01B0_var*
+procedure TPrimPostingsListForm.PostingToolBar_ptEditPosting_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C84EE1D0024_4AAFA13C01B0exec_var*
+var
+ l_Prime : InsPrimeNode;
+ l_Query : IQuery;
+//#UC END# *4C84EE1D0024_4AAFA13C01B0exec_var*
 begin
-//#UC START# *4C84EE590206_4AAFA13C01B0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C84EE590206_4AAFA13C01B0_impl*
-end;//TPrimPostingsListForm.SavePostList
+//#UC START# *4C84EE1D0024_4AAFA13C01B0exec_impl*
+ if Save then
+  with tvPostings.TreeView do
+  begin
+   if Supports(GetNode(Current), InsPrimeNode, l_Prime) then
+   try
+    l_Prime.Data.GetQuery(l_Query);
+    try
+     TdmStdRes.OpenPostingOrder(l_Query, Container);
+     // - http://mdp.garant.ru/pages/viewpage.action?pageId=589529193
+     TnsPostingsTreeSingle.Instance.EditNodeIndex := Current;
+      // - пользователь может перескочить на другой узел в списке и тогда мы
+      //   изменим _Caption у другого узла. Для новой карточки название узла и
+      //   так присваивается.
+    finally
+     l_Query := nil;
+    end;//try..finally
+   finally
+    l_Prime := nil;
+   end;//try..finally
+  end;//with tvPostings.TreeView
+//#UC END# *4C84EE1D0024_4AAFA13C01B0exec_impl*
+end;//TPrimPostingsListForm.PostingToolBar_ptEditPosting_Execute
 
-procedure TPrimPostingsListForm.ExportSelected;
-//#UC START# *4C84EE750308_4AAFA13C01B0_var*
-//#UC END# *4C84EE750308_4AAFA13C01B0_var*
+procedure TPrimPostingsListForm.PostingToolBar_ptDeletePosting_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C84EE3801EB_4AAFA13C01B0test_var*
+//#UC END# *4C84EE3801EB_4AAFA13C01B0test_var*
 begin
-//#UC START# *4C84EE750308_4AAFA13C01B0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C84EE750308_4AAFA13C01B0_impl*
-end;//TPrimPostingsListForm.ExportSelected
+//#UC START# *4C84EE3801EB_4AAFA13C01B0test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := Assigned(tvPostings.TreeView.CurrentNode);
+//#UC END# *4C84EE3801EB_4AAFA13C01B0test_impl*
+end;//TPrimPostingsListForm.PostingToolBar_ptDeletePosting_Test
+
+procedure TPrimPostingsListForm.PostingToolBar_ptDeletePosting_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C84EE3801EB_4AAFA13C01B0exec_var*
+var
+ l_CurTreeView: IeeTreeView;
+ l_CurNode: IeeNode;
+//#UC END# *4C84EE3801EB_4AAFA13C01B0exec_var*
+begin
+//#UC START# *4C84EE3801EB_4AAFA13C01B0exec_impl*
+ TdmStdRes.CheckHistory;
+ l_CurTreeView := tvPostings.TreeView;
+ if Assigned(l_CurTreeView) then
+  if l_CurTreeView.Tree.SelectedCount > 1 then
+  begin
+   if Ask(qr_DeletePostings) then
+    TnsPostingsTreeSingle.Instance.DeleteSelectedPostings(l_CurTreeView);
+  end
+  else
+   with l_CurTreeView do
+   begin
+    l_CurNode := GetNode(Current);
+    try
+     if Ask(qr_DeletePosting, [l_CurNode.Text]) then
+       TnsPostingsTreeSingle.Instance.DeletePosting(l_CurNode);
+    finally
+     l_CurNode := nil;
+    end;
+  end;
+//#UC END# *4C84EE3801EB_4AAFA13C01B0exec_impl*
+end;//TPrimPostingsListForm.PostingToolBar_ptDeletePosting_Execute
+
+procedure TPrimPostingsListForm.PostingToolBar_SavePostList_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C84EE590206_4AAFA13C01B0test_var*
+//#UC END# *4C84EE590206_4AAFA13C01B0test_var*
+begin
+//#UC START# *4C84EE590206_4AAFA13C01B0test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := TdmStdRes.CanSavePostList;
+//#UC END# *4C84EE590206_4AAFA13C01B0test_impl*
+end;//TPrimPostingsListForm.PostingToolBar_SavePostList_Test
+
+procedure TPrimPostingsListForm.PostingToolBar_SavePostList_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C84EE590206_4AAFA13C01B0exec_var*
+//#UC END# *4C84EE590206_4AAFA13C01B0exec_var*
+begin
+//#UC START# *4C84EE590206_4AAFA13C01B0exec_impl*
+ TdmStdRes.SavePostList;
+//#UC END# *4C84EE590206_4AAFA13C01B0exec_impl*
+end;//TPrimPostingsListForm.PostingToolBar_SavePostList_Execute
+
+procedure TPrimPostingsListForm.PostingToolBar_ExportSelected_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C84EE750308_4AAFA13C01B0test_var*
+//#UC END# *4C84EE750308_4AAFA13C01B0test_var*
+begin
+//#UC START# *4C84EE750308_4AAFA13C01B0test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := tvPostings.TreeView.Tree.SelectedCount > 0;
+//#UC END# *4C84EE750308_4AAFA13C01B0test_impl*
+end;//TPrimPostingsListForm.PostingToolBar_ExportSelected_Test
+
+procedure TPrimPostingsListForm.PostingToolBar_ExportSelected_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C84EE750308_4AAFA13C01B0exec_var*
+var
+ l_FO : TOpenDialog;
+//#UC END# *4C84EE750308_4AAFA13C01B0exec_var*
+begin
+//#UC START# *4C84EE750308_4AAFA13C01B0exec_impl*
+ l_FO := TvtSaveDialog.Create(Self);
+ try
+  with l_FO do
+  begin
+   Options := Options + [ofOverwritePrompt, ofPathMustExist];
+   Filter := str_PrimeFilter.AsStr;
+   Title := str_ExportPrimeTitle.AsStr;
+   DefaultExt := vcmConstString(str_XMLFileExtension);
+   FilterIndex := 1;
+   FileName := '';
+  end;
+  if l_FO.Execute then
+  try
+   TnsPostingsTreeSingle.Instance.ExportSelected(tvPostings.TreeView, nsCStr(l_FO.FileName));
+  except
+   on EUnknownExportError do
+    Say(err_ErrorWhileSavePostings);
+  end;//try..except
+ finally
+  FreeAndNil(l_FO);
+ end;//try..except
+//#UC END# *4C84EE750308_4AAFA13C01B0exec_impl*
+end;//TPrimPostingsListForm.PostingToolBar_ExportSelected_Execute
 
 procedure TPrimPostingsListForm.Cleanup;
  {* Функция очистки полей объекта. }
@@ -329,7 +450,6 @@ begin
 //#UC END# *47EA4E9002C6_4AAFA13C01B0_impl*
 end;//TPrimPostingsListForm.FinishDataUpdate
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimPostingsListForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4AAFA13C01B0_var*
@@ -344,9 +464,7 @@ begin
   Assert(False);
 //#UC END# *49803F5503AA_4AAFA13C01B0_impl*
 end;//TPrimPostingsListForm.DoInit
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TPrimPostingsListForm.CallCloseQuery(aCaller: TCustomForm): Boolean;
 //#UC START# *4980407F0076_4AAFA13C01B0_var*
 //#UC END# *4980407F0076_4AAFA13C01B0_var*
@@ -362,9 +480,7 @@ begin
  {$ifend}
 //#UC END# *4980407F0076_4AAFA13C01B0_impl*
 end;//TPrimPostingsListForm.CallCloseQuery
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimPostingsListForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AAFA13C01B0_var*
@@ -392,7 +508,6 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AAFA13C01B0_impl*
 end;//TPrimPostingsListForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_MyPostingListCaption.Init;
@@ -405,6 +520,7 @@ initialization
  TtfwClassRef.Register(TPrimPostingsListForm);
  {* Регистрация PrimPostingsList }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin)
 end.

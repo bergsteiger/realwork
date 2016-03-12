@@ -82,6 +82,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  c_HistoryFormat = 'DDDDDDDDDD';
  c_HistoryCapacity = 10;
@@ -182,7 +183,6 @@ begin
 //#UC END# *51B9E2AC030D_4AC63602020E_impl*
 end;//TPrimDocNumberQueryForm.SaveHistory
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimDocNumberQueryForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4AC63602020E_var*
@@ -193,9 +193,7 @@ begin
  Position := poScreenCenter;
 //#UC END# *49803F5503AA_4AC63602020E_impl*
 end;//TPrimDocNumberQueryForm.DoInit
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimDocNumberQueryForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AC63602020E_var*
@@ -235,7 +233,6 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AC63602020E_impl*
 end;//TPrimDocNumberQueryForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimDocNumberQueryForm.ClearFields;
 begin
@@ -248,6 +245,7 @@ initialization
  TtfwClassRef.Register(TPrimDocNumberQueryForm);
  {* Регистрация PrimDocNumberQuery }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

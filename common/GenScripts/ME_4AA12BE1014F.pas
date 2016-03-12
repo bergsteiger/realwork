@@ -87,6 +87,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 var g_Tfs_DrugDocument: Tfs_DrugDocument = nil;
  {* Экземпляр синглетона Tfs_DrugDocument }
 
@@ -175,7 +176,6 @@ begin
 //#UC END# *47A042E100E2_4AA12BE1014F_impl*
 end;//Tfs_DrugDocument.InitFields
 
-{$If NOT Defined(NoVCM)}
 class function Tfs_DrugDocument.GetInstance: TvcmFormSetFactoryPrim;
 //#UC START# *4FFE854A009B_4AA12BE1014F_var*
 //#UC END# *4FFE854A009B_4AA12BE1014F_var*
@@ -184,11 +184,11 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4FFE854A009B_4AA12BE1014F_impl*
 end;//Tfs_DrugDocument.GetInstance
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_fsDrugDocumentCaption.Init;
  {* Инициализация str_fsDrugDocumentCaption }
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

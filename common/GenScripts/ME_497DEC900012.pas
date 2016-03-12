@@ -74,7 +74,8 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   procedure BecomeActive; override;
+   procedure ListInfo_BecomeActive_Execute;
+   procedure ListInfo_BecomeActive(const aParams: IvcmExecuteParamsPrim);
    constructor Create(AOwner: TComponent); override;
   public
    property ListInfoViewer: TnscEditor
@@ -122,6 +123,7 @@ uses
  , LoggingUnit
 ;
 
+{$If NOT Defined(NoVCM)}
 class procedure TnsListReferenceActivateEvent.Log(const aList: IDynList);
 //#UC START# *4B14E35A0092_4B14E32102A2_var*
 var
@@ -212,14 +214,19 @@ begin
 //#UC END# *497F16AC015A_497DEC900012_impl*
 end;//TPrimListInfoForm.DoTabActivate
 
-procedure TPrimListInfoForm.BecomeActive;
-//#UC START# *4AF858F30202_497DEC900012_var*
-//#UC END# *4AF858F30202_497DEC900012_var*
+procedure TPrimListInfoForm.ListInfo_BecomeActive_Execute;
+//#UC START# *4AF858F30202_497DEC900012exec_var*
+//#UC END# *4AF858F30202_497DEC900012exec_var*
 begin
-//#UC START# *4AF858F30202_497DEC900012_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF858F30202_497DEC900012_impl*
-end;//TPrimListInfoForm.BecomeActive
+//#UC START# *4AF858F30202_497DEC900012exec_impl*
+ SetActiveInParent;
+//#UC END# *4AF858F30202_497DEC900012exec_impl*
+end;//TPrimListInfoForm.ListInfo_BecomeActive_Execute
+
+procedure TPrimListInfoForm.ListInfo_BecomeActive(const aParams: IvcmExecuteParamsPrim);
+begin
+ Self.ListInfo_BecomeActive_Execute;
+end;//TPrimListInfoForm.ListInfo_BecomeActive
 
 procedure TPrimListInfoForm.liListInfoQueryClose(aSender: TObject);
  {* Обработчик события liListInfo.OnQueryClose }
@@ -246,7 +253,6 @@ begin
 //#UC END# *47D1602000C6_497DEC900012_impl*
 end;//TPrimListInfoForm.Create
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimListInfoForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
  const aNew: IvcmViewAreaController);
  {* Изменился источник данных. Для перекрытия в потомках }
@@ -258,9 +264,7 @@ begin
   TextSource.DocumentContainer := nil;
 //#UC END# *497469C90140_497DEC900012_impl*
 end;//TPrimListInfoForm.NotifyDataSourceChanged
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimListInfoForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_497DEC900012_var*
@@ -284,13 +288,13 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_497DEC900012_impl*
 end;//TPrimListInfoForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimListInfoForm);
  {* Регистрация PrimListInfo }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

@@ -62,6 +62,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 var g_Tfs_AutoreferatAfterSearch: Tfs_AutoreferatAfterSearch = nil;
  {* Экземпляр синглетона Tfs_AutoreferatAfterSearch }
 
@@ -114,7 +115,6 @@ begin
 //#UC END# *47A042E100E2_4AA4B28D02A1_impl*
 end;//Tfs_AutoreferatAfterSearch.InitFields
 
-{$If NOT Defined(NoVCM)}
 class function Tfs_AutoreferatAfterSearch.GetInstance: TvcmFormSetFactoryPrim;
 //#UC START# *4FFE854A009B_4AA4B28D02A1_var*
 //#UC END# *4FFE854A009B_4AA4B28D02A1_var*
@@ -123,11 +123,11 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4FFE854A009B_4AA4B28D02A1_impl*
 end;//Tfs_AutoreferatAfterSearch.GetInstance
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_fsAutoreferatAfterSearchCaption.Init;
  {* Инициализация str_fsAutoreferatAfterSearchCaption }
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

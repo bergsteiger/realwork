@@ -28,15 +28,29 @@
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
-   procedure NextDocumentInList; override;
+   procedure Document_NextDocumentInList_Test(const aParams: IvcmTestParamsPrim);
     {* Следующий документ в списке }
-   procedure ReturnToList; override;
+   procedure Document_NextDocumentInList_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Следующий документ в списке }
+   procedure Document_ReturnToList_Test(const aParams: IvcmTestParamsPrim);
     {* Вернуться в списк }
-   procedure PrevDocumentInList; override;
+   procedure Document_ReturnToList_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Вернуться в списк }
+   procedure Document_PrevDocumentInList_Test(const aParams: IvcmTestParamsPrim);
     {* Предыдущий документ в списке }
-   procedure DocumentIsUseful; override;
+   procedure Document_PrevDocumentInList_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Предыдущий документ в списке }
+   procedure Document_DocumentIsUseful_Test(const aParams: IvcmTestParamsPrim);
     {* Нравится }
-   procedure DocumentIsUseless; override;
+   procedure Document_DocumentIsUseful_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Нравится }
+   procedure Document_DocumentIsUseful_GetState(var State: TvcmOperationStateIndex);
+    {* Нравится }
+   procedure Document_DocumentIsUseless_Test(const aParams: IvcmTestParamsPrim);
+    {* Не нравится }
+   procedure Document_DocumentIsUseless_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Не нравится }
+   procedure Document_DocumentIsUseless_GetState(var State: TvcmOperationStateIndex);
     {* Не нравится }
  end;//_StatusBarDocumentItems_
 
@@ -114,25 +128,45 @@ begin
 //#UC END# *498814A0026F_498721A60125_impl*
 end;//_StatusBarDocumentItems_.ReturnToListOpTest
 
-procedure _StatusBarDocumentItems_.NextDocumentInList;
+procedure _StatusBarDocumentItems_.Document_NextDocumentInList_Test(const aParams: IvcmTestParamsPrim);
  {* Следующий документ в списке }
-//#UC START# *49880FD20039_498721A60125_var*
-//#UC END# *49880FD20039_498721A60125_var*
+//#UC START# *49880FD20039_498721A60125test_var*
+//#UC END# *49880FD20039_498721A60125test_var*
 begin
-//#UC START# *49880FD20039_498721A60125_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49880FD20039_498721A60125_impl*
-end;//_StatusBarDocumentItems_.NextDocumentInList
+//#UC START# *49880FD20039_498721A60125test_impl*
+ OpenDocumentInListOpTest(aParams, True);
+//#UC END# *49880FD20039_498721A60125test_impl*
+end;//_StatusBarDocumentItems_.Document_NextDocumentInList_Test
 
-procedure _StatusBarDocumentItems_.ReturnToList;
- {* Вернуться в списк }
-//#UC START# *49880FE90145_498721A60125_var*
-//#UC END# *49880FE90145_498721A60125_var*
+procedure _StatusBarDocumentItems_.Document_NextDocumentInList_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Следующий документ в списке }
+//#UC START# *49880FD20039_498721A60125exec_var*
+//#UC END# *49880FD20039_498721A60125exec_var*
 begin
-//#UC START# *49880FE90145_498721A60125_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49880FE90145_498721A60125_impl*
-end;//_StatusBarDocumentItems_.ReturnToList
+//#UC START# *49880FD20039_498721A60125exec_impl*
+ OpenDocumentInListOpExecute(True);
+//#UC END# *49880FD20039_498721A60125exec_impl*
+end;//_StatusBarDocumentItems_.Document_NextDocumentInList_Execute
+
+procedure _StatusBarDocumentItems_.Document_ReturnToList_Test(const aParams: IvcmTestParamsPrim);
+ {* Вернуться в списк }
+//#UC START# *49880FE90145_498721A60125test_var*
+//#UC END# *49880FE90145_498721A60125test_var*
+begin
+//#UC START# *49880FE90145_498721A60125test_impl*
+ ReturnToListOpTest(aParams);
+//#UC END# *49880FE90145_498721A60125test_impl*
+end;//_StatusBarDocumentItems_.Document_ReturnToList_Test
+
+procedure _StatusBarDocumentItems_.Document_ReturnToList_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Вернуться в списк }
+//#UC START# *49880FE90145_498721A60125exec_var*
+//#UC END# *49880FE90145_498721A60125exec_var*
+begin
+//#UC START# *49880FE90145_498721A60125exec_impl*
+ ReturnToListOpExecute;
+//#UC END# *49880FE90145_498721A60125exec_impl*
+end;//_StatusBarDocumentItems_.Document_ReturnToList_Execute
 
 procedure _StatusBarDocumentItems_.FillList(const aList: InscStatusBarItemDefsList);
  {* Заполняет список операций. Для перекрытия в потомках }
@@ -172,35 +206,95 @@ begin
 //#UC END# *4A8E5E4702C6_498721A60125_impl*
 end;//_StatusBarDocumentItems_.FillList
 
-procedure _StatusBarDocumentItems_.PrevDocumentInList;
+procedure _StatusBarDocumentItems_.Document_PrevDocumentInList_Test(const aParams: IvcmTestParamsPrim);
  {* Предыдущий документ в списке }
-//#UC START# *4FE1BA1303D3_498721A60125_var*
-//#UC END# *4FE1BA1303D3_498721A60125_var*
+//#UC START# *4FE1BA1303D3_498721A60125test_var*
+//#UC END# *4FE1BA1303D3_498721A60125test_var*
 begin
-//#UC START# *4FE1BA1303D3_498721A60125_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FE1BA1303D3_498721A60125_impl*
-end;//_StatusBarDocumentItems_.PrevDocumentInList
+//#UC START# *4FE1BA1303D3_498721A60125test_impl*
+ OpenDocumentInListOpTest(aParams, False);
+//#UC END# *4FE1BA1303D3_498721A60125test_impl*
+end;//_StatusBarDocumentItems_.Document_PrevDocumentInList_Test
 
-procedure _StatusBarDocumentItems_.DocumentIsUseful;
+procedure _StatusBarDocumentItems_.Document_PrevDocumentInList_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Предыдущий документ в списке }
+//#UC START# *4FE1BA1303D3_498721A60125exec_var*
+//#UC END# *4FE1BA1303D3_498721A60125exec_var*
+begin
+//#UC START# *4FE1BA1303D3_498721A60125exec_impl*
+ OpenDocumentInListOpExecute(False);
+//#UC END# *4FE1BA1303D3_498721A60125exec_impl*
+end;//_StatusBarDocumentItems_.Document_PrevDocumentInList_Execute
+
+procedure _StatusBarDocumentItems_.Document_DocumentIsUseful_Test(const aParams: IvcmTestParamsPrim);
  {* Нравится }
-//#UC START# *4FE1EF1201D6_498721A60125_var*
-//#UC END# *4FE1EF1201D6_498721A60125_var*
+//#UC START# *4FE1EF1201D6_498721A60125test_var*
+var
+ l_Likeable: ILikeable;
+//#UC END# *4FE1EF1201D6_498721A60125test_var*
 begin
-//#UC START# *4FE1EF1201D6_498721A60125_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FE1EF1201D6_498721A60125_impl*
-end;//_StatusBarDocumentItems_.DocumentIsUseful
+//#UC START# *4FE1EF1201D6_498721A60125test_impl*
+ l_Likeable := dsBaseDocument.AsLikeable;
+ aParams.Op.Flag[vcm_ofVisible] := Assigned(l_Likeable) and l_Likeable.GetCanLike;
+ aParams.Op.Flag[vcm_ofEnabled] := aParams.Op.Flag[vcm_ofVisible];
+ aParams.Op.Flag[vcm_ofChecked] := aParams.Op.Flag[vcm_ofEnabled] and (dsBaseDocument.LikeState = dlsUseful);
+//#UC END# *4FE1EF1201D6_498721A60125test_impl*
+end;//_StatusBarDocumentItems_.Document_DocumentIsUseful_Test
 
-procedure _StatusBarDocumentItems_.DocumentIsUseless;
- {* Не нравится }
-//#UC START# *4FE1EF1B039A_498721A60125_var*
-//#UC END# *4FE1EF1B039A_498721A60125_var*
+procedure _StatusBarDocumentItems_.Document_DocumentIsUseful_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Нравится }
+//#UC START# *4FE1EF1201D6_498721A60125exec_var*
+//#UC END# *4FE1EF1201D6_498721A60125exec_var*
 begin
-//#UC START# *4FE1EF1B039A_498721A60125_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FE1EF1B039A_498721A60125_impl*
-end;//_StatusBarDocumentItems_.DocumentIsUseless
+//#UC START# *4FE1EF1201D6_498721A60125exec_impl*
+ dsBaseDocument.LikeState := dlsUseful;
+//#UC END# *4FE1EF1201D6_498721A60125exec_impl*
+end;//_StatusBarDocumentItems_.Document_DocumentIsUseful_Execute
+
+procedure _StatusBarDocumentItems_.Document_DocumentIsUseful_GetState(var State: TvcmOperationStateIndex);
+ {* Нравится }
+//#UC START# *4FE1EF1201D6_498721A60125getstate_var*
+//#UC END# *4FE1EF1201D6_498721A60125getstate_var*
+begin
+//#UC START# *4FE1EF1201D6_498721A60125getstate_impl*
+ State := vcm_DefaultOperationState;
+//#UC END# *4FE1EF1201D6_498721A60125getstate_impl*
+end;//_StatusBarDocumentItems_.Document_DocumentIsUseful_GetState
+
+procedure _StatusBarDocumentItems_.Document_DocumentIsUseless_Test(const aParams: IvcmTestParamsPrim);
+ {* Не нравится }
+//#UC START# *4FE1EF1B039A_498721A60125test_var*
+var
+ l_Likeable: ILikeable;
+//#UC END# *4FE1EF1B039A_498721A60125test_var*
+begin
+//#UC START# *4FE1EF1B039A_498721A60125test_impl*
+ l_Likeable := dsBaseDocument.AsLikeable;
+ aParams.Op.Flag[vcm_ofVisible] := Assigned(l_Likeable) and l_Likeable.GetCanLike;
+ aParams.Op.Flag[vcm_ofEnabled] := aParams.Op.Flag[vcm_ofVisible];
+ aParams.Op.Flag[vcm_ofChecked] := aParams.Op.Flag[vcm_ofEnabled] and (dsBaseDocument.LikeState = dlsUseless);
+//#UC END# *4FE1EF1B039A_498721A60125test_impl*
+end;//_StatusBarDocumentItems_.Document_DocumentIsUseless_Test
+
+procedure _StatusBarDocumentItems_.Document_DocumentIsUseless_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Не нравится }
+//#UC START# *4FE1EF1B039A_498721A60125exec_var*
+//#UC END# *4FE1EF1B039A_498721A60125exec_var*
+begin
+//#UC START# *4FE1EF1B039A_498721A60125exec_impl*
+ dsBaseDocument.LikeState := dlsUseless;
+//#UC END# *4FE1EF1B039A_498721A60125exec_impl*
+end;//_StatusBarDocumentItems_.Document_DocumentIsUseless_Execute
+
+procedure _StatusBarDocumentItems_.Document_DocumentIsUseless_GetState(var State: TvcmOperationStateIndex);
+ {* Не нравится }
+//#UC START# *4FE1EF1B039A_498721A60125getstate_var*
+//#UC END# *4FE1EF1B039A_498721A60125getstate_var*
+begin
+//#UC START# *4FE1EF1B039A_498721A60125getstate_impl*
+ State := vcm_DefaultOperationState;
+//#UC END# *4FE1EF1B039A_498721A60125getstate_impl*
+end;//_StatusBarDocumentItems_.Document_DocumentIsUseless_GetState
 
 procedure _StatusBarDocumentItems_.Cleanup;
  {* Функция очистки полей объекта. }

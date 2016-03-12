@@ -141,7 +141,7 @@ type
     aY: Integer;
     out theTarget: IUnknown): Boolean;
    procedure ReloadRedaction(aChangeType: TnsChangeRedactionType;
-    aRedaction: TRedactionID); override;
+    aRedaction: TRedactionID = 0); override;
    function ReloadRedaction(const aDate: AdapterDate): Boolean; override;
    procedure SetActualRedaction; override;
    function ExtractRangeFromContents(const aData: IUnknown;
@@ -158,7 +158,7 @@ type
    procedure InitHyperLink(const aHyperLink: IevHyperlink;
     const aBaseEntity: IUnknown); override;
    function EnableRedactionOps(const aParams: IvcmTestParamsPrim): Boolean; override;
-   procedure OpenInWindow(aNew: Boolean); override;
+   procedure OpenInWindow(aNew: Boolean = True); override;
    procedure CreateTOC(const aTOC: IdeSimpleTree); override;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
@@ -192,178 +192,37 @@ type
    procedure ReleaseResources; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   procedure OpenInNewWindow; override;
-   procedure Show; override;
+   procedure Openable_OpenInNewWindow_Test(const aParams: IvcmTestParamsPrim);
+   procedure Openable_OpenInNewWindow_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure SubPanelSettings_Show_Test(const aParams: IvcmTestParamsPrim);
     {* Показывать метки }
-   procedure RemWarnJuror; override;
-   procedure RemWarnTimeMachineOn; override;
-   procedure RemWarnRedaction; override;
-   procedure RemWarnOnControl; override;
-   procedure RemWarnIsAbolished; override;
-   procedure RemWarnTimeMachineException; override;
-   procedure RemWarnPreActive; override;
-   procedure RemWarnTimeMachineWarning; override;
-   procedure ViewInactualDocument; override;
-   procedure ChangesButton; override;
+   procedure SubPanelSettings_Show_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Показывать метки }
+   procedure Reminder_RemWarnJuror_Test(const aParams: IvcmTestParamsPrim);
+   procedure Reminder_RemWarnJuror_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Reminder_RemWarnTimeMachineOn_Test(const aParams: IvcmTestParamsPrim);
+   procedure Reminder_RemWarnTimeMachineOn_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Reminder_RemWarnRedaction_Test(const aParams: IvcmTestParamsPrim);
+   procedure Reminder_RemWarnRedaction_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Reminder_RemWarnOnControl_Test(const aParams: IvcmTestParamsPrim);
+   procedure Reminder_RemWarnOnControl_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Reminder_RemWarnIsAbolished_Test(const aParams: IvcmTestParamsPrim);
+   procedure Reminder_RemWarnIsAbolished_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Reminder_RemWarnTimeMachineException_Test(const aParams: IvcmTestParamsPrim);
+   procedure Reminder_RemWarnTimeMachineException_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Reminder_RemWarnPreActive_Test(const aParams: IvcmTestParamsPrim);
+   procedure Reminder_RemWarnPreActive_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Reminder_RemWarnTimeMachineWarning_Test(const aParams: IvcmTestParamsPrim);
+   procedure Reminder_RemWarnTimeMachineWarning_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Reminder_ViewInactualDocument_Test(const aParams: IvcmTestParamsPrim);
+   procedure Reminder_ViewInactualDocument_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_ChangesButton_Test(const aParams: IvcmTestParamsPrim);
     {* Изменения в документе }
-   procedure CopySubNumber; override;
+   procedure SubsPanel_CopySubNumber_Test(const aParams: IvcmTestParamsPrim);
     {* Копировать позицию }
-   procedure ShowByShortCut; override;
-   {$If NOT Defined(NoVCM)}
-   procedure FindContext; override;
-    {* Поиск }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure FindNext; override;
-    {* Найти далее }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Print; override;
-    {* Печать }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure PrintDialog; override;
-    {* Печать... }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure PrintPreview; override;
-    {* Предварительный просмотр }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Save; override;
-    {* Сохранить }
-   {$IfEnd} // NOT Defined(NoVCM)
-   procedure ToMSWord; override;
-    {* Экспорт в Word }
-   procedure SendMailAsAttachment; override;
-    {* Послать по e-mail }
-   procedure NextDocumentInList; override;
-    {* Следующий документ в списке }
-   procedure ReturnToList; override;
-    {* Вернуться в списк }
-   procedure SaveToFolder; override;
-    {* Сохранить в папки }
-   procedure LoadFromFolder; override;
-    {* Загрузить из папок }
-   procedure GetAttributesFrmAct; override;
-    {* Информация о документе }
-   procedure GetRelatedDocFrmAct; override;
-    {* Справка к документу }
-   procedure AddBookmark; override;
-    {* Добавить закладку }
-   procedure GetCorrespondentList; override;
-    {* Ссылки на документ }
-   procedure GetRespondentList; override;
-    {* Ссылки из документа }
-   {$If NOT Defined(NoVCM)}
-   procedure Undo; override;
-    {* Отмена }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Redo; override;
-    {* Возврат }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure FindPrev; override;
-   {$IfEnd} // NOT Defined(NoVCM)
-   procedure ShowJurorComments; override;
-    {* Показать юридические комментарии }
-   procedure ShowSpecial; override;
-    {* Показывать спецсимволы }
-   procedure ShowInfo; override;
-    {* Показывать блоки }
-   procedure FindInDict; override;
-    {* Найти в Толковом словаре }
-   procedure GetCorrespondentListExFrmAct; override;
-    {* Ссылки на документ (вид информации) }
-   procedure GetRespondentListExFrmAct; override;
-    {* Ссылки из документа (вид информации) }
-   procedure ActualRedaction; override;
-   procedure OpenRedactionListFrmAct; override;
-    {* Список редакций }
-   procedure GetCorrespondentList; override;
-   procedure GetRespondentList; override;
-   procedure GetAnnotationDocFrmAct; override;
-   procedure SimilarDocuments; override;
-   procedure GetTypedCorrespondentList; override;
-   procedure PrevRedaction; override;
-   procedure NextRedaction; override;
-   procedure AddToControl; override;
-   procedure ShowCorrespondentListToPart; override;
-   procedure ShowRespondentListToPart; override;
-   procedure ClearStatusSettings; override;
-    {* Способ сброса статуса "изменен" }
-   procedure AddBookmark; override;
-   procedure ToMSWord; override;
-   procedure Print; override;
-   procedure PrintDialog; override;
-   procedure AddBookmark; override;
-    {* Установить закладку на фрагмент }
-   procedure OpenContentsFrmAct; override;
-   procedure ShowDocumentPicture; override;
-   procedure OpenActualRedaction; override;
-   procedure ShowChanges; override;
-    {* Показать изменения }
-   procedure ClearStatus; override;
-    {* Сбросить статус "изменен" }
-   procedure AddUserComment; override;
-   procedure GetGraphicImage; override;
-   procedure DocumentSynchroOpenWindow; override;
-   procedure DocumentSynchroOpenNewWindow; override;
-   procedure DictListOpenFrmAct; override;
-   procedure GotoBookmark; override;
-   procedure LiteratureListForDictionary; override;
-   procedure AddBookmark; override;
-   procedure OpenNewWindow; override;
-   procedure OpenProducedDrugList; override;
-   procedure OpenSimilarDrugList; override;
-   procedure ShowJurorComments; override;
-    {* Показать/скрыть комментарии ГАРАНТа }
-   procedure ShowUserComments; override;
-    {* Показать/скрыть мои комментарии }
-   procedure ShowTechComments; override;
-    {* Показывать технические комментарии }
-   procedure AddToControl; override;
-    {* Поставить на контроль }
-   procedure UserCR1; override;
-    {* Пользовательские ссылки на документ (ссылки из документа) 1 }
-   procedure UserCR2; override;
-    {* Пользовательские ссылки на документ (ссылки из документа) 2 }
-   procedure ShowVersionComments; override;
-    {* Включить/выключить информацию об изменениях документа }
-   procedure CompareEditions; override;
-    {* Сравнение редакций }
-   procedure TimeMachineOnOffNew; override;
-    {* Включить Машину времени }
-   {$If NOT Defined(NoVCM)}
-   procedure Copy; override;
-    {* Копировать }
-   {$IfEnd} // NOT Defined(NoVCM)
-   procedure ShowInfo; override;
-    {* Показать текст предупреждения }
-   procedure ShowInfo; override;
-    {* Показать текст предупреждения }
-   procedure TimeMachineOnOffNew; override;
-    {* Включить/Выключить Машину времени }
-   procedure ShowInfo; override;
-    {* Показать текст предупреждения }
-   procedure UserCR1; override;
-    {* Пользовательские ссылки на документ (ссылки из документа) 1 }
-   procedure UserCR2; override;
-    {* Пользовательские ссылки на документ (ссылки из документа) 2 }
-   procedure AddToControl; override;
-    {* Поставить на контроль }
-   procedure MakeHyperlinkToDocument; override;
-    {* Создать ссылку на документ }
-   procedure PrevDocumentInList; override;
-    {* Предыдущий документ в списке }
-   procedure DocumentIsUseful; override;
-    {* Нравится }
-   procedure DocumentIsUseless; override;
-    {* Не нравится }
-   procedure SelectWord; override;
-   procedure SelectPara; override;
-   procedure GetSimilarDocsToBlock; override;
+   procedure SubsPanel_CopySubNumber_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Копировать позицию }
+   procedure SubPanelSettings_ShowByShortCut_Execute(const aParams: IvcmExecuteParamsPrim);
   public
    property RemindersLine: TnscRemindersLine
     read f_RemindersLine;
@@ -1120,7 +979,7 @@ begin
 end;//TExTextOptionsForm.SubPanelEntitiesGetTarget
 
 procedure TExTextOptionsForm.ReloadRedaction(aChangeType: TnsChangeRedactionType;
- aRedaction: TRedactionID);
+ aRedaction: TRedactionID = 0);
 //#UC START# *4AE7354E03A4_4C7F801D0304_var*
 var
  l_Para   : IeePara;
@@ -1364,7 +1223,7 @@ begin
 //#UC END# *4AFAF4620059_4C7F801D0304_impl*
 end;//TExTextOptionsForm.EnableRedactionOps
 
-procedure TExTextOptionsForm.OpenInWindow(aNew: Boolean);
+procedure TExTextOptionsForm.OpenInWindow(aNew: Boolean = True);
 //#UC START# *4B04318202FC_4C7F801D0304_var*
 var
  l_Cont : IvcmContainer;
@@ -1390,105 +1249,220 @@ begin
 //#UC END# *4B04318202FC_4C7F801D0304_impl*
 end;//TExTextOptionsForm.OpenInWindow
 
-procedure TExTextOptionsForm.OpenInNewWindow;
-//#UC START# *4C4EB6710127_4C7F801D0304_var*
-//#UC END# *4C4EB6710127_4C7F801D0304_var*
+procedure TExTextOptionsForm.Openable_OpenInNewWindow_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C4EB6710127_4C7F801D0304test_var*
+//#UC END# *4C4EB6710127_4C7F801D0304test_var*
 begin
-//#UC START# *4C4EB6710127_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C4EB6710127_4C7F801D0304_impl*
-end;//TExTextOptionsForm.OpenInNewWindow
+//#UC START# *4C4EB6710127_4C7F801D0304test_impl*
+ HyperLink_OpenNewWindow_Test(aParams);
+//#UC END# *4C4EB6710127_4C7F801D0304test_impl*
+end;//TExTextOptionsForm.Openable_OpenInNewWindow_Test
 
-procedure TExTextOptionsForm.Show;
+procedure TExTextOptionsForm.Openable_OpenInNewWindow_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C4EB6710127_4C7F801D0304exec_var*
+//#UC END# *4C4EB6710127_4C7F801D0304exec_var*
+begin
+//#UC START# *4C4EB6710127_4C7F801D0304exec_impl*
+ HyperLink_OpenNewWindow_Execute(aParams);
+//#UC END# *4C4EB6710127_4C7F801D0304exec_impl*
+end;//TExTextOptionsForm.Openable_OpenInNewWindow_Execute
+
+procedure TExTextOptionsForm.SubPanelSettings_Show_Test(const aParams: IvcmTestParamsPrim);
  {* Показывать метки }
-//#UC START# *4C7F8DFF02BF_4C7F801D0304_var*
-//#UC END# *4C7F8DFF02BF_4C7F801D0304_var*
+//#UC START# *4C7F8DFF02BF_4C7F801D0304test_var*
+//#UC END# *4C7F8DFF02BF_4C7F801D0304test_var*
 begin
-//#UC START# *4C7F8DFF02BF_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7F8DFF02BF_4C7F801D0304_impl*
-end;//TExTextOptionsForm.Show
+//#UC START# *4C7F8DFF02BF_4C7F801D0304test_impl*
+ aParams.Op.Flag[vcm_ofVisible] := DefDataAdapter.IsInternal;
+ aParams.Op.Flag[vcm_ofEnabled] := DefDataAdapter.IsInternal;
+ aParams.Op.Flag[vcm_ofChecked] := SubPanel.SubDescriptors.SubsLayer.Visible;
+//#UC END# *4C7F8DFF02BF_4C7F801D0304test_impl*
+end;//TExTextOptionsForm.SubPanelSettings_Show_Test
 
-procedure TExTextOptionsForm.RemWarnJuror;
-//#UC START# *4C7FACA8026E_4C7F801D0304_var*
-//#UC END# *4C7FACA8026E_4C7F801D0304_var*
+procedure TExTextOptionsForm.SubPanelSettings_Show_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Показывать метки }
+//#UC START# *4C7F8DFF02BF_4C7F801D0304exec_var*
+//#UC END# *4C7F8DFF02BF_4C7F801D0304exec_var*
 begin
-//#UC START# *4C7FACA8026E_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7FACA8026E_4C7F801D0304_impl*
-end;//TExTextOptionsForm.RemWarnJuror
+//#UC START# *4C7F8DFF02BF_4C7F801D0304exec_impl*
+ ShowSubNumbers;                     
+//#UC END# *4C7F8DFF02BF_4C7F801D0304exec_impl*
+end;//TExTextOptionsForm.SubPanelSettings_Show_Execute
 
-procedure TExTextOptionsForm.RemWarnTimeMachineOn;
-//#UC START# *4C7FACBB005C_4C7F801D0304_var*
-//#UC END# *4C7FACBB005C_4C7F801D0304_var*
+procedure TExTextOptionsForm.Reminder_RemWarnJuror_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C7FACA8026E_4C7F801D0304test_var*
+//#UC END# *4C7FACA8026E_4C7F801D0304test_var*
 begin
-//#UC START# *4C7FACBB005C_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7FACBB005C_4C7F801D0304_impl*
-end;//TExTextOptionsForm.RemWarnTimeMachineOn
+//#UC START# *4C7FACA8026E_4C7F801D0304test_impl*
+ SetReminderOpParams(aParams, WarnJurorInfo);
+//#UC END# *4C7FACA8026E_4C7F801D0304test_impl*
+end;//TExTextOptionsForm.Reminder_RemWarnJuror_Test
 
-procedure TExTextOptionsForm.RemWarnRedaction;
-//#UC START# *4C7FACCE013F_4C7F801D0304_var*
-//#UC END# *4C7FACCE013F_4C7F801D0304_var*
+procedure TExTextOptionsForm.Reminder_RemWarnJuror_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C7FACA8026E_4C7F801D0304exec_var*
+//#UC END# *4C7FACA8026E_4C7F801D0304exec_var*
 begin
-//#UC START# *4C7FACCE013F_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7FACCE013F_4C7F801D0304_impl*
-end;//TExTextOptionsForm.RemWarnRedaction
+//#UC START# *4C7FACA8026E_4C7F801D0304exec_impl*
+ ShowWarningPage(False);
+ MessageDlg(l3Cat(WarnJurorInfo, '.'), 'TExTextOptionsForm.Reminder_RemWarnJuror_Execute', mtInformation);
+//#UC END# *4C7FACA8026E_4C7F801D0304exec_impl*
+end;//TExTextOptionsForm.Reminder_RemWarnJuror_Execute
 
-procedure TExTextOptionsForm.RemWarnOnControl;
-//#UC START# *4C7FACFE01D3_4C7F801D0304_var*
-//#UC END# *4C7FACFE01D3_4C7F801D0304_var*
+procedure TExTextOptionsForm.Reminder_RemWarnTimeMachineOn_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C7FACBB005C_4C7F801D0304test_var*
+//#UC END# *4C7FACBB005C_4C7F801D0304test_var*
 begin
-//#UC START# *4C7FACFE01D3_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7FACFE01D3_4C7F801D0304_impl*
-end;//TExTextOptionsForm.RemWarnOnControl
+//#UC START# *4C7FACBB005C_4C7F801D0304test_impl*
+ SetReminderOpParams(aParams, TimeMachineWarningOnInfo, TimeMachineWarningOnHint);
+//#UC END# *4C7FACBB005C_4C7F801D0304test_impl*
+end;//TExTextOptionsForm.Reminder_RemWarnTimeMachineOn_Test
 
-procedure TExTextOptionsForm.RemWarnIsAbolished;
-//#UC START# *4C7FAD0F014A_4C7F801D0304_var*
-//#UC END# *4C7FAD0F014A_4C7F801D0304_var*
+procedure TExTextOptionsForm.Reminder_RemWarnTimeMachineOn_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C7FACBB005C_4C7F801D0304exec_var*
+//#UC END# *4C7FACBB005C_4C7F801D0304exec_var*
 begin
-//#UC START# *4C7FAD0F014A_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7FAD0F014A_4C7F801D0304_impl*
-end;//TExTextOptionsForm.RemWarnIsAbolished
+//#UC START# *4C7FACBB005C_4C7F801D0304exec_impl*
+ ShowWarningPage(False, cNotSureWarningSub);
+ MessageDlg(l3Cat(TimeMachineWarningOnInfo, '.'), 'TExTextOptionsForm.Reminder_RemWarnTimeMachineOn_Execute', mtInformation);
+//#UC END# *4C7FACBB005C_4C7F801D0304exec_impl*
+end;//TExTextOptionsForm.Reminder_RemWarnTimeMachineOn_Execute
 
-procedure TExTextOptionsForm.RemWarnTimeMachineException;
-//#UC START# *4C7FAD1D038F_4C7F801D0304_var*
-//#UC END# *4C7FAD1D038F_4C7F801D0304_var*
+procedure TExTextOptionsForm.Reminder_RemWarnRedaction_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C7FACCE013F_4C7F801D0304test_var*
+//#UC END# *4C7FACCE013F_4C7F801D0304test_var*
 begin
-//#UC START# *4C7FAD1D038F_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7FAD1D038F_4C7F801D0304_impl*
-end;//TExTextOptionsForm.RemWarnTimeMachineException
+//#UC START# *4C7FACCE013F_4C7F801D0304test_impl*
+ if Assigned(Document) then
+  with defDataAdapter.TimeMachine do
+   aParams.Op.Flag[vcm_ofVisible] := not HasNotSureWarning(Document) and
+    not IsOn and not TdmStdRes.IsCurEditionActual(Document);
+//#UC END# *4C7FACCE013F_4C7F801D0304test_impl*
+end;//TExTextOptionsForm.Reminder_RemWarnRedaction_Test
 
-procedure TExTextOptionsForm.RemWarnPreActive;
-//#UC START# *4C7FAD310195_4C7F801D0304_var*
-//#UC END# *4C7FAD310195_4C7F801D0304_var*
+procedure TExTextOptionsForm.Reminder_RemWarnRedaction_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C7FACCE013F_4C7F801D0304exec_var*
+//#UC END# *4C7FACCE013F_4C7F801D0304exec_var*
 begin
-//#UC START# *4C7FAD310195_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7FAD310195_4C7F801D0304_impl*
-end;//TExTextOptionsForm.RemWarnPreActive
+//#UC START# *4C7FACCE013F_4C7F801D0304exec_impl*
+ ShowWarningPage(False, cEditionWarningSub);
+ MessageDlg(l3Cat(WarnRedaction.Hint, '.'), 'TExTextOptionsForm.Reminder_RemWarnRedaction_Execute', mtInformation);
+//#UC END# *4C7FACCE013F_4C7F801D0304exec_impl*
+end;//TExTextOptionsForm.Reminder_RemWarnRedaction_Execute
 
-procedure TExTextOptionsForm.RemWarnTimeMachineWarning;
-//#UC START# *4C7FAD470142_4C7F801D0304_var*
-//#UC END# *4C7FAD470142_4C7F801D0304_var*
+procedure TExTextOptionsForm.Reminder_RemWarnOnControl_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C7FACFE01D3_4C7F801D0304test_var*
+//#UC END# *4C7FACFE01D3_4C7F801D0304test_var*
 begin
-//#UC START# *4C7FAD470142_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7FAD470142_4C7F801D0304_impl*
-end;//TExTextOptionsForm.RemWarnTimeMachineWarning
+//#UC START# *4C7FACFE01D3_4C7F801D0304test_impl*
+ SetReminderOpParams(aParams, WarnOnControlInfo);
+//#UC END# *4C7FACFE01D3_4C7F801D0304test_impl*
+end;//TExTextOptionsForm.Reminder_RemWarnOnControl_Test
 
-procedure TExTextOptionsForm.ViewInactualDocument;
-//#UC START# *4C7FAD5900EE_4C7F801D0304_var*
-//#UC END# *4C7FAD5900EE_4C7F801D0304_var*
+procedure TExTextOptionsForm.Reminder_RemWarnOnControl_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C7FACFE01D3_4C7F801D0304exec_var*
+//#UC END# *4C7FACFE01D3_4C7F801D0304exec_var*
 begin
-//#UC START# *4C7FAD5900EE_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7FAD5900EE_4C7F801D0304_impl*
-end;//TExTextOptionsForm.ViewInactualDocument
+//#UC START# *4C7FACFE01D3_4C7F801D0304exec_impl*
+ Op_Document_SetActive.Call(Aggregate, Byte(dftRelatedDoc));
+ MessageDlg(l3Cat(WarnOnControlInfo, '.'), 'TExTextOptionsForm.Reminder_RemWarnOnControl_Execute', mtInformation);
+//#UC END# *4C7FACFE01D3_4C7F801D0304exec_impl*
+end;//TExTextOptionsForm.Reminder_RemWarnOnControl_Execute
+
+procedure TExTextOptionsForm.Reminder_RemWarnIsAbolished_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C7FAD0F014A_4C7F801D0304test_var*
+//#UC END# *4C7FAD0F014A_4C7F801D0304test_var*
+begin
+//#UC START# *4C7FAD0F014A_4C7F801D0304test_impl*
+ SetReminderOpParams(aParams, WarnIsAbolishedInfo);
+//#UC END# *4C7FAD0F014A_4C7F801D0304test_impl*
+end;//TExTextOptionsForm.Reminder_RemWarnIsAbolished_Test
+
+procedure TExTextOptionsForm.Reminder_RemWarnIsAbolished_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C7FAD0F014A_4C7F801D0304exec_var*
+//#UC END# *4C7FAD0F014A_4C7F801D0304exec_var*
+begin
+//#UC START# *4C7FAD0F014A_4C7F801D0304exec_impl*
+ ShowWarningPage(False);
+ MessageDlg(l3Cat(WarnIsAbolishedInfo, '.'), 'TExTextOptionsForm.Reminder_RemWarnIsAbolished_Execute', mtInformation);
+//#UC END# *4C7FAD0F014A_4C7F801D0304exec_impl*
+end;//TExTextOptionsForm.Reminder_RemWarnIsAbolished_Execute
+
+procedure TExTextOptionsForm.Reminder_RemWarnTimeMachineException_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C7FAD1D038F_4C7F801D0304test_var*
+//#UC END# *4C7FAD1D038F_4C7F801D0304test_var*
+begin
+//#UC START# *4C7FAD1D038F_4C7F801D0304test_impl*
+ SetReminderOpParams(aParams, BaseTimeMachineWarningInfo(tmwError));
+//#UC END# *4C7FAD1D038F_4C7F801D0304test_impl*
+end;//TExTextOptionsForm.Reminder_RemWarnTimeMachineException_Test
+
+procedure TExTextOptionsForm.Reminder_RemWarnTimeMachineException_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C7FAD1D038F_4C7F801D0304exec_var*
+//#UC END# *4C7FAD1D038F_4C7F801D0304exec_var*
+begin
+//#UC START# *4C7FAD1D038F_4C7F801D0304exec_impl*
+ ShowWarningPage(False, cEditionWarningSub);
+ MessageDlg(l3Cat(BaseTimeMachineWarningInfo(tmwError), '.'), 'TExTextOptionsForm.Reminder_RemWarnTimeMachineException_Execute', mtInformation);
+//#UC END# *4C7FAD1D038F_4C7F801D0304exec_impl*
+end;//TExTextOptionsForm.Reminder_RemWarnTimeMachineException_Execute
+
+procedure TExTextOptionsForm.Reminder_RemWarnPreActive_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C7FAD310195_4C7F801D0304test_var*
+//#UC END# *4C7FAD310195_4C7F801D0304test_var*
+begin
+//#UC START# *4C7FAD310195_4C7F801D0304test_impl*
+ SetReminderOpParams(aParams, WarnPreActiveInfo);
+//#UC END# *4C7FAD310195_4C7F801D0304test_impl*
+end;//TExTextOptionsForm.Reminder_RemWarnPreActive_Test
+
+procedure TExTextOptionsForm.Reminder_RemWarnPreActive_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C7FAD310195_4C7F801D0304exec_var*
+//#UC END# *4C7FAD310195_4C7F801D0304exec_var*
+begin
+//#UC START# *4C7FAD310195_4C7F801D0304exec_impl*
+ ShowWarningPage(False);
+ MessageDlg(l3Cat(WarnPreActiveInfo, '.'), 'TExTextOptionsForm.Reminder_RemWarnPreActive_Execute', mtInformation);
+//#UC END# *4C7FAD310195_4C7F801D0304exec_impl*
+end;//TExTextOptionsForm.Reminder_RemWarnPreActive_Execute
+
+procedure TExTextOptionsForm.Reminder_RemWarnTimeMachineWarning_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C7FAD470142_4C7F801D0304test_var*
+//#UC END# *4C7FAD470142_4C7F801D0304test_var*
+begin
+//#UC START# *4C7FAD470142_4C7F801D0304test_impl*
+ SetReminderOpParams(aParams, TimeMachineWarningInfo);
+//#UC END# *4C7FAD470142_4C7F801D0304test_impl*
+end;//TExTextOptionsForm.Reminder_RemWarnTimeMachineWarning_Test
+
+procedure TExTextOptionsForm.Reminder_RemWarnTimeMachineWarning_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C7FAD470142_4C7F801D0304exec_var*
+//#UC END# *4C7FAD470142_4C7F801D0304exec_var*
+begin
+//#UC START# *4C7FAD470142_4C7F801D0304exec_impl*
+ ShowWarningPage(False, cNotSureWarningSub);
+ MessageDlg(l3Cat(TimeMachineWarningInfo, '.'), 'TExTextOptionsForm.Reminder_RemWarnTimeMachineWarning_Execute', mtInformation);
+//#UC END# *4C7FAD470142_4C7F801D0304exec_impl*
+end;//TExTextOptionsForm.Reminder_RemWarnTimeMachineWarning_Execute
+
+procedure TExTextOptionsForm.Reminder_ViewInactualDocument_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C7FAD5900EE_4C7F801D0304test_var*
+//#UC END# *4C7FAD5900EE_4C7F801D0304test_var*
+begin
+//#UC START# *4C7FAD5900EE_4C7F801D0304test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := NeedShowIntranetWarning;
+ aParams.Op.Flag[vcm_ofVisible] := aParams.Op.Flag[vcm_ofEnabled];
+ CheckForcedQueryForIntranet;
+//#UC END# *4C7FAD5900EE_4C7F801D0304test_impl*
+end;//TExTextOptionsForm.Reminder_ViewInactualDocument_Test
+
+procedure TExTextOptionsForm.Reminder_ViewInactualDocument_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C7FAD5900EE_4C7F801D0304exec_var*
+//#UC END# *4C7FAD5900EE_4C7F801D0304exec_var*
+begin
+//#UC START# *4C7FAD5900EE_4C7F801D0304exec_impl*
+ GoToIntranet;
+//#UC END# *4C7FAD5900EE_4C7F801D0304exec_impl*
+end;//TExTextOptionsForm.Reminder_ViewInactualDocument_Execute
 
 procedure TExTextOptionsForm.CreateTOC(const aTOC: IdeSimpleTree);
 //#UC START# *4EBAA060033D_4C7F801D0304_var*
@@ -1527,34 +1501,80 @@ begin
 //#UC END# *4EBAA060033D_4C7F801D0304_impl*
 end;//TExTextOptionsForm.CreateTOC
 
-procedure TExTextOptionsForm.ChangesButton;
+procedure TExTextOptionsForm.Document_ChangesButton_Test(const aParams: IvcmTestParamsPrim);
  {* Изменения в документе }
-//#UC START# *4F88460903B1_4C7F801D0304_var*
-//#UC END# *4F88460903B1_4C7F801D0304_var*
-begin
-//#UC START# *4F88460903B1_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4F88460903B1_4C7F801D0304_impl*
-end;//TExTextOptionsForm.ChangesButton
+//#UC START# *4F88460903B1_4C7F801D0304test_var*
 
-procedure TExTextOptionsForm.CopySubNumber;
+ function lp_MakeAvailableOps: IvcmItems;
+   {-}
+ begin//lp_MakeAvailableOps
+  if (f_DocOpsList = nil) then
+   f_DocOpsList := TvcmItems.Make;
+  if (f_DocOpsList.Count = 0) then
+  begin
+   f_DocOpsList.AddOp(TdmStdRes.opcode_Document_CompareEditions);
+   f_DocOpsList.AddOp(TdmStdRes.opcode_Document_ViewChangedFragments, str_ViewChangesOpName.AsCStr);
+   f_DocOpsList.AddOp(TdmStdRes.opcode_TimeMachine_TimeMachineOnOffNew, vcmCStr(str_TimeMachineOp));
+   f_DocOpsList.AddOp(TdmStdRes.opcode_Redactions_OpenRedactionListFrmAct);
+   f_DocOpsList.AddOp(TdmStdRes.opcode_Document_ShowVersionComments, vcmCStr(str_ShowVersionCommentsOp));
+  end;//f_DocOpsList.Count = 0
+  Result := f_DocOpsList;
+ end;//lp_MakeAvailableOps
+
+var
+ l_List : IvcmItems;
+//#UC END# *4F88460903B1_4C7F801D0304test_var*
+begin
+//#UC START# *4F88460903B1_4C7F801D0304test_impl*
+ l_List := lp_MakeAvailableOps;
+ aParams.Op.SubItems := l_List;
+ aParams.Op.Flag[vcm_ofEnabled] := (l_List <> nil) AND (l_List.Count > 0);
+//#UC END# *4F88460903B1_4C7F801D0304test_impl*
+end;//TExTextOptionsForm.Document_ChangesButton_Test
+
+procedure TExTextOptionsForm.SubsPanel_CopySubNumber_Test(const aParams: IvcmTestParamsPrim);
  {* Копировать позицию }
-//#UC START# *4F884EF30187_4C7F801D0304_var*
-//#UC END# *4F884EF30187_4C7F801D0304_var*
+//#UC START# *4F884EF30187_4C7F801D0304test_var*
+var
+ l_eeSub : IeeSub;
+//#UC END# *4F884EF30187_4C7F801D0304test_var*
 begin
-//#UC START# *4F884EF30187_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4F884EF30187_4C7F801D0304_impl*
-end;//TExTextOptionsForm.CopySubNumber
+//#UC START# *4F884EF30187_4C7F801D0304test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (afw.Application.IsInternal or
+  Settings.LoadBoolean(pi_Document_SubPanel_ShowSubNumbers, dv_Document_SubPanel_ShowSubNumbers)) and
+  Assigned(dsDocument) and
+  Supports(aParams.Target, IeeSub, l_eeSub) and
+  (l_eeSub.LayerID = Ord(ev_sbtSub));
+//#UC END# *4F884EF30187_4C7F801D0304test_impl*
+end;//TExTextOptionsForm.SubsPanel_CopySubNumber_Test
 
-procedure TExTextOptionsForm.ShowByShortCut;
-//#UC START# *528373EC0026_4C7F801D0304_var*
-//#UC END# *528373EC0026_4C7F801D0304_var*
+procedure TExTextOptionsForm.SubsPanel_CopySubNumber_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Копировать позицию }
+//#UC START# *4F884EF30187_4C7F801D0304exec_var*
+var
+ l_eeSub : IeeSub;
+//#UC END# *4F884EF30187_4C7F801D0304exec_var*
 begin
-//#UC START# *528373EC0026_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *528373EC0026_4C7F801D0304_impl*
-end;//TExTextOptionsForm.ShowByShortCut
+//#UC START# *4F884EF30187_4C7F801D0304exec_impl*
+ if Supports(aParams.Target, IeeSub, l_eeSub) and
+    (l_eeSub.LayerID = Ord(ev_sbtSub)) and
+    Assigned(dsDocument) then
+ begin
+  l3System.SetClipboardData(
+   TevConstStringData.Make(dsDocument.GetSubPosition(l_eeSub.ID), nil));
+  TnsUseDocumentSubPanelOperationEvent.Instance.Log;
+ end;//Supports(aParams.Target, IeeSub, l_eeSub)
+//#UC END# *4F884EF30187_4C7F801D0304exec_impl*
+end;//TExTextOptionsForm.SubsPanel_CopySubNumber_Execute
+
+procedure TExTextOptionsForm.SubPanelSettings_ShowByShortCut_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *528373EC0026_4C7F801D0304exec_var*
+//#UC END# *528373EC0026_4C7F801D0304exec_var*
+begin
+//#UC START# *528373EC0026_4C7F801D0304exec_impl*
+ ShowSubNumbers;
+//#UC END# *528373EC0026_4C7F801D0304exec_impl*
+end;//TExTextOptionsForm.SubPanelSettings_ShowByShortCut_Execute
 
 procedure TExTextOptionsForm.Cleanup;
  {* Функция очистки полей объекта. }
@@ -1568,98 +1588,6 @@ begin
  inherited;
 //#UC END# *479731C50290_4C7F801D0304_impl*
 end;//TExTextOptionsForm.Cleanup
-
-{$If NOT Defined(NoVCM)}
-procedure TExTextOptionsForm.FindContext;
- {* Поиск }
-//#UC START# *49512B5D0009_4C7F801D0304_var*
-//#UC END# *49512B5D0009_4C7F801D0304_var*
-begin
-//#UC START# *49512B5D0009_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49512B5D0009_4C7F801D0304_impl*
-end;//TExTextOptionsForm.FindContext
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TExTextOptionsForm.FindNext;
- {* Найти далее }
-//#UC START# *495130C40123_4C7F801D0304_var*
-//#UC END# *495130C40123_4C7F801D0304_var*
-begin
-//#UC START# *495130C40123_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495130C40123_4C7F801D0304_impl*
-end;//TExTextOptionsForm.FindNext
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TExTextOptionsForm.Print;
- {* Печать }
-//#UC START# *49521D8E0295_4C7F801D0304_var*
-//#UC END# *49521D8E0295_4C7F801D0304_var*
-begin
-//#UC START# *49521D8E0295_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49521D8E0295_4C7F801D0304_impl*
-end;//TExTextOptionsForm.Print
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TExTextOptionsForm.PrintDialog;
- {* Печать... }
-//#UC START# *495220DE0298_4C7F801D0304_var*
-//#UC END# *495220DE0298_4C7F801D0304_var*
-begin
-//#UC START# *495220DE0298_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495220DE0298_4C7F801D0304_impl*
-end;//TExTextOptionsForm.PrintDialog
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TExTextOptionsForm.PrintPreview;
- {* Предварительный просмотр }
-//#UC START# *495220F2033A_4C7F801D0304_var*
-//#UC END# *495220F2033A_4C7F801D0304_var*
-begin
-//#UC START# *495220F2033A_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495220F2033A_4C7F801D0304_impl*
-end;//TExTextOptionsForm.PrintPreview
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TExTextOptionsForm.Save;
- {* Сохранить }
-//#UC START# *495235F401C0_4C7F801D0304_var*
-//#UC END# *495235F401C0_4C7F801D0304_var*
-begin
-//#UC START# *495235F401C0_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495235F401C0_4C7F801D0304_impl*
-end;//TExTextOptionsForm.Save
-{$IfEnd} // NOT Defined(NoVCM)
-
-procedure TExTextOptionsForm.ToMSWord;
- {* Экспорт в Word }
-//#UC START# *495238EB0160_4C7F801D0304_var*
-//#UC END# *495238EB0160_4C7F801D0304_var*
-begin
-//#UC START# *495238EB0160_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495238EB0160_4C7F801D0304_impl*
-end;//TExTextOptionsForm.ToMSWord
-
-procedure TExTextOptionsForm.SendMailAsAttachment;
- {* Послать по e-mail }
-//#UC START# *495253870002_4C7F801D0304_var*
-//#UC END# *495253870002_4C7F801D0304_var*
-begin
-//#UC START# *495253870002_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495253870002_4C7F801D0304_impl*
-end;//TExTextOptionsForm.SendMailAsAttachment
 
 {$If NOT Defined(NoVCM)}
 procedure TExTextOptionsForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
@@ -1739,161 +1667,6 @@ begin
 //#UC END# *4980407F0076_4C7F801D0304_impl*
 end;//TExTextOptionsForm.CallCloseQuery
 {$IfEnd} // NOT Defined(NoVCM)
-
-procedure TExTextOptionsForm.NextDocumentInList;
- {* Следующий документ в списке }
-//#UC START# *49880FD20039_4C7F801D0304_var*
-//#UC END# *49880FD20039_4C7F801D0304_var*
-begin
-//#UC START# *49880FD20039_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49880FD20039_4C7F801D0304_impl*
-end;//TExTextOptionsForm.NextDocumentInList
-
-procedure TExTextOptionsForm.ReturnToList;
- {* Вернуться в списк }
-//#UC START# *49880FE90145_4C7F801D0304_var*
-//#UC END# *49880FE90145_4C7F801D0304_var*
-begin
-//#UC START# *49880FE90145_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49880FE90145_4C7F801D0304_impl*
-end;//TExTextOptionsForm.ReturnToList
-
-procedure TExTextOptionsForm.SaveToFolder;
- {* Сохранить в папки }
-//#UC START# *49885D540232_4C7F801D0304_var*
-//#UC END# *49885D540232_4C7F801D0304_var*
-begin
-//#UC START# *49885D540232_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49885D540232_4C7F801D0304_impl*
-end;//TExTextOptionsForm.SaveToFolder
-
-procedure TExTextOptionsForm.LoadFromFolder;
- {* Загрузить из папок }
-//#UC START# *49885D59018D_4C7F801D0304_var*
-//#UC END# *49885D59018D_4C7F801D0304_var*
-begin
-//#UC START# *49885D59018D_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49885D59018D_4C7F801D0304_impl*
-end;//TExTextOptionsForm.LoadFromFolder
-
-procedure TExTextOptionsForm.GetAttributesFrmAct;
- {* Информация о документе }
-//#UC START# *498891640253_4C7F801D0304_var*
-//#UC END# *498891640253_4C7F801D0304_var*
-begin
-//#UC START# *498891640253_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *498891640253_4C7F801D0304_impl*
-end;//TExTextOptionsForm.GetAttributesFrmAct
-
-procedure TExTextOptionsForm.GetRelatedDocFrmAct;
- {* Справка к документу }
-//#UC START# *498993C801DC_4C7F801D0304_var*
-//#UC END# *498993C801DC_4C7F801D0304_var*
-begin
-//#UC START# *498993C801DC_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *498993C801DC_4C7F801D0304_impl*
-end;//TExTextOptionsForm.GetRelatedDocFrmAct
-
-procedure TExTextOptionsForm.AddBookmark;
- {* Добавить закладку }
-//#UC START# *4989D06D014E_4C7F801D0304_var*
-//#UC END# *4989D06D014E_4C7F801D0304_var*
-begin
-//#UC START# *4989D06D014E_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4989D06D014E_4C7F801D0304_impl*
-end;//TExTextOptionsForm.AddBookmark
-
-procedure TExTextOptionsForm.GetCorrespondentList;
- {* Ссылки на документ }
-//#UC START# *4989D65C0275_4C7F801D0304_var*
-//#UC END# *4989D65C0275_4C7F801D0304_var*
-begin
-//#UC START# *4989D65C0275_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4989D65C0275_4C7F801D0304_impl*
-end;//TExTextOptionsForm.GetCorrespondentList
-
-procedure TExTextOptionsForm.GetRespondentList;
- {* Ссылки из документа }
-//#UC START# *4989D8430128_4C7F801D0304_var*
-//#UC END# *4989D8430128_4C7F801D0304_var*
-begin
-//#UC START# *4989D8430128_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4989D8430128_4C7F801D0304_impl*
-end;//TExTextOptionsForm.GetRespondentList
-
-{$If NOT Defined(NoVCM)}
-procedure TExTextOptionsForm.Undo;
- {* Отмена }
-//#UC START# *49EDFCA2006D_4C7F801D0304_var*
-//#UC END# *49EDFCA2006D_4C7F801D0304_var*
-begin
-//#UC START# *49EDFCA2006D_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EDFCA2006D_4C7F801D0304_impl*
-end;//TExTextOptionsForm.Undo
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TExTextOptionsForm.Redo;
- {* Возврат }
-//#UC START# *49EDFCB100BC_4C7F801D0304_var*
-//#UC END# *49EDFCB100BC_4C7F801D0304_var*
-begin
-//#UC START# *49EDFCB100BC_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EDFCB100BC_4C7F801D0304_impl*
-end;//TExTextOptionsForm.Redo
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TExTextOptionsForm.FindPrev;
-//#UC START# *49FEDE4703B8_4C7F801D0304_var*
-//#UC END# *49FEDE4703B8_4C7F801D0304_var*
-begin
-//#UC START# *49FEDE4703B8_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49FEDE4703B8_4C7F801D0304_impl*
-end;//TExTextOptionsForm.FindPrev
-{$IfEnd} // NOT Defined(NoVCM)
-
-procedure TExTextOptionsForm.ShowJurorComments;
- {* Показать юридические комментарии }
-//#UC START# *4A7C0AFD02BA_4C7F801D0304_var*
-//#UC END# *4A7C0AFD02BA_4C7F801D0304_var*
-begin
-//#UC START# *4A7C0AFD02BA_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A7C0AFD02BA_4C7F801D0304_impl*
-end;//TExTextOptionsForm.ShowJurorComments
-
-procedure TExTextOptionsForm.ShowSpecial;
- {* Показывать спецсимволы }
-//#UC START# *4A7C18B20241_4C7F801D0304_var*
-//#UC END# *4A7C18B20241_4C7F801D0304_var*
-begin
-//#UC START# *4A7C18B20241_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A7C18B20241_4C7F801D0304_impl*
-end;//TExTextOptionsForm.ShowSpecial
-
-procedure TExTextOptionsForm.ShowInfo;
- {* Показывать блоки }
-//#UC START# *4A7C1F420169_4C7F801D0304_var*
-//#UC END# *4A7C1F420169_4C7F801D0304_var*
-begin
-//#UC START# *4A7C1F420169_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A7C1F420169_4C7F801D0304_impl*
-end;//TExTextOptionsForm.ShowInfo
 
 {$If NOT Defined(NoVCM)}
 procedure TExTextOptionsForm.InitControls;
@@ -2015,16 +1788,6 @@ begin
 end;//TExTextOptionsForm.InitControls
 {$IfEnd} // NOT Defined(NoVCM)
 
-procedure TExTextOptionsForm.FindInDict;
- {* Найти в Толковом словаре }
-//#UC START# *4A9D3FC50134_4C7F801D0304_var*
-//#UC END# *4A9D3FC50134_4C7F801D0304_var*
-begin
-//#UC START# *4A9D3FC50134_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A9D3FC50134_4C7F801D0304_impl*
-end;//TExTextOptionsForm.FindInDict
-
 {$If NOT Defined(NoVCM)}
 procedure TExTextOptionsForm.EntitiesInited;
  {* Вызывается после того как все операции зарегистрированы }
@@ -2110,45 +1873,6 @@ begin
 end;//TExTextOptionsForm.EntitiesInited
 {$IfEnd} // NOT Defined(NoVCM)
 
-procedure TExTextOptionsForm.GetCorrespondentListExFrmAct;
- {* Ссылки на документ (вид информации) }
-//#UC START# *4AF329F6002A_4C7F801D0304_var*
-//#UC END# *4AF329F6002A_4C7F801D0304_var*
-begin
-//#UC START# *4AF329F6002A_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF329F6002A_4C7F801D0304_impl*
-end;//TExTextOptionsForm.GetCorrespondentListExFrmAct
-
-procedure TExTextOptionsForm.GetRespondentListExFrmAct;
- {* Ссылки из документа (вид информации) }
-//#UC START# *4AF329FD014D_4C7F801D0304_var*
-//#UC END# *4AF329FD014D_4C7F801D0304_var*
-begin
-//#UC START# *4AF329FD014D_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF329FD014D_4C7F801D0304_impl*
-end;//TExTextOptionsForm.GetRespondentListExFrmAct
-
-procedure TExTextOptionsForm.ActualRedaction;
-//#UC START# *4AFAF4900270_4C7F801D0304_var*
-//#UC END# *4AFAF4900270_4C7F801D0304_var*
-begin
-//#UC START# *4AFAF4900270_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AFAF4900270_4C7F801D0304_impl*
-end;//TExTextOptionsForm.ActualRedaction
-
-procedure TExTextOptionsForm.OpenRedactionListFrmAct;
- {* Список редакций }
-//#UC START# *4B262F9701DE_4C7F801D0304_var*
-//#UC END# *4B262F9701DE_4C7F801D0304_var*
-begin
-//#UC START# *4B262F9701DE_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4B262F9701DE_4C7F801D0304_impl*
-end;//TExTextOptionsForm.OpenRedactionListFrmAct
-
 {$If NOT Defined(NoVCM)}
 function TExTextOptionsForm.SaveOwnFormState(out theState: IvcmBase;
  aStateType: TvcmStateType;
@@ -2191,533 +1915,11 @@ begin
 end;//TExTextOptionsForm.SaveOwnFormState
 {$IfEnd} // NOT Defined(NoVCM)
 
-procedure TExTextOptionsForm.GetCorrespondentList;
-//#UC START# *4C2AEDB3003B_4C7F801D0304_var*
-//#UC END# *4C2AEDB3003B_4C7F801D0304_var*
-begin
-//#UC START# *4C2AEDB3003B_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C2AEDB3003B_4C7F801D0304_impl*
-end;//TExTextOptionsForm.GetCorrespondentList
-
-procedure TExTextOptionsForm.GetRespondentList;
-//#UC START# *4C2AEDC503CC_4C7F801D0304_var*
-//#UC END# *4C2AEDC503CC_4C7F801D0304_var*
-begin
-//#UC START# *4C2AEDC503CC_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C2AEDC503CC_4C7F801D0304_impl*
-end;//TExTextOptionsForm.GetRespondentList
-
-procedure TExTextOptionsForm.GetAnnotationDocFrmAct;
-//#UC START# *4C3AA77E00A3_4C7F801D0304_var*
-//#UC END# *4C3AA77E00A3_4C7F801D0304_var*
-begin
-//#UC START# *4C3AA77E00A3_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3AA77E00A3_4C7F801D0304_impl*
-end;//TExTextOptionsForm.GetAnnotationDocFrmAct
-
-procedure TExTextOptionsForm.SimilarDocuments;
-//#UC START# *4C3AA78E024D_4C7F801D0304_var*
-//#UC END# *4C3AA78E024D_4C7F801D0304_var*
-begin
-//#UC START# *4C3AA78E024D_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3AA78E024D_4C7F801D0304_impl*
-end;//TExTextOptionsForm.SimilarDocuments
-
-procedure TExTextOptionsForm.GetTypedCorrespondentList;
-//#UC START# *4C3ADFA5018F_4C7F801D0304_var*
-//#UC END# *4C3ADFA5018F_4C7F801D0304_var*
-begin
-//#UC START# *4C3ADFA5018F_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3ADFA5018F_4C7F801D0304_impl*
-end;//TExTextOptionsForm.GetTypedCorrespondentList
-
-procedure TExTextOptionsForm.PrevRedaction;
-//#UC START# *4C3AE0950253_4C7F801D0304_var*
-//#UC END# *4C3AE0950253_4C7F801D0304_var*
-begin
-//#UC START# *4C3AE0950253_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3AE0950253_4C7F801D0304_impl*
-end;//TExTextOptionsForm.PrevRedaction
-
-procedure TExTextOptionsForm.NextRedaction;
-//#UC START# *4C3AE0CD0079_4C7F801D0304_var*
-//#UC END# *4C3AE0CD0079_4C7F801D0304_var*
-begin
-//#UC START# *4C3AE0CD0079_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3AE0CD0079_4C7F801D0304_impl*
-end;//TExTextOptionsForm.NextRedaction
-
-procedure TExTextOptionsForm.AddToControl;
-//#UC START# *4C3AFAD90234_4C7F801D0304_var*
-//#UC END# *4C3AFAD90234_4C7F801D0304_var*
-begin
-//#UC START# *4C3AFAD90234_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3AFAD90234_4C7F801D0304_impl*
-end;//TExTextOptionsForm.AddToControl
-
-procedure TExTextOptionsForm.ShowCorrespondentListToPart;
-//#UC START# *4C3AFB450234_4C7F801D0304_var*
-//#UC END# *4C3AFB450234_4C7F801D0304_var*
-begin
-//#UC START# *4C3AFB450234_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3AFB450234_4C7F801D0304_impl*
-end;//TExTextOptionsForm.ShowCorrespondentListToPart
-
-procedure TExTextOptionsForm.ShowRespondentListToPart;
-//#UC START# *4C3AFB51020D_4C7F801D0304_var*
-//#UC END# *4C3AFB51020D_4C7F801D0304_var*
-begin
-//#UC START# *4C3AFB51020D_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3AFB51020D_4C7F801D0304_impl*
-end;//TExTextOptionsForm.ShowRespondentListToPart
-
-procedure TExTextOptionsForm.ClearStatusSettings;
- {* Способ сброса статуса "изменен" }
-//#UC START# *4C3AFBA702E4_4C7F801D0304_var*
-//#UC END# *4C3AFBA702E4_4C7F801D0304_var*
-begin
-//#UC START# *4C3AFBA702E4_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3AFBA702E4_4C7F801D0304_impl*
-end;//TExTextOptionsForm.ClearStatusSettings
-
-procedure TExTextOptionsForm.AddBookmark;
-//#UC START# *4C3B17DC02C4_4C7F801D0304_var*
-//#UC END# *4C3B17DC02C4_4C7F801D0304_var*
-begin
-//#UC START# *4C3B17DC02C4_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3B17DC02C4_4C7F801D0304_impl*
-end;//TExTextOptionsForm.AddBookmark
-
-procedure TExTextOptionsForm.ToMSWord;
-//#UC START# *4C3B17ED0192_4C7F801D0304_var*
-//#UC END# *4C3B17ED0192_4C7F801D0304_var*
-begin
-//#UC START# *4C3B17ED0192_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3B17ED0192_4C7F801D0304_impl*
-end;//TExTextOptionsForm.ToMSWord
-
-procedure TExTextOptionsForm.Print;
-//#UC START# *4C3B17FF03D2_4C7F801D0304_var*
-//#UC END# *4C3B17FF03D2_4C7F801D0304_var*
-begin
-//#UC START# *4C3B17FF03D2_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3B17FF03D2_4C7F801D0304_impl*
-end;//TExTextOptionsForm.Print
-
-procedure TExTextOptionsForm.PrintDialog;
-//#UC START# *4C3B180E038F_4C7F801D0304_var*
-//#UC END# *4C3B180E038F_4C7F801D0304_var*
-begin
-//#UC START# *4C3B180E038F_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3B180E038F_4C7F801D0304_impl*
-end;//TExTextOptionsForm.PrintDialog
-
-procedure TExTextOptionsForm.AddBookmark;
- {* Установить закладку на фрагмент }
-//#UC START# *4C3B1AEA0127_4C7F801D0304_var*
-//#UC END# *4C3B1AEA0127_4C7F801D0304_var*
-begin
-//#UC START# *4C3B1AEA0127_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3B1AEA0127_4C7F801D0304_impl*
-end;//TExTextOptionsForm.AddBookmark
-
-procedure TExTextOptionsForm.OpenContentsFrmAct;
-//#UC START# *4C3B3754034D_4C7F801D0304_var*
-//#UC END# *4C3B3754034D_4C7F801D0304_var*
-begin
-//#UC START# *4C3B3754034D_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3B3754034D_4C7F801D0304_impl*
-end;//TExTextOptionsForm.OpenContentsFrmAct
-
-procedure TExTextOptionsForm.ShowDocumentPicture;
-//#UC START# *4C3B3792000E_4C7F801D0304_var*
-//#UC END# *4C3B3792000E_4C7F801D0304_var*
-begin
-//#UC START# *4C3B3792000E_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3B3792000E_4C7F801D0304_impl*
-end;//TExTextOptionsForm.ShowDocumentPicture
-
-procedure TExTextOptionsForm.OpenActualRedaction;
-//#UC START# *4C3B4A7D029B_4C7F801D0304_var*
-//#UC END# *4C3B4A7D029B_4C7F801D0304_var*
-begin
-//#UC START# *4C3B4A7D029B_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3B4A7D029B_4C7F801D0304_impl*
-end;//TExTextOptionsForm.OpenActualRedaction
-
-procedure TExTextOptionsForm.ShowChanges;
- {* Показать изменения }
-//#UC START# *4C3B5337022E_4C7F801D0304_var*
-//#UC END# *4C3B5337022E_4C7F801D0304_var*
-begin
-//#UC START# *4C3B5337022E_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3B5337022E_4C7F801D0304_impl*
-end;//TExTextOptionsForm.ShowChanges
-
-procedure TExTextOptionsForm.ClearStatus;
- {* Сбросить статус "изменен" }
-//#UC START# *4C3B535F0064_4C7F801D0304_var*
-//#UC END# *4C3B535F0064_4C7F801D0304_var*
-begin
-//#UC START# *4C3B535F0064_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3B535F0064_4C7F801D0304_impl*
-end;//TExTextOptionsForm.ClearStatus
-
-procedure TExTextOptionsForm.AddUserComment;
-//#UC START# *4C3C75240091_4C7F801D0304_var*
-//#UC END# *4C3C75240091_4C7F801D0304_var*
-begin
-//#UC START# *4C3C75240091_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3C75240091_4C7F801D0304_impl*
-end;//TExTextOptionsForm.AddUserComment
-
-procedure TExTextOptionsForm.GetGraphicImage;
-//#UC START# *4C3C77CC012A_4C7F801D0304_var*
-//#UC END# *4C3C77CC012A_4C7F801D0304_var*
-begin
-//#UC START# *4C3C77CC012A_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3C77CC012A_4C7F801D0304_impl*
-end;//TExTextOptionsForm.GetGraphicImage
-
-procedure TExTextOptionsForm.DocumentSynchroOpenWindow;
-//#UC START# *4C3EA65F0233_4C7F801D0304_var*
-//#UC END# *4C3EA65F0233_4C7F801D0304_var*
-begin
-//#UC START# *4C3EA65F0233_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3EA65F0233_4C7F801D0304_impl*
-end;//TExTextOptionsForm.DocumentSynchroOpenWindow
-
-procedure TExTextOptionsForm.DocumentSynchroOpenNewWindow;
-//#UC START# *4C3EA671007A_4C7F801D0304_var*
-//#UC END# *4C3EA671007A_4C7F801D0304_var*
-begin
-//#UC START# *4C3EA671007A_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3EA671007A_4C7F801D0304_impl*
-end;//TExTextOptionsForm.DocumentSynchroOpenNewWindow
-
-procedure TExTextOptionsForm.DictListOpenFrmAct;
-//#UC START# *4C3EA90300E1_4C7F801D0304_var*
-//#UC END# *4C3EA90300E1_4C7F801D0304_var*
-begin
-//#UC START# *4C3EA90300E1_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3EA90300E1_4C7F801D0304_impl*
-end;//TExTextOptionsForm.DictListOpenFrmAct
-
-procedure TExTextOptionsForm.GotoBookmark;
-//#UC START# *4C3EBF860139_4C7F801D0304_var*
-//#UC END# *4C3EBF860139_4C7F801D0304_var*
-begin
-//#UC START# *4C3EBF860139_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3EBF860139_4C7F801D0304_impl*
-end;//TExTextOptionsForm.GotoBookmark
-
-procedure TExTextOptionsForm.LiteratureListForDictionary;
-//#UC START# *4C3ED13D03A5_4C7F801D0304_var*
-//#UC END# *4C3ED13D03A5_4C7F801D0304_var*
-begin
-//#UC START# *4C3ED13D03A5_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3ED13D03A5_4C7F801D0304_impl*
-end;//TExTextOptionsForm.LiteratureListForDictionary
-
-procedure TExTextOptionsForm.AddBookmark;
-//#UC START# *4C3ED5D502AE_4C7F801D0304_var*
-//#UC END# *4C3ED5D502AE_4C7F801D0304_var*
-begin
-//#UC START# *4C3ED5D502AE_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3ED5D502AE_4C7F801D0304_impl*
-end;//TExTextOptionsForm.AddBookmark
-
-procedure TExTextOptionsForm.OpenNewWindow;
-//#UC START# *4C3ED7190010_4C7F801D0304_var*
-//#UC END# *4C3ED7190010_4C7F801D0304_var*
-begin
-//#UC START# *4C3ED7190010_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3ED7190010_4C7F801D0304_impl*
-end;//TExTextOptionsForm.OpenNewWindow
-
-procedure TExTextOptionsForm.OpenProducedDrugList;
-//#UC START# *4C3EDBA7030C_4C7F801D0304_var*
-//#UC END# *4C3EDBA7030C_4C7F801D0304_var*
-begin
-//#UC START# *4C3EDBA7030C_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3EDBA7030C_4C7F801D0304_impl*
-end;//TExTextOptionsForm.OpenProducedDrugList
-
-procedure TExTextOptionsForm.OpenSimilarDrugList;
-//#UC START# *4C3EDBB80283_4C7F801D0304_var*
-//#UC END# *4C3EDBB80283_4C7F801D0304_var*
-begin
-//#UC START# *4C3EDBB80283_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3EDBB80283_4C7F801D0304_impl*
-end;//TExTextOptionsForm.OpenSimilarDrugList
-
-procedure TExTextOptionsForm.ShowJurorComments;
- {* Показать/скрыть комментарии ГАРАНТа }
-//#UC START# *4C7BAA4800A7_4C7F801D0304_var*
-//#UC END# *4C7BAA4800A7_4C7F801D0304_var*
-begin
-//#UC START# *4C7BAA4800A7_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7BAA4800A7_4C7F801D0304_impl*
-end;//TExTextOptionsForm.ShowJurorComments
-
-procedure TExTextOptionsForm.ShowUserComments;
- {* Показать/скрыть мои комментарии }
-//#UC START# *4C7BAA9102F7_4C7F801D0304_var*
-//#UC END# *4C7BAA9102F7_4C7F801D0304_var*
-begin
-//#UC START# *4C7BAA9102F7_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7BAA9102F7_4C7F801D0304_impl*
-end;//TExTextOptionsForm.ShowUserComments
-
-procedure TExTextOptionsForm.ShowTechComments;
- {* Показывать технические комментарии }
-//#UC START# *4C7BAADA039E_4C7F801D0304_var*
-//#UC END# *4C7BAADA039E_4C7F801D0304_var*
-begin
-//#UC START# *4C7BAADA039E_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7BAADA039E_4C7F801D0304_impl*
-end;//TExTextOptionsForm.ShowTechComments
-
-procedure TExTextOptionsForm.AddToControl;
- {* Поставить на контроль }
-//#UC START# *4C7BABCE03C0_4C7F801D0304_var*
-//#UC END# *4C7BABCE03C0_4C7F801D0304_var*
-begin
-//#UC START# *4C7BABCE03C0_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7BABCE03C0_4C7F801D0304_impl*
-end;//TExTextOptionsForm.AddToControl
-
-procedure TExTextOptionsForm.UserCR1;
- {* Пользовательские ссылки на документ (ссылки из документа) 1 }
-//#UC START# *4C7BAC1902F5_4C7F801D0304_var*
-//#UC END# *4C7BAC1902F5_4C7F801D0304_var*
-begin
-//#UC START# *4C7BAC1902F5_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7BAC1902F5_4C7F801D0304_impl*
-end;//TExTextOptionsForm.UserCR1
-
-procedure TExTextOptionsForm.UserCR2;
- {* Пользовательские ссылки на документ (ссылки из документа) 2 }
-//#UC START# *4C7BAC5101CA_4C7F801D0304_var*
-//#UC END# *4C7BAC5101CA_4C7F801D0304_var*
-begin
-//#UC START# *4C7BAC5101CA_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7BAC5101CA_4C7F801D0304_impl*
-end;//TExTextOptionsForm.UserCR2
-
-procedure TExTextOptionsForm.ShowVersionComments;
- {* Включить/выключить информацию об изменениях документа }
-//#UC START# *4C7BAC9C0105_4C7F801D0304_var*
-//#UC END# *4C7BAC9C0105_4C7F801D0304_var*
-begin
-//#UC START# *4C7BAC9C0105_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7BAC9C0105_4C7F801D0304_impl*
-end;//TExTextOptionsForm.ShowVersionComments
-
-procedure TExTextOptionsForm.CompareEditions;
- {* Сравнение редакций }
-//#UC START# *4C7BAEB4010E_4C7F801D0304_var*
-//#UC END# *4C7BAEB4010E_4C7F801D0304_var*
-begin
-//#UC START# *4C7BAEB4010E_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7BAEB4010E_4C7F801D0304_impl*
-end;//TExTextOptionsForm.CompareEditions
-
-procedure TExTextOptionsForm.TimeMachineOnOffNew;
- {* Включить Машину времени }
-//#UC START# *4C7BD34501EB_4C7F801D0304_var*
-//#UC END# *4C7BD34501EB_4C7F801D0304_var*
-begin
-//#UC START# *4C7BD34501EB_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7BD34501EB_4C7F801D0304_impl*
-end;//TExTextOptionsForm.TimeMachineOnOffNew
-
-{$If NOT Defined(NoVCM)}
-procedure TExTextOptionsForm.Copy;
- {* Копировать }
-//#UC START# *4C7D0C7B0185_4C7F801D0304_var*
-//#UC END# *4C7D0C7B0185_4C7F801D0304_var*
-begin
-//#UC START# *4C7D0C7B0185_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7D0C7B0185_4C7F801D0304_impl*
-end;//TExTextOptionsForm.Copy
-{$IfEnd} // NOT Defined(NoVCM)
-
-procedure TExTextOptionsForm.ShowInfo;
- {* Показать текст предупреждения }
-//#UC START# *4C7D345C006D_4C7F801D0304_var*
-//#UC END# *4C7D345C006D_4C7F801D0304_var*
-begin
-//#UC START# *4C7D345C006D_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7D345C006D_4C7F801D0304_impl*
-end;//TExTextOptionsForm.ShowInfo
-
-procedure TExTextOptionsForm.ShowInfo;
- {* Показать текст предупреждения }
-//#UC START# *4C7D34A903C5_4C7F801D0304_var*
-//#UC END# *4C7D34A903C5_4C7F801D0304_var*
-begin
-//#UC START# *4C7D34A903C5_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7D34A903C5_4C7F801D0304_impl*
-end;//TExTextOptionsForm.ShowInfo
-
-procedure TExTextOptionsForm.TimeMachineOnOffNew;
- {* Включить/Выключить Машину времени }
-//#UC START# *4C7D34DE02D2_4C7F801D0304_var*
-//#UC END# *4C7D34DE02D2_4C7F801D0304_var*
-begin
-//#UC START# *4C7D34DE02D2_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7D34DE02D2_4C7F801D0304_impl*
-end;//TExTextOptionsForm.TimeMachineOnOffNew
-
-procedure TExTextOptionsForm.ShowInfo;
- {* Показать текст предупреждения }
-//#UC START# *4C7D354603D3_4C7F801D0304_var*
-//#UC END# *4C7D354603D3_4C7F801D0304_var*
-begin
-//#UC START# *4C7D354603D3_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7D354603D3_4C7F801D0304_impl*
-end;//TExTextOptionsForm.ShowInfo
-
-procedure TExTextOptionsForm.UserCR1;
- {* Пользовательские ссылки на документ (ссылки из документа) 1 }
-//#UC START# *4C7D36900317_4C7F801D0304_var*
-//#UC END# *4C7D36900317_4C7F801D0304_var*
-begin
-//#UC START# *4C7D36900317_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7D36900317_4C7F801D0304_impl*
-end;//TExTextOptionsForm.UserCR1
-
-procedure TExTextOptionsForm.UserCR2;
- {* Пользовательские ссылки на документ (ссылки из документа) 2 }
-//#UC START# *4C7D36C40097_4C7F801D0304_var*
-//#UC END# *4C7D36C40097_4C7F801D0304_var*
-begin
-//#UC START# *4C7D36C40097_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7D36C40097_4C7F801D0304_impl*
-end;//TExTextOptionsForm.UserCR2
-
-procedure TExTextOptionsForm.AddToControl;
- {* Поставить на контроль }
-//#UC START# *4C7D39A7029B_4C7F801D0304_var*
-//#UC END# *4C7D39A7029B_4C7F801D0304_var*
-begin
-//#UC START# *4C7D39A7029B_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7D39A7029B_4C7F801D0304_impl*
-end;//TExTextOptionsForm.AddToControl
-
-procedure TExTextOptionsForm.MakeHyperlinkToDocument;
- {* Создать ссылку на документ }
-//#UC START# *4CDD5C3901E0_4C7F801D0304_var*
-//#UC END# *4CDD5C3901E0_4C7F801D0304_var*
-begin
-//#UC START# *4CDD5C3901E0_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4CDD5C3901E0_4C7F801D0304_impl*
-end;//TExTextOptionsForm.MakeHyperlinkToDocument
-
-procedure TExTextOptionsForm.PrevDocumentInList;
- {* Предыдущий документ в списке }
-//#UC START# *4FE1BA1303D3_4C7F801D0304_var*
-//#UC END# *4FE1BA1303D3_4C7F801D0304_var*
-begin
-//#UC START# *4FE1BA1303D3_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FE1BA1303D3_4C7F801D0304_impl*
-end;//TExTextOptionsForm.PrevDocumentInList
-
-procedure TExTextOptionsForm.DocumentIsUseful;
- {* Нравится }
-//#UC START# *4FE1EF1201D6_4C7F801D0304_var*
-//#UC END# *4FE1EF1201D6_4C7F801D0304_var*
-begin
-//#UC START# *4FE1EF1201D6_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FE1EF1201D6_4C7F801D0304_impl*
-end;//TExTextOptionsForm.DocumentIsUseful
-
-procedure TExTextOptionsForm.DocumentIsUseless;
- {* Не нравится }
-//#UC START# *4FE1EF1B039A_4C7F801D0304_var*
-//#UC END# *4FE1EF1B039A_4C7F801D0304_var*
-begin
-//#UC START# *4FE1EF1B039A_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FE1EF1B039A_4C7F801D0304_impl*
-end;//TExTextOptionsForm.DocumentIsUseless
-
 procedure TExTextOptionsForm.ClearFields;
 begin
  f_DocOpsList := nil;
  inherited;
 end;//TExTextOptionsForm.ClearFields
-
-procedure TExTextOptionsForm.SelectWord;
-//#UC START# *528777B1010F_4C7F801D0304_var*
-//#UC END# *528777B1010F_4C7F801D0304_var*
-begin
-//#UC START# *528777B1010F_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *528777B1010F_4C7F801D0304_impl*
-end;//TExTextOptionsForm.SelectWord
-
-procedure TExTextOptionsForm.SelectPara;
-//#UC START# *528777C803B4_4C7F801D0304_var*
-//#UC END# *528777C803B4_4C7F801D0304_var*
-begin
-//#UC START# *528777C803B4_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *528777C803B4_4C7F801D0304_impl*
-end;//TExTextOptionsForm.SelectPara
 
 {$If NOT Defined(NoVCM)}
 procedure TExTextOptionsForm.ReleaseResources;
@@ -2733,15 +1935,6 @@ begin
 //#UC END# *538C374A00B7_4C7F801D0304_impl*
 end;//TExTextOptionsForm.ReleaseResources
 {$IfEnd} // NOT Defined(NoVCM)
-
-procedure TExTextOptionsForm.GetSimilarDocsToBlock;
-//#UC START# *5587AA310201_4C7F801D0304_var*
-//#UC END# *5587AA310201_4C7F801D0304_var*
-begin
-//#UC START# *5587AA310201_4C7F801D0304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5587AA310201_4C7F801D0304_impl*
-end;//TExTextOptionsForm.GetSimilarDocsToBlock
 
 initialization
  str_WarnRedactionHint.Init;

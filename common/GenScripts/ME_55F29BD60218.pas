@@ -59,6 +59,7 @@ uses
  , SysUtils
 ;
 
+{$If NOT Defined(NotTunedDUnit)}
 procedure TarchiDBTest.UnpackDatabase;
 //#UC START# *5195F36403BC_55F29BD60218_var*
 var
@@ -122,6 +123,7 @@ begin
  Result := ExtractFilePath(ParamStr(0)) + 'DB';
 //#UC END# *519615B000D3_55F29BD60218_impl*
 end;//TarchiDBTest.GetDatabasePath
-{$IfEnd} // Defined(nsTest)
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
+{$IfEnd} // Defined(nsTest)
 end.

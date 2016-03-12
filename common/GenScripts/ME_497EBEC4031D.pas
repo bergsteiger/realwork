@@ -130,9 +130,12 @@ type
    procedure DoSaveInSettings; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   procedure BecomeActive; override;
-   procedure OpenInt; override;
-   procedure RequestClose; override;
+   procedure Switcher_BecomeActive_Execute;
+   procedure Switcher_BecomeActive(const aParams: IvcmExecuteParamsPrim);
+   procedure DateInterval_OpenInt_Execute;
+   procedure DateInterval_OpenInt(const aParams: IvcmExecuteParamsPrim);
+   procedure Form_RequestClose_Execute;
+   procedure Form_RequestClose(const aParams: IvcmExecuteParamsPrim);
    {$If NOT Defined(NoVCM)}
    function NeedSaveInSettings: Boolean; override;
    {$IfEnd} // NOT Defined(NoVCM)
@@ -171,6 +174,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки nltMainLocalConstants }
  str_nltMainCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'nltMainCaption'; rValue : 'ПРАЙМ. Моя новостная лента');
@@ -345,32 +349,49 @@ begin
 //#UC END# *49918CC5036B_497EBEC4031D_impl*
 end;//TPrimNewsLineForm.DataChanged
 
-procedure TPrimNewsLineForm.BecomeActive;
-//#UC START# *4A9807F801F9_497EBEC4031D_var*
-//#UC END# *4A9807F801F9_497EBEC4031D_var*
+procedure TPrimNewsLineForm.Switcher_BecomeActive_Execute;
+//#UC START# *4A9807F801F9_497EBEC4031Dexec_var*
+//#UC END# *4A9807F801F9_497EBEC4031Dexec_var*
 begin
-//#UC START# *4A9807F801F9_497EBEC4031D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A9807F801F9_497EBEC4031D_impl*
-end;//TPrimNewsLineForm.BecomeActive
+//#UC START# *4A9807F801F9_497EBEC4031Dexec_impl*
+ SetActiveInParent;
+//#UC END# *4A9807F801F9_497EBEC4031Dexec_impl*
+end;//TPrimNewsLineForm.Switcher_BecomeActive_Execute
 
-procedure TPrimNewsLineForm.OpenInt;
-//#UC START# *4AF822B302C4_497EBEC4031D_var*
-//#UC END# *4AF822B302C4_497EBEC4031D_var*
+procedure TPrimNewsLineForm.Switcher_BecomeActive(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4AF822B302C4_497EBEC4031D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF822B302C4_497EBEC4031D_impl*
-end;//TPrimNewsLineForm.OpenInt
+ Self.Switcher_BecomeActive_Execute;
+end;//TPrimNewsLineForm.Switcher_BecomeActive
 
-procedure TPrimNewsLineForm.RequestClose;
-//#UC START# *4AF82EFD0025_497EBEC4031D_var*
-//#UC END# *4AF82EFD0025_497EBEC4031D_var*
+procedure TPrimNewsLineForm.DateInterval_OpenInt_Execute;
+//#UC START# *4AF822B302C4_497EBEC4031Dexec_var*
+//#UC END# *4AF822B302C4_497EBEC4031Dexec_var*
 begin
-//#UC START# *4AF82EFD0025_497EBEC4031D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF82EFD0025_497EBEC4031D_impl*
-end;//TPrimNewsLineForm.RequestClose
+//#UC START# *4AF822B302C4_497EBEC4031Dexec_impl*
+ OpenAutoreferat(DateList.GetCurrentNode);
+//#UC END# *4AF822B302C4_497EBEC4031Dexec_impl*
+end;//TPrimNewsLineForm.DateInterval_OpenInt_Execute
+
+procedure TPrimNewsLineForm.DateInterval_OpenInt(const aParams: IvcmExecuteParamsPrim);
+begin
+ Self.DateInterval_OpenInt_Execute;
+end;//TPrimNewsLineForm.DateInterval_OpenInt
+
+procedure TPrimNewsLineForm.Form_RequestClose_Execute;
+//#UC START# *4AF82EFD0025_497EBEC4031Dexec_var*
+//#UC END# *4AF82EFD0025_497EBEC4031Dexec_var*
+begin
+//#UC START# *4AF82EFD0025_497EBEC4031Dexec_impl*
+ // Пытаемся эмулировать работу в составе сборки (cq24583)
+ if (sdsAutoReferat <> nil) then
+  SafeClose;
+//#UC END# *4AF82EFD0025_497EBEC4031Dexec_impl*
+end;//TPrimNewsLineForm.Form_RequestClose_Execute
+
+procedure TPrimNewsLineForm.Form_RequestClose(const aParams: IvcmExecuteParamsPrim);
+begin
+ Self.Form_RequestClose_Execute;
+end;//TPrimNewsLineForm.Form_RequestClose
 
 procedure TPrimNewsLineForm.Cleanup;
  {* Функция очистки полей объекта. }
@@ -414,7 +435,6 @@ begin
 //#UC END# *47EA4E9002C6_497EBEC4031D_impl*
 end;//TPrimNewsLineForm.FinishDataUpdate
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimNewsLineForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
  const aNew: IvcmViewAreaController);
  {* Изменился источник данных. Для перекрытия в потомках }
@@ -427,9 +447,7 @@ begin
   f_CurrentNewsLineIndex := DateList.Current;
 //#UC END# *497469C90140_497EBEC4031D_impl*
 end;//TPrimNewsLineForm.NotifyDataSourceChanged
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TPrimNewsLineForm.DoSaveState(out theState: IvcmBase;
  aStateType: TvcmStateType;
  aForClone: Boolean): Boolean;
@@ -446,9 +464,7 @@ begin
  Result := true;
 //#UC END# *49806ED503D5_497EBEC4031D_impl*
 end;//TPrimNewsLineForm.DoSaveState
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TPrimNewsLineForm.DoLoadState(const aState: IvcmBase;
  aStateType: TvcmStateType): Boolean;
  {* Загружает состояние формы. Для перекрытия в потомках }
@@ -474,9 +490,7 @@ begin
  Result := inherited DoLoadState(l_InnerState, aStateType);
 //#UC END# *49807428008C_497EBEC4031D_impl*
 end;//TPrimNewsLineForm.DoLoadState
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimNewsLineForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_497EBEC4031D_var*
@@ -498,9 +512,7 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_497EBEC4031D_impl*
 end;//TPrimNewsLineForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimNewsLineForm.DoLoadFromSettings;
 //#UC START# *4E7C2AA3037E_497EBEC4031D_var*
 //#UC END# *4E7C2AA3037E_497EBEC4031D_var*
@@ -511,9 +523,7 @@ begin
  inherited;
 //#UC END# *4E7C2AA3037E_497EBEC4031D_impl*
 end;//TPrimNewsLineForm.DoLoadFromSettings
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimNewsLineForm.DoSaveInSettings;
 //#UC START# *4F7B072201AA_497EBEC4031D_var*
 //#UC END# *4F7B072201AA_497EBEC4031D_var*
@@ -523,9 +533,7 @@ begin
  TnsNewsLine.Make.SaveThemeToSettings;
 //#UC END# *4F7B072201AA_497EBEC4031D_impl*
 end;//TPrimNewsLineForm.DoSaveInSettings
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TPrimNewsLineForm.NeedSaveInSettings: Boolean;
 //#UC START# *4FC38C4C0119_497EBEC4031D_var*
 //#UC END# *4FC38C4C0119_497EBEC4031D_var*
@@ -534,7 +542,6 @@ begin
  Result := True;
 //#UC END# *4FC38C4C0119_497EBEC4031D_impl*
 end;//TPrimNewsLineForm.NeedSaveInSettings
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_nltMainCaption.Init;
@@ -566,6 +573,7 @@ initialization
  TtfwClassRef.Register(TPrimNewsLineForm);
  {* Регистрация PrimNewsLine }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

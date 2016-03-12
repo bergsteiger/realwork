@@ -31,6 +31,7 @@ uses
  l3ImplUses
 ;
 
+{$If Defined(Nemesis)}
 function TnsSubPrim.Tag: Tl3Tag;
 //#UC START# *4C9B0AD90093_46835879030A_var*
 //#UC END# *4C9B0AD90093_46835879030A_var*
@@ -48,6 +49,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4C9B0AEF009B_46835879030A_impl*
 end;//TnsSubPrim.SubPara
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // Defined(Nemesis)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

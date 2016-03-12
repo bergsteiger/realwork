@@ -169,6 +169,7 @@ uses
  , dsBasesAccess
 ;
 
+{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TsdsAdmin;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
@@ -828,7 +829,6 @@ begin
 //#UC END# *47A042E100E2_493126130280_impl*
 end;//TsdsAdmin.InitFields
 
-{$If NOT Defined(NoVCM)}
 procedure TsdsAdmin.ClearAreas;
  {* Очищает ссылки на области ввода }
 //#UC START# *4938F7E702B7_493126130280_var*

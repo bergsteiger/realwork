@@ -138,6 +138,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки SelfInfo Hints }
  str_PrimSelfInfo_edPasswordHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrimSelfInfo_edPasswordHint'; rValue : 'Введите пароль для авторизации в системе');
@@ -370,7 +371,6 @@ begin
 //#UC END# *479731C50290_4B5430390380_impl*
 end;//TPrimSelfInfoForm.Cleanup
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimSelfInfoForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4B5430390380_var*
@@ -578,7 +578,6 @@ begin
    end;
 //#UC END# *4A8E8F2E0195_4B5430390380_impl*
 end;//TPrimSelfInfoForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimSelfInfoForm.ClearFields;
 begin
@@ -586,7 +585,6 @@ begin
  inherited;
 end;//TPrimSelfInfoForm.ClearFields
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimSelfInfoForm.SetupFormLayout;
  {* Тут можно настроить внешний вид формы }
 //#UC START# *529332B40230_4B5430390380_var*
@@ -603,7 +601,6 @@ begin
  InitUserFields;
 //#UC END# *529332B40230_4B5430390380_impl*
 end;//TPrimSelfInfoForm.SetupFormLayout
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_PrimSelfInfo_edPasswordHint.Init;
@@ -620,6 +617,7 @@ initialization
  TtfwClassRef.Register(TPrimSelfInfoForm);
  {* Регистрация PrimSelfInfo }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

@@ -95,6 +95,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 var g_Tfs_MedicDiction: Tfs_MedicDiction = nil;
  {* Экземпляр синглетона Tfs_MedicDiction }
 
@@ -195,7 +196,6 @@ begin
 //#UC END# *47A042E100E2_4AA12BA501E4_impl*
 end;//Tfs_MedicDiction.InitFields
 
-{$If NOT Defined(NoVCM)}
 class function Tfs_MedicDiction.GetInstance: TvcmFormSetFactoryPrim;
 //#UC START# *4FFE854A009B_4AA12BA501E4_var*
 //#UC END# *4FFE854A009B_4AA12BA501E4_var*
@@ -204,11 +204,11 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4FFE854A009B_4AA12BA501E4_impl*
 end;//Tfs_MedicDiction.GetInstance
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_fsMedicDictionCaption.Init;
  {* Инициализация str_fsMedicDictionCaption }
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

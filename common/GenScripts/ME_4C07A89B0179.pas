@@ -59,9 +59,7 @@ begin
  Result := false;
 //#UC END# *4BEBFE020080_4C07A89B0179_impl*
 end;//TK201493907.ScrollByPage
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TK201493907.GetNormalFontSize: Integer;
  {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
 //#UC START# *4C07AC6F036D_4C07A89B0179_var*
@@ -71,7 +69,6 @@ begin
  Result := 12;
 //#UC END# *4C07AC6F036D_4C07A89B0179_impl*
 end;//TK201493907.GetNormalFontSize
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TK201493907.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -87,6 +84,7 @@ end;//TK201493907.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(TK201493907.Suite);
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

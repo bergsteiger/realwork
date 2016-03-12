@@ -32,6 +32,9 @@ uses
  , SearchLite_Strange_Controls
  , PrimPrimListInterfaces
  , bsTypes
+ , eeInterfaces
+ , nsTypes
+ , FiltersUnit
  , PrimSaveLoadUserTypes_slqtPostingOrder_UserType
  , PrimSaveLoadUserTypes_slqtFilters_UserType
  , PrimSaveLoadUserTypes_slqtConsult_UserType

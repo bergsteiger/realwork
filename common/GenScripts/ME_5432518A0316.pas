@@ -552,7 +552,22 @@ type
 
  IdaComboAccessJournalHelper = interface
   ['{9C5AF6B0-E3D5-419F-9136-E0280619B32D}']
+  procedure SetAlienSessionID(aSessionID: TdaSessionID);
+  procedure LogAlienEvent(aOperation: TdaJournalOperation;
+   aFamilyID: TdaFamilyID;
+   aExtID: LongInt;
+   aData: LongInt);
+  function MakeAlienResultSet(const FromDate: TStDate;
+   const ToDate: TStDate;
+   aDocID: TdaDocID;
+   UserOrGroupID: TdaUserID;
+   UserGr: Boolean): IdaResultSet;
  end;//IdaComboAccessJournalHelper
+
+ IdaComboAccessQueryHelper = interface
+  ['{DE5DF01D-A926-43A4-8A09-6614873CA019}']
+  function AddParam(const aParamDesc: IdaParamDescription): IdaParam;
+ end;//IdaComboAccessQueryHelper
 
 function L2daTableDescriptionIteratorIterateFieldsFAction(anAction: pointer): daTableDescriptionIterator_IterateFieldsF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для daTableDescriptionIterator.IterateFieldsF }

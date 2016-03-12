@@ -122,6 +122,7 @@ uses
  , LoggingUnit
 ;
 
+{$If NOT Defined(NoVCM)}
 class procedure TnsOpenConsultationEvent.Log;
 //#UC START# *4B14D5A203B1_4B14D5890031_var*
 //#UC END# *4B14D5A203B1_4B14D5890031_var*
@@ -493,6 +494,7 @@ begin
  inherited;
 //#UC END# *479731C50290_4A96B68A03B1_impl*
 end;//TPrimFoldersModule.Cleanup
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

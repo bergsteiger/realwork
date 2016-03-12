@@ -200,6 +200,7 @@ uses
  , bsUtils
 ;
 
+{$If NOT Defined(NoVCM)}
 function Tfs_AbstractDocument.Attributes_Child_fDocAttribute_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
  out aNew: IvcmFormDataSource;
  aSubUserType: TvcmUserType): Boolean;
@@ -436,6 +437,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *47A042E100E2_5009367A01C3_impl*
 end;//Tfs_AbstractDocument.InitFields
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

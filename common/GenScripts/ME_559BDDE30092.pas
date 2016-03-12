@@ -21,8 +21,9 @@ uses
  l3ImplUses
  , tfwClassLike
  , TypInfo
- , tfwPropertyLike
  , tfwTypeInfo
+ , tfwPropertyLike
+ , kwValue
  , tfwScriptingTypes
  , tfwTypeRegistrator
  , SysUtils
@@ -89,6 +90,26 @@ OBJECT VAR l_TtfwWord
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopCompilerAddCodePart
+
+ TkwPopCompilerAddCodePartValue = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:Compiler:AddCodePartValue
+*Пример:*
+[code]
+ aValue aCompiler pop:Compiler:AddCodePartValue
+[code]  }
+  private
+   procedure AddCodePartValue(const aCtx: TtfwContext;
+    aCompiler: TtfwCompiler;
+    const aValue: TtfwStackValue);
+    {* Реализация слова скрипта pop:Compiler:AddCodePartValue }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopCompilerAddCodePartValue
 
  TkwPopCompilerKeywordFinder = {final} class(TtfwPropertyLike)
   {* Слово скрипта pop:Compiler:KeywordFinder
@@ -296,6 +317,70 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TtfwCompiler), TypeInfo(TtfwWord)]);
 end;//TkwPopCompilerAddCodePart.ParamsTypes
 
+procedure TkwPopCompilerAddCodePartValue.AddCodePartValue(const aCtx: TtfwContext;
+ aCompiler: TtfwCompiler;
+ const aValue: TtfwStackValue);
+ {* Реализация слова скрипта pop:Compiler:AddCodePartValue }
+//#UC START# *4A88B5E4BF40_77BEE4F9136B_var*
+var
+ l_W : TtfwWord;
+//#UC END# *4A88B5E4BF40_77BEE4F9136B_var*
+begin
+//#UC START# *4A88B5E4BF40_77BEE4F9136B_impl*
+ l_W := TkwValue.Create(aValue);
+ try
+  aCompiler.AddCodePart(l_W, aCtx, tfw_sniNo);
+ finally
+  FreeAndNil(l_W);
+ end;//try..finally
+//#UC END# *4A88B5E4BF40_77BEE4F9136B_impl*
+end;//TkwPopCompilerAddCodePartValue.AddCodePartValue
+
+procedure TkwPopCompilerAddCodePartValue.DoDoIt(const aCtx: TtfwContext);
+var l_aCompiler: TtfwCompiler;
+var l_aValue: TtfwStackValue;
+begin
+ try
+  l_aCompiler := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCompiler: TtfwCompiler : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aValue := aCtx.rEngine.Pop;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aValue: TtfwStackValue : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ AddCodePartValue(aCtx, l_aCompiler, l_aValue);
+end;//TkwPopCompilerAddCodePartValue.DoDoIt
+
+class function TkwPopCompilerAddCodePartValue.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Compiler:AddCodePartValue';
+end;//TkwPopCompilerAddCodePartValue.GetWordNameForRegister
+
+function TkwPopCompilerAddCodePartValue.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwPopCompilerAddCodePartValue.GetResultTypeInfo
+
+function TkwPopCompilerAddCodePartValue.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwPopCompilerAddCodePartValue.GetAllParamsCount
+
+function TkwPopCompilerAddCodePartValue.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TtfwCompiler), @tfw_tiStruct]);
+end;//TkwPopCompilerAddCodePartValue.ParamsTypes
+
 function TkwPopCompilerKeywordFinder.KeywordFinder(const aCtx: TtfwContext;
  aCompiler: TtfwCompiler): TtfwKeywordFinder;
  {* Реализация слова скрипта pop:Compiler:KeywordFinder }
@@ -407,6 +492,8 @@ initialization
  {* Регистрация pop_Compiler_GetWordCompilingNow }
  TkwPopCompilerAddCodePart.RegisterInEngine;
  {* Регистрация pop_Compiler_AddCodePart }
+ TkwPopCompilerAddCodePartValue.RegisterInEngine;
+ {* Регистрация pop_Compiler_AddCodePartValue }
  TkwPopCompilerKeywordFinder.RegisterInEngine;
  {* Регистрация pop_Compiler_KeywordFinder }
  TkwPopCompilerNewWordDefinitor.RegisterInEngine;
@@ -417,6 +504,8 @@ initialization
  {* Регистрация типа TtfwCompiler }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwWord));
  {* Регистрация типа TtfwWord }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
+ {* Регистрация типа TtfwStackValue }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwKeywordFinder));
  {* Регистрация типа TtfwKeywordFinder }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwNewWordDefinitor));

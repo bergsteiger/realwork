@@ -55,20 +55,31 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
-   procedure Delete; override;
+   procedure Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
     {* Удалить }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure ExpandAll; override;
+   procedure Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Delete_GetState(var State: TvcmOperationStateIndex);
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
     {* Развернуть все }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure CollapseAll; override;
+   procedure Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
     {* Свернуть все }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure OpenQuery; override;
-   procedure ExecuteQuery; override;
-   procedure Clear; override;
+   procedure SavedQuery_OpenQuery_Test(const aParams: IvcmTestParamsPrim);
+   procedure SavedQuery_OpenQuery_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure SavedQuery_ExecuteQuery_Test(const aParams: IvcmTestParamsPrim);
+   procedure SavedQuery_ExecuteQuery_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Journal_Clear_Test(const aParams: IvcmTestParamsPrim);
+   procedure Journal_Clear_Execute(const aParams: IvcmExecuteParamsPrim);
    {$If NOT Defined(NoVCM)}
    procedure SetActiveControl; override;
     {* Устанавливает текущий контрол. Какой? Сама форма решает. Для перекрытия в потомках }
@@ -111,6 +122,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки utWorkJournalLocalConstants }
  str_utWorkJournalCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utWorkJournalCaption'; rValue : 'Журнал работы');
@@ -193,70 +205,176 @@ begin
 //#UC END# *527D09F100BA_4BD6D6EA0075_impl*
 end;//TPrimWorkJournalForm.JournalTreeActionElement
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimWorkJournalForm.Delete;
+procedure TPrimWorkJournalForm.Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
  {* Удалить }
-//#UC START# *494F89C30197_4BD6D6EA0075_var*
-//#UC END# *494F89C30197_4BD6D6EA0075_var*
+//#UC START# *494F89C30197_4BD6D6EA0075test_var*
+//#UC END# *494F89C30197_4BD6D6EA0075test_var*
 begin
-//#UC START# *494F89C30197_4BD6D6EA0075_impl*
- !!! Needs to be implemented !!!
-//#UC END# *494F89C30197_4BD6D6EA0075_impl*
-end;//TPrimWorkJournalForm.Delete
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *494F89C30197_4BD6D6EA0075test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := JournalTree.TreeView.Current >= 0;
+//#UC END# *494F89C30197_4BD6D6EA0075test_impl*
+end;//TPrimWorkJournalForm.Edit_Delete_Test
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimWorkJournalForm.ExpandAll;
+procedure TPrimWorkJournalForm.Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Удалить }
+//#UC START# *494F89C30197_4BD6D6EA0075exec_var*
+//#UC END# *494F89C30197_4BD6D6EA0075exec_var*
+begin
+//#UC START# *494F89C30197_4BD6D6EA0075exec_impl*
+ TdmStdRes.MakeWorkJournal.Delete(JournalTree.GetCurrentNode);
+//#UC END# *494F89C30197_4BD6D6EA0075exec_impl*
+end;//TPrimWorkJournalForm.Edit_Delete_Execute
+
+procedure TPrimWorkJournalForm.Edit_Delete_GetState(var State: TvcmOperationStateIndex);
+ {* Удалить }
+//#UC START# *494F89C30197_4BD6D6EA0075getstate_var*
+//#UC END# *494F89C30197_4BD6D6EA0075getstate_var*
+begin
+//#UC START# *494F89C30197_4BD6D6EA0075getstate_impl*
+ // - ничего не делаем
+//#UC END# *494F89C30197_4BD6D6EA0075getstate_impl*
+end;//TPrimWorkJournalForm.Edit_Delete_GetState
+
+procedure TPrimWorkJournalForm.Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
  {* Развернуть все }
-//#UC START# *4BDAF7880236_4BD6D6EA0075_var*
-//#UC END# *4BDAF7880236_4BD6D6EA0075_var*
+//#UC START# *4BDAF7880236_4BD6D6EA0075test_var*
+//#UC END# *4BDAF7880236_4BD6D6EA0075test_var*
 begin
-//#UC START# *4BDAF7880236_4BD6D6EA0075_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BDAF7880236_4BD6D6EA0075_impl*
-end;//TPrimWorkJournalForm.ExpandAll
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4BDAF7880236_4BD6D6EA0075test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := JournalTree.TreeView.Current >= 0;
+//#UC END# *4BDAF7880236_4BD6D6EA0075test_impl*
+end;//TPrimWorkJournalForm.Tree_ExpandAll_Test
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimWorkJournalForm.CollapseAll;
+procedure TPrimWorkJournalForm.Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
  {* Свернуть все }
-//#UC START# *4BDAF7A2005C_4BD6D6EA0075_var*
-//#UC END# *4BDAF7A2005C_4BD6D6EA0075_var*
+//#UC START# *4BDAF7A2005C_4BD6D6EA0075test_var*
+//#UC END# *4BDAF7A2005C_4BD6D6EA0075test_var*
 begin
-//#UC START# *4BDAF7A2005C_4BD6D6EA0075_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BDAF7A2005C_4BD6D6EA0075_impl*
-end;//TPrimWorkJournalForm.CollapseAll
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4BDAF7A2005C_4BD6D6EA0075test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := JournalTree.TreeView.Current >= 0;
+//#UC END# *4BDAF7A2005C_4BD6D6EA0075test_impl*
+end;//TPrimWorkJournalForm.Tree_CollapseAll_Test
 
-procedure TPrimWorkJournalForm.OpenQuery;
-//#UC START# *4C3F3421036A_4BD6D6EA0075_var*
-//#UC END# *4C3F3421036A_4BD6D6EA0075_var*
+procedure TPrimWorkJournalForm.SavedQuery_OpenQuery_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3F3421036A_4BD6D6EA0075test_var*
+var
+ l_Node: INodeBase;
+//#UC END# *4C3F3421036A_4BD6D6EA0075test_var*
 begin
-//#UC START# *4C3F3421036A_4BD6D6EA0075_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3F3421036A_4BD6D6EA0075_impl*
-end;//TPrimWorkJournalForm.OpenQuery
+//#UC START# *4C3F3421036A_4BD6D6EA0075test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] :=
+  Supports(JournalTree.TreeView.CurrentNode, INodeBase, l_Node) and
+  (TJournalObjectType(l_Node.GetType) = JOT_QUERY);
+//#UC END# *4C3F3421036A_4BD6D6EA0075test_impl*
+end;//TPrimWorkJournalForm.SavedQuery_OpenQuery_Test
 
-procedure TPrimWorkJournalForm.ExecuteQuery;
-//#UC START# *4C3F342E02AF_4BD6D6EA0075_var*
-//#UC END# *4C3F342E02AF_4BD6D6EA0075_var*
+procedure TPrimWorkJournalForm.SavedQuery_OpenQuery_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3F3421036A_4BD6D6EA0075exec_var*
+var
+ l_eeNode      : IeeNode;
+ l_AdapterNode : INodeBase;
+ l_BaseEntity  : IUnknown;
+//#UC END# *4C3F3421036A_4BD6D6EA0075exec_var*
 begin
-//#UC START# *4C3F342E02AF_4BD6D6EA0075_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3F342E02AF_4BD6D6EA0075_impl*
-end;//TPrimWorkJournalForm.ExecuteQuery
+//#UC START# *4C3F3421036A_4BD6D6EA0075exec_impl*
+ with JournalTree.TreeView do
+ begin
+  l_eeNode := CurrentNode;
+  try
+   if Supports(l_eeNode, INodeBase, l_AdapterNode) then
+    try
+     try
+      l_AdapterNode.GetEntity(l_BaseEntity);
+     except
+      on ECanNotFindData do
+       exit; //TODO: нода "пропала" что делать?
+     end;
+     try
+      OpenQuery(l_BaseEntity);
+     finally
+      l_BaseEntity := nil;
+     end;
+    finally
+     l_AdapterNode := nil;
+    end;
+  finally
+   l_eeNode := nil;
+  end;
+ end;
+//#UC END# *4C3F3421036A_4BD6D6EA0075exec_impl*
+end;//TPrimWorkJournalForm.SavedQuery_OpenQuery_Execute
 
-procedure TPrimWorkJournalForm.Clear;
-//#UC START# *4C3F348402AC_4BD6D6EA0075_var*
-//#UC END# *4C3F348402AC_4BD6D6EA0075_var*
+procedure TPrimWorkJournalForm.SavedQuery_ExecuteQuery_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3F342E02AF_4BD6D6EA0075test_var*
+//#UC END# *4C3F342E02AF_4BD6D6EA0075test_var*
 begin
-//#UC START# *4C3F348402AC_4BD6D6EA0075_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C3F348402AC_4BD6D6EA0075_impl*
-end;//TPrimWorkJournalForm.Clear
+//#UC START# *4C3F342E02AF_4BD6D6EA0075test_impl*
+ SavedQuery_OpenQuery_Test(aParams);
+//#UC END# *4C3F342E02AF_4BD6D6EA0075test_impl*
+end;//TPrimWorkJournalForm.SavedQuery_ExecuteQuery_Test
 
-{$If NOT Defined(NoVCM)}
+procedure TPrimWorkJournalForm.SavedQuery_ExecuteQuery_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3F342E02AF_4BD6D6EA0075exec_var*
+var
+ l_eeNode : IeeNode;
+ l_AdapterNode : INodeBase;
+ l_BaseEntity : IUnknown;
+ l_Query: IQuery;
+//#UC END# *4C3F342E02AF_4BD6D6EA0075exec_var*
+begin
+//#UC START# *4C3F342E02AF_4BD6D6EA0075exec_impl*
+ with JournalTree.TreeView do
+ begin
+  l_eeNode := CurrentNode;
+  try
+   if Supports(l_eeNode, INodeBase, l_AdapterNode) then
+    try
+     try
+      l_AdapterNode.GetEntity(l_BaseEntity);
+     except
+      on ECanNotFindData do
+       Exit; //TODO: нода "пропала" что делать?
+     end;
+     try
+      l_Query := l_BaseEntity As IQuery;
+      try
+       if l_Query.GetType = QT_BASE_SEARCH then
+        OpenQuery(l_Query);
+       nsSearch(l_Query, nil, nil, NativeMainForm);
+      finally
+       l_Query := nil;
+      end;
+     finally
+      l_BaseEntity := nil;
+     end;//try..finally
+    finally
+     l_AdapterNode := nil;
+    end;//try..finally
+  finally
+   l_eeNode := nil;
+  end;//try..finally
+ end;//with JournalTree.TreeView
+//#UC END# *4C3F342E02AF_4BD6D6EA0075exec_impl*
+end;//TPrimWorkJournalForm.SavedQuery_ExecuteQuery_Execute
+
+procedure TPrimWorkJournalForm.Journal_Clear_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C3F348402AC_4BD6D6EA0075test_var*
+//#UC END# *4C3F348402AC_4BD6D6EA0075test_var*
+begin
+//#UC START# *4C3F348402AC_4BD6D6EA0075test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := JournalTree.TreeView.Current >= 0;
+//#UC END# *4C3F348402AC_4BD6D6EA0075test_impl*
+end;//TPrimWorkJournalForm.Journal_Clear_Test
+
+procedure TPrimWorkJournalForm.Journal_Clear_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3F348402AC_4BD6D6EA0075exec_var*
+//#UC END# *4C3F348402AC_4BD6D6EA0075exec_var*
+begin
+//#UC START# *4C3F348402AC_4BD6D6EA0075exec_impl*
+ TdmStdRes.MakeWorkJournal.Clear;
+//#UC END# *4C3F348402AC_4BD6D6EA0075exec_impl*
+end;//TPrimWorkJournalForm.Journal_Clear_Execute
+
 procedure TPrimWorkJournalForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4BD6D6EA0075_var*
@@ -267,9 +385,7 @@ begin
  JournalTree.Images := nsFoldersRes.FoldersItemImages;
 //#UC END# *49803F5503AA_4BD6D6EA0075_impl*
 end;//TPrimWorkJournalForm.DoInit
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimWorkJournalForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4BD6D6EA0075_var*
@@ -301,9 +417,7 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4BD6D6EA0075_impl*
 end;//TPrimWorkJournalForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimWorkJournalForm.SetActiveControl;
  {* Устанавливает текущий контрол. Какой? Сама форма решает. Для перекрытия в потомках }
 //#UC START# *4AC3803A03CD_4BD6D6EA0075_var*
@@ -313,9 +427,7 @@ begin
  Windows.SetFocus(JournalTree.Handle);
 //#UC END# *4AC3803A03CD_4BD6D6EA0075_impl*
 end;//TPrimWorkJournalForm.SetActiveControl
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimWorkJournalForm.SetupFormLayout;
  {* Тут можно настроить внешний вид формы }
 //#UC START# *529332B40230_4BD6D6EA0075_var*
@@ -327,7 +439,6 @@ begin
  Height := 478;
 //#UC END# *529332B40230_4BD6D6EA0075_impl*
 end;//TPrimWorkJournalForm.SetupFormLayout
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_utWorkJournalCaption.Init;
@@ -336,6 +447,7 @@ initialization
  TtfwClassRef.Register(TPrimWorkJournalForm);
  {* Регистрация PrimWorkJournal }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

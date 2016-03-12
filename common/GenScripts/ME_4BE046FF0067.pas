@@ -61,9 +61,7 @@ begin
  Result := 'атестационная';
 //#UC END# *4BE051200169_4BE046FF0067_impl*
 end;//TK208701762.StringForSearch
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TK208701762.StringForReplace: AnsiString;
  {* Строка для замены }
 //#UC START# *4BE0513800C9_4BE046FF0067_var*
@@ -73,7 +71,6 @@ begin
  Result := 'аттестационная';
 //#UC END# *4BE0513800C9_4BE046FF0067_impl*
 end;//TK208701762.StringForReplace
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TK208701762.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -89,6 +86,7 @@ end;//TK208701762.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(TK208701762.Suite);
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

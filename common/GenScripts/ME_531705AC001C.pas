@@ -27,6 +27,8 @@ uses
  l3ImplUses
  , alcuAnnotationTaskResult
 ;
-{$IfEnd} // Defined(ServerTasks)
 
+{$If NOT Defined(Nemesis)}
+{$IfEnd} // NOT Defined(Nemesis)
+{$IfEnd} // Defined(ServerTasks)
 end.

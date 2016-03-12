@@ -46,4 +46,6 @@ uses
  {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
+{$IfEnd} // NOT Defined(NoScripts)
 end.

@@ -60,9 +60,7 @@ begin
  Result := false;
 //#UC END# *4C08CF4300BE_4C08B91B002B_impl*
 end;//TK210436976.WebStyle
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TK210436976.FormExtent: TPoint;
  {* Размеры формы }
 //#UC START# *4C08CF700318_4C08B91B002B_var*
@@ -73,7 +71,6 @@ begin
  Result.Y := 768;
 //#UC END# *4C08CF700318_4C08B91B002B_impl*
 end;//TK210436976.FormExtent
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TK210436976.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -89,6 +86,7 @@ end;//TK210436976.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(TK210436976.Suite);
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

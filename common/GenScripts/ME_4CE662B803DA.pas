@@ -65,6 +65,7 @@ uses
  , afwFacade
 ;
 
+{$If Defined(Nemesis)}
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentContainer.imp.pas}
 
 function TnsDictionDocumentContainer.GetDocument: Tl3Tag;
@@ -122,6 +123,7 @@ begin
  end;//Result = nil
 //#UC END# *47F27DA80172_4CE662B803DA_impl*
 end;//TnsDictionDocumentContainer.GetDocument
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // Defined(Nemesis)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

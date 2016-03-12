@@ -61,13 +61,13 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
+{$If NOT Defined(NoVCM)}
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\ClipboardOperations.imp.pas}
 
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\SelectOperation.imp.pas}
 
-{$If NOT Defined(NoVCM)}
 procedure TSelectionCellTest.Process(aForm: TPrimTextLoadForm);
  {* Собственно процесс обработки текста }
 //#UC START# *4BE13147032C_4D413AD401BD_var*
@@ -79,7 +79,6 @@ begin
  CopyAndPaste2DocumentBottom(aForm.Text);
 //#UC END# *4BE13147032C_4D413AD401BD_impl*
 end;//TSelectionCellTest.Process
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TSelectionCellTest.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -92,6 +91,7 @@ function TSelectionCellTest.GetModelElementGUID: AnsiString;
 begin
  Result := '4D413AD401BD';
 end;//TSelectionCellTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

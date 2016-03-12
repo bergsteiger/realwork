@@ -14,65 +14,17 @@ uses
 ;
 
 type
- // On
-
- // Off
-
- // Disabled
-
- // CantReceiveLegalServiceAnswer
-
  // System
-
- // IncreaseFont
-
- // DecreaseFont
 
  // Fonts
 
- // HotInformation
-
- // HelpShortCuts
-
- // HelpNewFeatures
-
- // ContactInformation
-
- // ReplyBook
-
- // GarantInternet
-
- // About
-
  // Help
-
- // BookmarkList
 
  // System
 
- // BuildControlledList
-
- // OpenUnderControlTree
-
- // HideReminder
-
  // WarnOnControl
 
- // RemMWControlledChangingWarning
-
- // RemMWOldBaseWarning
-
- // RemMWTrialModeWarning
-
- // RemNewChatMessages
-
- // RemOnlineDead
-
- // remUnreadConsultations
-
  // Reminder
-
- // MemUsage
 
  // Common
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

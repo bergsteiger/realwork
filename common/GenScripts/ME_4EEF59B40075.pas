@@ -81,6 +81,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 function TFormulaRender.GetZoom: Integer;
 //#UC START# *4EF0A04A0286_4EEF59B40075_var*
 //#UC END# *4EF0A04A0286_4EEF59B40075_var*
@@ -90,7 +91,6 @@ begin
 //#UC END# *4EF0A04A0286_4EEF59B40075_impl*
 end;//TFormulaRender.GetZoom
 
-{$If NOT Defined(NoVCM)}
 procedure TFormulaRender.DoVisit(aForm: TPrimTextLoadForm);
  {* Обработать текст }
 //#UC START# *4BE419AF0217_4EEF59B40075_var*
@@ -196,7 +196,6 @@ begin
  Check(L_RenderedCount > 0, 'Похоже, что не отрендерили ни одной формулы');
 //#UC END# *4BE419AF0217_4EEF59B40075_impl*
 end;//TFormulaRender.DoVisit
-{$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NotTunedDUnit)}
 function TFormulaRender.FileForOutput: AnsiString;
@@ -261,5 +260,6 @@ begin
 end;//TFormulaRender.EtalonNeedsXE
 {$IfEnd} // Defined(XE) AND NOT Defined(NotTunedDUnit)
 
+{$IfEnd} // NOT Defined(NoVCM)
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

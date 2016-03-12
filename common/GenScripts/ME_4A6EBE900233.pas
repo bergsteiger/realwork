@@ -151,7 +151,7 @@ type
     {* Обновляет заголовок формы }
    procedure OpenEditionInFullWindow(aSender: TObject);
     {* Открыть редакцию в полном окне }
-   function GotoPara(aPara: Integer): TGotoParaResult; overload;
+   function GotoPara(aPara: Integer): TGotoParaResult;
    procedure PaintIcon(aSender: TObject);
    procedure ParaChange(aSender: TObject;
     const aTextPara: IedTextParagraph);
@@ -202,7 +202,7 @@ type
    function DocumentIsValid: Boolean; override;
     {* Есть ли документ, готовый к работе }
    procedure GotoPoint(aPointID: Cardinal;
-    aPointType: TDocumentPositionType); override;
+    aPointType: TDocumentPositionType = Sub); override;
     {* Переход на точку в документе }
    function HyperlinkDocument: IDocument; override;
     {* Документ ИЗ которого ведёт ссылка }
@@ -253,14 +253,25 @@ type
   public
    procedure Sync(const aPara: TnsParaCoord);
     {* Синхронизировать позицию }
-   function GotoPara: TGotoParaResult; override;
+   function Finder_GotoPara_Execute(aPara: Integer): TGotoParaResult;
     {* Перейти к параграфу по номеру }
-   function SetPosition: Boolean; override;
-   procedure OpenEditionLocalLink; override;
+   procedure Finder_GotoPara(const aParams: IvcmExecuteParamsPrim);
+    {* Перейти к параграфу по номеру }
+   function Document_SetPosition_Execute(aPointID: Cardinal;
+    aPointType: TDocumentPositionType = Sub;
+    aUserType: Integer = 0): Boolean;
+   procedure Document_SetPosition(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_OpenEditionLocalLink_Execute(const aDocument: IDocument;
+    aSub: Cardinal;
+    aBehaviour: TbsProcessHyperLinkBehaviour);
+    {* Переход по локальной ссылке на редакцию }
+   procedure Document_OpenEditionLocalLink(const aParams: IvcmExecuteParamsPrim);
     {* Переход по локальной ссылке на редакцию }
    procedure CurrentChangedFragmentChanged(aParaID: Integer);
     {* Изменилось положение текущего изменённого фрагмента. Дёрнули у редактора курсор или скроллер. aParaID == GetParaForPositionning }
-   procedure DisableForceDrawFocusRect; override;
+   procedure Finder_DisableForceDrawFocusRect_Execute;
+    {* Запрещает рисование фокусной рамки }
+   procedure Finder_DisableForceDrawFocusRect(const aParams: IvcmExecuteParamsPrim);
     {* Запрещает рисование фокусной рамки }
    {$If NOT Defined(NoVCM)}
    function NeedDrawCaption: Boolean; override;
@@ -386,6 +397,7 @@ uses
  , LeafPara_Const
 ;
 
+{$If NOT Defined(NoVCM)}
 type
  TnsChangedParaWaiter = class(TevSubWaiter)
   {* Объект, обрабатывающий переход на изменённый параграф }
@@ -1280,7 +1292,7 @@ begin
 end;//TDiffForm.DocumentIsValid
 
 procedure TDiffForm.GotoPoint(aPointID: Cardinal;
- aPointType: TDocumentPositionType);
+ aPointType: TDocumentPositionType = Sub);
  {* Переход на точку в документе }
 //#UC START# *4A8164E801AE_4A6EBE900233_var*
 var
@@ -1382,15 +1394,22 @@ begin
 //#UC END# *4AD6EAA3034A_4A6EBE900233get_impl*
 end;//TDiffForm.Get_ContextSearcher
 
-function TDiffForm.GotoPara: TGotoParaResult;
+function TDiffForm.Finder_GotoPara_Execute(aPara: Integer): TGotoParaResult;
  {* Перейти к параграфу по номеру }
-//#UC START# *4AE042520302_4A6EBE900233_var*
-//#UC END# *4AE042520302_4A6EBE900233_var*
+//#UC START# *4AE042520302_4A6EBE900233exec_var*
+//#UC END# *4AE042520302_4A6EBE900233exec_var*
 begin
-//#UC START# *4AE042520302_4A6EBE900233_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE042520302_4A6EBE900233_impl*
-end;//TDiffForm.GotoPara
+//#UC START# *4AE042520302_4A6EBE900233exec_impl*
+ Result := GotoPara(aPara);
+//#UC END# *4AE042520302_4A6EBE900233exec_impl*
+end;//TDiffForm.Finder_GotoPara_Execute
+
+procedure TDiffForm.Finder_GotoPara(const aParams: IvcmExecuteParamsPrim);
+ {* Перейти к параграфу по номеру }
+begin
+ with (aParams.Data As IFinder_GotoPara_Params) do
+  ResultValue := Self.Finder_GotoPara_Execute(Para);
+end;//TDiffForm.Finder_GotoPara
 
 function TDiffForm.DocumentForExport: IDocument;
 //#UC START# *4AE1B48A0120_4A6EBE900233_var*
@@ -1419,24 +1438,53 @@ begin
 //#UC END# *4AE1C9890311_4A6EBE900233_impl*
 end;//TDiffForm.IsDrug
 
-function TDiffForm.SetPosition: Boolean;
-//#UC START# *4AE9D38A02DA_4A6EBE900233_var*
-//#UC END# *4AE9D38A02DA_4A6EBE900233_var*
+function TDiffForm.Document_SetPosition_Execute(aPointID: Cardinal;
+ aPointType: TDocumentPositionType = Sub;
+ aUserType: Integer = 0): Boolean;
+//#UC START# *4AE9D38A02DA_4A6EBE900233exec_var*
+//#UC END# *4AE9D38A02DA_4A6EBE900233exec_var*
 begin
-//#UC START# *4AE9D38A02DA_4A6EBE900233_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE9D38A02DA_4A6EBE900233_impl*
-end;//TDiffForm.SetPosition
+//#UC START# *4AE9D38A02DA_4A6EBE900233exec_impl*
+ GotoPoint(aPointID, aPointType);
+ Result := true;
+//#UC END# *4AE9D38A02DA_4A6EBE900233exec_impl*
+end;//TDiffForm.Document_SetPosition_Execute
 
-procedure TDiffForm.OpenEditionLocalLink;
- {* Переход по локальной ссылке на редакцию }
-//#UC START# *4B0650D4035A_4A6EBE900233_var*
-//#UC END# *4B0650D4035A_4A6EBE900233_var*
+procedure TDiffForm.Document_SetPosition(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4B0650D4035A_4A6EBE900233_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4B0650D4035A_4A6EBE900233_impl*
-end;//TDiffForm.OpenEditionLocalLink
+ with (aParams.Data As IDocument_SetPosition_Params) do
+  ResultValue := Self.Document_SetPosition_Execute(PointID, PointType, UserType);
+end;//TDiffForm.Document_SetPosition
+
+procedure TDiffForm.Document_OpenEditionLocalLink_Execute(const aDocument: IDocument;
+ aSub: Cardinal;
+ aBehaviour: TbsProcessHyperLinkBehaviour);
+ {* Переход по локальной ссылке на редакцию }
+//#UC START# *4B0650D4035A_4A6EBE900233exec_var*
+//#UC END# *4B0650D4035A_4A6EBE900233exec_var*
+begin
+//#UC START# *4B0650D4035A_4A6EBE900233exec_impl*
+ if not f_InOpenEditionLink then
+ begin
+  if HyperlinkDocument.IsSameRedaction(aDocument) then
+  begin
+   // Переход по локальной ссылке в текущей редакции документа
+   Dispatcher.History.SaveState(Self.As_IvcmEntityForm, vcm_stPosition);
+   GoToPoint(aSub);
+   SetFocusToText;
+  end//HyperlinkDocument.IsSameRedaction(aDocument)
+  else
+   inherited OpenRedactionLocalLink(aDocument, aSub, aBehaviour);
+ end;//not f_InOpenEditionLink
+//#UC END# *4B0650D4035A_4A6EBE900233exec_impl*
+end;//TDiffForm.Document_OpenEditionLocalLink_Execute
+
+procedure TDiffForm.Document_OpenEditionLocalLink(const aParams: IvcmExecuteParamsPrim);
+ {* Переход по локальной ссылке на редакцию }
+begin
+ with (aParams.Data As IDocument_OpenEditionLocalLink_Params) do
+  Self.Document_OpenEditionLocalLink_Execute(Document, Sub, Behaviour);
+end;//TDiffForm.Document_OpenEditionLocalLink
 
 function TDiffForm.DocumentForSearch: IDocument;
 //#UC START# *4B4EF0A200BD_4A6EBE900233_var*
@@ -1457,15 +1505,21 @@ begin
 //#UC END# *4B54676B0132_4A6EBE900233_impl*
 end;//TDiffForm.CurrentChangedFragmentChanged
 
-procedure TDiffForm.DisableForceDrawFocusRect;
+procedure TDiffForm.Finder_DisableForceDrawFocusRect_Execute;
  {* Запрещает рисование фокусной рамки }
-//#UC START# *4B59C1F401F8_4A6EBE900233_var*
-//#UC END# *4B59C1F401F8_4A6EBE900233_var*
+//#UC START# *4B59C1F401F8_4A6EBE900233exec_var*
+//#UC END# *4B59C1F401F8_4A6EBE900233exec_var*
 begin
-//#UC START# *4B59C1F401F8_4A6EBE900233_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4B59C1F401F8_4A6EBE900233_impl*
-end;//TDiffForm.DisableForceDrawFocusRect
+//#UC START# *4B59C1F401F8_4A6EBE900233exec_impl*
+ Text.ForceDrawFocusRect := false;
+//#UC END# *4B59C1F401F8_4A6EBE900233exec_impl*
+end;//TDiffForm.Finder_DisableForceDrawFocusRect_Execute
+
+procedure TDiffForm.Finder_DisableForceDrawFocusRect(const aParams: IvcmExecuteParamsPrim);
+ {* Запрещает рисование фокусной рамки }
+begin
+ Self.Finder_DisableForceDrawFocusRect_Execute;
+end;//TDiffForm.Finder_DisableForceDrawFocusRect
 
 function TDiffForm.CanUnControl: Boolean;
 //#UC START# *4BA0ACB501DA_4A6EBE900233_var*
@@ -1543,7 +1597,6 @@ begin
 //#UC END# *484516C00214_4A6EBE900233_impl*
 end;//TDiffForm.Loaded
 
-{$If NOT Defined(NoVCM)}
 procedure TDiffForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
  const aNew: IvcmViewAreaController);
  {* Изменился источник данных. Для перекрытия в потомках }
@@ -1573,7 +1626,6 @@ begin
  pbIcon.Invalidate; 
 //#UC END# *497469C90140_4A6EBE900233_impl*
 end;//TDiffForm.NotifyDataSourceChanged
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TDiffForm.DoProcessLocalLink(const aDocument: IDocument;
  aPointType: TDocumentPositionType;
@@ -1620,7 +1672,6 @@ begin
 //#UC END# *4A81650B014A_4A6EBE900233_impl*
 end;//TDiffForm.OpenRedactionLocalLink
 
-{$If NOT Defined(NoVCM)}
 function TDiffForm.NeedDrawCaption: Boolean;
  {* Нужно ли рисовать заголовок зоны }
 //#UC START# *4A84183701B9_4A6EBE900233_var*
@@ -1630,9 +1681,7 @@ begin
  Result := false;
 //#UC END# *4A84183701B9_4A6EBE900233_impl*
 end;//TDiffForm.NeedDrawCaption
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TDiffForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4A6EBE900233_var*
@@ -1765,7 +1814,6 @@ begin
  inherited;
 //#UC END# *4A8E8F2E0195_4A6EBE900233_impl*
 end;//TDiffForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TDiffForm.ContinueSearchInWholeBase: Boolean;
 //#UC START# *4B4EF0D2016A_4A6EBE900233_var*
@@ -1776,7 +1824,6 @@ begin
 //#UC END# *4B4EF0D2016A_4A6EBE900233_impl*
 end;//TDiffForm.ContinueSearchInWholeBase
 
-{$If NOT Defined(NoVCM)}
 function TDiffForm.NeedNotifyContainerOnCaptionChanged: Boolean;
 //#UC START# *546304500231_4A6EBE900233_var*
 //#UC END# *546304500231_4A6EBE900233_var*
@@ -1785,13 +1832,13 @@ begin
  Result := False;
 //#UC END# *546304500231_4A6EBE900233_impl*
 end;//TDiffForm.NeedNotifyContainerOnCaptionChanged
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TDiffForm);
  {* Регистрация Diff }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

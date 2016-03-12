@@ -14,30 +14,6 @@ uses
 ;
 
 type
- // Hide
-
- // Show
-
- // ShowJurorComments
-
- // Hide
-
- // Show
-
- // ShowUserComments
-
- // Hide
-
- // Show
-
- // ShowTechComments
-
- // Hide
-
- // Show
-
- // ShowVersionComments
-
  // Document
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 

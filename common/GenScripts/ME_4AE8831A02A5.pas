@@ -33,6 +33,10 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , Messages
  , SearchUnit
+ {$If Defined(Nemesis)}
+ , nscNewInterfaces
+ {$IfEnd} // Defined(Nemesis)
+ , l3TreeInterfaces
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
@@ -101,12 +105,19 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
   public
-   function IsQueryEmpty: Boolean; override;
-   function GetQuery: TnsQueryInfo; override;
-   function IsQuerySaved: Boolean; override;
-   procedure SetQuery; override;
-   procedure ContextChanged; override;
-   procedure ClearQuery; override;
+   function SearchParameters_IsQueryEmpty_Execute: Boolean;
+   procedure SearchParameters_IsQueryEmpty(const aParams: IvcmExecuteParamsPrim);
+   function SearchParameters_GetQuery_Execute(aIgnoreError: Boolean = False): TnsQueryInfo;
+   procedure SearchParameters_GetQuery(const aParams: IvcmExecuteParamsPrim);
+   function SearchParameters_IsQuerySaved_Execute: Boolean;
+   procedure SearchParameters_IsQuerySaved(const aParams: IvcmExecuteParamsPrim);
+   procedure SearchParameters_SetQuery_Execute(const aQuery: IQuery);
+   procedure SearchParameters_SetQuery(const aParams: IvcmExecuteParamsPrim);
+   procedure ContextParams_ContextChanged_Execute(const aContextState: InscContextFilterState;
+    const aContextTarget: Il3ContextFilterTarget);
+   procedure ContextParams_ContextChanged(const aParams: IvcmExecuteParamsPrim);
+   procedure SearchParameters_ClearQuery_Execute;
+   procedure SearchParameters_ClearQuery(const aParams: IvcmExecuteParamsPrim);
   public
    property BackgroundPanel: TvtPanel
     read f_BackgroundPanel;
@@ -141,6 +152,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки cutOldKeyWordLocalConstants }
  str_cutOldKeyWordCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cutOldKeyWordCaption'; rValue : 'Поиск по ситуации');
@@ -204,59 +216,115 @@ begin
 //#UC END# *524565FD004E_4AE8831A02A5_impl*
 end;//TPrimOldSituationSearchForm.AfterInit
 
-function TPrimOldSituationSearchForm.IsQueryEmpty: Boolean;
-//#UC START# *4AE879D00143_4AE8831A02A5_var*
-//#UC END# *4AE879D00143_4AE8831A02A5_var*
+function TPrimOldSituationSearchForm.SearchParameters_IsQueryEmpty_Execute: Boolean;
+//#UC START# *4AE879D00143_4AE8831A02A5exec_var*
+//#UC END# *4AE879D00143_4AE8831A02A5exec_var*
 begin
-//#UC START# *4AE879D00143_4AE8831A02A5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE879D00143_4AE8831A02A5_impl*
-end;//TPrimOldSituationSearchForm.IsQueryEmpty
+//#UC START# *4AE879D00143_4AE8831A02A5exec_impl*
+ Result := false;
+//#UC END# *4AE879D00143_4AE8831A02A5exec_impl*
+end;//TPrimOldSituationSearchForm.SearchParameters_IsQueryEmpty_Execute
 
-function TPrimOldSituationSearchForm.GetQuery: TnsQueryInfo;
-//#UC START# *4AE884E803AA_4AE8831A02A5_var*
-//#UC END# *4AE884E803AA_4AE8831A02A5_var*
+procedure TPrimOldSituationSearchForm.SearchParameters_IsQueryEmpty(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4AE884E803AA_4AE8831A02A5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE884E803AA_4AE8831A02A5_impl*
-end;//TPrimOldSituationSearchForm.GetQuery
+ with (aParams.Data As ISearchParameters_IsQueryEmpty_Params) do
+  ResultValue := Self.SearchParameters_IsQueryEmpty_Execute;
+end;//TPrimOldSituationSearchForm.SearchParameters_IsQueryEmpty
 
-function TPrimOldSituationSearchForm.IsQuerySaved: Boolean;
-//#UC START# *4AE8A577027D_4AE8831A02A5_var*
-//#UC END# *4AE8A577027D_4AE8831A02A5_var*
+function TPrimOldSituationSearchForm.SearchParameters_GetQuery_Execute(aIgnoreError: Boolean = False): TnsQueryInfo;
+//#UC START# *4AE884E803AA_4AE8831A02A5exec_var*
+//#UC END# *4AE884E803AA_4AE8831A02A5exec_var*
 begin
-//#UC START# *4AE8A577027D_4AE8831A02A5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE8A577027D_4AE8831A02A5_impl*
-end;//TPrimOldSituationSearchForm.IsQuerySaved
+//#UC START# *4AE884E803AA_4AE8831A02A5exec_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (f_FormState.Query <> nil) then
+  f_FormState.Query.Clear;
+ Result.rQuery := FillQuery;
+ if (f_FormState.Filter <> nil) then
+  Result.rFilter := f_FormState.Filter
+ else
+  Result.rAskFilters := true; 
+//#UC END# *4AE884E803AA_4AE8831A02A5exec_impl*
+end;//TPrimOldSituationSearchForm.SearchParameters_GetQuery_Execute
 
-procedure TPrimOldSituationSearchForm.SetQuery;
-//#UC START# *4AEF213001F0_4AE8831A02A5_var*
-//#UC END# *4AEF213001F0_4AE8831A02A5_var*
+procedure TPrimOldSituationSearchForm.SearchParameters_GetQuery(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4AEF213001F0_4AE8831A02A5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AEF213001F0_4AE8831A02A5_impl*
-end;//TPrimOldSituationSearchForm.SetQuery
+ with (aParams.Data As ISearchParameters_GetQuery_Params) do
+  ResultValue := Self.SearchParameters_GetQuery_Execute(IgnoreError);
+end;//TPrimOldSituationSearchForm.SearchParameters_GetQuery
 
-procedure TPrimOldSituationSearchForm.ContextChanged;
-//#UC START# *4AF4008101F4_4AE8831A02A5_var*
-//#UC END# *4AF4008101F4_4AE8831A02A5_var*
+function TPrimOldSituationSearchForm.SearchParameters_IsQuerySaved_Execute: Boolean;
+//#UC START# *4AE8A577027D_4AE8831A02A5exec_var*
+//#UC END# *4AE8A577027D_4AE8831A02A5exec_var*
 begin
-//#UC START# *4AF4008101F4_4AE8831A02A5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF4008101F4_4AE8831A02A5_impl*
-end;//TPrimOldSituationSearchForm.ContextChanged
+//#UC START# *4AE8A577027D_4AE8831A02A5exec_impl*
+ Result := nsIsQuerySaved(f_FormState.Query);
+//#UC END# *4AE8A577027D_4AE8831A02A5exec_impl*
+end;//TPrimOldSituationSearchForm.SearchParameters_IsQuerySaved_Execute
 
-procedure TPrimOldSituationSearchForm.ClearQuery;
-//#UC START# *4AF92B09017F_4AE8831A02A5_var*
-//#UC END# *4AF92B09017F_4AE8831A02A5_var*
+procedure TPrimOldSituationSearchForm.SearchParameters_IsQuerySaved(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4AF92B09017F_4AE8831A02A5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF92B09017F_4AE8831A02A5_impl*
-end;//TPrimOldSituationSearchForm.ClearQuery
+ with (aParams.Data As ISearchParameters_IsQuerySaved_Params) do
+  ResultValue := Self.SearchParameters_IsQuerySaved_Execute;
+end;//TPrimOldSituationSearchForm.SearchParameters_IsQuerySaved
+
+procedure TPrimOldSituationSearchForm.SearchParameters_SetQuery_Execute(const aQuery: IQuery);
+//#UC START# *4AEF213001F0_4AE8831A02A5exec_var*
+//#UC END# *4AEF213001F0_4AE8831A02A5exec_var*
+begin
+//#UC START# *4AEF213001F0_4AE8831A02A5exec_impl*
+ f_FormState.Query := nil;
+
+ // Очищаем текущие выбранные значения
+ Op_AttributeTree_DropAllLogicSelection.Call(Aggregate, true, true);
+
+ if (aQuery <> nil) then
+ begin
+  f_FormState.Query := aQuery;
+  op_AttributeTree_LoadQuery.Call(Aggregate, f_FormState.Query);
+ end;//aQuery <> nil
+//#UC END# *4AEF213001F0_4AE8831A02A5exec_impl*
+end;//TPrimOldSituationSearchForm.SearchParameters_SetQuery_Execute
+
+procedure TPrimOldSituationSearchForm.SearchParameters_SetQuery(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As ISearchParameters_SetQuery_Params) do
+  Self.SearchParameters_SetQuery_Execute(Query);
+end;//TPrimOldSituationSearchForm.SearchParameters_SetQuery
+
+procedure TPrimOldSituationSearchForm.ContextParams_ContextChanged_Execute(const aContextState: InscContextFilterState;
+ const aContextTarget: Il3ContextFilterTarget);
+//#UC START# *4AF4008101F4_4AE8831A02A5exec_var*
+//#UC END# *4AF4008101F4_4AE8831A02A5exec_var*
+begin
+//#UC START# *4AF4008101F4_4AE8831A02A5exec_impl*
+ ContextFilter.AssignState(aContextState);
+ Assert(Assigned(aContextTarget));
+ ContextFilter.UpdateIsContextWrong(aContextTarget);
+//#UC END# *4AF4008101F4_4AE8831A02A5exec_impl*
+end;//TPrimOldSituationSearchForm.ContextParams_ContextChanged_Execute
+
+procedure TPrimOldSituationSearchForm.ContextParams_ContextChanged(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IContextParams_ContextChanged_Params) do
+  Self.ContextParams_ContextChanged_Execute(ContextState, ContextTarget);
+end;//TPrimOldSituationSearchForm.ContextParams_ContextChanged
+
+procedure TPrimOldSituationSearchForm.SearchParameters_ClearQuery_Execute;
+//#UC START# *4AF92B09017F_4AE8831A02A5exec_var*
+//#UC END# *4AF92B09017F_4AE8831A02A5exec_var*
+begin
+//#UC START# *4AF92B09017F_4AE8831A02A5exec_impl*
+ Op_AttributeTree_DropAllLogicSelection.Call(Aggregate, true, true);
+ // Очищаем поле фильтра
+ f_FormState.Filter := nil;
+//#UC END# *4AF92B09017F_4AE8831A02A5exec_impl*
+end;//TPrimOldSituationSearchForm.SearchParameters_ClearQuery_Execute
+
+procedure TPrimOldSituationSearchForm.SearchParameters_ClearQuery(const aParams: IvcmExecuteParamsPrim);
+begin
+ Self.SearchParameters_ClearQuery_Execute;
+end;//TPrimOldSituationSearchForm.SearchParameters_ClearQuery
 
 procedure TPrimOldSituationSearchForm.Cleanup;
  {* Функция очистки полей объекта. }
@@ -287,7 +355,6 @@ begin
 //#UC END# *47A042E100E2_4AE8831A02A5_impl*
 end;//TPrimOldSituationSearchForm.InitFields
 
-{$If NOT Defined(NoVCM)}
 function TPrimOldSituationSearchForm.DoSaveState(out theState: IvcmBase;
  aStateType: TvcmStateType;
  aForClone: Boolean): Boolean;
@@ -300,9 +367,7 @@ begin
   theState := f_FormState as IvcmBase;
 //#UC END# *49806ED503D5_4AE8831A02A5_impl*
 end;//TPrimOldSituationSearchForm.DoSaveState
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TPrimOldSituationSearchForm.DoLoadState(const aState: IvcmBase;
  aStateType: TvcmStateType): Boolean;
  {* Загружает состояние формы. Для перекрытия в потомках }
@@ -315,9 +380,7 @@ begin
    Assert(False);
 //#UC END# *49807428008C_4AE8831A02A5_impl*
 end;//TPrimOldSituationSearchForm.DoLoadState
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimOldSituationSearchForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AE8831A02A5_var*
@@ -379,9 +442,7 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AE8831A02A5_impl*
 end;//TPrimOldSituationSearchForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimOldSituationSearchForm.FormInsertedIntoContainer;
 //#UC START# *4F7C65380244_4AE8831A02A5_var*
 //#UC END# *4F7C65380244_4AE8831A02A5_var*
@@ -391,7 +452,6 @@ begin
  PostMessage(Handle, CM_AFTER_INIT, 0, 0);
 //#UC END# *4F7C65380244_4AE8831A02A5_impl*
 end;//TPrimOldSituationSearchForm.FormInsertedIntoContainer
-{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimOldSituationSearchForm.ClearFields;
 begin
@@ -408,6 +468,7 @@ initialization
  TtfwClassRef.Register(TPrimOldSituationSearchForm);
  {* Регистрация PrimOldSituationSearch }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

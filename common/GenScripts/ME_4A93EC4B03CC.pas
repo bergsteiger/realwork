@@ -102,6 +102,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 function TPrimRememberPasswordForm.pm_GetEMail: Il3CString;
 //#UC START# *525D1318002B_4A93EC4B03CCget_var*
 //#UC END# *525D1318002B_4A93EC4B03CCget_var*
@@ -183,7 +184,6 @@ begin
 end;//TPrimRememberPasswordForm.CreateParams
 {$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimRememberPasswordForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4A93EC4B03CC_var*
@@ -263,7 +263,6 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4A93EC4B03CC_impl*
 end;//TPrimRememberPasswordForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCL)}
 function TPrimRememberPasswordForm.IsRealInstance: Boolean;
@@ -281,6 +280,7 @@ initialization
  TtfwClassRef.Register(TPrimRememberPasswordForm);
  {* Регистрация PrimRememberPassword }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

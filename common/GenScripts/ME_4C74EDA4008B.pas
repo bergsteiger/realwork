@@ -22,7 +22,7 @@ type
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-  public
+  published
    procedure DoIt;
  end;//TGZipTest
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
@@ -39,6 +39,7 @@ uses
  , l3Types
 ;
 
+{$If NOT Defined(NotTunedDUnit)}
 procedure TGZipTest.DoIt;
 //#UC START# *4C74EDE00008_4C74EDA4008B_var*
 const
@@ -84,6 +85,7 @@ function TGZipTest.GetModelElementGUID: AnsiString;
 begin
  Result := '4C74EDA4008B';
 end;//TGZipTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

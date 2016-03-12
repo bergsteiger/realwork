@@ -28,6 +28,7 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ , nsTypes
 ;
 
 type
@@ -83,18 +84,27 @@ type
     {* Тут можно настроить внешний вид формы }
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   function Load: Boolean; override;
+   function Loadable_Load_Execute(const aNode: IeeNode;
+    const aData: IUnknown;
+    anOp: TListLogicOperation = LLO_NONE): Boolean;
     {* Коллеги, кто может описать этот метод? }
-   procedure Refresh; override;
+   procedure Loadable_Load(const aParams: IvcmExecuteParamsPrim);
+    {* Коллеги, кто может описать этот метод? }
+   procedure ControlCenter_Refresh_Execute;
+   procedure ControlCenter_Refresh(const aParams: IvcmExecuteParamsPrim);
    {$If NOT Defined(NoVCM)}
-   procedure ExpandAll; override;
+   procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
     {* Развернуть все }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure CollapseAll; override;
+   procedure Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
     {* Свернуть все }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure ShowChanges; override;
+   procedure Document_ShowChanges_Test(const aParams: IvcmTestParamsPrim);
+    {* Показать изменения }
+   procedure Document_ShowChanges_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Показать изменения }
+   procedure Document_ShowChanges_GetState(var State: TvcmOperationStateIndex);
     {* Показать изменения }
   protected
    property UnderControlList: TnscTreeViewWithAdapterDragDrop
@@ -501,15 +511,58 @@ begin
 //#UC END# *527B591500AD_4A7C349D02CB_impl*
 end;//TPrimUnderControlForm.StatusParamsShow
 
-function TPrimUnderControlForm.Load: Boolean;
+function TPrimUnderControlForm.Loadable_Load_Execute(const aNode: IeeNode;
+ const aData: IUnknown;
+ anOp: TListLogicOperation = LLO_NONE): Boolean;
  {* Коллеги, кто может описать этот метод? }
-//#UC START# *49895A2102E8_4A7C349D02CB_var*
-//#UC END# *49895A2102E8_4A7C349D02CB_var*
+//#UC START# *49895A2102E8_4A7C349D02CBexec_var*
+var
+ l_Node         : INode;
+ l_Controllable : IControllable;
+
+ l_FoldersNode  : InsFoldersNode;
+//#UC END# *49895A2102E8_4A7C349D02CBexec_var*
 begin
-//#UC START# *49895A2102E8_4A7C349D02CB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49895A2102E8_4A7C349D02CB_impl*
-end;//TPrimUnderControlForm.Load
+//#UC START# *49895A2102E8_4A7C349D02CBexec_impl*
+ Result := true;
+ if Supports(aNode, INode, l_Node) then
+  try
+   if Supports(l_Node, IControllable, l_Controllable) then
+    try
+     if l_Controllable.GetControlled then
+      begin
+       Say(inf_AlreadyControlledObject);
+       Result := false;
+      end
+     else //l_Controllable.GetControlled
+     begin
+      if Supports(aNode, InsFoldersNode, l_FoldersNode) then
+       try
+        l_FoldersNode.ChangeUnderControlStatus;
+       finally
+        l_FoldersNode := nil;
+       end;
+     end;
+    finally
+     l_Controllable := nil;
+    end
+   else//Supports(l_Node, IControllable, l_Controllable)
+    begin
+     Say(err_InvalidControlledObject);
+     Result := false;
+    end;
+  finally
+   l_Node := nil;
+  end;
+//#UC END# *49895A2102E8_4A7C349D02CBexec_impl*
+end;//TPrimUnderControlForm.Loadable_Load_Execute
+
+procedure TPrimUnderControlForm.Loadable_Load(const aParams: IvcmExecuteParamsPrim);
+ {* Коллеги, кто может описать этот метод? }
+begin
+ with (aParams.Data As ILoadable_Load_Params) do
+  ResultValue := Self.Loadable_Load_Execute(Node, Data, nOp);
+end;//TPrimUnderControlForm.Loadable_Load
 
 procedure TPrimUnderControlForm.Updated;
  {* список обновился }
@@ -521,48 +574,73 @@ begin
 //#UC END# *499043510214_4A7C349D02CB_impl*
 end;//TPrimUnderControlForm.Updated
 
-procedure TPrimUnderControlForm.Refresh;
-//#UC START# *4AF836720144_4A7C349D02CB_var*
-//#UC END# *4AF836720144_4A7C349D02CB_var*
+procedure TPrimUnderControlForm.ControlCenter_Refresh_Execute;
+//#UC START# *4AF836720144_4A7C349D02CBexec_var*
+//#UC END# *4AF836720144_4A7C349D02CBexec_var*
 begin
-//#UC START# *4AF836720144_4A7C349D02CB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF836720144_4A7C349D02CB_impl*
-end;//TPrimUnderControlForm.Refresh
+//#UC START# *4AF836720144_4A7C349D02CBexec_impl*
+ UnderControlList.Invalidate;
+//#UC END# *4AF836720144_4A7C349D02CBexec_impl*
+end;//TPrimUnderControlForm.ControlCenter_Refresh_Execute
+
+procedure TPrimUnderControlForm.ControlCenter_Refresh(const aParams: IvcmExecuteParamsPrim);
+begin
+ Self.ControlCenter_Refresh_Execute;
+end;//TPrimUnderControlForm.ControlCenter_Refresh
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimUnderControlForm.ExpandAll;
+procedure TPrimUnderControlForm.Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
  {* Развернуть все }
-//#UC START# *4BDAF7880236_4A7C349D02CB_var*
-//#UC END# *4BDAF7880236_4A7C349D02CB_var*
+//#UC START# *4BDAF7880236_4A7C349D02CBtest_var*
+//#UC END# *4BDAF7880236_4A7C349D02CBtest_var*
 begin
-//#UC START# *4BDAF7880236_4A7C349D02CB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BDAF7880236_4A7C349D02CB_impl*
-end;//TPrimUnderControlForm.ExpandAll
+//#UC START# *4BDAF7880236_4A7C349D02CBtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4BDAF7880236_4A7C349D02CBtest_impl*
+end;//TPrimUnderControlForm.Tree_ExpandAll_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimUnderControlForm.CollapseAll;
+procedure TPrimUnderControlForm.Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
  {* Свернуть все }
-//#UC START# *4BDAF7A2005C_4A7C349D02CB_var*
-//#UC END# *4BDAF7A2005C_4A7C349D02CB_var*
+//#UC START# *4BDAF7A2005C_4A7C349D02CBtest_var*
+//#UC END# *4BDAF7A2005C_4A7C349D02CBtest_var*
 begin
-//#UC START# *4BDAF7A2005C_4A7C349D02CB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BDAF7A2005C_4A7C349D02CB_impl*
-end;//TPrimUnderControlForm.CollapseAll
+//#UC START# *4BDAF7A2005C_4A7C349D02CBtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4BDAF7A2005C_4A7C349D02CBtest_impl*
+end;//TPrimUnderControlForm.Tree_CollapseAll_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
-procedure TPrimUnderControlForm.ShowChanges;
+procedure TPrimUnderControlForm.Document_ShowChanges_Test(const aParams: IvcmTestParamsPrim);
  {* Показать изменения }
-//#UC START# *4DD1260D02D1_4A7C349D02CB_var*
-//#UC END# *4DD1260D02D1_4A7C349D02CB_var*
+//#UC START# *4DD1260D02D1_4A7C349D02CBtest_var*
+//#UC END# *4DD1260D02D1_4A7C349D02CBtest_var*
 begin
-//#UC START# *4DD1260D02D1_4A7C349D02CB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DD1260D02D1_4A7C349D02CB_impl*
-end;//TPrimUnderControlForm.ShowChanges
+//#UC START# *4DD1260D02D1_4A7C349D02CBtest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := CanCompareEditions(UnderControlList.GetCurrentNode, true);
+//#UC END# *4DD1260D02D1_4A7C349D02CBtest_impl*
+end;//TPrimUnderControlForm.Document_ShowChanges_Test
+
+procedure TPrimUnderControlForm.Document_ShowChanges_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Показать изменения }
+//#UC START# *4DD1260D02D1_4A7C349D02CBexec_var*
+//#UC END# *4DD1260D02D1_4A7C349D02CBexec_var*
+begin
+//#UC START# *4DD1260D02D1_4A7C349D02CBexec_impl*
+ CompareEditions(UnderControlList.GetCurrentNode);
+//#UC END# *4DD1260D02D1_4A7C349D02CBexec_impl*
+end;//TPrimUnderControlForm.Document_ShowChanges_Execute
+
+procedure TPrimUnderControlForm.Document_ShowChanges_GetState(var State: TvcmOperationStateIndex);
+ {* Показать изменения }
+//#UC START# *4DD1260D02D1_4A7C349D02CBgetstate_var*
+//#UC END# *4DD1260D02D1_4A7C349D02CBgetstate_var*
+begin
+//#UC START# *4DD1260D02D1_4A7C349D02CBgetstate_impl*
+ State := vcm_DefaultOperationState;
+//#UC END# *4DD1260D02D1_4A7C349D02CBgetstate_impl*
+end;//TPrimUnderControlForm.Document_ShowChanges_GetState
 
 procedure TPrimUnderControlForm.Cleanup;
  {* Функция очистки полей объекта. }

@@ -87,6 +87,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimForbidAutoregistrationForm.cbEmailChange(Sender: TObject);
 //#UC START# *51C3165101B7_497ED39B034F_var*
 const
@@ -110,7 +111,6 @@ begin
  end;//try..finally
 end;//TPrimForbidAutoregistrationForm.Make
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimForbidAutoregistrationForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
  const aNew: IvcmViewAreaController);
  {* Изменился источник данных. Для перекрытия в потомках }
@@ -125,9 +125,7 @@ begin
  end; 
 //#UC END# *497469C90140_497ED39B034F_impl*
 end;//TPrimForbidAutoregistrationForm.NotifyDataSourceChanged
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimForbidAutoregistrationForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_497ED39B034F_var*
@@ -199,13 +197,13 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_497ED39B034F_impl*
 end;//TPrimForbidAutoregistrationForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimForbidAutoregistrationForm);
  {* Регистрация PrimForbidAutoregistration }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // Defined(Admin)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(Admin)
 end.

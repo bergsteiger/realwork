@@ -65,9 +65,9 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 {$Include w:\common\components\rtl\Garant\ScriptEngine\SelectTablePart.imp.pas}
 
-{$If NOT Defined(NoVCM)}
 procedure TSelectRowAndDeleteTest.Process(aForm: TPrimTextLoadForm);
  {* Собственно процесс обработки текста }
 //#UC START# *4BE13147032C_4CE3E5F3012B_var*
@@ -78,7 +78,6 @@ begin
  aForm.Text.Range.Delete;
 //#UC END# *4BE13147032C_4CE3E5F3012B_impl*
 end;//TSelectRowAndDeleteTest.Process
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TSelectRowAndDeleteTest.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -117,6 +116,7 @@ function TSelectRowAndDeleteTest.GetModelElementGUID: AnsiString;
 begin
  Result := '4CE3E5F3012B';
 end;//TSelectRowAndDeleteTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

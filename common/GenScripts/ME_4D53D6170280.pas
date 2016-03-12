@@ -58,9 +58,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
+{$If NOT Defined(NoVCM)}
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\ColumnResizeByMouse.imp.pas}
 
-{$If NOT Defined(NoVCM)}
 procedure TColumnResizeByMousePrimTest.Process(aForm: TPrimTextLoadForm);
  {* Собственно процесс обработки текста }
 //#UC START# *4BE13147032C_4D53D6170280_var*
@@ -71,7 +71,6 @@ begin
  SelectColumn(aForm.Text);
 //#UC END# *4BE13147032C_4D53D6170280_impl*
 end;//TColumnResizeByMousePrimTest.Process
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TColumnResizeByMousePrimTest.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -84,6 +83,7 @@ function TColumnResizeByMousePrimTest.GetModelElementGUID: AnsiString;
 begin
  Result := '4D53D6170280';
 end;//TColumnResizeByMousePrimTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

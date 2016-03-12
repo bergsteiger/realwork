@@ -71,7 +71,6 @@ begin
  end; // if (l_Selection <> nil) then
 //#UC END# *4BE13147032C_4CC6E92E0233_impl*
 end;//TDeleteColumnToolTest.Process
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TDeleteColumnToolTest.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -84,6 +83,7 @@ function TDeleteColumnToolTest.GetModelElementGUID: AnsiString;
 begin
  Result := '4CC6E92E0233';
 end;//TDeleteColumnToolTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

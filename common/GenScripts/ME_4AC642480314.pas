@@ -222,9 +222,12 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
   public
    class function Make(const aData: InsStyleTableSettingsInfo): StyleEditor; reintroduce;
-   procedure RestoreStyleTable; override;
-   procedure SaveStyleTable; override;
-   procedure SetNewContent; override;
+   procedure StyleEditor_RestoreStyleTable_Execute(aRestoreDefault: Boolean);
+   procedure StyleEditor_RestoreStyleTable(const aParams: IvcmExecuteParamsPrim);
+   procedure StyleEditor_SaveStyleTable_Execute(aSaveAsDefault: Boolean);
+   procedure StyleEditor_SaveStyleTable(const aParams: IvcmExecuteParamsPrim);
+   procedure StyleEditor_SetNewContent_Execute(aStyleID: Integer);
+   procedure StyleEditor_SetNewContent(const aParams: IvcmExecuteParamsPrim);
    constructor Create(AOwner: TComponent); override;
   public
    property FontScrollBox: TScrollBox
@@ -276,6 +279,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки  }
  str_ValueIsGreaterThan: Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'ValueIsGreaterThan'; rValue : 'Значение не может быть больше чем %d');
@@ -1438,32 +1442,58 @@ begin
 //#UC END# *531868C7033D_4AC642480314_impl*
 end;//TPrimStyleEditorFontForm.StyleCaptionComboBoxChange
 
-procedure TPrimStyleEditorFontForm.RestoreStyleTable;
-//#UC START# *4AE8696C001B_4AC642480314_var*
-//#UC END# *4AE8696C001B_4AC642480314_var*
+procedure TPrimStyleEditorFontForm.StyleEditor_RestoreStyleTable_Execute(aRestoreDefault: Boolean);
+//#UC START# *4AE8696C001B_4AC642480314exec_var*
+//#UC END# *4AE8696C001B_4AC642480314exec_var*
 begin
-//#UC START# *4AE8696C001B_4AC642480314_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE8696C001B_4AC642480314_impl*
-end;//TPrimStyleEditorFontForm.RestoreStyleTable
+//#UC START# *4AE8696C001B_4AC642480314exec_impl*
+ DisableUpdate;
+ try
+  f_SettingsInfo.Load(aRestoreDefault);
+  //
+  SendToAggregateReloadStylesTreeNotify(nsCStr(f_StyleInterface.Name));
+  SendToAggregateReloadStyleTableNotify(False);
+ finally
+  EnableUpdate;
+ end;
+//#UC END# *4AE8696C001B_4AC642480314exec_impl*
+end;//TPrimStyleEditorFontForm.StyleEditor_RestoreStyleTable_Execute
 
-procedure TPrimStyleEditorFontForm.SaveStyleTable;
-//#UC START# *4AE869C10245_4AC642480314_var*
-//#UC END# *4AE869C10245_4AC642480314_var*
+procedure TPrimStyleEditorFontForm.StyleEditor_RestoreStyleTable(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4AE869C10245_4AC642480314_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE869C10245_4AC642480314_impl*
-end;//TPrimStyleEditorFontForm.SaveStyleTable
+ with (aParams.Data As IStyleEditor_RestoreStyleTable_Params) do
+  Self.StyleEditor_RestoreStyleTable_Execute(RestoreDefault);
+end;//TPrimStyleEditorFontForm.StyleEditor_RestoreStyleTable
 
-procedure TPrimStyleEditorFontForm.SetNewContent;
-//#UC START# *4AEAE333001D_4AC642480314_var*
-//#UC END# *4AEAE333001D_4AC642480314_var*
+procedure TPrimStyleEditorFontForm.StyleEditor_SaveStyleTable_Execute(aSaveAsDefault: Boolean);
+//#UC START# *4AE869C10245_4AC642480314exec_var*
+//#UC END# *4AE869C10245_4AC642480314exec_var*
 begin
-//#UC START# *4AEAE333001D_4AC642480314_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AEAE333001D_4AC642480314_impl*
-end;//TPrimStyleEditorFontForm.SetNewContent
+//#UC START# *4AE869C10245_4AC642480314exec_impl*
+ f_SettingsInfo.Save(aSaveAsDefault);
+//#UC END# *4AE869C10245_4AC642480314exec_impl*
+end;//TPrimStyleEditorFontForm.StyleEditor_SaveStyleTable_Execute
+
+procedure TPrimStyleEditorFontForm.StyleEditor_SaveStyleTable(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IStyleEditor_SaveStyleTable_Params) do
+  Self.StyleEditor_SaveStyleTable_Execute(SaveAsDefault);
+end;//TPrimStyleEditorFontForm.StyleEditor_SaveStyleTable
+
+procedure TPrimStyleEditorFontForm.StyleEditor_SetNewContent_Execute(aStyleID: Integer);
+//#UC START# *4AEAE333001D_4AC642480314exec_var*
+//#UC END# *4AEAE333001D_4AC642480314exec_var*
+begin
+//#UC START# *4AEAE333001D_4AC642480314exec_impl*
+ LoadCurrentStateFromStyleInterface(aStyleID);
+//#UC END# *4AEAE333001D_4AC642480314exec_impl*
+end;//TPrimStyleEditorFontForm.StyleEditor_SetNewContent_Execute
+
+procedure TPrimStyleEditorFontForm.StyleEditor_SetNewContent(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IStyleEditor_SetNewContent_Params) do
+  Self.StyleEditor_SetNewContent_Execute(StyleID);
+end;//TPrimStyleEditorFontForm.StyleEditor_SetNewContent
 
 procedure TPrimStyleEditorFontForm.Cleanup;
  {* Функция очистки полей объекта. }
@@ -1508,7 +1538,6 @@ begin
 //#UC END# *47D1602000C6_4AC642480314_impl*
 end;//TPrimStyleEditorFontForm.Create
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimStyleEditorFontForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AC642480314_var*
@@ -2107,7 +2136,6 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AC642480314_impl*
 end;//TPrimStyleEditorFontForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_ValueIsGreaterThan.Init;
@@ -2124,6 +2152,7 @@ initialization
  TtfwClassRef.Register(TPrimStyleEditorFontForm);
  {* Регистрация PrimStyleEditorFont }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

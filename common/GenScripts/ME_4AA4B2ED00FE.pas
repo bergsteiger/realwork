@@ -75,6 +75,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 var g_Tfs_Folders: Tfs_Folders = nil;
  {* Экземпляр синглетона Tfs_Folders }
 
@@ -151,7 +152,6 @@ begin
 //#UC END# *47A042E100E2_4AA4B2ED00FE_impl*
 end;//Tfs_Folders.InitFields
 
-{$If NOT Defined(NoVCM)}
 class function Tfs_Folders.GetInstance: TvcmFormSetFactoryPrim;
 //#UC START# *4FFE854A009B_4AA4B2ED00FE_var*
 //#UC END# *4FFE854A009B_4AA4B2ED00FE_var*
@@ -160,9 +160,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4FFE854A009B_4AA4B2ED00FE_impl*
 end;//Tfs_Folders.GetInstance
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function Tfs_Folders.DoGetCanSaveFormSetToHistory(const aFormSet: IvcmFormSet): Boolean;
 //#UC START# *55E020470097_4AA4B2ED00FE_var*
 //#UC END# *55E020470097_4AA4B2ED00FE_var*
@@ -171,11 +169,11 @@ begin
  Result := False;
 //#UC END# *55E020470097_4AA4B2ED00FE_impl*
 end;//Tfs_Folders.DoGetCanSaveFormSetToHistory
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_fsFoldersCaption.Init;
  {* Инициализация str_fsFoldersCaption }
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

@@ -22,7 +22,7 @@ type
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-  public
+  published
    procedure DoIt;
  end;//TDiffTest
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
@@ -39,6 +39,7 @@ uses
  , SysUtils
 ;
 
+{$If NOT Defined(NotTunedDUnit)}
 procedure TDiffTest.DoIt;
 //#UC START# *5644533F0088_564452C80377_var*
 var
@@ -105,6 +106,7 @@ end;//TDiffTest.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(TDiffTest.Suite);
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

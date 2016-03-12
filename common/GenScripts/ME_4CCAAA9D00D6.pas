@@ -13,23 +13,9 @@ uses
 ;
 
 type
- // Activate
-
- // Edit
-
- // PersistentFilter
-
- // RenameFilter
-
  // Filter
 
- // New
-
- // Refresh
-
  // Filters
-
- // CreateFilter
 
  // Filter
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

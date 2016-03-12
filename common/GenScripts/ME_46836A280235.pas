@@ -38,7 +38,7 @@ type
     const aMenuSectionItemToKeep: ISectionItem): InsRubricatorTree; reintroduce;
    constructor Create(const aRoot: INodeBase;
     aShowRoot: Boolean;
-    aOneLevel: Boolean); override;
+    aOneLevel: Boolean = False); override;
  end;//TnsRubricatorList
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -157,7 +157,7 @@ end;//TnsRubricatorList.Get_MenuSectionItemToKeep
 
 constructor TnsRubricatorList.Create(const aRoot: INodeBase;
  aShowRoot: Boolean;
- aOneLevel: Boolean);
+ aOneLevel: Boolean = False);
 //#UC START# *48FDD9270194_46836A280235_var*
 //#UC END# *48FDD9270194_46836A280235_var*
 begin

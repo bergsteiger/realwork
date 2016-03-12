@@ -60,7 +60,6 @@ begin
  Result := 11;
 //#UC END# *4C07AC6F036D_4C20C4B30279_impl*
 end;//TK217688170.GetNormalFontSize
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TK217688170.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -87,6 +86,7 @@ end;//TK217688170.EtalonNeedsXE
 
 initialization
  TestFramework.RegisterTest(TK217688170.Suite);
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

@@ -20,19 +20,18 @@ type
  TPrimBaseSearchOptionsForm = class(TPrimBaseSearchForm)
   public
    {$If NOT Defined(NoVCM)}
-   procedure FindNext; override;
+   procedure Edit_FindNext_Test(const aParams: IvcmTestParamsPrim);
     {* Найти далее }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Undo; override;
-    {* Отмена }
+   procedure Edit_FindNext_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Найти далее }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Redo; override;
-    {* Возврат }
+   procedure Edit_FindPrev_Test(const aParams: IvcmTestParamsPrim);
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure FindPrev; override;
+   procedure Edit_FindPrev_Execute(const aParams: IvcmExecuteParamsPrim);
    {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimBaseSearchOptionsForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -48,50 +47,49 @@ uses
 ;
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimBaseSearchOptionsForm.FindNext;
+procedure TPrimBaseSearchOptionsForm.Edit_FindNext_Test(const aParams: IvcmTestParamsPrim);
  {* Найти далее }
-//#UC START# *495130C40123_4CC7F0CE0267_var*
-//#UC END# *495130C40123_4CC7F0CE0267_var*
+//#UC START# *495130C40123_4CC7F0CE0267test_var*
+//#UC END# *495130C40123_4CC7F0CE0267test_var*
 begin
-//#UC START# *495130C40123_4CC7F0CE0267_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495130C40123_4CC7F0CE0267_impl*
-end;//TPrimBaseSearchOptionsForm.FindNext
+//#UC START# *495130C40123_4CC7F0CE0267test_impl*
+ // - ничего не делаем
+//#UC END# *495130C40123_4CC7F0CE0267test_impl*
+end;//TPrimBaseSearchOptionsForm.Edit_FindNext_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimBaseSearchOptionsForm.Undo;
- {* Отмена }
-//#UC START# *49EDFCA2006D_4CC7F0CE0267_var*
-//#UC END# *49EDFCA2006D_4CC7F0CE0267_var*
+procedure TPrimBaseSearchOptionsForm.Edit_FindNext_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Найти далее }
+//#UC START# *495130C40123_4CC7F0CE0267exec_var*
+//#UC END# *495130C40123_4CC7F0CE0267exec_var*
 begin
-//#UC START# *49EDFCA2006D_4CC7F0CE0267_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EDFCA2006D_4CC7F0CE0267_impl*
-end;//TPrimBaseSearchOptionsForm.Undo
+//#UC START# *495130C40123_4CC7F0CE0267exec_impl*
+ DoFindBtnClick;
+//#UC END# *495130C40123_4CC7F0CE0267exec_impl*
+end;//TPrimBaseSearchOptionsForm.Edit_FindNext_Execute
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimBaseSearchOptionsForm.Redo;
- {* Возврат }
-//#UC START# *49EDFCB100BC_4CC7F0CE0267_var*
-//#UC END# *49EDFCB100BC_4CC7F0CE0267_var*
+procedure TPrimBaseSearchOptionsForm.Edit_FindPrev_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *49FEDE4703B8_4CC7F0CE0267test_var*
+//#UC END# *49FEDE4703B8_4CC7F0CE0267test_var*
 begin
-//#UC START# *49EDFCB100BC_4CC7F0CE0267_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EDFCB100BC_4CC7F0CE0267_impl*
-end;//TPrimBaseSearchOptionsForm.Redo
+//#UC START# *49FEDE4703B8_4CC7F0CE0267test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := Assigned(f_BaseSearcher) and f_BaseSearcher.WindowData.FindBackEnabled;
+//#UC END# *49FEDE4703B8_4CC7F0CE0267test_impl*
+end;//TPrimBaseSearchOptionsForm.Edit_FindPrev_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimBaseSearchOptionsForm.FindPrev;
-//#UC START# *49FEDE4703B8_4CC7F0CE0267_var*
-//#UC END# *49FEDE4703B8_4CC7F0CE0267_var*
+procedure TPrimBaseSearchOptionsForm.Edit_FindPrev_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *49FEDE4703B8_4CC7F0CE0267exec_var*
+//#UC END# *49FEDE4703B8_4CC7F0CE0267exec_var*
 begin
-//#UC START# *49FEDE4703B8_4CC7F0CE0267_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49FEDE4703B8_4CC7F0CE0267_impl*
-end;//TPrimBaseSearchOptionsForm.FindPrev
+//#UC START# *49FEDE4703B8_4CC7F0CE0267exec_impl*
+ DoFindBackBtnClick;
+//#UC END# *49FEDE4703B8_4CC7F0CE0267exec_impl*
+end;//TPrimBaseSearchOptionsForm.Edit_FindPrev_Execute
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization

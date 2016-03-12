@@ -54,9 +54,9 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\Navigator.imp.pas}
 
-{$If NOT Defined(NoVCM)}
 procedure TTextViaEditorProcessorWithNavigate.Process(aForm: TPrimTextLoadForm);
  {* Собственно процесс обработки текста }
 //#UC START# *4BE13147032C_4C9214C80098_var*
@@ -77,7 +77,6 @@ begin
  end;//with aForm.Text
 //#UC END# *4BE13147032C_4C9214C80098_impl*
 end;//TTextViaEditorProcessorWithNavigate.Process
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TTextViaEditorProcessorWithNavigate.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -90,6 +89,7 @@ function TTextViaEditorProcessorWithNavigate.GetModelElementGUID: AnsiString;
 begin
  Result := '4C9214C80098';
 end;//TTextViaEditorProcessorWithNavigate.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

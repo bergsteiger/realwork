@@ -18,7 +18,7 @@ type
  _ListType_ = TIUnknownRefList;
  {$Include w:\common\components\SandBox\ListTest.imp.pas}
  TIUnknownRefListTest = class(_ListTest_)
-  public
+  published
    procedure DoIt;
  end;//TIUnknownRefListTest
 {$IfEnd} // Defined(nsTest)

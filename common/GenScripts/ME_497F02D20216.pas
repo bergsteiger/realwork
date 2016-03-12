@@ -153,6 +153,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки admUsePropertiesLocalConstants }
  str_admUsePropertiesCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'admUsePropertiesCaption'; rValue : 'Свойства пользователя');
@@ -556,7 +557,6 @@ begin
 //#UC END# *49F6DC2600C0_497F02D20216_impl*
 end;//TPrimUserPropertyForm.CheckUnsavedProperties
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimUserPropertyForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
  const aNew: IvcmViewAreaController);
  {* Изменился источник данных. Для перекрытия в потомках }
@@ -582,9 +582,7 @@ begin
   f_IsCorrectInfo := false
 //#UC END# *497469C90140_497F02D20216_impl*
 end;//TPrimUserPropertyForm.NotifyDataSourceChanged
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TPrimUserPropertyForm.CallCloseQuery(aCaller: TCustomForm): Boolean;
 //#UC START# *4980407F0076_497F02D20216_var*
 //#UC END# *4980407F0076_497F02D20216_var*
@@ -596,9 +594,7 @@ begin
  Result := True;
 //#UC END# *4980407F0076_497F02D20216_impl*
 end;//TPrimUserPropertyForm.CallCloseQuery
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimUserPropertyForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_497F02D20216_var*
@@ -826,9 +822,7 @@ begin
  edGroup.SetSimpleTree(TnsGroupTreeStruct.Make(defDataAdapter.GetGroupsTree, False));
 //#UC END# *4A8E8F2E0195_497F02D20216_impl*
 end;//TPrimUserPropertyForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimUserPropertyForm.SetupFormLayout;
  {* Тут можно настроить внешний вид формы }
 //#UC START# *529332B40230_497F02D20216_var*
@@ -840,7 +834,6 @@ begin
  Height := 276;
 //#UC END# *529332B40230_497F02D20216_impl*
 end;//TPrimUserPropertyForm.SetupFormLayout
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_admUsePropertiesCaption.Init;
@@ -861,6 +854,7 @@ initialization
  TtfwClassRef.Register(TPrimUserPropertyForm);
  {* Регистрация PrimUserProperty }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // Defined(Admin)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(Admin)
 end.

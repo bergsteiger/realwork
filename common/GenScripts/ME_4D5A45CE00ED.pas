@@ -60,6 +60,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
 
 procedure TTabInTableTest.CheckPoint(const aCellPoint: InevBasePoint);
@@ -90,7 +91,6 @@ begin
 //#UC END# *4D5A4CFB029F_4D5A45CE00ED_impl*
 end;//TTabInTableTest.GetTabMoveCount
 
-{$If NOT Defined(NoVCM)}
 procedure TTabInTableTest.DoVisit(aForm: TPrimTextLoadForm);
  {* Обработать текст }
 //#UC START# *4BE419AF0217_4D5A45CE00ED_var*
@@ -110,7 +110,6 @@ begin
  CheckPoint(l_Point);
 //#UC END# *4BE419AF0217_4D5A45CE00ED_impl*
 end;//TTabInTableTest.DoVisit
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TTabInTableTest.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -123,6 +122,7 @@ function TTabInTableTest.GetModelElementGUID: AnsiString;
 begin
  Result := '4D5A45CE00ED';
 end;//TTabInTableTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

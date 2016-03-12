@@ -29,7 +29,7 @@ type
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-  public
+  published
    procedure DoIt;
  end;//TK204114253
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
@@ -50,6 +50,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts)}
 type
  TelCustomEditHack = class(TelCustomEdit)
  end;//TelCustomEditHack
@@ -93,6 +94,7 @@ end;//TK204114253.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(TK204114253.Suite);
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
+{$IfEnd} // NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 end.

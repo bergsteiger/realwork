@@ -19,6 +19,7 @@ uses
  , l3Interfaces
  , FoldersDomainInterfaces
  , UnderControlUnit
+ , DocumentAndListInterfaces
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
@@ -33,7 +34,6 @@ uses
  , UnderControlInterfaces
  , l3Types
  , afwInterfaces
- , DocumentAndListInterfaces
  , DocumentInterfaces
 ;
 

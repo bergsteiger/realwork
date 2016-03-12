@@ -25,6 +25,8 @@ uses
  {$If Defined(Nemesis)}
  , nscContextFilter
  {$IfEnd} // Defined(Nemesis)
+ , bsTypes
+ , l3TreeInterfaces
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 

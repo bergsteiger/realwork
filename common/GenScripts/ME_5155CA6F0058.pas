@@ -15,7 +15,7 @@ uses
 
 type
  TStringStackTest = class(TTestCase)
-  public
+  published
    procedure DoIt;
  end;//TStringStackTest
 {$IfEnd} // Defined(nsTest)

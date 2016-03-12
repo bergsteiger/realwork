@@ -68,40 +68,37 @@ type
   public
    class function Make(const aData: IafwDocumentPreview): File; reintroduce;
    {$If NOT Defined(NoVCM)}
-   procedure Print; override;
+   procedure File_Print_Test(const aParams: IvcmTestParamsPrim);
     {* Печать }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure PrintDialog; override;
+   procedure File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
     {* Печать... }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Отмена }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
+   procedure Result_Ok_Test(const aParams: IvcmTestParamsPrim);
     {* OK }
    {$IfEnd} // NOT Defined(NoVCM)
-   function ChangeScale: Boolean; override;
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_GetState(var State: TvcmOperationStateIndex);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   function Scalable_ChangeScale_Execute(aInc: Boolean): Boolean;
     {* Изменить масштаб }
-   function CanChangeScale: TCanChangeScale; override;
+   procedure Scalable_ChangeScale(const aParams: IvcmExecuteParamsPrim);
+    {* Изменить масштаб }
+   function Scalable_CanChangeScale_Execute(anInc: Boolean): TCanChangeScale;
     {* Масштабирование запрещено }
-   procedure ZoomIn; override;
-   procedure ZoomOut; override;
-   procedure ZoomWidth; override;
-   procedure ZoomPage; override;
-   procedure FullSelectedSwitch; override;
-   procedure RGBGrayscaleSwitch; override;
-   procedure PrintInfoSwitch; override;
-   {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
-    {* OK }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
-    {* Отмена }
-   {$IfEnd} // NOT Defined(NoVCM)
+   procedure Scalable_CanChangeScale(const aParams: IvcmExecuteParamsPrim);
+    {* Масштабирование запрещено }
   public
    property PreviewPanel: TnscPreviewPanel
     read f_PreviewPanel;
@@ -132,6 +129,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки utPrintPreviewLocalConstants }
  str_utPrintPreviewCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utPrintPreviewCaption'; rValue : 'Предварительный просмотр печати');
@@ -179,160 +177,125 @@ begin
  end;//try..finally
 end;//TPrimPreviewForm.Make
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimPreviewForm.Print;
+procedure TPrimPreviewForm.File_Print_Test(const aParams: IvcmTestParamsPrim);
  {* Печать }
-//#UC START# *49521D8E0295_4AAF6F4E010E_var*
-//#UC END# *49521D8E0295_4AAF6F4E010E_var*
+//#UC START# *49521D8E0295_4AAF6F4E010Etest_var*
+//#UC END# *49521D8E0295_4AAF6F4E010Etest_var*
 begin
-//#UC START# *49521D8E0295_4AAF6F4E010E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49521D8E0295_4AAF6F4E010E_impl*
-end;//TPrimPreviewForm.Print
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *49521D8E0295_4AAF6F4E010Etest_impl*
+ aParams.CallControl;
+ if not IsReady then
+  aParams.Op.Flag[vcm_ofEnabled] := false;
+ {$If not defined(Admin) AND not defined(Monitorings)} 
+ nsDisableOperationInTrialMode(aParams);
+ {$IfEnd} //not Admin AND not Monitorings
+//#UC END# *49521D8E0295_4AAF6F4E010Etest_impl*
+end;//TPrimPreviewForm.File_Print_Test
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimPreviewForm.PrintDialog;
+procedure TPrimPreviewForm.File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
  {* Печать... }
-//#UC START# *495220DE0298_4AAF6F4E010E_var*
-//#UC END# *495220DE0298_4AAF6F4E010E_var*
+//#UC START# *495220DE0298_4AAF6F4E010Etest_var*
+//#UC END# *495220DE0298_4AAF6F4E010Etest_var*
 begin
-//#UC START# *495220DE0298_4AAF6F4E010E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495220DE0298_4AAF6F4E010E_impl*
-end;//TPrimPreviewForm.PrintDialog
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *495220DE0298_4AAF6F4E010Etest_impl*
+ aParams.CallControl;
+ if not IsReady then
+  aParams.Op.Flag[vcm_ofEnabled] := false;
+ {$If not defined(Admin) AND not defined(Monitorings)} 
+ nsDisableOperationInTrialMode(aParams);
+ {$IfEnd} //not Admin AND not Monitorings
+//#UC END# *495220DE0298_4AAF6F4E010Etest_impl*
+end;//TPrimPreviewForm.File_PrintDialog_Test
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimPreviewForm.Cancel;
+procedure TPrimPreviewForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Отмена }
-//#UC START# *4A8AD46D0226_4AAF6F4E010E_var*
-//#UC END# *4A8AD46D0226_4AAF6F4E010E_var*
+//#UC START# *4A8AD46D0226_4AAF6F4E010Eexec_var*
+//#UC END# *4A8AD46D0226_4AAF6F4E010Eexec_var*
 begin
-//#UC START# *4A8AD46D0226_4AAF6F4E010E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A8AD46D0226_4AAF6F4E010E_impl*
-end;//TPrimPreviewForm.Cancel
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4A8AD46D0226_4AAF6F4E010Eexec_impl*
+ if IsModalForm then
+  ModalResult := mrCancel
+ else
+  Dispatcher.History.Back;
+//#UC END# *4A8AD46D0226_4AAF6F4E010Eexec_impl*
+end;//TPrimPreviewForm.Result_Cancel_Execute
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimPreviewForm.Ok;
+procedure TPrimPreviewForm.Result_Ok_Test(const aParams: IvcmTestParamsPrim);
  {* OK }
-//#UC START# *4A97EBE702F8_4AAF6F4E010E_var*
-//#UC END# *4A97EBE702F8_4AAF6F4E010E_var*
+//#UC START# *4A97EBE702F8_4AAF6F4E010Etest_var*
+//#UC END# *4A97EBE702F8_4AAF6F4E010Etest_var*
 begin
-//#UC START# *4A97EBE702F8_4AAF6F4E010E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A97EBE702F8_4AAF6F4E010E_impl*
-end;//TPrimPreviewForm.Ok
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4A97EBE702F8_4AAF6F4E010Etest_impl*
+ if not IsReady then
+  aParams.Op.Flag[vcm_ofEnabled] := false;
+ {$If not defined(Admin) AND not defined(Monitorings)}
+ nsDisableOperationInTrialMode(aParams);
+ {$IfEnd} //not Admin AND not Monitorings
+//#UC END# *4A97EBE702F8_4AAF6F4E010Etest_impl*
+end;//TPrimPreviewForm.Result_Ok_Test
 
-function TPrimPreviewForm.ChangeScale: Boolean;
+procedure TPrimPreviewForm.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* OK }
+//#UC START# *4A97EBE702F8_4AAF6F4E010Eexec_var*
+var
+ l_Printed: Boolean;
+//#UC END# *4A97EBE702F8_4AAF6F4E010Eexec_var*
+begin
+//#UC START# *4A97EBE702F8_4AAF6F4E010Eexec_impl*
+ l_Printed := PreviewPanel.Print;
+ if IsModalForm then
+  ModalResult := mrOk
+ else
+  if l_Printed then
+   Dispatcher.History.Back;
+//#UC END# *4A97EBE702F8_4AAF6F4E010Eexec_impl*
+end;//TPrimPreviewForm.Result_Ok_Execute
+
+procedure TPrimPreviewForm.Result_Ok_GetState(var State: TvcmOperationStateIndex);
+ {* OK }
+//#UC START# *4A97EBE702F8_4AAF6F4E010Egetstate_var*
+//#UC END# *4A97EBE702F8_4AAF6F4E010Egetstate_var*
+begin
+//#UC START# *4A97EBE702F8_4AAF6F4E010Egetstate_impl*
+ State := st_user_Result_Ok_Print;
+//#UC END# *4A97EBE702F8_4AAF6F4E010Egetstate_impl*
+end;//TPrimPreviewForm.Result_Ok_GetState
+
+function TPrimPreviewForm.Scalable_ChangeScale_Execute(aInc: Boolean): Boolean;
  {* Изменить масштаб }
-//#UC START# *4BB32C1401C0_4AAF6F4E010E_var*
-//#UC END# *4BB32C1401C0_4AAF6F4E010E_var*
+//#UC START# *4BB32C1401C0_4AAF6F4E010Eexec_var*
+//#UC END# *4BB32C1401C0_4AAF6F4E010Eexec_var*
 begin
-//#UC START# *4BB32C1401C0_4AAF6F4E010E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BB32C1401C0_4AAF6F4E010E_impl*
-end;//TPrimPreviewForm.ChangeScale
+//#UC START# *4BB32C1401C0_4AAF6F4E010Eexec_impl*
+ Result := False;
+//#UC END# *4BB32C1401C0_4AAF6F4E010Eexec_impl*
+end;//TPrimPreviewForm.Scalable_ChangeScale_Execute
 
-function TPrimPreviewForm.CanChangeScale: TCanChangeScale;
+procedure TPrimPreviewForm.Scalable_ChangeScale(const aParams: IvcmExecuteParamsPrim);
+ {* Изменить масштаб }
+begin
+ with (aParams.Data As IScalable_ChangeScale_Params) do
+  ResultValue := Self.Scalable_ChangeScale_Execute(Inc);
+end;//TPrimPreviewForm.Scalable_ChangeScale
+
+function TPrimPreviewForm.Scalable_CanChangeScale_Execute(anInc: Boolean): TCanChangeScale;
  {* Масштабирование запрещено }
-//#UC START# *4BB366A901D7_4AAF6F4E010E_var*
-//#UC END# *4BB366A901D7_4AAF6F4E010E_var*
+//#UC START# *4BB366A901D7_4AAF6F4E010Eexec_var*
+const
+ cCanChangeScaleArr : array[Boolean] of TCanChangeScale = (ccsNo, ccsYesIfPossible);
+//#UC END# *4BB366A901D7_4AAF6F4E010Eexec_var*
 begin
-//#UC START# *4BB366A901D7_4AAF6F4E010E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BB366A901D7_4AAF6F4E010E_impl*
-end;//TPrimPreviewForm.CanChangeScale
+//#UC START# *4BB366A901D7_4AAF6F4E010Eexec_impl*
+ Result := cCanChangeScaleArr[SHevStyles.PrintAndExportDefaultSetting];
+//#UC END# *4BB366A901D7_4AAF6F4E010Eexec_impl*
+end;//TPrimPreviewForm.Scalable_CanChangeScale_Execute
 
-procedure TPrimPreviewForm.ZoomIn;
-//#UC START# *4C43D04C01D8_4AAF6F4E010E_var*
-//#UC END# *4C43D04C01D8_4AAF6F4E010E_var*
+procedure TPrimPreviewForm.Scalable_CanChangeScale(const aParams: IvcmExecuteParamsPrim);
+ {* Масштабирование запрещено }
 begin
-//#UC START# *4C43D04C01D8_4AAF6F4E010E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C43D04C01D8_4AAF6F4E010E_impl*
-end;//TPrimPreviewForm.ZoomIn
-
-procedure TPrimPreviewForm.ZoomOut;
-//#UC START# *4C43D058000A_4AAF6F4E010E_var*
-//#UC END# *4C43D058000A_4AAF6F4E010E_var*
-begin
-//#UC START# *4C43D058000A_4AAF6F4E010E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C43D058000A_4AAF6F4E010E_impl*
-end;//TPrimPreviewForm.ZoomOut
-
-procedure TPrimPreviewForm.ZoomWidth;
-//#UC START# *4C43D0610127_4AAF6F4E010E_var*
-//#UC END# *4C43D0610127_4AAF6F4E010E_var*
-begin
-//#UC START# *4C43D0610127_4AAF6F4E010E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C43D0610127_4AAF6F4E010E_impl*
-end;//TPrimPreviewForm.ZoomWidth
-
-procedure TPrimPreviewForm.ZoomPage;
-//#UC START# *4C43D06C0150_4AAF6F4E010E_var*
-//#UC END# *4C43D06C0150_4AAF6F4E010E_var*
-begin
-//#UC START# *4C43D06C0150_4AAF6F4E010E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C43D06C0150_4AAF6F4E010E_impl*
-end;//TPrimPreviewForm.ZoomPage
-
-procedure TPrimPreviewForm.FullSelectedSwitch;
-//#UC START# *4C43D0A70151_4AAF6F4E010E_var*
-//#UC END# *4C43D0A70151_4AAF6F4E010E_var*
-begin
-//#UC START# *4C43D0A70151_4AAF6F4E010E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C43D0A70151_4AAF6F4E010E_impl*
-end;//TPrimPreviewForm.FullSelectedSwitch
-
-procedure TPrimPreviewForm.RGBGrayscaleSwitch;
-//#UC START# *4C43D0B20376_4AAF6F4E010E_var*
-//#UC END# *4C43D0B20376_4AAF6F4E010E_var*
-begin
-//#UC START# *4C43D0B20376_4AAF6F4E010E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C43D0B20376_4AAF6F4E010E_impl*
-end;//TPrimPreviewForm.RGBGrayscaleSwitch
-
-procedure TPrimPreviewForm.PrintInfoSwitch;
-//#UC START# *4C43D0C20003_4AAF6F4E010E_var*
-//#UC END# *4C43D0C20003_4AAF6F4E010E_var*
-begin
-//#UC START# *4C43D0C20003_4AAF6F4E010E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C43D0C20003_4AAF6F4E010E_impl*
-end;//TPrimPreviewForm.PrintInfoSwitch
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimPreviewForm.Ok;
- {* OK }
-//#UC START# *4C762A1501FC_4AAF6F4E010E_var*
-//#UC END# *4C762A1501FC_4AAF6F4E010E_var*
-begin
-//#UC START# *4C762A1501FC_4AAF6F4E010E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762A1501FC_4AAF6F4E010E_impl*
-end;//TPrimPreviewForm.Ok
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimPreviewForm.Cancel;
- {* Отмена }
-//#UC START# *4C762AB601E1_4AAF6F4E010E_var*
-//#UC END# *4C762AB601E1_4AAF6F4E010E_var*
-begin
-//#UC START# *4C762AB601E1_4AAF6F4E010E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762AB601E1_4AAF6F4E010E_impl*
-end;//TPrimPreviewForm.Cancel
-{$IfEnd} // NOT Defined(NoVCM)
+ with (aParams.Data As IScalable_CanChangeScale_Params) do
+  ResultValue := Self.Scalable_CanChangeScale_Execute(nInc);
+end;//TPrimPreviewForm.Scalable_CanChangeScale
 
 procedure TPrimPreviewForm.Cleanup;
  {* Функция очистки полей объекта. }
@@ -355,7 +318,6 @@ begin
 //#UC END# *47A042E100E2_4AAF6F4E010E_impl*
 end;//TPrimPreviewForm.InitFields
 
-{$If NOT Defined(NoVCM)}
 function TPrimPreviewForm.CallCloseQuery(aCaller: TCustomForm): Boolean;
 //#UC START# *4980407F0076_4AAF6F4E010E_var*
 //#UC END# *4980407F0076_4AAF6F4E010E_var*
@@ -371,9 +333,7 @@ begin
  end;//Result
 //#UC END# *4980407F0076_4AAF6F4E010E_impl*
 end;//TPrimPreviewForm.CallCloseQuery
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimPreviewForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AAF6F4E010E_var*
@@ -394,9 +354,7 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AAF6F4E010E_impl*
 end;//TPrimPreviewForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TPrimPreviewForm.DoGetTabCaption: IvcmCString;
 //#UC START# *53F1C6EF02C9_4AAF6F4E010E_var*
 //#UC END# *53F1C6EF02C9_4AAF6F4E010E_var*
@@ -405,9 +363,8 @@ begin
  Result := str_PrintPreviewTabCaption.AsCStr;
 //#UC END# *53F1C6EF02C9_4AAF6F4E010E_impl*
 end;//TPrimPreviewForm.DoGetTabCaption
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 function TPrimPreviewForm.DoGetTabImageIndex: Integer;
 //#UC START# *543E3AA801D0_4AAF6F4E010E_var*
 //#UC END# *543E3AA801D0_4AAF6F4E010E_var*
@@ -416,7 +373,7 @@ begin
  Result := NsTabIconIndex(titPrintPreview);
 //#UC END# *543E3AA801D0_4AAF6F4E010E_impl*
 end;//TPrimPreviewForm.DoGetTabImageIndex
-{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 initialization
  str_utPrintPreviewCaption.Init;
@@ -427,6 +384,7 @@ initialization
  TtfwClassRef.Register(TPrimPreviewForm);
  {* Регистрация PrimPreview }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin)
 end.

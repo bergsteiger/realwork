@@ -30,7 +30,7 @@ type
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-  public
+  published
    procedure DoIt;
  end;//TAllChildreCountTest
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
@@ -53,6 +53,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 procedure TAllChildreCountTest.CheckTag(aTag: Tl3Tag);
 //#UC START# *4EBB7150025C_4EBB6A5802A5_var*
 
@@ -112,6 +113,7 @@ function TAllChildreCountTest.GetModelElementGUID: AnsiString;
 begin
  Result := '4EBB6A5802A5';
 end;//TAllChildreCountTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

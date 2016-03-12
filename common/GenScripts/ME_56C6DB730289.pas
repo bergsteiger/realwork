@@ -21,11 +21,13 @@ type
    f_HTQuery: IdaTabledQuery;
   protected
    function MakeFromTable(const aTable: IdaTableDescription;
-    const anAlias: AnsiString): IdaFromTable; override;
+    const anAlias: AnsiString = ''): IdaFromTable; override;
    procedure PrepareTable; override;
    procedure UnPrepareTable; override;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   function MakeResultSet(Unidirectional: Boolean): IdaResultSet; override;
+   function DoMakeParam(const aParamDesc: IdaParamDescription): IdaParam; override;
   public
    constructor Create(const aDataConverter: IdaDataConverter;
     const aTable: IdaTableDescription;
@@ -46,6 +48,8 @@ implementation
 uses
  l3ImplUses
  , daFromTable
+ , caResultSet
+ , caParam
 ;
 
 constructor TcaTabledQuery.Create(const aDataConverter: IdaDataConverter;
@@ -57,8 +61,6 @@ constructor TcaTabledQuery.Create(const aDataConverter: IdaDataConverter;
 //#UC END# *56C6DC070160_56C6DB730289_var*
 begin
 //#UC START# *56C6DC070160_56C6DB730289_impl*
- Assert(False, 'AddParam and Field broken');
-//!! !!! Needs to be implemented !!!
  inherited Create(aDataConverter, aTable, anAlias);
  f_HTQuery := aHTQuery;
  f_PGQuery := aPGQuery;
@@ -82,7 +84,7 @@ begin
 end;//TcaTabledQuery.Make
 
 function TcaTabledQuery.MakeFromTable(const aTable: IdaTableDescription;
- const anAlias: AnsiString): IdaFromTable;
+ const anAlias: AnsiString = ''): IdaFromTable;
 //#UC START# *5600FFF80332_56C6DB730289_var*
 //#UC END# *5600FFF80332_56C6DB730289_var*
 begin
@@ -96,10 +98,8 @@ procedure TcaTabledQuery.PrepareTable;
 //#UC END# *566A892A0191_56C6DB730289_var*
 begin
 //#UC START# *566A892A0191_56C6DB730289_impl*
-// f_HTQuery.PrepareTable;
-// f_PGQuery.PrepareTable;
- Assert(False);
-//!! !!! Needs to be implemented !!!
+ f_HTQuery.Prepare;
+ f_PGQuery.Prepare;
 //#UC END# *566A892A0191_56C6DB730289_impl*
 end;//TcaTabledQuery.PrepareTable
 
@@ -108,10 +108,8 @@ procedure TcaTabledQuery.UnPrepareTable;
 //#UC END# *566A893B03C7_56C6DB730289_var*
 begin
 //#UC START# *566A893B03C7_56C6DB730289_impl*
-// f_HTQuery.UnPrepareTable;
-// f_PGQuery.UnPrepareTable;
- Assert(False);
-//!! !!! Needs to be implemented !!!
+ f_HTQuery.UnPrepare;
+ f_PGQuery.UnPrepare;
 //#UC END# *566A893B03C7_56C6DB730289_impl*
 end;//TcaTabledQuery.UnPrepareTable
 
@@ -126,6 +124,24 @@ begin
  inherited;
 //#UC END# *479731C50290_56C6DB730289_impl*
 end;//TcaTabledQuery.Cleanup
+
+function TcaTabledQuery.MakeResultSet(Unidirectional: Boolean): IdaResultSet;
+//#UC START# *56010A7801F2_56C6DB730289_var*
+//#UC END# *56010A7801F2_56C6DB730289_var*
+begin
+//#UC START# *56010A7801F2_56C6DB730289_impl*
+ Result := TcaResultSet.Make(SelectFields, f_HTQuery.OpenResultSet(Unidirectional), f_PGQuery.OpenResultSet(Unidirectional));
+//#UC END# *56010A7801F2_56C6DB730289_impl*
+end;//TcaTabledQuery.MakeResultSet
+
+function TcaTabledQuery.DoMakeParam(const aParamDesc: IdaParamDescription): IdaParam;
+//#UC START# *56E120F00095_56C6DB730289_var*
+//#UC END# *56E120F00095_56C6DB730289_var*
+begin
+//#UC START# *56E120F00095_56C6DB730289_impl*
+ Result := TcaParam.Make((f_HTQuery as IdaComboAccessQueryHelper).AddParam(aParamDesc), (f_PGQuery as IdaComboAccessQueryHelper).AddParam(aParamDesc));
+//#UC END# *56E120F00095_56C6DB730289_impl*
+end;//TcaTabledQuery.DoMakeParam
 {$IfEnd} // Defined(UsePostgres) AND Defined(TestComboAccess)
 
 end.

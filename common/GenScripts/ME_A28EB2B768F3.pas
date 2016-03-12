@@ -20,6 +20,8 @@ uses
  {$If NOT Defined(NoImageEn)}
  , imageenproc
  {$IfEnd} // NOT Defined(NoImageEn)
+ , bsTypes
+ , l3TreeInterfaces
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 

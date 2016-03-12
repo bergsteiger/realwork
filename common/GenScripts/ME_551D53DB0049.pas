@@ -29,6 +29,7 @@ uses
  , tc6PublicInfo
 ;
 
+{$If NOT Defined(NoVGScene)}
 function TChromeLikeTabSetControl_Get_TabCount(Self: TChromeLikeTabSetControl): Integer;
 //#UC START# *551D543A00E5_551D53DB0049get_var*
 //#UC END# *551D543A00E5_551D53DB0049get_var*
@@ -113,6 +114,7 @@ end;
 initialization
  _RegisterPublicInformation5;
  _RegisterPublicInformation6;
-{$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+{$IfEnd} // NOT Defined(NoVGScene)
 
+{$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 end.

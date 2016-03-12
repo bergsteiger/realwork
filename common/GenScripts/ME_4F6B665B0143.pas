@@ -69,12 +69,12 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки utHistoryLocalConstants }
  str_utHistoryCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utHistoryCaption'; rValue : 'История навигации');
   {* Заголовок пользовательского типа "История навигации" }
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimParentForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4F6B665B0143_var*
@@ -84,9 +84,7 @@ begin
  inherited;
 //#UC END# *49803F5503AA_4F6B665B0143_impl*
 end;//TPrimParentForm.DoInit
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimParentForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4F6B665B0143_var*
@@ -108,9 +106,7 @@ begin
  end;//with ParentZone
 //#UC END# *4A8E8F2E0195_4F6B665B0143_impl*
 end;//TPrimParentForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimParentForm.FocusIsSetToUs;
 //#UC START# *4F7C6D6801F4_4F6B665B0143_var*
 //#UC END# *4F7C6D6801F4_4F6B665B0143_var*
@@ -119,9 +115,7 @@ begin
  inherited;
 //#UC END# *4F7C6D6801F4_4F6B665B0143_impl*
 end;//TPrimParentForm.FocusIsSetToUs
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimParentForm.AfterInsertForm(const aForm: IvcmEntityForm);
 //#UC START# *4F7C6DFE00DE_4F6B665B0143_var*
 //#UC END# *4F7C6DFE00DE_4F6B665B0143_var*
@@ -130,9 +124,7 @@ begin
  inherited;
 //#UC END# *4F7C6DFE00DE_4F6B665B0143_impl*
 end;//TPrimParentForm.AfterInsertForm
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TPrimParentForm.GetNeedSetFocusToMainObjectFormOnRefresh: Boolean;
  {* Надо ли передвигать фокус в главную форму при изменении сборки }
 //#UC START# *541011910033_4F6B665B0143_var*
@@ -142,7 +134,6 @@ begin
  Result := True;
 //#UC END# *541011910033_4F6B665B0143_impl*
 end;//TPrimParentForm.GetNeedSetFocusToMainObjectFormOnRefresh
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_utHistoryCaption.Init;
@@ -151,5 +142,6 @@ initialization
  TtfwClassRef.Register(TPrimParentForm);
  {* Регистрация PrimParent }
 {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

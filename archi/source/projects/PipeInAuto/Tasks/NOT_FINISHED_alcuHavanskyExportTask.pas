@@ -26,6 +26,8 @@ implementation
 uses
  l3ImplUses
 ;
-{$IfEnd} // Defined(ServerTasks)
 
+{$If Defined(HavanskyExport)}
+{$IfEnd} // Defined(HavanskyExport)
+{$IfEnd} // Defined(ServerTasks)
 end.

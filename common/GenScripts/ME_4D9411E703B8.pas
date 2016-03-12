@@ -74,9 +74,7 @@ begin
  end;
 //#UC END# *4BE13147032C_4D9411E703B8_impl*
 end;//TWrongSearchTest.Process
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TWrongSearchTest.Replacer: IevReplacer;
 //#UC START# *4C288BFC002C_4D9411E703B8_var*
 //#UC END# *4C288BFC002C_4D9411E703B8_var*
@@ -85,9 +83,7 @@ begin
  Result := nil;
 //#UC END# *4C288BFC002C_4D9411E703B8_impl*
 end;//TWrongSearchTest.Replacer
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TWrongSearchTest.Options: TevSearchOptionSet;
 //#UC START# *4C288CC60231_4D9411E703B8_var*
 //#UC END# *4C288CC60231_4D9411E703B8_var*
@@ -96,7 +92,6 @@ begin
  Result := [ev_soGlobal]
 //#UC END# *4C288CC60231_4D9411E703B8_impl*
 end;//TWrongSearchTest.Options
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TWrongSearchTest.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -109,6 +104,7 @@ function TWrongSearchTest.GetModelElementGUID: AnsiString;
 begin
  Result := '4D9411E703B8';
 end;//TWrongSearchTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

@@ -22,7 +22,7 @@ type
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-  public
+  published
    procedure DoMMX;
  end;//TTestMMX
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
@@ -36,6 +36,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NotTunedDUnit)}
 procedure TTestMMX.DoMMX;
 //#UC START# *4B2A1D6D001D_4B2A1D3E0376_var*
 //#UC END# *4B2A1D6D001D_4B2A1D3E0376_var*
@@ -64,6 +65,7 @@ end;//TTestMMX.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(TTestMMX.Suite);
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

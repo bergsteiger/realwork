@@ -73,7 +73,6 @@ begin
  end;//try..finally
 //#UC END# *4BE12AEE0190_4D0771BA0367_impl*
 end;//TTextViaEditorProcessorWithExternalSave.Save
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TTextViaEditorProcessorWithExternalSave.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -86,6 +85,7 @@ function TTextViaEditorProcessorWithExternalSave.GetModelElementGUID: AnsiString
 begin
  Result := '4D0771BA0367';
 end;//TTextViaEditorProcessorWithExternalSave.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

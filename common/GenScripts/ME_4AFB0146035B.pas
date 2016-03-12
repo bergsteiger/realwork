@@ -68,6 +68,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки utAdminLocalConstants }
  str_utAdminCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utAdminCaption'; rValue : 'Администрирование пользователей');
@@ -83,7 +84,6 @@ begin
 //#UC END# *47A042E100E2_4AFB0146035B_impl*
 end;//TPrimAdminForm.InitFields
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimAdminForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AFB0146035B_var*
@@ -113,7 +113,6 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AFB0146035B_impl*
 end;//TPrimAdminForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_utAdminCaption.Init;
@@ -122,6 +121,7 @@ initialization
  TtfwClassRef.Register(TPrimAdminForm);
  {* Регистрация PrimAdmin }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // Defined(Admin)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(Admin)
 end.

@@ -26,6 +26,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ , eeInterfaces
+ , nsTypes
  {$If Defined(Nemesis)}
  , nscNewInterfaces
  {$IfEnd} // Defined(Nemesis)
@@ -120,12 +122,20 @@ type
    {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
    function DoOpenNew(aOpenKind: TvcmMainFormOpenKind;
     aOpenLast: Boolean;
-    const aOpenAfter: IvcmEntityForm): IvcmContainedForm; override;
+    const aOpenAfter: IvcmEntityForm = nil): IvcmContainedForm; override;
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
   public
-   function Load: Boolean; override;
+   function Loadable_Load_Execute(const aNode: IeeNode;
+    const aData: IUnknown;
+    anOp: TListLogicOperation = LLO_NONE): Boolean;
     {* Коллеги, кто может описать этот метод? }
-   procedure CantReceiveLegalServiceAnswer; override;
+   procedure Loadable_Load(const aParams: IvcmExecuteParamsPrim);
+    {* Коллеги, кто может описать этот метод? }
+   procedure System_CantReceiveLegalServiceAnswer_Test(const aParams: IvcmTestParamsPrim);
+    {* Статус связи с ППО }
+   procedure System_CantReceiveLegalServiceAnswer_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Статус связи с ППО }
+   procedure System_CantReceiveLegalServiceAnswer_GetState(var State: TvcmOperationStateIndex);
     {* Статус связи с ППО }
  end;//TNemesisMainForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -406,15 +416,48 @@ begin
 //#UC END# *55D450020396_4958D2EA00CC_impl*
 end;//TNemesisMainForm.ResetControlledObjectsChanging
 
-function TNemesisMainForm.Load: Boolean;
+function TNemesisMainForm.Loadable_Load_Execute(const aNode: IeeNode;
+ const aData: IUnknown;
+ anOp: TListLogicOperation = LLO_NONE): Boolean;
  {* Коллеги, кто может описать этот метод? }
-//#UC START# *49895A2102E8_4958D2EA00CC_var*
-//#UC END# *49895A2102E8_4958D2EA00CC_var*
+//#UC START# *49895A2102E8_4958D2EA00CCexec_var*
+var
+ l_FolderNode  : INode;
+ l_BaseEntity  : IUnknown;
+//#UC END# *49895A2102E8_4958D2EA00CCexec_var*
 begin
-//#UC START# *49895A2102E8_4958D2EA00CC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49895A2102E8_4958D2EA00CC_impl*
-end;//TNemesisMainForm.Load
+//#UC START# *49895A2102E8_4958D2EA00CCexec_impl*
+ Result := false;
+ if Supports(aNode, INode, l_FolderNode) then
+  try
+   try
+    l_FolderNode.Open(l_BaseEntity);
+   except
+    on ECanNotFindData do
+    begin
+     Say(inf_BookmarkedDocumentMissing, [nsGetCaption(l_FolderNode)]);
+     Result := false;
+     exit;
+    end;//on ECanNotFindData
+   end;//try..except
+   try
+    TdmStdRes.OpenEntityAsDocument(l_BaseEntity, nil);
+    Result := true;
+   finally
+    l_BaseEntity := nil;
+   end;//try..finally
+  finally
+   l_FolderNode := nil;
+  end;//try..finally
+//#UC END# *49895A2102E8_4958D2EA00CCexec_impl*
+end;//TNemesisMainForm.Loadable_Load_Execute
+
+procedure TNemesisMainForm.Loadable_Load(const aParams: IvcmExecuteParamsPrim);
+ {* Коллеги, кто может описать этот метод? }
+begin
+ with (aParams.Data As ILoadable_Load_Params) do
+  ResultValue := Self.Loadable_Load_Execute(Node, Data, nOp);
+end;//TNemesisMainForm.Loadable_Load
 
 procedure TNemesisMainForm.FillList(const aList: InscStatusBarItemDefsList);
  {* Заполняет список операций. Для перекрытия в потомках }
@@ -426,15 +469,48 @@ begin
 //#UC END# *4A8E5E4702C6_4958D2EA00CC_impl*
 end;//TNemesisMainForm.FillList
 
-procedure TNemesisMainForm.CantReceiveLegalServiceAnswer;
+procedure TNemesisMainForm.System_CantReceiveLegalServiceAnswer_Test(const aParams: IvcmTestParamsPrim);
  {* Статус связи с ППО }
-//#UC START# *4C7D38560348_4958D2EA00CC_var*
-//#UC END# *4C7D38560348_4958D2EA00CC_var*
+//#UC START# *4C7D38560348_4958D2EA00CCtest_var*
+//#UC END# *4C7D38560348_4958D2EA00CCtest_var*
 begin
-//#UC START# *4C7D38560348_4958D2EA00CC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7D38560348_4958D2EA00CC_impl*
-end;//TNemesisMainForm.CantReceiveLegalServiceAnswer
+//#UC START# *4C7D38560348_4958D2EA00CCtest_impl*
+ with aParams.Op do
+ begin
+  Hint := f_CarrierLostHint;
+  LongHint := f_CarrierLostHint;
+ end;
+//#UC END# *4C7D38560348_4958D2EA00CCtest_impl*
+end;//TNemesisMainForm.System_CantReceiveLegalServiceAnswer_Test
+
+procedure TNemesisMainForm.System_CantReceiveLegalServiceAnswer_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Статус связи с ППО }
+//#UC START# *4C7D38560348_4958D2EA00CCexec_var*
+//#UC END# *4C7D38560348_4958D2EA00CCexec_var*
+begin
+//#UC START# *4C7D38560348_4958D2EA00CCexec_impl*
+ if f_CantReceiveAnswer or f_InternetDisconnected then
+  Say(war_CarierLost, [f_CarrierLostHint])
+ else
+  Say(inf_CarrierFound);
+//#UC END# *4C7D38560348_4958D2EA00CCexec_impl*
+end;//TNemesisMainForm.System_CantReceiveLegalServiceAnswer_Execute
+
+procedure TNemesisMainForm.System_CantReceiveLegalServiceAnswer_GetState(var State: TvcmOperationStateIndex);
+ {* Статус связи с ППО }
+//#UC START# *4C7D38560348_4958D2EA00CCgetstate_var*
+//#UC END# *4C7D38560348_4958D2EA00CCgetstate_var*
+begin
+//#UC START# *4C7D38560348_4958D2EA00CCgetstate_impl*
+ if f_CantReceiveAnswer or f_InternetDisconnected then
+  State := st_user_System_CantReceiveLegalServiceAnswer_On
+ else
+ if f_ConnectionWasLost then
+  State := st_user_System_CantReceiveLegalServiceAnswer_Off
+ else
+  State := st_user_System_CantReceiveLegalServiceAnswer_Disabled;
+//#UC END# *4C7D38560348_4958D2EA00CCgetstate_impl*
+end;//TNemesisMainForm.System_CantReceiveLegalServiceAnswer_GetState
 
 procedure TNemesisMainForm.UnderControlNotificationChanged;
 //#UC START# *55D42A4A0031_4958D2EA00CC_var*
@@ -699,7 +775,7 @@ end;//TNemesisMainForm.GetCurrentOpenedWindowsCount
 {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 function TNemesisMainForm.DoOpenNew(aOpenKind: TvcmMainFormOpenKind;
  aOpenLast: Boolean;
- const aOpenAfter: IvcmEntityForm): IvcmContainedForm;
+ const aOpenAfter: IvcmEntityForm = nil): IvcmContainedForm;
 //#UC START# *5566C7BD037F_4958D2EA00CC_var*
 //#UC END# *5566C7BD037F_4958D2EA00CC_var*
 begin

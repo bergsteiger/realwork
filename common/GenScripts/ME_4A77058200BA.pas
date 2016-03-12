@@ -11,25 +11,17 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3IntfUses
- , eeInterfaces
  , bsTypesNew
+ , eeInterfaces
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
- // ShowChanges
-
- // CompareEditions
-
  // Document
 
- // ShowChanges
-
  // Document
-
- // ViewChangedFragments
 
  // Document
 

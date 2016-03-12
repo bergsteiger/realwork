@@ -28,43 +28,23 @@ uses
 type
  TPrimMedicFirmListOptionsForm = class(TPrimMedicFirmListForm)
   public
-   {$If NOT Defined(NoVCM)}
-   procedure Cut; override;
-    {* Вырезать }
-   {$IfEnd} // NOT Defined(NoVCM)
-   procedure AddBookmark; override;
+   procedure Document_AddBookmark_Test(const aParams: IvcmTestParamsPrim);
+    {* Добавить закладку }
+   procedure Document_AddBookmark_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Добавить закладку }
    {$If NOT Defined(NoVCM)}
-   procedure Paste; override;
-    {* Вставка }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Undo; override;
-    {* Отмена }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Redo; override;
-    {* Возврат }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure SelectAll; override;
-    {* Выделить всё }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Deselect; override;
-    {* Снять выделение }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Wrap; override;
+   procedure Tree_Wrap_Test(const aParams: IvcmTestParamsPrim);
     {* Перенос по словам }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure OpenNewWindow; override;
    {$If NOT Defined(NoVCM)}
-   procedure Copy; override;
-    {* Копировать }
+   procedure Tree_Wrap_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Перенос по словам }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure CountryFilter; override;
-   procedure OpenInNewTab; override;
+   procedure Document_OpenNewWindow_Test(const aParams: IvcmTestParamsPrim);
+   procedure Document_OpenNewWindow_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure MedicFirmList_CountryFilter_Test(const aParams: IvcmTestParamsPrim);
+   procedure MedicFirmList_CountryFilter_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_OpenInNewTab_Execute(const aParams: IvcmExecuteParamsPrim);
  end;//TPrimMedicFirmListOptionsForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -82,138 +62,161 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimMedicFirmListOptionsForm.Cut;
- {* Вырезать }
-//#UC START# *4951285702E1_4C7E3A320074_var*
-//#UC END# *4951285702E1_4C7E3A320074_var*
-begin
-//#UC START# *4951285702E1_4C7E3A320074_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4951285702E1_4C7E3A320074_impl*
-end;//TPrimMedicFirmListOptionsForm.Cut
-{$IfEnd} // NOT Defined(NoVCM)
-
-procedure TPrimMedicFirmListOptionsForm.AddBookmark;
+procedure TPrimMedicFirmListOptionsForm.Document_AddBookmark_Test(const aParams: IvcmTestParamsPrim);
  {* Добавить закладку }
-//#UC START# *4989D06D014E_4C7E3A320074_var*
-//#UC END# *4989D06D014E_4C7E3A320074_var*
+//#UC START# *4989D06D014E_4C7E3A320074test_var*
+//#UC END# *4989D06D014E_4C7E3A320074test_var*
 begin
-//#UC START# *4989D06D014E_4C7E3A320074_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4989D06D014E_4C7E3A320074_impl*
-end;//TPrimMedicFirmListOptionsForm.AddBookmark
+//#UC START# *4989D06D014E_4C7E3A320074test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := Assigned(dsMedicFirmList) and HasCurrent;
+//#UC END# *4989D06D014E_4C7E3A320074test_impl*
+end;//TPrimMedicFirmListOptionsForm.Document_AddBookmark_Test
+
+procedure TPrimMedicFirmListOptionsForm.Document_AddBookmark_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Добавить закладку }
+//#UC START# *4989D06D014E_4C7E3A320074exec_var*
+//#UC END# *4989D06D014E_4C7E3A320074exec_var*
+begin
+//#UC START# *4989D06D014E_4C7E3A320074exec_impl*
+ dsMedicFirmList.AddBookmark;
+//#UC END# *4989D06D014E_4C7E3A320074exec_impl*
+end;//TPrimMedicFirmListOptionsForm.Document_AddBookmark_Execute
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimMedicFirmListOptionsForm.Paste;
- {* Вставка }
-//#UC START# *49EDFA3701B0_4C7E3A320074_var*
-//#UC END# *49EDFA3701B0_4C7E3A320074_var*
-begin
-//#UC START# *49EDFA3701B0_4C7E3A320074_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EDFA3701B0_4C7E3A320074_impl*
-end;//TPrimMedicFirmListOptionsForm.Paste
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimMedicFirmListOptionsForm.Undo;
- {* Отмена }
-//#UC START# *49EDFCA2006D_4C7E3A320074_var*
-//#UC END# *49EDFCA2006D_4C7E3A320074_var*
-begin
-//#UC START# *49EDFCA2006D_4C7E3A320074_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EDFCA2006D_4C7E3A320074_impl*
-end;//TPrimMedicFirmListOptionsForm.Undo
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimMedicFirmListOptionsForm.Redo;
- {* Возврат }
-//#UC START# *49EDFCB100BC_4C7E3A320074_var*
-//#UC END# *49EDFCB100BC_4C7E3A320074_var*
-begin
-//#UC START# *49EDFCB100BC_4C7E3A320074_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EDFCB100BC_4C7E3A320074_impl*
-end;//TPrimMedicFirmListOptionsForm.Redo
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimMedicFirmListOptionsForm.SelectAll;
- {* Выделить всё }
-//#UC START# *49EE01AA02BE_4C7E3A320074_var*
-//#UC END# *49EE01AA02BE_4C7E3A320074_var*
-begin
-//#UC START# *49EE01AA02BE_4C7E3A320074_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EE01AA02BE_4C7E3A320074_impl*
-end;//TPrimMedicFirmListOptionsForm.SelectAll
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimMedicFirmListOptionsForm.Deselect;
- {* Снять выделение }
-//#UC START# *49EE01BC022E_4C7E3A320074_var*
-//#UC END# *49EE01BC022E_4C7E3A320074_var*
-begin
-//#UC START# *49EE01BC022E_4C7E3A320074_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EE01BC022E_4C7E3A320074_impl*
-end;//TPrimMedicFirmListOptionsForm.Deselect
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimMedicFirmListOptionsForm.Wrap;
+procedure TPrimMedicFirmListOptionsForm.Tree_Wrap_Test(const aParams: IvcmTestParamsPrim);
  {* Перенос по словам }
-//#UC START# *4BDAF7B803CF_4C7E3A320074_var*
-//#UC END# *4BDAF7B803CF_4C7E3A320074_var*
+//#UC START# *4BDAF7B803CF_4C7E3A320074test_var*
+//#UC END# *4BDAF7B803CF_4C7E3A320074test_var*
 begin
-//#UC START# *4BDAF7B803CF_4C7E3A320074_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BDAF7B803CF_4C7E3A320074_impl*
-end;//TPrimMedicFirmListOptionsForm.Wrap
+//#UC START# *4BDAF7B803CF_4C7E3A320074test_impl*
+ if not aParams.CallControl then
+  aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4BDAF7B803CF_4C7E3A320074test_impl*
+end;//TPrimMedicFirmListOptionsForm.Tree_Wrap_Test
 {$IfEnd} // NOT Defined(NoVCM)
-
-procedure TPrimMedicFirmListOptionsForm.OpenNewWindow;
-//#UC START# *4C4EAC20007F_4C7E3A320074_var*
-//#UC END# *4C4EAC20007F_4C7E3A320074_var*
-begin
-//#UC START# *4C4EAC20007F_4C7E3A320074_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C4EAC20007F_4C7E3A320074_impl*
-end;//TPrimMedicFirmListOptionsForm.OpenNewWindow
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimMedicFirmListOptionsForm.Copy;
- {* Копировать }
-//#UC START# *4C7D0C7B0185_4C7E3A320074_var*
-//#UC END# *4C7D0C7B0185_4C7E3A320074_var*
+procedure TPrimMedicFirmListOptionsForm.Tree_Wrap_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Перенос по словам }
+//#UC START# *4BDAF7B803CF_4C7E3A320074exec_var*
+//#UC END# *4BDAF7B803CF_4C7E3A320074exec_var*
 begin
-//#UC START# *4C7D0C7B0185_4C7E3A320074_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7D0C7B0185_4C7E3A320074_impl*
-end;//TPrimMedicFirmListOptionsForm.Copy
+//#UC START# *4BDAF7B803CF_4C7E3A320074exec_impl*
+ aParams.CallControl;
+//#UC END# *4BDAF7B803CF_4C7E3A320074exec_impl*
+end;//TPrimMedicFirmListOptionsForm.Tree_Wrap_Execute
 {$IfEnd} // NOT Defined(NoVCM)
 
-procedure TPrimMedicFirmListOptionsForm.CountryFilter;
-//#UC START# *4C7E4168031D_4C7E3A320074_var*
-//#UC END# *4C7E4168031D_4C7E3A320074_var*
+procedure TPrimMedicFirmListOptionsForm.Document_OpenNewWindow_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C4EAC20007F_4C7E3A320074test_var*
+//#UC END# *4C4EAC20007F_4C7E3A320074test_var*
 begin
-//#UC START# *4C7E4168031D_4C7E3A320074_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7E4168031D_4C7E3A320074_impl*
-end;//TPrimMedicFirmListOptionsForm.CountryFilter
+//#UC START# *4C4EAC20007F_4C7E3A320074test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := HasCurrent;
+//#UC END# *4C4EAC20007F_4C7E3A320074test_impl*
+end;//TPrimMedicFirmListOptionsForm.Document_OpenNewWindow_Test
 
-procedure TPrimMedicFirmListOptionsForm.OpenInNewTab;
-//#UC START# *54A2AF9C0157_4C7E3A320074_var*
-//#UC END# *54A2AF9C0157_4C7E3A320074_var*
+procedure TPrimMedicFirmListOptionsForm.Document_OpenNewWindow_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C4EAC20007F_4C7E3A320074exec_var*
+var
+ l_Container: IvcmContainer;
+//#UC END# *4C4EAC20007F_4C7E3A320074exec_var*
 begin
-//#UC START# *54A2AF9C0157_4C7E3A320074_impl*
- !!! Needs to be implemented !!!
-//#UC END# *54A2AF9C0157_4C7E3A320074_impl*
-end;//TPrimMedicFirmListOptionsForm.OpenInNewTab
+//#UC START# *4C4EAC20007F_4C7E3A320074exec_impl*
+ if Assigned(dsMedicFirmList) then
+ begin
+  // http://mdp.garant.ru/pages/viewpage.action?pageId=414849606
+  l_Container := nsNewWindow(NativeMainForm);
+  if (l_Container <> nil) then
+  try
+   TdmStdRes.OpenDocument(dsMedicFirmList.MakeNewDocInfo, l_Container);
+  finally
+   l_Container := nil;
+  end;
+ end;
+//#UC END# *4C4EAC20007F_4C7E3A320074exec_impl*
+end;//TPrimMedicFirmListOptionsForm.Document_OpenNewWindow_Execute
+
+procedure TPrimMedicFirmListOptionsForm.MedicFirmList_CountryFilter_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C7E4168031D_4C7E3A320074test_var*
+var
+ l_List : IvcmNodes;
+//#UC END# *4C7E4168031D_4C7E3A320074test_var*
+begin
+//#UC START# *4C7E4168031D_4C7E3A320074test_impl*
+ if Assigned(dsMedicFirmList) then
+ begin
+  with aParams do
+  begin
+   l_List := Op.SubNodes;
+   if (l_List <> nil) then
+   begin
+    with l_List do
+    begin
+     ShowRoot := false;
+     Tree := dsMedicFirmList.CountryFilterTree;
+     if ((l_List.count = 0)) then
+      Add(dsMedicFirmList.CountryFilterTree.RootNode);
+     Current := dsMedicFirmList.CurrentCountryFilter;
+     Op.SelectedString := nsCStr(dsMedicFirmList.CurrentCountryFilter.Text);
+    end;//with l_List do
+   end;//l_List <> nil
+  end;//with aParams
+ end;//if Assigned(CoDS) then
+//#UC END# *4C7E4168031D_4C7E3A320074test_impl*
+end;//TPrimMedicFirmListOptionsForm.MedicFirmList_CountryFilter_Test
+
+procedure TPrimMedicFirmListOptionsForm.MedicFirmList_CountryFilter_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C7E4168031D_4C7E3A320074exec_var*
+var
+ l_TreeSource: Il3SimpleTree;
+ l_Current: Integer;
+//#UC END# *4C7E4168031D_4C7E3A320074exec_var*
+begin
+//#UC START# *4C7E4168031D_4C7E3A320074exec_impl*
+ with ListTree do
+ begin
+  l_TreeSource := dsMedicFirmList.FiltrateByCountry(TreeStruct, GetCurrentNode,
+   aParams.CurrentNode, l_Current);
+  if Assigned(l_TreeSource) then
+  begin
+   Changing;
+   try
+    ContextFilter.BeginAssignState;
+    try
+     TreeStruct := l_TreeSource;
+    finally
+     ContextFilter.EndAssignState;
+    end;
+    vlbMakeItemVisible(Current);
+   finally
+    Changed;
+   end;{try..finally}
+  end;
+ end;
+//#UC END# *4C7E4168031D_4C7E3A320074exec_impl*
+end;//TPrimMedicFirmListOptionsForm.MedicFirmList_CountryFilter_Execute
+
+procedure TPrimMedicFirmListOptionsForm.Document_OpenInNewTab_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *54A2AF9C0157_4C7E3A320074exec_var*
+var
+ l_Container: IvcmContainer;
+//#UC END# *54A2AF9C0157_4C7E3A320074exec_var*
+begin
+//#UC START# *54A2AF9C0157_4C7E3A320074exec_impl*
+ if Assigned(dsMedicFirmList) then
+ begin
+  // http://mdp.garant.ru/pages/viewpage.action?pageId=414849606
+  l_Container := nsNewWindow(NativeMainForm, vcm_okInNewTab);
+  if (l_Container <> nil) then
+  try
+   TdmStdRes.OpenDocument(dsMedicFirmList.MakeNewDocInfo, l_Container);
+  finally
+   l_Container := nil;
+  end;
+ end;
+//#UC END# *54A2AF9C0157_4C7E3A320074exec_impl*
+end;//TPrimMedicFirmListOptionsForm.Document_OpenInNewTab_Execute
 
 initialization
 {$If NOT Defined(NoScripts)}

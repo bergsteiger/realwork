@@ -71,6 +71,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\MouseClickSupport.imp.pas}
 
 procedure TShowBaseSearchTest.ShowBaseSearch(aForm: TPrimTextLoadForm);
@@ -88,7 +89,6 @@ begin
 //#UC END# *4D6CBCE7034B_4D6CBA680035_impl*
 end;//TShowBaseSearchTest.ShowBaseSearch
 
-{$If NOT Defined(NoVCM)}
 procedure TShowBaseSearchTest.DoVisit(aForm: TPrimTextLoadForm);
  {* Обработать текст }
 //#UC START# *4BE419AF0217_4D6CBA680035_var*
@@ -111,7 +111,6 @@ begin
  end; // with l_SBForm.BaseSearchControl do
 //#UC END# *4BE419AF0217_4D6CBA680035_impl*
 end;//TShowBaseSearchTest.DoVisit
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TShowBaseSearchTest.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -119,7 +118,6 @@ begin
  Result := 'EditorTests';
 end;//TShowBaseSearchTest.GetFolder
 
-{$If NOT Defined(NoVCM)}
 function TShowBaseSearchTest.WithBaseSearch: Boolean;
  {* Форма со строкой базового поиска. }
 //#UC START# *4D6CB8460086_4D6CBA680035_var*
@@ -129,7 +127,6 @@ begin
  Result := True;
 //#UC END# *4D6CB8460086_4D6CBA680035_impl*
 end;//TShowBaseSearchTest.WithBaseSearch
-{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TShowBaseSearchTest.GetDeltaXY(var X: Integer;
  var Y: Integer);
@@ -156,6 +153,7 @@ function TShowBaseSearchTest.GetModelElementGUID: AnsiString;
 begin
  Result := '4D6CBA680035';
 end;//TShowBaseSearchTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

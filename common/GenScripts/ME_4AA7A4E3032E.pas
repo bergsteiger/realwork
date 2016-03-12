@@ -86,6 +86,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 var g_Tfs_SituationFilter: Tfs_SituationFilter = nil;
  {* Экземпляр синглетона Tfs_SituationFilter }
 
@@ -174,7 +175,6 @@ begin
 //#UC END# *47A042E100E2_4AA7A4E3032E_impl*
 end;//Tfs_SituationFilter.InitFields
 
-{$If NOT Defined(NoVCM)}
 class function Tfs_SituationFilter.GetInstance: TvcmFormSetFactoryPrim;
 //#UC START# *4FFE854A009B_4AA7A4E3032E_var*
 //#UC END# *4FFE854A009B_4AA7A4E3032E_var*
@@ -183,11 +183,11 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4FFE854A009B_4AA7A4E3032E_impl*
 end;//Tfs_SituationFilter.GetInstance
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_fsSituationFilterCaption.Init;
  {* Инициализация str_fsSituationFilterCaption }
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

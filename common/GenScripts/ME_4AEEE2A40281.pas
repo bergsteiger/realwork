@@ -11,35 +11,23 @@ interface
 uses
  l3IntfUses
  , l3TreeInterfaces
+ , bsTypes
+ , DocumentUnit
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , bsTypes
- , DocumentUnit
 ;
 
 type
  // Navigator
 
- // Picture
-
- // GetAttributesFrmAct
-
  // Document
 
  // Document
-
- // Info
-
- // Execute
 
  // NavigatorElement
 
  // Fake
-
- // ChooseAnotherEditions
-
- // OpenRedactionListFrmAct
 
  // Redactions
 

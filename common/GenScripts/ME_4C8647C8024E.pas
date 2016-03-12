@@ -52,22 +52,43 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
-   procedure Print; override;
+   procedure File_Print_Test(const aParams: IvcmTestParamsPrim);
     {* Печать }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure PrintDialog; override;
+   procedure File_Print_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Печать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
     {* Печать... }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure PrintPreview; override;
+   procedure File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Печать... }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
     {* Предварительный просмотр }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Copy; override;
+   procedure File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Предварительный просмотр }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Copy_Test(const aParams: IvcmTestParamsPrim);
     {* Копировать }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure Copy; override;
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Copy_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Копировать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Copy_GetState(var State: TvcmOperationStateIndex);
+    {* Копировать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure Attribute_Copy_Test(const aParams: IvcmTestParamsPrim);
+   procedure Attribute_Copy_Execute(const aParams: IvcmExecuteParamsPrim);
  end;//TPrimAttributesOptionsForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -163,61 +184,143 @@ begin
 end;//TPrimAttributesOptionsForm.tvAttributesMakeTreeSource
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimAttributesOptionsForm.Print;
+procedure TPrimAttributesOptionsForm.File_Print_Test(const aParams: IvcmTestParamsPrim);
  {* Печать }
-//#UC START# *49521D8E0295_4C8647C8024E_var*
-//#UC END# *49521D8E0295_4C8647C8024E_var*
+//#UC START# *49521D8E0295_4C8647C8024Etest_var*
+//#UC END# *49521D8E0295_4C8647C8024Etest_var*
 begin
-//#UC START# *49521D8E0295_4C8647C8024E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49521D8E0295_4C8647C8024E_impl*
-end;//TPrimAttributesOptionsForm.Print
+//#UC START# *49521D8E0295_4C8647C8024Etest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not DefDataAdapter.IsTrialMode and HasTree;
+//#UC END# *49521D8E0295_4C8647C8024Etest_impl*
+end;//TPrimAttributesOptionsForm.File_Print_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimAttributesOptionsForm.PrintDialog;
+procedure TPrimAttributesOptionsForm.File_Print_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Печать }
+//#UC START# *49521D8E0295_4C8647C8024Eexec_var*
+var
+ l_Preview : IafwDocumentPreview;
+//#UC END# *49521D8E0295_4C8647C8024Eexec_var*
+begin
+//#UC START# *49521D8E0295_4C8647C8024Eexec_impl*
+ l_Preview := MakePreview;
+ if (l_Preview <> nil) then
+  l_Preview.Print;
+//#UC END# *49521D8E0295_4C8647C8024Eexec_impl*
+end;//TPrimAttributesOptionsForm.File_Print_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimAttributesOptionsForm.File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
  {* Печать... }
-//#UC START# *495220DE0298_4C8647C8024E_var*
-//#UC END# *495220DE0298_4C8647C8024E_var*
+//#UC START# *495220DE0298_4C8647C8024Etest_var*
+//#UC END# *495220DE0298_4C8647C8024Etest_var*
 begin
-//#UC START# *495220DE0298_4C8647C8024E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495220DE0298_4C8647C8024E_impl*
-end;//TPrimAttributesOptionsForm.PrintDialog
+//#UC START# *495220DE0298_4C8647C8024Etest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not DefDataAdapter.IsTrialMode and HasTree;
+//#UC END# *495220DE0298_4C8647C8024Etest_impl*
+end;//TPrimAttributesOptionsForm.File_PrintDialog_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimAttributesOptionsForm.PrintPreview;
+procedure TPrimAttributesOptionsForm.File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Печать... }
+//#UC START# *495220DE0298_4C8647C8024Eexec_var*
+//#UC END# *495220DE0298_4C8647C8024Eexec_var*
+begin
+//#UC START# *495220DE0298_4C8647C8024Eexec_impl*
+ if (afw.Application <> nil) AND (afw.Application.PrintManager <> nil) then
+  afw.Application.PrintManager.PrintDialog(MakePreview);
+//#UC END# *495220DE0298_4C8647C8024Eexec_impl*
+end;//TPrimAttributesOptionsForm.File_PrintDialog_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimAttributesOptionsForm.File_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
  {* Предварительный просмотр }
-//#UC START# *495220F2033A_4C8647C8024E_var*
-//#UC END# *495220F2033A_4C8647C8024E_var*
+//#UC START# *495220F2033A_4C8647C8024Etest_var*
+//#UC END# *495220F2033A_4C8647C8024Etest_var*
 begin
-//#UC START# *495220F2033A_4C8647C8024E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495220F2033A_4C8647C8024E_impl*
-end;//TPrimAttributesOptionsForm.PrintPreview
+//#UC START# *495220F2033A_4C8647C8024Etest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not DefDataAdapter.IsTrialMode and (Printer.Printers.Count > 0) AND HasTree;
+//#UC END# *495220F2033A_4C8647C8024Etest_impl*
+end;//TPrimAttributesOptionsForm.File_PrintPreview_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimAttributesOptionsForm.Copy;
- {* Копировать }
-//#UC START# *4C7D0C7B0185_4C8647C8024E_var*
-//#UC END# *4C7D0C7B0185_4C8647C8024E_var*
+procedure TPrimAttributesOptionsForm.File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Предварительный просмотр }
+//#UC START# *495220F2033A_4C8647C8024Eexec_var*
+//#UC END# *495220F2033A_4C8647C8024Eexec_var*
 begin
-//#UC START# *4C7D0C7B0185_4C8647C8024E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7D0C7B0185_4C8647C8024E_impl*
-end;//TPrimAttributesOptionsForm.Copy
+//#UC START# *495220F2033A_4C8647C8024Eexec_impl*
+ TdmStdRes.MakePreview(MakePreview);
+//#UC END# *495220F2033A_4C8647C8024Eexec_impl*
+end;//TPrimAttributesOptionsForm.File_PrintPreview_Execute
 {$IfEnd} // NOT Defined(NoVCM)
 
-procedure TPrimAttributesOptionsForm.Copy;
-//#UC START# *4C864A87020E_4C8647C8024E_var*
-//#UC END# *4C864A87020E_4C8647C8024E_var*
+{$If NOT Defined(NoVCM)}
+procedure TPrimAttributesOptionsForm.Edit_Copy_Test(const aParams: IvcmTestParamsPrim);
+ {* Копировать }
+//#UC START# *4C7D0C7B0185_4C8647C8024Etest_var*
+//#UC END# *4C7D0C7B0185_4C8647C8024Etest_var*
 begin
-//#UC START# *4C864A87020E_4C8647C8024E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C864A87020E_4C8647C8024E_impl*
-end;//TPrimAttributesOptionsForm.Copy
+//#UC START# *4C7D0C7B0185_4C8647C8024Etest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not DefDataAdapter.IsTrialMode and (tvAttributes.Current > -1);
+//#UC END# *4C7D0C7B0185_4C8647C8024Etest_impl*
+end;//TPrimAttributesOptionsForm.Edit_Copy_Test
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimAttributesOptionsForm.Edit_Copy_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Копировать }
+//#UC START# *4C7D0C7B0185_4C8647C8024Eexec_var*
+var
+ l_Flag : Word;
+ l_Tree : Il3SimpleTree;
+//#UC END# *4C7D0C7B0185_4C8647C8024Eexec_var*
+begin
+//#UC START# *4C7D0C7B0185_4C8647C8024Eexec_impl*
+ l_Tree := tvAttributes.TreeStruct;
+ if (l_Tree.SelectCount > 1) then
+  l_Flag := FM_SELECTION
+ else
+  l_Flag := 0;
+ l3System.SetClipboardData(TevTreeDataObject.Make(TevTreeStorableData_C(l_Tree, l_Flag)));
+//#UC END# *4C7D0C7B0185_4C8647C8024Eexec_impl*
+end;//TPrimAttributesOptionsForm.Edit_Copy_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimAttributesOptionsForm.Edit_Copy_GetState(var State: TvcmOperationStateIndex);
+ {* Копировать }
+//#UC START# *4C7D0C7B0185_4C8647C8024Egetstate_var*
+//#UC END# *4C7D0C7B0185_4C8647C8024Egetstate_var*
+begin
+//#UC START# *4C7D0C7B0185_4C8647C8024Egetstate_impl*
+ State := st_user_Edit_Copy_AttributesCopy;
+//#UC END# *4C7D0C7B0185_4C8647C8024Egetstate_impl*
+end;//TPrimAttributesOptionsForm.Edit_Copy_GetState
+{$IfEnd} // NOT Defined(NoVCM)
+
+procedure TPrimAttributesOptionsForm.Attribute_Copy_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C864A87020E_4C8647C8024Etest_var*
+//#UC END# *4C864A87020E_4C8647C8024Etest_var*
+begin
+//#UC START# *4C864A87020E_4C8647C8024Etest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := tvAttributes.Current > -1;
+//#UC END# *4C864A87020E_4C8647C8024Etest_impl*
+end;//TPrimAttributesOptionsForm.Attribute_Copy_Test
+
+procedure TPrimAttributesOptionsForm.Attribute_Copy_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C864A87020E_4C8647C8024Eexec_var*
+//#UC END# *4C864A87020E_4C8647C8024Eexec_var*
+begin
+//#UC START# *4C864A87020E_4C8647C8024Eexec_impl*
+ l3System.SetClipboardData(TnsSingleAttributeData.Make(tvAttributes.GetCurrentNode, nil));
+//#UC END# *4C864A87020E_4C8647C8024Eexec_impl*
+end;//TPrimAttributesOptionsForm.Attribute_Copy_Execute
 
 {$If NOT Defined(NoVCM)}
 procedure TPrimAttributesOptionsForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;

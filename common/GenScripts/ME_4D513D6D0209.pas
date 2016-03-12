@@ -58,9 +58,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
+{$If NOT Defined(NoVCM)}
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
 
-{$If NOT Defined(NoVCM)}
 procedure TInsertPictureTest.Process(aForm: TPrimTextLoadForm);
  {* Собственно процесс обработки текста }
 //#UC START# *4BE13147032C_4D513D6D0209_var*
@@ -79,7 +79,6 @@ begin
  end;
 //#UC END# *4BE13147032C_4D513D6D0209_impl*
 end;//TInsertPictureTest.Process
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TInsertPictureTest.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -92,6 +91,7 @@ function TInsertPictureTest.GetModelElementGUID: AnsiString;
 begin
  Result := '4D513D6D0209';
 end;//TInsertPictureTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

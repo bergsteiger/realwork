@@ -56,6 +56,7 @@ uses
  , l3BatchService
 ;
 
+{$If NOT Defined(Admin)}
 {$Include w:\common\components\gui\Garant\VCM\AppTesting\VCMAppTester.imp.pas}
 
 class function TPrimeTestRes.CalcBatchMode: Boolean;
@@ -66,6 +67,7 @@ begin
  Result := KTestRunner.NeedKTestRunner([TtoKPrime, TtoKTPrime]);
 //#UC END# *4F79BCC902C5_5123800A0080_impl*
 end;//TPrimeTestRes.CalcBatchMode
-{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(Monitorings)
+{$IfEnd} // NOT Defined(Admin)
 
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(Monitorings)
 end.

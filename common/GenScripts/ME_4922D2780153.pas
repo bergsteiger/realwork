@@ -47,6 +47,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TdsAttributeSelect;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
@@ -59,6 +60,7 @@ begin
  Result := PartData;
 //#UC END# *4922D0440266_4922D2780153get_impl*
 end;//TdsAttributeSelect.pm_GetSearch
-{$IfEnd} // NOT Defined(Admin)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin)
 end.

@@ -104,9 +104,13 @@ type
    function GetDocumentShortName(const aDoc: IDocument;
     aExportSelection: Boolean): Il3CString; override;
   public
-   procedure SaveToFolder; override;
+   procedure File_SaveToFolder_Test(const aParams: IvcmTestParamsPrim);
     {* Сохранить в папки }
-   procedure LoadFromFolder; override;
+   procedure File_SaveToFolder_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Сохранить в папки }
+   procedure File_LoadFromFolder_Test(const aParams: IvcmTestParamsPrim);
+    {* Загрузить из папок }
+   procedure File_LoadFromFolder_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Загрузить из папок }
   protected
    property FormDataChangedInfo: InsDataSourceChangedInfo
@@ -423,25 +427,48 @@ begin
 //#UC END# *54EED7DF0249_495118ED00F6_impl*
 end;//_PrimText_.NeedSaveInWorkJournal
 
-procedure _PrimText_.SaveToFolder;
+procedure _PrimText_.File_SaveToFolder_Test(const aParams: IvcmTestParamsPrim);
  {* Сохранить в папки }
-//#UC START# *49885D540232_495118ED00F6_var*
-//#UC END# *49885D540232_495118ED00F6_var*
+//#UC START# *49885D540232_495118ED00F6test_var*
+//#UC END# *49885D540232_495118ED00F6test_var*
 begin
-//#UC START# *49885D540232_495118ED00F6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49885D540232_495118ED00F6_impl*
-end;//_PrimText_.SaveToFolder
+//#UC START# *49885D540232_495118ED00F6test_impl*
+ if aParams.Op.Flag[vcm_ofEnabled] then
+  aParams.Op.Flag[vcm_ofEnabled] := TextSource.HasDocument;
+//#UC END# *49885D540232_495118ED00F6test_impl*
+end;//_PrimText_.File_SaveToFolder_Test
 
-procedure _PrimText_.LoadFromFolder;
- {* Загрузить из папок }
-//#UC START# *49885D59018D_495118ED00F6_var*
-//#UC END# *49885D59018D_495118ED00F6_var*
+procedure _PrimText_.File_SaveToFolder_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Сохранить в папки }
+//#UC START# *49885D540232_495118ED00F6exec_var*
+//#UC END# *49885D540232_495118ED00F6exec_var*
 begin
-//#UC START# *49885D59018D_495118ED00F6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49885D59018D_495118ED00F6_impl*
-end;//_PrimText_.LoadFromFolder
+//#UC START# *49885D540232_495118ED00F6exec_impl*
+ AddBookmark(GetParaForPositionning(false));
+//#UC END# *49885D540232_495118ED00F6exec_impl*
+end;//_PrimText_.File_SaveToFolder_Execute
+
+procedure _PrimText_.File_LoadFromFolder_Test(const aParams: IvcmTestParamsPrim);
+ {* Загрузить из папок }
+//#UC START# *49885D59018D_495118ED00F6test_var*
+//#UC END# *49885D59018D_495118ED00F6test_var*
+begin
+//#UC START# *49885D59018D_495118ED00F6test_impl*
+ // - ничего не делаем
+//#UC END# *49885D59018D_495118ED00F6test_impl*
+end;//_PrimText_.File_LoadFromFolder_Test
+
+procedure _PrimText_.File_LoadFromFolder_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Загрузить из папок }
+//#UC START# *49885D59018D_495118ED00F6exec_var*
+//#UC END# *49885D59018D_495118ED00F6exec_var*
+begin
+//#UC START# *49885D59018D_495118ED00F6exec_impl*
+ TdmStdRes.SelectOpen(self.as_IvcmEntityForm,
+                      FilterInfoFactory.MakeFilterInfo(ffBookmark),
+                      str_OpenBookmark);
+//#UC END# *49885D59018D_495118ED00F6exec_impl*
+end;//_PrimText_.File_LoadFromFolder_Execute
 
 function _PrimText_.DocumentForExport: IDocument;
 //#UC START# *4AE1B48A0120_495118ED00F6_var*

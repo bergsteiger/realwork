@@ -63,9 +63,9 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 {$Include w:\common\components\rtl\Garant\ScriptEngine\SelectTablePart.imp.pas}
 
-{$If NOT Defined(NoVCM)}
 procedure TMergeAndCheck.DoBeforeDrawing(aForm: TPrimTextLoadForm);
  {* Произвести какие-нибудь операции перед отрисовкой. }
 //#UC START# *4CAC45AE011E_4CC8196F0219_var*
@@ -77,7 +77,6 @@ begin
  aForm.Text.Processor.Undo;
 //#UC END# *4CAC45AE011E_4CC8196F0219_impl*
 end;//TMergeAndCheck.DoBeforeDrawing
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TMergeAndCheck.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -106,6 +105,7 @@ function TMergeAndCheck.GetModelElementGUID: AnsiString;
 begin
  Result := '4CC8196F0219';
 end;//TMergeAndCheck.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

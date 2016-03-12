@@ -25,7 +25,7 @@ type
    {$IfEnd} // NOT Defined(NotTunedDUnit)
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-  public
+  published
    procedure DoIt;
  end;//TK199591594
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)

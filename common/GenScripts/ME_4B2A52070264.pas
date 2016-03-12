@@ -22,7 +22,7 @@ type
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-  public
+  published
    procedure DoIt;
     {* Тест правильности копирования файлов с помощью ReadLn }
    procedure CopyUnicode;
@@ -43,6 +43,7 @@ uses
  , SysUtils
 ;
 
+{$If NOT Defined(NotTunedDUnit)}
 procedure TTestFilerCopyViaReadLn.DoIt;
  {* Тест правильности копирования файлов с помощью ReadLn }
 //#UC START# *4B2A528E03BB_4B2A52070264_var*
@@ -152,6 +153,7 @@ end;//TTestFilerCopyViaReadLn.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(TTestFilerCopyViaReadLn.Suite);
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

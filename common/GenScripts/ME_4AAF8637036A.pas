@@ -64,6 +64,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки pstNoneLocalConstants }
  str_pstNoneCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'pstNoneCaption'; rValue : 'Настройка страницы');
@@ -117,6 +118,7 @@ initialization
  TtfwClassRef.Register(TPrimPageSetupForm);
  {* Регистрация PrimPageSetup }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin)
 end.

@@ -41,6 +41,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 var g_TnsConfigurationProperties: TnsConfigurationProperties = nil;
  {* Экземпляр синглетона TnsConfigurationProperties }
 
@@ -75,6 +76,7 @@ begin
  end;
  Result := g_TnsConfigurationProperties;
 end;//TnsConfigurationProperties.Instance
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

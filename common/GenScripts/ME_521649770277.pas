@@ -42,8 +42,10 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
+{$If NOT Defined(NoVCM)}
 initialization
  str_VCMSandBoxTitle.Init;
  {* Инициализация str_VCMSandBoxTitle }
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

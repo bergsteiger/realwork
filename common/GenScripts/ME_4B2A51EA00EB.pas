@@ -24,7 +24,7 @@ type
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-  public
+  published
    procedure ReadViaDelphi;
    procedure DoIt;
    procedure ReadLnBadText;
@@ -46,6 +46,7 @@ uses
  , l3Types
 ;
 
+{$If NOT Defined(NotTunedDUnit)}
 procedure TTestFilerReadLn.ReadViaDelphi;
 //#UC START# *4B2A52480392_4B2A51EA00EB_var*
 //#UC END# *4B2A52480392_4B2A51EA00EB_var*
@@ -175,6 +176,7 @@ end;//TTestFilerReadLn.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(TTestFilerReadLn.Suite);
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

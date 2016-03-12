@@ -44,20 +44,24 @@ type
   public
    class function Make(const aData: IbsEditGroupName): Result; reintroduce;
    {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
+   procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
     {* Отмена }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
-    {* OK }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
-    {* OK }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_Test(const aParams: IvcmTestParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_GetState(var State: TvcmOperationStateIndex);
+    {* OK }
    {$IfEnd} // NOT Defined(NoVCM)
   public
    property edName: TnscEdit
@@ -87,6 +91,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки admCreateGroupLocalConstants }
  str_admCreateGroupCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'admCreateGroupCaption'; rValue : 'Новая группа');
@@ -107,53 +112,56 @@ begin
  end;//try..finally
 end;//TPrimGroupPropertyForm.Make
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimGroupPropertyForm.Cancel;
+procedure TPrimGroupPropertyForm.Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
  {* Отмена }
-//#UC START# *4A8AD46D0226_4AC4ED6801F3_var*
-//#UC END# *4A8AD46D0226_4AC4ED6801F3_var*
+//#UC START# *4A8AD46D0226_4AC4ED6801F3test_var*
+//#UC END# *4A8AD46D0226_4AC4ED6801F3test_var*
 begin
-//#UC START# *4A8AD46D0226_4AC4ED6801F3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A8AD46D0226_4AC4ED6801F3_impl*
-end;//TPrimGroupPropertyForm.Cancel
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4A8AD46D0226_4AC4ED6801F3test_impl*
+ // - ничего не делаем
+//#UC END# *4A8AD46D0226_4AC4ED6801F3test_impl*
+end;//TPrimGroupPropertyForm.Result_Cancel_Test
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimGroupPropertyForm.Ok;
- {* OK }
-//#UC START# *4A97EBE702F8_4AC4ED6801F3_var*
-//#UC END# *4A97EBE702F8_4AC4ED6801F3_var*
-begin
-//#UC START# *4A97EBE702F8_4AC4ED6801F3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A97EBE702F8_4AC4ED6801F3_impl*
-end;//TPrimGroupPropertyForm.Ok
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimGroupPropertyForm.Ok;
- {* OK }
-//#UC START# *4C762A1501FC_4AC4ED6801F3_var*
-//#UC END# *4C762A1501FC_4AC4ED6801F3_var*
-begin
-//#UC START# *4C762A1501FC_4AC4ED6801F3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762A1501FC_4AC4ED6801F3_impl*
-end;//TPrimGroupPropertyForm.Ok
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimGroupPropertyForm.Cancel;
+procedure TPrimGroupPropertyForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Отмена }
-//#UC START# *4C762AB601E1_4AC4ED6801F3_var*
-//#UC END# *4C762AB601E1_4AC4ED6801F3_var*
+//#UC START# *4A8AD46D0226_4AC4ED6801F3exec_var*
+//#UC END# *4A8AD46D0226_4AC4ED6801F3exec_var*
 begin
-//#UC START# *4C762AB601E1_4AC4ED6801F3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762AB601E1_4AC4ED6801F3_impl*
-end;//TPrimGroupPropertyForm.Cancel
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4A8AD46D0226_4AC4ED6801F3exec_impl*
+ ModalResult := mrCancel;
+//#UC END# *4A8AD46D0226_4AC4ED6801F3exec_impl*
+end;//TPrimGroupPropertyForm.Result_Cancel_Execute
+
+procedure TPrimGroupPropertyForm.Result_Ok_Test(const aParams: IvcmTestParamsPrim);
+ {* OK }
+//#UC START# *4A97EBE702F8_4AC4ED6801F3test_var*
+//#UC END# *4A97EBE702F8_4AC4ED6801F3test_var*
+begin
+//#UC START# *4A97EBE702F8_4AC4ED6801F3test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not l3IsNil(edName.CText);
+//#UC END# *4A97EBE702F8_4AC4ED6801F3test_impl*
+end;//TPrimGroupPropertyForm.Result_Ok_Test
+
+procedure TPrimGroupPropertyForm.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* OK }
+//#UC START# *4A97EBE702F8_4AC4ED6801F3exec_var*
+//#UC END# *4A97EBE702F8_4AC4ED6801F3exec_var*
+begin
+//#UC START# *4A97EBE702F8_4AC4ED6801F3exec_impl*
+ f_Data.Name := edName.CText;
+ ModalResult := mrOk;
+//#UC END# *4A97EBE702F8_4AC4ED6801F3exec_impl*
+end;//TPrimGroupPropertyForm.Result_Ok_Execute
+
+procedure TPrimGroupPropertyForm.Result_Ok_GetState(var State: TvcmOperationStateIndex);
+ {* OK }
+//#UC START# *4A97EBE702F8_4AC4ED6801F3getstate_var*
+//#UC END# *4A97EBE702F8_4AC4ED6801F3getstate_var*
+begin
+//#UC START# *4A97EBE702F8_4AC4ED6801F3getstate_impl*
+ // - ничего не делаем
+//#UC END# *4A97EBE702F8_4AC4ED6801F3getstate_impl*
+end;//TPrimGroupPropertyForm.Result_Ok_GetState
 
 procedure TPrimGroupPropertyForm.Cleanup;
  {* Функция очистки полей объекта. }
@@ -166,7 +174,6 @@ begin
 //#UC END# *479731C50290_4AC4ED6801F3_impl*
 end;//TPrimGroupPropertyForm.Cleanup
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimGroupPropertyForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AC4ED6801F3_var*
@@ -200,7 +207,6 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AC4ED6801F3_impl*
 end;//TPrimGroupPropertyForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_admCreateGroupCaption.Init;
@@ -211,6 +217,7 @@ initialization
  TtfwClassRef.Register(TPrimGroupPropertyForm);
  {* Регистрация PrimGroupProperty }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // Defined(Admin)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(Admin)
 end.

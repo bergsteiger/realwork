@@ -110,12 +110,18 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
   public
-   procedure Russian; override;
-   procedure English; override;
-   procedure French; override;
-   procedure Deutch; override;
-   procedure Italian; override;
-   procedure Spanish; override;
+   procedure Lang_Russian_Test(const aParams: IvcmTestParamsPrim);
+   procedure Lang_Russian_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Lang_English_Test(const aParams: IvcmTestParamsPrim);
+   procedure Lang_English_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Lang_French_Test(const aParams: IvcmTestParamsPrim);
+   procedure Lang_French_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Lang_Deutch_Test(const aParams: IvcmTestParamsPrim);
+   procedure Lang_Deutch_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Lang_Italian_Test(const aParams: IvcmTestParamsPrim);
+   procedure Lang_Italian_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Lang_Spanish_Test(const aParams: IvcmTestParamsPrim);
+   procedure Lang_Spanish_Execute(const aParams: IvcmExecuteParamsPrim);
    {$If NOT Defined(NoVCM)}
    function NeedDrawCaption: Boolean; override;
     {* Нужно ли рисовать заголовок зоны }
@@ -455,59 +461,113 @@ begin
 //#UC END# *4934035F013E_4979D40E0180_impl*
 end;//TPrimDictionForm.UpdateLanguage
 
-procedure TPrimDictionForm.Russian;
-//#UC START# *4C850FD40034_4979D40E0180_var*
-//#UC END# *4C850FD40034_4979D40E0180_var*
+procedure TPrimDictionForm.Lang_Russian_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C850FD40034_4979D40E0180test_var*
+//#UC END# *4C850FD40034_4979D40E0180test_var*
 begin
-//#UC START# *4C850FD40034_4979D40E0180_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C850FD40034_4979D40E0180_impl*
-end;//TPrimDictionForm.Russian
+//#UC START# *4C850FD40034_4979D40E0180test_impl*
+ CheckLang(LG_RUSSIAN, aParams);
+//#UC END# *4C850FD40034_4979D40E0180test_impl*
+end;//TPrimDictionForm.Lang_Russian_Test
 
-procedure TPrimDictionForm.English;
-//#UC START# *4C850FFB01EF_4979D40E0180_var*
-//#UC END# *4C850FFB01EF_4979D40E0180_var*
+procedure TPrimDictionForm.Lang_Russian_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C850FD40034_4979D40E0180exec_var*
+//#UC END# *4C850FD40034_4979D40E0180exec_var*
 begin
-//#UC START# *4C850FFB01EF_4979D40E0180_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C850FFB01EF_4979D40E0180_impl*
-end;//TPrimDictionForm.English
+//#UC START# *4C850FD40034_4979D40E0180exec_impl*
+ ChangeLang(LG_RUSSIAN);
+//#UC END# *4C850FD40034_4979D40E0180exec_impl*
+end;//TPrimDictionForm.Lang_Russian_Execute
 
-procedure TPrimDictionForm.French;
-//#UC START# *4C85100D0398_4979D40E0180_var*
-//#UC END# *4C85100D0398_4979D40E0180_var*
+procedure TPrimDictionForm.Lang_English_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C850FFB01EF_4979D40E0180test_var*
+//#UC END# *4C850FFB01EF_4979D40E0180test_var*
 begin
-//#UC START# *4C85100D0398_4979D40E0180_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C85100D0398_4979D40E0180_impl*
-end;//TPrimDictionForm.French
+//#UC START# *4C850FFB01EF_4979D40E0180test_impl*
+ CheckLang(LG_ENGLISH, aParams);
+//#UC END# *4C850FFB01EF_4979D40E0180test_impl*
+end;//TPrimDictionForm.Lang_English_Test
 
-procedure TPrimDictionForm.Deutch;
-//#UC START# *4C85101F0258_4979D40E0180_var*
-//#UC END# *4C85101F0258_4979D40E0180_var*
+procedure TPrimDictionForm.Lang_English_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C850FFB01EF_4979D40E0180exec_var*
+//#UC END# *4C850FFB01EF_4979D40E0180exec_var*
 begin
-//#UC START# *4C85101F0258_4979D40E0180_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C85101F0258_4979D40E0180_impl*
-end;//TPrimDictionForm.Deutch
+//#UC START# *4C850FFB01EF_4979D40E0180exec_impl*
+ ChangeLang(LG_ENGLISH);
+//#UC END# *4C850FFB01EF_4979D40E0180exec_impl*
+end;//TPrimDictionForm.Lang_English_Execute
 
-procedure TPrimDictionForm.Italian;
-//#UC START# *4C851041010D_4979D40E0180_var*
-//#UC END# *4C851041010D_4979D40E0180_var*
+procedure TPrimDictionForm.Lang_French_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C85100D0398_4979D40E0180test_var*
+//#UC END# *4C85100D0398_4979D40E0180test_var*
 begin
-//#UC START# *4C851041010D_4979D40E0180_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C851041010D_4979D40E0180_impl*
-end;//TPrimDictionForm.Italian
+//#UC START# *4C85100D0398_4979D40E0180test_impl*
+ CheckLang(LG_FRENCH, aParams);
+//#UC END# *4C85100D0398_4979D40E0180test_impl*
+end;//TPrimDictionForm.Lang_French_Test
 
-procedure TPrimDictionForm.Spanish;
-//#UC START# *4C8510570231_4979D40E0180_var*
-//#UC END# *4C8510570231_4979D40E0180_var*
+procedure TPrimDictionForm.Lang_French_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C85100D0398_4979D40E0180exec_var*
+//#UC END# *4C85100D0398_4979D40E0180exec_var*
 begin
-//#UC START# *4C8510570231_4979D40E0180_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8510570231_4979D40E0180_impl*
-end;//TPrimDictionForm.Spanish
+//#UC START# *4C85100D0398_4979D40E0180exec_impl*
+ ChangeLang(LG_FRENCH);
+//#UC END# *4C85100D0398_4979D40E0180exec_impl*
+end;//TPrimDictionForm.Lang_French_Execute
+
+procedure TPrimDictionForm.Lang_Deutch_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C85101F0258_4979D40E0180test_var*
+//#UC END# *4C85101F0258_4979D40E0180test_var*
+begin
+//#UC START# *4C85101F0258_4979D40E0180test_impl*
+ CheckLang(LG_GERMAN, aParams);
+//#UC END# *4C85101F0258_4979D40E0180test_impl*
+end;//TPrimDictionForm.Lang_Deutch_Test
+
+procedure TPrimDictionForm.Lang_Deutch_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C85101F0258_4979D40E0180exec_var*
+//#UC END# *4C85101F0258_4979D40E0180exec_var*
+begin
+//#UC START# *4C85101F0258_4979D40E0180exec_impl*
+ ChangeLang(LG_GERMAN);
+//#UC END# *4C85101F0258_4979D40E0180exec_impl*
+end;//TPrimDictionForm.Lang_Deutch_Execute
+
+procedure TPrimDictionForm.Lang_Italian_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C851041010D_4979D40E0180test_var*
+//#UC END# *4C851041010D_4979D40E0180test_var*
+begin
+//#UC START# *4C851041010D_4979D40E0180test_impl*
+ CheckLang(LG_ITALIAN, aParams);
+//#UC END# *4C851041010D_4979D40E0180test_impl*
+end;//TPrimDictionForm.Lang_Italian_Test
+
+procedure TPrimDictionForm.Lang_Italian_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C851041010D_4979D40E0180exec_var*
+//#UC END# *4C851041010D_4979D40E0180exec_var*
+begin
+//#UC START# *4C851041010D_4979D40E0180exec_impl*
+ ChangeLang(LG_ITALIAN);
+//#UC END# *4C851041010D_4979D40E0180exec_impl*
+end;//TPrimDictionForm.Lang_Italian_Execute
+
+procedure TPrimDictionForm.Lang_Spanish_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C8510570231_4979D40E0180test_var*
+//#UC END# *4C8510570231_4979D40E0180test_var*
+begin
+//#UC START# *4C8510570231_4979D40E0180test_impl*
+ CheckLang(LG_SPANISH, aParams);
+//#UC END# *4C8510570231_4979D40E0180test_impl*
+end;//TPrimDictionForm.Lang_Spanish_Test
+
+procedure TPrimDictionForm.Lang_Spanish_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C8510570231_4979D40E0180exec_var*
+//#UC END# *4C8510570231_4979D40E0180exec_var*
+begin
+//#UC START# *4C8510570231_4979D40E0180exec_impl*
+ ChangeLang(LG_SPANISH);
+//#UC END# *4C8510570231_4979D40E0180exec_impl*
+end;//TPrimDictionForm.Lang_Spanish_Execute
 
 procedure TPrimDictionForm.Cleanup;
  {* Функция очистки полей объекта. }

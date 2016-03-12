@@ -63,6 +63,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
+{$If NOT Defined(NoVCM)}
 {$Include w:\common\components\rtl\Garant\Daily\AppConfigTestMixin.imp.pas}
 
 procedure TLostNodeAppConfigTest.Cleanup;
@@ -75,7 +76,6 @@ begin
 //#UC END# *479731C50290_523831AC00C6_impl*
 end;//TLostNodeAppConfigTest.Cleanup
 
-{$If NOT Defined(NoVCM)}
 function TLostNodeAppConfigTest.FormExtent: TPoint;
  {* Размеры формы }
 //#UC START# *4C08CF700318_523831AC00C6_var*
@@ -86,9 +86,7 @@ begin
  Result.Y := 200;
 //#UC END# *4C08CF700318_523831AC00C6_impl*
 end;//TLostNodeAppConfigTest.FormExtent
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TLostNodeAppConfigTest.FormMade(const aForm: _FormClass_);
 //#UC START# *4C08D61F0231_523831AC00C6_var*
 var
@@ -113,7 +111,6 @@ begin
  end;
 //#UC END# *4C08D61F0231_523831AC00C6_impl*
 end;//TLostNodeAppConfigTest.FormMade
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TLostNodeAppConfigTest.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -127,7 +124,6 @@ begin
  Result := '523831AC00C6';
 end;//TLostNodeAppConfigTest.GetModelElementGUID
 
-{$If NOT Defined(NoVCM)}
 procedure TLostNodeAppConfigTest.CheckControl;
 //#UC START# *51D5464D033C_523831AC00C6_var*
 var

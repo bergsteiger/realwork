@@ -28,19 +28,19 @@ type
     out aParams: TdaDataProviderParams); override;
    procedure FillInConfig(aConfig: TddAppConfiguration;
     aParams: TdaDataProviderParams;
-    ForInfoOnly: Boolean); override;
+    ForInfoOnly: Boolean = False); override;
    procedure BuildConfig(aConfig: TddAppConfiguration;
-    const aProviderKey: AnsiString;
-    ForInfoOnly: Boolean); override;
+    const aProviderKey: AnsiString = '';
+    ForInfoOnly: Boolean = False); override;
    procedure LoadDBVersion(aParams: TdaDataProviderParams); override;
    function DoMakeProvider(aParams: TdaDataProviderParams;
     ForCheckLogin: Boolean;
     AllowClearLocks: Boolean;
-    SetGlobalProvider: Boolean): IdaDataProvider; override;
+    SetGlobalProvider: Boolean = True): IdaDataProvider; override;
    procedure LoginCheckSucceed(aParams: TdaDataProviderParams); override;
    procedure CorrectByClient(aParams: TdaDataProviderParams); override;
    function IsParamsValid(aParams: TdaDataProviderParams;
-    Quiet: Boolean): Boolean; override;
+    Quiet: Boolean = False): Boolean; override;
  end;//TpgDataProviderFactory
 {$IfEnd} // Defined(UsePostgres)
 
@@ -143,7 +143,7 @@ end;//TpgDataProviderFactory.FillOutConfig
 
 procedure TpgDataProviderFactory.FillInConfig(aConfig: TddAppConfiguration;
  aParams: TdaDataProviderParams;
- ForInfoOnly: Boolean);
+ ForInfoOnly: Boolean = False);
 //#UC START# *5512BB030346_55D6E2FB025D_var*
 var
  l_Params: TpgDataProviderParams;
@@ -172,8 +172,8 @@ begin
 end;//TpgDataProviderFactory.FillInConfig
 
 procedure TpgDataProviderFactory.BuildConfig(aConfig: TddAppConfiguration;
- const aProviderKey: AnsiString;
- ForInfoOnly: Boolean);
+ const aProviderKey: AnsiString = '';
+ ForInfoOnly: Boolean = False);
 //#UC START# *5512BB1F023F_55D6E2FB025D_var*
 var
  l_Item: TddBaseConfigItem;
@@ -220,7 +220,7 @@ end;//TpgDataProviderFactory.LoadDBVersion
 function TpgDataProviderFactory.DoMakeProvider(aParams: TdaDataProviderParams;
  ForCheckLogin: Boolean;
  AllowClearLocks: Boolean;
- SetGlobalProvider: Boolean): IdaDataProvider;
+ SetGlobalProvider: Boolean = True): IdaDataProvider;
 //#UC START# *551D06D402AF_55D6E2FB025D_var*
 //#UC END# *551D06D402AF_55D6E2FB025D_var*
 begin
@@ -258,7 +258,7 @@ begin
 end;//TpgDataProviderFactory.CorrectByClient
 
 function TpgDataProviderFactory.IsParamsValid(aParams: TdaDataProviderParams;
- Quiet: Boolean): Boolean;
+ Quiet: Boolean = False): Boolean;
 //#UC START# *551166B40046_55D6E2FB025D_var*
 var
  l_Result: Boolean;

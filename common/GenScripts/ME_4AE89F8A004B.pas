@@ -13,11 +13,11 @@ uses
  , PrimPrimListInterfaces
  , bsTypes
  , FiltersUnit
+ , eeInterfaces
+ , nsTypes
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , eeInterfaces
- , nsTypes
 ;
 
 type
@@ -49,8 +49,6 @@ type
 
  // LogicOperation
 
- // FiltersListOpen
-
  // Filters
 
  // Preview
@@ -61,35 +59,9 @@ type
 
  // Result
 
- // AppTitle
-
- // DocName
-
- // DocFullName
-
- // DocRedactionDate
-
- // DocCurrentPage
-
- // DocPagesCount
-
- // CurrentDate
-
- // CurrentTime
-
- // InternalDocNumber
-
- // DocumentSIze
-
- // FilePosition
-
  // ColontitulMacro
 
- // Show
-
  // SubPanelSettings
-
- // ShowByShortCut
 
  // SubPanelSettings
 

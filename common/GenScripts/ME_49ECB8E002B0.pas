@@ -100,6 +100,7 @@ uses
  , StrUtils
 ;
 
+{$If NOT Defined(DesignTimeLibrary)}
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwShortcutsHandler.imp.pas}
 
 {$Include w:\common\components\gui\Garant\Everest\evStyleTableListener.imp.pas}
@@ -227,7 +228,6 @@ begin
 //#UC END# *4E9574530051_49ECB8E002B0_impl*
 end;//TnsWebBrowser.WMSize
 
-{$If NOT Defined(DesignTimeLibrary)}
 procedure TnsWebBrowser.DoStyleTableChanged;
 //#UC START# *4A485B710126_49ECB8E002B0_var*
 //#UC END# *4A485B710126_49ECB8E002B0_var*
@@ -236,7 +236,6 @@ begin
  ApplyZoom;
 //#UC END# *4A485B710126_49ECB8E002B0_impl*
 end;//TnsWebBrowser.DoStyleTableChanged
-{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 constructor TnsWebBrowser.Create(AOwner: TComponent);
 //#UC START# *47D1602000C6_49ECB8E002B0_var*
@@ -332,7 +331,7 @@ begin
 end;//TnsWebBrowser.DestroyWnd
 {$IfEnd} // NOT Defined(NoVCL)
 
-{$If Defined(l3HackedVCL) AND NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary)}
+{$If Defined(l3HackedVCL) AND NOT Defined(NoVCL)}
 procedure TnsWebBrowser.ForceWMSize(aWidth: Integer;
  aHeight: Integer);
 //#UC START# *4E955E8F0237_49ECB8E002B0_var*
@@ -353,13 +352,14 @@ begin
  ShowScrollBar(WindowHandle, SB_Vert, true);*)
 //#UC END# *4E955E8F0237_49ECB8E002B0_impl*
 end;//TnsWebBrowser.ForceWMSize
-{$IfEnd} // Defined(l3HackedVCL) AND NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary)
+{$IfEnd} // Defined(l3HackedVCL) AND NOT Defined(NoVCL)
 
 initialization
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnsWebBrowser);
  {* Регистрация TnsWebBrowser }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

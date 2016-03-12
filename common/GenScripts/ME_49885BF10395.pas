@@ -16,10 +16,6 @@ uses
 type
  // Edit
 
- // RemoveFromControl
-
- // AddToControl
-
  // Text
 
  // Selection

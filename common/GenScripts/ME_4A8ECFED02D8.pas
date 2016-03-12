@@ -18,11 +18,7 @@ uses
 type
  // DateInterval
 
- // SelectCurrent
-
  // NewsThemes
-
- // Open
 
  // DateInterval
 

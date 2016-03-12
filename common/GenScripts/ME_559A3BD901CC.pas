@@ -18,7 +18,7 @@ uses
 ;
 
 type
- TdaJournal = class(Tl3ProtoObject, IdaJournal)
+ TdaJournal = class(Tl3ProtoObject, IdaJournal, IdaComboAccessJournalHelper)
   private
    f_CurUser: TdaUserID;
    f_CurStatTree: Tl3Tree;
@@ -85,6 +85,16 @@ type
    procedure StartCaching;
    procedure StopCaching;
    procedure SessionDone;
+   procedure SetAlienSessionID(aSessionID: TdaSessionID);
+   procedure LogAlienEvent(aOperation: TdaJournalOperation;
+    aFamilyID: TdaFamilyID;
+    aExtID: LongInt;
+    aData: LongInt);
+   function MakeAlienResultSet(const FromDate: TStDate;
+    const ToDate: TStDate;
+    aDocID: TdaDocID;
+    UserOrGroupID: TdaUserID;
+    UserGr: Boolean): IdaResultSet;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure ClearFields; override;
@@ -654,6 +664,41 @@ begin
  LogEvent(da_oobSessionEnd, 0, 0, 0);
 //#UC END# *554A037B0325_559A3BD901CC_impl*
 end;//TdaJournal.SessionDone
+
+procedure TdaJournal.SetAlienSessionID(aSessionID: TdaSessionID);
+//#UC START# *56E2A25501A6_559A3BD901CC_var*
+//#UC END# *56E2A25501A6_559A3BD901CC_var*
+begin
+//#UC START# *56E2A25501A6_559A3BD901CC_impl*
+ f_CurSessionID := aSessionID;
+ SessionChanged;
+//#UC END# *56E2A25501A6_559A3BD901CC_impl*
+end;//TdaJournal.SetAlienSessionID
+
+procedure TdaJournal.LogAlienEvent(aOperation: TdaJournalOperation;
+ aFamilyID: TdaFamilyID;
+ aExtID: LongInt;
+ aData: LongInt);
+//#UC START# *56E2A7DB03CE_559A3BD901CC_var*
+//#UC END# *56E2A7DB03CE_559A3BD901CC_var*
+begin
+//#UC START# *56E2A7DB03CE_559A3BD901CC_impl*
+ LogEvent(aOperation, aFamilyID, aExtID, aData);
+//#UC END# *56E2A7DB03CE_559A3BD901CC_impl*
+end;//TdaJournal.LogAlienEvent
+
+function TdaJournal.MakeAlienResultSet(const FromDate: TStDate;
+ const ToDate: TStDate;
+ aDocID: TdaDocID;
+ UserOrGroupID: TdaUserID;
+ UserGr: Boolean): IdaResultSet;
+//#UC START# *56E2B57C01FA_559A3BD901CC_var*
+//#UC END# *56E2B57C01FA_559A3BD901CC_var*
+begin
+//#UC START# *56E2B57C01FA_559A3BD901CC_impl*
+ Result := MakeResultSet(FromDate, ToDate, aDocID, UserOrGroupID, UserGr);
+//#UC END# *56E2B57C01FA_559A3BD901CC_impl*
+end;//TdaJournal.MakeAlienResultSet
 
 procedure TdaJournal.Cleanup;
  {* Функция очистки полей объекта. }

@@ -50,17 +50,15 @@ begin
   (MainForm.ActiveMDIChild as TDocEditorWindow).acPageSprv.Execute;
 //#UC END# *4DAEEDE10285_4E5C937F00B2_impl*
 end;//TkwDocumentSpravka.DoDoIt
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 class function TkwDocumentSpravka.GetWordNameForRegister: AnsiString;
 begin
  Result := 'оп::Документ_Справка_к_документу';
 end;//TkwDocumentSpravka.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
  TkwDocumentSpravka.RegisterInEngine;
  {* Регистрация TkwDocumentSpravka }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

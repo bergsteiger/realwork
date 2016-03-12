@@ -117,6 +117,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 function TnsLongProcessData_C(const aMessage: Il3CString;
  aMessageType: TnsLongProcessType;
  anIconName: PAnsiChar): TnsLongProcessData;
@@ -311,7 +312,6 @@ begin
 end;//TPrimLongProcessForm.CreateParams
 {$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimLongProcessForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4A93DDAE0396_var*
@@ -397,7 +397,6 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4A93DDAE0396_impl*
 end;//TPrimLongProcessForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCL)}
 function TPrimLongProcessForm.ShowModal: Integer;
@@ -419,7 +418,6 @@ begin
 end;//TPrimLongProcessForm.ShowModal
 {$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCM)}
 function TPrimLongProcessForm.HasFormFloatingZoneTypeAndVisible: Boolean;
 //#UC START# *523AC062006F_4A93DDAE0396_var*
 //#UC END# *523AC062006F_4A93DDAE0396_var*
@@ -428,12 +426,12 @@ begin
  Result := False;
 //#UC END# *523AC062006F_4A93DDAE0396_impl*
 end;//TPrimLongProcessForm.HasFormFloatingZoneTypeAndVisible
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimLongProcessForm);
  {* Регистрация PrimLongProcess }
 {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

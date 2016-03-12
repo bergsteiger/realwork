@@ -26,7 +26,7 @@ type
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-  public
+  published
    procedure DoIt;
     {* Собственно тело теста }
  end;//TTextEditorVisitor

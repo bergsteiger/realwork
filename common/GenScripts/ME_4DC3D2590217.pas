@@ -29,7 +29,7 @@ type
    {$If NOT Defined(NotTunedDUnit)}
    function FileNameForOutput: AnsiString; override;
    {$IfEnd} // NOT Defined(NotTunedDUnit)
-  public
+  published
    procedure DoIt;
  end;//TCustomInsiderScripter
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
@@ -46,6 +46,7 @@ uses
  , tfwScriptEngine
 ;
 
+{$If NOT Defined(NotTunedDUnit)}
 procedure TCustomInsiderScripter.DoIt;
 //#UC START# *4DC3D3150155_4DC3D2590217_var*
 var
@@ -91,7 +92,6 @@ begin
  Result := '4DC3D2590217';
 end;//TCustomInsiderScripter.GetModelElementGUID
 
-{$If NOT Defined(NotTunedDUnit)}
 function TCustomInsiderScripter.GetScriptName: AnsiString;
 //#UC START# *4DC263E8038F_4DC3D2590217_var*
 //#UC END# *4DC263E8038F_4DC3D2590217_var*
@@ -103,9 +103,7 @@ begin
   Result := inherited GetScriptName;
 //#UC END# *4DC263E8038F_4DC3D2590217_impl*
 end;//TCustomInsiderScripter.GetScriptName
-{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$If NOT Defined(NotTunedDUnit)}
 function TCustomInsiderScripter.FileNameForOutput: AnsiString;
 //#UC START# *4DCA41A20364_4DC3D2590217_var*
 //#UC END# *4DCA41A20364_4DC3D2590217_var*

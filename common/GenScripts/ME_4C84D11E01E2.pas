@@ -22,19 +22,17 @@ type
   {* Совещание онлайн }
   public
    {$If NOT Defined(NoVCM)}
-   procedure Delete; override;
+   procedure Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
     {* Удалить }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure Add; override;
    {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
-    {* OK }
+   procedure Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Удалить }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
-    {* Отмена }
+   procedure Edit_Delete_GetState(var State: TvcmOperationStateIndex);
+    {* Удалить }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure History; override;
  end;//TPrimContactListOptionsForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -49,58 +47,53 @@ uses
 ;
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimContactListOptionsForm.Delete;
+procedure TPrimContactListOptionsForm.Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
  {* Удалить }
-//#UC START# *4C7D0CC90052_4C84D11E01E2_var*
-//#UC END# *4C7D0CC90052_4C84D11E01E2_var*
+//#UC START# *4C7D0CC90052_4C84D11E01E2test_var*
+//#UC END# *4C7D0CC90052_4C84D11E01E2test_var*
 begin
-//#UC START# *4C7D0CC90052_4C84D11E01E2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7D0CC90052_4C84D11E01E2_impl*
-end;//TPrimContactListOptionsForm.Delete
-{$IfEnd} // NOT Defined(NoVCM)
-
-procedure TPrimContactListOptionsForm.Add;
-//#UC START# *4C2B245F01F2_4C84D11E01E2_var*
-//#UC END# *4C2B245F01F2_4C84D11E01E2_var*
-begin
-//#UC START# *4C2B245F01F2_4C84D11E01E2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C2B245F01F2_4C84D11E01E2_impl*
-end;//TPrimContactListOptionsForm.Add
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimContactListOptionsForm.Ok;
- {* OK }
-//#UC START# *4C762A1501FC_4C84D11E01E2_var*
-//#UC END# *4C762A1501FC_4C84D11E01E2_var*
-begin
-//#UC START# *4C762A1501FC_4C84D11E01E2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762A1501FC_4C84D11E01E2_impl*
-end;//TPrimContactListOptionsForm.Ok
+//#UC START# *4C7D0CC90052_4C84D11E01E2test_impl*
+ if aParams.Control = trContactList then
+  aParams.Op.Flag[vcm_ofEnabled] := not AddingContact and (trContactList.GetCurrentNode <> nil)
+ else
+  if not aParams.CallControl then
+   aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4C7D0CC90052_4C84D11E01E2test_impl*
+end;//TPrimContactListOptionsForm.Edit_Delete_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimContactListOptionsForm.Cancel;
- {* Отмена }
-//#UC START# *4C762AB601E1_4C84D11E01E2_var*
-//#UC END# *4C762AB601E1_4C84D11E01E2_var*
+procedure TPrimContactListOptionsForm.Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Удалить }
+//#UC START# *4C7D0CC90052_4C84D11E01E2exec_var*
+//#UC END# *4C7D0CC90052_4C84D11E01E2exec_var*
 begin
-//#UC START# *4C762AB601E1_4C84D11E01E2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762AB601E1_4C84D11E01E2_impl*
-end;//TPrimContactListOptionsForm.Cancel
+//#UC START# *4C7D0CC90052_4C84D11E01E2exec_impl*
+ if aParams.Control = trContactList then
+ begin
+  if trContactList.GetCurrentNode <> nil then
+   TdmStdRes.MakeChatDispatcher.DeleteUser(trContactList.GetCurrentNode);
+ end
+ else
+  aParams.CallControl;
+//#UC END# *4C7D0CC90052_4C84D11E01E2exec_impl*
+end;//TPrimContactListOptionsForm.Edit_Delete_Execute
 {$IfEnd} // NOT Defined(NoVCM)
 
-procedure TPrimContactListOptionsForm.History;
-//#UC START# *4C84CC2E0253_4C84D11E01E2_var*
-//#UC END# *4C84CC2E0253_4C84D11E01E2_var*
+{$If NOT Defined(NoVCM)}
+procedure TPrimContactListOptionsForm.Edit_Delete_GetState(var State: TvcmOperationStateIndex);
+ {* Удалить }
+//#UC START# *4C7D0CC90052_4C84D11E01E2getstate_var*
+//#UC END# *4C7D0CC90052_4C84D11E01E2getstate_var*
 begin
-//#UC START# *4C84CC2E0253_4C84D11E01E2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C84CC2E0253_4C84D11E01E2_impl*
-end;//TPrimContactListOptionsForm.History
+//#UC START# *4C7D0CC90052_4C84D11E01E2getstate_impl*
+ if trContactList.Focused then
+  State := st_user_Edit_Delete_Contact
+ else
+  State := vcm_DefaultOperationState;
+//#UC END# *4C7D0CC90052_4C84D11E01E2getstate_impl*
+end;//TPrimContactListOptionsForm.Edit_Delete_GetState
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

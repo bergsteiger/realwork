@@ -21,6 +21,8 @@ uses
  , vtPanel
  , vtSizeablePanel
  , nsTypes
+ , FoldersUnit
+ , l3Interfaces
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
@@ -58,32 +60,47 @@ type
    {$IfEnd} // NOT Defined(NoVCL)
   public
    {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
+   procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
     {* Отмена }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure EditElement; override;
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure FoldersControl_EditElement_Execute(const aNode: IFoldersNode);
     {* Начать редактирование элемента }
-   function DeleteElement: TnsDeleteResult; override;
+   procedure FoldersControl_EditElement(const aParams: IvcmExecuteParamsPrim);
+    {* Начать редактирование элемента }
+   function FoldersControl_DeleteElement_Execute(const aNode: IFoldersNode): TnsDeleteResult;
+    {* Удалить элемент }
+   procedure FoldersControl_DeleteElement(const aParams: IvcmExecuteParamsPrim);
     {* Удалить элемент }
    {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
+   procedure Result_Ok_Test(const aParams: IvcmTestParamsPrim);
     {* OK }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure Append; override;
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_GetState(var State: TvcmOperationStateIndex);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure Result_Append_Test(const aParams: IvcmTestParamsPrim);
     {* Добавить }
-   procedure Show; override;
-   procedure Hide; override;
-   procedure SetCaption; override;
-   procedure BecomeActive; override;
-   procedure Close; override;
-   {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
-    {* OK }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
-    {* Отмена }
-   {$IfEnd} // NOT Defined(NoVCM)
+   procedure Result_Append_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Добавить }
+   procedure AdditionInfo_Show_Execute;
+   procedure AdditionInfo_Show(const aParams: IvcmExecuteParamsPrim);
+   procedure AdditionInfo_Hide_Execute;
+   procedure AdditionInfo_Hide(const aParams: IvcmExecuteParamsPrim);
+   procedure AdditionInfo_SetCaption_Execute(const aCaption: Il3CString);
+   procedure AdditionInfo_SetCaption(const aParams: IvcmExecuteParamsPrim);
+   procedure Switcher_BecomeActive_Execute;
+   procedure Switcher_BecomeActive(const aParams: IvcmExecuteParamsPrim);
+   procedure AdditionInfo_Close_Execute(aModalResult: Integer = mrCancel);
+   procedure AdditionInfo_Close(const aParams: IvcmExecuteParamsPrim);
   public
    property BackgroundPanel: TvtProportionalPanel
     read f_BackgroundPanel;
@@ -127,127 +144,263 @@ begin
 end;//TPrimFoldersForm.utFoldersQueryClose
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimFoldersForm.Cancel;
+procedure TPrimFoldersForm.Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
  {* Отмена }
-//#UC START# *4A8AD46D0226_4A96B6AE0071_var*
-//#UC END# *4A8AD46D0226_4A96B6AE0071_var*
+//#UC START# *4A8AD46D0226_4A96B6AE0071test_var*
+//#UC END# *4A8AD46D0226_4A96B6AE0071test_var*
 begin
-//#UC START# *4A8AD46D0226_4A96B6AE0071_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A8AD46D0226_4A96B6AE0071_impl*
-end;//TPrimFoldersForm.Cancel
+//#UC START# *4A8AD46D0226_4A96B6AE0071test_impl*
+ if f_IsInfoShown then
+ begin
+  aParams.Op.Flag[vcm_ofVisible] := True;
+  aParams.Op.Flag[vcm_ofEnabled] := True;
+ end
+ else
+ begin
+  aParams.Op.Flag[vcm_ofVisible] := False;
+  aParams.Op.Flag[vcm_ofEnabled] := False;
+ end;
+//#UC END# *4A8AD46D0226_4A96B6AE0071test_impl*
+end;//TPrimFoldersForm.Result_Cancel_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
-procedure TPrimFoldersForm.EditElement;
+{$If NOT Defined(NoVCM)}
+procedure TPrimFoldersForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отмена }
+//#UC START# *4A8AD46D0226_4A96B6AE0071exec_var*
+var
+ l_Form : IvcmEntityForm;
+//#UC END# *4A8AD46D0226_4A96B6AE0071exec_var*
+begin
+//#UC START# *4A8AD46D0226_4A96B6AE0071exec_impl*
+ if f_IsInfoShown and
+    HasForm(vcm_ztChild, False, @l_Form) then
+  try
+   l_Form.Entity.Operation(TdmStdRes.opcode_ResultExt_Cancel, aParams As IvcmExecuteParams);
+  finally
+   l_Form := nil;
+  end;
+//#UC END# *4A8AD46D0226_4A96B6AE0071exec_impl*
+end;//TPrimFoldersForm.Result_Cancel_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+procedure TPrimFoldersForm.FoldersControl_EditElement_Execute(const aNode: IFoldersNode);
  {* Начать редактирование элемента }
-//#UC START# *4A96A9BE011C_4A96B6AE0071_var*
-//#UC END# *4A96A9BE011C_4A96B6AE0071_var*
+//#UC START# *4A96A9BE011C_4A96B6AE0071exec_var*
+//#UC END# *4A96A9BE011C_4A96B6AE0071exec_var*
 begin
-//#UC START# *4A96A9BE011C_4A96B6AE0071_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A96A9BE011C_4A96B6AE0071_impl*
-end;//TPrimFoldersForm.EditElement
+//#UC START# *4A96A9BE011C_4A96B6AE0071exec_impl*
+ Op_FolderElement_InternalEditByFoldersNode.Call(Aggregate, aNode);
+//#UC END# *4A96A9BE011C_4A96B6AE0071exec_impl*
+end;//TPrimFoldersForm.FoldersControl_EditElement_Execute
 
-function TPrimFoldersForm.DeleteElement: TnsDeleteResult;
+procedure TPrimFoldersForm.FoldersControl_EditElement(const aParams: IvcmExecuteParamsPrim);
+ {* Начать редактирование элемента }
+begin
+ with (aParams.Data As IFoldersControl_EditElement_Params) do
+  Self.FoldersControl_EditElement_Execute(Node);
+end;//TPrimFoldersForm.FoldersControl_EditElement
+
+function TPrimFoldersForm.FoldersControl_DeleteElement_Execute(const aNode: IFoldersNode): TnsDeleteResult;
  {* Удалить элемент }
-//#UC START# *4A96A9D10023_4A96B6AE0071_var*
-//#UC END# *4A96A9D10023_4A96B6AE0071_var*
+//#UC START# *4A96A9D10023_4A96B6AE0071exec_var*
+//#UC END# *4A96A9D10023_4A96B6AE0071exec_var*
 begin
-//#UC START# *4A96A9D10023_4A96B6AE0071_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A96A9D10023_4A96B6AE0071_impl*
-end;//TPrimFoldersForm.DeleteElement
+//#UC START# *4A96A9D10023_4A96B6AE0071exec_impl*
+ Result := Op_FolderElement_InternalDelete.Call(Aggregate, aNode);
+//#UC END# *4A96A9D10023_4A96B6AE0071exec_impl*
+end;//TPrimFoldersForm.FoldersControl_DeleteElement_Execute
+
+procedure TPrimFoldersForm.FoldersControl_DeleteElement(const aParams: IvcmExecuteParamsPrim);
+ {* Удалить элемент }
+begin
+ with (aParams.Data As IFoldersControl_DeleteElement_Params) do
+  ResultValue := Self.FoldersControl_DeleteElement_Execute(Node);
+end;//TPrimFoldersForm.FoldersControl_DeleteElement
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimFoldersForm.Ok;
+procedure TPrimFoldersForm.Result_Ok_Test(const aParams: IvcmTestParamsPrim);
  {* OK }
-//#UC START# *4A97EBE702F8_4A96B6AE0071_var*
-//#UC END# *4A97EBE702F8_4A96B6AE0071_var*
+//#UC START# *4A97EBE702F8_4A96B6AE0071test_var*
+var
+ l_Form : IvcmEntityForm;
+//#UC END# *4A97EBE702F8_4A96B6AE0071test_var*
 begin
-//#UC START# *4A97EBE702F8_4A96B6AE0071_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A97EBE702F8_4A96B6AE0071_impl*
-end;//TPrimFoldersForm.Ok
+//#UC START# *4A97EBE702F8_4A96B6AE0071test_impl*
+ if f_IsInfoShown and
+    HasForm(vcm_ztChild, False, @l_Form) then
+  try
+   l_Form.Entity.Operation(TdmStdRes.opcode_ResultExt_Ok, aParams As IvcmTestParams);
+  finally
+   l_Form := nil;
+  end
+ else
+ begin
+  aParams.Op.Flag[vcm_ofVisible] := False;
+  aParams.Op.Flag[vcm_ofEnabled] := False;
+ end;
+//#UC END# *4A97EBE702F8_4A96B6AE0071test_impl*
+end;//TPrimFoldersForm.Result_Ok_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
-procedure TPrimFoldersForm.Append;
+{$If NOT Defined(NoVCM)}
+procedure TPrimFoldersForm.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* OK }
+//#UC START# *4A97EBE702F8_4A96B6AE0071exec_var*
+var
+ l_Form : IvcmEntityForm;
+//#UC END# *4A97EBE702F8_4A96B6AE0071exec_var*
+begin
+//#UC START# *4A97EBE702F8_4A96B6AE0071exec_impl*
+ if f_IsInfoShown and
+    HasForm(vcm_ztChild, False, @l_Form) then
+  try
+   l_Form.Entity.Operation(TdmStdRes.opcode_ResultExt_Ok, aParams As IvcmExecuteParams);
+  finally
+   l_Form := nil;
+  end;//try..finally
+//#UC END# *4A97EBE702F8_4A96B6AE0071exec_impl*
+end;//TPrimFoldersForm.Result_Ok_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimFoldersForm.Result_Ok_GetState(var State: TvcmOperationStateIndex);
+ {* OK }
+//#UC START# *4A97EBE702F8_4A96B6AE0071getstate_var*
+//#UC END# *4A97EBE702F8_4A96B6AE0071getstate_var*
+begin
+//#UC START# *4A97EBE702F8_4A96B6AE0071getstate_impl*
+ // Do nothing
+//#UC END# *4A97EBE702F8_4A96B6AE0071getstate_impl*
+end;//TPrimFoldersForm.Result_Ok_GetState
+{$IfEnd} // NOT Defined(NoVCM)
+
+procedure TPrimFoldersForm.Result_Append_Test(const aParams: IvcmTestParamsPrim);
  {* Добавить }
-//#UC START# *4A98000500BA_4A96B6AE0071_var*
-//#UC END# *4A98000500BA_4A96B6AE0071_var*
+//#UC START# *4A98000500BA_4A96B6AE0071test_var*
+var
+ l_Form : IvcmEntityForm;
+//#UC END# *4A98000500BA_4A96B6AE0071test_var*
 begin
-//#UC START# *4A98000500BA_4A96B6AE0071_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A98000500BA_4A96B6AE0071_impl*
-end;//TPrimFoldersForm.Append
+//#UC START# *4A98000500BA_4A96B6AE0071test_impl*
+ if f_IsInfoShown and
+    HasForm(vcm_ztChild, False, @l_Form) then
+  try
+   l_Form.Entity.Operation(TdmStdRes.opcode_ResultExt_Append, aParams As IvcmTestParams);
+  finally
+   l_Form := nil;
+  end
+ else
+ begin
+  aParams.Op.Flag[vcm_ofVisible] := False;
+  aParams.Op.Flag[vcm_ofEnabled] := False;
+ end;
+//#UC END# *4A98000500BA_4A96B6AE0071test_impl*
+end;//TPrimFoldersForm.Result_Append_Test
 
-procedure TPrimFoldersForm.Show;
-//#UC START# *4A980672034B_4A96B6AE0071_var*
-//#UC END# *4A980672034B_4A96B6AE0071_var*
+procedure TPrimFoldersForm.Result_Append_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Добавить }
+//#UC START# *4A98000500BA_4A96B6AE0071exec_var*
+var
+ l_Form : IvcmEntityForm;
+//#UC END# *4A98000500BA_4A96B6AE0071exec_var*
 begin
-//#UC START# *4A980672034B_4A96B6AE0071_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A980672034B_4A96B6AE0071_impl*
-end;//TPrimFoldersForm.Show
+//#UC START# *4A98000500BA_4A96B6AE0071exec_impl*
+ if f_IsInfoShown and
+    HasForm(vcm_ztChild, False, @l_Form) then
+  try
+   l_Form.Entity.Operation(TdmStdRes.opcode_ResultExt_Append, aParams As IvcmExecuteParams);
+  finally
+   l_Form := nil;
+  end;
+//#UC END# *4A98000500BA_4A96B6AE0071exec_impl*
+end;//TPrimFoldersForm.Result_Append_Execute
 
-procedure TPrimFoldersForm.Hide;
-//#UC START# *4A9806B600E8_4A96B6AE0071_var*
-//#UC END# *4A9806B600E8_4A96B6AE0071_var*
+procedure TPrimFoldersForm.AdditionInfo_Show_Execute;
+//#UC START# *4A980672034B_4A96B6AE0071exec_var*
+//#UC END# *4A980672034B_4A96B6AE0071exec_var*
 begin
-//#UC START# *4A9806B600E8_4A96B6AE0071_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A9806B600E8_4A96B6AE0071_impl*
-end;//TPrimFoldersForm.Hide
+//#UC START# *4A980672034B_4A96B6AE0071exec_impl*
+ ChildZone.Show;
+ f_IsInfoShown := True;
+ ManualUpdateActions;
+ //
+ op_FolderElement_Redraw.Call(Aggregate);
+ //
+ if (ChildZone.Controls[0] is TvcmEntityForm) then
+  TvcmEntityForm(ChildZone.Controls[0]).SetActiveControl;
+//#UC END# *4A980672034B_4A96B6AE0071exec_impl*
+end;//TPrimFoldersForm.AdditionInfo_Show_Execute
 
-procedure TPrimFoldersForm.SetCaption;
-//#UC START# *4A9806D7038D_4A96B6AE0071_var*
-//#UC END# *4A9806D7038D_4A96B6AE0071_var*
+procedure TPrimFoldersForm.AdditionInfo_Show(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4A9806D7038D_4A96B6AE0071_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A9806D7038D_4A96B6AE0071_impl*
-end;//TPrimFoldersForm.SetCaption
+ Self.AdditionInfo_Show_Execute;
+end;//TPrimFoldersForm.AdditionInfo_Show
 
-procedure TPrimFoldersForm.BecomeActive;
-//#UC START# *4A9807F801F9_4A96B6AE0071_var*
-//#UC END# *4A9807F801F9_4A96B6AE0071_var*
+procedure TPrimFoldersForm.AdditionInfo_Hide_Execute;
+//#UC START# *4A9806B600E8_4A96B6AE0071exec_var*
+//#UC END# *4A9806B600E8_4A96B6AE0071exec_var*
 begin
-//#UC START# *4A9807F801F9_4A96B6AE0071_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A9807F801F9_4A96B6AE0071_impl*
-end;//TPrimFoldersForm.BecomeActive
+//#UC START# *4A9806B600E8_4A96B6AE0071exec_impl*
+ if (ParentZone.Controls[0] is TvcmEntityForm) then
+  TvcmEntityForm(ParentZone.Controls[0]).SetActiveControl;
+ //
+ ChildZone.Hide;
+ f_IsInfoShown := False;
+//#UC END# *4A9806B600E8_4A96B6AE0071exec_impl*
+end;//TPrimFoldersForm.AdditionInfo_Hide_Execute
 
-procedure TPrimFoldersForm.Close;
-//#UC START# *4AE9BF890271_4A96B6AE0071_var*
-//#UC END# *4AE9BF890271_4A96B6AE0071_var*
+procedure TPrimFoldersForm.AdditionInfo_Hide(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4AE9BF890271_4A96B6AE0071_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE9BF890271_4A96B6AE0071_impl*
-end;//TPrimFoldersForm.Close
+ Self.AdditionInfo_Hide_Execute;
+end;//TPrimFoldersForm.AdditionInfo_Hide
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimFoldersForm.Ok;
- {* OK }
-//#UC START# *4C762A1501FC_4A96B6AE0071_var*
-//#UC END# *4C762A1501FC_4A96B6AE0071_var*
+procedure TPrimFoldersForm.AdditionInfo_SetCaption_Execute(const aCaption: Il3CString);
+//#UC START# *4A9806D7038D_4A96B6AE0071exec_var*
+//#UC END# *4A9806D7038D_4A96B6AE0071exec_var*
 begin
-//#UC START# *4C762A1501FC_4A96B6AE0071_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762A1501FC_4A96B6AE0071_impl*
-end;//TPrimFoldersForm.Ok
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4A9806D7038D_4A96B6AE0071exec_impl*
+ CCaption := vcmFmt(str_MyDocumentsCaption, [aCaption]);
+//#UC END# *4A9806D7038D_4A96B6AE0071exec_impl*
+end;//TPrimFoldersForm.AdditionInfo_SetCaption_Execute
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimFoldersForm.Cancel;
- {* Отмена }
-//#UC START# *4C762AB601E1_4A96B6AE0071_var*
-//#UC END# *4C762AB601E1_4A96B6AE0071_var*
+procedure TPrimFoldersForm.AdditionInfo_SetCaption(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4C762AB601E1_4A96B6AE0071_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762AB601E1_4A96B6AE0071_impl*
-end;//TPrimFoldersForm.Cancel
-{$IfEnd} // NOT Defined(NoVCM)
+ with (aParams.Data As IAdditionInfo_SetCaption_Params) do
+  Self.AdditionInfo_SetCaption_Execute(Caption);
+end;//TPrimFoldersForm.AdditionInfo_SetCaption
+
+procedure TPrimFoldersForm.Switcher_BecomeActive_Execute;
+//#UC START# *4A9807F801F9_4A96B6AE0071exec_var*
+//#UC END# *4A9807F801F9_4A96B6AE0071exec_var*
+begin
+//#UC START# *4A9807F801F9_4A96B6AE0071exec_impl*
+ SetActiveInParent;
+//#UC END# *4A9807F801F9_4A96B6AE0071exec_impl*
+end;//TPrimFoldersForm.Switcher_BecomeActive_Execute
+
+procedure TPrimFoldersForm.Switcher_BecomeActive(const aParams: IvcmExecuteParamsPrim);
+begin
+ Self.Switcher_BecomeActive_Execute;
+end;//TPrimFoldersForm.Switcher_BecomeActive
+
+procedure TPrimFoldersForm.AdditionInfo_Close_Execute(aModalResult: Integer = mrCancel);
+//#UC START# *4AE9BF890271_4A96B6AE0071exec_var*
+//#UC END# *4AE9BF890271_4A96B6AE0071exec_var*
+begin
+//#UC START# *4AE9BF890271_4A96B6AE0071exec_impl*
+ if (ZoneType = vcm_ztManualModal) then
+  Self.ModalResult := aModalResult
+ else
+  SafeClose;
+//#UC END# *4AE9BF890271_4A96B6AE0071exec_impl*
+end;//TPrimFoldersForm.AdditionInfo_Close_Execute
+
+procedure TPrimFoldersForm.AdditionInfo_Close(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IAdditionInfo_Close_Params) do
+  Self.AdditionInfo_Close_Execute(ModalResult);
+end;//TPrimFoldersForm.AdditionInfo_Close
 
 procedure TPrimFoldersForm.FinishDataUpdate;
 //#UC START# *47EA4E9002C6_4A96B6AE0071_var*

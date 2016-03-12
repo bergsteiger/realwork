@@ -18,7 +18,8 @@ uses
 type
  TBaseChatModule = class
   protected
-   procedure OpenContactList;
+   procedure BaseChat_OpenContactList_Test(const aParams: IvcmTestParamsPrim);
+   procedure BaseChat_OpenContactList_Execute(const aParams: IvcmExecuteParamsPrim);
   public
    function MakeChatDispatcher: IbsChatDispatcher;
    procedure OpenChatWindow(anUID: TbsUserID;
@@ -100,14 +101,29 @@ begin
 //#UC END# *4AAFC77602D8_4A6971B802A6_impl*
 end;//TBaseChatModule.OpenHistoryWindow
 
-procedure TBaseChatModule.OpenContactList;
-//#UC START# *4A97C2460052_4A6971B802A6_var*
-//#UC END# *4A97C2460052_4A6971B802A6_var*
+procedure TBaseChatModule.BaseChat_OpenContactList_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4A97C2460052_4A6971B802A6test_var*
+//#UC END# *4A97C2460052_4A6971B802A6test_var*
 begin
-//#UC START# *4A97C2460052_4A6971B802A6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A97C2460052_4A6971B802A6_impl*
-end;//TBaseChatModule.OpenContactList
+//#UC START# *4A97C2460052_4A6971B802A6test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := MakeChatDispatcher.ChatSupported;
+ aParams.Op.Flag[vcm_ofVisible] := aParams.Op.Flag[vcm_ofEnabled];
+//#UC END# *4A97C2460052_4A6971B802A6test_impl*
+end;//TBaseChatModule.BaseChat_OpenContactList_Test
+
+procedure TBaseChatModule.BaseChat_OpenContactList_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4A97C2460052_4A6971B802A6exec_var*
+var
+ l_Chat: IvcmEntityForm;
+//#UC END# *4A97C2460052_4A6971B802A6exec_var*
+begin
+//#UC START# *4A97C2460052_4A6971B802A6exec_impl*
+ l_Chat := TContactListForm.MakeSingleChild(DefaultContainer,
+                             vcm_ztNavigator,
+                             Ord(chatContacts));
+ l_Chat.SetActiveInParent;
+//#UC END# *4A97C2460052_4A6971B802A6exec_impl*
+end;//TBaseChatModule.BaseChat_OpenContactList_Execute
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

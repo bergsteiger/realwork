@@ -11,14 +11,17 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
  , nsTypes
+ , FoldersUnit
+ , eeInterfaces
  , FoldersDomainInterfaces
+ , l3Interfaces
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , FoldersUnit
- , eeInterfaces
- , l3Interfaces
  , BaseTypesUnit
  , BaseTreeSupportUnit
 ;
@@ -42,49 +45,13 @@ type
 
  // Result
 
- // Filtrate
-
  // Folders
-
- // New
-
- // AddToControl
-
- // DelFromControl
-
- // SetShare
-
- // ExportToXML
-
- // ImportFromXML
 
  // Folder
 
- // Edit
-
- // EditExt
-
- // Open
-
- // OpenNewWindow
-
- // ControlStatus
-
- // ExportForIntegration
-
  // FolderElement
 
- // CreateFilter
-
  // SavedQuery
-
- // Open
-
- // GiveMark
-
- // ShowConsultationInfo
-
- // ImportConsultation
 
  // Consultation
 

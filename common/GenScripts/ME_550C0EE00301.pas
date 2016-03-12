@@ -57,6 +57,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 var g_Tfs_InpharmMainMenu: Tfs_InpharmMainMenu = nil;
  {* Экземпляр синглетона Tfs_InpharmMainMenu }
 
@@ -104,7 +105,6 @@ begin
 //#UC END# *47A042E100E2_550C0EE00301_impl*
 end;//Tfs_InpharmMainMenu.InitFields
 
-{$If NOT Defined(NoVCM)}
 class function Tfs_InpharmMainMenu.GetInstance: TvcmFormSetFactoryPrim;
 //#UC START# *4FFE854A009B_550C0EE00301_var*
 //#UC END# *4FFE854A009B_550C0EE00301_var*

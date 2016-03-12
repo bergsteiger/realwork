@@ -44,6 +44,7 @@ uses
  l3ImplUses
 ;
 
+{$If Defined(Nemesis)}
 constructor TnsWarningDocumentContainer.Create(const aViewArea: IdsWarning;
  aUserType: TvcmUserType);
 //#UC START# *4F153CE400E6_4F153BA50321_var*
@@ -90,6 +91,7 @@ begin
  f_ViewArea := nil;
  inherited;
 end;//TnsWarningDocumentContainer.ClearFields
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // Defined(Nemesis)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

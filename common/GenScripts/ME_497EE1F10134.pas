@@ -18,6 +18,7 @@ uses
  , Inpharm_Strange_Controls
  , SimpleListInterfaces
  , vtPanel
+ , nsTypes
  , l3Interfaces
 ;
 
@@ -47,14 +48,16 @@ type
    procedure PageInactive; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   procedure BecomeActive; override;
-   procedure OpenDocument; override;
-   procedure OpenAttributesForm; override;
-   procedure OpenList; override;
-   procedure OpenDocument; override;
-    {* Текст документа }
-   procedure OpenList; override;
-    {* Список препаратов }
+   procedure SynchroView_BecomeActive_Execute(aFormType: TnsShowSynchroForm);
+   procedure SynchroView_BecomeActive(const aParams: IvcmExecuteParamsPrim);
+   procedure MedicListSynchroView_OpenDocument_Test(const aParams: IvcmTestParamsPrim);
+   procedure MedicListSynchroView_OpenDocument_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure MedicListSynchroView_OpenDocument_GetState(var State: TvcmOperationStateIndex);
+   procedure MedicListSynchroView_OpenAttributesForm_Test(const aParams: IvcmTestParamsPrim);
+   procedure MedicListSynchroView_OpenAttributesForm_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure MedicListSynchroView_OpenList_Test(const aParams: IvcmTestParamsPrim);
+   procedure MedicListSynchroView_OpenList_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure MedicListSynchroView_OpenList_GetState(var State: TvcmOperationStateIndex);
    {$If NOT Defined(NoVCM)}
    function DoGetTabInfo(out theCaption: Il3CString;
     out theItemIndex: Integer): Boolean; override;
@@ -83,6 +86,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки mlsfDrugListLocalConstants }
  str_mlsfDrugListCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'mlsfDrugListCaption'; rValue : 'Синхронный просмотр');
@@ -111,63 +115,121 @@ begin
 //#UC END# *C155D2625A02_497EE1F10134_impl*
 end;//TPrimMedicListSynchroViewForm.mlsfMedicFirmQueryClose
 
-procedure TPrimMedicListSynchroViewForm.BecomeActive;
-//#UC START# *4AE9E3CC03C7_497EE1F10134_var*
-//#UC END# *4AE9E3CC03C7_497EE1F10134_var*
+procedure TPrimMedicListSynchroViewForm.SynchroView_BecomeActive_Execute(aFormType: TnsShowSynchroForm);
+//#UC START# *4AE9E3CC03C7_497EE1F10134exec_var*
+//#UC END# *4AE9E3CC03C7_497EE1F10134exec_var*
 begin
-//#UC START# *4AE9E3CC03C7_497EE1F10134_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE9E3CC03C7_497EE1F10134_impl*
-end;//TPrimMedicListSynchroViewForm.BecomeActive
+//#UC START# *4AE9E3CC03C7_497EE1F10134exec_impl*
+ case aFormType of
+  ssfAttribute:
+   if (dsSimpleListSynchroView <> nil) then
+   begin
+    dsSimpleListSynchroView.OpenAttributes;
+    SetActiveInParent;
+   end;//dsSimpleListSynchroView <> nil
+ end;//case aFormType
+//#UC END# *4AE9E3CC03C7_497EE1F10134exec_impl*
+end;//TPrimMedicListSynchroViewForm.SynchroView_BecomeActive_Execute
 
-procedure TPrimMedicListSynchroViewForm.OpenDocument;
-//#UC START# *4C52E5D702B0_497EE1F10134_var*
-//#UC END# *4C52E5D702B0_497EE1F10134_var*
+procedure TPrimMedicListSynchroViewForm.SynchroView_BecomeActive(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4C52E5D702B0_497EE1F10134_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C52E5D702B0_497EE1F10134_impl*
-end;//TPrimMedicListSynchroViewForm.OpenDocument
+ with (aParams.Data As ISynchroView_BecomeActive_Params) do
+  Self.SynchroView_BecomeActive_Execute(FormType);
+end;//TPrimMedicListSynchroViewForm.SynchroView_BecomeActive
 
-procedure TPrimMedicListSynchroViewForm.OpenAttributesForm;
-//#UC START# *4C52E5F203CC_497EE1F10134_var*
-//#UC END# *4C52E5F203CC_497EE1F10134_var*
+procedure TPrimMedicListSynchroViewForm.MedicListSynchroView_OpenDocument_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C52E5D702B0_497EE1F10134test_var*
+//#UC END# *4C52E5D702B0_497EE1F10134test_var*
 begin
-//#UC START# *4C52E5F203CC_497EE1F10134_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C52E5F203CC_497EE1F10134_impl*
-end;//TPrimMedicListSynchroViewForm.OpenAttributesForm
+//#UC START# *4C52E5D702B0_497EE1F10134test_impl*
+ aParams.Op.Flag[vcm_ofChecked] := dsSimpleListSynchroView.IsDocumentActive;
+ aParams.Op.Flag[vcm_ofEnabled] := dsSimpleListSynchroView.HasDocument;
+//#UC END# *4C52E5D702B0_497EE1F10134test_impl*
+end;//TPrimMedicListSynchroViewForm.MedicListSynchroView_OpenDocument_Test
 
-procedure TPrimMedicListSynchroViewForm.OpenList;
-//#UC START# *4C52E61002B5_497EE1F10134_var*
-//#UC END# *4C52E61002B5_497EE1F10134_var*
+procedure TPrimMedicListSynchroViewForm.MedicListSynchroView_OpenDocument_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C52E5D702B0_497EE1F10134exec_var*
+//#UC END# *4C52E5D702B0_497EE1F10134exec_var*
 begin
-//#UC START# *4C52E61002B5_497EE1F10134_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C52E61002B5_497EE1F10134_impl*
-end;//TPrimMedicListSynchroViewForm.OpenList
+//#UC START# *4C52E5D702B0_497EE1F10134exec_impl*
+ dsSimpleListSynchroView.OpenDocument;
+//#UC END# *4C52E5D702B0_497EE1F10134exec_impl*
+end;//TPrimMedicListSynchroViewForm.MedicListSynchroView_OpenDocument_Execute
 
-procedure TPrimMedicListSynchroViewForm.OpenDocument;
- {* Текст документа }
-//#UC START# *4C7D373900D0_497EE1F10134_var*
-//#UC END# *4C7D373900D0_497EE1F10134_var*
+procedure TPrimMedicListSynchroViewForm.MedicListSynchroView_OpenDocument_GetState(var State: TvcmOperationStateIndex);
+//#UC START# *4C52E5D702B0_497EE1F10134getstate_var*
+//#UC END# *4C52E5D702B0_497EE1F10134getstate_var*
 begin
-//#UC START# *4C7D373900D0_497EE1F10134_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7D373900D0_497EE1F10134_impl*
-end;//TPrimMedicListSynchroViewForm.OpenDocument
+//#UC START# *4C52E5D702B0_497EE1F10134getstate_impl*
+ case UserType of
+  mlsfDrugList:
+   State := st_user_MedicListSynchroView_OpenDocument_Drug;
+  mlsfMedicFirm:
+   State := st_user_MedicListSynchroView_OpenDocument_MedicFirm;
+ else
+  Assert(False);
+ end; 
+//#UC END# *4C52E5D702B0_497EE1F10134getstate_impl*
+end;//TPrimMedicListSynchroViewForm.MedicListSynchroView_OpenDocument_GetState
 
-procedure TPrimMedicListSynchroViewForm.OpenList;
- {* Список препаратов }
-//#UC START# *4C7D37C20388_497EE1F10134_var*
-//#UC END# *4C7D37C20388_497EE1F10134_var*
+procedure TPrimMedicListSynchroViewForm.MedicListSynchroView_OpenAttributesForm_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C52E5F203CC_497EE1F10134test_var*
+//#UC END# *4C52E5F203CC_497EE1F10134test_var*
 begin
-//#UC START# *4C7D37C20388_497EE1F10134_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7D37C20388_497EE1F10134_impl*
-end;//TPrimMedicListSynchroViewForm.OpenList
+//#UC START# *4C52E5F203CC_497EE1F10134test_impl*
+ with aParams.Op do
+ begin
+  Flag[vcm_ofVisible] := afw.Application.IsInternal;
+  Flag[vcm_ofChecked] := dsSimpleListSynchroView.IsAttributesActive;
+  Flag[vcm_ofEnabled] := dsSimpleListSynchroView.HasAttributes;
+ end;//with aParams.Op do
+//#UC END# *4C52E5F203CC_497EE1F10134test_impl*
+end;//TPrimMedicListSynchroViewForm.MedicListSynchroView_OpenAttributesForm_Test
 
-{$If NOT Defined(NoVCM)}
+procedure TPrimMedicListSynchroViewForm.MedicListSynchroView_OpenAttributesForm_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C52E5F203CC_497EE1F10134exec_var*
+//#UC END# *4C52E5F203CC_497EE1F10134exec_var*
+begin
+//#UC START# *4C52E5F203CC_497EE1F10134exec_impl*
+ dsSimpleListSynchroView.OpenAttributes;
+//#UC END# *4C52E5F203CC_497EE1F10134exec_impl*
+end;//TPrimMedicListSynchroViewForm.MedicListSynchroView_OpenAttributesForm_Execute
+
+procedure TPrimMedicListSynchroViewForm.MedicListSynchroView_OpenList_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C52E61002B5_497EE1F10134test_var*
+//#UC END# *4C52E61002B5_497EE1F10134test_var*
+begin
+//#UC START# *4C52E61002B5_497EE1F10134test_impl*
+ aParams.Op.Flag[vcm_ofChecked] := dsSimpleListSynchroView.IsListActive;
+ aParams.Op.Flag[vcm_ofEnabled] := dsSimpleListSynchroView.HasList;
+//#UC END# *4C52E61002B5_497EE1F10134test_impl*
+end;//TPrimMedicListSynchroViewForm.MedicListSynchroView_OpenList_Test
+
+procedure TPrimMedicListSynchroViewForm.MedicListSynchroView_OpenList_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C52E61002B5_497EE1F10134exec_var*
+//#UC END# *4C52E61002B5_497EE1F10134exec_var*
+begin
+//#UC START# *4C52E61002B5_497EE1F10134exec_impl*
+ dsSimpleListSynchroView.OpenList;
+//#UC END# *4C52E61002B5_497EE1F10134exec_impl*
+end;//TPrimMedicListSynchroViewForm.MedicListSynchroView_OpenList_Execute
+
+procedure TPrimMedicListSynchroViewForm.MedicListSynchroView_OpenList_GetState(var State: TvcmOperationStateIndex);
+//#UC START# *4C52E61002B5_497EE1F10134getstate_var*
+//#UC END# *4C52E61002B5_497EE1F10134getstate_var*
+begin
+//#UC START# *4C52E61002B5_497EE1F10134getstate_impl*
+ case UserType of
+  mlsfDrugList:
+   State := st_user_MedicListSynchroView_OpenList_Drug;
+  mlsfMedicFirm:
+   State := st_user_MedicListSynchroView_OpenList_MedicFirm;
+ else
+  Assert(False);
+ end; 
+//#UC END# *4C52E61002B5_497EE1F10134getstate_impl*
+end;//TPrimMedicListSynchroViewForm.MedicListSynchroView_OpenList_GetState
+
 procedure TPrimMedicListSynchroViewForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_497EE1F10134_var*
@@ -181,9 +243,7 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_497EE1F10134_impl*
 end;//TPrimMedicListSynchroViewForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TPrimMedicListSynchroViewForm.DoGetTabInfo(out theCaption: Il3CString;
  out theItemIndex: Integer): Boolean;
  {* Информация о закладке, в которую вставляется форма. Для перекрытия в потомках }
@@ -201,9 +261,7 @@ begin
   Result := false;
 //#UC END# *4AC497FD00A2_497EE1F10134_impl*
 end;//TPrimMedicListSynchroViewForm.DoGetTabInfo
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimMedicListSynchroViewForm.PageActive;
 //#UC START# *4C52E8030278_497EE1F10134_var*
 //#UC END# *4C52E8030278_497EE1F10134_var*
@@ -212,9 +270,7 @@ begin
  op_List_SetCurrentVisible.Call(Aggregate);
 //#UC END# *4C52E8030278_497EE1F10134_impl*
 end;//TPrimMedicListSynchroViewForm.PageActive
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimMedicListSynchroViewForm.PageInactive;
 //#UC START# *4C52E81603A9_497EE1F10134_var*
 //#UC END# *4C52E81603A9_497EE1F10134_var*
@@ -222,7 +278,6 @@ begin
 //#UC START# *4C52E81603A9_497EE1F10134_impl*
 //#UC END# *4C52E81603A9_497EE1F10134_impl*
 end;//TPrimMedicListSynchroViewForm.PageInactive
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_mlsfDrugListCaption.Init;
@@ -233,6 +288,7 @@ initialization
  TtfwClassRef.Register(TPrimMedicListSynchroViewForm);
  {* Регистрация PrimMedicListSynchroView }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

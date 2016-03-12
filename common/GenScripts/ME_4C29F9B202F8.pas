@@ -64,9 +64,7 @@ begin
  Result := TevMorphologySearcher.Make('Приказом Минобороны');
 //#UC END# *4C288BAA0058_4C29F9B202F8_impl*
 end;//TK165512428.Searcher
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TK165512428.Replacer: IevReplacer;
 //#UC START# *4C288BFC002C_4C29F9B202F8_var*
 //#UC END# *4C288BFC002C_4C29F9B202F8_var*
@@ -75,9 +73,7 @@ begin
  Result := TevTextReplacer.Make('$$$', Options);
 //#UC END# *4C288BFC002C_4C29F9B202F8_impl*
 end;//TK165512428.Replacer
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TK165512428.Options: TevSearchOptionSet;
 //#UC START# *4C288CC60231_4C29F9B202F8_var*
 //#UC END# *4C288CC60231_4C29F9B202F8_var*
@@ -86,7 +82,6 @@ begin
  Result := [ev_soGlobal, ev_soReplace, ev_soReplaceAll];
 //#UC END# *4C288CC60231_4C29F9B202F8_impl*
 end;//TK165512428.Options
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TK165512428.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -102,6 +97,7 @@ end;//TK165512428.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(TK165512428.Suite);
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

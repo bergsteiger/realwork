@@ -25,6 +25,6 @@ uses
  l3ImplUses
  , CsQueryExecutor
 ;
-{$IfEnd} // Defined(AppServerSide) AND NOT Defined(Nemesis)
 
+{$IfEnd} // Defined(AppServerSide) AND NOT Defined(Nemesis)
 end.

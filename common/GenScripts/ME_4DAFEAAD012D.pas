@@ -61,7 +61,6 @@ begin
  aForm.Text.InsertFormula(GetFormulaText);
 //#UC END# *4BE13147032C_4DAFEAAD012D_impl*
 end;//TInsertFormulaTest.Process
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TInsertFormulaTest.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -74,6 +73,7 @@ function TInsertFormulaTest.GetModelElementGUID: AnsiString;
 begin
  Result := '4DAFEAAD012D';
 end;//TInsertFormulaTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

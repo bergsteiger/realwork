@@ -101,6 +101,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 var g_Tfs_SituationSearch: Tfs_SituationSearch = nil;
  {* Экземпляр синглетона Tfs_SituationSearch }
 
@@ -213,7 +214,6 @@ begin
 //#UC END# *47A042E100E2_4AA7A4D603C1_impl*
 end;//Tfs_SituationSearch.InitFields
 
-{$If NOT Defined(NoVCM)}
 class function Tfs_SituationSearch.GetInstance: TvcmFormSetFactoryPrim;
 //#UC START# *4FFE854A009B_4AA7A4D603C1_var*
 //#UC END# *4FFE854A009B_4AA7A4D603C1_var*
@@ -222,11 +222,11 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4FFE854A009B_4AA7A4D603C1_impl*
 end;//Tfs_SituationSearch.GetInstance
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_fsSituationSearchCaption.Init;
  {* Инициализация str_fsSituationSearchCaption }
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

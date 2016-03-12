@@ -33,13 +33,20 @@ type
    procedure PageInactive; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   procedure ShowText; override;
-   procedure Annotation; override;
-   procedure ShowAttributes; override;
-   procedure ShowRelated; override;
-   procedure ShowUserCRList1; override;
-   procedure ShowUserCRList2; override;
-   procedure SimilarDocuments; override;
+   procedure SynchroView_ShowText_Test(const aParams: IvcmTestParamsPrim);
+   procedure SynchroView_ShowText_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure SynchroView_Annotation_Test(const aParams: IvcmTestParamsPrim);
+   procedure SynchroView_Annotation_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure SynchroView_ShowAttributes_Test(const aParams: IvcmTestParamsPrim);
+   procedure SynchroView_ShowAttributes_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure SynchroView_ShowRelated_Test(const aParams: IvcmTestParamsPrim);
+   procedure SynchroView_ShowRelated_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure SynchroView_ShowUserCRList1_Test(const aParams: IvcmTestParamsPrim);
+   procedure SynchroView_ShowUserCRList1_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure SynchroView_ShowUserCRList2_Test(const aParams: IvcmTestParamsPrim);
+   procedure SynchroView_ShowUserCRList2_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure SynchroView_SimilarDocuments_Test(const aParams: IvcmTestParamsPrim);
+   procedure SynchroView_SimilarDocuments_Execute(const aParams: IvcmExecuteParamsPrim);
    {$If NOT Defined(NoVCM)}
    function DoGetTabInfo(out theCaption: Il3CString;
     out theItemIndex: Integer): Boolean; override;
@@ -94,68 +101,144 @@ begin
 //#UC END# *4C860B4801E9_4C8604040234_impl*
 end;//TPrimSynchroViewOptionsForm.MakeUserCRListCaption
 
-procedure TPrimSynchroViewOptionsForm.ShowText;
-//#UC START# *4C86050B01DB_4C8604040234_var*
-//#UC END# *4C86050B01DB_4C8604040234_var*
+procedure TPrimSynchroViewOptionsForm.SynchroView_ShowText_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C86050B01DB_4C8604040234test_var*
+//#UC END# *4C86050B01DB_4C8604040234test_var*
 begin
-//#UC START# *4C86050B01DB_4C8604040234_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C86050B01DB_4C8604040234_impl*
-end;//TPrimSynchroViewOptionsForm.ShowText
+//#UC START# *4C86050B01DB_4C8604040234test_impl*
+ aParams.Op.Flag[vcm_ofChecked] := ViewArea.IsDocumentActive;
+ aParams.Op.Flag[vcm_ofEnabled] := ViewArea.HasDocument;
+//#UC END# *4C86050B01DB_4C8604040234test_impl*
+end;//TPrimSynchroViewOptionsForm.SynchroView_ShowText_Test
 
-procedure TPrimSynchroViewOptionsForm.Annotation;
-//#UC START# *4C860527005A_4C8604040234_var*
-//#UC END# *4C860527005A_4C8604040234_var*
+procedure TPrimSynchroViewOptionsForm.SynchroView_ShowText_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C86050B01DB_4C8604040234exec_var*
+//#UC END# *4C86050B01DB_4C8604040234exec_var*
 begin
-//#UC START# *4C860527005A_4C8604040234_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C860527005A_4C8604040234_impl*
-end;//TPrimSynchroViewOptionsForm.Annotation
+//#UC START# *4C86050B01DB_4C8604040234exec_impl*
+ ViewArea.OpenDocument;
+//#UC END# *4C86050B01DB_4C8604040234exec_impl*
+end;//TPrimSynchroViewOptionsForm.SynchroView_ShowText_Execute
 
-procedure TPrimSynchroViewOptionsForm.ShowAttributes;
-//#UC START# *4C8605460347_4C8604040234_var*
-//#UC END# *4C8605460347_4C8604040234_var*
+procedure TPrimSynchroViewOptionsForm.SynchroView_Annotation_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C860527005A_4C8604040234test_var*
+//#UC END# *4C860527005A_4C8604040234test_var*
 begin
-//#UC START# *4C8605460347_4C8604040234_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8605460347_4C8604040234_impl*
-end;//TPrimSynchroViewOptionsForm.ShowAttributes
+//#UC START# *4C860527005A_4C8604040234test_impl*
+ aParams.Op.Flag[vcm_ofChecked] := ViewArea.IsAnnotationActive;
+ aParams.Op.Flag[vcm_ofEnabled] := ViewArea.HasAnnotation;
+//#UC END# *4C860527005A_4C8604040234test_impl*
+end;//TPrimSynchroViewOptionsForm.SynchroView_Annotation_Test
 
-procedure TPrimSynchroViewOptionsForm.ShowRelated;
-//#UC START# *4C86056702CB_4C8604040234_var*
-//#UC END# *4C86056702CB_4C8604040234_var*
+procedure TPrimSynchroViewOptionsForm.SynchroView_Annotation_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C860527005A_4C8604040234exec_var*
+//#UC END# *4C860527005A_4C8604040234exec_var*
 begin
-//#UC START# *4C86056702CB_4C8604040234_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C86056702CB_4C8604040234_impl*
-end;//TPrimSynchroViewOptionsForm.ShowRelated
+//#UC START# *4C860527005A_4C8604040234exec_impl*
+ ViewArea.OpenAnnotation;
+//#UC END# *4C860527005A_4C8604040234exec_impl*
+end;//TPrimSynchroViewOptionsForm.SynchroView_Annotation_Execute
 
-procedure TPrimSynchroViewOptionsForm.ShowUserCRList1;
-//#UC START# *4C8605850067_4C8604040234_var*
-//#UC END# *4C8605850067_4C8604040234_var*
+procedure TPrimSynchroViewOptionsForm.SynchroView_ShowAttributes_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C8605460347_4C8604040234test_var*
+//#UC END# *4C8605460347_4C8604040234test_var*
 begin
-//#UC START# *4C8605850067_4C8604040234_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8605850067_4C8604040234_impl*
-end;//TPrimSynchroViewOptionsForm.ShowUserCRList1
+//#UC START# *4C8605460347_4C8604040234test_impl*
+ with aParams.Op do
+ begin
+  Flag[vcm_ofVisible] := afw.Application.IsInternal;
+  Flag[vcm_ofChecked] := ViewArea.IsAttributesActive;
+  Flag[vcm_ofEnabled] := ViewArea.HasAttributes;
+ end;
+//#UC END# *4C8605460347_4C8604040234test_impl*
+end;//TPrimSynchroViewOptionsForm.SynchroView_ShowAttributes_Test
 
-procedure TPrimSynchroViewOptionsForm.ShowUserCRList2;
-//#UC START# *4C8605A2018B_4C8604040234_var*
-//#UC END# *4C8605A2018B_4C8604040234_var*
+procedure TPrimSynchroViewOptionsForm.SynchroView_ShowAttributes_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C8605460347_4C8604040234exec_var*
+//#UC END# *4C8605460347_4C8604040234exec_var*
 begin
-//#UC START# *4C8605A2018B_4C8604040234_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8605A2018B_4C8604040234_impl*
-end;//TPrimSynchroViewOptionsForm.ShowUserCRList2
+//#UC START# *4C8605460347_4C8604040234exec_impl*
+ ViewArea.OpenAttributes;
+//#UC END# *4C8605460347_4C8604040234exec_impl*
+end;//TPrimSynchroViewOptionsForm.SynchroView_ShowAttributes_Execute
 
-procedure TPrimSynchroViewOptionsForm.SimilarDocuments;
-//#UC START# *4C8605BF03B0_4C8604040234_var*
-//#UC END# *4C8605BF03B0_4C8604040234_var*
+procedure TPrimSynchroViewOptionsForm.SynchroView_ShowRelated_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C86056702CB_4C8604040234test_var*
+//#UC END# *4C86056702CB_4C8604040234test_var*
 begin
-//#UC START# *4C8605BF03B0_4C8604040234_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8605BF03B0_4C8604040234_impl*
-end;//TPrimSynchroViewOptionsForm.SimilarDocuments
+//#UC START# *4C86056702CB_4C8604040234test_impl*
+ aParams.Op.Flag[vcm_ofChecked] := ViewArea.IsRelatedDocActive;
+ aParams.Op.Flag[vcm_ofEnabled] := ViewArea.HasRelatedDoc;
+//#UC END# *4C86056702CB_4C8604040234test_impl*
+end;//TPrimSynchroViewOptionsForm.SynchroView_ShowRelated_Test
+
+procedure TPrimSynchroViewOptionsForm.SynchroView_ShowRelated_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C86056702CB_4C8604040234exec_var*
+//#UC END# *4C86056702CB_4C8604040234exec_var*
+begin
+//#UC START# *4C86056702CB_4C8604040234exec_impl*
+ ViewArea.OpenRelatedDoc;
+//#UC END# *4C86056702CB_4C8604040234exec_impl*
+end;//TPrimSynchroViewOptionsForm.SynchroView_ShowRelated_Execute
+
+procedure TPrimSynchroViewOptionsForm.SynchroView_ShowUserCRList1_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C8605850067_4C8604040234test_var*
+//#UC END# *4C8605850067_4C8604040234test_var*
+begin
+//#UC START# *4C8605850067_4C8604040234test_impl*
+ aParams.Op.Flag[vcm_ofChecked] := ViewArea.IsUserCR1Active;
+ aParams.Op.Flag[vcm_ofEnabled] := ViewArea.HasUserCR1;
+ MakeUserCRListCaption(aParams, ulFirst);
+//#UC END# *4C8605850067_4C8604040234test_impl*
+end;//TPrimSynchroViewOptionsForm.SynchroView_ShowUserCRList1_Test
+
+procedure TPrimSynchroViewOptionsForm.SynchroView_ShowUserCRList1_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C8605850067_4C8604040234exec_var*
+//#UC END# *4C8605850067_4C8604040234exec_var*
+begin
+//#UC START# *4C8605850067_4C8604040234exec_impl*
+ ViewArea.OpenUserCR1;
+//#UC END# *4C8605850067_4C8604040234exec_impl*
+end;//TPrimSynchroViewOptionsForm.SynchroView_ShowUserCRList1_Execute
+
+procedure TPrimSynchroViewOptionsForm.SynchroView_ShowUserCRList2_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C8605A2018B_4C8604040234test_var*
+//#UC END# *4C8605A2018B_4C8604040234test_var*
+begin
+//#UC START# *4C8605A2018B_4C8604040234test_impl*
+ aParams.Op.Flag[vcm_ofChecked] := ViewArea.IsUserCR2Active;
+ aParams.Op.Flag[vcm_ofEnabled] := ViewArea.HasUserCR2;
+ MakeUserCRListCaption(aParams, ulSecond);
+//#UC END# *4C8605A2018B_4C8604040234test_impl*
+end;//TPrimSynchroViewOptionsForm.SynchroView_ShowUserCRList2_Test
+
+procedure TPrimSynchroViewOptionsForm.SynchroView_ShowUserCRList2_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C8605A2018B_4C8604040234exec_var*
+//#UC END# *4C8605A2018B_4C8604040234exec_var*
+begin
+//#UC START# *4C8605A2018B_4C8604040234exec_impl*
+ ViewArea.OpenUserCR2;
+//#UC END# *4C8605A2018B_4C8604040234exec_impl*
+end;//TPrimSynchroViewOptionsForm.SynchroView_ShowUserCRList2_Execute
+
+procedure TPrimSynchroViewOptionsForm.SynchroView_SimilarDocuments_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C8605BF03B0_4C8604040234test_var*
+//#UC END# *4C8605BF03B0_4C8604040234test_var*
+begin
+//#UC START# *4C8605BF03B0_4C8604040234test_impl*
+ aParams.Op.Flag[vcm_ofChecked] := ViewArea.IsSimilarDocumentsActive;
+ aParams.Op.Flag[vcm_ofEnabled] := ViewArea.HasSimilarDocuments;
+//#UC END# *4C8605BF03B0_4C8604040234test_impl*
+end;//TPrimSynchroViewOptionsForm.SynchroView_SimilarDocuments_Test
+
+procedure TPrimSynchroViewOptionsForm.SynchroView_SimilarDocuments_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C8605BF03B0_4C8604040234exec_var*
+//#UC END# *4C8605BF03B0_4C8604040234exec_var*
+begin
+//#UC START# *4C8605BF03B0_4C8604040234exec_impl*
+ ViewArea.OpenSimilarDocuments;
+//#UC END# *4C8605BF03B0_4C8604040234exec_impl*
+end;//TPrimSynchroViewOptionsForm.SynchroView_SimilarDocuments_Execute
 
 {$If NOT Defined(NoVCM)}
 function TPrimSynchroViewOptionsForm.DoGetTabInfo(out theCaption: Il3CString;

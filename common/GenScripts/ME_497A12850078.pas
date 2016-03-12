@@ -123,13 +123,22 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCL)}
+   procedure SetParent(AParent: TWinControl); override;
+   {$IfEnd} // NOT Defined(NoVCL)
    function CaneHaveDocumentCompareEditionsOperation: Boolean; override;
   public
-   procedure SetCurrent; override;
+   procedure Editions_SetCurrent_Execute(const aDocument: IDocument);
     {* Установить текущую }
-   procedure DoCompareEditions; override;
+   procedure Editions_SetCurrent(const aParams: IvcmExecuteParamsPrim);
+    {* Установить текущую }
+   procedure Editions_DoCompareEditions_Test(const aParams: IvcmTestParamsPrim);
     {* Сравнить редакции }
-   procedure BuildChangedFragments; override;
+   procedure Editions_DoCompareEditions_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Сравнить редакции }
+   procedure Editions_BuildChangedFragments_Test(const aParams: IvcmTestParamsPrim);
+    {* Построить обзор изменений }
+   procedure Editions_BuildChangedFragments_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Построить обзор изменений }
   protected
    property Document: IDocument
@@ -569,35 +578,82 @@ begin
 //#UC END# *4A8931130363_497A12850078_impl*
 end;//TPrimRedactionsForm.CanBeChanged
 
-procedure TPrimRedactionsForm.SetCurrent;
+procedure TPrimRedactionsForm.Editions_SetCurrent_Execute(const aDocument: IDocument);
  {* Установить текущую }
-//#UC START# *4A8EE08403B3_497A12850078_var*
-//#UC END# *4A8EE08403B3_497A12850078_var*
+//#UC START# *4A8EE08403B3_497A12850078exec_var*
+var
+ l_RootDocument: InsDocument;
+//#UC END# *4A8EE08403B3_497A12850078exec_var*
 begin
-//#UC START# *4A8EE08403B3_497A12850078_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A8EE08403B3_497A12850078_impl*
-end;//TPrimRedactionsForm.SetCurrent
+//#UC START# *4A8EE08403B3_497A12850078exec_impl*
+ if Supports(RedactionTree.TreeView.Tree.Root, InsDocument, l_RootDocument) then
+ begin
+  l_RootDocument.Document := aDocument;
+  SetCurentEdition;
+ end;//Supports(RedactionTree.TreeView.Tree.Root, InsDocument, l_RootDocument)
+//#UC END# *4A8EE08403B3_497A12850078exec_impl*
+end;//TPrimRedactionsForm.Editions_SetCurrent_Execute
 
-procedure TPrimRedactionsForm.DoCompareEditions;
+procedure TPrimRedactionsForm.Editions_SetCurrent(const aParams: IvcmExecuteParamsPrim);
+ {* Установить текущую }
+begin
+ with (aParams.Data As IEditions_SetCurrent_Params) do
+  Self.Editions_SetCurrent_Execute(Document);
+end;//TPrimRedactionsForm.Editions_SetCurrent
+
+procedure TPrimRedactionsForm.Editions_DoCompareEditions_Test(const aParams: IvcmTestParamsPrim);
  {* Сравнить редакции }
-//#UC START# *4EC4CDDB023C_497A12850078_var*
-//#UC END# *4EC4CDDB023C_497A12850078_var*
+//#UC START# *4EC4CDDB023C_497A12850078test_var*
+//#UC END# *4EC4CDDB023C_497A12850078test_var*
 begin
-//#UC START# *4EC4CDDB023C_497A12850078_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4EC4CDDB023C_497A12850078_impl*
-end;//TPrimRedactionsForm.DoCompareEditions
+//#UC START# *4EC4CDDB023C_497A12850078test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := Self.ReadyForCompare;
+//#UC END# *4EC4CDDB023C_497A12850078test_impl*
+end;//TPrimRedactionsForm.Editions_DoCompareEditions_Test
 
-procedure TPrimRedactionsForm.BuildChangedFragments;
- {* Построить обзор изменений }
-//#UC START# *4EC4CE180122_497A12850078_var*
-//#UC END# *4EC4CE180122_497A12850078_var*
+procedure TPrimRedactionsForm.Editions_DoCompareEditions_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Сравнить редакции }
+//#UC START# *4EC4CDDB023C_497A12850078exec_var*
+var
+ l_Left, l_Right : IDocument;
+//#UC END# *4EC4CDDB023C_497A12850078exec_var*
 begin
-//#UC START# *4EC4CE180122_497A12850078_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4EC4CE180122_497A12850078_impl*
-end;//TPrimRedactionsForm.BuildChangedFragments
+//#UC START# *4EC4CDDB023C_497A12850078exec_impl*
+ if GetDocumentsForCompare(l_Left, l_Right) then
+ begin
+  if IsModalForm then
+   ModalResult := mrCancel;
+  TdmStdRes.MakeCompareEditions(l_Left, l_Right, RedactionCurrentPara);
+ end;//GetDocumentsForCompare(l_Left, l_Right)
+//#UC END# *4EC4CDDB023C_497A12850078exec_impl*
+end;//TPrimRedactionsForm.Editions_DoCompareEditions_Execute
+
+procedure TPrimRedactionsForm.Editions_BuildChangedFragments_Test(const aParams: IvcmTestParamsPrim);
+ {* Построить обзор изменений }
+//#UC START# *4EC4CE180122_497A12850078test_var*
+//#UC END# *4EC4CE180122_497A12850078test_var*
+begin
+//#UC START# *4EC4CE180122_497A12850078test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := Self.ReadyForCompare;
+//#UC END# *4EC4CE180122_497A12850078test_impl*
+end;//TPrimRedactionsForm.Editions_BuildChangedFragments_Test
+
+procedure TPrimRedactionsForm.Editions_BuildChangedFragments_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Построить обзор изменений }
+//#UC START# *4EC4CE180122_497A12850078exec_var*
+var
+ l_Left, l_Right : IDocument;
+//#UC END# *4EC4CE180122_497A12850078exec_var*
+begin
+//#UC START# *4EC4CE180122_497A12850078exec_impl*
+ if GetDocumentsForCompare(l_Left, l_Right) then
+ begin
+  if IsModalForm then
+   ModalResult := mrCancel;
+  TdmStdRes.ViewChangedFragments(l_Left, l_Right);
+ end;//GetDocumentsForCompare(l_Left, l_Right)
+//#UC END# *4EC4CE180122_497A12850078exec_impl*
+end;//TPrimRedactionsForm.Editions_BuildChangedFragments_Execute
 
 procedure TPrimRedactionsForm.utRedactionQueryClose(aSender: TObject);
  {* Обработчик события utRedaction.OnQueryClose }
@@ -696,6 +752,20 @@ begin
 //#UC END# *4A8E8F2E0195_497A12850078_impl*
 end;//TPrimRedactionsForm.InitControls
 {$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCL)}
+procedure TPrimRedactionsForm.SetParent(AParent: TWinControl);
+//#UC START# *4A97E78202FC_497A12850078_var*
+//#UC END# *4A97E78202FC_497A12850078_var*
+begin
+//#UC START# *4A97E78202FC_497A12850078_impl*
+ inherited;
+ if (aParent <> nil) then
+  if RedactionTree.HandleAllocated then
+   PostMessage(RedactionTree.Handle, msg_vtInvalidateNCArea, 0, 0);
+//#UC END# *4A97E78202FC_497A12850078_impl*
+end;//TPrimRedactionsForm.SetParent
+{$IfEnd} // NOT Defined(NoVCL)
 
 function TPrimRedactionsForm.CaneHaveDocumentCompareEditionsOperation: Boolean;
 //#UC START# *4EF354C8018B_497A12850078_var*

@@ -22,7 +22,7 @@ type
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-  public
+  published
    procedure DoIt;
  end;//TK235868845
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
@@ -35,6 +35,7 @@ uses
  , TestFrameWork
 ;
 
+{$If NOT Defined(NotTunedDUnit)}
 procedure TK235868845.DoIt;
 //#UC START# *4CAC95F60396_4CAC95AC011D_var*
 var
@@ -69,6 +70,7 @@ end;//TK235868845.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(TK235868845.Suite);
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

@@ -23,24 +23,24 @@ type
  TPrimListInfoOptionsForm = class(TPrimListInfoForm)
   public
    {$If NOT Defined(NoVCM)}
-   procedure Copy; override;
+   procedure Edit_Copy_Test(const aParams: IvcmTestParamsPrim);
     {* Копировать }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Print; override;
+   procedure Edit_Copy_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Копировать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_Print_Test(const aParams: IvcmTestParamsPrim);
     {* Печать }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure PrintDialog; override;
+   procedure File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Печать... }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure PrintPreview; override;
+   procedure File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Предварительный просмотр }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Paste; override;
-    {* Вставка }
    {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimListInfoOptionsForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -58,63 +58,65 @@ uses
 ;
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimListInfoOptionsForm.Copy;
+procedure TPrimListInfoOptionsForm.Edit_Copy_Test(const aParams: IvcmTestParamsPrim);
  {* Копировать }
-//#UC START# *4951284902BD_4C88CB3E009C_var*
-//#UC END# *4951284902BD_4C88CB3E009C_var*
+//#UC START# *4951284902BD_4C88CB3E009Ctest_var*
+//#UC END# *4951284902BD_4C88CB3E009Ctest_var*
 begin
-//#UC START# *4951284902BD_4C88CB3E009C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4951284902BD_4C88CB3E009C_impl*
-end;//TPrimListInfoOptionsForm.Copy
+//#UC START# *4951284902BD_4C88CB3E009Ctest_impl*
+ if not aParams.CallControl then
+  aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4951284902BD_4C88CB3E009Ctest_impl*
+end;//TPrimListInfoOptionsForm.Edit_Copy_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimListInfoOptionsForm.Print;
+procedure TPrimListInfoOptionsForm.Edit_Copy_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Копировать }
+//#UC START# *4951284902BD_4C88CB3E009Cexec_var*
+//#UC END# *4951284902BD_4C88CB3E009Cexec_var*
+begin
+//#UC START# *4951284902BD_4C88CB3E009Cexec_impl*
+ aParams.CallControl;
+//#UC END# *4951284902BD_4C88CB3E009Cexec_impl*
+end;//TPrimListInfoOptionsForm.Edit_Copy_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimListInfoOptionsForm.File_Print_Test(const aParams: IvcmTestParamsPrim);
  {* Печать }
-//#UC START# *49521D8E0295_4C88CB3E009C_var*
-//#UC END# *49521D8E0295_4C88CB3E009C_var*
+//#UC START# *49521D8E0295_4C88CB3E009Ctest_var*
+//#UC END# *49521D8E0295_4C88CB3E009Ctest_var*
 begin
-//#UC START# *49521D8E0295_4C88CB3E009C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49521D8E0295_4C88CB3E009C_impl*
-end;//TPrimListInfoOptionsForm.Print
+//#UC START# *49521D8E0295_4C88CB3E009Ctest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *49521D8E0295_4C88CB3E009Ctest_impl*
+end;//TPrimListInfoOptionsForm.File_Print_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimListInfoOptionsForm.PrintDialog;
+procedure TPrimListInfoOptionsForm.File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Печать... }
-//#UC START# *495220DE0298_4C88CB3E009C_var*
-//#UC END# *495220DE0298_4C88CB3E009C_var*
+//#UC START# *495220DE0298_4C88CB3E009Cexec_var*
+//#UC END# *495220DE0298_4C88CB3E009Cexec_var*
 begin
-//#UC START# *495220DE0298_4C88CB3E009C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495220DE0298_4C88CB3E009C_impl*
-end;//TPrimListInfoOptionsForm.PrintDialog
+//#UC START# *495220DE0298_4C88CB3E009Cexec_impl*
+ if (afw.Application <> nil) AND (afw.Application.PrintManager <> nil) then
+  afw.Application.PrintManager.PrintDialog(MakePreview);
+//#UC END# *495220DE0298_4C88CB3E009Cexec_impl*
+end;//TPrimListInfoOptionsForm.File_PrintDialog_Execute
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimListInfoOptionsForm.PrintPreview;
+procedure TPrimListInfoOptionsForm.File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Предварительный просмотр }
-//#UC START# *495220F2033A_4C88CB3E009C_var*
-//#UC END# *495220F2033A_4C88CB3E009C_var*
+//#UC START# *495220F2033A_4C88CB3E009Cexec_var*
+//#UC END# *495220F2033A_4C88CB3E009Cexec_var*
 begin
-//#UC START# *495220F2033A_4C88CB3E009C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495220F2033A_4C88CB3E009C_impl*
-end;//TPrimListInfoOptionsForm.PrintPreview
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimListInfoOptionsForm.Paste;
- {* Вставка }
-//#UC START# *49EDFA3701B0_4C88CB3E009C_var*
-//#UC END# *49EDFA3701B0_4C88CB3E009C_var*
-begin
-//#UC START# *49EDFA3701B0_4C88CB3E009C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EDFA3701B0_4C88CB3E009C_impl*
-end;//TPrimListInfoOptionsForm.Paste
+//#UC START# *495220F2033A_4C88CB3E009Cexec_impl*
+ TdmStdRes.MakePreview(MakePreview);
+//#UC END# *495220F2033A_4C88CB3E009Cexec_impl*
+end;//TPrimListInfoOptionsForm.File_PrintPreview_Execute
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization

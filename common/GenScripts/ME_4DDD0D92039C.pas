@@ -102,6 +102,7 @@ uses
  , l3Types
 ;
 
+{$If Defined(Nemesis)}
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentContainer.imp.pas}
 
 {$Include w:\common\components\gui\Garant\Everest\nsEditionsDecorationRules.imp.pas}
@@ -481,6 +482,7 @@ begin
  f_Data := nil;
  inherited;
 end;//TnsChangesBetweenEditionsDocumentContainer.ClearFields
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // Defined(Nemesis)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

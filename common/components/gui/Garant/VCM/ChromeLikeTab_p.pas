@@ -30,6 +30,7 @@ uses
  , tc6PublicInfo
 ;
 
+{$If NOT Defined(NoVGScene)}
 function TChromeLikeTab_Get_Text(Self: TChromeLikeTab): AnsiString;
 //#UC START# *551D692303AB_551D67AC02C4get_var*
 //#UC END# *551D692303AB_551D67AC02C4get_var*
@@ -221,6 +222,7 @@ end;
 initialization
  _RegisterPublicInformation5;
  _RegisterPublicInformation6;
-{$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+{$IfEnd} // NOT Defined(NoVGScene)
 
+{$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 end.

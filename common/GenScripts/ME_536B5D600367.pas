@@ -32,6 +32,7 @@ uses
  , tc6PublicInfo
 ;
 
+{$If NOT Defined(NoVGScene)}
 function TvgReminder_Get_Caption(Self: TvgReminder): AnsiString;
 //#UC START# *536B5D8B01C6_536B5D600367get_var*
 //#UC END# *536B5D8B01C6_536B5D600367get_var*
@@ -187,6 +188,7 @@ end;
 initialization
  _RegisterPublicInformation5;
  _RegisterPublicInformation6;
-{$IfEnd} // NOT Defined(XE)
+{$IfEnd} // NOT Defined(NoVGScene)
 
+{$IfEnd} // NOT Defined(XE)
 end.

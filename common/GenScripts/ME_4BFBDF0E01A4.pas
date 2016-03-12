@@ -55,7 +55,6 @@ begin
  Result := false{true};
 //#UC END# *4BFD1B5A0200_4BFBDF0E01A4_impl*
 end;//TK216072357.TreatExceptionAsSuccess
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TK216072357.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -71,6 +70,7 @@ end;//TK216072357.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(TK216072357.Suite);
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

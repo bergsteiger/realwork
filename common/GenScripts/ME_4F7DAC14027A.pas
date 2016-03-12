@@ -84,12 +84,18 @@ type
    procedure BecomeInvisible; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   procedure RemMWControlledChangingWarning; override;
-   procedure RemMWOldBaseWarning; override;
-   procedure RemMWTrialModeWarning; override;
-   procedure RemNewChatMessages; override;
-   procedure RemOnlineDead; override;
-   procedure remUnreadConsultations; override;
+   procedure Reminder_RemMWControlledChangingWarning_Test(const aParams: IvcmTestParamsPrim);
+   procedure Reminder_RemMWControlledChangingWarning_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Reminder_RemMWOldBaseWarning_Test(const aParams: IvcmTestParamsPrim);
+   procedure Reminder_RemMWOldBaseWarning_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Reminder_RemMWTrialModeWarning_Test(const aParams: IvcmTestParamsPrim);
+   procedure Reminder_RemMWTrialModeWarning_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Reminder_RemNewChatMessages_Test(const aParams: IvcmTestParamsPrim);
+   procedure Reminder_RemNewChatMessages_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Reminder_RemOnlineDead_Test(const aParams: IvcmTestParamsPrim);
+   procedure Reminder_RemOnlineDead_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Reminder_remUnreadConsultations_Test(const aParams: IvcmTestParamsPrim);
+   procedure Reminder_remUnreadConsultations_Execute(const aParams: IvcmExecuteParamsPrim);
  end;//TMainWithRemindersForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -216,50 +222,98 @@ begin
 end;//TMainWithRemindersForm.StopFlashing
 {$IfEnd} // Defined(Nemesis) AND NOT Defined(NoVCM)
 
-procedure TMainWithRemindersForm.RemMWControlledChangingWarning;
-//#UC START# *4F86AAF903B5_4F7DAC14027A_var*
-//#UC END# *4F86AAF903B5_4F7DAC14027A_var*
+procedure TMainWithRemindersForm.Reminder_RemMWControlledChangingWarning_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4F86AAF903B5_4F7DAC14027Atest_var*
+//#UC END# *4F86AAF903B5_4F7DAC14027Atest_var*
 begin
-//#UC START# *4F86AAF903B5_4F7DAC14027A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4F86AAF903B5_4F7DAC14027A_impl*
-end;//TMainWithRemindersForm.RemMWControlledChangingWarning
+//#UC START# *4F86AAF903B5_4F7DAC14027Atest_impl*
+ aParams.Op.Flag[vcm_ofVisible] := f_IsControlledObjectsChanging;
+//#UC END# *4F86AAF903B5_4F7DAC14027Atest_impl*
+end;//TMainWithRemindersForm.Reminder_RemMWControlledChangingWarning_Test
 
-procedure TMainWithRemindersForm.RemMWOldBaseWarning;
-//#UC START# *4F86AB3A03E4_4F7DAC14027A_var*
-//#UC END# *4F86AB3A03E4_4F7DAC14027A_var*
+procedure TMainWithRemindersForm.Reminder_RemMWControlledChangingWarning_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4F86AAF903B5_4F7DAC14027Aexec_var*
+//#UC END# *4F86AAF903B5_4F7DAC14027Aexec_var*
 begin
-//#UC START# *4F86AB3A03E4_4F7DAC14027A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4F86AB3A03E4_4F7DAC14027A_impl*
-end;//TMainWithRemindersForm.RemMWOldBaseWarning
+//#UC START# *4F86AAF903B5_4F7DAC14027Aexec_impl*
+ OpenUnderControl;
+//#UC END# *4F86AAF903B5_4F7DAC14027Aexec_impl*
+end;//TMainWithRemindersForm.Reminder_RemMWControlledChangingWarning_Execute
 
-procedure TMainWithRemindersForm.RemMWTrialModeWarning;
-//#UC START# *4F86AB490283_4F7DAC14027A_var*
-//#UC END# *4F86AB490283_4F7DAC14027A_var*
+procedure TMainWithRemindersForm.Reminder_RemMWOldBaseWarning_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4F86AB3A03E4_4F7DAC14027Atest_var*
+//#UC END# *4F86AB3A03E4_4F7DAC14027Atest_var*
 begin
-//#UC START# *4F86AB490283_4F7DAC14027A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4F86AB490283_4F7DAC14027A_impl*
-end;//TMainWithRemindersForm.RemMWTrialModeWarning
+//#UC START# *4F86AB3A03E4_4F7DAC14027Atest_impl*
+ aParams.Op.Flag[vcm_ofVisible] := l3Len(f_OldBaseWarningString) > 0;
+//#UC END# *4F86AB3A03E4_4F7DAC14027Atest_impl*
+end;//TMainWithRemindersForm.Reminder_RemMWOldBaseWarning_Test
 
-procedure TMainWithRemindersForm.RemNewChatMessages;
-//#UC START# *4F86AB5600B9_4F7DAC14027A_var*
-//#UC END# *4F86AB5600B9_4F7DAC14027A_var*
+procedure TMainWithRemindersForm.Reminder_RemMWOldBaseWarning_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4F86AB3A03E4_4F7DAC14027Aexec_var*
+//#UC END# *4F86AB3A03E4_4F7DAC14027Aexec_var*
 begin
-//#UC START# *4F86AB5600B9_4F7DAC14027A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4F86AB5600B9_4F7DAC14027A_impl*
-end;//TMainWithRemindersForm.RemNewChatMessages
+//#UC START# *4F86AB3A03E4_4F7DAC14027Aexec_impl*
+ Say(inf_AnyInformation, [f_OldBaseWarningString]);
+//#UC END# *4F86AB3A03E4_4F7DAC14027Aexec_impl*
+end;//TMainWithRemindersForm.Reminder_RemMWOldBaseWarning_Execute
 
-procedure TMainWithRemindersForm.RemOnlineDead;
-//#UC START# *4F86AB6502AA_4F7DAC14027A_var*
-//#UC END# *4F86AB6502AA_4F7DAC14027A_var*
+procedure TMainWithRemindersForm.Reminder_RemMWTrialModeWarning_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4F86AB490283_4F7DAC14027Atest_var*
+//#UC END# *4F86AB490283_4F7DAC14027Atest_var*
 begin
-//#UC START# *4F86AB6502AA_4F7DAC14027A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4F86AB6502AA_4F7DAC14027A_impl*
-end;//TMainWithRemindersForm.RemOnlineDead
+//#UC START# *4F86AB490283_4F7DAC14027Atest_impl*
+ aParams.Op.Flag[vcm_ofVisible] := defDataAdapter.IsTrialMode;
+//#UC END# *4F86AB490283_4F7DAC14027Atest_impl*
+end;//TMainWithRemindersForm.Reminder_RemMWTrialModeWarning_Test
+
+procedure TMainWithRemindersForm.Reminder_RemMWTrialModeWarning_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4F86AB490283_4F7DAC14027Aexec_var*
+//#UC END# *4F86AB490283_4F7DAC14027Aexec_var*
+begin
+//#UC START# *4F86AB490283_4F7DAC14027Aexec_impl*
+ with DefDataAdapter do
+  Say(inf_TrialModeWarning, [TrialDaysLeft, GetDealerInfo]);
+//#UC END# *4F86AB490283_4F7DAC14027Aexec_impl*
+end;//TMainWithRemindersForm.Reminder_RemMWTrialModeWarning_Execute
+
+procedure TMainWithRemindersForm.Reminder_RemNewChatMessages_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4F86AB5600B9_4F7DAC14027Atest_var*
+//#UC END# *4F86AB5600B9_4F7DAC14027Atest_var*
+begin
+//#UC START# *4F86AB5600B9_4F7DAC14027Atest_impl*
+ aParams.Op.Flag[vcm_ofVisible] := TdmStdRes.MakeChatDispatcher.HasUnreadedMessages;
+//#UC END# *4F86AB5600B9_4F7DAC14027Atest_impl*
+end;//TMainWithRemindersForm.Reminder_RemNewChatMessages_Test
+
+procedure TMainWithRemindersForm.Reminder_RemNewChatMessages_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4F86AB5600B9_4F7DAC14027Aexec_var*
+//#UC END# *4F86AB5600B9_4F7DAC14027Aexec_var*
+begin
+//#UC START# *4F86AB5600B9_4F7DAC14027Aexec_impl*
+ TdmStdRes.MakeChatDispatcher.OpenAllUnreaded;
+//#UC END# *4F86AB5600B9_4F7DAC14027Aexec_impl*
+end;//TMainWithRemindersForm.Reminder_RemNewChatMessages_Execute
+
+procedure TMainWithRemindersForm.Reminder_RemOnlineDead_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4F86AB6502AA_4F7DAC14027Atest_var*
+//#UC END# *4F86AB6502AA_4F7DAC14027Atest_var*
+begin
+//#UC START# *4F86AB6502AA_4F7DAC14027Atest_impl*
+ aParams.Op.Flag[vcm_ofVisible] := not f_remOnlineDeadHidden AND
+                                   DefDataAdapter.NativeAdapter.MakeInternetSupport.ShowWarning;
+//#UC END# *4F86AB6502AA_4F7DAC14027Atest_impl*
+end;//TMainWithRemindersForm.Reminder_RemOnlineDead_Test
+
+procedure TMainWithRemindersForm.Reminder_RemOnlineDead_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4F86AB6502AA_4F7DAC14027Aexec_var*
+//#UC END# *4F86AB6502AA_4F7DAC14027Aexec_var*
+begin
+//#UC START# *4F86AB6502AA_4F7DAC14027Aexec_impl*
+ defDataAdapter.ShowMessageWithDealerInfo(war_OnlineDead);
+ f_remOnlineDeadHidden := true;
+//#UC END# *4F86AB6502AA_4F7DAC14027Aexec_impl*
+end;//TMainWithRemindersForm.Reminder_RemOnlineDead_Execute
 
 procedure TMainWithRemindersForm.FillOldBaseWarning;
 //#UC START# *4F8BED97037A_4F7DAC14027A_var*
@@ -270,14 +324,24 @@ begin
 //#UC END# *4F8BED97037A_4F7DAC14027A_impl*
 end;//TMainWithRemindersForm.FillOldBaseWarning
 
-procedure TMainWithRemindersForm.remUnreadConsultations;
-//#UC START# *542D70330042_4F7DAC14027A_var*
-//#UC END# *542D70330042_4F7DAC14027A_var*
+procedure TMainWithRemindersForm.Reminder_remUnreadConsultations_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *542D70330042_4F7DAC14027Atest_var*
+//#UC END# *542D70330042_4F7DAC14027Atest_var*
 begin
-//#UC START# *542D70330042_4F7DAC14027A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *542D70330042_4F7DAC14027A_impl*
-end;//TMainWithRemindersForm.remUnreadConsultations
+//#UC START# *542D70330042_4F7DAC14027Atest_impl*
+ aParams.Op.Flag[vcm_ofVisible] := IsRemUnreadConsultationsVisible;
+//#UC END# *542D70330042_4F7DAC14027Atest_impl*
+end;//TMainWithRemindersForm.Reminder_remUnreadConsultations_Test
+
+procedure TMainWithRemindersForm.Reminder_remUnreadConsultations_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *542D70330042_4F7DAC14027Aexec_var*
+//#UC END# *542D70330042_4F7DAC14027Aexec_var*
+begin
+//#UC START# *542D70330042_4F7DAC14027Aexec_impl*
+ if Ask(qr_TryOpenConsultationAnswer) then
+  TdmStdRes.TryOpenConsultationAnswer(Self);
+//#UC END# *542D70330042_4F7DAC14027Aexec_impl*
+end;//TMainWithRemindersForm.Reminder_remUnreadConsultations_Execute
 
 {$If NOT Defined(NoVCM)}
 procedure TMainWithRemindersForm.InitControls;

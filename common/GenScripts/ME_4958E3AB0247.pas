@@ -42,6 +42,9 @@ uses
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
  , PrimPrimListInterfaces
+ , eeInterfaces
+ , nsTypes
+ , FiltersUnit
  , Classes
  , bsInterfaces
  {$If NOT Defined(NoVCM)}
@@ -139,44 +142,77 @@ type
   public
    class function nsIsQueryTypeCompatibleToQueryFormType(aQueryType: TQueryType;
     aFormType: TvcmUserType): Boolean;
-   procedure SaveToFolder; override;
+   procedure File_SaveToFolder_Test(const aParams: IvcmTestParamsPrim);
     {* Сохранить в папки }
-   procedure LoadFromFolder; override;
+   procedure File_SaveToFolder_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Сохранить в папки }
+   procedure File_LoadFromFolder_Test(const aParams: IvcmTestParamsPrim);
     {* Загрузить из папок }
-   function Load: Boolean; override;
+   procedure File_LoadFromFolder_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Загрузить из папок }
+   function Loadable_Load_Execute(const aNode: IeeNode;
+    const aData: IUnknown;
+    anOp: TListLogicOperation = LLO_NONE): Boolean;
+    {* Коллеги, кто может описать этот метод? }
+   procedure Loadable_Load(const aParams: IvcmExecuteParamsPrim);
     {* Коллеги, кто может описать этот метод? }
    {$If NOT Defined(NoVCM)}
-   procedure OkExt; override;
+   procedure Result_OkExt_Test(const aParams: IvcmTestParamsPrim);
     {* OK }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
-    {* Отмена }
-   {$IfEnd} // NOT Defined(NoVCM)
-   procedure ClearAll; override;
-   procedure SetList; override;
-   function Add: Boolean; override;
-   function Delete: Boolean; override;
-   function GetList: IdeList; override;
-   procedure ClearAll; override;
-   function Refresh: Boolean; override;
-   procedure ClearAll; override;
-   procedure GetOldQuery; override;
-   procedure SearchType; override;
-   procedure LogicOr; override;
-   procedure LogicAnd; override;
-   procedure LogicNot; override;
-   {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
-    {* Отмена }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure OkExt; override;
+   procedure Result_OkExt_Execute(const aParams: IvcmExecuteParamsPrim);
     {* OK }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure FiltersListOpen; override;
+   {$If NOT Defined(NoVCM)}
+   procedure Result_OkExt_GetState(var State: TvcmOperationStateIndex);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_GetState(var State: TvcmOperationStateIndex);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure Query_ClearAll_Execute(aNotClearRange: Boolean);
+   procedure Query_ClearAll(const aParams: IvcmExecuteParamsPrim);
+   procedure Query_SetList_Execute(const aList: IdeList;
+    aInList: Boolean);
+   procedure Query_SetList(const aParams: IvcmExecuteParamsPrim);
+   function Filterable_Add_Execute(const aFilter: IFilterFromQuery): Boolean;
+   procedure Filterable_Add(const aParams: IvcmExecuteParamsPrim);
+   function Filterable_Delete_Execute(const aFilter: IFilterFromQuery): Boolean;
+   procedure Filterable_Delete(const aParams: IvcmExecuteParamsPrim);
+   function Query_GetList_Execute: IdeList;
+   procedure Query_GetList(const aParams: IvcmExecuteParamsPrim);
+   procedure Filterable_ClearAll_Execute;
+   procedure Filterable_ClearAll(const aParams: IvcmExecuteParamsPrim);
+   function Filterable_Refresh_Execute: Boolean;
+   procedure Filterable_Refresh(const aParams: IvcmExecuteParamsPrim);
+   procedure Result_ClearAll_Test(const aParams: IvcmTestParamsPrim);
+   procedure Result_ClearAll_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Query_GetOldQuery_Test(const aParams: IvcmTestParamsPrim);
+   procedure Query_GetOldQuery_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Query_SearchType_Test(const aParams: IvcmTestParamsPrim);
+   procedure Query_SearchType_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure LogicOperation_LogicOr_Test(const aParams: IvcmTestParamsPrim);
+   procedure LogicOperation_LogicOr_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure LogicOperation_LogicAnd_Test(const aParams: IvcmTestParamsPrim);
+   procedure LogicOperation_LogicAnd_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure LogicOperation_LogicNot_Test(const aParams: IvcmTestParamsPrim);
+   procedure LogicOperation_LogicNot_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Filters_FiltersListOpen_Test(const aParams: IvcmTestParamsPrim);
     {* Фильтры (вкладка) }
-   function GetListType: TbsListType; override;
+   procedure Filters_FiltersListOpen_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Фильтры (вкладка) }
+   function Filterable_GetListType_Execute: TbsListType;
+   procedure Filterable_GetListType(const aParams: IvcmExecuteParamsPrim);
    constructor Create(AOwner: TComponent); override;
    {$If NOT Defined(NoVCM)}
    procedure NotifyUserTypeSet; override;
@@ -205,7 +241,6 @@ uses
  {$If NOT Defined(Monitorings)}
  , nsFolders
  {$IfEnd} // NOT Defined(Monitorings)
- , FiltersUnit
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
@@ -265,6 +300,7 @@ uses
  , LoggingUnit
 ;
 
+{$If NOT Defined(NoVCM)}
 type
  {$If NOT Defined(Monitorings)}
  TnsLoadQueryEvent = {final} class(TnsLogEvent)
@@ -1005,35 +1041,230 @@ begin
 //#UC END# *496B4FD20320_4958E3AB0247_impl*
 end;//TPrimSaveLoadForm.AnotherSearchSuccessed
 
-procedure TPrimSaveLoadForm.SaveToFolder;
+procedure TPrimSaveLoadForm.File_SaveToFolder_Test(const aParams: IvcmTestParamsPrim);
  {* Сохранить в папки }
-//#UC START# *49885D540232_4958E3AB0247_var*
-//#UC END# *49885D540232_4958E3AB0247_var*
+//#UC START# *49885D540232_4958E3AB0247test_var*
+//#UC END# *49885D540232_4958E3AB0247test_var*
 begin
-//#UC START# *49885D540232_4958E3AB0247_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49885D540232_4958E3AB0247_impl*
-end;//TPrimSaveLoadForm.SaveToFolder
+//#UC START# *49885D540232_4958E3AB0247test_impl*
+ if not HideOpForPostingOrder(aParams) and Assigned(Aggregate) then
+  with aParams.Op.SubItems do
+  begin
+   Clear;
+   if Op_SearchParameters_IsQuerySaved.Call(Aggregate) then
+   begin
+    Add(vcmCStr(str_SaveLoadOverride));
+    Add(vcmCStr(str_SaveLoadSaveAs));
+   end;//TSearchParameter_IsQuerySaved_Op.Call(Aggregate)
+  end;//with aParams.Op.SubItems
+//#UC END# *49885D540232_4958E3AB0247test_impl*
+end;//TPrimSaveLoadForm.File_SaveToFolder_Test
 
-procedure TPrimSaveLoadForm.LoadFromFolder;
+procedure TPrimSaveLoadForm.File_SaveToFolder_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Сохранить в папки }
+//#UC START# *49885D540232_4958E3AB0247exec_var*
+var
+ l_CurOpsIndex   : Integer;
+ l_CurName       : Il3CString;
+ l_QueryIsEmpty  : Boolean;
+ l_EntityBase    : IEntityBase;
+ l_EntityStorage : IEntityStorage;
+ l_QueryType     : TlgQueryType;
+ l_QueryParams   : TnsQueryInfo;
+//#UC END# *49885D540232_4958E3AB0247exec_var*
+begin
+//#UC START# *49885D540232_4958E3AB0247exec_impl*
+ if IsDictionLike then
+ begin
+  Assert(false);
+  Exit;
+ end;//IsDictionLike
+ l_QueryIsEmpty := False;
+
+ l_CurOpsIndex := aParams.ItemIndex;
+
+ if (l_CurOpsIndex >= 0) and (Aggregate <> nil) then
+ begin
+  if Op_SearchParameters_IsQueryEmpty.Call(Aggregate) then
+  begin
+   l_QueryIsEmpty := True;
+   if (UserType <> slqtLegislationReview) and
+     not Ask(qr_QueryIsEmpty) then Exit;
+  end;//Op_SearchParameters_IsQueryEmpty.Call(Aggregate)
+  // Получаем заполненный Query из КЗ
+  l_QueryParams := Op_SearchParameters_GetQuery.Call(Aggregate);
+  if not l_QueryParams.rHasErrors then
+   begin
+    l_QueryType := AdapterQueryToBusinessQuery(l_QueryParams.rQuery.GetType);
+    // Для Обзора законодательства запрещаем сохранение пустой КЗ
+    if (l_QueryType = lg_qtLegislationReview) and
+       l_QueryIsEmpty then
+    begin
+     Say(inf_QueryIsEmptyCantSave);
+     exit;
+    end;//l_QueryType = lg_qtLegislationReview
+    if Supports(l_QueryParams.rQuery, IEntityBase, l_EntityBase) then
+    try
+     if l_EntityBase.GetIsSaved then
+      case l_CurOpsIndex of
+       1 :
+       begin
+        l_CurName := nsGetQueryName(l_QueryParams.rQuery);
+        if Ask(qr_QueryWasSavedEx, [l_CurName]) then
+         try
+          /////////////////////////////////////////
+          // исключаем http://mdp.garant.ru/pages/viewpage.action?pageId=321985983
+          // -Бесконечную рекурсию часом никогда не получим?
+          // -Нет, это в нормальном поведении невозможно, когда список до сохранения был НЕпустой, а потом тут (см. строку ниже) станет пустым
+          if (l_CurOpsIndex >= 0) and (Aggregate <> nil) and (not l_QueryIsEmpty) and Op_SearchParameters_IsQueryEmpty.Call(Aggregate) then
+          begin
+           File_SaveToFolder_Execute(aParams);
+           Exit;
+          end;
+          /////////////////////////////////////////
+          l_EntityBase.SaveTo(nil, l_EntityStorage);
+         except
+          on EAccessDenied do
+           Say(err_SaveReadOnlyQuery);
+          on ECanNotSave do
+           Say(err_CannotSave, [l_CurName]);
+          on ENotSaved do
+           Say(err_NotSaved);
+         end;//try..except
+       end;//1
+       0, 2 :
+        {$IFDEF Monitorings}
+        Assert(false);
+        {$Else  Monitorings}
+        TdmStdRes.SaveOpen(Self.As_IvcmEntityForm,
+                           MakeFilterInfo,
+                           fetQuery,
+                           l_EntityBase,
+                           True);
+        {$EndIF  Monitorings}
+       else
+        Assert(false);
+      end//case l_CurOpsIndex
+     else
+     begin
+      // Сохраняем Query в папку
+      {$IFDEF Monitorings}
+      Assert(false);
+      {$Else  Monitorings}
+      TdmStdRes.SaveOpen(Self.As_IvcmEntityForm,
+                         MakeFilterInfo,
+                         fetQuery,
+                         l_EntityBase,
+                         false);
+      {$EndIF Monitorings}
+     end;//l_EntityBase.GetIsSaved
+    finally
+     l_EntityBase := nil;
+    end;//try..finally
+   end;//not l_QueryParams.rHasErrors
+ end//l_CurOpsIndex >= 0
+ else
+  aParams.DoneStatus := vcm_dsInvalidParams;
+  // - это нужно, чтобы вызывалось по ShortCut'у
+//#UC END# *49885D540232_4958E3AB0247exec_impl*
+end;//TPrimSaveLoadForm.File_SaveToFolder_Execute
+
+procedure TPrimSaveLoadForm.File_LoadFromFolder_Test(const aParams: IvcmTestParamsPrim);
  {* Загрузить из папок }
-//#UC START# *49885D59018D_4958E3AB0247_var*
-//#UC END# *49885D59018D_4958E3AB0247_var*
+//#UC START# *49885D59018D_4958E3AB0247test_var*
+//#UC END# *49885D59018D_4958E3AB0247test_var*
 begin
-//#UC START# *49885D59018D_4958E3AB0247_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49885D59018D_4958E3AB0247_impl*
-end;//TPrimSaveLoadForm.LoadFromFolder
+//#UC START# *49885D59018D_4958E3AB0247test_impl*
+ HideOpForPostingOrder(aParams);
+//#UC END# *49885D59018D_4958E3AB0247test_impl*
+end;//TPrimSaveLoadForm.File_LoadFromFolder_Test
 
-function TPrimSaveLoadForm.Load: Boolean;
- {* Коллеги, кто может описать этот метод? }
-//#UC START# *49895A2102E8_4958E3AB0247_var*
-//#UC END# *49895A2102E8_4958E3AB0247_var*
+procedure TPrimSaveLoadForm.File_LoadFromFolder_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Загрузить из папок }
+//#UC START# *49885D59018D_4958E3AB0247exec_var*
+//#UC END# *49885D59018D_4958E3AB0247exec_var*
 begin
-//#UC START# *49895A2102E8_4958E3AB0247_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49895A2102E8_4958E3AB0247_impl*
-end;//TPrimSaveLoadForm.Load
+//#UC START# *49885D59018D_4958E3AB0247exec_impl*
+ // Выбор Query из папки
+ {$IFDEF Monitorings}
+ Assert(false);
+ {$Else  Monitorings}
+ TdmStdRes.LoadOpen(Self.As_IvcmEntityForm, MakeFilterInfo);
+ {$EndIF Monitorings}
+//#UC END# *49885D59018D_4958E3AB0247exec_impl*
+end;//TPrimSaveLoadForm.File_LoadFromFolder_Execute
+
+function TPrimSaveLoadForm.Loadable_Load_Execute(const aNode: IeeNode;
+ const aData: IUnknown;
+ anOp: TListLogicOperation = LLO_NONE): Boolean;
+ {* Коллеги, кто может описать этот метод? }
+//#UC START# *49895A2102E8_4958E3AB0247exec_var*
+const
+ cQueryType: array [TQueryType] of PvcmStringID =
+                      (@str_qtKeyWord,
+                       @str_qtAttribute,
+                       //@str_qtOldAttribute,
+                       //@str_qtOldFilter,
+                       @str_qtPublishSource,
+                       @str_qtComments,
+                       @str_qtReview,
+                       @str_qtMailList,
+                       @str_qtRubricator,
+                       @str_Empty,
+                       @str_qtConsultation,
+                       @str_Empty,
+                       @str_qtBaseSearch,
+                       @str_qtInpharmSearch);
+var
+ l_FolderNode : INode;
+ l_BaseEntity : IUnknown;
+ l_Query      : IQuery;
+ l_QueryType  : TQueryType;
+//#UC END# *49895A2102E8_4958E3AB0247exec_var*
+begin
+//#UC START# *49895A2102E8_4958E3AB0247exec_impl*
+ Result := true;
+ if Supports(aNode, INode, l_FolderNode) then
+  try
+   l_FolderNode.Open(l_BaseEntity);
+   try
+    if Supports(l_BaseEntity, IQuery, l_Query) then
+     try
+      l_QueryType := l_Query.GetType;
+      if nsIsQueryTypeCompatibleToQueryFormType(l_QueryType,
+                                                UserType) then
+      begin
+       {$If not defined(Monitorings)}
+       TnsLoadQueryEvent.Log(l_Query);
+       {$IfEnd}
+       // Передаем Query в КЗ для заполнения
+       op_SearchParameters_SetQuery.Call(Aggregate, l_Query);
+      end
+      else
+      begin
+       Assert(CurUserType <> nil);
+       Say(inf_WrongQueryType, [vcmCStr(cQueryType[l_QueryType]^),
+                                CurUserType.Caption]);
+       Result := false;
+      end;//nsIsQueryTypeCompatibleToQueryFormType
+     finally
+      l_Query := nil;
+     end;//try..finally
+   finally
+    l_BaseEntity := nil;
+   end;//try..finally
+  finally
+   l_FolderNode := nil;
+  end;//try..finally
+//#UC END# *49895A2102E8_4958E3AB0247exec_impl*
+end;//TPrimSaveLoadForm.Loadable_Load_Execute
+
+procedure TPrimSaveLoadForm.Loadable_Load(const aParams: IvcmExecuteParamsPrim);
+ {* Коллеги, кто может описать этот метод? }
+begin
+ with (aParams.Data As ILoadable_Load_Params) do
+  ResultValue := Self.Loadable_Load_Execute(Node, Data, nOp);
+end;//TPrimSaveLoadForm.Loadable_Load
 
 procedure TPrimSaveLoadForm.JournalShrinked;
 //#UC START# *4A83AA610299_4958E3AB0247_var*
@@ -1045,92 +1276,234 @@ begin
 //#UC END# *4A83AA610299_4958E3AB0247_impl*
 end;//TPrimSaveLoadForm.JournalShrinked
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimSaveLoadForm.OkExt;
+procedure TPrimSaveLoadForm.Result_OkExt_Test(const aParams: IvcmTestParamsPrim);
  {* OK }
-//#UC START# *4A8AD47D0357_4958E3AB0247_var*
-//#UC END# *4A8AD47D0357_4958E3AB0247_var*
+//#UC START# *4A8AD47D0357_4958E3AB0247test_var*
+//#UC END# *4A8AD47D0357_4958E3AB0247test_var*
 begin
-//#UC START# *4A8AD47D0357_4958E3AB0247_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A8AD47D0357_4958E3AB0247_impl*
-end;//TPrimSaveLoadForm.OkExt
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4A8AD47D0357_4958E3AB0247test_impl*
+ // - ничего не делаем
+//#UC END# *4A8AD47D0357_4958E3AB0247test_impl*
+end;//TPrimSaveLoadForm.Result_OkExt_Test
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimSaveLoadForm.Cancel;
+procedure TPrimSaveLoadForm.Result_OkExt_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* OK }
+//#UC START# *4A8AD47D0357_4958E3AB0247exec_var*
+//#UC END# *4A8AD47D0357_4958E3AB0247exec_var*
+begin
+//#UC START# *4A8AD47D0357_4958E3AB0247exec_impl*
+ if IsOkBtn then
+ begin
+  {$If defined(Monitorings) or defined(Admin)}
+  Assert(false);
+  {$Else}
+  FillQueryAndSearch;
+  LoadQueryHistory;
+  {$IfEnd}
+ end//IsOkBtn
+ else 
+  enResultopSaveExecute(aParams);
+//#UC END# *4A8AD47D0357_4958E3AB0247exec_impl*
+end;//TPrimSaveLoadForm.Result_OkExt_Execute
+
+procedure TPrimSaveLoadForm.Result_OkExt_GetState(var State: TvcmOperationStateIndex);
+ {* OK }
+//#UC START# *4A8AD47D0357_4958E3AB0247getstate_var*
+var
+ l_UserType: TvcmUserType;
+//#UC END# *4A8AD47D0357_4958E3AB0247getstate_var*
+begin
+//#UC START# *4A8AD47D0357_4958E3AB0247getstate_impl*
+ if IsDictionLike then
+ begin
+  Assert(false);
+  Exit;
+ end;//IsDictionLike
+ l_UserType := UserType;
+ if (l_UserType = slqtConsult) then
+  State := st_user_Result_OkExt_Consult
+ else
+ {$if not defined(Monitorings)}
+ if (l_UserType = slqtPostingOrder) then
+  State := st_user_Result_OkExt_SaveAndSend
+ else
+ {$ifend}
+ if IsOkBtn then
+  State := st_user_Result_OkExt_Search
+ else
+  State := st_user_Result_OkExt_Save;
+//#UC END# *4A8AD47D0357_4958E3AB0247getstate_impl*
+end;//TPrimSaveLoadForm.Result_OkExt_GetState
+
+procedure TPrimSaveLoadForm.Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
  {* Отмена }
-//#UC START# *4AC5D61E0284_4958E3AB0247_var*
-//#UC END# *4AC5D61E0284_4958E3AB0247_var*
+//#UC START# *4AC5D61E0284_4958E3AB0247test_var*
+//#UC END# *4AC5D61E0284_4958E3AB0247test_var*
 begin
-//#UC START# *4AC5D61E0284_4958E3AB0247_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AC5D61E0284_4958E3AB0247_impl*
-end;//TPrimSaveLoadForm.Cancel
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4AC5D61E0284_4958E3AB0247test_impl*
+ // - ничего не делаем
+//#UC END# *4AC5D61E0284_4958E3AB0247test_impl*
+end;//TPrimSaveLoadForm.Result_Cancel_Test
 
-procedure TPrimSaveLoadForm.ClearAll;
-//#UC START# *4AE8A0E10254_4958E3AB0247_var*
-//#UC END# *4AE8A0E10254_4958E3AB0247_var*
+procedure TPrimSaveLoadForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отмена }
+//#UC START# *4AC5D61E0284_4958E3AB0247exec_var*
+//#UC END# *4AC5D61E0284_4958E3AB0247exec_var*
 begin
-//#UC START# *4AE8A0E10254_4958E3AB0247_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE8A0E10254_4958E3AB0247_impl*
-end;//TPrimSaveLoadForm.ClearAll
+//#UC START# *4AC5D61E0284_4958E3AB0247exec_impl*
+ if ZoneType = vcm_ztManualModal then
+  ModalResult := mrCancel
+ else
+  vcmDispatcher.History.Back;
+//#UC END# *4AC5D61E0284_4958E3AB0247exec_impl*
+end;//TPrimSaveLoadForm.Result_Cancel_Execute
 
-procedure TPrimSaveLoadForm.SetList;
-//#UC START# *4AE96F6C0191_4958E3AB0247_var*
-//#UC END# *4AE96F6C0191_4958E3AB0247_var*
+procedure TPrimSaveLoadForm.Result_Cancel_GetState(var State: TvcmOperationStateIndex);
+ {* Отмена }
+//#UC START# *4AC5D61E0284_4958E3AB0247getstate_var*
+//#UC END# *4AC5D61E0284_4958E3AB0247getstate_var*
 begin
-//#UC START# *4AE96F6C0191_4958E3AB0247_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AE96F6C0191_4958E3AB0247_impl*
-end;//TPrimSaveLoadForm.SetList
+//#UC START# *4AC5D61E0284_4958E3AB0247getstate_impl*
+ // - ничего не делаем
+//#UC END# *4AC5D61E0284_4958E3AB0247getstate_impl*
+end;//TPrimSaveLoadForm.Result_Cancel_GetState
 
-function TPrimSaveLoadForm.Add: Boolean;
-//#UC START# *4AEF0BF70306_4958E3AB0247_var*
-//#UC END# *4AEF0BF70306_4958E3AB0247_var*
+procedure TPrimSaveLoadForm.Query_ClearAll_Execute(aNotClearRange: Boolean);
+//#UC START# *4AE8A0E10254_4958E3AB0247exec_var*
+//#UC END# *4AE8A0E10254_4958E3AB0247exec_var*
 begin
-//#UC START# *4AEF0BF70306_4958E3AB0247_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AEF0BF70306_4958E3AB0247_impl*
-end;//TPrimSaveLoadForm.Add
+//#UC START# *4AE8A0E10254_4958E3AB0247exec_impl*
+ if not aNotClearRange then
+ begin
+  with SearchState do
+  begin
+   if List <> nil then
+    SearchType := stAllBase
+   else
+    SearchType := stNone;
+  end;//SearchState
+ end;//not aNotClearRange
+ if (Aggregate <> nil) then
+ begin
+  op_SearchParameters_ClearQuery.Call(Aggregate);
+  Op_List_SetNewContent.Call(Aggregate);
+   // - загрузим фильтры по умолчанию.
+ end;//Aggregate <> nil
+//#UC END# *4AE8A0E10254_4958E3AB0247exec_impl*
+end;//TPrimSaveLoadForm.Query_ClearAll_Execute
 
-function TPrimSaveLoadForm.Delete: Boolean;
-//#UC START# *4AEF0D1A01C3_4958E3AB0247_var*
-//#UC END# *4AEF0D1A01C3_4958E3AB0247_var*
+procedure TPrimSaveLoadForm.Query_ClearAll(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4AEF0D1A01C3_4958E3AB0247_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AEF0D1A01C3_4958E3AB0247_impl*
-end;//TPrimSaveLoadForm.Delete
+ with (aParams.Data As IQuery_ClearAll_Params) do
+  Self.Query_ClearAll_Execute(NotClearRange);
+end;//TPrimSaveLoadForm.Query_ClearAll
 
-function TPrimSaveLoadForm.GetList: IdeList;
-//#UC START# *4AF2AA2100CF_4958E3AB0247_var*
-//#UC END# *4AF2AA2100CF_4958E3AB0247_var*
+procedure TPrimSaveLoadForm.Query_SetList_Execute(const aList: IdeList;
+ aInList: Boolean);
+//#UC START# *4AE96F6C0191_4958E3AB0247exec_var*
+//#UC END# *4AE96F6C0191_4958E3AB0247exec_var*
 begin
-//#UC START# *4AF2AA2100CF_4958E3AB0247_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF2AA2100CF_4958E3AB0247_impl*
-end;//TPrimSaveLoadForm.GetList
+//#UC START# *4AE96F6C0191_4958E3AB0247exec_impl*
+ if (aList <> nil) then
+ begin
+  SearchState.List := aList;
+  if aInList then
+   SearchState.SearchType := stInList
+  else
+   SearchState.SearchType := stAllBase;
+ end//aList <> nil
+ else
+ begin
+  SearchState.List := nil;
+  SearchState.SearchType := stNone; {stAllBaseOnly;}
+ end;//aList <> nil
+//#UC END# *4AE96F6C0191_4958E3AB0247exec_impl*
+end;//TPrimSaveLoadForm.Query_SetList_Execute
 
-procedure TPrimSaveLoadForm.ClearAll;
-//#UC START# *4AF80DB80383_4958E3AB0247_var*
-//#UC END# *4AF80DB80383_4958E3AB0247_var*
+procedure TPrimSaveLoadForm.Query_SetList(const aParams: IvcmExecuteParamsPrim);
 begin
-//#UC START# *4AF80DB80383_4958E3AB0247_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF80DB80383_4958E3AB0247_impl*
-end;//TPrimSaveLoadForm.ClearAll
+ with (aParams.Data As IQuery_SetList_Params) do
+  Self.Query_SetList_Execute(List, InList);
+end;//TPrimSaveLoadForm.Query_SetList
 
-function TPrimSaveLoadForm.Refresh: Boolean;
-//#UC START# *4AF810230307_4958E3AB0247_var*
-//#UC END# *4AF810230307_4958E3AB0247_var*
+function TPrimSaveLoadForm.Filterable_Add_Execute(const aFilter: IFilterFromQuery): Boolean;
+//#UC START# *4AEF0BF70306_4958E3AB0247exec_var*
+//#UC END# *4AEF0BF70306_4958E3AB0247exec_var*
 begin
-//#UC START# *4AF810230307_4958E3AB0247_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF810230307_4958E3AB0247_impl*
-end;//TPrimSaveLoadForm.Refresh
+//#UC START# *4AEF0BF70306_4958E3AB0247exec_impl*
+ Result := true;
+//#UC END# *4AEF0BF70306_4958E3AB0247exec_impl*
+end;//TPrimSaveLoadForm.Filterable_Add_Execute
+
+procedure TPrimSaveLoadForm.Filterable_Add(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IFilterable_Add_Params) do
+  ResultValue := Self.Filterable_Add_Execute(Filter);
+end;//TPrimSaveLoadForm.Filterable_Add
+
+function TPrimSaveLoadForm.Filterable_Delete_Execute(const aFilter: IFilterFromQuery): Boolean;
+//#UC START# *4AEF0D1A01C3_4958E3AB0247exec_var*
+//#UC END# *4AEF0D1A01C3_4958E3AB0247exec_var*
+begin
+//#UC START# *4AEF0D1A01C3_4958E3AB0247exec_impl*
+ Result := true;
+//#UC END# *4AEF0D1A01C3_4958E3AB0247exec_impl*
+end;//TPrimSaveLoadForm.Filterable_Delete_Execute
+
+procedure TPrimSaveLoadForm.Filterable_Delete(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IFilterable_Delete_Params) do
+  ResultValue := Self.Filterable_Delete_Execute(Filter);
+end;//TPrimSaveLoadForm.Filterable_Delete
+
+function TPrimSaveLoadForm.Query_GetList_Execute: IdeList;
+//#UC START# *4AF2AA2100CF_4958E3AB0247exec_var*
+//#UC END# *4AF2AA2100CF_4958E3AB0247exec_var*
+begin
+//#UC START# *4AF2AA2100CF_4958E3AB0247exec_impl*
+ if (SearchState.SearchType = stInList) and
+    (SearchState.List <> nil) then
+  Result := SearchState.List
+ else
+  Result := nil;
+//#UC END# *4AF2AA2100CF_4958E3AB0247exec_impl*
+end;//TPrimSaveLoadForm.Query_GetList_Execute
+
+procedure TPrimSaveLoadForm.Query_GetList(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IQuery_GetList_Params) do
+  ResultValue := Self.Query_GetList_Execute;
+end;//TPrimSaveLoadForm.Query_GetList
+
+procedure TPrimSaveLoadForm.Filterable_ClearAll_Execute;
+//#UC START# *4AF80DB80383_4958E3AB0247exec_var*
+//#UC END# *4AF80DB80383_4958E3AB0247exec_var*
+begin
+//#UC START# *4AF80DB80383_4958E3AB0247exec_impl*
+ // - ничего не делаем
+//#UC END# *4AF80DB80383_4958E3AB0247exec_impl*
+end;//TPrimSaveLoadForm.Filterable_ClearAll_Execute
+
+procedure TPrimSaveLoadForm.Filterable_ClearAll(const aParams: IvcmExecuteParamsPrim);
+begin
+ Self.Filterable_ClearAll_Execute;
+end;//TPrimSaveLoadForm.Filterable_ClearAll
+
+function TPrimSaveLoadForm.Filterable_Refresh_Execute: Boolean;
+//#UC START# *4AF810230307_4958E3AB0247exec_var*
+//#UC END# *4AF810230307_4958E3AB0247exec_var*
+begin
+//#UC START# *4AF810230307_4958E3AB0247exec_impl*
+ // - ничего не делаем
+ Result := True;
+//#UC END# *4AF810230307_4958E3AB0247exec_impl*
+end;//TPrimSaveLoadForm.Filterable_Refresh_Execute
+
+procedure TPrimSaveLoadForm.Filterable_Refresh(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IFilterable_Refresh_Params) do
+  ResultValue := Self.Filterable_Refresh_Execute;
+end;//TPrimSaveLoadForm.Filterable_Refresh
 
 procedure TPrimSaveLoadForm.AnotherSearchCancelled;
 //#UC START# *4C04AFC8015D_4958E3AB0247_var*
@@ -1144,104 +1517,244 @@ begin
 //#UC END# *4C04AFC8015D_4958E3AB0247_impl*
 end;//TPrimSaveLoadForm.AnotherSearchCancelled
 
-procedure TPrimSaveLoadForm.ClearAll;
-//#UC START# *4C2DFEE000BA_4958E3AB0247_var*
-//#UC END# *4C2DFEE000BA_4958E3AB0247_var*
+procedure TPrimSaveLoadForm.Result_ClearAll_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C2DFEE000BA_4958E3AB0247test_var*
+//#UC END# *4C2DFEE000BA_4958E3AB0247test_var*
 begin
-//#UC START# *4C2DFEE000BA_4958E3AB0247_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C2DFEE000BA_4958E3AB0247_impl*
-end;//TPrimSaveLoadForm.ClearAll
+//#UC START# *4C2DFEE000BA_4958E3AB0247test_impl*
+ // - ничего не делаем
+//#UC END# *4C2DFEE000BA_4958E3AB0247test_impl*
+end;//TPrimSaveLoadForm.Result_ClearAll_Test
 
-procedure TPrimSaveLoadForm.GetOldQuery;
-//#UC START# *4C31A4EC023F_4958E3AB0247_var*
-//#UC END# *4C31A4EC023F_4958E3AB0247_var*
+procedure TPrimSaveLoadForm.Result_ClearAll_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C2DFEE000BA_4958E3AB0247exec_var*
+//#UC END# *4C2DFEE000BA_4958E3AB0247exec_var*
 begin
-//#UC START# *4C31A4EC023F_4958E3AB0247_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C31A4EC023F_4958E3AB0247_impl*
-end;//TPrimSaveLoadForm.GetOldQuery
+//#UC START# *4C2DFEE000BA_4958E3AB0247exec_impl*
+ Query_ClearAll_Execute(false);
+//#UC END# *4C2DFEE000BA_4958E3AB0247exec_impl*
+end;//TPrimSaveLoadForm.Result_ClearAll_Execute
 
-procedure TPrimSaveLoadForm.SearchType;
-//#UC START# *4C31A68800FA_4958E3AB0247_var*
-//#UC END# *4C31A68800FA_4958E3AB0247_var*
+procedure TPrimSaveLoadForm.Query_GetOldQuery_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C31A4EC023F_4958E3AB0247test_var*
+//#UC END# *4C31A4EC023F_4958E3AB0247test_var*
 begin
-//#UC START# *4C31A68800FA_4958E3AB0247_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C31A68800FA_4958E3AB0247_impl*
-end;//TPrimSaveLoadForm.SearchType
+//#UC START# *4C31A4EC023F_4958E3AB0247test_impl*
+ if QueryHistory.Count > 0 then
+ begin
+  aParams.Op.Flag[vcm_ofEnabled] := True;
+  aParams.Op.SubItems := QueryHistory;
+ end//if QueryHistory.Count > 0 then
+ else
+  aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4C31A4EC023F_4958E3AB0247test_impl*
+end;//TPrimSaveLoadForm.Query_GetOldQuery_Test
 
-procedure TPrimSaveLoadForm.LogicOr;
-//#UC START# *4C31B48D03BB_4958E3AB0247_var*
-//#UC END# *4C31B48D03BB_4958E3AB0247_var*
+procedure TPrimSaveLoadForm.Query_GetOldQuery_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C31A4EC023F_4958E3AB0247exec_var*
+var
+ l_Index    : Integer;
+ l_NewQuery : IQuery;
+ l_OldQuery : IQuery;
+//#UC END# *4C31A4EC023F_4958E3AB0247exec_var*
 begin
-//#UC START# *4C31B48D03BB_4958E3AB0247_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C31B48D03BB_4958E3AB0247_impl*
-end;//TPrimSaveLoadForm.LogicOr
+//#UC START# *4C31A4EC023F_4958E3AB0247exec_impl*
+ l_Index := aParams.ItemIndex;
+ if (l_Index = 0) then
+ begin
+  l_Index := f_LastQueryIndex;
+  Inc(f_LastQueryIndex);
+  if (f_LastQueryIndex >= QueryHistory.Count) then
+   f_LastQueryIndex := 0;
+ end//l_Index = 0
+ else
+  Dec(l_Index);
+ if Supports(QueryHistory.Items[l_Index], IQuery, l_OldQuery) then
+  try
+   l_OldQuery.Clone(l_NewQuery);
+   try
+    // Передаем Query в КЗ для заполнения
+    op_SearchParameters_SetQuery.Call(Aggregate, l_NewQuery);
+    {$If not Defined(Admin) and not Defined(Monitorings)}
+    TnsLoadQueryFromHistoryEvent.Log;
+    {$IfEnd}
+   finally
+    l_NewQuery := nil;
+   end;//try..finally
+  finally
+   l_OldQuery := nil;
+  end;//try..finally
+//#UC END# *4C31A4EC023F_4958E3AB0247exec_impl*
+end;//TPrimSaveLoadForm.Query_GetOldQuery_Execute
 
-procedure TPrimSaveLoadForm.LogicAnd;
-//#UC START# *4C31B4990225_4958E3AB0247_var*
-//#UC END# *4C31B4990225_4958E3AB0247_var*
+procedure TPrimSaveLoadForm.Query_SearchType_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C31A68800FA_4958E3AB0247test_var*
+
+  function lp_AllSearchCaption: IvcmCString;
+  begin
+   case ListType of
+    bs_ltDocument:
+     Result := vcmCStr(str_AllDocumentSearch);
+    bs_ltDrug:
+     Result := vcmCStr(str_AllDrugSearch);
+    else
+    begin
+     Result := nil;
+     Assert(False);
+    end;//else
+   end;//case ListType of
+  end;//lp_AllSearchCaption
+
+var
+ l_Strings : IvcmStrings;
+//#UC END# *4C31A68800FA_4958E3AB0247test_var*
 begin
-//#UC START# *4C31B4990225_4958E3AB0247_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C31B4990225_4958E3AB0247_impl*
-end;//TPrimSaveLoadForm.LogicAnd
+//#UC START# *4C31A68800FA_4958E3AB0247test_impl*
+ case SearchState.SearchType of
+  stNone :
+    begin
+     aParams.Op.Flag[vcm_ofEnabled] := False;
+     aParams.Op.SelectedString := lp_AllSearchCaption;
+     aParams.Op.SubNodes := nil;
+    end;//stNone
+//  stAllBaseOnly : aParams.Op.Flag[vcm_ofVisible] := False;
+  stAllBase, stInList :
+    begin
+     aParams.Op.Flag[vcm_ofEnabled] := True;
+     l_Strings := aParams.Op.SubItems;
+     if (l_Strings <> nil) and
+        (l_Strings.Count = 0) then
+     begin
+      l_Strings.Clear;
+      l_Strings.Add(lp_AllSearchCaption);
+      l_Strings.Add(vcmCStr(str_CurListSearch));
+     end;
+     case SearchState.SearchType of
+      stAllBase:
+       aParams.Op.SelectedString := lp_AllSearchCaption;
+      stInList:
+       aParams.Op.SelectedString := vcmCStr(str_CurListSearch);
+     end;
+    end//l_Strings <> nil..
+ end;//case SearchState.SearchType
+//#UC END# *4C31A68800FA_4958E3AB0247test_impl*
+end;//TPrimSaveLoadForm.Query_SearchType_Test
 
-procedure TPrimSaveLoadForm.LogicNot;
-//#UC START# *4C31B4A90088_4958E3AB0247_var*
-//#UC END# *4C31B4A90088_4958E3AB0247_var*
+procedure TPrimSaveLoadForm.Query_SearchType_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C31A68800FA_4958E3AB0247exec_var*
+//#UC END# *4C31A68800FA_4958E3AB0247exec_var*
 begin
-//#UC START# *4C31B4A90088_4958E3AB0247_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C31B4A90088_4958E3AB0247_impl*
-end;//TPrimSaveLoadForm.LogicNot
+//#UC START# *4C31A68800FA_4958E3AB0247exec_impl*
+ if l3Same(aParams.SelectedString, vcmCStr(str_CurListSearch)) then
+  SearchState.SearchType := stInList
+ else
+  SearchState.SearchType := stAllBase;
+//#UC END# *4C31A68800FA_4958E3AB0247exec_impl*
+end;//TPrimSaveLoadForm.Query_SearchType_Execute
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimSaveLoadForm.Cancel;
- {* Отмена }
-//#UC START# *4C762C910358_4958E3AB0247_var*
-//#UC END# *4C762C910358_4958E3AB0247_var*
+procedure TPrimSaveLoadForm.LogicOperation_LogicOr_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C31B48D03BB_4958E3AB0247test_var*
+//#UC END# *4C31B48D03BB_4958E3AB0247test_var*
 begin
-//#UC START# *4C762C910358_4958E3AB0247_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762C910358_4958E3AB0247_impl*
-end;//TPrimSaveLoadForm.Cancel
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4C31B48D03BB_4958E3AB0247test_impl*
+ vcmDispatcher.EntityOperation(TdmStdRes.opcode_Attribute_LogicOr, aParams As IvcmTestParams);
+ // На контейнере кнопка всегда видна
+ aParams.Op.Flag[vcm_ofVisible] := True;
+//#UC END# *4C31B48D03BB_4958E3AB0247test_impl*
+end;//TPrimSaveLoadForm.LogicOperation_LogicOr_Test
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimSaveLoadForm.OkExt;
- {* OK }
-//#UC START# *4C762D9B0224_4958E3AB0247_var*
-//#UC END# *4C762D9B0224_4958E3AB0247_var*
+procedure TPrimSaveLoadForm.LogicOperation_LogicOr_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C31B48D03BB_4958E3AB0247exec_var*
+//#UC END# *4C31B48D03BB_4958E3AB0247exec_var*
 begin
-//#UC START# *4C762D9B0224_4958E3AB0247_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762D9B0224_4958E3AB0247_impl*
-end;//TPrimSaveLoadForm.OkExt
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4C31B48D03BB_4958E3AB0247exec_impl*
+ vcmDispatcher.EntityOperation(TdmStdRes.opcode_Attribute_LogicOr, aParams As IvcmExecuteParams);
+//#UC END# *4C31B48D03BB_4958E3AB0247exec_impl*
+end;//TPrimSaveLoadForm.LogicOperation_LogicOr_Execute
 
-procedure TPrimSaveLoadForm.FiltersListOpen;
+procedure TPrimSaveLoadForm.LogicOperation_LogicAnd_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C31B4990225_4958E3AB0247test_var*
+//#UC END# *4C31B4990225_4958E3AB0247test_var*
+begin
+//#UC START# *4C31B4990225_4958E3AB0247test_impl*
+ vcmDispatcher.EntityOperation(TdmStdRes.opcode_Attribute_LogicAnd, aParams As IvcmTestParams);
+ // На контейнере кнопка всегда видна
+ aParams.Op.Flag[vcm_ofVisible] := True;
+//#UC END# *4C31B4990225_4958E3AB0247test_impl*
+end;//TPrimSaveLoadForm.LogicOperation_LogicAnd_Test
+
+procedure TPrimSaveLoadForm.LogicOperation_LogicAnd_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C31B4990225_4958E3AB0247exec_var*
+//#UC END# *4C31B4990225_4958E3AB0247exec_var*
+begin
+//#UC START# *4C31B4990225_4958E3AB0247exec_impl*
+ vcmDispatcher.EntityOperation(TdmStdRes.opcode_Attribute_LogicAnd, aParams As IvcmExecuteParams);
+//#UC END# *4C31B4990225_4958E3AB0247exec_impl*
+end;//TPrimSaveLoadForm.LogicOperation_LogicAnd_Execute
+
+procedure TPrimSaveLoadForm.LogicOperation_LogicNot_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C31B4A90088_4958E3AB0247test_var*
+//#UC END# *4C31B4A90088_4958E3AB0247test_var*
+begin
+//#UC START# *4C31B4A90088_4958E3AB0247test_impl*
+ vcmDispatcher.EntityOperation(TdmStdRes.opcode_Attribute_LogicNot, aParams As IvcmTestParams);
+ // На контейнере кнопка всегда видна
+ aParams.Op.Flag[vcm_ofVisible] := True;
+//#UC END# *4C31B4A90088_4958E3AB0247test_impl*
+end;//TPrimSaveLoadForm.LogicOperation_LogicNot_Test
+
+procedure TPrimSaveLoadForm.LogicOperation_LogicNot_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C31B4A90088_4958E3AB0247exec_var*
+//#UC END# *4C31B4A90088_4958E3AB0247exec_var*
+begin
+//#UC START# *4C31B4A90088_4958E3AB0247exec_impl*
+ vcmDispatcher.EntityOperation(TdmStdRes.opcode_Attribute_LogicNot, aParams As IvcmExecuteParams);
+//#UC END# *4C31B4A90088_4958E3AB0247exec_impl*
+end;//TPrimSaveLoadForm.LogicOperation_LogicNot_Execute
+
+procedure TPrimSaveLoadForm.Filters_FiltersListOpen_Test(const aParams: IvcmTestParamsPrim);
  {* Фильтры (вкладка) }
-//#UC START# *4C81191003E5_4958E3AB0247_var*
-//#UC END# *4C81191003E5_4958E3AB0247_var*
+//#UC START# *4C81191003E5_4958E3AB0247test_var*
+//#UC END# *4C81191003E5_4958E3AB0247test_var*
 begin
-//#UC START# *4C81191003E5_4958E3AB0247_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C81191003E5_4958E3AB0247_impl*
-end;//TPrimSaveLoadForm.FiltersListOpen
+//#UC START# *4C81191003E5_4958E3AB0247test_impl*
+ HideOpForPostingOrder(aParams);
+//#UC END# *4C81191003E5_4958E3AB0247test_impl*
+end;//TPrimSaveLoadForm.Filters_FiltersListOpen_Test
 
-function TPrimSaveLoadForm.GetListType: TbsListType;
-//#UC START# *4F99403A00A5_4958E3AB0247_var*
-//#UC END# *4F99403A00A5_4958E3AB0247_var*
+procedure TPrimSaveLoadForm.Filters_FiltersListOpen_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Фильтры (вкладка) }
+//#UC START# *4C81191003E5_4958E3AB0247exec_var*
+//#UC END# *4C81191003E5_4958E3AB0247exec_var*
 begin
-//#UC START# *4F99403A00A5_4958E3AB0247_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4F99403A00A5_4958E3AB0247_impl*
-end;//TPrimSaveLoadForm.GetListType
+//#UC START# *4C81191003E5_4958E3AB0247exec_impl*
+ {$IFDEF Monitorings}
+ Assert(false);
+ {$Else  Monitorings}
+ if (DataSource = nil) then
+  TdmStdRes.OldSchoolFiltersOpen(Aggregate, nil, Self)
+ else
+  TdmStdRes.FiltersOpen(Self.Filters);
+ {$EndIF Monitorings}
+//#UC END# *4C81191003E5_4958E3AB0247exec_impl*
+end;//TPrimSaveLoadForm.Filters_FiltersListOpen_Execute
 
-{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+function TPrimSaveLoadForm.Filterable_GetListType_Execute: TbsListType;
+//#UC START# *4F99403A00A5_4958E3AB0247exec_var*
+//#UC END# *4F99403A00A5_4958E3AB0247exec_var*
+begin
+//#UC START# *4F99403A00A5_4958E3AB0247exec_impl*
+ Result := ListType;
+//#UC END# *4F99403A00A5_4958E3AB0247exec_impl*
+end;//TPrimSaveLoadForm.Filterable_GetListType_Execute
+
+procedure TPrimSaveLoadForm.Filterable_GetListType(const aParams: IvcmExecuteParamsPrim);
+begin
+ with (aParams.Data As IFilterable_GetListType_Params) do
+  ResultValue := Self.Filterable_GetListType_Execute;
+end;//TPrimSaveLoadForm.Filterable_GetListType
+
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 function TPrimSaveLoadForm.DoGetFormSetImageIndex: Integer;
 //#UC START# *53B649F600A3_4958E3AB0247_var*
 var
@@ -1268,7 +1781,7 @@ begin
  Result := nsTabIconIndex(l_TabIconType);
 //#UC END# *53B649F600A3_4958E3AB0247_impl*
 end;//TPrimSaveLoadForm.DoGetFormSetImageIndex
-{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 procedure TPrimSaveLoadForm.Cleanup;
  {* Функция очистки полей объекта. }
@@ -1376,7 +1889,6 @@ begin
 //#UC END# *4958BE910345_4958E3AB0247_impl*
 end;//TPrimSaveLoadForm.UserSettingsChanged
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimSaveLoadForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4958E3AB0247_var*
@@ -1395,9 +1907,7 @@ begin
  end;//not IsDictionLike
 //#UC END# *49803F5503AA_4958E3AB0247_impl*
 end;//TPrimSaveLoadForm.DoInit
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TPrimSaveLoadForm.DoLoadState(const aState: IvcmBase;
  aStateType: TvcmStateType): Boolean;
  {* Загружает состояние формы. Для перекрытия в потомках }
@@ -1411,9 +1921,7 @@ begin
    Assert(False);
 //#UC END# *49807428008C_4958E3AB0247_impl*
 end;//TPrimSaveLoadForm.DoLoadState
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimSaveLoadForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4958E3AB0247_var*
@@ -1459,9 +1967,7 @@ begin
  lbHeader.Left := pbHeader.Left + pbHeader.Width + c_ControlBorder * 3;
 //#UC END# *4A8E8F2E0195_4958E3AB0247_impl*
 end;//TPrimSaveLoadForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TPrimSaveLoadForm.SaveOwnFormState(out theState: IvcmBase;
  aStateType: TvcmStateType;
  aForClone: Boolean): Boolean;
@@ -1474,9 +1980,7 @@ begin
   theState := SearchState as IvcmBase;
 //#UC END# *4B4F49900003_4958E3AB0247_impl*
 end;//TPrimSaveLoadForm.SaveOwnFormState
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimSaveLoadForm.NotifyUserTypeSet;
 //#UC START# *4D78E2BB0211_4958E3AB0247_var*
 //#UC END# *4D78E2BB0211_4958E3AB0247_var*
@@ -1499,7 +2003,6 @@ begin
  end;//IsDictionLike
 //#UC END# *4D78E2BB0211_4958E3AB0247_impl*
 end;//TPrimSaveLoadForm.NotifyUserTypeSet
-{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimSaveLoadForm.ClearFields;
 begin
@@ -1507,7 +2010,6 @@ begin
  inherited;
 end;//TPrimSaveLoadForm.ClearFields
 
-{$If NOT Defined(NoVCM)}
 function TPrimSaveLoadForm.DoGetTabCaption: IvcmCString;
 //#UC START# *53F1C6EF02C9_4958E3AB0247_var*
 //#UC END# *53F1C6EF02C9_4958E3AB0247_var*
@@ -1516,9 +2018,7 @@ begin
  Result := MakeCaption;
 //#UC END# *53F1C6EF02C9_4958E3AB0247_impl*
 end;//TPrimSaveLoadForm.DoGetTabCaption
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TPrimSaveLoadForm.IsAcceptable(aDataUpdate: Boolean): Boolean;
  {* Можно ли открывать форму в текущих условиях (например, на текущей базе) }
 //#UC START# *55127A5401DE_4958E3AB0247_var*
@@ -1538,7 +2038,6 @@ begin
  end;
 //#UC END# *55127A5401DE_4958E3AB0247_impl*
 end;//TPrimSaveLoadForm.IsAcceptable
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_WellDone.Init;
@@ -1553,6 +2052,7 @@ initialization
  TtfwClassRef.Register(TPrimSaveLoadForm);
  {* Регистрация PrimSaveLoad }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin)
 end.

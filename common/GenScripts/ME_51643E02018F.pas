@@ -15,7 +15,7 @@ uses
 
 type
  TReallocMemTest = class(TTestCase)
-  public
+  published
    procedure DoIt;
  end;//TReallocMemTest
 {$IfEnd} // Defined(nsTest)

@@ -15,17 +15,6 @@ uses
 
 type
  TDiffOptionsForm = {abstract} class(TDiffForm)
-  public
-   {$If NOT Defined(NoVCM)}
-   procedure Print; override;
-    {* Печать }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure PrintDialog; override;
-    {* Печать... }
-   {$IfEnd} // NOT Defined(NoVCM)
-   procedure ToMSWord; override;
-    {* Экспорт в Word }
  end;//TDiffOptionsForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -89,40 +78,6 @@ uses
  , evCustomEditor
  , evEditorWithOperations
 ;
-
-{$If NOT Defined(NoVCM)}
-procedure TDiffOptionsForm.Print;
- {* Печать }
-//#UC START# *49521D8E0295_4C7F6D8800EE_var*
-//#UC END# *49521D8E0295_4C7F6D8800EE_var*
-begin
-//#UC START# *49521D8E0295_4C7F6D8800EE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49521D8E0295_4C7F6D8800EE_impl*
-end;//TDiffOptionsForm.Print
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TDiffOptionsForm.PrintDialog;
- {* Печать... }
-//#UC START# *495220DE0298_4C7F6D8800EE_var*
-//#UC END# *495220DE0298_4C7F6D8800EE_var*
-begin
-//#UC START# *495220DE0298_4C7F6D8800EE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495220DE0298_4C7F6D8800EE_impl*
-end;//TDiffOptionsForm.PrintDialog
-{$IfEnd} // NOT Defined(NoVCM)
-
-procedure TDiffOptionsForm.ToMSWord;
- {* Экспорт в Word }
-//#UC START# *495238EB0160_4C7F6D8800EE_var*
-//#UC END# *495238EB0160_4C7F6D8800EE_var*
-begin
-//#UC START# *495238EB0160_4C7F6D8800EE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495238EB0160_4C7F6D8800EE_impl*
-end;//TDiffOptionsForm.ToMSWord
 
 initialization
 {$If NOT Defined(NoScripts)}

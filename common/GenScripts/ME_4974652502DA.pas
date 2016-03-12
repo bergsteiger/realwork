@@ -45,6 +45,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 procedure TTreeAttributeForm.Process(const aNode: Il3SimpleNode);
  {* обработать событие }
 //#UC START# *49590D4802EE_4974652502DA_var*
@@ -55,7 +56,6 @@ begin
 //#UC END# *49590D4802EE_4974652502DA_impl*
 end;//TTreeAttributeForm.Process
 
-{$If NOT Defined(NoVCM)}
 procedure TTreeAttributeForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
  const aNew: IvcmViewAreaController);
  {* Изменился источник данных. Для перекрытия в потомках }
@@ -69,12 +69,12 @@ begin
   aNew.Subscribe(IbsCurrentChangedListener(Self));
 //#UC END# *497469C90140_4974652502DA_impl*
 end;//TTreeAttributeForm.NotifyDataSourceChanged
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TTreeAttributeForm);
  {* Регистрация TreeAttribute }
 {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

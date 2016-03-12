@@ -48,7 +48,8 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   procedure ReloadStyleTable; override;
+   procedure StyleEditor_ReloadStyleTable_Execute;
+   procedure StyleEditor_ReloadStyleTable(const aParams: IvcmExecuteParamsPrim);
   public
    property TextSource: TnscTextSource
     read f_TextSource;
@@ -95,6 +96,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки utStyleEditorExampleLocalConstants }
  str_utStyleEditorExampleCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utStyleEditorExampleCaption'; rValue : 'Текстовое окно редактора стилей');
@@ -136,14 +138,28 @@ begin
 //#UC END# *526A83CD00ED_4AF8665A0079_impl*
 end;//TPrimStyleEditorExampleForm.EditorGetHotSpotInfo
 
-procedure TPrimStyleEditorExampleForm.ReloadStyleTable;
-//#UC START# *4AF8660E0079_4AF8665A0079_var*
-//#UC END# *4AF8660E0079_4AF8665A0079_var*
+procedure TPrimStyleEditorExampleForm.StyleEditor_ReloadStyleTable_Execute;
+//#UC START# *4AF8660E0079_4AF8665A0079exec_var*
+var
+ l_StyleTableSpy: IafwStyleTableSpy;
+//#UC END# *4AF8660E0079_4AF8665A0079exec_var*
 begin
-//#UC START# *4AF8660E0079_4AF8665A0079_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF8660E0079_4AF8665A0079_impl*
-end;//TPrimStyleEditorExampleForm.ReloadStyleTable
+//#UC START# *4AF8660E0079_4AF8665A0079exec_impl*
+ if Supports(f_TextSource, IafwStyleTableSpy, l_StyleTableSpy) then
+  try
+   l_StyleTableSpy.StyleTableChanged;
+  finally
+   l_StyleTableSpy := nil;
+  end
+ else
+  Assert(False, 'Can''t query "IafwStyleTableSpy" interface');
+//#UC END# *4AF8660E0079_4AF8665A0079exec_impl*
+end;//TPrimStyleEditorExampleForm.StyleEditor_ReloadStyleTable_Execute
+
+procedure TPrimStyleEditorExampleForm.StyleEditor_ReloadStyleTable(const aParams: IvcmExecuteParamsPrim);
+begin
+ Self.StyleEditor_ReloadStyleTable_Execute;
+end;//TPrimStyleEditorExampleForm.StyleEditor_ReloadStyleTable
 
 procedure TPrimStyleEditorExampleForm.InitFields;
 //#UC START# *47A042E100E2_4AF8665A0079_var*
@@ -194,7 +210,6 @@ begin
 //#UC END# *47A042E100E2_4AF8665A0079_impl*
 end;//TPrimStyleEditorExampleForm.InitFields
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimStyleEditorExampleForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AF8665A0079_var*
@@ -217,7 +232,6 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AF8665A0079_impl*
 end;//TPrimStyleEditorExampleForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 //#UC START# *4AF8665A0079impl*
 {$R PrimStyleEditorExample_Form.res}
@@ -230,6 +244,7 @@ initialization
  TtfwClassRef.Register(TPrimStyleEditorExampleForm);
  {* Регистрация PrimStyleEditorExample }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

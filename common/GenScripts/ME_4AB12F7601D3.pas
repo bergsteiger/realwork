@@ -39,11 +39,15 @@ type
   public
    class function Make(const aData: InsLinkedObjectDescription): Result; reintroduce;
    {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
+   procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
     {* Отмена }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_GetState(var State: TvcmOperationStateIndex);
     {* Отмена }
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -69,6 +73,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 class function TPrimPictureInfoForm.Make(const aData: InsLinkedObjectDescription): Result;
 var
  l_Inst : TPrimPictureInfoForm;
@@ -81,31 +86,36 @@ begin
  end;//try..finally
 end;//TPrimPictureInfoForm.Make
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimPictureInfoForm.Cancel;
+procedure TPrimPictureInfoForm.Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
  {* Отмена }
-//#UC START# *4AC5D61E0284_4AB12F7601D3_var*
-//#UC END# *4AC5D61E0284_4AB12F7601D3_var*
+//#UC START# *4AC5D61E0284_4AB12F7601D3test_var*
+//#UC END# *4AC5D61E0284_4AB12F7601D3test_var*
 begin
-//#UC START# *4AC5D61E0284_4AB12F7601D3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AC5D61E0284_4AB12F7601D3_impl*
-end;//TPrimPictureInfoForm.Cancel
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4AC5D61E0284_4AB12F7601D3test_impl*
+ // - ничего не делаем
+//#UC END# *4AC5D61E0284_4AB12F7601D3test_impl*
+end;//TPrimPictureInfoForm.Result_Cancel_Test
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimPictureInfoForm.Cancel;
+procedure TPrimPictureInfoForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Отмена }
-//#UC START# *4C762C910358_4AB12F7601D3_var*
-//#UC END# *4C762C910358_4AB12F7601D3_var*
+//#UC START# *4AC5D61E0284_4AB12F7601D3exec_var*
+//#UC END# *4AC5D61E0284_4AB12F7601D3exec_var*
 begin
-//#UC START# *4C762C910358_4AB12F7601D3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762C910358_4AB12F7601D3_impl*
-end;//TPrimPictureInfoForm.Cancel
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4AC5D61E0284_4AB12F7601D3exec_impl*
+ ModalResult := mrCancel;
+//#UC END# *4AC5D61E0284_4AB12F7601D3exec_impl*
+end;//TPrimPictureInfoForm.Result_Cancel_Execute
 
-{$If NOT Defined(NoVCM)}
+procedure TPrimPictureInfoForm.Result_Cancel_GetState(var State: TvcmOperationStateIndex);
+ {* Отмена }
+//#UC START# *4AC5D61E0284_4AB12F7601D3getstate_var*
+//#UC END# *4AC5D61E0284_4AB12F7601D3getstate_var*
+begin
+//#UC START# *4AC5D61E0284_4AB12F7601D3getstate_impl*
+ State := st_user_Result_Cancel_Close;
+//#UC END# *4AC5D61E0284_4AB12F7601D3getstate_impl*
+end;//TPrimPictureInfoForm.Result_Cancel_GetState
+
 procedure TPrimPictureInfoForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AB12F7601D3_var*
@@ -126,9 +136,7 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AB12F7601D3_impl*
 end;//TPrimPictureInfoForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimPictureInfoForm.SetupFormLayout;
  {* Тут можно настроить внешний вид формы }
 //#UC START# *529332B40230_4AB12F7601D3_var*
@@ -143,13 +151,13 @@ begin
  ClientWidth := 340;
 //#UC END# *529332B40230_4AB12F7601D3_impl*
 end;//TPrimPictureInfoForm.SetupFormLayout
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimPictureInfoForm);
  {* Регистрация PrimPictureInfo }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

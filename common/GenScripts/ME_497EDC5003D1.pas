@@ -97,6 +97,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки utcmMainLocalConstants }
  str_utcmMainCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utcmMainCaption'; rValue : 'Оценка ответа');
@@ -179,7 +180,6 @@ begin
 //#UC END# *5176B42C0279_497EDC5003D1_impl*
 end;//TPrimConsultationMarkForm.ChangeMark
 
-{$If NOT Defined(NoVCM)}
 procedure TPrimConsultationMarkForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_497EDC5003D1_var*
@@ -283,7 +283,6 @@ begin
   mComment.TextSource.DocumentContainer.DocumentLimits.BruttoCharLimit := c_TextCommentLen;
 //#UC END# *4A8E8F2E0195_497EDC5003D1_impl*
 end;//TPrimConsultationMarkForm.InitControls
-{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_utcmMainCaption.Init;
@@ -292,6 +291,7 @@ initialization
  TtfwClassRef.Register(TPrimConsultationMarkForm);
  {* Регистрация PrimConsultationMark }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

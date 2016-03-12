@@ -27,6 +27,8 @@ uses
  l3ImplUses
  , alcuAACImportTaskResult
 ;
-{$IfEnd} // Defined(ServerTasks) AND Defined(AAC)
 
+{$If NOT Defined(Nemesis)}
+{$IfEnd} // NOT Defined(Nemesis)
+{$IfEnd} // Defined(ServerTasks) AND Defined(AAC)
 end.

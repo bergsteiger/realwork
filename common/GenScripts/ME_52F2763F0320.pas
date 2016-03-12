@@ -28,7 +28,7 @@ type
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
    {$IfEnd} // Defined(nsTest)
-  public
+  published
    procedure DoIt;
  end;//TK515862135
 {$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
@@ -55,6 +55,7 @@ uses
  {$IfEnd} // Defined(nsTest)
 ;
 
+{$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
 procedure TK515862135.DoIt;
 //#UC START# *52F2765601BE_52F2763F0320_var*
 var
@@ -143,24 +144,21 @@ begin
 //#UC END# *52F2765601BE_52F2763F0320_impl*
 end;//TK515862135.DoIt
 
-{$If Defined(nsTest)}
 function TK515862135.GetFolder: AnsiString;
  {* Папка в которую входит тест }
 begin
  Result := 'TasksProcessing';
 end;//TK515862135.GetFolder
-{$IfEnd} // Defined(nsTest)
 
-{$If Defined(nsTest)}
 function TK515862135.GetModelElementGUID: AnsiString;
  {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '52F2763F0320';
 end;//TK515862135.GetModelElementGUID
-{$IfEnd} // Defined(nsTest)
 
 initialization
  TestFramework.RegisterTest(TK515862135.Suite);
-{$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
 
+{$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
 end.

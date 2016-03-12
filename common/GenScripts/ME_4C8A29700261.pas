@@ -75,51 +75,33 @@ type
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
   public
    {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
+   procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
     {* Отмена }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure IncreaseFont; override;
-   procedure DecreaseFont; override;
-   procedure HotInformation; override;
-   procedure HelpShortCuts; override;
-   procedure HelpNewFeatures; override;
-   procedure ContactInformation; override;
-   procedure ReplyBook; override;
-   procedure GarantInternet; override;
-   procedure About; override;
-   procedure BookmarkList; override;
-   procedure BuildControlledList; override;
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure Fonts_IncreaseFont_Test(const aParams: IvcmTestParamsPrim);
+   procedure Fonts_IncreaseFont_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Fonts_DecreaseFont_Test(const aParams: IvcmTestParamsPrim);
+   procedure Fonts_DecreaseFont_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Help_HotInformation_Test(const aParams: IvcmTestParamsPrim);
+   procedure Help_HotInformation_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Help_HelpShortCuts_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Help_HelpNewFeatures_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Help_ContactInformation_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Help_ReplyBook_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Help_GarantInternet_Test(const aParams: IvcmTestParamsPrim);
+   procedure Help_GarantInternet_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Help_About_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure System_BookmarkList_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure WarnOnControl_BuildControlledList_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Построить список изменившихся документов на контроле }
-   procedure OpenUnderControlTree; override;
+   procedure WarnOnControl_OpenUnderControlTree_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Открыть вкладку "Документы на контроле" }
-   procedure HideReminder; override;
+   procedure WarnOnControl_HideReminder_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Скрыть предупреждающий знак }
-   {$If NOT Defined(NoVCM)}
-   procedure Back; override;
-    {* Назад }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Forward; override;
-    {* Вперёд }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure OpenNewWindowByUser; override;
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure GetWindowList; override;
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure CascadeWindows; override;
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure TileWindowsHorizontal; override;
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure TileWindowsVertical; override;
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure CloseAllWindows; override;
-   {$IfEnd} // NOT Defined(NoVCM)
   protected
    property IsRemUnreadConsultationsVisible: Boolean
     read f_IsRemUnreadConsultationsVisible
@@ -292,226 +274,246 @@ begin
 end;//TMainOptionsForm.ConvertOpenOnStartSetting
 
 {$If NOT Defined(NoVCM)}
-procedure TMainOptionsForm.Cancel;
+procedure TMainOptionsForm.Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
  {* Отмена }
-//#UC START# *4C762C910358_4C8A29700261_var*
-//#UC END# *4C762C910358_4C8A29700261_var*
+//#UC START# *4C762C910358_4C8A29700261test_var*
+//#UC END# *4C762C910358_4C8A29700261test_var*
 begin
-//#UC START# *4C762C910358_4C8A29700261_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762C910358_4C8A29700261_impl*
-end;//TMainOptionsForm.Cancel
+//#UC START# *4C762C910358_4C8A29700261test_impl*
+ aParams.Op.Flag[vcm_ofVisible] := False;
+//#UC END# *4C762C910358_4C8A29700261test_impl*
+end;//TMainOptionsForm.Result_Cancel_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
-procedure TMainOptionsForm.IncreaseFont;
-//#UC START# *4C8A2A5C03E4_4C8A29700261_var*
-//#UC END# *4C8A2A5C03E4_4C8A29700261_var*
+{$If NOT Defined(NoVCM)}
+procedure TMainOptionsForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отмена }
+//#UC START# *4C762C910358_4C8A29700261exec_var*
+//#UC END# *4C762C910358_4C8A29700261exec_var*
 begin
-//#UC START# *4C8A2A5C03E4_4C8A29700261_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8A2A5C03E4_4C8A29700261_impl*
-end;//TMainOptionsForm.IncreaseFont
+//#UC START# *4C762C910358_4C8A29700261exec_impl*
+ Dispatcher.History.Back;
+//#UC END# *4C762C910358_4C8A29700261exec_impl*
+end;//TMainOptionsForm.Result_Cancel_Execute
+{$IfEnd} // NOT Defined(NoVCM)
 
-procedure TMainOptionsForm.DecreaseFont;
-//#UC START# *4C8A2A72034C_4C8A29700261_var*
-//#UC END# *4C8A2A72034C_4C8A29700261_var*
+procedure TMainOptionsForm.Fonts_IncreaseFont_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C8A2A5C03E4_4C8A29700261test_var*
+//#UC END# *4C8A2A5C03E4_4C8A29700261test_var*
 begin
-//#UC START# *4C8A2A72034C_4C8A29700261_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8A2A72034C_4C8A29700261_impl*
-end;//TMainOptionsForm.DecreaseFont
+//#UC START# *4C8A2A5C03E4_4C8A29700261test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := CanChangeDefaultFontSize;
+//#UC END# *4C8A2A5C03E4_4C8A29700261test_impl*
+end;//TMainOptionsForm.Fonts_IncreaseFont_Test
 
-procedure TMainOptionsForm.HotInformation;
-//#UC START# *4C8A43B3015E_4C8A29700261_var*
-//#UC END# *4C8A43B3015E_4C8A29700261_var*
+procedure TMainOptionsForm.Fonts_IncreaseFont_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C8A2A5C03E4_4C8A29700261exec_var*
+//#UC END# *4C8A2A5C03E4_4C8A29700261exec_var*
 begin
-//#UC START# *4C8A43B3015E_4C8A29700261_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8A43B3015E_4C8A29700261_impl*
-end;//TMainOptionsForm.HotInformation
+//#UC START# *4C8A2A5C03E4_4C8A29700261exec_impl*
+ ChangeDefaultFontSize;
+//#UC END# *4C8A2A5C03E4_4C8A29700261exec_impl*
+end;//TMainOptionsForm.Fonts_IncreaseFont_Execute
 
-procedure TMainOptionsForm.HelpShortCuts;
-//#UC START# *4C8A43C40120_4C8A29700261_var*
-//#UC END# *4C8A43C40120_4C8A29700261_var*
+procedure TMainOptionsForm.Fonts_DecreaseFont_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C8A2A72034C_4C8A29700261test_var*
+//#UC END# *4C8A2A72034C_4C8A29700261test_var*
 begin
-//#UC START# *4C8A43C40120_4C8A29700261_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8A43C40120_4C8A29700261_impl*
-end;//TMainOptionsForm.HelpShortCuts
+//#UC START# *4C8A2A72034C_4C8A29700261test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := CanChangeDefaultFontSize(False);
+//#UC END# *4C8A2A72034C_4C8A29700261test_impl*
+end;//TMainOptionsForm.Fonts_DecreaseFont_Test
 
-procedure TMainOptionsForm.HelpNewFeatures;
-//#UC START# *4C8A43E30011_4C8A29700261_var*
-//#UC END# *4C8A43E30011_4C8A29700261_var*
+procedure TMainOptionsForm.Fonts_DecreaseFont_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C8A2A72034C_4C8A29700261exec_var*
+//#UC END# *4C8A2A72034C_4C8A29700261exec_var*
 begin
-//#UC START# *4C8A43E30011_4C8A29700261_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8A43E30011_4C8A29700261_impl*
-end;//TMainOptionsForm.HelpNewFeatures
+//#UC START# *4C8A2A72034C_4C8A29700261exec_impl*
+ ChangeDefaultFontSize(False);
+//#UC END# *4C8A2A72034C_4C8A29700261exec_impl*
+end;//TMainOptionsForm.Fonts_DecreaseFont_Execute
 
-procedure TMainOptionsForm.ContactInformation;
-//#UC START# *4C8A43FE01BD_4C8A29700261_var*
-//#UC END# *4C8A43FE01BD_4C8A29700261_var*
+procedure TMainOptionsForm.Help_HotInformation_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C8A43B3015E_4C8A29700261test_var*
+var
+ l_HotInformation: INodeBase;
+
+ function lp_IsAlreadyShow: Boolean;
+ {* Да, если на экране форма рубрикатора с горячей информацией. }
+ var
+  l_Form : IvcmEntityForm;
+  l_Node : INodeBase;
+ begin
+  HasForm(fm_efRubricator.rFormID, vcm_ztParent, True, @l_Form);
+  if l_Form <> nil then
+   Result := Supports(Op_Rubricator_GetRoot.Call(l_Form), INodeBase, l_Node) and
+             l_Node.IsSameNode(l_HotInformation)
+  else
+   Result := False;
+ end;//lp_IsAlreadyShow
+
+//#UC END# *4C8A43B3015E_4C8A29700261test_var*
 begin
-//#UC START# *4C8A43FE01BD_4C8A29700261_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8A43FE01BD_4C8A29700261_impl*
-end;//TMainOptionsForm.ContactInformation
+//#UC START# *4C8A43B3015E_4C8A29700261test_impl*
+ l_HotInformation := TnsBaseMainMenuTree.nsFindNavigatorItem(ns_nipHotInformation);
+ try
+  aParams.Op.Flag[vcm_ofEnabled] := (l_HotInformation <> nil) and
+   not lp_IsAlreadyShow;
+ finally
+  l_HotInformation := nil;
+ end;//try..finally
+//#UC END# *4C8A43B3015E_4C8A29700261test_impl*
+end;//TMainOptionsForm.Help_HotInformation_Test
 
-procedure TMainOptionsForm.ReplyBook;
-//#UC START# *4C8A440F025D_4C8A29700261_var*
-//#UC END# *4C8A440F025D_4C8A29700261_var*
+procedure TMainOptionsForm.Help_HotInformation_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C8A43B3015E_4C8A29700261exec_var*
+var
+ l_HotInformation: INodeBase;
+//#UC END# *4C8A43B3015E_4C8A29700261exec_var*
 begin
-//#UC START# *4C8A440F025D_4C8A29700261_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8A440F025D_4C8A29700261_impl*
-end;//TMainOptionsForm.ReplyBook
+//#UC START# *4C8A43B3015E_4C8A29700261exec_impl*
+ l_HotInformation := TnsBaseMainMenuTree.nsFindNavigatorItem(ns_nipHotInformation);
+ try
+  Assert(l_HotInformation <> nil);
+  nsOpenNavigatorItem(l_HotInformation, Self, l_HotInformation, nil);
+ finally
+  l_HotInformation := nil;
+ end;//try..finally
+//#UC END# *4C8A43B3015E_4C8A29700261exec_impl*
+end;//TMainOptionsForm.Help_HotInformation_Execute
 
-procedure TMainOptionsForm.GarantInternet;
-//#UC START# *4C8A4428006F_4C8A29700261_var*
-//#UC END# *4C8A4428006F_4C8A29700261_var*
+procedure TMainOptionsForm.Help_HelpShortCuts_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C8A43C40120_4C8A29700261exec_var*
+//#UC END# *4C8A43C40120_4C8A29700261exec_var*
 begin
-//#UC START# *4C8A4428006F_4C8A29700261_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8A4428006F_4C8A29700261_impl*
-end;//TMainOptionsForm.GarantInternet
+//#UC START# *4C8A43C40120_4C8A29700261exec_impl*
+ Application.HelpSystem.ShowTopicHelp(cHelpShortcutPage, '');
+//#UC END# *4C8A43C40120_4C8A29700261exec_impl*
+end;//TMainOptionsForm.Help_HelpShortCuts_Execute
 
-procedure TMainOptionsForm.About;
-//#UC START# *4C8A4442036F_4C8A29700261_var*
-//#UC END# *4C8A4442036F_4C8A29700261_var*
+procedure TMainOptionsForm.Help_HelpNewFeatures_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C8A43E30011_4C8A29700261exec_var*
+//#UC END# *4C8A43E30011_4C8A29700261exec_var*
 begin
-//#UC START# *4C8A4442036F_4C8A29700261_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8A4442036F_4C8A29700261_impl*
-end;//TMainOptionsForm.About
+//#UC START# *4C8A43E30011_4C8A29700261exec_impl*
+ ShowWhatsNewHelpPage;
+//#UC END# *4C8A43E30011_4C8A29700261exec_impl*
+end;//TMainOptionsForm.Help_HelpNewFeatures_Execute
 
-procedure TMainOptionsForm.BookmarkList;
-//#UC START# *4C8A44DD0291_4C8A29700261_var*
-//#UC END# *4C8A44DD0291_4C8A29700261_var*
+procedure TMainOptionsForm.Help_ContactInformation_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C8A43FE01BD_4C8A29700261exec_var*
+//#UC END# *4C8A43FE01BD_4C8A29700261exec_var*
 begin
-//#UC START# *4C8A44DD0291_4C8A29700261_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8A44DD0291_4C8A29700261_impl*
-end;//TMainOptionsForm.BookmarkList
+//#UC START# *4C8A43FE01BD_4C8A29700261exec_impl*
+ Say(inf_AnyInformation, [DefDataAdapter.GetDealerInfo]);
+//#UC END# *4C8A43FE01BD_4C8A29700261exec_impl*
+end;//TMainOptionsForm.Help_ContactInformation_Execute
 
-procedure TMainOptionsForm.BuildControlledList;
+procedure TMainOptionsForm.Help_ReplyBook_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C8A440F025D_4C8A29700261exec_var*
+//#UC END# *4C8A440F025D_4C8A29700261exec_var*
+begin
+//#UC START# *4C8A440F025D_4C8A29700261exec_impl*
+ nsDoShellExecute(nsCStr(cInternetReplyBook));
+//#UC END# *4C8A440F025D_4C8A29700261exec_impl*
+end;//TMainOptionsForm.Help_ReplyBook_Execute
+
+procedure TMainOptionsForm.Help_GarantInternet_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C8A4428006F_4C8A29700261test_var*
+var
+ l_Strings      : IvcmItems;
+ l_StringSource : InsStringsSource;
+//#UC END# *4C8A4428006F_4C8A29700261test_var*
+begin
+//#UC START# *4C8A4428006F_4C8A29700261test_impl*
+ with aParams do
+ begin
+  Op.Flag[vcm_ofEnabled] := true;
+  l_Strings := Op.SubItems;
+  if (l_Strings <> nil) and
+     (l_Strings.Count = 0) then
+  begin
+   if Supports(f_InternetMap, InsStringsSource, l_StringSource) then
+    l_StringSource.FillStrings(l_Strings);
+   l_Strings.AddOp(TdmStdRes.mod_opcode_Common_LetterToDevelopers);
+   g_InternerMapStrings := l_Strings;
+  end;//l_Strings <> nil
+ end;
+//#UC END# *4C8A4428006F_4C8A29700261test_impl*
+end;//TMainOptionsForm.Help_GarantInternet_Test
+
+procedure TMainOptionsForm.Help_GarantInternet_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C8A4428006F_4C8A29700261exec_var*
+var
+ l_CurOpIndex : Integer;
+ l_Container: IvcmContainer;
+ l_Maker: IvcmContainerMaker;
+//#UC END# *4C8A4428006F_4C8A29700261exec_var*
+begin
+//#UC START# *4C8A4428006F_4C8A29700261exec_impl*
+ l_CurOpIndex := aParams.ItemIndex;
+ if (l_CurOpIndex <= 0) then
+  Exit
+ else
+  Dec(l_CurOpIndex);
+ // - индекс первого элемента в меню 1, поэтому подкорректируем индекс:
+ l_Container := Self As IvcmContainer;
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=598934256
+ Assert(l_Container <> nil);
+ nsDoShellExecute(f_InternetMap.DisplayNameToValue(g_InternerMapStrings.ItemC[l_CurOpIndex]),
+  False, l_Container);
+//#UC END# *4C8A4428006F_4C8A29700261exec_impl*
+end;//TMainOptionsForm.Help_GarantInternet_Execute
+
+procedure TMainOptionsForm.Help_About_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C8A4442036F_4C8A29700261exec_var*
+//#UC END# *4C8A4442036F_4C8A29700261exec_var*
+begin
+//#UC START# *4C8A4442036F_4C8A29700261exec_impl*
+ TdmStdRes.About;
+//#UC END# *4C8A4442036F_4C8A29700261exec_impl*
+end;//TMainOptionsForm.Help_About_Execute
+
+procedure TMainOptionsForm.System_BookmarkList_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C8A44DD0291_4C8A29700261exec_var*
+//#UC END# *4C8A44DD0291_4C8A29700261exec_var*
+begin
+//#UC START# *4C8A44DD0291_4C8A29700261exec_impl*
+ TdmStdRes.SelectOpen(Self.As_IvcmEntityForm,
+                      TnsFolderFilterInfo.Make(ffBookmark, ns_ffNone),
+                      str_OpenBookmark);
+//#UC END# *4C8A44DD0291_4C8A29700261exec_impl*
+end;//TMainOptionsForm.System_BookmarkList_Execute
+
+procedure TMainOptionsForm.WarnOnControl_BuildControlledList_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Построить список изменившихся документов на контроле }
-//#UC START# *4C8A454E0063_4C8A29700261_var*
-//#UC END# *4C8A454E0063_4C8A29700261_var*
+//#UC START# *4C8A454E0063_4C8A29700261exec_var*
+//#UC END# *4C8A454E0063_4C8A29700261exec_var*
 begin
-//#UC START# *4C8A454E0063_4C8A29700261_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8A454E0063_4C8A29700261_impl*
-end;//TMainOptionsForm.BuildControlledList
+//#UC START# *4C8A454E0063_4C8A29700261exec_impl*
+ TdmStdRes.BuildUnderControlList((aParams As IvcmExecuteParams).Container);
+//#UC END# *4C8A454E0063_4C8A29700261exec_impl*
+end;//TMainOptionsForm.WarnOnControl_BuildControlledList_Execute
 
-procedure TMainOptionsForm.OpenUnderControlTree;
+procedure TMainOptionsForm.WarnOnControl_OpenUnderControlTree_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Открыть вкладку "Документы на контроле" }
-//#UC START# *4C8A456A0188_4C8A29700261_var*
-//#UC END# *4C8A456A0188_4C8A29700261_var*
+//#UC START# *4C8A456A0188_4C8A29700261exec_var*
+//#UC END# *4C8A456A0188_4C8A29700261exec_var*
 begin
-//#UC START# *4C8A456A0188_4C8A29700261_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8A456A0188_4C8A29700261_impl*
-end;//TMainOptionsForm.OpenUnderControlTree
+//#UC START# *4C8A456A0188_4C8A29700261exec_impl*
+ OpenUnderControl;
+//#UC END# *4C8A456A0188_4C8A29700261exec_impl*
+end;//TMainOptionsForm.WarnOnControl_OpenUnderControlTree_Execute
 
-procedure TMainOptionsForm.HideReminder;
+procedure TMainOptionsForm.WarnOnControl_HideReminder_Execute(const aParams: IvcmExecuteParamsPrim);
  {* Скрыть предупреждающий знак }
-//#UC START# *4C8A4584039B_4C8A29700261_var*
-//#UC END# *4C8A4584039B_4C8A29700261_var*
+//#UC START# *4C8A4584039B_4C8A29700261exec_var*
+//#UC END# *4C8A4584039B_4C8A29700261exec_var*
 begin
-//#UC START# *4C8A4584039B_4C8A29700261_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8A4584039B_4C8A29700261_impl*
-end;//TMainOptionsForm.HideReminder
-
-{$If NOT Defined(NoVCM)}
-procedure TMainOptionsForm.Back;
- {* Назад }
-//#UC START# *4ADDDC550118_4C8A29700261_var*
-//#UC END# *4ADDDC550118_4C8A29700261_var*
-begin
-//#UC START# *4ADDDC550118_4C8A29700261_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4ADDDC550118_4C8A29700261_impl*
-end;//TMainOptionsForm.Back
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TMainOptionsForm.Forward;
- {* Вперёд }
-//#UC START# *4ADDDC630097_4C8A29700261_var*
-//#UC END# *4ADDDC630097_4C8A29700261_var*
-begin
-//#UC START# *4ADDDC630097_4C8A29700261_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4ADDDC630097_4C8A29700261_impl*
-end;//TMainOptionsForm.Forward
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TMainOptionsForm.OpenNewWindowByUser;
-//#UC START# *4C8A30B60087_4C8A29700261_var*
-//#UC END# *4C8A30B60087_4C8A29700261_var*
-begin
-//#UC START# *4C8A30B60087_4C8A29700261_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8A30B60087_4C8A29700261_impl*
-end;//TMainOptionsForm.OpenNewWindowByUser
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TMainOptionsForm.GetWindowList;
-//#UC START# *4C8A30DB001D_4C8A29700261_var*
-//#UC END# *4C8A30DB001D_4C8A29700261_var*
-begin
-//#UC START# *4C8A30DB001D_4C8A29700261_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8A30DB001D_4C8A29700261_impl*
-end;//TMainOptionsForm.GetWindowList
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TMainOptionsForm.CascadeWindows;
-//#UC START# *4C8A30F30115_4C8A29700261_var*
-//#UC END# *4C8A30F30115_4C8A29700261_var*
-begin
-//#UC START# *4C8A30F30115_4C8A29700261_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8A30F30115_4C8A29700261_impl*
-end;//TMainOptionsForm.CascadeWindows
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TMainOptionsForm.TileWindowsHorizontal;
-//#UC START# *4C8A3114001E_4C8A29700261_var*
-//#UC END# *4C8A3114001E_4C8A29700261_var*
-begin
-//#UC START# *4C8A3114001E_4C8A29700261_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8A3114001E_4C8A29700261_impl*
-end;//TMainOptionsForm.TileWindowsHorizontal
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TMainOptionsForm.TileWindowsVertical;
-//#UC START# *4C8A312F018D_4C8A29700261_var*
-//#UC END# *4C8A312F018D_4C8A29700261_var*
-begin
-//#UC START# *4C8A312F018D_4C8A29700261_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8A312F018D_4C8A29700261_impl*
-end;//TMainOptionsForm.TileWindowsVertical
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TMainOptionsForm.CloseAllWindows;
-//#UC START# *4C8A31770143_4C8A29700261_var*
-//#UC END# *4C8A31770143_4C8A29700261_var*
-begin
-//#UC START# *4C8A31770143_4C8A29700261_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8A31770143_4C8A29700261_impl*
-end;//TMainOptionsForm.CloseAllWindows
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4C8A4584039B_4C8A29700261exec_impl*
+ f_IsControlledObjectsChanging := False;
+//#UC END# *4C8A4584039B_4C8A29700261exec_impl*
+end;//TMainOptionsForm.WarnOnControl_HideReminder_Execute
 
 procedure TMainOptionsForm.InitClone(aForm: TvcmMainForm);
 //#UC START# *4F7AE85E01EF_4C8A29700261_var*

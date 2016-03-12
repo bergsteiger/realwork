@@ -13,8 +13,6 @@ uses
 ;
 
 type
- // Analize
-
  // Selection
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 

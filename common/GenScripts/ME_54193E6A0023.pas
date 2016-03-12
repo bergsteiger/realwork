@@ -24,7 +24,7 @@ type
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-  public
+  published
    procedure DoIt();
  end;//TMultyOperationTest
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
@@ -42,6 +42,7 @@ uses
  , m3DB
 ;
 
+{$If NOT Defined(NotTunedDUnit)}
 procedure TMultyOperationTest.DoIt();
 //#UC START# *54193F6B00F8_54193E6A0023_var*
 var
@@ -107,6 +108,7 @@ function TMultyOperationTest.GetModelElementGUID: AnsiString;
 begin
  Result := '54193E6A0023';
 end;//TMultyOperationTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

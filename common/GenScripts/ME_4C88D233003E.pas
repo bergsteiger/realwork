@@ -30,39 +30,35 @@ type
    procedure MacroAdd(const aString: AnsiString); virtual; abstract;
    procedure ToGUIColontituls; virtual; abstract;
   public
+   procedure Result_Restore_Test(const aParams: IvcmTestParamsPrim);
+   procedure Result_Restore_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Result_SaveAsDefault_Test(const aParams: IvcmTestParamsPrim);
+   procedure Result_SaveAsDefault_Execute(const aParams: IvcmExecuteParamsPrim);
    {$If NOT Defined(NoVCM)}
-   procedure Print; override;
-    {* Печать }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure PrintDialog; override;
-    {* Печать... }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure PrintPreview; override;
-    {* Предварительный просмотр }
-   {$IfEnd} // NOT Defined(NoVCM)
-   procedure Restore; override;
-   procedure SaveAsDefault; override;
-   {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
+   procedure Result_Ok_Test(const aParams: IvcmTestParamsPrim);
     {* OK }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
+   procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Отмена }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure AppTitle; override;
-   procedure DocName; override;
-   procedure DocFullName; override;
-   procedure DocRedactionDate; override;
-   procedure DocCurrentPage; override;
-   procedure DocPagesCount; override;
-   procedure CurrentDate; override;
-   procedure CurrentTime; override;
-   procedure InternalDocNumber; override;
-   procedure DocumentSIze; override;
-   procedure FilePosition; override;
+   procedure ColontitulMacro_AppTitle_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure ColontitulMacro_DocName_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure ColontitulMacro_DocFullName_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure ColontitulMacro_DocRedactionDate_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure ColontitulMacro_DocCurrentPage_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure ColontitulMacro_DocPagesCount_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure ColontitulMacro_CurrentDate_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure ColontitulMacro_CurrentTime_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure ColontitulMacro_InternalDocNumber_Test(const aParams: IvcmTestParamsPrim);
+   procedure ColontitulMacro_InternalDocNumber_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure ColontitulMacro_DocumentSIze_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure ColontitulMacro_FilePosition_Test(const aParams: IvcmTestParamsPrim);
+   procedure ColontitulMacro_FilePosition_Execute(const aParams: IvcmExecuteParamsPrim);
  end;//TPrimPageSetupOptionsForm
 {$IfEnd} // NOT Defined(Admin)
 
@@ -81,182 +77,205 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimPageSetupOptionsForm.Print;
- {* Печать }
-//#UC START# *49521D8E0295_4C88D233003E_var*
-//#UC END# *49521D8E0295_4C88D233003E_var*
+procedure TPrimPageSetupOptionsForm.Result_Restore_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C52B34E0125_4C88D233003Etest_var*
+//#UC END# *4C52B34E0125_4C88D233003Etest_var*
 begin
-//#UC START# *49521D8E0295_4C88D233003E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49521D8E0295_4C88D233003E_impl*
-end;//TPrimPageSetupOptionsForm.Print
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4C52B34E0125_4C88D233003Etest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := f_PageSetup.Modified or f_PageSetup.IsDifferFromDefault;
+//#UC END# *4C52B34E0125_4C88D233003Etest_impl*
+end;//TPrimPageSetupOptionsForm.Result_Restore_Test
+
+procedure TPrimPageSetupOptionsForm.Result_Restore_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C52B34E0125_4C88D233003Eexec_var*
+//#UC END# *4C52B34E0125_4C88D233003Eexec_var*
+begin
+//#UC START# *4C52B34E0125_4C88D233003Eexec_impl*
+ if not Ask(qr_RestoreDefaultValuesPageSetup) then
+  Exit;
+ f_PageSetup.Load(True); 
+ ToGUIColontituls;
+ ToGUIMargins;
+ with f_PageSetup do
+  Self.SetPageFormat(Orientation);
+//#UC END# *4C52B34E0125_4C88D233003Eexec_impl*
+end;//TPrimPageSetupOptionsForm.Result_Restore_Execute
+
+procedure TPrimPageSetupOptionsForm.Result_SaveAsDefault_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C52B36B01B3_4C88D233003Etest_var*
+//#UC END# *4C52B36B01B3_4C88D233003Etest_var*
+begin
+//#UC START# *4C52B36B01B3_4C88D233003Etest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not f_PageSetup.IsPredefined and (f_PageSetup.Modified or f_PageSetup.IsDifferFromDefault);
+//#UC END# *4C52B36B01B3_4C88D233003Etest_impl*
+end;//TPrimPageSetupOptionsForm.Result_SaveAsDefault_Test
+
+procedure TPrimPageSetupOptionsForm.Result_SaveAsDefault_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C52B36B01B3_4C88D233003Eexec_var*
+//#UC END# *4C52B36B01B3_4C88D233003Eexec_var*
+begin
+//#UC START# *4C52B36B01B3_4C88D233003Eexec_impl*
+ if not Ask(qr_SaveAsDefaultValuesPageSetup) then
+  Exit;
+ Save(True);
+//#UC END# *4C52B36B01B3_4C88D233003Eexec_impl*
+end;//TPrimPageSetupOptionsForm.Result_SaveAsDefault_Execute
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimPageSetupOptionsForm.PrintDialog;
- {* Печать... }
-//#UC START# *495220DE0298_4C88D233003E_var*
-//#UC END# *495220DE0298_4C88D233003E_var*
-begin
-//#UC START# *495220DE0298_4C88D233003E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495220DE0298_4C88D233003E_impl*
-end;//TPrimPageSetupOptionsForm.PrintDialog
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimPageSetupOptionsForm.PrintPreview;
- {* Предварительный просмотр }
-//#UC START# *495220F2033A_4C88D233003E_var*
-//#UC END# *495220F2033A_4C88D233003E_var*
-begin
-//#UC START# *495220F2033A_4C88D233003E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495220F2033A_4C88D233003E_impl*
-end;//TPrimPageSetupOptionsForm.PrintPreview
-{$IfEnd} // NOT Defined(NoVCM)
-
-procedure TPrimPageSetupOptionsForm.Restore;
-//#UC START# *4C52B34E0125_4C88D233003E_var*
-//#UC END# *4C52B34E0125_4C88D233003E_var*
-begin
-//#UC START# *4C52B34E0125_4C88D233003E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C52B34E0125_4C88D233003E_impl*
-end;//TPrimPageSetupOptionsForm.Restore
-
-procedure TPrimPageSetupOptionsForm.SaveAsDefault;
-//#UC START# *4C52B36B01B3_4C88D233003E_var*
-//#UC END# *4C52B36B01B3_4C88D233003E_var*
-begin
-//#UC START# *4C52B36B01B3_4C88D233003E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C52B36B01B3_4C88D233003E_impl*
-end;//TPrimPageSetupOptionsForm.SaveAsDefault
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimPageSetupOptionsForm.Ok;
+procedure TPrimPageSetupOptionsForm.Result_Ok_Test(const aParams: IvcmTestParamsPrim);
  {* OK }
-//#UC START# *4C762A1501FC_4C88D233003E_var*
-//#UC END# *4C762A1501FC_4C88D233003E_var*
+//#UC START# *4C762A1501FC_4C88D233003Etest_var*
+//#UC END# *4C762A1501FC_4C88D233003Etest_var*
 begin
-//#UC START# *4C762A1501FC_4C88D233003E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762A1501FC_4C88D233003E_impl*
-end;//TPrimPageSetupOptionsForm.Ok
+//#UC START# *4C762A1501FC_4C88D233003Etest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := f_PageSetup.Modified;
+//#UC END# *4C762A1501FC_4C88D233003Etest_impl*
+end;//TPrimPageSetupOptionsForm.Result_Ok_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimPageSetupOptionsForm.Cancel;
- {* Отмена }
-//#UC START# *4C762C910358_4C88D233003E_var*
-//#UC END# *4C762C910358_4C88D233003E_var*
+procedure TPrimPageSetupOptionsForm.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* OK }
+//#UC START# *4C762A1501FC_4C88D233003Eexec_var*
+//#UC END# *4C762A1501FC_4C88D233003Eexec_var*
 begin
-//#UC START# *4C762C910358_4C88D233003E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762C910358_4C88D233003E_impl*
-end;//TPrimPageSetupOptionsForm.Cancel
+//#UC START# *4C762A1501FC_4C88D233003Eexec_impl*
+ Save;
+ ModalResult := mrOk;
+//#UC END# *4C762A1501FC_4C88D233003Eexec_impl*
+end;//TPrimPageSetupOptionsForm.Result_Ok_Execute
 {$IfEnd} // NOT Defined(NoVCM)
 
-procedure TPrimPageSetupOptionsForm.AppTitle;
-//#UC START# *4C88D40C0029_4C88D233003E_var*
-//#UC END# *4C88D40C0029_4C88D233003E_var*
+{$If NOT Defined(NoVCM)}
+procedure TPrimPageSetupOptionsForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отмена }
+//#UC START# *4C762C910358_4C88D233003Eexec_var*
+//#UC END# *4C762C910358_4C88D233003Eexec_var*
 begin
-//#UC START# *4C88D40C0029_4C88D233003E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C88D40C0029_4C88D233003E_impl*
-end;//TPrimPageSetupOptionsForm.AppTitle
+//#UC START# *4C762C910358_4C88D233003Eexec_impl*
+ ModalResult := mrCancel;
+//#UC END# *4C762C910358_4C88D233003Eexec_impl*
+end;//TPrimPageSetupOptionsForm.Result_Cancel_Execute
+{$IfEnd} // NOT Defined(NoVCM)
 
-procedure TPrimPageSetupOptionsForm.DocName;
-//#UC START# *4C88D42001C2_4C88D233003E_var*
-//#UC END# *4C88D42001C2_4C88D233003E_var*
+procedure TPrimPageSetupOptionsForm.ColontitulMacro_AppTitle_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C88D40C0029_4C88D233003Eexec_var*
+//#UC END# *4C88D40C0029_4C88D233003Eexec_var*
 begin
-//#UC START# *4C88D42001C2_4C88D233003E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C88D42001C2_4C88D233003E_impl*
-end;//TPrimPageSetupOptionsForm.DocName
+//#UC START# *4C88D40C0029_4C88D233003Eexec_impl*
+ MacroAdd(SAppTitle);
+//#UC END# *4C88D40C0029_4C88D233003Eexec_impl*
+end;//TPrimPageSetupOptionsForm.ColontitulMacro_AppTitle_Execute
 
-procedure TPrimPageSetupOptionsForm.DocFullName;
-//#UC START# *4C88D43300C7_4C88D233003E_var*
-//#UC END# *4C88D43300C7_4C88D233003E_var*
+procedure TPrimPageSetupOptionsForm.ColontitulMacro_DocName_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C88D42001C2_4C88D233003Eexec_var*
+//#UC END# *4C88D42001C2_4C88D233003Eexec_var*
 begin
-//#UC START# *4C88D43300C7_4C88D233003E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C88D43300C7_4C88D233003E_impl*
-end;//TPrimPageSetupOptionsForm.DocFullName
+//#UC START# *4C88D42001C2_4C88D233003Eexec_impl*
+ MacroAdd(SDocName);
+//#UC END# *4C88D42001C2_4C88D233003Eexec_impl*
+end;//TPrimPageSetupOptionsForm.ColontitulMacro_DocName_Execute
 
-procedure TPrimPageSetupOptionsForm.DocRedactionDate;
-//#UC START# *4C88D44401B5_4C88D233003E_var*
-//#UC END# *4C88D44401B5_4C88D233003E_var*
+procedure TPrimPageSetupOptionsForm.ColontitulMacro_DocFullName_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C88D43300C7_4C88D233003Eexec_var*
+//#UC END# *4C88D43300C7_4C88D233003Eexec_var*
 begin
-//#UC START# *4C88D44401B5_4C88D233003E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C88D44401B5_4C88D233003E_impl*
-end;//TPrimPageSetupOptionsForm.DocRedactionDate
+//#UC START# *4C88D43300C7_4C88D233003Eexec_impl*
+ MacroAdd(SDocFullName);
+//#UC END# *4C88D43300C7_4C88D233003Eexec_impl*
+end;//TPrimPageSetupOptionsForm.ColontitulMacro_DocFullName_Execute
 
-procedure TPrimPageSetupOptionsForm.DocCurrentPage;
-//#UC START# *4C88D46203BD_4C88D233003E_var*
-//#UC END# *4C88D46203BD_4C88D233003E_var*
+procedure TPrimPageSetupOptionsForm.ColontitulMacro_DocRedactionDate_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C88D44401B5_4C88D233003Eexec_var*
+//#UC END# *4C88D44401B5_4C88D233003Eexec_var*
 begin
-//#UC START# *4C88D46203BD_4C88D233003E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C88D46203BD_4C88D233003E_impl*
-end;//TPrimPageSetupOptionsForm.DocCurrentPage
+//#UC START# *4C88D44401B5_4C88D233003Eexec_impl*
+ MacroAdd(SDocRedactionDate);
+//#UC END# *4C88D44401B5_4C88D233003Eexec_impl*
+end;//TPrimPageSetupOptionsForm.ColontitulMacro_DocRedactionDate_Execute
 
-procedure TPrimPageSetupOptionsForm.DocPagesCount;
-//#UC START# *4C88D4770266_4C88D233003E_var*
-//#UC END# *4C88D4770266_4C88D233003E_var*
+procedure TPrimPageSetupOptionsForm.ColontitulMacro_DocCurrentPage_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C88D46203BD_4C88D233003Eexec_var*
+//#UC END# *4C88D46203BD_4C88D233003Eexec_var*
 begin
-//#UC START# *4C88D4770266_4C88D233003E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C88D4770266_4C88D233003E_impl*
-end;//TPrimPageSetupOptionsForm.DocPagesCount
+//#UC START# *4C88D46203BD_4C88D233003Eexec_impl*
+ MacroAdd(SDocCurrentPage);
+//#UC END# *4C88D46203BD_4C88D233003Eexec_impl*
+end;//TPrimPageSetupOptionsForm.ColontitulMacro_DocCurrentPage_Execute
 
-procedure TPrimPageSetupOptionsForm.CurrentDate;
-//#UC START# *4C88D48B0325_4C88D233003E_var*
-//#UC END# *4C88D48B0325_4C88D233003E_var*
+procedure TPrimPageSetupOptionsForm.ColontitulMacro_DocPagesCount_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C88D4770266_4C88D233003Eexec_var*
+//#UC END# *4C88D4770266_4C88D233003Eexec_var*
 begin
-//#UC START# *4C88D48B0325_4C88D233003E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C88D48B0325_4C88D233003E_impl*
-end;//TPrimPageSetupOptionsForm.CurrentDate
+//#UC START# *4C88D4770266_4C88D233003Eexec_impl*
+ MacroAdd(SDocPagesCount);
+//#UC END# *4C88D4770266_4C88D233003Eexec_impl*
+end;//TPrimPageSetupOptionsForm.ColontitulMacro_DocPagesCount_Execute
 
-procedure TPrimPageSetupOptionsForm.CurrentTime;
-//#UC START# *4C88D4A6032C_4C88D233003E_var*
-//#UC END# *4C88D4A6032C_4C88D233003E_var*
+procedure TPrimPageSetupOptionsForm.ColontitulMacro_CurrentDate_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C88D48B0325_4C88D233003Eexec_var*
+//#UC END# *4C88D48B0325_4C88D233003Eexec_var*
 begin
-//#UC START# *4C88D4A6032C_4C88D233003E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C88D4A6032C_4C88D233003E_impl*
-end;//TPrimPageSetupOptionsForm.CurrentTime
+//#UC START# *4C88D48B0325_4C88D233003Eexec_impl*
+ MacroAdd(SCurrentDate);
+//#UC END# *4C88D48B0325_4C88D233003Eexec_impl*
+end;//TPrimPageSetupOptionsForm.ColontitulMacro_CurrentDate_Execute
 
-procedure TPrimPageSetupOptionsForm.InternalDocNumber;
-//#UC START# *4C88D4BF0213_4C88D233003E_var*
-//#UC END# *4C88D4BF0213_4C88D233003E_var*
+procedure TPrimPageSetupOptionsForm.ColontitulMacro_CurrentTime_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C88D4A6032C_4C88D233003Eexec_var*
+//#UC END# *4C88D4A6032C_4C88D233003Eexec_var*
 begin
-//#UC START# *4C88D4BF0213_4C88D233003E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C88D4BF0213_4C88D233003E_impl*
-end;//TPrimPageSetupOptionsForm.InternalDocNumber
+//#UC START# *4C88D4A6032C_4C88D233003Eexec_impl*
+ MacroAdd(SCurrentTime);
+//#UC END# *4C88D4A6032C_4C88D233003Eexec_impl*
+end;//TPrimPageSetupOptionsForm.ColontitulMacro_CurrentTime_Execute
 
-procedure TPrimPageSetupOptionsForm.DocumentSIze;
-//#UC START# *4C88D4D202BA_4C88D233003E_var*
-//#UC END# *4C88D4D202BA_4C88D233003E_var*
+procedure TPrimPageSetupOptionsForm.ColontitulMacro_InternalDocNumber_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C88D4BF0213_4C88D233003Etest_var*
+//#UC END# *4C88D4BF0213_4C88D233003Etest_var*
 begin
-//#UC START# *4C88D4D202BA_4C88D233003E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C88D4D202BA_4C88D233003E_impl*
-end;//TPrimPageSetupOptionsForm.DocumentSIze
+//#UC START# *4C88D4BF0213_4C88D233003Etest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := afw.Application.IsInternal;
+ aParams.Op.Flag[vcm_ofVisible] := aParams.Op.Flag[vcm_ofEnabled];
+//#UC END# *4C88D4BF0213_4C88D233003Etest_impl*
+end;//TPrimPageSetupOptionsForm.ColontitulMacro_InternalDocNumber_Test
 
-procedure TPrimPageSetupOptionsForm.FilePosition;
-//#UC START# *4C88D4E8007C_4C88D233003E_var*
-//#UC END# *4C88D4E8007C_4C88D233003E_var*
+procedure TPrimPageSetupOptionsForm.ColontitulMacro_InternalDocNumber_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C88D4BF0213_4C88D233003Eexec_var*
+//#UC END# *4C88D4BF0213_4C88D233003Eexec_var*
 begin
-//#UC START# *4C88D4E8007C_4C88D233003E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C88D4E8007C_4C88D233003E_impl*
-end;//TPrimPageSetupOptionsForm.FilePosition
+//#UC START# *4C88D4BF0213_4C88D233003Eexec_impl*
+ MacroAdd(SInternalNumber);
+//#UC END# *4C88D4BF0213_4C88D233003Eexec_impl*
+end;//TPrimPageSetupOptionsForm.ColontitulMacro_InternalDocNumber_Execute
+
+procedure TPrimPageSetupOptionsForm.ColontitulMacro_DocumentSIze_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C88D4D202BA_4C88D233003Eexec_var*
+//#UC END# *4C88D4D202BA_4C88D233003Eexec_var*
+begin
+//#UC START# *4C88D4D202BA_4C88D233003Eexec_impl*
+ MacroAdd(SDataSize);
+//#UC END# *4C88D4D202BA_4C88D233003Eexec_impl*
+end;//TPrimPageSetupOptionsForm.ColontitulMacro_DocumentSIze_Execute
+
+procedure TPrimPageSetupOptionsForm.ColontitulMacro_FilePosition_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C88D4E8007C_4C88D233003Etest_var*
+//#UC END# *4C88D4E8007C_4C88D233003Etest_var*
+begin
+//#UC START# *4C88D4E8007C_4C88D233003Etest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := afw.Application.IsInternal;
+ aParams.Op.Flag[vcm_ofVisible] := aParams.Op.Flag[vcm_ofEnabled];
+//#UC END# *4C88D4E8007C_4C88D233003Etest_impl*
+end;//TPrimPageSetupOptionsForm.ColontitulMacro_FilePosition_Test
+
+procedure TPrimPageSetupOptionsForm.ColontitulMacro_FilePosition_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C88D4E8007C_4C88D233003Eexec_var*
+//#UC END# *4C88D4E8007C_4C88D233003Eexec_var*
+begin
+//#UC START# *4C88D4E8007C_4C88D233003Eexec_impl*
+ MacroAdd(SFilePosition);
+//#UC END# *4C88D4E8007C_4C88D233003Eexec_impl*
+end;//TPrimPageSetupOptionsForm.ColontitulMacro_FilePosition_Execute
 
 initialization
 {$If NOT Defined(NoScripts)}

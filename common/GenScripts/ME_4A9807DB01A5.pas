@@ -10,19 +10,20 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3IntfUses
+ , nsTypes
  , PrimPrimListInterfaces
  , DocumentAndListInterfaces
- , nsTypes
- , Base_Operations_Editions_Controls
- , eeInterfaces
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , l3Tree_TLB
  , FoldersUnit
+ , Base_Operations_Editions_Controls
  , DocumentUnit
  , l3TreeInterfaces
  , l3Variant
+ , eeInterfaces
+ , bsTypesNew
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -42,43 +43,15 @@ type
 
  // Filters
 
- // SearchInList
-
  // LocalList
 
- // MachineOn
-
- // MachineOff
-
- // TimeMachineOnOffNew
-
  // TimeMachine
-
- // Deactivate
-
- // Activate
 
  // Filter
 
  // Document
 
- // DocumentIsUseful
-
- // DocumentIsUseless
-
  // Document
-
- // RemoveFromControl
-
- // AddToControl
-
- // Corr
-
- // UserCR1
-
- // Corr
-
- // UserCR2
 
  // Document
 
@@ -89,20 +62,6 @@ type
  // Filters
 
  // Openable
-
- // Open
-
- // OpenNewWindow
-
- // NextHyperLink
-
- // PrevHyperLink
-
- // OpenInNewTab
-
- // OpenScriptHyperLink
-
- // NavigateInternetHyperlink
 
  // HyperLink
 

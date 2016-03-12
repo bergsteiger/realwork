@@ -42,6 +42,7 @@ uses
  l3ImplUses
 ;
 
+{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TsdsChangesBetweenEditionsData;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmData.imp.pas}
@@ -77,7 +78,6 @@ begin
 //#UC END# *4DDCF63C0353_4DDCF660018Aget_impl*
 end;//TsdsChangesBetweenEditionsData.Get_Info
 
-{$If NOT Defined(NoVCM)}
 procedure TsdsChangesBetweenEditionsData.AssignData(const aData: _IvcmRealData_);
 //#UC START# *4B16B8CF0307_4DDCF660018A_var*
 //#UC END# *4B16B8CF0307_4DDCF660018A_var*
@@ -87,13 +87,13 @@ begin
  f_Info := aData.Info;
 //#UC END# *4B16B8CF0307_4DDCF660018A_impl*
 end;//TsdsChangesBetweenEditionsData.AssignData
-{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TsdsChangesBetweenEditionsData.ClearFields;
 begin
  f_Info := nil;
  inherited;
 end;//TsdsChangesBetweenEditionsData.ClearFields
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

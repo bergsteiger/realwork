@@ -35,71 +35,52 @@ type
     out theTarget: IUnknown): Boolean;
   public
    {$If NOT Defined(NoVCM)}
-   procedure Delete; override;
+   procedure Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
     {* Удалить }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Copy; override;
+   procedure Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Delete_GetState(var State: TvcmOperationStateIndex);
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Copy_Test(const aParams: IvcmTestParamsPrim);
     {* Копировать }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure Cut; override;
-    {* Вырезать }
+   procedure Edit_Copy_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Копировать }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure FindContext; override;
-    {* Поиск }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure FindNext; override;
-    {* Найти далее }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Paste; override;
-    {* Вставка }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Undo; override;
-    {* Отмена }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Redo; override;
-    {* Возврат }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure SelectAll; override;
-    {* Выделить всё }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Deselect; override;
-    {* Снять выделение }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure FindPrev; override;
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
+   procedure Result_Ok_Test(const aParams: IvcmTestParamsPrim);
     {* OK }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure LogicOr; override;
-   procedure LogicAnd; override;
-   procedure LogicNot; override;
    {$If NOT Defined(NoVCM)}
-   procedure ExpandAll; override;
+   procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure Attribute_LogicOr_Test(const aParams: IvcmTestParamsPrim);
+   procedure Attribute_LogicOr_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Attribute_LogicAnd_Test(const aParams: IvcmTestParamsPrim);
+   procedure Attribute_LogicAnd_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Attribute_LogicNot_Test(const aParams: IvcmTestParamsPrim);
+   procedure Attribute_LogicNot_Execute(const aParams: IvcmExecuteParamsPrim);
+   {$If NOT Defined(NoVCM)}
+   procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
     {* Развернуть все }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure CollapseAll; override;
+   procedure Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
     {* Свернуть все }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure LogicOrShortcut; override;
-   procedure DropSelection; override;
-   {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
-    {* OK }
-   {$IfEnd} // NOT Defined(NoVCM)
+   procedure Attribute_LogicOrShortcut_Test(const aParams: IvcmTestParamsPrim);
+   procedure Attribute_LogicOrShortcut_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Selection_DropSelection_Test(const aParams: IvcmTestParamsPrim);
+   procedure Selection_DropSelection_Execute(const aParams: IvcmExecuteParamsPrim);
    constructor Create(AOwner: TComponent); override;
-   procedure FindFirstSelected; override;
  end;//TPrimTreeAttributeSelectOptionsForm
 
 implementation
@@ -139,228 +120,312 @@ begin
 end;//TPrimTreeAttributeSelectOptionsForm.EntitiesenSelectionGetTarget
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimTreeAttributeSelectOptionsForm.Delete;
+procedure TPrimTreeAttributeSelectOptionsForm.Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
  {* Удалить }
-//#UC START# *494F89C30197_4C443A570168_var*
-//#UC END# *494F89C30197_4C443A570168_var*
+//#UC START# *494F89C30197_4C443A570168test_var*
+//#UC END# *494F89C30197_4C443A570168test_var*
 begin
-//#UC START# *494F89C30197_4C443A570168_impl*
- !!! Needs to be implemented !!!
-//#UC END# *494F89C30197_4C443A570168_impl*
-end;//TPrimTreeAttributeSelectOptionsForm.Delete
+//#UC START# *494F89C30197_4C443A570168test_impl*
+ if (aParams.Control = AttributeTree) then
+  aParams.Op.Flag[vcm_ofVisible] := False
+ else
+ if not aParams.CallControl then
+  aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *494F89C30197_4C443A570168test_impl*
+end;//TPrimTreeAttributeSelectOptionsForm.Edit_Delete_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimTreeAttributeSelectOptionsForm.Copy;
+procedure TPrimTreeAttributeSelectOptionsForm.Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Удалить }
+//#UC START# *494F89C30197_4C443A570168exec_var*
+var
+ l_Current: INodeBase;
+//#UC END# *494F89C30197_4C443A570168exec_var*
+begin
+//#UC START# *494F89C30197_4C443A570168exec_impl*
+ if (aParams.Control = AttributeTree) then
+ begin
+  with AttributeTree do
+  begin
+   if (TreeStruct.SelectCount > 1) then
+   begin
+    DropSelectedOperation;
+   end//TreeStruct.SelectCount > 1
+   else
+   if Supports(GetCurrentNode, INodeBase, l_Current) then
+   begin
+    FormLogicOperation(l_Current, loNone);
+    if Current + 1 < TreeStruct.CountView then
+     Current := Current + 1;
+   end//Supports(GetCurrentNode, INodeBase, l_Current)
+   else
+    Exit;
+   Invalidate;
+   InvalidateOtherTree;
+  end;//with AttributeTree
+ end//aParams.Control = AttributeTree
+ else
+  aParams.CallControl;
+//#UC END# *494F89C30197_4C443A570168exec_impl*
+end;//TPrimTreeAttributeSelectOptionsForm.Edit_Delete_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimTreeAttributeSelectOptionsForm.Edit_Delete_GetState(var State: TvcmOperationStateIndex);
+ {* Удалить }
+//#UC START# *494F89C30197_4C443A570168getstate_var*
+//#UC END# *494F89C30197_4C443A570168getstate_var*
+begin
+//#UC START# *494F89C30197_4C443A570168getstate_impl*
+ // - ничего не делаем
+//#UC END# *494F89C30197_4C443A570168getstate_impl*
+end;//TPrimTreeAttributeSelectOptionsForm.Edit_Delete_GetState
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimTreeAttributeSelectOptionsForm.Edit_Copy_Test(const aParams: IvcmTestParamsPrim);
  {* Копировать }
-//#UC START# *4951284902BD_4C443A570168_var*
-//#UC END# *4951284902BD_4C443A570168_var*
+//#UC START# *4951284902BD_4C443A570168test_var*
+//#UC END# *4951284902BD_4C443A570168test_var*
 begin
-//#UC START# *4951284902BD_4C443A570168_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4951284902BD_4C443A570168_impl*
-end;//TPrimTreeAttributeSelectOptionsForm.Copy
+//#UC START# *4951284902BD_4C443A570168test_impl*
+ if aParams.Control = AttributeTree then
+  aParams.Op.Flag[vcm_ofEnabled] := False
+ else
+ if not aParams.CallControl then
+  aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4951284902BD_4C443A570168test_impl*
+end;//TPrimTreeAttributeSelectOptionsForm.Edit_Copy_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimTreeAttributeSelectOptionsForm.Cut;
- {* Вырезать }
-//#UC START# *4951285702E1_4C443A570168_var*
-//#UC END# *4951285702E1_4C443A570168_var*
+procedure TPrimTreeAttributeSelectOptionsForm.Edit_Copy_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Копировать }
+//#UC START# *4951284902BD_4C443A570168exec_var*
+//#UC END# *4951284902BD_4C443A570168exec_var*
 begin
-//#UC START# *4951285702E1_4C443A570168_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4951285702E1_4C443A570168_impl*
-end;//TPrimTreeAttributeSelectOptionsForm.Cut
+//#UC START# *4951284902BD_4C443A570168exec_impl*
+ if aParams.Control <> AttributeTree then
+  aParams.CallControl;
+//#UC END# *4951284902BD_4C443A570168exec_impl*
+end;//TPrimTreeAttributeSelectOptionsForm.Edit_Copy_Execute
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimTreeAttributeSelectOptionsForm.FindContext;
- {* Поиск }
-//#UC START# *49512B5D0009_4C443A570168_var*
-//#UC END# *49512B5D0009_4C443A570168_var*
-begin
-//#UC START# *49512B5D0009_4C443A570168_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49512B5D0009_4C443A570168_impl*
-end;//TPrimTreeAttributeSelectOptionsForm.FindContext
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimTreeAttributeSelectOptionsForm.FindNext;
- {* Найти далее }
-//#UC START# *495130C40123_4C443A570168_var*
-//#UC END# *495130C40123_4C443A570168_var*
-begin
-//#UC START# *495130C40123_4C443A570168_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495130C40123_4C443A570168_impl*
-end;//TPrimTreeAttributeSelectOptionsForm.FindNext
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimTreeAttributeSelectOptionsForm.Paste;
- {* Вставка }
-//#UC START# *49EDFA3701B0_4C443A570168_var*
-//#UC END# *49EDFA3701B0_4C443A570168_var*
-begin
-//#UC START# *49EDFA3701B0_4C443A570168_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EDFA3701B0_4C443A570168_impl*
-end;//TPrimTreeAttributeSelectOptionsForm.Paste
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimTreeAttributeSelectOptionsForm.Undo;
- {* Отмена }
-//#UC START# *49EDFCA2006D_4C443A570168_var*
-//#UC END# *49EDFCA2006D_4C443A570168_var*
-begin
-//#UC START# *49EDFCA2006D_4C443A570168_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EDFCA2006D_4C443A570168_impl*
-end;//TPrimTreeAttributeSelectOptionsForm.Undo
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimTreeAttributeSelectOptionsForm.Redo;
- {* Возврат }
-//#UC START# *49EDFCB100BC_4C443A570168_var*
-//#UC END# *49EDFCB100BC_4C443A570168_var*
-begin
-//#UC START# *49EDFCB100BC_4C443A570168_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EDFCB100BC_4C443A570168_impl*
-end;//TPrimTreeAttributeSelectOptionsForm.Redo
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimTreeAttributeSelectOptionsForm.SelectAll;
- {* Выделить всё }
-//#UC START# *49EE01AA02BE_4C443A570168_var*
-//#UC END# *49EE01AA02BE_4C443A570168_var*
-begin
-//#UC START# *49EE01AA02BE_4C443A570168_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EE01AA02BE_4C443A570168_impl*
-end;//TPrimTreeAttributeSelectOptionsForm.SelectAll
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimTreeAttributeSelectOptionsForm.Deselect;
- {* Снять выделение }
-//#UC START# *49EE01BC022E_4C443A570168_var*
-//#UC END# *49EE01BC022E_4C443A570168_var*
-begin
-//#UC START# *49EE01BC022E_4C443A570168_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EE01BC022E_4C443A570168_impl*
-end;//TPrimTreeAttributeSelectOptionsForm.Deselect
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimTreeAttributeSelectOptionsForm.FindPrev;
-//#UC START# *49FEDE4703B8_4C443A570168_var*
-//#UC END# *49FEDE4703B8_4C443A570168_var*
-begin
-//#UC START# *49FEDE4703B8_4C443A570168_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49FEDE4703B8_4C443A570168_impl*
-end;//TPrimTreeAttributeSelectOptionsForm.FindPrev
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimTreeAttributeSelectOptionsForm.Ok;
+procedure TPrimTreeAttributeSelectOptionsForm.Result_Ok_Test(const aParams: IvcmTestParamsPrim);
  {* OK }
-//#UC START# *4A97EBE702F8_4C443A570168_var*
-//#UC END# *4A97EBE702F8_4C443A570168_var*
+//#UC START# *4A97EBE702F8_4C443A570168test_var*
+//#UC END# *4A97EBE702F8_4C443A570168test_var*
 begin
-//#UC START# *4A97EBE702F8_4C443A570168_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A97EBE702F8_4C443A570168_impl*
-end;//TPrimTreeAttributeSelectOptionsForm.Ok
+//#UC START# *4A97EBE702F8_4C443A570168test_impl*
+ aParams.Op.Flag[vcm_ofVisible] := False;
+//#UC END# *4A97EBE702F8_4C443A570168test_impl*
+end;//TPrimTreeAttributeSelectOptionsForm.Result_Ok_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
-procedure TPrimTreeAttributeSelectOptionsForm.LogicOr;
-//#UC START# *4AFAFB4602D9_4C443A570168_var*
-//#UC END# *4AFAFB4602D9_4C443A570168_var*
+{$If NOT Defined(NoVCM)}
+procedure TPrimTreeAttributeSelectOptionsForm.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* OK }
+//#UC START# *4A97EBE702F8_4C443A570168exec_var*
+//#UC END# *4A97EBE702F8_4C443A570168exec_var*
 begin
-//#UC START# *4AFAFB4602D9_4C443A570168_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AFAFB4602D9_4C443A570168_impl*
-end;//TPrimTreeAttributeSelectOptionsForm.LogicOr
+//#UC START# *4A97EBE702F8_4C443A570168exec_impl*
+ (* закроем форму, или начнём поиск *)
+ if Assigned(Aggregate) then
+  Aggregate.Operation(TdmStdRes.opcode_Result_OkExt);
+//#UC END# *4A97EBE702F8_4C443A570168exec_impl*
+end;//TPrimTreeAttributeSelectOptionsForm.Result_Ok_Execute
+{$IfEnd} // NOT Defined(NoVCM)
 
-procedure TPrimTreeAttributeSelectOptionsForm.LogicAnd;
-//#UC START# *4AFAFB5800B9_4C443A570168_var*
-//#UC END# *4AFAFB5800B9_4C443A570168_var*
+procedure TPrimTreeAttributeSelectOptionsForm.Attribute_LogicOr_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4AFAFB4602D9_4C443A570168test_var*
+//#UC END# *4AFAFB4602D9_4C443A570168test_var*
 begin
-//#UC START# *4AFAFB5800B9_4C443A570168_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AFAFB5800B9_4C443A570168_impl*
-end;//TPrimTreeAttributeSelectOptionsForm.LogicAnd
+//#UC START# *4AFAFB4602D9_4C443A570168test_impl*
+ //LOToolbarTest(aParams, loOr);
+ LogicOperationTest(aParams, loOr);
+//#UC END# *4AFAFB4602D9_4C443A570168test_impl*
+end;//TPrimTreeAttributeSelectOptionsForm.Attribute_LogicOr_Test
 
-procedure TPrimTreeAttributeSelectOptionsForm.LogicNot;
-//#UC START# *4AFAFB7002B5_4C443A570168_var*
-//#UC END# *4AFAFB7002B5_4C443A570168_var*
+procedure TPrimTreeAttributeSelectOptionsForm.Attribute_LogicOr_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4AFAFB4602D9_4C443A570168exec_var*
+var
+ l_Node: INodeBase;
+//#UC END# *4AFAFB4602D9_4C443A570168exec_var*
 begin
-//#UC START# *4AFAFB7002B5_4C443A570168_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AFAFB7002B5_4C443A570168_impl*
-end;//TPrimTreeAttributeSelectOptionsForm.LogicNot
+//#UC START# *4AFAFB4602D9_4C443A570168exec_impl*
+ if (AttributeTree.TreeStruct.SelectCount <= 1) and
+    (AttributeTree.Current >= 0) then
+ begin
+  if Supports(AttributeTree.GetCurrentNode, INodeBase, l_Node) then
+   FormLogicOperation(l_Node, loOr);
+ end
+ else
+  if f_OrState then
+   DropSelectedOperation
+  else
+   ChangeOperationOnSelected(loOr);
+ AttributeTree.Invalidate;
+ InvalidateOtherTree;
+//#UC END# *4AFAFB4602D9_4C443A570168exec_impl*
+end;//TPrimTreeAttributeSelectOptionsForm.Attribute_LogicOr_Execute
+
+procedure TPrimTreeAttributeSelectOptionsForm.Attribute_LogicAnd_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4AFAFB5800B9_4C443A570168test_var*
+//#UC END# *4AFAFB5800B9_4C443A570168test_var*
+begin
+//#UC START# *4AFAFB5800B9_4C443A570168test_impl*
+ //LOToolbarTest(aParams, loAnd);
+ LogicOperationTest(aParams, loAnd);
+//#UC END# *4AFAFB5800B9_4C443A570168test_impl*
+end;//TPrimTreeAttributeSelectOptionsForm.Attribute_LogicAnd_Test
+
+procedure TPrimTreeAttributeSelectOptionsForm.Attribute_LogicAnd_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4AFAFB5800B9_4C443A570168exec_var*
+var
+ l_Node: INodeBase;
+//#UC END# *4AFAFB5800B9_4C443A570168exec_var*
+begin
+//#UC START# *4AFAFB5800B9_4C443A570168exec_impl*
+ if (AttributeTree.TreeStruct.SelectCount <= 1) and
+    (AttributeTree.Current >= 0) then
+ begin
+  if Supports(AttributeTree.GetCurrentNode, INodeBase, l_Node) then
+   FormLogicOperation(l_Node, loAnd);
+ end
+ else
+  if f_AndState then
+   DropSelectedOperation
+  else
+   ChangeOperationOnSelected(loAnd);
+ AttributeTree.Invalidate;
+ InvalidateOtherTree;
+//#UC END# *4AFAFB5800B9_4C443A570168exec_impl*
+end;//TPrimTreeAttributeSelectOptionsForm.Attribute_LogicAnd_Execute
+
+procedure TPrimTreeAttributeSelectOptionsForm.Attribute_LogicNot_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4AFAFB7002B5_4C443A570168test_var*
+//#UC END# *4AFAFB7002B5_4C443A570168test_var*
+begin
+//#UC START# *4AFAFB7002B5_4C443A570168test_impl*
+ //LOToolbarTest(aParams, loNot);
+ LogicOperationTest(aParams, loNot);
+//#UC END# *4AFAFB7002B5_4C443A570168test_impl*
+end;//TPrimTreeAttributeSelectOptionsForm.Attribute_LogicNot_Test
+
+procedure TPrimTreeAttributeSelectOptionsForm.Attribute_LogicNot_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4AFAFB7002B5_4C443A570168exec_var*
+var
+ l_Node: INodeBase;
+//#UC END# *4AFAFB7002B5_4C443A570168exec_var*
+begin
+//#UC START# *4AFAFB7002B5_4C443A570168exec_impl*
+ if (AttributeTree.TreeStruct.SelectCount <= 1) and
+    (AttributeTree.Current >= 0) then
+ begin
+  if Supports(AttributeTree.GetCurrentNode, INodeBase, l_Node) then
+   FormLogicOperation(AttributeTree.GetCurrentNode as INodeBase, loNot);
+ end
+ else
+  if f_NotState then
+   DropSelectedOperation
+  else
+   ChangeOperationOnSelected(loNot);
+ AttributeTree.Invalidate;
+ InvalidateOtherTree; 
+//#UC END# *4AFAFB7002B5_4C443A570168exec_impl*
+end;//TPrimTreeAttributeSelectOptionsForm.Attribute_LogicNot_Execute
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimTreeAttributeSelectOptionsForm.ExpandAll;
+procedure TPrimTreeAttributeSelectOptionsForm.Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
  {* Развернуть все }
-//#UC START# *4BDAF7880236_4C443A570168_var*
-//#UC END# *4BDAF7880236_4C443A570168_var*
+//#UC START# *4BDAF7880236_4C443A570168test_var*
+//#UC END# *4BDAF7880236_4C443A570168test_var*
 begin
-//#UC START# *4BDAF7880236_4C443A570168_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BDAF7880236_4C443A570168_impl*
-end;//TPrimTreeAttributeSelectOptionsForm.ExpandAll
+//#UC START# *4BDAF7880236_4C443A570168test_impl*
+ if UserType = astFirstLevel then
+  aParams.Op.Flag[vcm_ofVisible] := False;
+//#UC END# *4BDAF7880236_4C443A570168test_impl*
+end;//TPrimTreeAttributeSelectOptionsForm.Tree_ExpandAll_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-procedure TPrimTreeAttributeSelectOptionsForm.CollapseAll;
+procedure TPrimTreeAttributeSelectOptionsForm.Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
  {* Свернуть все }
-//#UC START# *4BDAF7A2005C_4C443A570168_var*
-//#UC END# *4BDAF7A2005C_4C443A570168_var*
+//#UC START# *4BDAF7A2005C_4C443A570168test_var*
+//#UC END# *4BDAF7A2005C_4C443A570168test_var*
 begin
-//#UC START# *4BDAF7A2005C_4C443A570168_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BDAF7A2005C_4C443A570168_impl*
-end;//TPrimTreeAttributeSelectOptionsForm.CollapseAll
+//#UC START# *4BDAF7A2005C_4C443A570168test_impl*
+ if UserType = astFirstLevel then
+  aParams.Op.Flag[vcm_ofVisible] := False;
+//#UC END# *4BDAF7A2005C_4C443A570168test_impl*
+end;//TPrimTreeAttributeSelectOptionsForm.Tree_CollapseAll_Test
 {$IfEnd} // NOT Defined(NoVCM)
 
-procedure TPrimTreeAttributeSelectOptionsForm.LogicOrShortcut;
-//#UC START# *4C44444E0066_4C443A570168_var*
-//#UC END# *4C44444E0066_4C443A570168_var*
+procedure TPrimTreeAttributeSelectOptionsForm.Attribute_LogicOrShortcut_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C44444E0066_4C443A570168test_var*
+//#UC END# *4C44444E0066_4C443A570168test_var*
 begin
-//#UC START# *4C44444E0066_4C443A570168_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C44444E0066_4C443A570168_impl*
-end;//TPrimTreeAttributeSelectOptionsForm.LogicOrShortcut
+//#UC START# *4C44444E0066_4C443A570168test_impl*
+ aParams.Op.Flag[vcm_ofVisible] := False;
+//#UC END# *4C44444E0066_4C443A570168test_impl*
+end;//TPrimTreeAttributeSelectOptionsForm.Attribute_LogicOrShortcut_Test
 
-procedure TPrimTreeAttributeSelectOptionsForm.DropSelection;
-//#UC START# *4C4445300216_4C443A570168_var*
-//#UC END# *4C4445300216_4C443A570168_var*
+procedure TPrimTreeAttributeSelectOptionsForm.Attribute_LogicOrShortcut_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C44444E0066_4C443A570168exec_var*
+var
+ l_Current: INodeBase;
+ l_OldOp: TLogicOperation;
+//#UC END# *4C44444E0066_4C443A570168exec_var*
 begin
-//#UC START# *4C4445300216_4C443A570168_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C4445300216_4C443A570168_impl*
-end;//TPrimTreeAttributeSelectOptionsForm.DropSelection
+//#UC START# *4C44444E0066_4C443A570168exec_impl*
+ with AttributeTree do
+ begin
+  if (TreeStruct.SelectCount > 1) then
+  begin
+   ChangeOperationOnSelected(loOr);
+  end//TreeStruct.SelectCount > 1
+  else
+  if Supports(GetCurrentNode, INodeBase, l_Current) then
+  begin
+   l_OldOp := GetLogicOperation(l_Current);
+   if (l_OldOp = loNone) then
+   begin
+    if not l_Current.HasFilteredChildren then
+     SetLogicOperation(l_Current, loOr);
+    NotifyOperationChange(l_Current, l_OldOp, loOr);
+   end;//l_OldOp = loNone
+   if Current + 1 < TreeStruct.CountView then
+    Current := Current + 1;
+  end//Supports(GetCurrentNode, INodeBase, l_Current)
+  else
+   Exit;
+  Invalidate;
+  InvalidateOtherTree;
+ end;//with AttributeTree
+//#UC END# *4C44444E0066_4C443A570168exec_impl*
+end;//TPrimTreeAttributeSelectOptionsForm.Attribute_LogicOrShortcut_Execute
 
-{$If NOT Defined(NoVCM)}
-procedure TPrimTreeAttributeSelectOptionsForm.Ok;
- {* OK }
-//#UC START# *4C762A1501FC_4C443A570168_var*
-//#UC END# *4C762A1501FC_4C443A570168_var*
+procedure TPrimTreeAttributeSelectOptionsForm.Selection_DropSelection_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C4445300216_4C443A570168test_var*
+//#UC END# *4C4445300216_4C443A570168test_var*
 begin
-//#UC START# *4C762A1501FC_4C443A570168_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C762A1501FC_4C443A570168_impl*
-end;//TPrimTreeAttributeSelectOptionsForm.Ok
-{$IfEnd} // NOT Defined(NoVCM)
+//#UC START# *4C4445300216_4C443A570168test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := AttributeTree.TreeStruct.SelectCount >= 1;
+//#UC END# *4C4445300216_4C443A570168test_impl*
+end;//TPrimTreeAttributeSelectOptionsForm.Selection_DropSelection_Test
+
+procedure TPrimTreeAttributeSelectOptionsForm.Selection_DropSelection_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C4445300216_4C443A570168exec_var*
+//#UC END# *4C4445300216_4C443A570168exec_var*
+begin
+//#UC START# *4C4445300216_4C443A570168exec_impl*
+ DropSelectedOperation;
+ AttributeTree.Invalidate;
+ InvalidateOtherTree;
+//#UC END# *4C4445300216_4C443A570168exec_impl*
+end;//TPrimTreeAttributeSelectOptionsForm.Selection_DropSelection_Execute
 
 constructor TPrimTreeAttributeSelectOptionsForm.Create(AOwner: TComponent);
 //#UC START# *47D1602000C6_4C443A570168_var*
@@ -382,15 +447,6 @@ begin
 
 //#UC END# *47D1602000C6_4C443A570168_impl*
 end;//TPrimTreeAttributeSelectOptionsForm.Create
-
-procedure TPrimTreeAttributeSelectOptionsForm.FindFirstSelected;
-//#UC START# *4C2B1B9100B5_4C443A570168_var*
-//#UC END# *4C2B1B9100B5_4C443A570168_var*
-begin
-//#UC START# *4C2B1B9100B5_4C443A570168_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C2B1B9100B5_4C443A570168_impl*
-end;//TPrimTreeAttributeSelectOptionsForm.FindFirstSelected
 
 initialization
 {$If NOT Defined(NoScripts)}

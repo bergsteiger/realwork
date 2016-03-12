@@ -49,6 +49,7 @@ uses
  , l3Except
 ;
 
+{$If NOT Defined(NotTunedDUnit)}
 procedure TWriterTest.DoWrite(aReader: Tk2CustomFileReader;
  const anExt: AnsiString;
  aHeaderBegin: AnsiChar = #0);
@@ -167,6 +168,7 @@ function TWriterTest.GetModelElementGUID: AnsiString;
 begin
  Result := '4BACDDB500CE';
 end;//TWriterTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

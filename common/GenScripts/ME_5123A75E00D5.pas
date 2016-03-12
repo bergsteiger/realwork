@@ -50,9 +50,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4B7AB0B6016E_5123A75E00D5_impl*
 end;//TtoKAdmin.CommandLineKey
-{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$If NOT Defined(NotTunedDUnit)}
 class function TtoKAdmin.TimesPage: Integer;
  {* Страница для вывода замеров времени }
 //#UC START# *4B7C0B43005B_5123A75E00D5_var*
@@ -62,9 +60,7 @@ begin
  Result := 431378129;
 //#UC END# *4B7C0B43005B_5123A75E00D5_impl*
 end;//TtoKAdmin.TimesPage
-{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$If NOT Defined(NotTunedDUnit)}
 class function TtoKAdmin.ResultsPage: Integer;
  {* Страница для вывода результатов тестов }
 //#UC START# *4B7C0B670215_5123A75E00D5_var*

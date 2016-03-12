@@ -55,7 +55,6 @@ begin
  Result := false;
 //#UC END# *4C08CF4300BE_4D2C43E601FC_impl*
 end;//TK249336513.WebStyle
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TK249336513.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -71,6 +70,7 @@ end;//TK249336513.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(TK249336513.Suite);
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

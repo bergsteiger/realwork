@@ -62,11 +62,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
+{$If NOT Defined(NoVCM)}
 {$Include w:\common\components\rtl\Garant\ScriptEngine\ClipboardOperations.imp.pas}
 
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
 
-{$If NOT Defined(NoVCM)}
 procedure TMouseMoveSelectionTest.Process(aForm: TPrimTextLoadForm);
  {* Собственно процесс обработки текста }
 //#UC START# *4BE13147032C_4D3D40C70045_var*
@@ -115,7 +115,6 @@ begin
  CopyAndPaste2DocumentBottom(aForm.Text);
 //#UC END# *4BE13147032C_4D3D40C70045_impl*
 end;//TMouseMoveSelectionTest.Process
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TMouseMoveSelectionTest.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -128,6 +127,7 @@ function TMouseMoveSelectionTest.GetModelElementGUID: AnsiString;
 begin
  Result := '4D3D40C70045';
 end;//TMouseMoveSelectionTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

@@ -16,7 +16,8 @@ uses
 type
  TPrimMainOptionsForm = class(TPrimMainForm)
   public
-   procedure HelpTopics; override;
+   procedure Help_HelpTopics_Test(const aParams: IvcmTestParamsPrim);
+   procedure Help_HelpTopics_Execute(const aParams: IvcmExecuteParamsPrim);
  end;//TPrimMainOptionsForm
 
 implementation
@@ -35,14 +36,24 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
-procedure TPrimMainOptionsForm.HelpTopics;
-//#UC START# *4C8A27DA0087_4C8A210E018C_var*
-//#UC END# *4C8A27DA0087_4C8A210E018C_var*
+procedure TPrimMainOptionsForm.Help_HelpTopics_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C8A27DA0087_4C8A210E018Ctest_var*
+//#UC END# *4C8A27DA0087_4C8A210E018Ctest_var*
 begin
-//#UC START# *4C8A27DA0087_4C8A210E018C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8A27DA0087_4C8A210E018C_impl*
-end;//TPrimMainOptionsForm.HelpTopics
+//#UC START# *4C8A27DA0087_4C8A210E018Ctest_impl*
+ if (Application.HelpFile = '') then
+  aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4C8A27DA0087_4C8A210E018Ctest_impl*
+end;//TPrimMainOptionsForm.Help_HelpTopics_Test
+
+procedure TPrimMainOptionsForm.Help_HelpTopics_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C8A27DA0087_4C8A210E018Cexec_var*
+//#UC END# *4C8A27DA0087_4C8A210E018Cexec_var*
+begin
+//#UC START# *4C8A27DA0087_4C8A210E018Cexec_impl*
+ Application.HelpSystem.ShowTopicHelp(cHelpStartPage, '');
+//#UC END# *4C8A27DA0087_4C8A210E018Cexec_impl*
+end;//TPrimMainOptionsForm.Help_HelpTopics_Execute
 
 initialization
 {$If NOT Defined(NoScripts)}

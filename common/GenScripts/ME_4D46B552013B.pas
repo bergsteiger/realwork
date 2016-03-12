@@ -30,7 +30,7 @@ type
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
-  public
+  published
    procedure DoIt();
  end;//TOutlinerTest
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
@@ -49,6 +49,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NotTunedDUnit)}
 {$Include w:\common\components\gui\Garant\Daily\FormProducer.imp.pas}
 
 procedure TOutlinerTest.DoIt();
@@ -91,6 +92,7 @@ function TOutlinerTest.GetModelElementGUID: AnsiString;
 begin
  Result := '4D46B552013B';
 end;//TOutlinerTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 end.

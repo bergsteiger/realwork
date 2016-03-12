@@ -48,9 +48,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4B7AB0B6016E_537A1E5F03D2_impl*
 end;//TToK3.CommandLineKey
-{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$If NOT Defined(NotTunedDUnit)}
 class function TToK3.TimesPage: Integer;
  {* Страница для вывода замеров времени }
 //#UC START# *4B7C0B43005B_537A1E5F03D2_var*
@@ -60,9 +58,7 @@ begin
  Result := 535904146;
 //#UC END# *4B7C0B43005B_537A1E5F03D2_impl*
 end;//TToK3.TimesPage
-{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$If NOT Defined(NotTunedDUnit)}
 class function TToK3.ResultsPage: Integer;
  {* Страница для вывода результатов тестов }
 //#UC START# *4B7C0B670215_537A1E5F03D2_var*

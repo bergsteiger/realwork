@@ -31,7 +31,7 @@ type
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
    {$IfEnd} // Defined(nsTest)
-  public
+  published
    procedure DoIt;
  end;//TalcuImportTest
 {$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
@@ -64,6 +64,7 @@ uses
  , l3Filer
 ;
 
+{$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
 {$Include w:\archi\source\projects\PipeInAuto\Tests\TaskSaver.imp.pas}
 
 procedure TalcuImportTest.DoIt;
@@ -135,21 +136,18 @@ begin
 //#UC END# *537226BB0284_5372265401B9_impl*
 end;//TalcuImportTest.DoIt
 
-{$If Defined(nsTest)}
 function TalcuImportTest.GetFolder: AnsiString;
  {* Папка в которую входит тест }
 begin
  Result := 'AbstractImportTasks';
 end;//TalcuImportTest.GetFolder
-{$IfEnd} // Defined(nsTest)
 
-{$If Defined(nsTest)}
 function TalcuImportTest.GetModelElementGUID: AnsiString;
  {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '5372265401B9';
 end;//TalcuImportTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest)
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
 
 {$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
 end.

@@ -85,9 +85,9 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 {$Include w:\common\components\rtl\Garant\ScriptEngine\SelectTablePart.imp.pas}
 
-{$If NOT Defined(NoVCM)}
 procedure TDrawSelectionInTableTest.DoVisit(aForm: TPrimTextLoadForm);
  {* Обработать текст }
 //#UC START# *4BE419AF0217_4D6F501303E4_var*
@@ -104,7 +104,6 @@ begin
  end;
 //#UC END# *4BE419AF0217_4D6F501303E4_impl*
 end;//TDrawSelectionInTableTest.DoVisit
-{$IfEnd} // NOT Defined(NoVCM)
 
 {$If Defined(evNeedPainters)}
 function TDrawSelectionInTableTest.OpenSelectionLog: AnsiString;
@@ -140,7 +139,6 @@ begin
 end;//TDrawSelectionInTableTest.FileForOutput
 {$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$If NOT Defined(NoVCM)}
 function TDrawSelectionInTableTest.GetNormalFontSize: Integer;
  {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
 //#UC START# *4C07AC6F036D_4D6F501303E4_var*
@@ -150,9 +148,7 @@ begin
  Result := 12;
 //#UC END# *4C07AC6F036D_4D6F501303E4_impl*
 end;//TDrawSelectionInTableTest.GetNormalFontSize
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TDrawSelectionInTableTest.FormExtent: TPoint;
  {* Размеры формы }
 //#UC START# *4C08CF700318_4D6F501303E4_var*
@@ -163,7 +159,6 @@ begin
  Result.Y := 700;
 //#UC END# *4C08CF700318_4D6F501303E4_impl*
 end;//TDrawSelectionInTableTest.FormExtent
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TDrawSelectionInTableTest.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -186,6 +181,7 @@ function TDrawSelectionInTableTest.GetModelElementGUID: AnsiString;
 begin
  Result := '4D6F501303E4';
 end;//TDrawSelectionInTableTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

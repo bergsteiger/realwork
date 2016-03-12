@@ -32,8 +32,9 @@ uses
  , tc6PublicInfo
 ;
 
+{$If NOT Defined(NoVCL)}
 type
- TControlFriend = {final} class(TControl)
+ TControlFriend = {abstract} class(TControl)
   {* ƒруг к классу TControl }
  end;//TControlFriend
 
@@ -84,6 +85,7 @@ end;
 initialization
  _RegisterPublicInformation5;
  _RegisterPublicInformation6;
-{$IfEnd} // NOT Defined(XE)
+{$IfEnd} // NOT Defined(NoVCL)
 
+{$IfEnd} // NOT Defined(XE)
 end.

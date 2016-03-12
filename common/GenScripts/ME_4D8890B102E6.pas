@@ -56,9 +56,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
+{$If NOT Defined(NoVCM)}
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\MouseClickOnPoint.imp.pas}
 
-{$If NOT Defined(NoVCM)}
 procedure TMouseSelectPtTest.DoVisit(aForm: TPrimTextLoadForm);
  {* Обработать текст }
 //#UC START# *4BE419AF0217_4D8890B102E6_var*
@@ -68,7 +68,6 @@ begin
  ClickOnPoint(aForm.Text, False);
 //#UC END# *4BE419AF0217_4D8890B102E6_impl*
 end;//TMouseSelectPtTest.DoVisit
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TMouseSelectPtTest.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -81,6 +80,7 @@ function TMouseSelectPtTest.GetModelElementGUID: AnsiString;
 begin
  Result := '4D8890B102E6';
 end;//TMouseSelectPtTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

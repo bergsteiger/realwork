@@ -59,7 +59,6 @@ begin
  Result.Y := 768;
 //#UC END# *4C08CF700318_4C1A582D009F_impl*
 end;//TK206079241.FormExtent
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TK206079241.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -75,6 +74,7 @@ end;//TK206079241.GetModelElementGUID
 
 initialization
  TestFramework.RegisterTest(TK206079241.Suite);
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

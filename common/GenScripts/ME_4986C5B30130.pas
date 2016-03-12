@@ -50,20 +50,24 @@
    function pm_GetHyperlinkDocID: Integer; override;
    function pm_GetHyperlinkDocumentName: Il3CString; override;
   public
-   procedure AddToControl; override;
+   procedure Document_AddToControl_Test(const aParams: IvcmTestParamsPrim);
     {* Поставить на контроль }
-   procedure UserCR1; override;
+   procedure Document_AddToControl_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Поставить на контроль }
+   procedure Document_AddToControl_GetState(var State: TvcmOperationStateIndex);
+    {* Поставить на контроль }
+   procedure Document_UserCR1_Test(const aParams: IvcmTestParamsPrim);
     {* Коллеги, это что? }
-   procedure UserCR2; override;
+   procedure Document_UserCR1_GetState(var State: TvcmOperationStateIndex);
     {* Коллеги, это что? }
-   procedure AddBookmark; override;
+   procedure Document_UserCR2_Test(const aParams: IvcmTestParamsPrim);
+    {* Коллеги, это что? }
+   procedure Document_UserCR2_GetState(var State: TvcmOperationStateIndex);
+    {* Коллеги, это что? }
+   procedure Document_AddBookmark_Test(const aParams: IvcmTestParamsPrim);
     {* Добавить закладку }
-   procedure AddToControl; override;
-    {* Поставить на контроль }
-   procedure UserCR1; override;
-    {* Пользовательские ссылки на документ (ссылки из документа) 1 }
-   procedure UserCR2; override;
-    {* Пользовательские ссылки на документ (ссылки из документа) 2 }
+   procedure Document_AddBookmark_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Добавить закладку }
  end;//_CommonForTextAndFlash_
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
@@ -251,45 +255,136 @@ begin
 //#UC END# *4BA1D3CA02EB_4986C5B30130_impl*
 end;//_CommonForTextAndFlash_.FormIsMainInDocumentSet
 
-procedure _CommonForTextAndFlash_.AddToControl;
+procedure _CommonForTextAndFlash_.Document_AddToControl_Test(const aParams: IvcmTestParamsPrim);
  {* Поставить на контроль }
-//#UC START# *498863B203D0_4986C5B30130_var*
-//#UC END# *498863B203D0_4986C5B30130_var*
+//#UC START# *498863B203D0_4986C5B30130test_var*
+var
+ l_Controllable : IControllable;
+ l_Doc          : IDocument;
+//#UC END# *498863B203D0_4986C5B30130test_var*
 begin
-//#UC START# *498863B203D0_4986C5B30130_impl*
- !!! Needs to be implemented !!!
-//#UC END# *498863B203D0_4986C5B30130_impl*
-end;//_CommonForTextAndFlash_.AddToControl
+//#UC START# *498863B203D0_4986C5B30130test_impl*
+ if CanAddToControl then
+ begin
+  l_Controllable := GetControllable(l_Doc);
+  aParams.Op.Flag[vcm_ofEnabled] := TdmStdRes.IsCurEditionActual(l_Doc) and
+                                    (l_Controllable <> nil);
+ end//CanAddToControl
+ else
+  aParams.Op.Flag[vcm_ofEnabled] := false;
+//#UC END# *498863B203D0_4986C5B30130test_impl*
+end;//_CommonForTextAndFlash_.Document_AddToControl_Test
 
-procedure _CommonForTextAndFlash_.UserCR1;
+procedure _CommonForTextAndFlash_.Document_AddToControl_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Поставить на контроль }
+//#UC START# *498863B203D0_4986C5B30130exec_var*
+var
+ l_Controllable : IControllable;
+ l_Doc          : IDocument;
+//#UC END# *498863B203D0_4986C5B30130exec_var*
+begin
+//#UC START# *498863B203D0_4986C5B30130exec_impl*
+ if CanAddToControl then
+ begin
+  l_Controllable := GetControllable(l_Doc);
+  if l_Controllable <> nil then
+  try
+   if not l_Controllable.GetControlled then
+   begin
+    TdmStdRes.AddToControl(l_Controllable);
+    Say(inf_SetDocToControl);
+   end//not l_Controllable.GetControlled
+   else
+   if Ask(qr_RemoveDocumentFromControl) then
+    TdmStdRes.DeleteFromControl(l_Controllable);
+  finally
+   l_Controllable := nil;
+  end;//try..finally
+ end;//CanAddToControl
+//#UC END# *498863B203D0_4986C5B30130exec_impl*
+end;//_CommonForTextAndFlash_.Document_AddToControl_Execute
+
+procedure _CommonForTextAndFlash_.Document_AddToControl_GetState(var State: TvcmOperationStateIndex);
+ {* Поставить на контроль }
+//#UC START# *498863B203D0_4986C5B30130getstate_var*
+var
+ l_Controllable : IControllable;
+ l_Doc          : IDocument;
+//#UC END# *498863B203D0_4986C5B30130getstate_var*
+begin
+//#UC START# *498863B203D0_4986C5B30130getstate_impl*
+ l_Controllable := GetControllable(l_Doc);
+ if (l_Controllable <> nil) then
+ try
+  if TdmStdRes.IsCurEditionActual(l_Doc) and l_Controllable.GetControlled then
+   State := st_user_Document_AddToControl_RemoveFromControl
+  else
+   State := vcm_DefaultOperationState;
+ finally
+  l_Controllable := nil;
+ end;//try..finally
+//#UC END# *498863B203D0_4986C5B30130getstate_impl*
+end;//_CommonForTextAndFlash_.Document_AddToControl_GetState
+
+procedure _CommonForTextAndFlash_.Document_UserCR1_Test(const aParams: IvcmTestParamsPrim);
  {* Коллеги, это что? }
-//#UC START# *4989C7D30219_4986C5B30130_var*
-//#UC END# *4989C7D30219_4986C5B30130_var*
+//#UC START# *4989C7D30219_4986C5B30130test_var*
+//#UC END# *4989C7D30219_4986C5B30130test_var*
 begin
-//#UC START# *4989C7D30219_4986C5B30130_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4989C7D30219_4986C5B30130_impl*
-end;//_CommonForTextAndFlash_.UserCR1
+//#UC START# *4989C7D30219_4986C5B30130test_impl*
+ OpenUserCRListOpTest(aParams, ulFirst);
+//#UC END# *4989C7D30219_4986C5B30130test_impl*
+end;//_CommonForTextAndFlash_.Document_UserCR1_Test
 
-procedure _CommonForTextAndFlash_.UserCR2;
+procedure _CommonForTextAndFlash_.Document_UserCR1_GetState(var State: TvcmOperationStateIndex);
  {* Коллеги, это что? }
-//#UC START# *4989C96003C4_4986C5B30130_var*
-//#UC END# *4989C96003C4_4986C5B30130_var*
+//#UC START# *4989C7D30219_4986C5B30130getstate_var*
+//#UC END# *4989C7D30219_4986C5B30130getstate_var*
 begin
-//#UC START# *4989C96003C4_4986C5B30130_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4989C96003C4_4986C5B30130_impl*
-end;//_CommonForTextAndFlash_.UserCR2
+//#UC START# *4989C7D30219_4986C5B30130getstate_impl*
+ OpenUserCRListOpGetState(State, ulFirst);
+//#UC END# *4989C7D30219_4986C5B30130getstate_impl*
+end;//_CommonForTextAndFlash_.Document_UserCR1_GetState
 
-procedure _CommonForTextAndFlash_.AddBookmark;
+procedure _CommonForTextAndFlash_.Document_UserCR2_Test(const aParams: IvcmTestParamsPrim);
+ {* Коллеги, это что? }
+//#UC START# *4989C96003C4_4986C5B30130test_var*
+//#UC END# *4989C96003C4_4986C5B30130test_var*
+begin
+//#UC START# *4989C96003C4_4986C5B30130test_impl*
+ OpenUserCRListOpTest(aParams, ulSecond);
+//#UC END# *4989C96003C4_4986C5B30130test_impl*
+end;//_CommonForTextAndFlash_.Document_UserCR2_Test
+
+procedure _CommonForTextAndFlash_.Document_UserCR2_GetState(var State: TvcmOperationStateIndex);
+ {* Коллеги, это что? }
+//#UC START# *4989C96003C4_4986C5B30130getstate_var*
+//#UC END# *4989C96003C4_4986C5B30130getstate_var*
+begin
+//#UC START# *4989C96003C4_4986C5B30130getstate_impl*
+ OpenUserCRListOpGetState(State, ulSecond);
+//#UC END# *4989C96003C4_4986C5B30130getstate_impl*
+end;//_CommonForTextAndFlash_.Document_UserCR2_GetState
+
+procedure _CommonForTextAndFlash_.Document_AddBookmark_Test(const aParams: IvcmTestParamsPrim);
  {* Добавить закладку }
-//#UC START# *4989D06D014E_4986C5B30130_var*
-//#UC END# *4989D06D014E_4986C5B30130_var*
+//#UC START# *4989D06D014E_4986C5B30130test_var*
+//#UC END# *4989D06D014E_4986C5B30130test_var*
 begin
-//#UC START# *4989D06D014E_4986C5B30130_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4989D06D014E_4986C5B30130_impl*
-end;//_CommonForTextAndFlash_.AddBookmark
+//#UC START# *4989D06D014E_4986C5B30130test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := CanAddBookmark;
+//#UC END# *4989D06D014E_4986C5B30130test_impl*
+end;//_CommonForTextAndFlash_.Document_AddBookmark_Test
+
+procedure _CommonForTextAndFlash_.Document_AddBookmark_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Добавить закладку }
+//#UC START# *4989D06D014E_4986C5B30130exec_var*
+//#UC END# *4989D06D014E_4986C5B30130exec_var*
+begin
+//#UC START# *4989D06D014E_4986C5B30130exec_impl*
+ SetBookMark;
+//#UC END# *4989D06D014E_4986C5B30130exec_impl*
+end;//_CommonForTextAndFlash_.Document_AddBookmark_Execute
 
 function _CommonForTextAndFlash_.CanUnControl: Boolean;
 //#UC START# *4BA0ACB501DA_4986C5B30130_var*
@@ -299,36 +394,6 @@ begin
  Result := Assigned(DocumentSet) and FormIsMainInDocumentSet;
 //#UC END# *4BA0ACB501DA_4986C5B30130_impl*
 end;//_CommonForTextAndFlash_.CanUnControl
-
-procedure _CommonForTextAndFlash_.AddToControl;
- {* Поставить на контроль }
-//#UC START# *4C7BABCE03C0_4986C5B30130_var*
-//#UC END# *4C7BABCE03C0_4986C5B30130_var*
-begin
-//#UC START# *4C7BABCE03C0_4986C5B30130_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7BABCE03C0_4986C5B30130_impl*
-end;//_CommonForTextAndFlash_.AddToControl
-
-procedure _CommonForTextAndFlash_.UserCR1;
- {* Пользовательские ссылки на документ (ссылки из документа) 1 }
-//#UC START# *4C7BAC1902F5_4986C5B30130_var*
-//#UC END# *4C7BAC1902F5_4986C5B30130_var*
-begin
-//#UC START# *4C7BAC1902F5_4986C5B30130_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7BAC1902F5_4986C5B30130_impl*
-end;//_CommonForTextAndFlash_.UserCR1
-
-procedure _CommonForTextAndFlash_.UserCR2;
- {* Пользовательские ссылки на документ (ссылки из документа) 2 }
-//#UC START# *4C7BAC5101CA_4986C5B30130_var*
-//#UC END# *4C7BAC5101CA_4986C5B30130_var*
-begin
-//#UC START# *4C7BAC5101CA_4986C5B30130_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C7BAC5101CA_4986C5B30130_impl*
-end;//_CommonForTextAndFlash_.UserCR2
 
 function _CommonForTextAndFlash_.pm_GetHyperlinkDocID: Integer;
 //#UC START# *4CDD19B503B1_4986C5B30130get_var*

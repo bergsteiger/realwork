@@ -77,7 +77,6 @@ begin
  end;
 //#UC END# *4BE419AF0217_4DA6907500D9_impl*
 end;//TLinesTest.DoVisit
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TLinesTest.OpenLinesLog(const aCanvas: Il3InfoCanvas;
  aObjID: Integer): AnsiString;
@@ -131,6 +130,7 @@ function TLinesTest.GetModelElementGUID: AnsiString;
 begin
  Result := '4DA6907500D9';
 end;//TLinesTest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

@@ -28,7 +28,8 @@ type
     {* Функция очистки полей объекта. }
   public
    class function Make(const aData: IafwDocumentPreview): PrintParams; reintroduce;
-   procedure UpdatePrinter; override;
+   procedure PrintParams_UpdatePrinter_Execute;
+   procedure PrintParams_UpdatePrinter(const aParams: IvcmExecuteParamsPrim);
  end;//TPrimPrintDialogForm
 {$IfEnd} // NOT Defined(Admin)
 
@@ -42,6 +43,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCM)}
 class function TPrimPrintDialogForm.Make(const aData: IafwDocumentPreview): PrintParams;
 var
  l_Inst : TPrimPrintDialogForm;
@@ -54,14 +56,19 @@ begin
  end;//try..finally
 end;//TPrimPrintDialogForm.Make
 
-procedure TPrimPrintDialogForm.UpdatePrinter;
-//#UC START# *4AF82660008B_4AAF8E8701C9_var*
-//#UC END# *4AF82660008B_4AAF8E8701C9_var*
+procedure TPrimPrintDialogForm.PrintParams_UpdatePrinter_Execute;
+//#UC START# *4AF82660008B_4AAF8E8701C9exec_var*
+//#UC END# *4AF82660008B_4AAF8E8701C9exec_var*
 begin
-//#UC START# *4AF82660008B_4AAF8E8701C9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF82660008B_4AAF8E8701C9_impl*
-end;//TPrimPrintDialogForm.UpdatePrinter
+//#UC START# *4AF82660008B_4AAF8E8701C9exec_impl*
+ UpdatePrintersList;
+//#UC END# *4AF82660008B_4AAF8E8701C9exec_impl*
+end;//TPrimPrintDialogForm.PrintParams_UpdatePrinter_Execute
+
+procedure TPrimPrintDialogForm.PrintParams_UpdatePrinter(const aParams: IvcmExecuteParamsPrim);
+begin
+ Self.PrintParams_UpdatePrinter_Execute;
+end;//TPrimPrintDialogForm.PrintParams_UpdatePrinter
 
 procedure TPrimPrintDialogForm.Cleanup;
  {* Функция очистки полей объекта. }
@@ -79,6 +86,7 @@ initialization
  TtfwClassRef.Register(TPrimPrintDialogForm);
  {* Регистрация PrimPrintDialog }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(Admin)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin)
 end.
