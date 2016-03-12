@@ -76,7 +76,7 @@ type
     var aFirst: Boolean;
     aMode: TnevAddInnerMode); override;
    procedure DoCompareWithOtherInner(const aView: InevView;
-    anMaxID: Integer); override;
+    anMaxID: Integer = -1); override;
    procedure DoInitBaseLineInner(const aView: InevView;
     const anItem: InevPara); override;
    procedure DoInitByCursor(const aView: InevView;
@@ -1056,7 +1056,7 @@ begin
 end;//TnevTableRowBaseLine4Anchor.DoAddInner
 
 procedure TnevTableRowBaseLine4Anchor.DoCompareWithOtherInner(const aView: InevView;
- anMaxID: Integer);
+ anMaxID: Integer = -1);
 //#UC START# *4DD79DA50099_4DD77A73036E_var*
 var
  i             : Integer;

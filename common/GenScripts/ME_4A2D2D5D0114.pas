@@ -61,9 +61,9 @@ type
    function DoSearchReplace(const aSearcher: IevSearcher;
     const aReplacer: IevReplacer;
     const aConfirm: InevConfirm;
-    const Cursor: InevBasePoint;
-    const anOpPack: InevOp;
-    aNeedProgress: Boolean): Boolean; override;
+    const Cursor: InevBasePoint = nil;
+    const anOpPack: InevOp = nil;
+    aNeedProgress: Boolean = True): Boolean; override;
    procedure DoForceStore; override;
   public
    procedure DoInit(const aStart: InevBasePoint;
@@ -332,9 +332,9 @@ end;//TevCursorPair.DoGetBorderPoints
 function TevCursorPair.DoSearchReplace(const aSearcher: IevSearcher;
  const aReplacer: IevReplacer;
  const aConfirm: InevConfirm;
- const Cursor: InevBasePoint;
- const anOpPack: InevOp;
- aNeedProgress: Boolean): Boolean;
+ const Cursor: InevBasePoint = nil;
+ const anOpPack: InevOp = nil;
+ aNeedProgress: Boolean = True): Boolean;
 //#UC START# *52D7CCD70340_4A2D2D5D0114_var*
 var
  l_Start          : InevBasePoint;

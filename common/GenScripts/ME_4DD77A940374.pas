@@ -35,7 +35,7 @@ type
    procedure DoMergeTo(const aView: InevView;
     const aBaseLine: InevBasePoint); override;
    procedure DoCompareWithOtherInner(const aView: InevView;
-    anMaxID: Integer); override;
+    anMaxID: Integer = -1); override;
    procedure DoCopyHeadParts(const aFrom: InevBasePoint); override;
    procedure DoAddHeadInner(const aHeadInner: InevBasePoint); override;
    function DoHasHeadPart: Boolean; override;
@@ -259,7 +259,7 @@ begin
 end;//TnevTableRowBaseLine4Print.DoMergeTo
 
 procedure TnevTableRowBaseLine4Print.DoCompareWithOtherInner(const aView: InevView;
- anMaxID: Integer);
+ anMaxID: Integer = -1);
 //#UC START# *4DD79DA50099_4DD77A940374_var*
 var
  i          : Integer;

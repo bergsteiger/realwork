@@ -113,7 +113,7 @@ type
     {* Реализация запроса интерфейса }
   public
    procedure DoSetEntryPointPrim(Value: Integer;
-    const Context: IevCursorContext); override;
+    const Context: IevCursorContext = nil); override;
  end;//TevTextParaCursor
 {$IfEnd} // Defined(evUseVisibleCursors)
 
@@ -875,7 +875,7 @@ begin
 end;//TevTextParaCursor.DoInitPointByPt
 
 procedure TevTextParaCursor.DoSetEntryPointPrim(Value: Integer;
- const Context: IevCursorContext);
+ const Context: IevCursorContext = nil);
 //#UC START# *49E2F8F80062_49DF7D98029A_var*
 //#UC END# *49E2F8F80062_49DF7D98029A_var*
 begin

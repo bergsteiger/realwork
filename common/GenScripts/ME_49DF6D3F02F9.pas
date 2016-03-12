@@ -41,7 +41,7 @@ type
     aMap: TnevFormatInfoPrim): Integer; override;
   public
    procedure DoSetEntryPointPrim(Value: Integer;
-    const Context: IevCursorContext); override;
+    const Context: IevCursorContext = nil); override;
  end;//TevSolidParaCursor
 {$IfEnd} // Defined(evUseVisibleCursors)
 
@@ -121,7 +121,7 @@ begin
 end;//TevSolidParaCursor.DoInitPointByPt
 
 procedure TevSolidParaCursor.DoSetEntryPointPrim(Value: Integer;
- const Context: IevCursorContext);
+ const Context: IevCursorContext = nil);
 //#UC START# *49E2F8F80062_49DF6D3F02F9_var*
 //#UC END# *49E2F8F80062_49DF6D3F02F9_var*
 begin

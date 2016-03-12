@@ -54,8 +54,8 @@ type
     const aFinish: InevPoint;
     var aNeedUnselect: Boolean);
    procedure Select(aTarget: TevSelectTarget;
-    const aCursor: InevPoint;
-    Start: Boolean); override;
+    const aCursor: InevPoint = nil;
+    Start: Boolean = True); override;
     {* выделить часть документа (выделить текущее слово, строку, параграф etc) }
    procedure ForceStore; override;
   protected
@@ -500,8 +500,8 @@ begin
 end;//TevMultiSelection.pm_GetCollapsed
 
 procedure TevMultiSelection.Select(aTarget: TevSelectTarget;
- const aCursor: InevPoint;
- Start: Boolean);
+ const aCursor: InevPoint = nil;
+ Start: Boolean = True);
  {* выделить часть документа (выделить текущее слово, строку, параграф etc) }
 //#UC START# *48E3A6260063_48E3B50501DB_var*
 var
