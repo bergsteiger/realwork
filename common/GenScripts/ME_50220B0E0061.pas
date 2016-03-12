@@ -137,6 +137,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCL)}
 function TvtScrollBar.Get_ScrollBarKind: TScrollBarKind;
 //#UC START# *50220C6501B2_50220B0E0061get_var*
 //#UC END# *50220C6501B2_50220B0E0061get_var*
@@ -384,7 +385,6 @@ begin
 //#UC END# *47D1602000C6_50220B0E0061_impl*
 end;//TvtScrollBar.Create
 
-{$If NOT Defined(NoVCL)}
 procedure TvtScrollBar.WndProc(var Message: TMessage);
 //#UC START# *47E136A80191_50220B0E0061_var*
 var
@@ -423,9 +423,7 @@ begin
  end;//case Message.Msg
 //#UC END# *47E136A80191_50220B0E0061_impl*
 end;//TvtScrollBar.WndProc
-{$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCL)}
 procedure TvtScrollBar.CreateParams(var Params: TCreateParams);
 //#UC START# *48C7925A02E5_50220B0E0061_var*
 //#UC END# *48C7925A02E5_50220B0E0061_var*
@@ -437,9 +435,7 @@ begin
   else Params.Style := Params.Style or WS_HSCROLL;
 //#UC END# *48C7925A02E5_50220B0E0061_impl*
 end;//TvtScrollBar.CreateParams
-{$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCL)}
 procedure TvtScrollBar.SetParent(AParent: TWinControl);
 //#UC START# *4A97E78202FC_50220B0E0061_var*
 //#UC END# *4A97E78202FC_50220B0E0061_var*
@@ -449,9 +445,7 @@ begin
  PageSize := f_PageSize;
 //#UC END# *4A97E78202FC_50220B0E0061_impl*
 end;//TvtScrollBar.SetParent
-{$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCL)}
 procedure TvtScrollBar.CreateWnd;
 //#UC START# *4CC8414403B8_50220B0E0061_var*
 var
@@ -473,9 +467,7 @@ begin
  SetScrollInfo(Handle, l_SB, l_ScrollInfo, False);
 //#UC END# *4CC8414403B8_50220B0E0061_impl*
 end;//TvtScrollBar.CreateWnd
-{$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCL)}
 procedure TvtScrollBar.SetBounds(ALeft: Integer;
  ATop: Integer;
  AWidth: Integer;
@@ -490,9 +482,7 @@ begin
  inherited SetBounds(aLeft, aTop, aWidth, aHeight);
 //#UC END# *4F2A599E0283_50220B0E0061_impl*
 end;//TvtScrollBar.SetBounds
-{$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCL)}
 procedure TvtScrollBar.RequestAlign;
 //#UC START# *5022104B03A6_50220B0E0061_var*
 //#UC END# *5022104B03A6_50220B0E0061_var*
@@ -503,12 +493,12 @@ begin
   else inherited;
 //#UC END# *5022104B03A6_50220B0E0061_impl*
 end;//TvtScrollBar.RequestAlign
-{$IfEnd} // NOT Defined(NoVCL)
 
 initialization
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtScrollBar);
  {* Регистрация TvtScrollBar }
 {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCL)
 
 end.

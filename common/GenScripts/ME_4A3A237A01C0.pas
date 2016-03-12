@@ -60,7 +60,7 @@ type
    function DoJoinWithNext(const aView: InevView;
     const anOp: InevOp): Boolean; override;
    procedure DoSetEntryPoint(aValue: Integer;
-    const anOp: IevCursorContext); override;
+    const anOp: IevCursorContext = nil); override;
    function DoMovePrim(const aView: InevView;
     aCode: Integer;
     const anOp: InevOp;
@@ -489,7 +489,7 @@ begin
 end;//TevParaListCursorPrim.DoJoinWithNext
 
 procedure TevParaListCursorPrim.DoSetEntryPoint(aValue: Integer;
- const anOp: IevCursorContext);
+ const anOp: IevCursorContext = nil);
 //#UC START# *49E3126B030A_4A3A237A01C0_var*
 var
  l_PC : Integer;

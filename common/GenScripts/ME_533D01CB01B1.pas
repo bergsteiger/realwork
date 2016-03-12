@@ -102,6 +102,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCL)}
 function TChromeLikeBaseWindowCaptionButton.pm_GetState: TChromeLikeWindowCaptionButtonState;
 //#UC START# *533D0269002B_533D01CB01B1get_var*
 //#UC END# *533D0269002B_533D01CB01B1get_var*
@@ -251,7 +252,6 @@ begin
 //#UC END# *47D1602000C6_533D01CB01B1_impl*
 end;//TChromeLikeBaseWindowCaptionButton.Create
 
-{$If NOT Defined(NoVCL)}
 procedure TChromeLikeBaseWindowCaptionButton.SetParent(AParent: TWinControl);
 //#UC START# *4A97E78202FC_533D01CB01B1_var*
 
@@ -277,9 +277,7 @@ begin
   f_ParentForm := lp_GetParentForm;
 //#UC END# *4A97E78202FC_533D01CB01B1_impl*
 end;//TChromeLikeBaseWindowCaptionButton.SetParent
-{$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCL)}
 procedure TChromeLikeBaseWindowCaptionButton.MouseUp(Button: TMouseButton;
  Shift: TShiftState;
  X: Integer;
@@ -301,9 +299,7 @@ begin
  inherited;
 //#UC END# *4E7896270076_533D01CB01B1_impl*
 end;//TChromeLikeBaseWindowCaptionButton.MouseUp
-{$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCL)}
 procedure TChromeLikeBaseWindowCaptionButton.Click;
 //#UC START# *4F88469E0021_533D01CB01B1_var*
 //#UC END# *4F88469E0021_533D01CB01B1_var*
@@ -313,9 +309,7 @@ begin
   f_OnClick(Self);
 //#UC END# *4F88469E0021_533D01CB01B1_impl*
 end;//TChromeLikeBaseWindowCaptionButton.Click
-{$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCL)}
 procedure TChromeLikeBaseWindowCaptionButton.MouseDown(Button: TMouseButton;
  Shift: TShiftState;
  X: Integer;
@@ -329,13 +323,13 @@ begin
  inherited;
 //#UC END# *4F88473B03CD_533D01CB01B1_impl*
 end;//TChromeLikeBaseWindowCaptionButton.MouseDown
-{$IfEnd} // NOT Defined(NoVCL)
 
 initialization
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TChromeLikeBaseWindowCaptionButton);
  {* Регистрация TChromeLikeBaseWindowCaptionButton }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+{$IfEnd} // NOT Defined(NoVCL)
 
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 end.

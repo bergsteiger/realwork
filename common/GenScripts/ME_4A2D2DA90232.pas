@@ -24,9 +24,9 @@ type
     aFlags: TevStoreFlags); override;
    {$If Defined(evNeedEditableCursors)}
    function DoDelete(const aView: InevView;
-    const anOpPack: InevOp;
-    aMode: TevClearMode;
-    const aPara: InevPara): Boolean; override;
+    const anOpPack: InevOp = nil;
+    aMode: TevClearMode = ev_cmAll;
+    const aPara: InevPara = nil): Boolean; override;
    {$IfEnd} // Defined(evNeedEditableCursors)
  end;//TevDocumentCursorPair
 {$IfEnd} // Defined(evUseVisibleCursors)
@@ -171,9 +171,9 @@ end;//TevDocumentCursorPair.DoStore
 
 {$If Defined(evNeedEditableCursors)}
 function TevDocumentCursorPair.DoDelete(const aView: InevView;
- const anOpPack: InevOp;
- aMode: TevClearMode;
- const aPara: InevPara): Boolean;
+ const anOpPack: InevOp = nil;
+ aMode: TevClearMode = ev_cmAll;
+ const aPara: InevPara = nil): Boolean;
 //#UC START# *5108D66900C9_4A2D2DA90232_var*
 //#UC END# *5108D66900C9_4A2D2DA90232_var*
 begin

@@ -76,9 +76,9 @@ type
     aFlags: TevStoreFlags); override;
    {$If Defined(evNeedEditableCursors)}
    function DoDelete(const aView: InevView;
-    const anOpPack: InevOp;
-    aMode: TevClearMode;
-    const aPara: InevPara): Boolean; override;
+    const anOpPack: InevOp = nil;
+    aMode: TevClearMode = ev_cmAll;
+    const aPara: InevPara = nil): Boolean; override;
    {$IfEnd} // Defined(evNeedEditableCursors)
    function DoGetChildSel(const aView: InevView;
     aChildIndex: LongInt;
@@ -732,9 +732,9 @@ end;//TevParaListCursorPair.DoStore
 
 {$If Defined(evNeedEditableCursors)}
 function TevParaListCursorPair.DoDelete(const aView: InevView;
- const anOpPack: InevOp;
- aMode: TevClearMode;
- const aPara: InevPara): Boolean;
+ const anOpPack: InevOp = nil;
+ aMode: TevClearMode = ev_cmAll;
+ const aPara: InevPara = nil): Boolean;
 //#UC START# *5108D66900C9_4A2D2D6E027B_var*
  procedure DeleteParasInRange(const aParaList : InevParaList;
                               aStart, aFinish : LongInt);

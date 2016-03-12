@@ -65,7 +65,7 @@ type
     var aFirst: Boolean;
     aMode: TnevAddInnerMode); override;
    procedure DoCompareWithOtherInner(const aView: InevView;
-    anMaxID: Integer); override;
+    anMaxID: Integer = -1); override;
    procedure DoInitByCursor(const aView: InevView;
     const anInnerPoint: InevBasePoint); override;
     {* Инициализируем базовую линию по курсору. }
@@ -413,7 +413,7 @@ begin
 end;//TnevTableRowAnchor.DoAddInner
 
 procedure TnevTableRowAnchor.DoCompareWithOtherInner(const aView: InevView;
- anMaxID: Integer);
+ anMaxID: Integer = -1);
 //#UC START# *4B9625260325_4A5D7B82016A_var*
 //#UC END# *4B9625260325_4A5D7B82016A_var*
 begin

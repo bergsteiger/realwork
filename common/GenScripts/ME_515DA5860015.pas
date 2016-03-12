@@ -304,7 +304,7 @@ type
     {* draw the focus rectangle }
    function vlbItemHitTest(aIndex: Integer;
     const aPt: TPoint;
-    fromScreen: Boolean): Byte; override;
+    fromScreen: Boolean = False): Byte; override;
    function DoOnGetItem(Index: LongInt): Il3CString; override;
    function DoOnGetItemPickImage(aItemIndex: LongInt;
     var aImages: TCustomImageList): Integer; override;
@@ -3227,7 +3227,7 @@ end;//TvtCustomOutliner.vlbDrawFocusRect
 
 function TvtCustomOutliner.vlbItemHitTest(aIndex: Integer;
  const aPt: TPoint;
- fromScreen: Boolean): Byte;
+ fromScreen: Boolean = False): Byte;
 //#UC START# *5152C09F00DB_4CFFBEEA0109_var*
 var
  l_CurImages   : TCustomImageList;

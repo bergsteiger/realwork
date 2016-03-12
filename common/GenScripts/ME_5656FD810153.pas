@@ -40,7 +40,7 @@ type
     aTagId: Integer;
     aNeedCloseBracket: Boolean); override;
   public
-   constructor Create(anOwner: Tk2TagGeneratorOwner); override;
+   constructor Create(anOwner: Tk2TagGeneratorOwner = nil); override;
   public
    property SubList: TevSCSubList
     read f_SubList;
@@ -235,7 +235,7 @@ begin
 //#UC END# *4D53D8BF00D5_5656FD810153_impl*
 end;//TevSCCollectFilter.DoFlushBuffer
 
-constructor TevSCCollectFilter.Create(anOwner: Tk2TagGeneratorOwner);
+constructor TevSCCollectFilter.Create(anOwner: Tk2TagGeneratorOwner = nil);
 //#UC START# *538C1F9A00C7_5656FD810153_var*
 //#UC END# *538C1F9A00C7_5656FD810153_var*
 begin

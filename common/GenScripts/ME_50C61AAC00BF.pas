@@ -75,6 +75,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCL)}
 procedure TvtMultilineHint.ActivateHintEx(Rect: TRect;
  const AHint: Il3CString);
 //#UC START# *50C61C8E015D_50C61AAC00BF_var*
@@ -181,7 +182,6 @@ begin
 //#UC END# *48077504027E_50C61AAC00BF_impl*
 end;//TvtMultilineHint.Destroy
 
-{$If NOT Defined(NoVCL)}
 procedure TvtMultilineHint.CreateParams(var Params: TCreateParams);
 //#UC START# *48C7925A02E5_50C61AAC00BF_var*
 //#UC END# *48C7925A02E5_50C61AAC00BF_var*
@@ -192,9 +192,7 @@ begin
   WindowClass.Style := WindowClass.Style or CS_SAVEBITS;
 //#UC END# *48C7925A02E5_50C61AAC00BF_impl*
 end;//TvtMultilineHint.CreateParams
-{$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCL)}
 procedure TvtMultilineHint.Paint;
 //#UC START# *5028A60300AD_50C61AAC00BF_var*
 var
@@ -219,9 +217,7 @@ begin
  end;//try..finally
 //#UC END# *5028A60300AD_50C61AAC00BF_impl*
 end;//TvtMultilineHint.Paint
-{$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCL)}
 procedure TvtMultilineHint.ActivateHint(Rect: TRect;
  const AHint: String);
 //#UC START# *50C61BA40123_50C61AAC00BF_var*
@@ -231,9 +227,7 @@ begin
  ActivateHintEx(Rect, l3CStr(aHint));
 //#UC END# *50C61BA40123_50C61AAC00BF_impl*
 end;//TvtMultilineHint.ActivateHint
-{$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCL)}
 function TvtMultilineHint.IsHintMsg(var Msg: TMsg): Boolean;
 //#UC START# *50C61BD700BF_50C61AAC00BF_var*
 //#UC END# *50C61BD700BF_50C61AAC00BF_var*
@@ -248,7 +242,6 @@ begin
   Result := inherited IsHintMsg(Msg);
 //#UC END# *50C61BD700BF_50C61AAC00BF_impl*
 end;//TvtMultilineHint.IsHintMsg
-{$IfEnd} // NOT Defined(NoVCL)
 
 initialization
 //#UC START# *50C61F7E02BE*
@@ -260,5 +253,6 @@ initialization
  TtfwClassRef.Register(TvtMultilineHint);
  {* Регистрация TvtMultilineHint }
 {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCL)
 
 end.

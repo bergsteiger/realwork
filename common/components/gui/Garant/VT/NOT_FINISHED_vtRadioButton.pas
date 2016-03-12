@@ -29,6 +29,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCL)}
 {$Include w:\common\components\gui\Garant\VT\vtUnicodeButtonControl.imp.pas}
 
 initialization
@@ -36,5 +37,6 @@ initialization
  TtfwClassRef.Register(TvtRadioButton);
  {* Регистрация TvtRadioButton }
 {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCL)
 
 end.

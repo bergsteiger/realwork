@@ -27,10 +27,12 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoTB97)}
 initialization
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtSpeedButton);
  {* Регистрация TvtSpeedButton }
 {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoTB97)
 
 end.

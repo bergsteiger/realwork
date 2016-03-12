@@ -98,6 +98,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCL)}
 function TChromeLikeTabHintParams_C(aNeedShowHint: Boolean;
  const aHintText: WideString;
  const aRect: TRect): TChromeLikeTabHintParams;
@@ -375,6 +376,7 @@ initialization
  TtfwClassRef.Register(TChromeLikeTabSetControlPrim);
  {* Регистрация TChromeLikeTabSetControlPrim }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+{$IfEnd} // NOT Defined(NoVCL)
 
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 end.
