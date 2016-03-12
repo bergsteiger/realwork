@@ -23,13 +23,13 @@ type
     anIgnoreLeftIndent: Boolean): AnsiString; override;
    function CHP2RTF(aCHP: TddCharacterProperty;
     aParent: TddCharacterProperty;
-    const WithStyle: Boolean): AnsiString; override;
+    const WithStyle: Boolean = True): AnsiString; override;
    function DIffCHP2RTF(aCHP1: TddCharacterProperty;
     aCHP2: TddCharacterProperty): AnsiString; override;
    function PAP2RTF(aPAP: TddParagraphProperty;
     aBlockIndent: Integer;
     anIgnoreLeftIndent: Boolean;
-    WithStyle: Boolean): AnsiString; override;
+    WithStyle: Boolean = True): AnsiString; override;
  end;//TCustomRTFObjectGenerator
 
  TevRTFObjectGenerator = class(TCustomRTFObjectGenerator)
@@ -55,7 +55,7 @@ end;//TCustomRTFObjectGenerator.Style2RTF
 
 function TCustomRTFObjectGenerator.CHP2RTF(aCHP: TddCharacterProperty;
  aParent: TddCharacterProperty;
- const WithStyle: Boolean): AnsiString;
+ const WithStyle: Boolean = True): AnsiString;
 //#UC START# *52DCEC4C0176_52DCDACA038A_var*
 //#UC END# *52DCEC4C0176_52DCDACA038A_var*
 begin
@@ -77,7 +77,7 @@ end;//TCustomRTFObjectGenerator.DIffCHP2RTF
 function TCustomRTFObjectGenerator.PAP2RTF(aPAP: TddParagraphProperty;
  aBlockIndent: Integer;
  anIgnoreLeftIndent: Boolean;
- WithStyle: Boolean): AnsiString;
+ WithStyle: Boolean = True): AnsiString;
 //#UC START# *52DCF547032A_52DCDACA038A_var*
 //#UC END# *52DCF547032A_52DCDACA038A_var*
 begin

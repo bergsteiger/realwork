@@ -76,6 +76,7 @@ uses
  {$IfEnd} // NOT Defined(DesignTimeLibrary)
 ;
 
+{$If NOT Defined(DesignTimeLibrary)}
 var g_TevStandardStyles: TevStandardStyles = nil;
  {* Экземпляр синглетона TevStandardStyles }
 
@@ -201,7 +202,6 @@ begin
  Result := g_TevStandardStyles <> nil;
 end;//TevStandardStyles.Exists
 
-{$If NOT Defined(DesignTimeLibrary)}
 procedure TevStandardStyles.DoStyleTableChanged;
 //#UC START# *4A485B710126_4E54CF7E0143_var*
 //#UC END# *4A485B710126_4E54CF7E0143_var*
@@ -210,7 +210,6 @@ begin
  FreeFonts;
 //#UC END# *4A485B710126_4E54CF7E0143_impl*
 end;//TevStandardStyles.DoStyleTableChanged
-{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 class function TevStandardStyles.Instance: TevStandardStyles;
  {* Метод получения экземпляра синглетона TevStandardStyles }
@@ -234,7 +233,6 @@ begin
 //#UC END# *479731C50290_4E54CF7E0143_impl*
 end;//TevStandardStyles.Cleanup
 
-{$If NOT Defined(DesignTimeLibrary)}
 function TevStandardStyles.AtEnd: Boolean;
  {* Подписываться в конец списка подписчиков }
 //#UC START# *4A4867A20049_4E54CF7E0143_var*

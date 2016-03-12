@@ -110,7 +110,7 @@ type
     aNeedProcessRow: Boolean;
     LiteVersion: TddLiteVersion); override;
    function JoinWith(P: TObject;
-    aCorrectSegment: Boolean): Integer; override;
+    aCorrectSegment: Boolean = False): Integer; override;
    constructor Create(aDetination: TddCustomDestination); override;
    function HasSoftEnter: Boolean; override;
    function IsTextPara: Boolean; override;
@@ -565,7 +565,7 @@ begin
 end;//TddTextParagraph.GetEmpty
 
 function TddTextParagraph.JoinWith(P: TObject;
- aCorrectSegment: Boolean): Integer;
+ aCorrectSegment: Boolean = False): Integer;
 //#UC START# *51921142034B_4FACE14F0231_var*
 //#UC END# *51921142034B_4FACE14F0231_var*
 begin

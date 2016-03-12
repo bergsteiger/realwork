@@ -117,14 +117,14 @@ type
     aNeedCheckVMerge: Boolean): TddTableCell;
    procedure RecalcRows; override;
   public
-   procedure Analyze(const aAutoFit: TddAutoFitBehavior); override;
+   procedure Analyze(const aAutoFit: TddAutoFitBehavior = afContent); override;
  end;//TddGraphicTable
 
  TddSpaceTable = class(TddAbstractTable)
   protected
    procedure Map2Row(aMap: Tl3String);
   public
-   procedure Analyze(const aAutoFit: TddAutoFitBehavior); override;
+   procedure Analyze(const aAutoFit: TddAutoFitBehavior = afContent); override;
  end;//TddSpaceTable
 
  TddSeparatorTable = class(TddAbstractTable)
@@ -136,7 +136,7 @@ type
    procedure RecalcRows; override;
   public
    constructor Create(aSeparator: AnsiChar); reintroduce;
-   procedure Analyze(const aAutoFit: TddAutoFitBehavior); override;
+   procedure Analyze(const aAutoFit: TddAutoFitBehavior = afContent); override;
   public
    property Separator: AnsiChar
     read f_Separator
@@ -148,7 +148,7 @@ type
   protected
    function CalcTextLen(aText: Tl3String): Integer;
   public
-   procedure Analyze(const aAutoFit: TddAutoFitBehavior); override;
+   procedure Analyze(const aAutoFit: TddAutoFitBehavior = afContent); override;
  end;//TddParagraphTable
 
 implementation
@@ -1265,7 +1265,7 @@ begin
 //#UC END# *4FACECAA0043_4DCA38C7030D_impl*
 end;//TddGraphicTable.GetPrevVMergeCell
 
-procedure TddGraphicTable.Analyze(const aAutoFit: TddAutoFitBehavior);
+procedure TddGraphicTable.Analyze(const aAutoFit: TddAutoFitBehavior = afContent);
 //#UC START# *4FACDFA2002E_4DCA38C7030D_var*
 var
  i              : Integer;
@@ -1343,7 +1343,7 @@ begin
 //#UC END# *4FACED7B0253_4DCA38EB0022_impl*
 end;//TddSpaceTable.Map2Row
 
-procedure TddSpaceTable.Analyze(const aAutoFit: TddAutoFitBehavior);
+procedure TddSpaceTable.Analyze(const aAutoFit: TddAutoFitBehavior = afContent);
 //#UC START# *4FACDFA2002E_4DCA38EB0022_var*
 var
  i, j      : Integer;
@@ -1503,7 +1503,7 @@ begin
 //#UC END# *4FACEE4703D3_4DCA38F901D7_impl*
 end;//TddSeparatorTable.Create
 
-procedure TddSeparatorTable.Analyze(const aAutoFit: TddAutoFitBehavior);
+procedure TddSeparatorTable.Analyze(const aAutoFit: TddAutoFitBehavior = afContent);
 //#UC START# *4FACDFA2002E_4DCA38F901D7_var*
 var
  i, j, C: Integer;
@@ -1615,7 +1615,7 @@ begin
 //#UC END# *4FACEEC102E8_4DCA391B015A_impl*
 end;//TddParagraphTable.CalcTextLen
 
-procedure TddParagraphTable.Analyze(const aAutoFit: TddAutoFitBehavior);
+procedure TddParagraphTable.Analyze(const aAutoFit: TddAutoFitBehavior = afContent);
 //#UC START# *4FACDFA2002E_4DCA391B015A_var*
 var
  i           : Integer;

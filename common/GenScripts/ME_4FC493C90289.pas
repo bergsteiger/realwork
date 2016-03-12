@@ -49,6 +49,7 @@ uses
  {$IfEnd} // Defined(k2ForEditor)
 ;
 
+{$If Defined(k2ForEditor)}
 class function TevRow.Make(const aView: InevView;
  const aTable: IedTable;
  aTagWrap: Tl3Variant;
@@ -187,6 +188,7 @@ begin
  end; // if l_CellsCount > 1 then
 //#UC END# *4FC49F620379_4FC493C90289_impl*
 end;//TevRow.AnalizeRowCells
-{$IfEnd} // Defined(evNeedEditableCursors)
+{$IfEnd} // Defined(k2ForEditor)
 
+{$IfEnd} // Defined(evNeedEditableCursors)
 end.

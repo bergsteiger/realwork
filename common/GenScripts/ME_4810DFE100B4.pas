@@ -168,9 +168,9 @@ type
    function DecorObj(aType: TnevDecorType): Tl3Variant; override;
    function DecorHeight(aType: TnevDecorType): Integer; override;
    function ClientToParent(anX: Integer;
-    aParentLevel: TnevParaLevel): Integer; override;
+    aParentLevel: TnevParaLevel = nev_plTopmost): Integer; override;
    function ParentToClient(const aPt: TnevPoint;
-    aParentLevel: TnevParaLevel): TnevPoint; override;
+    aParentLevel: TnevParaLevel = nev_plTopmost): TnevPoint; override;
    function GetObjFont(aCorrectItalic: Boolean): IevResultFont; override;
    function IsHidden(aRecursive: Boolean;
     aNeedCheckCollapsed: Boolean): Boolean; override;
@@ -179,7 +179,7 @@ type
     {* Находится ли объект в родителе указанного типа или сам является таковым }
    function VerticalAlignmentMargin: Integer; override;
     {* Возвращает смещение параграфа от верхней границы, в зависимости от вертикального выравнивания. }
-   function GreatestObjPID(anInLines: Boolean): Integer; override;
+   function GreatestObjPID(anInLines: Boolean = True): Integer; override;
   protected
    property locDeltaHeight: Integer
     read pm_GetlocDeltaHeight;
@@ -1112,7 +1112,7 @@ begin
 end;//TnevFormatInfo.DecorHeight
 
 function TnevFormatInfo.ClientToParent(anX: Integer;
- aParentLevel: TnevParaLevel): Integer;
+ aParentLevel: TnevParaLevel = nev_plTopmost): Integer;
 //#UC START# *4E5F6E480332_4810DFE100B4_var*
 var
  l_Para : TnevFormatInfo;
@@ -1132,7 +1132,7 @@ begin
 end;//TnevFormatInfo.ClientToParent
 
 function TnevFormatInfo.ParentToClient(const aPt: TnevPoint;
- aParentLevel: TnevParaLevel): TnevPoint;
+ aParentLevel: TnevParaLevel = nev_plTopmost): TnevPoint;
 //#UC START# *4E5F6E6D0264_4810DFE100B4_var*
 var
  l_Para : TnevFormatInfo;
@@ -1567,7 +1567,7 @@ begin
 //#UC END# *52021CDE00B2_4810DFE100B4_impl*
 end;//TnevFormatInfo.VerticalAlignmentMargin
 
-function TnevFormatInfo.GreatestObjPID(anInLines: Boolean): Integer;
+function TnevFormatInfo.GreatestObjPID(anInLines: Boolean = True): Integer;
 //#UC START# *55794BA600EA_4810DFE100B4_var*
 //#UC END# *55794BA600EA_4810DFE100B4_var*
 begin

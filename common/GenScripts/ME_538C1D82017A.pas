@@ -28,7 +28,7 @@ type
    function NeedWritePara(aLeaf: Tl3Variant): Boolean; override;
     {* Определяет нужно ли фильтровать переданный абзац }
   public
-   constructor Create(anOwner: Tk2TagGeneratorOwner); override;
+   constructor Create(anOwner: Tk2TagGeneratorOwner = nil); override;
   public
    property ClearFont: Boolean
     read f_ClearFont
@@ -166,7 +166,7 @@ begin
 //#UC END# *49E48829016F_538C1D82017A_impl*
 end;//Tdd_lcHiddenTextExtractor.NeedWritePara
 
-constructor Tdd_lcHiddenTextExtractor.Create(anOwner: Tk2TagGeneratorOwner);
+constructor Tdd_lcHiddenTextExtractor.Create(anOwner: Tk2TagGeneratorOwner = nil);
 //#UC START# *538C1F9A00C7_538C1D82017A_var*
 //#UC END# *538C1F9A00C7_538C1D82017A_var*
 begin
