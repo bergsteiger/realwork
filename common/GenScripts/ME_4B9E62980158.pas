@@ -46,7 +46,7 @@ type
    constructor Create(const aAlias: AnsiString;
     const aCaption: AnsiString;
     const aDefaultValue: TddConfigValue;
-    aMasterItem: TddBaseConfigItem); override;
+    aMasterItem: TddBaseConfigItem = nil); override;
    procedure LoadValue(const aStorage: IddConfigStorage); override;
    procedure SaveValue(const aStorage: IddConfigStorage); override;
    function MinWidth(aParent: TWinControl): Integer; override;
@@ -91,7 +91,7 @@ type
    constructor Create(const aAlias: AnsiString;
     const aCaption: AnsiString;
     const aDefaultValue: TddConfigValue;
-    aMasterItem: TddBaseConfigItem); override;
+    aMasterItem: TddBaseConfigItem = nil); override;
    function MinWidth(aParent: TWinControl): Integer; override;
   public
    property AllowTest: Boolean
@@ -118,7 +118,7 @@ type
    constructor Create(const aAlias: AnsiString;
     const aCaption: AnsiString;
     const aDefaultValue: TddConfigValue;
-    aMasterItem: TddBaseConfigItem); override;
+    aMasterItem: TddBaseConfigItem = nil); override;
    procedure GetValueFromControl; override;
   public
    property AllowProcessDir: Boolean
@@ -146,7 +146,7 @@ type
    constructor Create(const aAlias: AnsiString;
     const aCaption: AnsiString;
     const aDefaultValue: TddConfigValue;
-    aMasterItem: TddBaseConfigItem); override;
+    aMasterItem: TddBaseConfigItem = nil); override;
  end;//TddSoundFileNameConfigItem
 
  TddTextConfigItem = class(TddVisualConfigItem)
@@ -168,7 +168,7 @@ type
    constructor Create(const aAlias: AnsiString;
     const aCaption: AnsiString;
     const aDefaultValue: TddConfigValue;
-    aMasterItem: TddBaseConfigItem); override;
+    aMasterItem: TddBaseConfigItem = nil); override;
    procedure LoadValue(const aStorage: IddConfigStorage); override;
    procedure SaveValue(const aStorage: IddConfigStorage); override;
    function MinWidth(aParent: TWinControl): Integer; override;
@@ -315,7 +315,7 @@ end;//TddStringConfigItem.Assign
 constructor TddStringConfigItem.Create(const aAlias: AnsiString;
  const aCaption: AnsiString;
  const aDefaultValue: TddConfigValue;
- aMasterItem: TddBaseConfigItem);
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *5217273F000F_4B9E62B50054_var*
 //#UC END# *5217273F000F_4B9E62B50054_var*
 begin
@@ -456,7 +456,7 @@ end;//TddBrowseConfigItem.pm_SetStringValue
 constructor TddBrowseConfigItem.Create(const aAlias: AnsiString;
  const aCaption: AnsiString;
  const aDefaultValue: TddConfigValue;
- aMasterItem: TddBaseConfigItem);
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *5217273F000F_523038C603B2_var*
 //#UC END# *5217273F000F_523038C603B2_var*
 begin
@@ -578,7 +578,7 @@ end;//TddFolderNameConfigItem.OnTestClick
 constructor TddFolderNameConfigItem.Create(const aAlias: AnsiString;
  const aCaption: AnsiString;
  const aDefaultValue: TddConfigValue;
- aMasterItem: TddBaseConfigItem);
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *5217273F000F_523038DB01A5_var*
 //#UC END# *5217273F000F_523038DB01A5_var*
 begin
@@ -628,7 +628,7 @@ end;//TddFileNameConfigItem.OnTestClick
 constructor TddSoundFileNameConfigItem.Create(const aAlias: AnsiString;
  const aCaption: AnsiString;
  const aDefaultValue: TddConfigValue;
- aMasterItem: TddBaseConfigItem);
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *5217273F000F_523038F9027B_var*
 //#UC END# *5217273F000F_523038F9027B_var*
 begin
@@ -733,7 +733,7 @@ end;//TddTextConfigItem.SetValueToControl
 constructor TddTextConfigItem.Create(const aAlias: AnsiString;
  const aCaption: AnsiString;
  const aDefaultValue: TddConfigValue;
- aMasterItem: TddBaseConfigItem);
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *5217273F000F_5230390C00FC_var*
 //#UC END# *5217273F000F_5230390C00FC_var*
 begin

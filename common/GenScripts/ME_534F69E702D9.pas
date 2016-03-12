@@ -145,7 +145,7 @@ type
    {$IfEnd} // Defined(l3HackedVCL) AND NOT Defined(NoVCL)
    {$If NOT Defined(NoVCL)}
    constructor CreateNew(AOwner: TComponent;
-    Dummy: Integer); override;
+    Dummy: Integer = 0); override;
    {$IfEnd} // NOT Defined(NoVCL)
    function NeedShowSystemContextMenuOnPoint(const aPoint: TPoint): Boolean; override;
   public
@@ -768,7 +768,7 @@ end;//TvcmTabbedContainerForm.NeedAutoScroll
 
 {$If NOT Defined(NoVCL)}
 constructor TvcmTabbedContainerForm.CreateNew(AOwner: TComponent;
- Dummy: Integer);
+ Dummy: Integer = 0);
 //#UC START# *4F9007B20376_534F69E702D9_var*
 //#UC END# *4F9007B20376_534F69E702D9_var*
 begin

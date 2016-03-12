@@ -966,7 +966,7 @@ As implemented in TCustomForm, CloseQuery polls any MDI children by calling thei
   public
    {$If NOT Defined(NoVCL)}
    constructor CreateNew(AOwner: TComponent;
-    Dummy: Integer); override;
+    Dummy: Integer = 0); override;
    {$IfEnd} // NOT Defined(NoVCL)
   public
    property Navigator: TvtNavigatorPrim
@@ -6832,7 +6832,7 @@ end;//TnpFloatingWindow.CloseQuery
 
 {$If NOT Defined(NoVCL)}
 constructor TnpFloatingWindow.CreateNew(AOwner: TComponent;
- Dummy: Integer);
+ Dummy: Integer = 0);
 //#UC START# *4F9007B20376_52BACEF001CB_var*
 //#UC END# *4F9007B20376_52BACEF001CB_var*
 begin

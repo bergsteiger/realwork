@@ -77,7 +77,7 @@ type
     {* ѕо ширине и высоте вдоченного редактора высчитываем ширину и высоту всего баллона. }
    {$If NOT Defined(NoVCL)}
    constructor CreateNew(AOwner: TComponent;
-    Dummy: Integer); override;
+    Dummy: Integer = 0); override;
    {$IfEnd} // NOT Defined(NoVCL)
   public
    property AfterBaloonHidden: TNotifyEvent
@@ -110,6 +110,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoVCL)}
 type
  THackWinControl = class(TWinControl)
  end;//THackWinControl
@@ -208,7 +209,6 @@ begin
 //#UC END# *4FC7694303B7_4D90583503C2_impl*
 end;//TvtPopupForm.CMVisibleChanged
 
-{$If NOT Defined(NoVCL)}
 procedure TvtPopupForm.CreateParams(var Params: TCreateParams);
 //#UC START# *48C7925A02E5_4D90583503C2_var*
 //#UC END# *48C7925A02E5_4D90583503C2_var*
@@ -220,9 +220,7 @@ begin
  {$EndIf vtLayeredFormIsForm}
 //#UC END# *48C7925A02E5_4D90583503C2_impl*
 end;//TvtPopupForm.CreateParams
-{$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCL)}
 procedure TvtPopupForm.SetBounds(ALeft: Integer;
  ATop: Integer;
  AWidth: Integer;
@@ -295,11 +293,9 @@ begin
  end;//try..finally
 //#UC END# *4F2A599E0283_4D90583503C2_impl*
 end;//TvtPopupForm.SetBounds
-{$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCL)}
 constructor TvtPopupForm.CreateNew(AOwner: TComponent;
- Dummy: Integer);
+ Dummy: Integer = 0);
 //#UC START# *4F9007B20376_4D90583503C2_var*
 {$IfDef IsVCMProject}
 var
@@ -373,13 +369,13 @@ begin
  end;//with f_NonVGLayout
 //#UC END# *4F9007B20376_4D90583503C2_impl*
 end;//TvtPopupForm.CreateNew
-{$IfEnd} // NOT Defined(NoVCL)
 
 initialization
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtPopupForm);
  {* –егистраци€ TvtPopupForm }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(NoVGScene)
+{$IfEnd} // NOT Defined(NoVCL)
 
+{$IfEnd} // NOT Defined(NoVGScene)
 end.

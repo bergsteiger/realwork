@@ -519,7 +519,7 @@ type
    function GetPopupMenu: TPopupMenu; override;
    procedure ReloadToolbars(const aForm: IvcmEntityForm); override;
    procedure PostBuild(aForm: TvcmEntityForm;
-    aFollowDocks: Boolean); override;
+    aFollowDocks: Boolean = False); override;
    procedure BackupOpStatus; override;
    procedure RestoreOpStatus; override;
    procedure BeginOp; override;
@@ -529,8 +529,8 @@ type
    function GetFastenMode: Boolean; override;
    function ObjectByType(anObject: TvcmObject;
     const anObjectName: AnsiString;
-    const aSubName: AnsiString;
-    ForceCreate: Boolean): TvcmBaseCollectionItem; override;
+    const aSubName: AnsiString = '';
+    ForceCreate: Boolean = False): TvcmBaseCollectionItem; override;
    function UnlockInProgress: Boolean; override;
    procedure AddControlForUnlockPostBuild(const aControl: IafwMenuUnlockedPostBuild); override;
    procedure ListenerControlDestroying(const aControl: IafwMenuUnlockedPostBuild); override;
@@ -3555,7 +3555,7 @@ begin
 end;//TvcmCustomMenuManager.ReloadToolbars
 
 procedure TvcmCustomMenuManager.PostBuild(aForm: TvcmEntityForm;
- aFollowDocks: Boolean);
+ aFollowDocks: Boolean = False);
 //#UC START# *52A1FD7301A8_4B30EC81021A_var*
 {$IfDef vcmUseSettings}
 var
@@ -3880,8 +3880,8 @@ end;//TvcmCustomMenuManager.GetFastenMode
 
 function TvcmCustomMenuManager.ObjectByType(anObject: TvcmObject;
  const anObjectName: AnsiString;
- const aSubName: AnsiString;
- ForceCreate: Boolean): TvcmBaseCollectionItem;
+ const aSubName: AnsiString = '';
+ ForceCreate: Boolean = False): TvcmBaseCollectionItem;
 //#UC START# *52A1FF0902CE_4B30EC81021A_var*
 //#UC END# *52A1FF0902CE_4B30EC81021A_var*
 begin

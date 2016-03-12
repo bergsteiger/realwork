@@ -73,7 +73,7 @@ As implemented in TCustomForm, CloseQuery polls any MDI children by calling thei
    {$IfEnd} // NOT Defined(NoVCL)
    {$If NOT Defined(NoVCL)}
    constructor CreateNew(AOwner: TComponent;
-    Dummy: Integer); override;
+    Dummy: Integer = 0); override;
    {$IfEnd} // NOT Defined(NoVCL)
   private
    property IsActivateProcessingLocked: Boolean
@@ -112,6 +112,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 ;
 
+{$If NOT Defined(NoVCL)}
 function TvgRemindersLineForm.pm_GetIsActivateProcessingLocked: Boolean;
 //#UC START# *5410102B01CD_53319C7502F4get_var*
 //#UC END# *5410102B01CD_53319C7502F4get_var*
@@ -238,7 +239,6 @@ begin
 //#UC END# *48077504027E_53319C7502F4_impl*
 end;//TvgRemindersLineForm.Destroy
 
-{$If NOT Defined(NoVCL)}
 procedure TvgRemindersLineForm.CreateParams(var Params: TCreateParams);
 //#UC START# *48C7925A02E5_53319C7502F4_var*
 //#UC END# *48C7925A02E5_53319C7502F4_var*
@@ -248,9 +248,7 @@ begin
  Params.ExStyle := Params.ExStyle and not (WS_EX_APPWINDOW) or WS_EX_TOOLWINDOW or WS_EX_TOPMOST or WS_EX_NOACTIVATE;
 //#UC END# *48C7925A02E5_53319C7502F4_impl*
 end;//TvgRemindersLineForm.CreateParams
-{$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCL)}
 function TvgRemindersLineForm.CloseQuery: Boolean;
  {* CloseQuery is called automatically when an attempt is made to close the form. CloseQuery can allow the form to close by returning true, or prevent the form from closing by returning false.
 
@@ -262,9 +260,7 @@ begin
  Result := False;
 //#UC END# *4980403E021E_53319C7502F4_impl*
 end;//TvgRemindersLineForm.CloseQuery
-{$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCL)}
 procedure TvgRemindersLineForm.SetBounds(ALeft: Integer;
  ATop: Integer;
  AWidth: Integer;
@@ -278,9 +274,7 @@ begin
  inherited SetBounds(ALeft, ATop, AWidth, AHeight);
 //#UC END# *4F2A599E0283_53319C7502F4_impl*
 end;//TvgRemindersLineForm.SetBounds
-{$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCL)}
 procedure TvgRemindersLineForm.DockDrop(Source: TDragDockObject;
  X: Integer;
  Y: Integer);
@@ -292,11 +286,9 @@ begin
  IvgRemindersLine(f_RemindersLine).ControlDropped(Source.Control);
 //#UC END# *4F8851380274_53319C7502F4_impl*
 end;//TvgRemindersLineForm.DockDrop
-{$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCL)}
 constructor TvgRemindersLineForm.CreateNew(AOwner: TComponent;
- Dummy: Integer);
+ Dummy: Integer = 0);
 //#UC START# *4F9007B20376_53319C7502F4_var*
 //#UC END# *4F9007B20376_53319C7502F4_var*
 begin
@@ -321,9 +313,7 @@ begin
  end;//with f_Scene
 //#UC END# *4F9007B20376_53319C7502F4_impl*
 end;//TvgRemindersLineForm.CreateNew
-{$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCL)}
 procedure TvgRemindersLineForm.UpdateActions;
 //#UC START# *533AA4B4006B_53319C7502F4_var*
 //#UC END# *533AA4B4006B_53319C7502F4_var*
@@ -334,13 +324,13 @@ begin
   IvgRemindersLine(f_RemindersLine).UpdateActions;
 //#UC END# *533AA4B4006B_53319C7502F4_impl*
 end;//TvgRemindersLineForm.UpdateActions
-{$IfEnd} // NOT Defined(NoVCL)
 
 initialization
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvgRemindersLineForm);
  {* Регистрация TvgRemindersLineForm }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(NoVGScene)
+{$IfEnd} // NOT Defined(NoVCL)
 
+{$IfEnd} // NOT Defined(NoVGScene)
 end.

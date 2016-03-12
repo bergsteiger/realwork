@@ -26,6 +26,6 @@ implementation
 uses
  l3ImplUses
 ;
-{$IfEnd} // Defined(DesignTimeLibrary) AND NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(DesignTimeLibrary) AND NOT Defined(NoVCM)
 end.

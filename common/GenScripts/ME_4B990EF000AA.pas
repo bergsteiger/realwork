@@ -466,7 +466,7 @@ type
    read Get_Control;
  end;//IddCNode
 
- TddCNode = class(Tl3UsualNode, Il3Node, IddCNode)
+ TddCNode = class(Tl3UsualNode, IddCNode)
   private
    f_Node: TddCustomConfigNode;
   protected

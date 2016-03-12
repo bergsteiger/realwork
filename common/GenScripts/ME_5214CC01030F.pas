@@ -42,6 +42,7 @@ type
    procedure Save(const aStorage: IddConfigStorage;
     const anAlias: AnsiString); virtual;
    function UpItem(anIndex: Integer): Boolean; virtual;
+   procedure ClearItems; virtual; abstract;
   public
    property Alias: AnsiString
     read f_Alias
@@ -79,6 +80,7 @@ type
   public
    function MakeItem: TddAppConfigNode;
    constructor Make(const anAlias: AnsiString); reintroduce;
+   procedure ClearItems; override;
    procedure Assign(Source: TPersistent); override;
    function AddItem: Integer; override;
    function AsObject: TObject; override;
@@ -110,6 +112,7 @@ type
    function pm_GetStrings(anIndex: Integer): AnsiString; override;
   public
    function GetStrings: TStrings;
+   procedure ClearItems; override;
    procedure Assign(Source: TPersistent); override;
    function AsObject: TObject; override;
    function DeleteItem(anIndex: Integer): Boolean; override;
@@ -323,6 +326,15 @@ begin
  f_DataConfig.Alias:= anAlias;
 //#UC END# *522EE43E0110_522EDF570036_impl*
 end;//TddSimpleListDataAdapter.Make
+
+procedure TddSimpleListDataAdapter.ClearItems;
+//#UC START# *56D93DBD039D_522EDF570036_var*
+//#UC END# *56D93DBD039D_522EDF570036_var*
+begin
+//#UC START# *56D93DBD039D_522EDF570036_impl*
+ f_Items.Clear;
+//#UC END# *56D93DBD039D_522EDF570036_impl*
+end;//TddSimpleListDataAdapter.ClearItems
 
 procedure TddSimpleListDataAdapter.Assign(Source: TPersistent);
 //#UC START# *478CF34E02CE_522EDF570036_var*
@@ -555,6 +567,15 @@ begin
  Result := f_Strings;
 //#UC END# *522EE4E000E1_522EDF6702AF_impl*
 end;//TddStringDataAdapter.GetStrings
+
+procedure TddStringDataAdapter.ClearItems;
+//#UC START# *56D93DBD039D_522EDF6702AF_var*
+//#UC END# *56D93DBD039D_522EDF6702AF_var*
+begin
+//#UC START# *56D93DBD039D_522EDF6702AF_impl*
+ f_Strings.Clear;
+//#UC END# *56D93DBD039D_522EDF6702AF_impl*
+end;//TddStringDataAdapter.ClearItems
 
 procedure TddStringDataAdapter.Assign(Source: TPersistent);
 //#UC START# *478CF34E02CE_522EDF6702AF_var*

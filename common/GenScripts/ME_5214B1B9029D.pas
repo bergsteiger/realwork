@@ -34,7 +34,7 @@ type
    constructor Create(const aAlias: AnsiString;
     const aCaption: AnsiString;
     const aDefaultValue: TddConfigValue;
-    aMasterItem: TddBaseConfigItem); override;
+    aMasterItem: TddBaseConfigItem = nil); override;
    procedure LoadValue(const aStorage: IddConfigStorage); override;
    procedure SaveValue(const aStorage: IddConfigStorage); override;
  end;//TddDateTimeConfigItem
@@ -263,7 +263,7 @@ end;//TddDateTimeConfigItem.SetValueToControl
 constructor TddDateTimeConfigItem.Create(const aAlias: AnsiString;
  const aCaption: AnsiString;
  const aDefaultValue: TddConfigValue;
- aMasterItem: TddBaseConfigItem);
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *5217273F000F_522F0FB3004F_var*
 var
  l_DefValue: TddConfigValue;

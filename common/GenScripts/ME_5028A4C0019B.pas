@@ -70,7 +70,7 @@ type
    procedure ExecuteDefered; override;
    {$IfEnd} // NOT Defined(NoTB97)
    {$If NOT Defined(NoTB97)}
-   procedure UpdateEmpty(aUpdateVisibility: Boolean); override;
+   procedure UpdateEmpty(aUpdateVisibility: Boolean = True); override;
    {$IfEnd} // NOT Defined(NoTB97)
   public
    procedure vcmDeleteLastIfSeparator;
@@ -446,7 +446,7 @@ end;//TvcmToolbarDef.ExecuteDefered
 {$IfEnd} // NOT Defined(NoTB97)
 
 {$If NOT Defined(NoTB97)}
-procedure TvcmToolbarDef.UpdateEmpty(aUpdateVisibility: Boolean);
+procedure TvcmToolbarDef.UpdateEmpty(aUpdateVisibility: Boolean = True);
 //#UC START# *5028A1220383_50289DB9036F_var*
 var
  I: Integer;

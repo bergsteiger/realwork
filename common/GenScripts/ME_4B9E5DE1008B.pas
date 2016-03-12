@@ -72,7 +72,7 @@ type
    constructor Create(const aAlias: AnsiString;
     const aCaption: AnsiString;
     const aDefaultValue: TddConfigValue;
-    aMasterItem: TddBaseConfigItem); override;
+    aMasterItem: TddBaseConfigItem = nil); override;
    procedure LoadValue(const aStorage: IddConfigStorage); override;
    procedure SaveValue(const aStorage: IddConfigStorage); override;
   public
@@ -500,7 +500,7 @@ end;//TddListConfigItem.pm_SetValue
 constructor TddListConfigItem.Create(const aAlias: AnsiString;
  const aCaption: AnsiString;
  const aDefaultValue: TddConfigValue;
- aMasterItem: TddBaseConfigItem);
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *5217273F000F_4B9E5DF90347_var*
 //#UC END# *5217273F000F_4B9E5DF90347_var*
 begin
