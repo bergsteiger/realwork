@@ -160,6 +160,36 @@ ref; // ME_4B6ADBAC0014 TGotoParaResult
 
 FORWARD ME_4B065085018D
 
+: ME_54D30CC50329
+ CONST UID '54D30CC50329'
+ CONST Name 'aDocument'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+
+ref; // ME_54D30CC50329 aDocument
+
+: ME_54D30CC50343
+ CONST UID '54D30CC50343'
+ CONST Name 'aSub'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+
+ref; // ME_54D30CC50343 aSub
+
+: ME_54D30CC5035D
+ CONST UID '54D30CC5035D'
+ CONST Name 'aBehaviour'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_53A91FD901F3' '4ACF514E0337.pas.ms.script' // TbsProcessHyperLinkBehaviour
+ ;
+
+ref; // ME_54D30CC5035D aBehaviour
+
 : ME_4B0650D4035A
  CONST UID '4B0650D4035A'
  CONST Name 'OpenEditionLocalLink'
@@ -170,6 +200,12 @@ FORWARD ME_4B065085018D
  CONST Abstraction at_abstract
  : Parent ME_4B065085018D // Document
  ;
+ : Parameters
+   Seq: ( ME_54D30CC50329 // aDocument
+ ME_54D30CC50343 // aSub
+ ME_54D30CC5035D // aBehaviour
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -242,6 +278,16 @@ ref; // ME_4B1E3833024A ReturnToDocument
 
 ref; // ME_4B69B5A802C2 SetFocusToText
 
+: ME_4B6AF2C401E0
+ CONST UID '4B6AF2C401E0'
+ CONST Name 'aPara'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4B6AF2C401E0 aPara
+
 : ME_4B6AF2A502AE
  CONST UID '4B6AF2A502AE'
  CONST Name 'IsCurrentPara'
@@ -254,6 +300,10 @@ ref; // ME_4B69B5A802C2 SetFocusToText
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ : Parameters
+   Seq: ( ME_4B6AF2C401E0 // aPara
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -287,6 +337,16 @@ ref; // ME_4B1E38210086 RightEdition
 
 FORWARD ME_4ADC8B0F02CF
 
+: ME_4AE042630148
+ CONST UID '4AE042630148'
+ CONST Name 'aPara'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4AE042630148 aPara
+
 : ME_4AE042520302
  CONST UID '4AE042520302'
  CONST Name 'GotoPara'
@@ -299,6 +359,10 @@ FORWARD ME_4ADC8B0F02CF
  ;
  : Target ME_4B6ADBAC0014 // TGotoParaResult
  ;
+ : Parameters
+   Seq: ( ME_4AE042630148 // aPara
+ )
+ ; // Parameters
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
