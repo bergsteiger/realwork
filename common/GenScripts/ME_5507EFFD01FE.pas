@@ -145,7 +145,7 @@ type
 
  TChromeLikeTabNeedCloseEvent = procedure(aTabToClose: TChromeLikeBaseVisualObject) of object;
 
- TChromeLikeTab = class(TChromeLikeBaseVisualObject, IChromeLikeTabSetAnimable, Il3FormTab)
+ TChromeLikeTab = class(TChromeLikeBaseVisualObject, Il3FormTab)
   private
    f_CloseButton: TChromeLikeTabCloseButton;
    f_TextControl: TChromeLikeTabText;

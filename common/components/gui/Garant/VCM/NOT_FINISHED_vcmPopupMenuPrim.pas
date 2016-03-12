@@ -37,7 +37,9 @@ uses
  , l3Interlocked
 ;
 
+{$If NOT Defined(NoVCL)}
 {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
-{$IfEnd} // NOT Defined(NoVCM)
+{$IfEnd} // NOT Defined(NoVCL)
 
+{$IfEnd} // NOT Defined(NoVCM)
 end.
