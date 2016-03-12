@@ -1,37 +1,29 @@
 unit nscTextSource;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Nemesis/nscTextSource.pas"
-// Начат: 2004/12/23 12:51:13
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For F1::Nemesis::Editor::TnscTextSource
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nscTextSource.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  eeTextSource
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , eeTextSource
+;
 
-{$If defined(Nemesis)}
 type
  TnscTextSource = class(TeeTextSource)
  end;//TnscTextSource
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
+
+{$If Defined(Nemesis)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(Nemesis)
 
 end.

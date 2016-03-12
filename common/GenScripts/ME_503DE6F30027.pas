@@ -67,9 +67,9 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoTB97)}
 {$Include w:\common\components\gui\Garant\Nemesis\nscStatusBarItemNotification.imp.pas}
 
-{$If NOT Defined(NoTB97)}
 function TnscStatusBarButton.IsGtbToolbarButtonSizeNeeded: Boolean;
 //#UC START# *503DE82B0311_503DE6F30027_var*
 //#UC END# *503DE82B0311_503DE6F30027_var*
@@ -78,9 +78,7 @@ begin
  Result := False;
 //#UC END# *503DE82B0311_503DE6F30027_impl*
 end;//TnscStatusBarButton.IsGtbToolbarButtonSizeNeeded
-{$IfEnd} // NOT Defined(NoTB97)
 
-{$If NOT Defined(NoTB97)}
 function TnscStatusBarButton.GetIsAutoCenter: Boolean;
 //#UC START# *503E27CA010E_503DE6F30027_var*
 //#UC END# *503E27CA010E_503DE6F30027_var*
@@ -89,9 +87,7 @@ begin
  Result := True;
 //#UC END# *503E27CA010E_503DE6F30027_impl*
 end;//TnscStatusBarButton.GetIsAutoCenter
-{$IfEnd} // NOT Defined(NoTB97)
 
-{$If NOT Defined(NoTB97)}
 procedure TnscStatusBarButton.CalcSize(var aSize: TSize);
 //#UC START# *504779E00385_503DE6F30027_var*
 //#UC END# *504779E00385_503DE6F30027_var*
@@ -103,9 +99,7 @@ begin
   aSize.cx := cStatusbarItemSize;
 //#UC END# *504779E00385_503DE6F30027_impl*
 end;//TnscStatusBarButton.CalcSize
-{$IfEnd} // NOT Defined(NoTB97)
 
-{$If NOT Defined(NoTB97)}
 function TnscStatusBarButton.NeedAutoDown: Boolean;
 //#UC START# *50477A430157_503DE6F30027_var*
 //#UC END# *50477A430157_503DE6F30027_var*
@@ -114,7 +108,6 @@ begin
  Result := (Action as TCustomAction).AutoCheck;
 //#UC END# *50477A430157_503DE6F30027_impl*
 end;//TnscStatusBarButton.NeedAutoDown
-{$IfEnd} // NOT Defined(NoTB97)
 
 //#UC START# *503DE6F30027impl*
 //#UC END# *503DE6F30027impl*
@@ -124,6 +117,7 @@ initialization
  TtfwClassRef.Register(TnscStatusBarButton);
  {* Регистрация TnscStatusBarButton }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // Defined(Nemesis)
+{$IfEnd} // NOT Defined(NoTB97)
 
+{$IfEnd} // Defined(Nemesis)
 end.

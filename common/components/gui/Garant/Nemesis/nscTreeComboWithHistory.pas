@@ -1,45 +1,32 @@
 unit nscTreeComboWithHistory;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Модуль: "w:/common/components/gui/Garant/Nemesis/nscTreeComboWithHistory.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi For F1::Nemesis::Editor::TnscTreeComboWithHistory
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nscTreeComboWithHistory.pas"
+// Стереотип: "GuiControl"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  Graphics,
-  nscCustomTreeComboWithHistory,
-  nscConst
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , nscCustomTreeComboWithHistory
+ , nscConst
+ , Graphics
+;
 
-{$If defined(Nemesis)}
 const
-  { TnscTreeComboWithHistory Default Values }
  cDefaultContextEmptyColor = nscConst.cDefaultContextEmptyColor;
  clWindowText = Graphics.clWindowText;
  clBlue = Graphics.clBlue;
 
 type
-//#UC START# *4B97EE390310ci*
-//#UC END# *4B97EE390310ci*
-//#UC START# *4B97EE390310cit*
-//#UC END# *4B97EE390310cit*
+ //#UC START# *4B97EE390310ci*
+ //#UC END# *4B97EE390310ci*
+ //#UC START# *4B97EE390310cit*
+ //#UC END# *4B97EE390310cit*
  TnscTreeComboWithHistory = class(TnscCustomTreeComboWithHistory)
-//#UC START# *4B97EE390310publ*
+ //#UC START# *4B97EE390310publ*
   public
    property Button;
   published
@@ -66,35 +53,28 @@ type
    property OnResize;
    property OnSelect;
    property CloseHyperLinkColor default clBlue;
-//#UC END# *4B97EE390310publ*
+ //#UC END# *4B97EE390310publ*
  end;//TnscTreeComboWithHistory
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //Nemesis
-
-{$If defined(Nemesis)}
-
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 //#UC START# *4B97EE390310impl*
 //#UC END# *4B97EE390310impl*
 
-{$IfEnd} //Nemesis
-
 initialization
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация TnscTreeComboWithHistory
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnscTreeComboWithHistory);
-{$IfEnd} //Nemesis AND not NoScripts
+ {* Регистрация TnscTreeComboWithHistory }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(Nemesis)
 
 end.

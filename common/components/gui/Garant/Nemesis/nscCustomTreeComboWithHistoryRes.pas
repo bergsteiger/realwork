@@ -1,51 +1,36 @@
 unit nscCustomTreeComboWithHistoryRes;
+ {* Ресурсы для TnscCustomTreeComboWithHistory }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Nemesis/nscCustomTreeComboWithHistoryRes.pas"
-// Начат: 10.03.2010 22:09
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For F1::Nemesis::Editor::nscCustomTreeComboWithHistoryRes
-//
-// Ресурсы для TnscCustomTreeComboWithHistory
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nscCustomTreeComboWithHistoryRes.pas"
+// Стереотип: "UtilityPack"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  l3StringIDEx
-  ;
+ l3IntfUses
+ , l3StringIDEx
+;
 
-var
-  { Локализуемые строки MiscMessages }
- str_nsc_CloseHyperlinkText : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'nsc_CloseHyperlinkText'; rValue : 'Закрыть');
-  { 'Закрыть' }
-{$IfEnd} //Nemesis
+const
+ {* Локализуемые строки MiscMessages }
+ str_nsc_CloseHyperlinkText: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'nsc_CloseHyperlinkText'; rValue : 'Закрыть');
+  {* 'Закрыть' }
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  l3MessageID
-  ;
-
-{$IfEnd} //Nemesis
+ l3ImplUses
+ , l3MessageID
+;
 
 initialization
-{$If defined(Nemesis)}
-// Инициализация str_nsc_CloseHyperlinkText
  str_nsc_CloseHyperlinkText.Init;
-{$IfEnd} //Nemesis
+ {* Инициализация str_nsc_CloseHyperlinkText }
+{$IfEnd} // Defined(Nemesis)
 
 end.

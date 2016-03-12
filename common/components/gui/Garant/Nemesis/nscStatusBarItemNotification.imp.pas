@@ -1,68 +1,59 @@
 {$IfNDef nscStatusBarItemNotification_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Модуль: "w:/common/components/gui/Garant/Nemesis/nscStatusBarItemNotification.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GUIControlMixIn::Class>> Shared Delphi For F1::Nemesis::StatusBarUtils::nscStatusBarItemNotification
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nscStatusBarItemNotification.imp.pas"
+// Стереотип: "GUIControlMixIn"
 
 {$Define nscStatusBarItemNotification_imp}
-{$If defined(Nemesis)}
+
+{$If Defined(Nemesis)}
 const
-  { StatusBarConsts }
  cStatusbarItemSize = 20;
 
-type
- _nscStatusBarItemNotification_ = {mixin} class(_nscStatusBarItemNotification_Parent_, InscStatusBarItem)
- private
- // private fields
-   f_NotificationClients : TnscStatusBarItemsList;
-   f_ItemDef : InscStatusBarItemDef;
-    {* Поле для свойства ItemDef}
- private
- // private methods
+ //#UC START# *505DA5E7038Dci*
+ //#UC END# *505DA5E7038Dci*
+ //#UC START# *505DA5E7038Dcit*
+type 
+ //#UC END# *505DA5E7038Dcit*
+ _nscStatusBarItemNotification_ = class(_nscStatusBarItemNotification_Parent_, InscStatusBarItem)
+  private
+   f_NotificationClients: TnscStatusBarItemsList;
+   f_ItemDef: InscStatusBarItemDef;
+    {* Поле для свойства ItemDef }
+  private
    procedure CMVisibleChanged(var aMessage: TMessage); message CM_VISIBLECHANGED;
- protected
- // realized methods
+  protected
    procedure Subscribe(const aClient: InscStatusBarItem);
    procedure Unsubscribe(const aClient: InscStatusBarItem);
    procedure SendNotificationToClients(aNotificationType: TnscStatusBarItemNotificationType);
    procedure Notify(const aSender: InscStatusBarItem;
-     aNotificationType: TnscStatusBarItemNotificationType);
+    aNotificationType: TnscStatusBarItemNotificationType);
    function Get_Visible: Boolean;
    function Get_NotificationClients: Pointer;
    function Get_ItemDef: InscStatusBarItemDef;
    procedure Set_ItemDef(const aValue: InscStatusBarItemDef);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public properties
+  public
    property ItemDef: InscStatusBarItemDef
-     read f_ItemDef
-     write f_ItemDef;
+    read f_ItemDef
+    write f_ItemDef;
+ //#UC START# *505DA5E7038Dpubl*
+ //#UC END# *505DA5E7038Dpubl*
  end;//_nscStatusBarItemNotification_
-{$Else}
 
- _nscStatusBarItemNotification_ = _nscStatusBarItemNotification_Parent_;
+{$Else Defined(Nemesis)}
 
-{$IfEnd} //Nemesis
+_nscStatusBarItemNotification_ = _nscStatusBarItemNotification_Parent_;
 
+{$IfEnd} // Defined(Nemesis)
 {$Else nscStatusBarItemNotification_imp}
 
-{$If defined(Nemesis)}
+{$IfNDef nscStatusBarItemNotification_imp_impl}
 
-// start class _nscStatusBarItemNotification_
+{$Define nscStatusBarItemNotification_imp_impl}
 
+{$If Defined(Nemesis)}
 procedure _nscStatusBarItemNotification_.CMVisibleChanged(var aMessage: TMessage);
 //#UC START# *506022500317_505DA5E7038D_var*
 //#UC END# *506022500317_505DA5E7038D_var*
@@ -107,7 +98,7 @@ begin
 end;//_nscStatusBarItemNotification_.SendNotificationToClients
 
 procedure _nscStatusBarItemNotification_.Notify(const aSender: InscStatusBarItem;
-  aNotificationType: TnscStatusBarItemNotificationType);
+ aNotificationType: TnscStatusBarItemNotificationType);
 //#UC START# *505DCA6603AA_505DA5E7038D_var*
 //#UC END# *505DCA6603AA_505DA5E7038D_var*
 begin
@@ -155,6 +146,7 @@ begin
 end;//_nscStatusBarItemNotification_.Set_ItemDef
 
 procedure _nscStatusBarItemNotification_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_505DA5E7038D_var*
 //#UC END# *479731C50290_505DA5E7038D_var*
 begin
@@ -166,14 +158,16 @@ begin
 end;//_nscStatusBarItemNotification_.Cleanup
 
 procedure _nscStatusBarItemNotification_.ClearFields;
- {-}
 begin
- {$If defined(Nemesis)}
  ItemDef := nil;
- {$IfEnd} //Nemesis
  inherited;
 end;//_nscStatusBarItemNotification_.ClearFields
 
-{$IfEnd} //Nemesis
+//#UC START# *505DA5E7038Dimpl*
+//#UC END# *505DA5E7038Dimpl*
+{$IfEnd} // Defined(Nemesis)
+
+{$EndIf nscStatusBarItemNotification_imp_impl}
 
 {$EndIf nscStatusBarItemNotification_imp}
+

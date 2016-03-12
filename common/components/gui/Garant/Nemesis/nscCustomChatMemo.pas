@@ -1,109 +1,80 @@
 unit nscCustomChatMemo;
+ {* Мемо-поле для чата F1 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Nemesis/nscCustomChatMemo.pas"
-// Начат: 18.08.2009 14:48
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi For F1::Nemesis::Memos::TnscCustomChatMemo
-//
-// Мемо-поле для чата F1
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nscCustomChatMemo.pas"
+// Стереотип: "GuiControl"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  nevBase,
-  nevTools,
-  evInternalInterfaces,
-  evCustomChatMemo,
-  l3Variant,
-  evCustomMemo,
-  evEditorWithOperations
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , evCustomChatMemo
+ , evInternalInterfaces
+ , nevTools
+ , nevBase
+ , l3Variant
+ , evCustomMemo
+ , evEditorWithOperations
+;
 
-{$If defined(Nemesis)}
 type
  TnscCustomChatMemo = class(TevCustomChatMemo, IevF1LikeEditor)
   {* Мемо-поле для чата F1 }
- protected
- // realized methods
+  protected
+   function ValidateInsertionPoint: Boolean;
+    {* Проверить точку вставки на возможность оной, и если невозможно, то сместить курсор }
+   function IsParaInF1Doc(aPara: Tl3Variant;
+    out theDoc: InevPara): Boolean;
+    {* Находится параграф ли в документе, скопированном из F1 }
+   function IsInF1Doc(out theDoc: InevPara): Boolean;
+    {* Находимся ли в документе, скопированном из F1 }
    function CanInsertParaOnMove: Boolean;
-     {* Можно ли вставлять параграфы при движении курсора }
+    {* Можно ли вставлять параграфы при движении курсора }
    function IsInReadOnlyPara(const aPara: InevPara;
     NeedDeleteIfReadOnly: Boolean): Boolean;
-     {* Находимся ли в параграфе, в котором запрещено редактирование }
- protected
- // overridden protected methods
+    {* Находимся ли в параграфе, в котором запрещено редактирование }
    procedure InitFields; override;
    function DoBreakPara(aDrawLines: Boolean;
     const anOp: InevOp): Boolean; override;
    function TextSourceClass: RevCustomMemoTextSource; override;
    function DefineProvideOperations: TevEditorProvideOperationTypes; override;
-     {* Какие операции публикуются компонентом. }
- public
- // overridden public methods
+    {* Какие операции публикуются компонентом. }
+  public
    function Paste: Boolean; override;
-     {* вставить из буфера обмена. }
- protected
- // protected methods
-   function ValidateInsertionPoint: Boolean;
-     {* Проверить точку вставки на возможность оной, и если невозможно, то сместить курсор }
-   function IsParaInF1Doc(aPara: Tl3Variant;
-     out theDoc: InevPara): Boolean;
-     {* Находится параграф ли в документе, скопированном из F1 }
-   function IsInF1Doc(out theDoc: InevPara): Boolean;
-     {* Находимся ли в документе, скопированном из F1 }
+    {* вставить из буфера обмена. }
  end;//TnscCustomChatMemo
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  evOp,
-  TextPara_Const,
-  k2Tags,
-  Document_Const,
-  Para_Const
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  nscCustomChatMemoTextSource,
-  evMsgCode
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //Nemesis
-
-{$If defined(Nemesis)}
-
-// start class TnscCustomChatMemo
+ l3ImplUses
+ , nscCustomChatMemoTextSource
+ , evMsgCode
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , evOp
+ , TextPara_Const
+ , k2Tags
+ , Document_Const
+ , Para_Const
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+;
 
 function TnscCustomChatMemo.ValidateInsertionPoint: Boolean;
+ {* Проверить точку вставки на возможность оной, и если невозможно, то сместить курсор }
+var l_Doc: InevPara;
+var l_Point: InevBasePoint;
+var l_Op: InevOp;
 //#UC START# *4A8C12F70348_4A8A871B02ED_var*
 //#UC END# *4A8C12F70348_4A8A871B02ED_var*
-var
- l_Doc : InevPara;
- l_Point : InevBasePoint;
- l_Op : InevOp;
 begin
 //#UC START# *4A8C12F70348_4A8A871B02ED_impl*
  Result := true;
@@ -134,11 +105,11 @@ begin
 end;//TnscCustomChatMemo.ValidateInsertionPoint
 
 function TnscCustomChatMemo.IsParaInF1Doc(aPara: Tl3Variant;
-  out theDoc: InevPara): Boolean;
+ out theDoc: InevPara): Boolean;
+ {* Находится параграф ли в документе, скопированном из F1 }
+var l_Doc: Tl3Tag;
 //#UC START# *4A8C16790143_4A8A871B02ED_var*
 //#UC END# *4A8C16790143_4A8A871B02ED_var*
-var
- l_Doc : Tl3Tag;
 begin
 //#UC START# *4A8C16790143_4A8A871B02ED_impl*
  Result := false;
@@ -156,6 +127,7 @@ begin
 end;//TnscCustomChatMemo.IsParaInF1Doc
 
 function TnscCustomChatMemo.IsInF1Doc(out theDoc: InevPara): Boolean;
+ {* Находимся ли в документе, скопированном из F1 }
 //#UC START# *4A8C249D02F4_4A8A871B02ED_var*
 //#UC END# *4A8C249D02F4_4A8A871B02ED_var*
 begin
@@ -165,6 +137,7 @@ begin
 end;//TnscCustomChatMemo.IsInF1Doc
 
 function TnscCustomChatMemo.CanInsertParaOnMove: Boolean;
+ {* Можно ли вставлять параграфы при движении курсора }
 //#UC START# *4A8C083300C3_4A8A871B02ED_var*
 //#UC END# *4A8C083300C3_4A8A871B02ED_var*
 begin
@@ -174,7 +147,8 @@ begin
 end;//TnscCustomChatMemo.CanInsertParaOnMove
 
 function TnscCustomChatMemo.IsInReadOnlyPara(const aPara: InevPara;
-  NeedDeleteIfReadOnly: Boolean): Boolean;
+ NeedDeleteIfReadOnly: Boolean): Boolean;
+ {* Находимся ли в параграфе, в котором запрещено редактирование }
 //#UC START# *4A8C24130193_4A8A871B02ED_var*
 var
  l_Doc : InevPara;
@@ -199,7 +173,7 @@ begin
 end;//TnscCustomChatMemo.InitFields
 
 function TnscCustomChatMemo.DoBreakPara(aDrawLines: Boolean;
-  const anOp: InevOp): Boolean;
+ const anOp: InevOp): Boolean;
 //#UC START# *482BFCBF01F0_4A8A871B02ED_var*
 var
  l_Op : InevOp;
@@ -228,6 +202,7 @@ begin
 end;//TnscCustomChatMemo.TextSourceClass
 
 function TnscCustomChatMemo.DefineProvideOperations: TevEditorProvideOperationTypes;
+ {* Какие операции публикуются компонентом. }
 //#UC START# *48735C4A03C3_4A8A871B02ED_var*
 //#UC END# *48735C4A03C3_4A8A871B02ED_var*
 begin
@@ -237,6 +212,7 @@ begin
 end;//TnscCustomChatMemo.DefineProvideOperations
 
 function TnscCustomChatMemo.Paste: Boolean;
+ {* вставить из буфера обмена. }
 //#UC START# *48C7C1A2010C_4A8A871B02ED_var*
 //#UC END# *48C7C1A2010C_4A8A871B02ED_var*
 begin
@@ -246,12 +222,11 @@ begin
 //#UC END# *48C7C1A2010C_4A8A871B02ED_impl*
 end;//TnscCustomChatMemo.Paste
 
-{$IfEnd} //Nemesis
-
 initialization
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация TnscCustomChatMemo
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnscCustomChatMemo);
-{$IfEnd} //Nemesis AND not NoScripts
+ {* Регистрация TnscCustomChatMemo }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(Nemesis)
 
 end.

@@ -20,20 +20,20 @@ const
  , 'forum.garant.ru'
  );
 
-function IsGarantURL(const anURL: WideString): Boolean;
+function nsIsGarantURL(const anURL: WideString): Boolean;
  {* Определяет, что адрес в домене Гаранта }
-function IsLocalDocumentURL(const anURL: WideString): Boolean;
+function nsIsLocalDocumentURL(const anURL: WideString): Boolean;
  {* Определяет, что ссылка на внутренний документ }
-function ParseLocalDocumentURL(const anURL: WideString;
+function nsParseLocalDocumentURL(const anURL: WideString;
  out DocID: Integer;
  out SubID: Integer): Boolean;
  {* Разобрать локальную ссылку на документ }
-function IsContractConstructorURL(const anURL: WideString): Boolean;
-function IsMobileGarantOnlineURL(const anURL: WideString): Boolean;
-function NeedOpenLinkInExternalBrowser(const anURL: WideString): Boolean;
-function IsObtainRequisitesForMobileAccessURL(const anURL: WideString): Boolean;
-function IsMunicipalDecisionsArchiveURL(const anURL: WideString): Boolean;
-function NeedOpenLinkInInternalBrowser(const anURL: WideString): Boolean;
+function nsIsContractConstructorURL(const anURL: WideString): Boolean;
+function nsIsMobileGarantOnlineURL(const anURL: WideString): Boolean;
+function nsNeedOpenLinkInExternalBrowser(const anURL: WideString): Boolean;
+function nsIsObtainRequisitesForMobileAccessURL(const anURL: WideString): Boolean;
+function nsIsMunicipalDecisionsArchiveURL(const anURL: WideString): Boolean;
+function nsNeedOpenLinkInInternalBrowser(const anURL: WideString): Boolean;
 {$IfEnd} // Defined(Nemesis)
 
 implementation
@@ -50,7 +50,7 @@ uses
  , SysUtils
 ;
 
-function IsGarantURL(const anURL: WideString): Boolean;
+function nsIsGarantURL(const anURL: WideString): Boolean;
  {* Определяет, что адрес в домене Гаранта }
 //#UC START# *49EEF1BA019B_49EEF16603C9_var*
 const
@@ -60,9 +60,9 @@ begin
 //#UC START# *49EEF1BA019B_49EEF16603C9_impl*
  Result := l3Starts('about:', l3PCharLen(anURL), true) or l3CheckStrByPattern(cMask, l3PCharLen(anURL));
 //#UC END# *49EEF1BA019B_49EEF16603C9_impl*
-end;//IsGarantURL
+end;//nsIsGarantURL
 
-function IsLocalDocumentURL(const anURL: WideString): Boolean;
+function nsIsLocalDocumentURL(const anURL: WideString): Boolean;
  {* Определяет, что ссылка на внутренний документ }
 //#UC START# *4BEBC370007F_49EEF16603C9_var*
 const
@@ -72,9 +72,9 @@ begin
 //#UC START# *4BEBC370007F_49EEF16603C9_impl*
  Result := l3CheckStrByPattern(cMask, l3PCharLen(anURL));
 //#UC END# *4BEBC370007F_49EEF16603C9_impl*
-end;//IsLocalDocumentURL
+end;//nsIsLocalDocumentURL
 
-function ParseLocalDocumentURL(const anURL: WideString;
+function nsParseLocalDocumentURL(const anURL: WideString;
  out DocID: Integer;
  out SubID: Integer): Boolean;
  {* Разобрать локальную ссылку на документ }
@@ -125,9 +125,9 @@ begin
   end;
  end;
 //#UC END# *4BEBC4090016_49EEF16603C9_impl*
-end;//ParseLocalDocumentURL
+end;//nsParseLocalDocumentURL
 
-function IsContractConstructorURL(const anURL: WideString): Boolean;
+function nsIsContractConstructorURL(const anURL: WideString): Boolean;
 //#UC START# *52315BE902FD_49EEF16603C9_var*
 const
  cMask = '^(res\:\/\/.+#)*https?\:\/\/([^\\\.]+\.)*service.garant.ru/\constructor($|\_)';
@@ -138,9 +138,9 @@ begin
  Result := l3CheckStrByPattern(cMask, l3PCharLen(anURL)) or
            l3CheckStrByPattern(cTestMask, l3PCharLen(anURL));
 //#UC END# *52315BE902FD_49EEF16603C9_impl*
-end;//IsContractConstructorURL
+end;//nsIsContractConstructorURL
 
-function IsMobileGarantOnlineURL(const anURL: WideString): Boolean;
+function nsIsMobileGarantOnlineURL(const anURL: WideString): Boolean;
 //#UC START# *523ADD1803CC_49EEF16603C9_var*
 const
  cMask = '^(res\:\/\/.+#)*https?\:\/\/([^\\\.]+\.)*i.garant.ru($|\_)';
@@ -159,18 +159,18 @@ begin
   l3CheckStrByPattern(cInternalTestIVMask, l3PCharLen(anURL));
  // - http://mdp.garant.ru/pages/viewpage.action?pageId=560182136 
 //#UC END# *523ADD1803CC_49EEF16603C9_impl*
-end;//IsMobileGarantOnlineURL
+end;//nsIsMobileGarantOnlineURL
 
-function NeedOpenLinkInExternalBrowser(const anURL: WideString): Boolean;
+function nsNeedOpenLinkInExternalBrowser(const anURL: WideString): Boolean;
 //#UC START# *523FE5580232_49EEF16603C9_var*
 //#UC END# *523FE5580232_49EEF16603C9_var*
 begin
 //#UC START# *523FE5580232_49EEF16603C9_impl*
  Result := not nsNeedOpenLinkInInternalBrowser(anURL);
 //#UC END# *523FE5580232_49EEF16603C9_impl*
-end;//NeedOpenLinkInExternalBrowser
+end;//nsNeedOpenLinkInExternalBrowser
 
-function IsObtainRequisitesForMobileAccessURL(const anURL: WideString): Boolean;
+function nsIsObtainRequisitesForMobileAccessURL(const anURL: WideString): Boolean;
 //#UC START# *524E5895037F_49EEF16603C9_var*
 const
  cMask = '^(res\:\/\/.+#)*https?\:\/\/([^\\\.]+\.)*service.garant.ru/\client($|\_)';
@@ -181,9 +181,9 @@ begin
  Result := l3CheckStrByPattern(cMask, l3PCharLen(anURL)) or
            l3CheckStrByPattern(cTestMask, l3PCharLen(anURL));
 //#UC END# *524E5895037F_49EEF16603C9_impl*
-end;//IsObtainRequisitesForMobileAccessURL
+end;//nsIsObtainRequisitesForMobileAccessURL
 
-function IsMunicipalDecisionsArchiveURL(const anURL: WideString): Boolean;
+function nsIsMunicipalDecisionsArchiveURL(const anURL: WideString): Boolean;
 //#UC START# *5524E8BE0065_49EEF16603C9_var*
 const
  cMask = '^(res\:\/\/.+#)*https?\:\/\/([^\\\.]+\.)*municipal.garant.ru($|\_)';
@@ -194,9 +194,9 @@ begin
  Result := l3CheckStrByPattern(cMask, l3PCharLen(anURL)) or
            l3CheckStrByPattern(cTestMask, l3PCharLen(anURL));;
 //#UC END# *5524E8BE0065_49EEF16603C9_impl*
-end;//IsMunicipalDecisionsArchiveURL
+end;//nsIsMunicipalDecisionsArchiveURL
 
-function NeedOpenLinkInInternalBrowser(const anURL: WideString): Boolean;
+function nsNeedOpenLinkInInternalBrowser(const anURL: WideString): Boolean;
 //#UC START# *553A26CA015B_49EEF16603C9_var*
 const
  cMask = '^(res\:\/\/.+#)*https?\:\/\/([^\\\.]+\.)*%s($|\_)';
@@ -214,7 +214,7 @@ begin
    Break;
  end;
 //#UC END# *553A26CA015B_49EEF16603C9_impl*
-end;//NeedOpenLinkInInternalBrowser
+end;//nsNeedOpenLinkInInternalBrowser
 {$IfEnd} // Defined(Nemesis)
 
 end.

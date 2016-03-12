@@ -1,53 +1,36 @@
 unit nscFixedHeightControlCell;
+ {* Ячейка содержащая контрол и высота которой ВСЕГДА равна высоте контрола }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Nemesis/nscFixedHeightControlCell.pas"
-// Начат: 05.10.2009 21:45
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For F1::Nemesis::Grid::TnscFixedHeightControlCell
-//
-// Ячейка содержащая контрол и высота которой ВСЕГДА равна высоте контрола
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nscFixedHeightControlCell.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  nscArrangeGridCell
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , nscArrangeGridCell
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
-{$If defined(Nemesis)}
 type
  TnscFixedHeightControlCell = class(TagControlCell)
   {* Ячейка содержащая контрол и высота которой ВСЕГДА равна высоте контрола }
- public
- // overridden public methods
+  public
    constructor Create(aControl: TControl); override;
  end;//TnscFixedHeightControlCell
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
-
-// start class TnscFixedHeightControlCell
+{$If Defined(Nemesis)}
+uses
+ l3ImplUses
+;
 
 constructor TnscFixedHeightControlCell.Create(aControl: TControl);
 //#UC START# *4ACA31830369_4ACA30C3014C_var*
@@ -59,7 +42,6 @@ begin
  FullHeight := aControl.Height;
 //#UC END# *4ACA31830369_4ACA30C3014C_impl*
 end;//TnscFixedHeightControlCell.Create
-
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 end.

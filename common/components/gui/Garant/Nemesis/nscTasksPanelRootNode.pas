@@ -1,57 +1,39 @@
 unit nscTasksPanelRootNode;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Модуль: "w:/common/components/gui/Garant/Nemesis/nscTasksPanelRootNode.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For F1::Nemesis::TasksPanel::TnscTasksPanelRootNode
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nscTasksPanelRootNode.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  l3TreeInterfaces,
-  l3NodesModelPart,
-  l3Tree_TLB
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , l3NodesModelPart
+ , l3TreeInterfaces
+ , l3Tree_TLB
+;
 
-{$If defined(Nemesis)}
 type
  TnscTasksPanelRootNode = class(Tl3RootNode)
- protected
- // overridden protected methods
+  protected
    function DoCompareChild(const aChildrenNode1: Il3Node;
-     const aChildrenNode2: Il3Node): Integer; override;
- public
- // public methods
+    const aChildrenNode2: Il3Node): Integer; override;
+  public
    class function Make: Il3SimpleRootNode;
  end;//TnscTasksPanelRootNode
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  SysUtils,
-  l3Base,
-  nscTaskPanelInterfaces
-  ;
-{$IfEnd} //Nemesis
-
-{$If defined(Nemesis)}
-
-// start class TnscTasksPanelRootNode
+ l3ImplUses
+ , SysUtils
+ , l3Base
+ , nscTaskPanelInterfaces
+;
 
 class function TnscTasksPanelRootNode.Make: Il3SimpleRootNode;
 //#UC START# *508F978501B3_508EBDB503D2_var*
@@ -70,7 +52,7 @@ begin
 end;//TnscTasksPanelRootNode.Make
 
 function TnscTasksPanelRootNode.DoCompareChild(const aChildrenNode1: Il3Node;
-  const aChildrenNode2: Il3Node): Integer;
+ const aChildrenNode2: Il3Node): Integer;
 //#UC START# *54C8E03003CD_508EBDB503D2_var*
 var
  l_Op1, l_Op2: InscOperationNode;
@@ -90,7 +72,6 @@ begin
   Result := inherited DoCompareChild(aChildrenNode1, aChildrenNode2);
 //#UC END# *54C8E03003CD_508EBDB503D2_impl*
 end;//TnscTasksPanelRootNode.DoCompareChild
-
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 end.

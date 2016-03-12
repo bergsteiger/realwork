@@ -1,114 +1,89 @@
 unit nscStatusBarOperationDef;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Модуль: "w:/common/components/gui/Garant/Nemesis/nscStatusBarOperationDef.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For F1::Nemesis::StatusBar::TnscStatusBarOperationDef
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nscStatusBarOperationDef.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  l3Interfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  nscNewInterfaces,
-  nscStatusBarItemDef
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , nscStatusBarItemDef
+ , nscNewInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If defined(Nemesis)}
 type
- TnscStatusBarOperationDef = class(TnscStatusBarItemDef {$If defined(Nemesis) AND not defined(NoVCM)}, InscStatusBarOperationDef{$IfEnd} //Nemesis AND not NoVCM
+ TnscStatusBarOperationDef = class(TnscStatusBarItemDef{$If NOT Defined(NoVCM)}
+ , InscStatusBarOperationDef
+ {$IfEnd} // NOT Defined(NoVCM)
  )
- private
- // private fields
-   f_Operation : TvcmOpSelector;
- protected
- // realized methods
-   {$If defined(Nemesis) AND not defined(NoVCM)}
+  private
+   f_Operation: TvcmOpSelector;
+  protected
+   {$If NOT Defined(NoVCM)}
    function Get_Operation: TvcmOpSelector;
-   {$IfEnd} //Nemesis AND not NoVCM
- public
- // public methods
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    constructor Create(const anOperation: TvcmOpSelector;
-     aShowCaption: Boolean;
-     const aCaption: Il3CString;
-     aUseToolTip: Boolean;
-     aRequireAutoPopup: Boolean;
-     anAutoPopupTimeout: Cardinal;
-     aToolTipKind: TnscToolTipKind); reintroduce;
+    aShowCaption: Boolean;
+    const aCaption: Il3CString;
+    aUseToolTip: Boolean;
+    aRequireAutoPopup: Boolean;
+    anAutoPopupTimeout: Cardinal;
+    aToolTipKind: TnscToolTipKind); reintroduce;
    class function Make(const anOperation: TvcmOpSelector;
-     aShowCaption: Boolean;
-     const aCaption: Il3CString;
-     aUseToolTip: Boolean;
-     aRequireAutoPopup: Boolean;
-     anAutoPopupTimeout: Cardinal;
-     aToolTipKind: TnscToolTipKind): InscStatusBarOperationDef; reintroduce;
-     {* Сигнатура фабрики TnscStatusBarOperationDef.Make }
+    aShowCaption: Boolean;
+    const aCaption: Il3CString;
+    aUseToolTip: Boolean;
+    aRequireAutoPopup: Boolean;
+    anAutoPopupTimeout: Cardinal;
+    aToolTipKind: TnscToolTipKind): InscStatusBarOperationDef; reintroduce;
    class function MakeS(const anOperation: TvcmOPID;
-     aShowCaption: Boolean;
-     const aCaption: TvcmStringID;
-     aUseToolTip: Boolean;
-     aRequireAutoPopup: Boolean;
-     anAutoPopupTimeout: Cardinal;
-     aToolTipKind: TnscToolTipKind): InscStatusBarOperationDef;
+    aShowCaption: Boolean;
+    const aCaption: TvcmStringID;
+    aUseToolTip: Boolean;
+    aRequireAutoPopup: Boolean;
+    anAutoPopupTimeout: Cardinal;
+    aToolTipKind: TnscToolTipKind): InscStatusBarOperationDef;
    class function MakeSDefaultCaption(const anOperation: TvcmOPID;
-     aUseToolTip: Boolean;
-     aRequireAutoPopup: Boolean;
-     anAutoPopupTimeout: Cardinal;
-     aToolTipKind: TnscToolTipKind): InscStatusBarOperationDef;
+    aUseToolTip: Boolean;
+    aRequireAutoPopup: Boolean;
+    anAutoPopupTimeout: Cardinal;
+    aToolTipKind: TnscToolTipKind): InscStatusBarOperationDef;
    class function MakeSNoCaption(const anOperation: TvcmOPID;
-     aUseToolTip: Boolean;
-     aRequireAutoPopup: Boolean;
-     anAutoPopupTimeout: Cardinal;
-     aToolTipKind: TnscToolTipKind): InscStatusBarOperationDef;
+    aUseToolTip: Boolean;
+    aRequireAutoPopup: Boolean;
+    anAutoPopupTimeout: Cardinal;
+    aToolTipKind: TnscToolTipKind): InscStatusBarOperationDef;
  end;//TnscStatusBarOperationDef
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  
-  ;
-{$IfEnd} //Nemesis
-
-{$If defined(Nemesis)}
-
-// start class TnscStatusBarOperationDef
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 constructor TnscStatusBarOperationDef.Create(const anOperation: TvcmOpSelector;
-  aShowCaption: Boolean;
-  const aCaption: Il3CString;
-  aUseToolTip: Boolean;
-  aRequireAutoPopup: Boolean;
-  anAutoPopupTimeout: Cardinal;
-  aToolTipKind: TnscToolTipKind);
+ aShowCaption: Boolean;
+ const aCaption: Il3CString;
+ aUseToolTip: Boolean;
+ aRequireAutoPopup: Boolean;
+ anAutoPopupTimeout: Cardinal;
+ aToolTipKind: TnscToolTipKind);
 //#UC START# *4FEC4A26030E_49871E4F01AF_var*
 //#UC END# *4FEC4A26030E_49871E4F01AF_var*
 begin
@@ -119,12 +94,12 @@ begin
 end;//TnscStatusBarOperationDef.Create
 
 class function TnscStatusBarOperationDef.Make(const anOperation: TvcmOpSelector;
-  aShowCaption: Boolean;
-  const aCaption: Il3CString;
-  aUseToolTip: Boolean;
-  aRequireAutoPopup: Boolean;
-  anAutoPopupTimeout: Cardinal;
-  aToolTipKind: TnscToolTipKind): InscStatusBarOperationDef;
+ aShowCaption: Boolean;
+ const aCaption: Il3CString;
+ aUseToolTip: Boolean;
+ aRequireAutoPopup: Boolean;
+ anAutoPopupTimeout: Cardinal;
+ aToolTipKind: TnscToolTipKind): InscStatusBarOperationDef;
 var
  l_Inst : TnscStatusBarOperationDef;
 begin
@@ -134,15 +109,15 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnscStatusBarOperationDef.Make
 
 class function TnscStatusBarOperationDef.MakeS(const anOperation: TvcmOPID;
-  aShowCaption: Boolean;
-  const aCaption: TvcmStringID;
-  aUseToolTip: Boolean;
-  aRequireAutoPopup: Boolean;
-  anAutoPopupTimeout: Cardinal;
-  aToolTipKind: TnscToolTipKind): InscStatusBarOperationDef;
+ aShowCaption: Boolean;
+ const aCaption: TvcmStringID;
+ aUseToolTip: Boolean;
+ aRequireAutoPopup: Boolean;
+ anAutoPopupTimeout: Cardinal;
+ aToolTipKind: TnscToolTipKind): InscStatusBarOperationDef;
 //#UC START# *4FEC5B7B00CE_49871E4F01AF_var*
 var
  l_Op : TvcmOpSelector;
@@ -157,10 +132,10 @@ begin
 end;//TnscStatusBarOperationDef.MakeS
 
 class function TnscStatusBarOperationDef.MakeSDefaultCaption(const anOperation: TvcmOPID;
-  aUseToolTip: Boolean;
-  aRequireAutoPopup: Boolean;
-  anAutoPopupTimeout: Cardinal;
-  aToolTipKind: TnscToolTipKind): InscStatusBarOperationDef;
+ aUseToolTip: Boolean;
+ aRequireAutoPopup: Boolean;
+ anAutoPopupTimeout: Cardinal;
+ aToolTipKind: TnscToolTipKind): InscStatusBarOperationDef;
 //#UC START# *4FF59E080381_49871E4F01AF_var*
 var
  l_Op : TvcmOpSelector;
@@ -174,10 +149,10 @@ begin
 end;//TnscStatusBarOperationDef.MakeSDefaultCaption
 
 class function TnscStatusBarOperationDef.MakeSNoCaption(const anOperation: TvcmOPID;
-  aUseToolTip: Boolean;
-  aRequireAutoPopup: Boolean;
-  anAutoPopupTimeout: Cardinal;
-  aToolTipKind: TnscToolTipKind): InscStatusBarOperationDef;
+ aUseToolTip: Boolean;
+ aRequireAutoPopup: Boolean;
+ anAutoPopupTimeout: Cardinal;
+ aToolTipKind: TnscToolTipKind): InscStatusBarOperationDef;
 //#UC START# *4FFAFB0B03CC_49871E4F01AF_var*
 var
  l_Op : TvcmOpSelector;
@@ -190,7 +165,7 @@ begin
 //#UC END# *4FFAFB0B03CC_49871E4F01AF_impl*
 end;//TnscStatusBarOperationDef.MakeSNoCaption
 
-{$If defined(Nemesis) AND not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TnscStatusBarOperationDef.Get_Operation: TvcmOpSelector;
 //#UC START# *4FE9F49C0299_49871E4F01AFget_var*
 //#UC END# *4FE9F49C0299_49871E4F01AFget_var*
@@ -199,8 +174,7 @@ begin
  Result := f_Operation;
 //#UC END# *4FE9F49C0299_49871E4F01AFget_impl*
 end;//TnscStatusBarOperationDef.Get_Operation
-{$IfEnd} //Nemesis AND not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //Nemesis
-
+{$IfEnd} // Defined(Nemesis)
 end.

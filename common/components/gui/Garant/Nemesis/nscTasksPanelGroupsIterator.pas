@@ -1,76 +1,51 @@
 unit nscTasksPanelGroupsIterator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Nemesis/nscTasksPanelGroupsIterator.pas"
-// Начат: 17.01.2011 15:06
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For F1::Nemesis::TasksPanel::TnscTasksPanelGroupsIterator
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nscTasksPanelGroupsIterator.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmTaskPanelInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObject,
-  nscTasksPanelGroupDescList
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , l3ProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmTaskPanelInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nscTasksPanelGroupDescList
+;
 
-{$If defined(Nemesis)}
 type
- TnscTasksPanelGroupsIterator = class(Tl3ProtoObject {$If not defined(NoVCM)}, IvcmCustOpsGroupsIterator{$IfEnd} //not NoVCM
+ TnscTasksPanelGroupsIterator = class(Tl3ProtoObject{$If NOT Defined(NoVCM)}
+ , IvcmCustOpsGroupsIterator
+ {$IfEnd} // NOT Defined(NoVCM)
  )
- private
- // private fields
-   f_Groups : TnscTasksPanelGroupDescList;
-   f_Current : Integer;
- protected
- // realized methods
-   {$If not defined(NoVCM)}
+  private
+   f_Groups: TnscTasksPanelGroupDescList;
+   f_Current: Integer;
+  protected
+   {$If NOT Defined(NoVCM)}
    function Next: IvcmCustOpsGroup;
-   {$IfEnd} //not NoVCM
- protected
- // overridden protected methods
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aGroups: TnscTasksPanelGroupDescList); reintroduce;
    class function Make(aGroups: TnscTasksPanelGroupDescList): IvcmCustOpsGroupsIterator; reintroduce;
-     {* Сигнатура фабрики TnscTasksPanelGroupsIterator.Make }
  end;//TnscTasksPanelGroupsIterator
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  nscTasksPanelGroup,
-  SysUtils,
-  l3Base
-  ;
-{$IfEnd} //Nemesis
-
-{$If defined(Nemesis)}
-
-// start class TnscTasksPanelGroupsIterator
+ l3ImplUses
+ , nscTasksPanelGroup
+ , SysUtils
+ , l3Base
+;
 
 constructor TnscTasksPanelGroupsIterator.Create(aGroups: TnscTasksPanelGroupDescList);
 //#UC START# *4D343C3502B5_4D3430A7028D_var*
@@ -93,9 +68,9 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnscTasksPanelGroupsIterator.Make
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TnscTasksPanelGroupsIterator.Next: IvcmCustOpsGroup;
 //#UC START# *4992FE89024F_4D3430A7028D_var*
 //#UC END# *4992FE89024F_4D3430A7028D_var*
@@ -122,9 +97,10 @@ begin
  end;//while true
 //#UC END# *4992FE89024F_4D3430A7028D_impl*
 end;//TnscTasksPanelGroupsIterator.Next
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TnscTasksPanelGroupsIterator.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4D3430A7028D_var*
 //#UC END# *479731C50290_4D3430A7028D_var*
 begin
@@ -133,7 +109,6 @@ begin
  inherited;
 //#UC END# *479731C50290_4D3430A7028D_impl*
 end;//TnscTasksPanelGroupsIterator.Cleanup
-
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 end.

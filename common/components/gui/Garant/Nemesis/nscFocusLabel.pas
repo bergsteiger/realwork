@@ -1,76 +1,56 @@
 unit nscFocusLabel;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Модуль: "w:/common/components/gui/Garant/Nemesis/nscFocusLabel.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi For F1::Nemesis::Labels::TnscFocusLabel
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nscFocusLabel.pas"
+// Стереотип: "GuiControl"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  Messages,
-  vtFocusLabel,
-  Controls {a}
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , vtFocusLabel
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Messages
+;
 
-{$If defined(Nemesis)}
 type
  TnscFocusLabel = class(TvtFocusLabel)
- private
- // private fields
-   f_HotTruck : Boolean;
-    {* Поле для свойства HotTruck}
-   f_AllowTrucking : Boolean;
-    {* Поле для свойства AllowTrucking}
- private
- // private methods
+  private
+   f_HotTruck: Boolean;
+    {* Поле для свойства HotTruck }
+   f_AllowTrucking: Boolean;
+    {* Поле для свойства AllowTrucking }
+  private
    procedure SetHotTruck(aValue: Boolean);
    procedure UpdateTruckFromCursor;
    procedure CMMouseEnter(var Message: TMessage); message CM_MOUSEENTER;
    procedure CMMouseLeave(var Message: TMessage); message CM_MOUSELEAVE;
    procedure WMWindowPosChanged(var Message: TMessage); message WM_WINDOWPOSCHANGED;
- protected
- // property methods
+  protected
    procedure pm_SetAllowTrucking(aValue: Boolean);
- protected
- // overridden protected methods
    function NeedUnderLine: Boolean; override;
    function AllowClickByKeyBoard: Boolean; override;
    function AllowTranslateReturn: Boolean; override;
- public
- // public properties
+  public
    property HotTruck: Boolean
-     read f_HotTruck;
+    read f_HotTruck;
    property AllowTrucking: Boolean
-     read f_AllowTrucking
-     write pm_SetAllowTrucking;
+    read f_AllowTrucking
+    write pm_SetAllowTrucking;
  end;//TnscFocusLabel
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  Windows
-  ;
-{$IfEnd} //Nemesis
-
-{$If defined(Nemesis)}
-
-// start class TnscFocusLabel
+ l3ImplUses
+ , Windows
+;
 
 procedure TnscFocusLabel.pm_SetAllowTrucking(aValue: Boolean);
 //#UC START# *4B613A0400DC_4B6019A601D8set_var*
@@ -172,7 +152,6 @@ begin
  Result := False;
 //#UC END# *4C03EAB40015_4B6019A601D8_impl*
 end;//TnscFocusLabel.AllowTranslateReturn
-
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 end.

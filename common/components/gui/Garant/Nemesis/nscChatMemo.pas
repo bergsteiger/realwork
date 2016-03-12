@@ -1,73 +1,51 @@
 unit nscChatMemo;
+ {* Мемо-поле для чата F1 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Nemesis/nscChatMemo.pas"
-// Начат: 18.08.2009 14:49
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi For F1::Nemesis::Memos::TnscChatMemo
-//
-// Мемо-поле для чата F1
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nscChatMemo.pas"
+// Стереотип: "GuiControl"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  nscCustomChatMemo
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , nscCustomChatMemo
+;
 
-{$If defined(Nemesis)}
 type
-//#UC START# *4A8A8739017Dci*
-//#UC END# *4A8A8739017Dci*
-//#UC START# *4A8A8739017Dcit*
-//#UC END# *4A8A8739017Dcit*
+ //#UC START# *4A8A8739017Dci*
+ //#UC END# *4A8A8739017Dci*
+ //#UC START# *4A8A8739017Dcit*
+ //#UC END# *4A8A8739017Dcit*
  TnscChatMemo = class(TnscCustomChatMemo)
   {* Мемо-поле для чата F1 }
-//#UC START# *4A8A8739017Dpubl*
+ //#UC START# *4A8A8739017Dpubl*
   published
     property PopupMenu;
-//#UC END# *4A8A8739017Dpubl*
+ //#UC END# *4A8A8739017Dpubl*
  end;//TnscChatMemo
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //Nemesis
-
-{$If defined(Nemesis)}
-
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 //#UC START# *4A8A8739017Dimpl*
 //#UC END# *4A8A8739017Dimpl*
 
-{$IfEnd} //Nemesis
-
 initialization
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация TnscChatMemo
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnscChatMemo);
-{$IfEnd} //Nemesis AND not NoScripts
+ {* Регистрация TnscChatMemo }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(Nemesis)
 
 end.

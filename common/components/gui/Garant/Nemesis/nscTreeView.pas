@@ -1,255 +1,217 @@
 unit nscTreeView;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Модуль: "w:/common/components/gui/Garant/Nemesis/nscTreeView.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi For F1::Nemesis::Tree::TnscTreeView
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nscTreeView.pas"
+// Стереотип: "GuiControl"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  l3Interfaces,
-  l3CacheableBase
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3InternalInterfaces,
-  eeTreeView
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Text_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Tree_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  l3IID,
-  afwInterfaces,
-  Classes
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , l3CacheableBase
+ , l3IID
+ , eeTreeView
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3InternalInterfaces
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Text_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Tree_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ , Classes
+ , afwInterfaces
+;
 
-{$If defined(Nemesis)}
 type
- InscTreeState = interface(IUnknown)
-   ['{D3A66F44-F580-49C9-8CE3-2CEF63841897}']
-   function pm_GetAggregate: IUnknown;
-   function pm_GetWrap: Boolean;
-   property Aggregate: IUnknown
-     read pm_GetAggregate;
-   property Wrap: Boolean
-     read pm_GetWrap;
+ InscTreeState = interface
+  ['{D3A66F44-F580-49C9-8CE3-2CEF63841897}']
+  function pm_GetAggregate: IUnknown;
+  function pm_GetWrap: Boolean;
+  property Aggregate: IUnknown
+   read pm_GetAggregate;
+  property Wrap: Boolean
+   read pm_GetWrap;
  end;//InscTreeState
 
  TnscTreeViewState = class(Tl3CacheableBase, InscTreeState)
- private
- // private fields
-   f_Wrap : Boolean;
-   f_Aggregate : IUnknown;
- protected
- // realized methods
+  private
+   f_Wrap: Boolean;
+   f_Aggregate: IUnknown;
+  protected
    function pm_GetAggregate: IUnknown;
    function pm_GetWrap: Boolean;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function COMQueryInterface(const IID: Tl3GUID;
-   out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
- public
- // public methods
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
+  public
    constructor Create(const aAggregate: IUnknown;
-     aWrap: Boolean); reintroduce;
+    aWrap: Boolean); reintroduce;
    class function Make(const aAggregate: IUnknown;
-     aWrap: Boolean): InscTreeState; reintroduce;
-     {* Сигнатура фабрики TnscTreeViewState.Make }
+    aWrap: Boolean): InscTreeState; reintroduce;
  end;//TnscTreeViewState
 
  _nsUnknownComponent_Parent_ = TeeTreeView;
-{$Include w:\common\components\gui\Garant\VT\nsUnknownComponent.imp.pas}
- TnscTreeViewPrim = class(_nsUnknownComponent_ {$If not defined(NoVCM)}, IvcmOperationsProvider{$IfEnd} //not NoVCM
+ {$Include w:\common\components\gui\Garant\VT\nsUnknownComponent.imp.pas}
+ TnscTreeViewPrim = class(_nsUnknownComponent_{$If NOT Defined(NoVCM)}
+ , IvcmOperationsProvider
+ {$IfEnd} // NOT Defined(NoVCM)
  , Il3CommandPublisherInfo)
- private
- // private fields
-   f_Published : Boolean;
-   f_SettingId : AnsiString;
-    {* Поле для свойства SettingId}
-   f_InterRowMultiplier : Integer;
-    {* Поле для свойства InterRowMultiplier}
-   f_DisableDragAndDropSupport : Boolean;
-    {* Поле для свойства DisableDragAndDropSupport}
- protected
- // property methods
+  private
+   f_Published: Boolean;
+   f_SettingId: AnsiString;
+    {* Поле для свойства SettingId }
+   f_InterRowMultiplier: Integer;
+    {* Поле для свойства InterRowMultiplier }
+   f_DisableDragAndDropSupport: Boolean;
+    {* Поле для свойства DisableDragAndDropSupport }
+  protected
    procedure pm_SetSettingId(const aValue: AnsiString);
    procedure pm_SetInterRowMultiplier(aValue: Integer);
- protected
- // realized methods
-  {$If not defined(NoVCM)}
-   procedure ProvideOps(const aPublisher: IvcmOperationsPublisher);
-     {* предоставить список доступных операций. }
-  {$IfEnd} //not NoVCM
-   function IsCommandPublished(Cmd: Tl3OperationCode): Boolean;
-  {$If not defined(NoVCM)}
-   procedure Edit_Copy_Test(const aParams: IvcmTestParamsPrim);
-     {* Копировать }
-  {$IfEnd} //not NoVCM
-  {$If not defined(NoVCM)}
-   procedure Edit_Copy_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Копировать }
-  {$IfEnd} //not NoVCM
-  {$If not defined(NoVCM)}
-   procedure Edit_Paste_Test(const aParams: IvcmTestParamsPrim);
-     {* Вставка }
-  {$IfEnd} //not NoVCM
-  {$If not defined(NoVCM)}
-   procedure Edit_Paste_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Вставка }
-  {$IfEnd} //not NoVCM
-  {$If not defined(NoVCM)}
-   procedure Edit_SelectAll_Test(const aParams: IvcmTestParamsPrim);
-     {* Выделить всё }
-  {$IfEnd} //not NoVCM
-  {$If not defined(NoVCM)}
-   procedure Edit_SelectAll_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Выделить всё }
-  {$IfEnd} //not NoVCM
-  {$If not defined(NoVCM)}
-   procedure Edit_Deselect_Test(const aParams: IvcmTestParamsPrim);
-     {* Снять выделение }
-  {$IfEnd} //not NoVCM
-  {$If not defined(NoVCM)}
-   procedure Edit_Deselect_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Снять выделение }
-  {$IfEnd} //not NoVCM
-  {$If not defined(NoVCM)}
-   procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
-     {* Развернуть все }
-  {$IfEnd} //not NoVCM
-  {$If not defined(NoVCM)}
-   procedure Tree_ExpandAll_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Развернуть все }
-  {$IfEnd} //not NoVCM
-  {$If not defined(NoVCM)}
-   procedure Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
-     {* Свернуть все }
-  {$IfEnd} //not NoVCM
-  {$If not defined(NoVCM)}
-   procedure Tree_CollapseAll_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Свернуть все }
-  {$IfEnd} //not NoVCM
-  {$If not defined(NoVCM)}
-   procedure Tree_Wrap_Test(const aParams: IvcmTestParamsPrim);
-     {* Перенос по словам }
-  {$IfEnd} //not NoVCM
-  {$If not defined(NoVCM)}
-   procedure Tree_Wrap_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Перенос по словам }
-  {$IfEnd} //not NoVCM
- protected
- // overridden protected methods
-   function DoKeys2Effect(aKeys: Integer): Integer; override;
-   {$If not defined(DesignTimeLibrary) AND not defined(NoVGScene)}
-   procedure LoadSettings; override;
-   {$IfEnd} //not DesignTimeLibrary AND not NoVGScene
-   {$If not defined(DesignTimeLibrary) AND not defined(NoVGScene)}
-   procedure SaveSettings; override;
-   {$IfEnd} //not DesignTimeLibrary AND not NoVGScene
-   function GetDragAndDropSupported: Boolean; override;
-    {$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
-   function DoSaveState(out aState: IUnknown;
-     aStateType: TvcmStateType;
-     aForClone: Boolean): Boolean; override;
-    {$IfEnd} //not DesignTimeLibrary AND not NoVCM
-    {$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
-   function DoLoadState(const aState: IUnknown;
-     aStateType: TvcmStateType;
-     aForClone: Boolean): Boolean; override;
-    {$IfEnd} //not DesignTimeLibrary AND not NoVCM
- public
- // overridden public methods
-   constructor Create(AOwner: TComponent); override;
-   function CalcInterRowIndent: Integer; override;
- protected
- // protected methods
    function DoIsCommandPublished(Cmd: Tl3OperationCode): Boolean; virtual;
    function IsEmpty: Boolean;
    procedure DoProvideOps(const aPublisher: IvcmOperationsPublisher); virtual;
    function MakePath(const aSetting: AnsiString): AnsiString;
- public
- // public properties
+   {$If NOT Defined(NoVCM)}
+   procedure ProvideOps(const aPublisher: IvcmOperationsPublisher);
+    {* предоставить список доступных операций. }
+   {$IfEnd} // NOT Defined(NoVCM)
+   function IsCommandPublished(Cmd: Tl3OperationCode): Boolean;
+   function DoKeys2Effect(aKeys: Integer): Integer; override;
+   {$If NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)}
+   procedure LoadSettings; override;
+   {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)
+   {$If NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)}
+   procedure SaveSettings; override;
+   {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)
+   function GetDragAndDropSupported: Boolean; override;
+   {$If NOT Defined(DesignTimeLibrary) AND NOT Defined(NoVCM)}
+   function DoSaveState(out aState: IUnknown;
+    aStateType: TvcmStateType;
+    aForClone: Boolean): Boolean; override;
+   {$IfEnd} // NOT Defined(DesignTimeLibrary) AND NOT Defined(NoVCM)
+   {$If NOT Defined(DesignTimeLibrary) AND NOT Defined(NoVCM)}
+   function DoLoadState(const aState: IUnknown;
+    aStateType: TvcmStateType;
+    aForClone: Boolean): Boolean; override;
+   {$IfEnd} // NOT Defined(DesignTimeLibrary) AND NOT Defined(NoVCM)
+  public
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Copy_Test(const aParams: IvcmTestParamsPrim);
+    {* Копировать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Copy_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Копировать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Paste_Test(const aParams: IvcmTestParamsPrim);
+    {* Вставка }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Paste_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Вставка }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_SelectAll_Test(const aParams: IvcmTestParamsPrim);
+    {* Выделить всё }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_SelectAll_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Выделить всё }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Deselect_Test(const aParams: IvcmTestParamsPrim);
+    {* Снять выделение }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Deselect_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Снять выделение }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
+    {* Развернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Tree_ExpandAll_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Развернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
+    {* Свернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Tree_CollapseAll_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Свернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Tree_Wrap_Test(const aParams: IvcmTestParamsPrim);
+    {* Перенос по словам }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Tree_Wrap_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Перенос по словам }
+   {$IfEnd} // NOT Defined(NoVCM)
+   constructor Create(AOwner: TComponent); override;
+   function CalcInterRowIndent: Integer; override;
+  public
    property SettingId: AnsiString
-     read f_SettingId
-     write pm_SetSettingId;
+    read f_SettingId
+    write pm_SetSettingId;
    property InterRowMultiplier: Integer
-     read f_InterRowMultiplier
-     write pm_SetInterRowMultiplier;
+    read f_InterRowMultiplier
+    write pm_SetInterRowMultiplier;
    property DisableDragAndDropSupport: Boolean
-     read f_DisableDragAndDropSupport
-     write f_DisableDragAndDropSupport;
+    read f_DisableDragAndDropSupport
+    write f_DisableDragAndDropSupport;
  end;//TnscTreeViewPrim
 
-//#UC START# *499C26240034ci*
-//#UC END# *499C26240034ci*
-//#UC START# *499C26240034cit*
-//#UC END# *499C26240034cit*
+ //#UC START# *499C26240034ci*
+ //#UC END# *499C26240034ci*
+ //#UC START# *499C26240034cit*
+ //#UC END# *499C26240034cit*
  TnscTreeView = class(TnscTreeViewPrim)
-//#UC START# *499C26240034publ*
+ //#UC START# *499C26240034publ*
   published
    property SettingId;
    property InterRowMultiplier default 1;
    property DisableDragAndDropSupport default false;
-//#UC END# *499C26240034publ*
+ //#UC END# *499C26240034publ*
  end;//TnscTreeView
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  eeTreeViewExport,
-  nscTreeViewRes,
-  OvcConst
-  {$If not defined(NoVCM)}
-  ,
-  vcmDefaultOperations
-  {$IfEnd} //not NoVCM
-  ,
-  afwConsts,
-  l3Base,
-  ActiveX,
-  afwFacade
-  ;
-{$IfEnd} //Nemesis
+ l3ImplUses
+ , nscTreeViewRes
+ , OvcConst
+ {$If NOT Defined(NoVCM)}
+ , vcmDefaultOperations
+ {$IfEnd} // NOT Defined(NoVCM)
+ , afwConsts
+ , l3Base
+ , ActiveX
+ , afwFacade
+ , SysUtils
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
-{$If defined(Nemesis)}
-
-// start class TnscTreeViewState
+const
+ cstWrap = 'stWrap';
 
 constructor TnscTreeViewState.Create(const aAggregate: IUnknown;
-  aWrap: Boolean);
+ aWrap: Boolean);
 //#UC START# *52DD083B0184_52DD07CE001D_var*
 //#UC END# *52DD083B0184_52DD07CE001D_var*
 begin
@@ -261,7 +223,7 @@ begin
 end;//TnscTreeViewState.Create
 
 class function TnscTreeViewState.Make(const aAggregate: IUnknown;
-  aWrap: Boolean): InscTreeState;
+ aWrap: Boolean): InscTreeState;
 var
  l_Inst : TnscTreeViewState;
 begin
@@ -271,7 +233,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnscTreeViewState.Make
 
 function TnscTreeViewState.pm_GetAggregate: IUnknown;
 //#UC START# *52DD07A0013B_52DD07CE001Dget_var*
@@ -292,6 +254,7 @@ begin
 end;//TnscTreeViewState.pm_GetWrap
 
 procedure TnscTreeViewState.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_52DD07CE001D_var*
 //#UC END# *479731C50290_52DD07CE001D_var*
 begin
@@ -303,7 +266,8 @@ begin
 end;//TnscTreeViewState.Cleanup
 
 function TnscTreeViewState.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_52DD07CE001D_var*
 //#UC END# *4A60B23E00C3_52DD07CE001D_var*
 begin
@@ -316,13 +280,38 @@ begin
    Result.SetNoInterface;
 //#UC END# *4A60B23E00C3_52DD07CE001D_impl*
 end;//TnscTreeViewState.COMQueryInterface
+
 {$Include w:\common\components\gui\Garant\VT\nsUnknownComponent.imp.pas}
 
-const
-    { nscTreeView Const }
-   cstWrap = 'stWrap';
+procedure TnscTreeViewPrim.pm_SetSettingId(const aValue: AnsiString);
+//#UC START# *52DD08FC017B_52DD0971008Aset_var*
+//#UC END# *52DD08FC017B_52DD0971008Aset_var*
+begin
+//#UC START# *52DD08FC017B_52DD0971008Aset_impl*
+ if f_SettingId <> aValue then
+ begin
+  f_SettingId := aValue;
+  {$IfNDef DesignTimeLibrary}
+  CheckLoadSettings;
+  {$EndIf DesignTimeLibrary}
+ end;
+//#UC END# *52DD08FC017B_52DD0971008Aset_impl*
+end;//TnscTreeViewPrim.pm_SetSettingId
 
-// start class TnscTreeViewPrim
+procedure TnscTreeViewPrim.pm_SetInterRowMultiplier(aValue: Integer);
+//#UC START# *52DD09210222_52DD0971008Aset_var*
+//#UC END# *52DD09210222_52DD0971008Aset_var*
+begin
+//#UC START# *52DD09210222_52DD0971008Aset_impl*
+ if aValue < 1 then
+  aValue := 1;
+ if f_InterRowMultiplier <> aValue then
+ begin
+  f_InterRowMultiplier := aValue;
+  UpdateInterRowIndent;
+ end;
+//#UC END# *52DD09210222_52DD0971008Aset_impl*
+end;//TnscTreeViewPrim.pm_SetInterRowMultiplier
 
 function TnscTreeViewPrim.DoIsCommandPublished(Cmd: Tl3OperationCode): Boolean;
 //#UC START# *508F7F930094_52DD0971008A_var*
@@ -398,38 +387,9 @@ begin
 //#UC END# *52DD0AF202C2_52DD0971008A_impl*
 end;//TnscTreeViewPrim.MakePath
 
-procedure TnscTreeViewPrim.pm_SetSettingId(const aValue: AnsiString);
-//#UC START# *52DD08FC017B_52DD0971008Aset_var*
-//#UC END# *52DD08FC017B_52DD0971008Aset_var*
-begin
-//#UC START# *52DD08FC017B_52DD0971008Aset_impl*
- if f_SettingId <> aValue then
- begin
-  f_SettingId := aValue;
-  {$IfNDef DesignTimeLibrary}
-  CheckLoadSettings;
-  {$EndIf DesignTimeLibrary}
- end;
-//#UC END# *52DD08FC017B_52DD0971008Aset_impl*
-end;//TnscTreeViewPrim.pm_SetSettingId
-
-procedure TnscTreeViewPrim.pm_SetInterRowMultiplier(aValue: Integer);
-//#UC START# *52DD09210222_52DD0971008Aset_var*
-//#UC END# *52DD09210222_52DD0971008Aset_var*
-begin
-//#UC START# *52DD09210222_52DD0971008Aset_impl*
- if aValue < 1 then
-  aValue := 1;
- if f_InterRowMultiplier <> aValue then
- begin
-  f_InterRowMultiplier := aValue;
-  UpdateInterRowIndent;
- end;
-//#UC END# *52DD09210222_52DD0971008Aset_impl*
-end;//TnscTreeViewPrim.pm_SetInterRowMultiplier
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TnscTreeViewPrim.ProvideOps(const aPublisher: IvcmOperationsPublisher);
+ {* предоставить список доступных операций. }
 //#UC START# *4769552100DD_52DD0971008A_var*
 //#UC END# *4769552100DD_52DD0971008A_var*
 begin
@@ -437,7 +397,7 @@ begin
  DoProvideOps(aPublisher);
 //#UC END# *4769552100DD_52DD0971008A_impl*
 end;//TnscTreeViewPrim.ProvideOps
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 function TnscTreeViewPrim.IsCommandPublished(Cmd: Tl3OperationCode): Boolean;
 //#UC START# *476BFD420341_52DD0971008A_var*
@@ -448,8 +408,9 @@ begin
 //#UC END# *476BFD420341_52DD0971008A_impl*
 end;//TnscTreeViewPrim.IsCommandPublished
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TnscTreeViewPrim.Edit_Copy_Test(const aParams: IvcmTestParamsPrim);
+ {* Копировать }
 //#UC START# *4951284902BD_52DD0971008Atest_var*
 //#UC END# *4951284902BD_52DD0971008Atest_var*
 begin
@@ -458,10 +419,11 @@ begin
   aParams.Op.Flag[vcm_ofEnabled] := TreeStruct.SelectCount > 0;
 //#UC END# *4951284902BD_52DD0971008Atest_impl*
 end;//TnscTreeViewPrim.Edit_Copy_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TnscTreeViewPrim.Edit_Copy_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Копировать }
 //#UC START# *4951284902BD_52DD0971008Aexec_var*
 var
  l_Data: IDataObject;
@@ -477,10 +439,11 @@ begin
  end;//try..finally
 //#UC END# *4951284902BD_52DD0971008Aexec_impl*
 end;//TnscTreeViewPrim.Edit_Copy_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TnscTreeViewPrim.Edit_Paste_Test(const aParams: IvcmTestParamsPrim);
+ {* Вставка }
 //#UC START# *49EDFA3701B0_52DD0971008Atest_var*
  function lp_HasAcceptableFormat: Boolean;
  var
@@ -502,10 +465,11 @@ begin
   aParams.Op.Flag[vcm_ofEnabled] := lp_HasAcceptableFormat;
 //#UC END# *49EDFA3701B0_52DD0971008Atest_impl*
 end;//TnscTreeViewPrim.Edit_Paste_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TnscTreeViewPrim.Edit_Paste_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Вставка }
 //#UC START# *49EDFA3701B0_52DD0971008Aexec_var*
 //#UC END# *49EDFA3701B0_52DD0971008Aexec_var*
 begin
@@ -513,10 +477,11 @@ begin
  Paste;
 //#UC END# *49EDFA3701B0_52DD0971008Aexec_impl*
 end;//TnscTreeViewPrim.Edit_Paste_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TnscTreeViewPrim.Edit_SelectAll_Test(const aParams: IvcmTestParamsPrim);
+ {* Выделить всё }
 //#UC START# *49EE01AA02BE_52DD0971008Atest_var*
 //#UC END# *49EE01AA02BE_52DD0971008Atest_var*
 begin
@@ -524,10 +489,11 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := not IsEmpty and MultiSelect;
 //#UC END# *49EE01AA02BE_52DD0971008Atest_impl*
 end;//TnscTreeViewPrim.Edit_SelectAll_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TnscTreeViewPrim.Edit_SelectAll_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Выделить всё }
 //#UC START# *49EE01AA02BE_52DD0971008Aexec_var*
 //#UC END# *49EE01AA02BE_52DD0971008Aexec_var*
 begin
@@ -537,10 +503,11 @@ begin
  {$EndIf  DesignTimeLibrary}
 //#UC END# *49EE01AA02BE_52DD0971008Aexec_impl*
 end;//TnscTreeViewPrim.Edit_SelectAll_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TnscTreeViewPrim.Edit_Deselect_Test(const aParams: IvcmTestParamsPrim);
+ {* Снять выделение }
 //#UC START# *49EE01BC022E_52DD0971008Atest_var*
 //#UC END# *49EE01BC022E_52DD0971008Atest_var*
 begin
@@ -548,10 +515,11 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := not IsEmpty and MultiSelect;
 //#UC END# *49EE01BC022E_52DD0971008Atest_impl*
 end;//TnscTreeViewPrim.Edit_Deselect_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TnscTreeViewPrim.Edit_Deselect_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Снять выделение }
 //#UC START# *49EE01BC022E_52DD0971008Aexec_var*
 //#UC END# *49EE01BC022E_52DD0971008Aexec_var*
 begin
@@ -561,10 +529,11 @@ begin
  {$EndIf  DesignTimeLibrary}
 //#UC END# *49EE01BC022E_52DD0971008Aexec_impl*
 end;//TnscTreeViewPrim.Edit_Deselect_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TnscTreeViewPrim.Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
+ {* Развернуть все }
 //#UC START# *4BDAF7880236_52DD0971008Atest_var*
 //#UC END# *4BDAF7880236_52DD0971008Atest_var*
 begin
@@ -572,10 +541,11 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := not IsEmpty;
 //#UC END# *4BDAF7880236_52DD0971008Atest_impl*
 end;//TnscTreeViewPrim.Tree_ExpandAll_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TnscTreeViewPrim.Tree_ExpandAll_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Развернуть все }
 //#UC START# *4BDAF7880236_52DD0971008Aexec_var*
 //#UC END# *4BDAF7880236_52DD0971008Aexec_var*
 begin
@@ -590,10 +560,11 @@ begin
  {$EndIf  DesignTimeLibrary}
 //#UC END# *4BDAF7880236_52DD0971008Aexec_impl*
 end;//TnscTreeViewPrim.Tree_ExpandAll_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TnscTreeViewPrim.Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
+ {* Свернуть все }
 //#UC START# *4BDAF7A2005C_52DD0971008Atest_var*
 //#UC END# *4BDAF7A2005C_52DD0971008Atest_var*
 begin
@@ -601,10 +572,11 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := not IsEmpty;
 //#UC END# *4BDAF7A2005C_52DD0971008Atest_impl*
 end;//TnscTreeViewPrim.Tree_CollapseAll_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TnscTreeViewPrim.Tree_CollapseAll_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Свернуть все }
 //#UC START# *4BDAF7A2005C_52DD0971008Aexec_var*
 //#UC END# *4BDAF7A2005C_52DD0971008Aexec_var*
 begin
@@ -619,10 +591,11 @@ begin
  {$EndIf DesignTimeLibrary}
 //#UC END# *4BDAF7A2005C_52DD0971008Aexec_impl*
 end;//TnscTreeViewPrim.Tree_CollapseAll_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TnscTreeViewPrim.Tree_Wrap_Test(const aParams: IvcmTestParamsPrim);
+ {* Перенос по словам }
 //#UC START# *4BDAF7B803CF_52DD0971008Atest_var*
 //#UC END# *4BDAF7B803CF_52DD0971008Atest_var*
 begin
@@ -634,10 +607,11 @@ begin
  {$IfEnd}
 //#UC END# *4BDAF7B803CF_52DD0971008Atest_impl*
 end;//TnscTreeViewPrim.Tree_Wrap_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TnscTreeViewPrim.Tree_Wrap_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Перенос по словам }
 //#UC START# *4BDAF7B803CF_52DD0971008Aexec_var*
 //#UC END# *4BDAF7B803CF_52DD0971008Aexec_var*
 begin
@@ -645,7 +619,7 @@ begin
  MultiStrokeItem := not MultiStrokeItem;
 //#UC END# *4BDAF7B803CF_52DD0971008Aexec_impl*
 end;//TnscTreeViewPrim.Tree_Wrap_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 constructor TnscTreeViewPrim.Create(AOwner: TComponent);
 //#UC START# *47D1602000C6_52DD0971008A_var*
@@ -677,7 +651,7 @@ begin
 //#UC END# *48BFB75F01ED_52DD0971008A_impl*
 end;//TnscTreeViewPrim.DoKeys2Effect
 
-{$If not defined(DesignTimeLibrary) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)}
 procedure TnscTreeViewPrim.LoadSettings;
 //#UC START# *4F9A5C410274_52DD0971008A_var*
 //#UC END# *4F9A5C410274_52DD0971008A_var*
@@ -687,9 +661,9 @@ begin
   MultiStrokeItem := Settings.LoadBoolean(PAnsiChar(MakePath(cstWrap)), True);
 //#UC END# *4F9A5C410274_52DD0971008A_impl*
 end;//TnscTreeViewPrim.LoadSettings
-{$IfEnd} //not DesignTimeLibrary AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)
 
-{$If not defined(DesignTimeLibrary) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)}
 procedure TnscTreeViewPrim.SaveSettings;
 //#UC START# *4F9A5C530398_52DD0971008A_var*
 //#UC END# *4F9A5C530398_52DD0971008A_var*
@@ -699,7 +673,7 @@ begin
   Settings.SaveBoolean(PAnsiChar(MakePath(cstWrap)), MultiStrokeItem);
 //#UC END# *4F9A5C530398_52DD0971008A_impl*
 end;//TnscTreeViewPrim.SaveSettings
-{$IfEnd} //not DesignTimeLibrary AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)
 
 function TnscTreeViewPrim.GetDragAndDropSupported: Boolean;
 //#UC START# *5152C16A028F_52DD0971008A_var*
@@ -721,10 +695,10 @@ begin
 //#UC END# *515584020214_52DD0971008A_impl*
 end;//TnscTreeViewPrim.CalcInterRowIndent
 
-{$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
+{$If NOT Defined(DesignTimeLibrary) AND NOT Defined(NoVCM)}
 function TnscTreeViewPrim.DoSaveState(out aState: IUnknown;
-  aStateType: TvcmStateType;
-  aForClone: Boolean): Boolean;
+ aStateType: TvcmStateType;
+ aForClone: Boolean): Boolean;
 //#UC START# *52DD0F440276_52DD0971008A_var*
 //#UC END# *52DD0F440276_52DD0971008A_var*
 begin
@@ -740,12 +714,12 @@ begin
  end;
 //#UC END# *52DD0F440276_52DD0971008A_impl*
 end;//TnscTreeViewPrim.DoSaveState
-{$IfEnd} //not DesignTimeLibrary AND not NoVCM
+{$IfEnd} // NOT Defined(DesignTimeLibrary) AND NOT Defined(NoVCM)
 
-{$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
+{$If NOT Defined(DesignTimeLibrary) AND NOT Defined(NoVCM)}
 function TnscTreeViewPrim.DoLoadState(const aState: IUnknown;
-  aStateType: TvcmStateType;
-  aForClone: Boolean): Boolean;
+ aStateType: TvcmStateType;
+ aForClone: Boolean): Boolean;
 //#UC START# *52DD0F6F0223_52DD0971008A_var*
 var
  l_Params: InscTreeState;
@@ -766,21 +740,20 @@ begin
   Result := LoadState(aState, aStateType);
 //#UC END# *52DD0F6F0223_52DD0971008A_impl*
 end;//TnscTreeViewPrim.DoLoadState
-{$IfEnd} //not DesignTimeLibrary AND not NoVCM
+{$IfEnd} // NOT Defined(DesignTimeLibrary) AND NOT Defined(NoVCM)
 
 //#UC START# *499C26240034impl*
 //#UC END# *499C26240034impl*
 
-{$IfEnd} //Nemesis
-
 initialization
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация TnscTreeViewPrim
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnscTreeViewPrim);
-{$IfEnd} //Nemesis AND not NoScripts
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация TnscTreeView
+ {* Регистрация TnscTreeViewPrim }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnscTreeView);
-{$IfEnd} //Nemesis AND not NoScripts
+ {* Регистрация TnscTreeView }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(Nemesis)
 
 end.

@@ -1,223 +1,151 @@
 unit nscStatusBar;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Автор: Костицын М.Ю.
-// Модуль: "w:/common/components/gui/Garant/Nemesis/nscStatusBar.pas"
-// Начат: 14.08.12
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi For F1::Nemesis::StatusBar::TnscStatusBar
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nscStatusBar.pas"
+// Стереотип: "GuiControl"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  afwInterfaces,
-  Messages,
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  nscNewInterfaces,
-  l3ProtoObject,
-  l3ProtoObjectRefList
-  {$If not defined(NoTB97)}
-  ,
-  TB97Tlbr
-  {$IfEnd} //not NoTB97
-  
-  {$If not defined(NoTB97)}
-  ,
-  TB97
-  {$IfEnd} //not NoTB97
-  
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ {$If NOT Defined(NoTB97)}
+ , TB97Tlbr
+ {$IfEnd} // NOT Defined(NoTB97)
+ , afwInterfaces
+ , nscNewInterfaces
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3ProtoObjectRefList
+ , Messages
+ , Classes
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoTB97)}
+ , TB97
+ {$IfEnd} // NOT Defined(NoTB97)
+;
 
-{$If defined(Nemesis)}
 type
  TnscStatusBarDock = class(TDock97, IafwAlwaysOnTopControl)
  end;//TnscStatusBarDock
 
  TnscStatusBar = class(TCustomToolbar97, IafwStatusBar, InscStatusBarItemsVisualizer)
- private
- // private fields
-   f_Dock : TnscStatusBarDock;
-   f_Strings : TafwStatusInfo;
-   f_Visible : Boolean;
-   f_Timer : TTimer;
-   f_OperationsList : Tl3ProtoObjectRefList;
-   f_Form : Pointer;
-    {* IafwMainForm}
-   f_InAdjustSizeForPanels : Boolean;
-   f_UpdateStringsTimer : TTimer;
-   f_GroupIndex : Integer;
- private
- // private methods
+  private
+   f_Dock: TnscStatusBarDock;
+   f_Strings: TafwStatusInfo;
+   f_Visible: Boolean;
+   f_Timer: TTimer;
+   f_OperationsList: Tl3ProtoObjectRefList;
+   f_Form: Pointer;
+    {* IafwMainForm }
+   f_InAdjustSizeForPanels: Boolean;
+   f_UpdateStringsTimer: TTimer;
+   f_GroupIndex: Integer;
+  private
    function AllVisiblePanelsText: AnsiString;
    procedure WMGetText(var Msg: TWMGetText); message WM_GETTEXT;
    procedure WMGetTextLength(var Msg: TWMGetTextLength); message WM_GETTEXTLENGTH;
- protected
- // realized methods
+  protected
+   procedure SetLink;
+   procedure ReleaseLink;
+   procedure DoUpdateStrings(const aStrings: TafwStatusInfo;
+    aCheckActions: Boolean;
+    aDelayed: Boolean);
+   procedure TimerProc(Sender: TObject);
+   procedure FireUpUpdateStringsTimer;
+   procedure UpdateStringsTimerProc(Sender: TObject);
    procedure UpdateStrings(const aStrings: TafwStatusInfo);
    procedure RegisterProvider(const aProvider: InscStatusBarItemsProvider);
    procedure UnregisterProvider(const aProvider: InscStatusBarItemsProvider);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCL)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCL)}
    procedure SetParent(AParent: TWinControl); override;
-   {$IfEnd} //not NoVCL
-    {$If not defined(NoVCL)}
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
    procedure SetBounds(ALeft: Integer;
-     ATop: Integer;
-     AWidth: Integer;
-     AHeight: Integer); override;
-    {$IfEnd} //not NoVCL
-    {$If not defined(NoTB97)}
+    ATop: Integer;
+    AWidth: Integer;
+    AHeight: Integer); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoTB97)}
    function IsGToolbarSizeNeeded: Boolean; override;
-    {$IfEnd} //not NoTB97
-    {$If not defined(NoTB97)}
+   {$IfEnd} // NOT Defined(NoTB97)
+   {$If NOT Defined(NoTB97)}
    procedure AdjustSizeForPanels; override;
-     {* Сигнатура метода AdjustSizeForPanels }
-    {$IfEnd} //not NoTB97
- public
- // overridden public methods
+   {$IfEnd} // NOT Defined(NoTB97)
+  public
    constructor Create(AOwner: TComponent); override;
- protected
- // protected methods
-   procedure SetLink;
-     {* Сигнатура метода SetLink }
-   procedure ReleaseLink;
-     {* Сигнатура метода ReleaseLink }
-   procedure DoUpdateStrings(const aStrings: TafwStatusInfo;
-     aCheckActions: Boolean;
-     aDelayed: Boolean);
-   procedure TimerProc(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure FireUpUpdateStringsTimer;
-     {* Сигнатура метода FireUpUpdateStringsTimer }
-   procedure UpdateStringsTimerProc(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
  end;//TnscStatusBar
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  afwFacade
-  {$If not defined(NoTB97)}
-  ,
-  tb97GraphicControl
-  {$IfEnd} //not NoTB97
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmBaseMenuManager
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  ActnList
-  {$IfEnd} //not NoVCL
-  ,
-  Graphics
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  l3MinMax,
-  l3Base,
-  l3InterfacesMisc,
-  l3String,
-  nscSizeGripPanel,
-  nscStatusBarButton,
-  nscStatusBarPanel,
-  nscStatusBarSep
-  {$If not defined(NoTB97)}
-  ,
-  tb97Ctls
-  {$IfEnd} //not NoTB97
-  ,
-  StatusBarUtils
-  {$If defined(Nemesis) AND not defined(NoScripts)}
-  ,
-  StatusBarWords
-  {$IfEnd} //Nemesis AND not NoScripts
-  
-  ;
-{$IfEnd} //Nemesis
+ l3ImplUses
+ , l3ProtoObject
+ , SysUtils
+ , afwFacade
+ {$If NOT Defined(NoTB97)}
+ , tb97GraphicControl
+ {$IfEnd} // NOT Defined(NoTB97)
+ {$If NOT Defined(NoVCM)}
+ , vcmBaseMenuManager
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , ActnList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Graphics
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3MinMax
+ , l3Base
+ , l3InterfacesMisc
+ , l3String
+ , nscSizeGripPanel
+ , nscStatusBarButton
+ , nscStatusBarPanel
+ , nscStatusBarSep
+ {$If NOT Defined(NoTB97)}
+ , tb97Ctls
+ {$IfEnd} // NOT Defined(NoTB97)
+ , StatusBarUtils
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , StatusBarWords
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
-{$If defined(Nemesis)}
-
+{$If NOT Defined(NoTB97)}
 type
-  TOperationInternalDef = class(Tl3ProtoObject)
+ TOperationInternalDef = class(Tl3ProtoObject)
   private
-  // private fields
-   f_Provider : Pointer;
-    {* InscStatusBarItemsProvider}
-   f_Def : InscStatusBarItemDef;
-    {* Поле для свойства Def}
+   f_Provider: Pointer;
+    {* InscStatusBarItemsProvider }
+   f_Def: InscStatusBarItemDef;
+    {* Поле для свойства Def }
   protected
-  // property methods
    function pm_GetProvider: InscStatusBarItemsProvider;
-  protected
-  // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
   public
-  // public methods
    constructor Create(const aDef: InscStatusBarItemDef;
-      const aProvider: InscStatusBarItemsProvider); reintroduce;
+    const aProvider: InscStatusBarItemsProvider); reintroduce;
   public
-  // public properties
    property Def: InscStatusBarItemDef
-     read f_Def;
+    read f_Def;
    property Provider: InscStatusBarItemsProvider
-     read pm_GetProvider;
-  end;//TOperationInternalDef
-
-// start class TOperationInternalDef
-
-constructor TOperationInternalDef.Create(const aDef: InscStatusBarItemDef;
-  const aProvider: InscStatusBarItemsProvider);
-//#UC START# *503DFE350045_503DEB310216_var*
-//#UC END# *503DFE350045_503DEB310216_var*
-begin
-//#UC START# *503DFE350045_503DEB310216_impl*
- inherited Create;
- f_Def := aDef;
- f_Provider := Pointer(aProvider);
-//#UC END# *503DFE350045_503DEB310216_impl*
-end;//TOperationInternalDef.Create
+    read pm_GetProvider;
+ end;//TOperationInternalDef
 
 function TOperationInternalDef.pm_GetProvider: InscStatusBarItemsProvider;
 //#UC START# *503DEC5200A9_503DEB310216get_var*
@@ -228,7 +156,20 @@ begin
 //#UC END# *503DEC5200A9_503DEB310216get_impl*
 end;//TOperationInternalDef.pm_GetProvider
 
+constructor TOperationInternalDef.Create(const aDef: InscStatusBarItemDef;
+ const aProvider: InscStatusBarItemsProvider);
+//#UC START# *503DFE350045_503DEB310216_var*
+//#UC END# *503DFE350045_503DEB310216_var*
+begin
+//#UC START# *503DFE350045_503DEB310216_impl*
+ inherited Create;
+ f_Def := aDef;
+ f_Provider := Pointer(aProvider);
+//#UC END# *503DFE350045_503DEB310216_impl*
+end;//TOperationInternalDef.Create
+
 procedure TOperationInternalDef.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_503DEB310216_var*
 //#UC END# *479731C50290_503DEB310216_var*
 begin
@@ -240,38 +181,10 @@ begin
 end;//TOperationInternalDef.Cleanup
 
 procedure TOperationInternalDef.ClearFields;
- {-}
 begin
- {$If defined(Nemesis)}
  f_Def := nil;
- {$IfEnd} //Nemesis
  inherited;
 end;//TOperationInternalDef.ClearFields
-
-function TnscStatusBar.AllVisiblePanelsText: AnsiString;
-//#UC START# *504F30D900F7_4E15A08E030D_var*
-var
- I: Integer;
- l_Btn: TCustomToolbarButton97;
-//#UC END# *504F30D900F7_4E15A08E030D_var*
-begin
-//#UC START# *504F30D900F7_4E15A08E030D_impl*
- Result := '';
- for I := 0 to ControlCount - 1 do
-  if Controls[I] is TCustomToolbarButton97 then
-  begin
-   l_Btn := TCustomToolbarButton97(OrderedControls[I]);
-   if l_Btn.Visible then
-    if l_Btn.DisplayMode in [dmBoth, dmTextOnly] then
-     if not l3IsNil(l_Btn.CCaption) then
-     begin
-      if Length(Result) > 0 then
-       Result := Result + '|';
-      Result := Result + l3Str(l_Btn.CCaption);
-     end;
-  end;
-//#UC END# *504F30D900F7_4E15A08E030D_impl*
-end;//TnscStatusBar.AllVisiblePanelsText
 
 procedure TnscStatusBar.SetLink;
 //#UC START# *503DE99801D3_4E15A08E030D_var*
@@ -301,8 +214,8 @@ begin
 end;//TnscStatusBar.ReleaseLink
 
 procedure TnscStatusBar.DoUpdateStrings(const aStrings: TafwStatusInfo;
-  aCheckActions: Boolean;
-  aDelayed: Boolean);
+ aCheckActions: Boolean;
+ aDelayed: Boolean);
 //#UC START# *503DE9C60211_4E15A08E030D_var*
 type
  TnscStatusBarItemClass = class of Ttb97CustomGraphicControl;
@@ -555,7 +468,31 @@ begin
  DoUpdateStrings(f_Strings, False, False);
 //#UC END# *5049B3DB0227_4E15A08E030D_impl*
 end;//TnscStatusBar.UpdateStringsTimerProc
-// start class TnscStatusBar
+
+function TnscStatusBar.AllVisiblePanelsText: AnsiString;
+//#UC START# *504F30D900F7_4E15A08E030D_var*
+var
+ I: Integer;
+ l_Btn: TCustomToolbarButton97;
+//#UC END# *504F30D900F7_4E15A08E030D_var*
+begin
+//#UC START# *504F30D900F7_4E15A08E030D_impl*
+ Result := '';
+ for I := 0 to ControlCount - 1 do
+  if Controls[I] is TCustomToolbarButton97 then
+  begin
+   l_Btn := TCustomToolbarButton97(OrderedControls[I]);
+   if l_Btn.Visible then
+    if l_Btn.DisplayMode in [dmBoth, dmTextOnly] then
+     if not l3IsNil(l_Btn.CCaption) then
+     begin
+      if Length(Result) > 0 then
+       Result := Result + '|';
+      Result := Result + l3Str(l_Btn.CCaption);
+     end;
+  end;
+//#UC END# *504F30D900F7_4E15A08E030D_impl*
+end;//TnscStatusBar.AllVisiblePanelsText
 
 procedure TnscStatusBar.WMGetText(var Msg: TWMGetText);
 //#UC START# *504F1A870252_4E15A08E030D_var*
@@ -669,6 +606,7 @@ begin
 end;//TnscStatusBar.UnregisterProvider
 
 procedure TnscStatusBar.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4E15A08E030D_var*
 //#UC END# *479731C50290_4E15A08E030D_var*
 begin
@@ -697,7 +635,7 @@ begin
 //#UC END# *47D1602000C6_4E15A08E030D_impl*
 end;//TnscStatusBar.Create
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TnscStatusBar.SetParent(AParent: TWinControl);
 //#UC START# *4A97E78202FC_4E15A08E030D_var*
 const
@@ -735,13 +673,13 @@ begin
  end;
 //#UC END# *4A97E78202FC_4E15A08E030D_impl*
 end;//TnscStatusBar.SetParent
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TnscStatusBar.SetBounds(ALeft: Integer;
-  ATop: Integer;
-  AWidth: Integer;
-  AHeight: Integer);
+ ATop: Integer;
+ AWidth: Integer;
+ AHeight: Integer);
 //#UC START# *4F2A599E0283_4E15A08E030D_var*
 //#UC END# *4F2A599E0283_4E15A08E030D_var*
 begin
@@ -753,9 +691,8 @@ begin
   inherited SetBounds(aLeft, 1, aWidth, aHeight);
 //#UC END# *4F2A599E0283_4E15A08E030D_impl*
 end;//TnscStatusBar.SetBounds
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoTB97)}
 function TnscStatusBar.IsGToolbarSizeNeeded: Boolean;
 //#UC START# *503DE79F02BA_4E15A08E030D_var*
 //#UC END# *503DE79F02BA_4E15A08E030D_var*
@@ -764,9 +701,7 @@ begin
  Result := False;
 //#UC END# *503DE79F02BA_4E15A08E030D_impl*
 end;//TnscStatusBar.IsGToolbarSizeNeeded
-{$IfEnd} //not NoTB97
 
-{$If not defined(NoTB97)}
 procedure TnscStatusBar.AdjustSizeForPanels;
 //#UC START# *5058B29A007C_4E15A08E030D_var*
 var
@@ -779,18 +714,17 @@ begin
    (Controls[l_Index] as TnscStatusBarPanel).AdjustSize;
 //#UC END# *5058B29A007C_4E15A08E030D_impl*
 end;//TnscStatusBar.AdjustSizeForPanels
-{$IfEnd} //not NoTB97
-
-{$IfEnd} //Nemesis
 
 initialization
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация TnscStatusBarDock
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnscStatusBarDock);
-{$IfEnd} //Nemesis AND not NoScripts
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация TnscStatusBar
+ {* Регистрация TnscStatusBarDock }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnscStatusBar);
-{$IfEnd} //Nemesis AND not NoScripts
+ {* Регистрация TnscStatusBar }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoTB97)
 
+{$IfEnd} // Defined(Nemesis)
 end.

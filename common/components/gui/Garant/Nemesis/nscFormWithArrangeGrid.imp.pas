@@ -1,62 +1,47 @@
 {$IfNDef nscFormWithArrangeGrid_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Модуль: "w:/common/components/gui/Garant/Nemesis/nscFormWithArrangeGrid.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi For F1::Nemesis::Grid::nscFormWithArrangeGrid
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nscFormWithArrangeGrid.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define nscFormWithArrangeGrid_imp}
-{$If defined(Nemesis)}
- _nscFormWithArrangeGrid_ = {mixin} class(_nscFormWithArrangeGrid_Parent_)
- private
- // private fields
-   f_Grid : InscArrangeGrid;
-   f_ArrangeCount : Integer;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
-   {$If defined(l3HackedVCL) AND not defined(NoVCL)}
-   function NeedAutoScroll: Boolean; override;
-   {$IfEnd} //l3HackedVCL AND not NoVCL
- protected
- // protected methods
+
+{$If Defined(Nemesis)}
+ _nscFormWithArrangeGrid_ = class(_nscFormWithArrangeGrid_Parent_)
+  private
+   f_Grid: InscArrangeGrid;
+   f_ArrangeCount: Integer;
+  protected
    procedure BuildGrid;
-     {* Сигнатура метода BuildGrid }
    procedure ArrangeGrid;
-     {* Сигнатура метода ArrangeGrid }
    procedure RecalcGrid;
-     {* Сигнатура метода RecalcGrid }
    function GridParentControl: TWinControl; virtual; abstract;
    function DoBuildGrid: InscArrangeGrid; virtual; abstract;
    procedure DoRecalcGrid(const aGrid: InscArrangeGrid); virtual; abstract;
    procedure GridSizeChanged(aSender: TObject);
    procedure GridParentControlResize(aSender: TObject); virtual;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
+   {$If Defined(l3HackedVCL) AND NOT Defined(NoVCL)}
+   function NeedAutoScroll: Boolean; override;
+   {$IfEnd} // Defined(l3HackedVCL) AND NOT Defined(NoVCL)
  end;//_nscFormWithArrangeGrid_
-{$Else}
 
- _nscFormWithArrangeGrid_ = _nscFormWithArrangeGrid_Parent_;
+{$Else Defined(Nemesis)}
 
-{$IfEnd} //Nemesis
+_nscFormWithArrangeGrid_ = _nscFormWithArrangeGrid_Parent_;
 
+{$IfEnd} // Defined(Nemesis)
 {$Else nscFormWithArrangeGrid_imp}
 
-{$If defined(Nemesis)}
+{$IfNDef nscFormWithArrangeGrid_imp_impl}
 
+{$Define nscFormWithArrangeGrid_imp_impl}
+
+{$If Defined(Nemesis)}
 type
-  THackControl = class(TControl)
-  end;//THackControl
-
-// start class _nscFormWithArrangeGrid_
+ THackControl = class(TControl)
+ end;//THackControl
 
 procedure _nscFormWithArrangeGrid_.BuildGrid;
 //#UC START# *5304958A00B1_530495650309_var*
@@ -121,6 +106,7 @@ begin
 end;//_nscFormWithArrangeGrid_.GridParentControlResize
 
 procedure _nscFormWithArrangeGrid_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_530495650309_var*
 //#UC END# *479731C50290_530495650309_var*
 begin
@@ -130,7 +116,7 @@ begin
 //#UC END# *479731C50290_530495650309_impl*
 end;//_nscFormWithArrangeGrid_.Cleanup
 
-{$If defined(l3HackedVCL) AND not defined(NoVCL)}
+{$If Defined(l3HackedVCL) AND NOT Defined(NoVCL)}
 function _nscFormWithArrangeGrid_.NeedAutoScroll: Boolean;
 //#UC START# *4B0E845502C1_530495650309_var*
 //#UC END# *4B0E845502C1_530495650309_var*
@@ -139,8 +125,10 @@ begin
  Result := False;
 //#UC END# *4B0E845502C1_530495650309_impl*
 end;//_nscFormWithArrangeGrid_.NeedAutoScroll
-{$IfEnd} //l3HackedVCL AND not NoVCL
+{$IfEnd} // Defined(l3HackedVCL) AND NOT Defined(NoVCL)
 
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
+{$EndIf nscFormWithArrangeGrid_imp_impl}
 
 {$EndIf nscFormWithArrangeGrid_imp}
+

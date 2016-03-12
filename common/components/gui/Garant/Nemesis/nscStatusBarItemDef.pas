@@ -1,47 +1,33 @@
 unit nscStatusBarItemDef;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Модуль: "w:/common/components/gui/Garant/Nemesis/nscStatusBarItemDef.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For F1::Nemesis::StatusBar::TnscStatusBarItemDef
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nscStatusBarItemDef.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  l3Interfaces,
-  l3CacheableBase,
-  nscNewInterfaces,
-  nscStatusBarOperationDefsList
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , l3CacheableBase
+ , nscNewInterfaces
+ , l3Interfaces
+ , nscStatusBarOperationDefsList
+;
 
-{$If defined(Nemesis)}
 type
  TnscStatusBarItemDef = class(Tl3CacheableBase, InscStatusBarItemDef)
- private
- // private fields
-   f_ShowCaption : Boolean;
-   f_Caption : Il3CString;
-   f_UseTooltip : Boolean;
-   f_RequireAutoPopup : Boolean;
-   f_AutoPopupTimeout : Cardinal;
-   f_ToolTipKind : TnscToolTipKind;
-   f_Enabled : Boolean;
-   f_SubscribedList : TnscStatusBarOperationDefsList;
- protected
- // realized methods
+  private
+   f_ShowCaption: Boolean;
+   f_Caption: Il3CString;
+   f_UseTooltip: Boolean;
+   f_RequireAutoPopup: Boolean;
+   f_AutoPopupTimeout: Cardinal;
+   f_ToolTipKind: TnscToolTipKind;
+   f_Enabled: Boolean;
+   f_SubscribedList: TnscStatusBarOperationDefsList;
+  protected
    function Get_Caption: Il3CString;
    function Get_UseToolTip: Boolean;
    function Get_RequireAutoPopup: Boolean;
@@ -52,46 +38,38 @@ type
    procedure Set_Enabled(aValue: Boolean);
    function Get_SubscribedList: InscStatusBarItemDefsList;
    procedure SubscribeOnNotification(const aServer: InscStatusBarItemDef);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aShowCaption: Boolean;
-     const aCaption: Il3CString;
-     aUseTooltip: Boolean;
-     aRequireAutoPopup: Boolean;
-     anAutoPopupTimeout: Cardinal;
-     aToolTipKind: TnscToolTipKind); reintroduce;
+    const aCaption: Il3CString;
+    aUseTooltip: Boolean;
+    aRequireAutoPopup: Boolean;
+    anAutoPopupTimeout: Cardinal;
+    aToolTipKind: TnscToolTipKind); reintroduce;
    class function Make(aShowCaption: Boolean;
-     const aCaption: Il3CString;
-     aUseTooltip: Boolean;
-     aRequireAutoPopup: Boolean;
-     anAutoPopupTimeout: Cardinal;
-     aToolTipKind: TnscToolTipKind): InscStatusBarItemDef; reintroduce;
-     {* Сигнатура фабрики TnscStatusBarItemDef.Make }
+    const aCaption: Il3CString;
+    aUseTooltip: Boolean;
+    aRequireAutoPopup: Boolean;
+    anAutoPopupTimeout: Cardinal;
+    aToolTipKind: TnscToolTipKind): InscStatusBarItemDef; reintroduce;
  end;//TnscStatusBarItemDef
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  l3Base
-  ;
-{$IfEnd} //Nemesis
-
-{$If defined(Nemesis)}
-
-// start class TnscStatusBarItemDef
+ l3ImplUses
+ , l3Base
+;
 
 constructor TnscStatusBarItemDef.Create(aShowCaption: Boolean;
-  const aCaption: Il3CString;
-  aUseTooltip: Boolean;
-  aRequireAutoPopup: Boolean;
-  anAutoPopupTimeout: Cardinal;
-  aToolTipKind: TnscToolTipKind);
+ const aCaption: Il3CString;
+ aUseTooltip: Boolean;
+ aRequireAutoPopup: Boolean;
+ anAutoPopupTimeout: Cardinal;
+ aToolTipKind: TnscToolTipKind);
 //#UC START# *4FEC3D23013F_4FEC3C34003F_var*
 //#UC END# *4FEC3D23013F_4FEC3C34003F_var*
 begin
@@ -108,11 +86,11 @@ begin
 end;//TnscStatusBarItemDef.Create
 
 class function TnscStatusBarItemDef.Make(aShowCaption: Boolean;
-  const aCaption: Il3CString;
-  aUseTooltip: Boolean;
-  aRequireAutoPopup: Boolean;
-  anAutoPopupTimeout: Cardinal;
-  aToolTipKind: TnscToolTipKind): InscStatusBarItemDef;
+ const aCaption: Il3CString;
+ aUseTooltip: Boolean;
+ aRequireAutoPopup: Boolean;
+ anAutoPopupTimeout: Cardinal;
+ aToolTipKind: TnscToolTipKind): InscStatusBarItemDef;
 var
  l_Inst : TnscStatusBarItemDef;
 begin
@@ -122,7 +100,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnscStatusBarItemDef.Make
 
 function TnscStatusBarItemDef.Get_Caption: Il3CString;
 //#UC START# *4980370D001D_4FEC3C34003Fget_var*
@@ -217,6 +195,7 @@ begin
 end;//TnscStatusBarItemDef.SubscribeOnNotification
 
 procedure TnscStatusBarItemDef.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4FEC3C34003F_var*
 //#UC END# *479731C50290_4FEC3C34003F_var*
 begin
@@ -226,7 +205,6 @@ begin
  inherited; 
 //#UC END# *479731C50290_4FEC3C34003F_impl*
 end;//TnscStatusBarItemDef.Cleanup
-
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 end.

@@ -1,90 +1,64 @@
 unit nscTasksPanelOperationNode;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Модуль: "w:/common/components/gui/Garant/Nemesis/nscTasksPanelOperationNode.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For F1::Nemesis::TasksPanel::TnscTasksPanelOperationNode
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nscTasksPanelOperationNode.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  l3Interfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmTaskPanelInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  nscTaskPanelInterfaces,
-  nscTasksPanelActionLink,
-  l3NodesModelPart
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , l3NodesModelPart
+ , l3Interfaces
+ , nscTaskPanelInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmTaskPanelInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nscTasksPanelActionLink
+;
 
-{$If defined(Nemesis)}
 type
  TnscTasksPanelOperationNode = class(Tl3UsualNode, Il3ItemNotifyRecipient, InscOperationNode)
- private
- // private fields
-   f_Op : IvcmCustOpsGroupOperation;
-    {* Поле для свойства Op}
-   f_Link : TnscTasksPanelActionLink;
-    {* Поле для свойства Link}
- protected
- // realized methods
+  private
+   f_Op: IvcmCustOpsGroupOperation;
+    {* Поле для свойства Op }
+   f_Link: TnscTasksPanelActionLink;
+    {* Поле для свойства Link }
+  protected
    procedure Notify(const aNotifier: Il3ChangeNotifier;
     aOperation: Integer;
     aIndex: Integer);
-     {* прошла операция. }
+    {* прошла операция. }
    procedure CaptionChanged;
-     {* изменилось название операции }
+    {* изменилось название операции }
    function pm_GetOp: IvcmCustOpsGroupOperation;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aOp: IvcmCustOpsGroupOperation); reintroduce;
    class function Make(const aOp: IvcmCustOpsGroupOperation): InscOperationNode; reintroduce;
-     {* Сигнатура фабрики TnscTasksPanelOperationNode.Make }
- public
- // public properties
+  public
    property Op: IvcmCustOpsGroupOperation
-     read f_Op
-     write f_Op;
+    read f_Op
+    write f_Op;
    property Link: TnscTasksPanelActionLink
-     read f_Link
-     write f_Link;
+    read f_Link
+    write f_Link;
  end;//TnscTasksPanelOperationNode
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  l3Base,
-  SysUtils,
-  l3Tree_TLB
-  ;
-{$IfEnd} //Nemesis
-
-{$If defined(Nemesis)}
-
-// start class TnscTasksPanelOperationNode
+ l3ImplUses
+ , l3Base
+ , SysUtils
+ , l3Tree_TLB
+;
 
 constructor TnscTasksPanelOperationNode.Create(const aOp: IvcmCustOpsGroupOperation);
 //#UC START# *508FE2F30143_508EBDA900AE_var*
@@ -109,11 +83,12 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnscTasksPanelOperationNode.Make
 
 procedure TnscTasksPanelOperationNode.Notify(const aNotifier: Il3ChangeNotifier;
-  aOperation: Integer;
-  aIndex: Integer);
+ aOperation: Integer;
+ aIndex: Integer);
+ {* прошла операция. }
 //#UC START# *46A4504B03C4_508EBDA900AE_var*
 //#UC END# *46A4504B03C4_508EBDA900AE_var*
 begin
@@ -141,6 +116,7 @@ begin
 end;//TnscTasksPanelOperationNode.Notify
 
 procedure TnscTasksPanelOperationNode.CaptionChanged;
+ {* изменилось название операции }
 //#UC START# *499C1A5C03B4_508EBDA900AE_var*
 //#UC END# *499C1A5C03B4_508EBDA900AE_var*
 begin
@@ -163,6 +139,7 @@ begin
 end;//TnscTasksPanelOperationNode.pm_GetOp
 
 procedure TnscTasksPanelOperationNode.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_508EBDA900AE_var*
 //#UC END# *479731C50290_508EBDA900AE_var*
 begin
@@ -176,14 +153,10 @@ begin
 end;//TnscTasksPanelOperationNode.Cleanup
 
 procedure TnscTasksPanelOperationNode.ClearFields;
- {-}
 begin
- {$If defined(Nemesis)}
  Op := nil;
- {$IfEnd} //Nemesis
  inherited;
 end;//TnscTasksPanelOperationNode.ClearFields
-
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 end.

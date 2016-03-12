@@ -1,60 +1,42 @@
 unit f1ExternalHyperlinkEliminator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Модуль: "w:/common/components/gui/Garant/Nemesis/f1ExternalHyperlinkEliminator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For F1::Nemesis::Filters::Tf1ExternalHyperlinkEliminator
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\f1ExternalHyperlinkEliminator.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  evdLeafParaFilter,
-  l3Variant,
-  k2Base
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , evdLeafParaFilter
+ , l3Variant
+ , k2Base
+;
 
-{$If defined(Nemesis)}
 type
  Tf1ExternalHyperlinkEliminator = class(TevdLeafParaFilter)
- protected
- // overridden protected methods
+  protected
    function ParaTypeForFiltering: Tk2Type; override;
-     {* Функция, определяющая тип абзацев, для которых будет выполняться фильтрация }
+    {* Функция, определяющая тип абзацев, для которых будет выполняться фильтрация }
    function NeedWritePara(aLeaf: Tl3Variant): Boolean; override;
-     {* Определяет нужно ли фильтровать переданный абзац }
- public
- // public methods
+    {* Определяет нужно ли фильтровать переданный абзац }
+  public
    class function SetTo(var theGenerator: Ik2TagGenerator): Ik2TagGenerator;
  end;//Tf1ExternalHyperlinkEliminator
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  k2Tags,
-  HyperLink_Const,
-  SysUtils,
-  evdTypes
-  ;
-{$IfEnd} //Nemesis
-
-{$If defined(Nemesis)}
-
-// start class Tf1ExternalHyperlinkEliminator
+ l3ImplUses
+ , k2Tags
+ , HyperLink_Const
+ , SysUtils
+ , evdTypes
+;
 
 class function Tf1ExternalHyperlinkEliminator.SetTo(var theGenerator: Ik2TagGenerator): Ik2TagGenerator;
 //#UC START# *556EEA830002_556ECBCF0396_var*
@@ -75,6 +57,7 @@ begin
 end;//Tf1ExternalHyperlinkEliminator.SetTo
 
 function Tf1ExternalHyperlinkEliminator.ParaTypeForFiltering: Tk2Type;
+ {* Функция, определяющая тип абзацев, для которых будет выполняться фильтрация }
 //#UC START# *49E488070386_556ECBCF0396_var*
 //#UC END# *49E488070386_556ECBCF0396_var*
 begin
@@ -84,6 +67,7 @@ begin
 end;//Tf1ExternalHyperlinkEliminator.ParaTypeForFiltering
 
 function Tf1ExternalHyperlinkEliminator.NeedWritePara(aLeaf: Tl3Variant): Boolean;
+ {* Определяет нужно ли фильтровать переданный абзац }
 //#UC START# *49E48829016F_556ECBCF0396_var*
 var
  l_TID      : Integer;
@@ -103,7 +87,6 @@ begin
  end;//aLeaf.ChilrenCount > 0
 //#UC END# *49E48829016F_556ECBCF0396_impl*
 end;//Tf1ExternalHyperlinkEliminator.NeedWritePara
-
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 end.

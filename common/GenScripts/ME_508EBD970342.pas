@@ -77,6 +77,7 @@ uses
  , nscTasksPanelView
 ;
 
+{$If NOT Defined(NoVCL)}
 function TnscTasksPanelActionLink.pm_GetOp: InscOperationNode;
 //#UC START# *508F9BA30314_508EBD970342get_var*
 //#UC END# *508F9BA30314_508EBD970342get_var*
@@ -136,7 +137,6 @@ begin
 //#UC END# *508F9BB7012D_508EBD970342_impl*
 end;//TnscTasksPanelActionLink.ValidateCaption
 
-{$If NOT Defined(NoVCL)}
 procedure TnscTasksPanelActionLink.SetCaption(const Value: String);
 //#UC START# *508F991B003B_508EBD970342_var*
 //#UC END# *508F991B003B_508EBD970342_var*
@@ -146,9 +146,7 @@ begin
  ValidateCaption(Value);
 //#UC END# *508F991B003B_508EBD970342_impl*
 end;//TnscTasksPanelActionLink.SetCaption
-{$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCL)}
 procedure TnscTasksPanelActionLink.SetEnabled(Value: Boolean);
 //#UC START# *508F99340058_508EBD970342_var*
 //#UC END# *508F99340058_508EBD970342_var*
@@ -158,9 +156,7 @@ begin
  Tree.Invalidate;
 //#UC END# *508F99340058_508EBD970342_impl*
 end;//TnscTasksPanelActionLink.SetEnabled
-{$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCL)}
 procedure TnscTasksPanelActionLink.SetImageIndex(Value: Integer);
 //#UC START# *508F997C0142_508EBD970342_var*
 //#UC END# *508F997C0142_508EBD970342_var*
@@ -170,9 +166,7 @@ begin
  Tree.Invalidate;
 //#UC END# *508F997C0142_508EBD970342_impl*
 end;//TnscTasksPanelActionLink.SetImageIndex
-{$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCL)}
 procedure TnscTasksPanelActionLink.SetVisible(Value: Boolean);
 //#UC START# *508F99970386_508EBD970342_var*
 //#UC END# *508F99970386_508EBD970342_var*

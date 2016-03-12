@@ -112,6 +112,7 @@ uses
  , evdVer
 ;
 
+{$If Defined(Nemesis)}
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentContainer.imp.pas}
 
 constructor TnsConsultationDocumentContainerNew.Create(const aDocInfo: IdeDocInfo;
@@ -520,6 +521,7 @@ begin
  f_DocInfo := nil;
  inherited;
 end;//TnsConsultationDocumentContainerNew.ClearFields
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // Defined(Nemesis)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

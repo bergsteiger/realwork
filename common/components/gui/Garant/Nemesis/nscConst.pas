@@ -1,37 +1,30 @@
 unit nscConst;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Модуль: "w:/common/components/gui/Garant/Nemesis/nscConst.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For F1::Nemesis::CoreObjects::nscConst
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nscConst.pas"
+// Стереотип: "UtilityPack"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  Graphics
-  ;
+ l3IntfUses
+ , Graphics
+;
 
 const
-  { nscConst }
  cDefaultContextEmptyColor = Graphics.clGrayText;
  cPlusKeyCode = 188;
  cMinusKeyCode = 189;
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
-{$IfEnd} //Nemesis
+{$If Defined(Nemesis)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(Nemesis)
+
 end.

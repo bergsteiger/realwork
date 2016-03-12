@@ -65,6 +65,7 @@ uses
  , SysUtils
 ;
 
+{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TsdsQuery;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
@@ -96,7 +97,6 @@ begin
 //#UC END# *492F00890059_492FECE300EAget_impl*
 end;//TsdsQuery.pm_GetdsSaveLoad
 
-{$If NOT Defined(NoVCM)}
 procedure TsdsQuery.ClearAreas;
  {* Очищает ссылки на области ввода }
 //#UC START# *4938F7E702B7_492FECE300EA_var*

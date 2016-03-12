@@ -1,37 +1,25 @@
 unit InscContextFilterStateList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Модуль: "w:/common/components/gui/Garant/Nemesis/InscContextFilterStateList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For F1::Nemesis::CoreObjects::TInscContextFilterStateList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\InscContextFilterStateList.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  nscNewInterfaces,
-  l3ProtoDataContainer,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except,
-  Classes
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , l3ProtoDataContainer
+ , nscNewInterfaces
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
-{$If defined(Nemesis)}
 type
  _ItemType_ = InscContextFilterState;
  _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
@@ -39,25 +27,22 @@ type
  {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  TInscContextFilterStateList = class(_l3InterfaceRefList_)
  end;//TInscContextFilterStateList
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
-{$IfEnd} //Nemesis
-
-{$If defined(Nemesis)}
+ l3ImplUses
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
 type _Instance_R_ = TInscContextFilterStateList;
 
 {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
+{$IfEnd} // Defined(Nemesis)
 
-
-{$IfEnd} //Nemesis
 end.

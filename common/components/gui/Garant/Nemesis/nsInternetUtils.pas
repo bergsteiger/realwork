@@ -1,68 +1,57 @@
 unit nsInternetUtils;
+ {* Вспомогательные функции для Интернет-агента }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Nemesis/nsInternetUtils.pas"
-// Начат: 22.04.2009 14:29
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For F1::Nemesis::Internet::nsInternetUtils
-//
-// Вспомогательные функции для Интернет-агента
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nsInternetUtils.pas"
+// Стереотип: "UtilityPack"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
+uses
+ l3IntfUses
+;
+
 const
-  { URL адреса, открываемые во встроенном браузере }
- InternalBrowserURLArr : array [0..1] of AnsiString = (
-  'www.garant.ru'
-  { "Новости онлайн" }
-  , 'mirror2.garant.ru'
-  { Книги и образа официальных публикаций }
- );//InternalBrowserURLArr
+ {* URL адреса, открываемые во встроенном браузере }
+ InternalBrowserURLArr: array [0 .. 2] of AnsiString = ('www.garant.ru'
+ , 'mirror2.garant.ru'
+ , 'forum.garant.ru'
+ );
+
 function nsIsGarantURL(const anURL: WideString): Boolean;
-   {* Определяет, что адрес в домене Гаранта }
+ {* Определяет, что адрес в домене Гаранта }
 function nsIsLocalDocumentURL(const anURL: WideString): Boolean;
-   {* Определяет, что ссылка на внутренний документ }
+ {* Определяет, что ссылка на внутренний документ }
 function nsParseLocalDocumentURL(const anURL: WideString;
-  out DocID: Integer;
-  out SubID: Integer): Boolean;
-   {* Разобрать локальную ссылку на документ }
+ out DocID: Integer;
+ out SubID: Integer): Boolean;
+ {* Разобрать локальную ссылку на документ }
 function nsIsContractConstructorURL(const anURL: WideString): Boolean;
 function nsIsMobileGarantOnlineURL(const anURL: WideString): Boolean;
 function nsNeedOpenLinkInExternalBrowser(const anURL: WideString): Boolean;
 function nsIsObtainRequisitesForMobileAccessURL(const anURL: WideString): Boolean;
 function nsIsMunicipalDecisionsArchiveURL(const anURL: WideString): Boolean;
 function nsNeedOpenLinkInInternalBrowser(const anURL: WideString): Boolean;
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  l3RegEx,
-  l3String,
-  l3Const,
-  l3Interfaces,
-  l3Base,
-  l3Types,
-  SysUtils
-  ;
-
-// unit methods
+ l3ImplUses
+ , l3RegEx
+ , l3String
+ , l3Const
+ , l3Interfaces
+ , l3Base
+ , l3Types
+ , SysUtils
+;
 
 function nsIsGarantURL(const anURL: WideString): Boolean;
+ {* Определяет, что адрес в домене Гаранта }
 //#UC START# *49EEF1BA019B_49EEF16603C9_var*
 const
  cMask = '^(res\:\/\/.+#)*https?\:\/\/([^\\\.]+\.)*garant.ru($|\_)';
@@ -74,6 +63,7 @@ begin
 end;//nsIsGarantURL
 
 function nsIsLocalDocumentURL(const anURL: WideString): Boolean;
+ {* Определяет, что ссылка на внутренний документ }
 //#UC START# *4BEBC370007F_49EEF16603C9_var*
 const
  cMask = '^(res\:\/\/.+#)*https?\:\/\/([^\\\.]+\.)*base.garant.ru($|\_)';
@@ -85,8 +75,9 @@ begin
 end;//nsIsLocalDocumentURL
 
 function nsParseLocalDocumentURL(const anURL: WideString;
-  out DocID: Integer;
-  out SubID: Integer): Boolean;
+ out DocID: Integer;
+ out SubID: Integer): Boolean;
+ {* Разобрать локальную ссылку на документ }
 //#UC START# *4BEBC4090016_49EEF16603C9_var*
 var
  l_Pos: Integer;
@@ -224,6 +215,6 @@ begin
  end;
 //#UC END# *553A26CA015B_49EEF16603C9_impl*
 end;//nsNeedOpenLinkInInternalBrowser
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 end.

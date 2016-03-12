@@ -50,6 +50,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TdsQuery;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
@@ -91,6 +92,7 @@ begin
  inherited;
 //#UC END# *479731C50290_491DCCE101F3_impl*
 end;//TdsQuery.Cleanup
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

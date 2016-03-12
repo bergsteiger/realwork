@@ -124,6 +124,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoTB97)}
 type
  TOperationInternalDef = class(Tl3ProtoObject)
   private
@@ -692,7 +693,6 @@ begin
 end;//TnscStatusBar.SetBounds
 {$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoTB97)}
 function TnscStatusBar.IsGToolbarSizeNeeded: Boolean;
 //#UC START# *503DE79F02BA_4E15A08E030D_var*
 //#UC END# *503DE79F02BA_4E15A08E030D_var*
@@ -701,9 +701,7 @@ begin
  Result := False;
 //#UC END# *503DE79F02BA_4E15A08E030D_impl*
 end;//TnscStatusBar.IsGToolbarSizeNeeded
-{$IfEnd} // NOT Defined(NoTB97)
 
-{$If NOT Defined(NoTB97)}
 procedure TnscStatusBar.AdjustSizeForPanels;
 //#UC START# *5058B29A007C_4E15A08E030D_var*
 var
@@ -716,7 +714,6 @@ begin
    (Controls[l_Index] as TnscStatusBarPanel).AdjustSize;
 //#UC END# *5058B29A007C_4E15A08E030D_impl*
 end;//TnscStatusBar.AdjustSizeForPanels
-{$IfEnd} // NOT Defined(NoTB97)
 
 initialization
 {$If NOT Defined(NoScripts)}
@@ -727,6 +724,7 @@ initialization
  TtfwClassRef.Register(TnscStatusBar);
  {* Регистрация TnscStatusBar }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // Defined(Nemesis)
+{$IfEnd} // NOT Defined(NoTB97)
 
+{$IfEnd} // Defined(Nemesis)
 end.

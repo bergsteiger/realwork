@@ -22,7 +22,7 @@ uses
 type
  _l3Notifier_Parent_ = TvcmBase;
  {$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
- TbsConsultationManager = {final} class(_l3Notifier_, IbsConsultationManager, Il3ChangeNotifier)
+ TbsConsultationManager = {final} class(_l3Notifier_, IbsConsultationManager)
   private
    f_Unread: Integer;
    f_CurrentStatus: TbsConsultationOperations;

@@ -9,6 +9,11 @@
 const
  cStatusbarItemSize = 20;
 
+ //#UC START# *505DA5E7038Dci*
+ //#UC END# *505DA5E7038Dci*
+ //#UC START# *505DA5E7038Dcit*
+type 
+ //#UC END# *505DA5E7038Dcit*
  _nscStatusBarItemNotification_ = class(_nscStatusBarItemNotification_Parent_, InscStatusBarItem)
   private
    f_NotificationClients: TnscStatusBarItemsList;
@@ -33,6 +38,8 @@ const
    property ItemDef: InscStatusBarItemDef
     read f_ItemDef
     write f_ItemDef;
+ //#UC START# *505DA5E7038Dpubl*
+ //#UC END# *505DA5E7038Dpubl*
  end;//_nscStatusBarItemNotification_
 
 {$Else Defined(Nemesis)}
@@ -155,6 +162,9 @@ begin
  ItemDef := nil;
  inherited;
 end;//_nscStatusBarItemNotification_.ClearFields
+
+//#UC START# *505DA5E7038Dimpl*
+//#UC END# *505DA5E7038Dimpl*
 {$IfEnd} // Defined(Nemesis)
 
 {$EndIf nscStatusBarItemNotification_imp_impl}

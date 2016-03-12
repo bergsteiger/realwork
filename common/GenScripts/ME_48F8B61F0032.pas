@@ -25,7 +25,7 @@ type
     aLevel: Integer;
     const G: InevTagGenerator);
    procedure DoIterateTree(const G: InevTagGenerator;
-    aFlags: TevStoreFlags); override;
+    aFlags: TevStoreFlags = evDefaultStoreFlags); override;
    procedure ClearFields; override;
   public
    constructor Create(const aDocument: IDocument;
@@ -98,7 +98,7 @@ begin
 end;//TnsContentsTreeStorable.DoIterate
 
 procedure TnsContentsTreeStorable.DoIterateTree(const G: InevTagGenerator;
- aFlags: TevStoreFlags);
+ aFlags: TevStoreFlags = evDefaultStoreFlags);
 //#UC START# *48F8A8F501DD_48F8B61F0032_var*
 var
  l_Root : InevSimpleNode;

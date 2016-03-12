@@ -39,6 +39,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoTB97)}
 {$Include w:\common\components\gui\Garant\Nemesis\nscStatusBarItemNotification.imp.pas}
 
 initialization
@@ -46,6 +47,7 @@ initialization
  TtfwClassRef.Register(TnscStatusBarSep);
  {* Регистрация TnscStatusBarSep }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // Defined(Nemesis)
+{$IfEnd} // NOT Defined(NoTB97)
 
+{$IfEnd} // Defined(Nemesis)
 end.

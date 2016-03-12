@@ -1,37 +1,29 @@
 unit nscCustomChatMemoProcessor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Nemesis/nscCustomChatMemoProcessor.pas"
-// Начат: 19.08.2009 19:02
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For F1::Nemesis::Memos::TnscCustomChatMemoProcessor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nscCustomChatMemoProcessor.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  evMemoProcessor
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , evMemoProcessor
+;
 
-{$If defined(Nemesis)}
 type
  TnscCustomChatMemoProcessor = class(TevMemoProcessor)
  end;//TnscCustomChatMemoProcessor
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
+
+{$If Defined(Nemesis)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(Nemesis)
 
 end.

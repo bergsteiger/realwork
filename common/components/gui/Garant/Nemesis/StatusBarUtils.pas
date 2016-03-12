@@ -1,59 +1,49 @@
 unit StatusBarUtils;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Модуль: "w:/common/components/gui/Garant/Nemesis/StatusBarUtils.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For F1::Nemesis::StatusBarUtils::StatusBarUtils
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\StatusBarUtils.pas"
+// Стереотип: "UtilityPack"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  nscNewInterfaces,
-  l3ProtoDataContainer,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except,
-  Classes
-  ;
+ l3IntfUses
+ , nscNewInterfaces
+ , l3ProtoDataContainer
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
 type
-  TnscStatusBarItemNotificationType = (
-    sbintVisibleChanged
-  );//TnscStatusBarItemNotificationType
+ TnscStatusBarItemNotificationType = (
+  sbintVisibleChanged
+ );//TnscStatusBarItemNotificationType
 
- InscStatusBarItem = interface(IUnknown)
-   ['{F1EFAA8A-2134-43CC-AF3F-0B73FB275A89}']
-   procedure Unsubscribe(const aClient: InscStatusBarItem);
-   procedure SendNotificationToClients(aNotificationType: TnscStatusBarItemNotificationType);
-   procedure Subscribe(const aClient: InscStatusBarItem);
-   procedure Notify(const aSender: InscStatusBarItem;
-     aNotificationType: TnscStatusBarItemNotificationType);
-   function Get_Visible: Boolean;
-   function Get_NotificationClients: Pointer;
-   function Get_ItemDef: InscStatusBarItemDef;
-   procedure Set_ItemDef(const aValue: InscStatusBarItemDef);
-   property Visible: Boolean
-     read Get_Visible;
-   property NotificationClients: Pointer
-     read Get_NotificationClients;
-     {* TnscStatusBarItemsList }
-   property ItemDef: InscStatusBarItemDef
-     read Get_ItemDef
-     write Set_ItemDef;
+ InscStatusBarItem = interface
+  ['{F1EFAA8A-2134-43CC-AF3F-0B73FB275A89}']
+  function Get_Visible: Boolean;
+  function Get_NotificationClients: Pointer;
+  function Get_ItemDef: InscStatusBarItemDef;
+  procedure Set_ItemDef(const aValue: InscStatusBarItemDef);
+  procedure Unsubscribe(const aClient: InscStatusBarItem);
+  procedure SendNotificationToClients(aNotificationType: TnscStatusBarItemNotificationType);
+  procedure Subscribe(const aClient: InscStatusBarItem);
+  procedure Notify(const aSender: InscStatusBarItem;
+   aNotificationType: TnscStatusBarItemNotificationType);
+  property Visible: Boolean
+   read Get_Visible;
+  property NotificationClients: Pointer
+   read Get_NotificationClients;
+   {* TnscStatusBarItemsList }
+  property ItemDef: InscStatusBarItemDef
+   read Get_ItemDef
+   write Set_ItemDef;
  end;//InscStatusBarItem
 
  _ItemType_ = InscStatusBarItem;
@@ -62,21 +52,22 @@ type
  {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
  TnscStatusBarItemsList = class(_l3InterfacePtrList_)
  end;//TnscStatusBarItemsList
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
+ l3ImplUses
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
 type _Instance_R_ = TnscStatusBarItemsList;
 
 {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
+{$IfEnd} // Defined(Nemesis)
 
-{$IfEnd} //Nemesis
 end.

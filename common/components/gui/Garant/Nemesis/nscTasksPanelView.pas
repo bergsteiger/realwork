@@ -1,123 +1,96 @@
 unit nscTasksPanelView;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Автор: Морозов М.
-// Модуль: "w:/common/components/gui/Garant/Nemesis/nscTasksPanelView.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi For F1::Nemesis::TasksPanel::TnscTasksPanelView
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nscTasksPanelView.pas"
+// Стереотип: "GuiControl"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  l3Interfaces,
-  afwInterfaces,
-  afwControl,
-  Messages,
-  Classes,
-  Graphics
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  ActnList
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmTaskPanelInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  nscTreeView,
-  vtPanel
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  nscInterfaces,
-  nscHideField,
-  vtSpeedButton
-  {$If not defined(NoVCM)}
-  ,
-  vcmPopupMenuPrim
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVGScene)}
-  ,
-  vg_objects
-  {$IfEnd} //not NoVGScene
-  
-  {$If not defined(NoVGScene)}
-  ,
-  vg_scene
-  {$IfEnd} //not NoVGScene
-  
-  {$If not defined(NoVGScene)}
-  ,
-  vg_layouts
-  {$IfEnd} //not NoVGScene
-  ,
-  l3InternalInterfaces,
-  Types,
-  vtLister
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , afwControl
+ , afwInterfaces
+ , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmTaskPanelInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Graphics
+ , Classes
+ , nscInterfaces
+ , Messages
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3InternalInterfaces
+ , nscHideField
+ {$If NOT Defined(NoVGScene)}
+ , vg_scene
+ {$IfEnd} // NOT Defined(NoVGScene)
+ {$If NOT Defined(NoVGScene)}
+ , vg_objects
+ {$IfEnd} // NOT Defined(NoVGScene)
+ {$If NOT Defined(NoVGScene)}
+ , vg_layouts
+ {$IfEnd} // NOT Defined(NoVGScene)
+ , vtPanel
+ , vtSpeedButton
+ , Types
+ , nscTreeView
+ {$If NOT Defined(NoVCM)}
+ , vcmPopupMenuPrim
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , ActnList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vtLister
+;
 
-{$If defined(Nemesis)}
+const
+ c_ItemIndent = 10;
+ c_RowIndent = 6;
+
 type
-
  TnscTasksPanelHideField = class;
 
- TnscCustomTasksPanelView = class(TafwControl {$If not defined(DesignTimeLibrary)}, IafwStyleTableSpy{$IfEnd} //not DesignTimeLibrary
- , Il3ItemNotifyRecipient {$If not defined(NoVCM)}, IvcmTaskPanelNotifyRecipient{$IfEnd} //not NoVCM
+ TnscCustomTasksPanelView = class(TafwControl{$If NOT Defined(DesignTimeLibrary)}
+ , IafwStyleTableSpy
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
+ , Il3ItemNotifyRecipient{$If NOT Defined(NoVCM)}
+ , IvcmTaskPanelNotifyRecipient
+ {$IfEnd} // NOT Defined(NoVCM)
  )
- private
- // private fields
-   f_UpdateRequests : Integer;
-   f_TasksPanel : IvcmCustOps;
-    {* Поле для свойства TasksPanel}
-   f_GroupImages : TCustomImageList;
-    {* Поле для свойства GroupImages}
-   f_CollapseGroupImage : Integer;
-    {* Поле для свойства CollapseGroupImage}
-   f_ExpandGroupImage : Integer;
-    {* Поле для свойства ExpandGroupImage}
-   f_GroupColor : TColor;
-    {* Поле для свойства GroupColor}
-   f_ImageList : TCustomImageList;
-    {* Поле для свойства ImageList}
-   f_OnOperationExecute : TNotifyEvent;
-    {* Поле для свойства OnOperationExecute}
-   f_TabTable : InscTabTable;
-    {* Поле для свойства TabTable}
-   f_Grid : InscArrangeGrid;
-    {* Поле для свойства Grid}
- private
- // private methods
+  private
+   f_UpdateRequests: Integer;
+   f_TasksPanel: IvcmCustOps;
+    {* Поле для свойства TasksPanel }
+   f_GroupImages: TCustomImageList;
+    {* Поле для свойства GroupImages }
+   f_CollapseGroupImage: Integer;
+    {* Поле для свойства CollapseGroupImage }
+   f_ExpandGroupImage: Integer;
+    {* Поле для свойства ExpandGroupImage }
+   f_GroupColor: TColor;
+    {* Поле для свойства GroupColor }
+   f_ImageList: TCustomImageList;
+    {* Поле для свойства ImageList }
+   f_OnOperationExecute: TNotifyEvent;
+    {* Поле для свойства OnOperationExecute }
+   f_TabTable: InscTabTable;
+    {* Поле для свойства TabTable }
+   f_Grid: InscArrangeGrid;
+    {* Поле для свойства Grid }
+  private
    procedure AddGroup(const aGroup: IvcmCustOpsGroup);
    procedure GrideSizeChanged(aSender: TObject);
    procedure LockView;
-     {* Сигнатура метода LockView }
    procedure UnlockView;
-     {* Сигнатура метода UnlockView }
    procedure WMEraseBkGnd(var aMessage: TWMEraseBkGnd); message WM_ERASEBKGND;
- protected
- // property methods
+  protected
    procedure pm_SetTasksPanel(const aValue: IvcmCustOps);
    procedure pm_SetGroupImages(aValue: TCustomImageList); virtual;
    function pm_GetTabTable: InscTabTable; virtual;
@@ -125,274 +98,222 @@ type
    function pm_GetHideField(anIndex: Integer): TnscTasksPanelHideField; virtual;
    function pm_GetCount: Integer; virtual;
    function pm_GetGrid: InscArrangeGrid; virtual;
- protected
- // realized methods
-  {$If not defined(DesignTimeLibrary)}
-   procedure StyleTableChanged;
-     {* таблица стилей изменилась. }
-  {$IfEnd} //not DesignTimeLibrary
-   procedure Notify(const aNotifier: Il3ChangeNotifier;
-   aOperation: Integer;
-   aIndex: Integer);
-     {* прошла операция. }
-  {$If not defined(NoVCM)}
-   procedure TaskPanelNotify(const aNotifier: Il3ChangeNotifier;
-   aOperation: TvcmTaskPanelOperation;
-   const aInterface: IvcmCustOpsItem);
-     {* прошла операция. }
-  {$IfEnd} //not NoVCM
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure Paint(const CN: Il3Canvas); override;
-     {* процедура рисования внешнего вида управляющего элемента }
-  {$If not defined(NoVCL)}
-   procedure Resize; override;
-  {$IfEnd} //not NoVCL
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // overridden public methods
-   constructor Create(AOwner: TComponent); override;
- protected
- // protected methods
    procedure MakeTabTable;
-     {* Сигнатура метода MakeTabTable }
    procedure ArrangeGrid(aRecalc: Boolean = False);
- public
- // public methods
+   {$If NOT Defined(DesignTimeLibrary)}
+   procedure StyleTableChanged;
+    {* таблица стилей изменилась. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   procedure Notify(const aNotifier: Il3ChangeNotifier;
+    aOperation: Integer;
+    aIndex: Integer);
+    {* прошла операция. }
+   {$If NOT Defined(NoVCM)}
+   procedure TaskPanelNotify(const aNotifier: Il3ChangeNotifier;
+    aOperation: TvcmTaskPanelOperation;
+    const aInterface: IvcmCustOpsItem);
+    {* прошла операция. }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure Paint(const CN: Il3Canvas); override;
+    {* процедура рисования внешнего вида управляющего элемента }
+   {$If NOT Defined(NoVCL)}
+   procedure Resize; override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   procedure ClearFields; override;
+  public
    procedure DoOperationExecute;
-     {* Сигнатура метода DoOperationExecute }
    procedure MakeTasksPanel;
-     {* Сигнатура метода MakeTasksPanel }
    procedure RemoveGroup(aHideField: TControl);
    function SortGroups: Boolean;
    procedure DefineActiveControl;
-     {* Сигнатура метода DefineActiveControl }
- protected
- // protected properties
+   constructor Create(AOwner: TComponent); override;
+  protected
    property TabTable: InscTabTable
-     read pm_GetTabTable;
+    read pm_GetTabTable;
    property IsViewLocked: Boolean
-     read pm_GetIsViewLocked;
+    read pm_GetIsViewLocked;
    property Grid: InscArrangeGrid
-     read pm_GetGrid;
- public
- // public properties
+    read pm_GetGrid;
+  public
    property TasksPanel: IvcmCustOps
-     read f_TasksPanel
-     write pm_SetTasksPanel;
+    read f_TasksPanel
+    write pm_SetTasksPanel;
    property GroupImages: TCustomImageList
-     read f_GroupImages
-     write pm_SetGroupImages;
+    read f_GroupImages
+    write pm_SetGroupImages;
    property CollapseGroupImage: Integer
-     read f_CollapseGroupImage
-     write f_CollapseGroupImage;
+    read f_CollapseGroupImage
+    write f_CollapseGroupImage;
    property ExpandGroupImage: Integer
-     read f_ExpandGroupImage
-     write f_ExpandGroupImage;
+    read f_ExpandGroupImage
+    write f_ExpandGroupImage;
    property GroupColor: TColor
-     read f_GroupColor
-     write f_GroupColor;
+    read f_GroupColor
+    write f_GroupColor;
    property ImageList: TCustomImageList
-     read f_ImageList
-     write f_ImageList;
+    read f_ImageList
+    write f_ImageList;
    property OnOperationExecute: TNotifyEvent
-     read f_OnOperationExecute
-     write f_OnOperationExecute;
+    read f_OnOperationExecute
+    write f_OnOperationExecute;
    property HideField[anIndex: Integer]: TnscTasksPanelHideField
-     read pm_GetHideField;
+    read pm_GetHideField;
    property Count: Integer
-     read pm_GetCount;
+    read pm_GetCount;
  end;//TnscCustomTasksPanelView
 
  TnscTasksPanelHideField = class(TnscHideField, Il3ItemNotifyRecipient)
- private
- // private fields
-  {$If defined(HideFieldVgSceneStyle) AND defined(Nemesis)}
-   f_HeaderScene : TvgScene;
-  {$IfEnd} //HideFieldVgSceneStyle AND Nemesis
-  {$If defined(HideFieldVgSceneStyle) AND defined(Nemesis)}
-   f_HeaderBackGround : TvgBackground;
-  {$IfEnd} //HideFieldVgSceneStyle AND Nemesis
-  {$If defined(HideFieldVgSceneStyle) AND defined(Nemesis)}
-   f_HeaderRectangle : TvgRectangle;
-  {$IfEnd} //HideFieldVgSceneStyle AND Nemesis
-  {$If defined(HideFieldVgSceneStyle) AND defined(Nemesis)}
-   f_HeaderText : TvgText;
-  {$IfEnd} //HideFieldVgSceneStyle AND Nemesis
-  {$If defined(HideFieldVgSceneStyle) AND defined(Nemesis)}
-   f_HeaderNonVGLayout : TvgNonVGLayout;
-  {$IfEnd} //HideFieldVgSceneStyle AND Nemesis
-  {$If defined(HideFieldVgSceneStyle) AND defined(Nemesis)}
-   f_HeaderPanel : TvtPanel;
-  {$IfEnd} //HideFieldVgSceneStyle AND Nemesis
-  {$If defined(HideFieldVgSceneStyle) AND defined(Nemesis)}
-   f_HeaderSpeedButton : TvtSpeedButton;
-  {$IfEnd} //HideFieldVgSceneStyle AND Nemesis
-   f_Group : IvcmCustOpsGroup;
-    {* Поле для свойства Group}
-   f_View : TnscCustomTasksPanelView;
-    {* Поле для свойства View}
-   f_TasksPanel : IvcmCustOps;
-    {* Поле для свойства TasksPanel}
- private
- // private methods
-    {$If defined(HideFieldVgSceneStyle) AND defined(Nemesis)}
+  private
+   {$If Defined(HideFieldVgSceneStyle)}
+   f_HeaderScene: TvgScene;
+   {$IfEnd} // Defined(HideFieldVgSceneStyle)
+   {$If Defined(HideFieldVgSceneStyle)}
+   f_HeaderBackGround: TvgBackground;
+   {$IfEnd} // Defined(HideFieldVgSceneStyle)
+   {$If Defined(HideFieldVgSceneStyle)}
+   f_HeaderRectangle: TvgRectangle;
+   {$IfEnd} // Defined(HideFieldVgSceneStyle)
+   {$If Defined(HideFieldVgSceneStyle)}
+   f_HeaderText: TvgText;
+   {$IfEnd} // Defined(HideFieldVgSceneStyle)
+   {$If Defined(HideFieldVgSceneStyle)}
+   f_HeaderNonVGLayout: TvgNonVGLayout;
+   {$IfEnd} // Defined(HideFieldVgSceneStyle)
+   {$If Defined(HideFieldVgSceneStyle)}
+   f_HeaderPanel: TvtPanel;
+   {$IfEnd} // Defined(HideFieldVgSceneStyle)
+   {$If Defined(HideFieldVgSceneStyle)}
+   f_HeaderSpeedButton: TvtSpeedButton;
+   {$IfEnd} // Defined(HideFieldVgSceneStyle)
+   f_Group: IvcmCustOpsGroup;
+    {* Поле для свойства Group }
+   f_View: TnscCustomTasksPanelView;
+    {* Поле для свойства View }
+   f_TasksPanel: IvcmCustOps;
+    {* Поле для свойства TasksPanel }
+  private
+   {$If Defined(HideFieldVgSceneStyle)}
    procedure RefreshContent;
-     {* Сигнатура метода RefreshContent }
-    {$IfEnd} //HideFieldVgSceneStyle AND Nemesis
-    {$If defined(HideFieldVgSceneStyle) AND defined(Nemesis)}
+   {$IfEnd} // Defined(HideFieldVgSceneStyle)
+   {$If Defined(HideFieldVgSceneStyle)}
    procedure DoOnClick(aSender: TObject);
-    {$IfEnd} //HideFieldVgSceneStyle AND Nemesis
+   {$IfEnd} // Defined(HideFieldVgSceneStyle)
    function MakeSettingFromTasksPanel: TafwSettingId;
    procedure Subscribe(aSubscribe: Boolean);
    procedure UpdateCaption;
-     {* Сигнатура метода UpdateCaption }
    procedure AFWCMTextChanged(var aMsg: TMessage); message afw_CM_TEXTCHANGED;
- protected
- // realized methods
+  protected
    procedure Notify(const aNotifier: Il3ChangeNotifier;
-   aOperation: Integer;
-   aIndex: Integer);
-     {* прошла операция. }
- protected
- // overridden protected methods
+    aOperation: Integer;
+    aIndex: Integer);
+    {* прошла операция. }
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure Paint(const CN: Il3Canvas); override;
-     {* процедура рисования внешнего вида управляющего элемента }
-  {$If not defined(NoVCL)}
+    {* процедура рисования внешнего вида управляющего элемента }
+   {$If NOT Defined(NoVCL)}
    procedure SetParent(AParent: TWinControl); override;
-  {$IfEnd} //not NoVCL
-  {$If not defined(NoVCL)}
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
    procedure Resize; override;
-  {$IfEnd} //not NoVCL
+   {$IfEnd} // NOT Defined(NoVCL)
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
-   {$If not defined(NoVCL)}
+   {$If NOT Defined(NoVCL)}
    procedure AdjustClientRect(var Rect: TRect); override;
-   {$IfEnd} //not NoVCL
+   {$IfEnd} // NOT Defined(NoVCL)
    procedure DoStateChanged; override;
-     {* Сигнатура метода DoStateChanged }
    procedure DoStyleTableChanged; override;
-     {* Сигнатура метода DoStyleTableChanged }
    procedure HideControl; override;
-     {* Сигнатура метода HideControl }
- public
- // public methods
-    {$If defined(HideFieldVgSceneStyle) AND defined(Nemesis)}
+  public
+   {$If Defined(HideFieldVgSceneStyle)}
    procedure SetBitmapButton;
-     {* Сигнатура метода SetBitmapButton }
-    {$IfEnd} //HideFieldVgSceneStyle AND Nemesis
+   {$IfEnd} // Defined(HideFieldVgSceneStyle)
    constructor Create(AOwner: TComponent;
-     const aGroup: IvcmCustOpsGroup); reintroduce;
- protected
- // protected properties
+    const aGroup: IvcmCustOpsGroup); reintroduce;
+  protected
    property View: TnscCustomTasksPanelView
-     read f_View
-     write f_View;
+    read f_View
+    write f_View;
    property TasksPanel: IvcmCustOps
-     read f_TasksPanel
-     write f_TasksPanel;
- public
- // public properties
+    read f_TasksPanel
+    write f_TasksPanel;
+  public
    property Group: IvcmCustOpsGroup
-     read f_Group
-     write f_Group;
+    read f_Group
+    write f_Group;
  end;//TnscTasksPanelHideField
 
-const
-  { Константы настройки компонента дерева. }
- c_ItemIndent = 10;
- c_RowIndent = 6;
-
-type
- TnscTasksPanelTreeView = class(TnscTreeView {$If not defined(NoVCM)}, IvcmTaskPanelNotifyRecipient{$IfEnd} //not NoVCM
+ TnscTasksPanelTreeView = class(TnscTreeView{$If NOT Defined(NoVCM)}
+ , IvcmTaskPanelNotifyRecipient
+ {$IfEnd} // NOT Defined(NoVCM)
  )
- private
- // private fields
-   f_CursorItem : Integer;
-   f_Group : IvcmCustOpsGroup;
-    {* Поле для свойства Group}
-   f_PopupMenu : TvcmPopupMenuPrim;
-    {* Поле для свойства PopupMenu}
-   f_View : TnscCustomTasksPanelView;
-    {* Поле для свойства View}
- private
- // private methods
+  private
+   f_CursorItem: Integer;
+   f_Group: IvcmCustOpsGroup;
+    {* Поле для свойства Group }
+   f_PopupMenu: TvcmPopupMenuPrim;
+    {* Поле для свойства PopupMenu }
+   f_View: TnscCustomTasksPanelView;
+    {* Поле для свойства View }
+  private
    procedure AddOp(const aOp: IvcmCustOpsGroupOperation);
    procedure AddOps;
-     {* Сигнатура метода AddOps }
    procedure SortChilds;
-     {* Сигнатура метода SortChilds }
    function ItemAction(aItemIndex: Integer): TCustomAction;
- protected
- // property methods
+  protected
    function pm_GetPopupMenu: TvcmPopupMenuPrim;
- protected
- // realized methods
-  {$If not defined(NoVCM)}
+   function DoOnGetCursor(aSender: TObject;
+    aIndex: Integer): TCursor;
+   {$If NOT Defined(NoVCM)}
    procedure TaskPanelNotify(const aNotifier: Il3ChangeNotifier;
-   aOperation: TvcmTaskPanelOperation;
-   const aInterface: IvcmCustOpsItem);
-     {* прошла операция. }
-  {$IfEnd} //not NoVCM
- protected
- // overridden protected methods
+    aOperation: TvcmTaskPanelOperation;
+    const aInterface: IvcmCustOpsItem);
+    {* прошла операция. }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCL)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCL)}
    procedure SetParent(AParent: TWinControl); override;
-   {$IfEnd} //not NoVCL
+   {$IfEnd} // NOT Defined(NoVCL)
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
    function DoIsCommandPublished(Cmd: Tl3OperationCode): Boolean; override;
    function DoOnGetItemImageIndex(aItemIndex: LongInt;
-     var aImages: TCustomImageList): Integer; override;
+    var aImages: TCustomImageList): Integer; override;
    procedure DoOnActionElement(Index: LongInt); override;
    procedure DoOnGetItemStyle(aItemIndex: Integer;
-     const aFont: Il3Font;
-     var aTextBackColor: TColor;
-     var aItemBackColor: TColor;
-     var aVJustify: TvtVJustify;
-     var aFocused: Boolean;
-     var theImageVertOffset: Integer); override;
+    const aFont: Il3Font;
+    var aTextBackColor: TColor;
+    var aItemBackColor: TColor;
+    var aVJustify: TvtVJustify;
+    var aFocused: Boolean;
+    var theImageVertOffset: Integer); override;
    procedure DoOnGetItemImageState(const aItemIndex: LongInt;
-     var aEnabled: Boolean); override;
- public
- // overridden public methods
-   {$If not defined(NoVCL)}
-   procedure InitiateAction; override;
-     {* Сигнатура метода InitiateAction }
-   {$IfEnd} //not NoVCL
- protected
- // protected methods
-   function DoOnGetCursor(aSender: TObject;
-     aIndex: Integer): TCursor;
- public
- // public methods
+    var aEnabled: Boolean); override;
+  public
    constructor Create(AOwner: TComponent;
-     const aGroup: IvcmCustOpsGroup); reintroduce;
- public
- // public properties
+    const aGroup: IvcmCustOpsGroup); reintroduce;
+   {$If NOT Defined(NoVCL)}
+   procedure InitiateAction; override;
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
    property Group: IvcmCustOpsGroup
-     read f_Group
-     write f_Group;
+    read f_Group
+    write f_Group;
    property PopupMenu: TvcmPopupMenuPrim
-     read pm_GetPopupMenu;
+    read pm_GetPopupMenu;
    property View: TnscCustomTasksPanelView
-     read f_View
-     write f_View;
+    read f_View
+    write f_View;
  end;//TnscTasksPanelTreeView
 
-//#UC START# *4D3424C203C2ci*
-//#UC END# *4D3424C203C2ci*
-//#UC START# *4D3424C203C2cit*
-//#UC END# *4D3424C203C2cit*
+ //#UC START# *4D3424C203C2ci*
+ //#UC END# *4D3424C203C2ci*
+ //#UC START# *4D3424C203C2cit*
+ //#UC END# *4D3424C203C2cit*
  TnscTasksPanelView = class(TnscCustomTasksPanelView)
-//#UC START# *4D3424C203C2publ*
+ //#UC START# *4D3424C203C2publ*
   published
   // propertes
     property Align;
@@ -409,233 +330,174 @@ type
       {-}
     property OnOperationExecute;
       {-}
-//#UC END# *4D3424C203C2publ*
+ //#UC END# *4D3424C203C2publ*
  end;//TnscTasksPanelView
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  vtHideField,
-  afwConsts,
-  afwFacade
-  {$If not defined(NoVGScene)}
-  ,
-  vgTypes
-  {$IfEnd} //not NoVGScene
-  ,
-  l3Base,
-  vtF1InterfaceConst,
-  evStyleTableTools,
-  l3Tree_TLB,
-  nscTasksPanelOperationNode,
-  nscTasksPanelActionLink,
-  nscTaskPanelInterfaces,
-  nscTasksPanelRootNode,
-  OvcConst
-  {$If not defined(NoVCL)}
-  ,
-  Menus
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmAction
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmMenus
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUtils
-  {$IfEnd} //not NoVCM
-  ,
-  l3String
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3ControlsTypes,
-  l3Nodes
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  vtOutliner,
-  nscArrangeGridCell,
-  eeTreeView,
-  nscTabTableCell,
-  nscArrangeGrid,
-  nscTabTable
-  {$If not defined(DesignTimeLibrary)}
-  ,
-  evStyleTableSpy
-  {$IfEnd} //not DesignTimeLibrary
-  ,
-  l3Units,
-  l3Region,
-  Windows
-  {$If not defined(NoScripts)}
-  ,
-  tfwClassRef
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts) AND not defined(NoVCM)}
-  ,
-  TaskPanelWords
-  {$IfEnd} //not NoScripts AND not NoVCM
-  
-  ;
-{$IfEnd} //Nemesis
+ l3ImplUses
+ , nscTasksPanelRootNode
+ , nscTasksPanelActionLink
+ , nscTasksPanelOperationNode
+ , SysUtils
+ , vtHideField
+ , nscArrangeGridCell
+ , eeTreeView
+ , nscTabTableCell
+ , nscArrangeGrid
+ , afwFacade
+ , nscTabTable
+ {$If NOT Defined(DesignTimeLibrary)}
+ , evStyleTableSpy
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
+ , l3Units
+ , l3Region
+ , Windows
+ {$If NOT Defined(NoScripts)}
+ , tfwClassRef
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
+ , TaskPanelWords
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
+ , afwConsts
+ {$If NOT Defined(NoVGScene)}
+ , vgTypes
+ {$IfEnd} // NOT Defined(NoVGScene)
+ , l3Base
+ , vtF1InterfaceConst
+ , evStyleTableTools
+ , l3Tree_TLB
+ , nscTaskPanelInterfaces
+ , OvcConst
+ {$If NOT Defined(NoVCL)}
+ , Menus
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmAction
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmMenus
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmUtils
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3String
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3ControlsTypes
+ , l3Nodes
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , vtOutliner
+;
 
-{$If defined(Nemesis)}
+const
+ c_CaptionIndent = 5;
+ c_TopClientIndent = 5;
 
-// start class TnscCustomTasksPanelView
-
-procedure TnscCustomTasksPanelView.AddGroup(const aGroup: IvcmCustOpsGroup);
-//#UC START# *508EBB16008E_508EBA08009F_var*
-var
- l_HideField: TnscTasksPanelHideField;
- l_TreeView: TnscTasksPanelTreeView;
- l_Control: TWinControl;
- l_TmpComponent: TComponent;
-//#UC END# *508EBB16008E_508EBA08009F_var*
+procedure TnscCustomTasksPanelView.pm_SetTasksPanel(const aValue: IvcmCustOps);
+//#UC START# *508EB28F03DA_508EBA08009Fset_var*
+//#UC END# *508EB28F03DA_508EBA08009Fset_var*
 begin
-//#UC START# *508EBB16008E_508EBA08009F_impl*
- if aGroup.IsLinkToExistingControl then
+//#UC START# *508EB28F03DA_508EBA08009Fset_impl*
+ if (f_TasksPanel <> aValue) then
  begin
-  l_Control := aGroup.Control;
-  Assert(l_Control <> nil);
-  l_TreeView := nil;
- end//aGroup.IsLinkToExistingControl
- else
- begin
-  l_TreeView := TnscTasksPanelTreeView.Create(Self, aGroup);
-  l_TreeView.Name := Self.Name + '_' +  IntToStr(aGroup.Position) + '_' + IntToStr(aGroup.RepGroup.ID);
-  l_Control := l_TreeView;
- end;//aGroup.IsLinkToExistingControl
-
-  // компонент может не быть удален из-за взведенного счетчика ссылок
-  // http://mdp.garant.ru/pages/viewpage.action?pageId=522786290
- l_TmpComponent := Self.FindComponent('field_' + l_Control.Name);
- if Assigned(l_TmpComponent) then
- begin
-  l_TmpComponent.Name := '';
- end;
-
- l_HideField := TnscTasksPanelHideField.Create(Self, aGroup);
- l_HideField.Name := 'field_' + l_Control.Name;
- with l_HideField do
- begin
-  Parent := Self;
-  ClientControl := l_Control;
-  Font.Style := [fsBold];
-  Options := [hfoCanHide];
-  LeftHeaderIndent := 5;
-  TopHeaderIndent := 5;
-  ButtonImageList := GroupImages;
-  {$IfDef HideFieldVgSceneStyle}
-  { Для DFM-a не подходит $IfDef, и подгружаемые из TasksPanel_Form.dfm индексы картинок
-    затирают значения, установленные в TPrimContentsForm.InitLists. Поэтому выставляем их явно. }
-  CollapseGroupImage := 2;
-  ExpandGroupImage := 3;
-  {$EndIf HideFieldVgSceneStyle}
-  ButtonOpenImage := ExpandGroupImage;
-  ButtonCloseImage := CollapseGroupImage;
-  HeaderColor := GroupColor;
-  TabStop := True;
-//  l_HideField.Perform(CM_FONTCHANGED, 0, 0);
- {$IfDef HideFieldVgSceneStyle}
-  SetBitmapButton;
- {$EndIf HideFieldVgSceneStyle}
- end;//with l_HideField do
- if (l_TreeView = nil) then
- begin
-//  l_Control.Parent := l_HideField;
- end//l_TreeView = nil
- else
-  l_TreeView.Images := ImageList;
- // Сетка контролов:
- with Grid do
- begin
-  AddRow;
-  Cell[Pred(RowCount), 0] := TnscHideFieldCell.Make(l_HideField, false{(l_TreeView = nil)});
- end;//with f_Grid do
- // Сетка перехода фокуса:
- with TabTable do
- begin
-  if ColumnCount = 0 then
-   AddColumn;
-  if (l_TreeView = nil) then
+  if (f_TasksPanel <> nil) then
   begin
-   if (l_Control is TeeTreeView) then
-    Column[0].AddItem(TnscTreeViewTabCell.Make(TeeTreeView(l_Control)))
-   else
-    Column[0].AddItem(TnscTabCell.Make(l_Control));
-  end//l_TreeView = nil
-  else
-   Column[0].AddItem(TnscTreeViewTabCell.Make(l_TreeView));
- end;//with TabTable do
-//#UC END# *508EBB16008E_508EBA08009F_impl*
-end;//TnscCustomTasksPanelView.AddGroup
+//   MakeTasksPanel;
+   f_TasksPanel.As_Il3ChangeNotifier.UnSubscribe(IvcmTaskPanelNotifyRecipient(Self));
+   f_TasksPanel.As_Il3ChangeNotifier.UnSubscribe(Il3ItemNotifyRecipient(Self));
+  end;//f_TasksPanel <> nil
+  f_TasksPanel := aValue;
+  if (f_TasksPanel <> nil) then
+  begin
+   f_TasksPanel.As_Il3ChangeNotifier.Subscribe(IvcmTaskPanelNotifyRecipient(Self));
+   f_TasksPanel.As_Il3ChangeNotifier.Subscribe(Il3ItemNotifyRecipient(Self));
+   MakeTasksPanel;
+  end;//f_TasksPanel <> nil
+ end;//f_TasksPanel <> aValue
+//#UC END# *508EB28F03DA_508EBA08009Fset_impl*
+end;//TnscCustomTasksPanelView.pm_SetTasksPanel
 
-procedure TnscCustomTasksPanelView.GrideSizeChanged(aSender: TObject);
-//#UC START# *508EBB35000D_508EBA08009F_var*
-//#UC END# *508EBB35000D_508EBA08009F_var*
+procedure TnscCustomTasksPanelView.pm_SetGroupImages(aValue: TCustomImageList);
+//#UC START# *508EB30E0238_508EBA08009Fset_var*
+//#UC END# *508EB30E0238_508EBA08009Fset_var*
 begin
-//#UC START# *508EBB35000D_508EBA08009F_impl*
- ArrangeGrid;
-//#UC END# *508EBB35000D_508EBA08009F_impl*
-end;//TnscCustomTasksPanelView.GrideSizeChanged
+//#UC START# *508EB30E0238_508EBA08009Fset_impl*
+ f_GroupImages := aValue;
+//#UC END# *508EB30E0238_508EBA08009Fset_impl*
+end;//TnscCustomTasksPanelView.pm_SetGroupImages
 
-procedure TnscCustomTasksPanelView.LockView;
-//#UC START# *508EBB4E0337_508EBA08009F_var*
-//#UC END# *508EBB4E0337_508EBA08009F_var*
+function TnscCustomTasksPanelView.pm_GetTabTable: InscTabTable;
+//#UC START# *508EBC200154_508EBA08009Fget_var*
+//#UC END# *508EBC200154_508EBA08009Fget_var*
 begin
-//#UC START# *508EBB4E0337_508EBA08009F_impl*
- if not IsViewLocked then
-  Grid.BeginUpdate;
- Inc(f_UpdateRequests);
-//#UC END# *508EBB4E0337_508EBA08009F_impl*
-end;//TnscCustomTasksPanelView.LockView
+//#UC START# *508EBC200154_508EBA08009Fget_impl*
+ if f_TabTable = nil then
+  f_TabTable := TnscTabTable.Make;
+ Result := f_TabTable;
+//#UC END# *508EBC200154_508EBA08009Fget_impl*
+end;//TnscCustomTasksPanelView.pm_GetTabTable
 
-procedure TnscCustomTasksPanelView.UnlockView;
-//#UC START# *508EBB5B038C_508EBA08009F_var*
-//#UC END# *508EBB5B038C_508EBA08009F_var*
+function TnscCustomTasksPanelView.pm_GetIsViewLocked: Boolean;
+//#UC START# *508EBC4B00B3_508EBA08009Fget_var*
+//#UC END# *508EBC4B00B3_508EBA08009Fget_var*
 begin
-//#UC START# *508EBB5B038C_508EBA08009F_impl*
- Dec(f_UpdateRequests);
- if not IsViewLocked then
+//#UC START# *508EBC4B00B3_508EBA08009Fget_impl*
+ Result := f_UpdateRequests > 0;
+//#UC END# *508EBC4B00B3_508EBA08009Fget_impl*
+end;//TnscCustomTasksPanelView.pm_GetIsViewLocked
+
+function TnscCustomTasksPanelView.pm_GetHideField(anIndex: Integer): TnscTasksPanelHideField;
+//#UC START# *510261DC001C_508EBA08009Fget_var*
+var
+ l_Group: IagControlCell;
+//#UC END# *510261DC001C_508EBA08009Fget_var*
+begin
+//#UC START# *510261DC001C_508EBA08009Fget_impl*
+ if Supports(Grid.Column[0].Cell[anIndex], IagControlCell, l_Group) then
+  Result := l_Group.Control as TnscTasksPanelHideField;
+//#UC END# *510261DC001C_508EBA08009Fget_impl*
+end;//TnscCustomTasksPanelView.pm_GetHideField
+
+function TnscCustomTasksPanelView.pm_GetCount: Integer;
+//#UC START# *510261F0028D_508EBA08009Fget_var*
+//#UC END# *510261F0028D_508EBA08009Fget_var*
+begin
+//#UC START# *510261F0028D_508EBA08009Fget_impl*
+ if Grid.ColumnCount > 0
+  then Result := Grid.Column[0].CellCount
+  else Result := 0;
+//#UC END# *510261F0028D_508EBA08009Fget_impl*
+end;//TnscCustomTasksPanelView.pm_GetCount
+
+function TnscCustomTasksPanelView.pm_GetGrid: InscArrangeGrid;
+//#UC START# *510288E102AC_508EBA08009Fget_var*
+//#UC END# *510288E102AC_508EBA08009Fget_var*
+begin
+//#UC START# *510288E102AC_508EBA08009Fget_impl*
+ if f_Grid = nil then
  begin
-  Grid.EndUpdate;
-  // http://mdp.garant.ru/pages/viewpage.action?pageId=505415962
-  if HandleAllocated then
-   ArrangeGrid(True);
- end;//if not IsViewLocked then
-//#UC END# *508EBB5B038C_508EBA08009F_impl*
-end;//TnscCustomTasksPanelView.UnlockView
+  f_Grid := TnscArrangeGrid.Make(False, True);
+  f_Grid.OnSizeChanged := GrideSizeChanged;
+ end;//if f_Grid = nil then
+ Result := f_Grid;
+//#UC END# *510288E102AC_508EBA08009Fget_impl*
+end;//TnscCustomTasksPanelView.pm_GetGrid
 
 procedure TnscCustomTasksPanelView.DoOperationExecute;
 //#UC START# *508EBB6A02D9_508EBA08009F_var*
@@ -858,95 +720,128 @@ begin
 //#UC END# *508EBB960031_508EBA08009F_impl*
 end;//TnscCustomTasksPanelView.ArrangeGrid
 
-procedure TnscCustomTasksPanelView.pm_SetTasksPanel(const aValue: IvcmCustOps);
-//#UC START# *508EB28F03DA_508EBA08009Fset_var*
-//#UC END# *508EB28F03DA_508EBA08009Fset_var*
-begin
-//#UC START# *508EB28F03DA_508EBA08009Fset_impl*
- if (f_TasksPanel <> aValue) then
- begin
-  if (f_TasksPanel <> nil) then
-  begin
-//   MakeTasksPanel;
-   f_TasksPanel.As_Il3ChangeNotifier.UnSubscribe(IvcmTaskPanelNotifyRecipient(Self));
-   f_TasksPanel.As_Il3ChangeNotifier.UnSubscribe(Il3ItemNotifyRecipient(Self));
-  end;//f_TasksPanel <> nil
-  f_TasksPanel := aValue;
-  if (f_TasksPanel <> nil) then
-  begin
-   f_TasksPanel.As_Il3ChangeNotifier.Subscribe(IvcmTaskPanelNotifyRecipient(Self));
-   f_TasksPanel.As_Il3ChangeNotifier.Subscribe(Il3ItemNotifyRecipient(Self));
-   MakeTasksPanel;
-  end;//f_TasksPanel <> nil
- end;//f_TasksPanel <> aValue
-//#UC END# *508EB28F03DA_508EBA08009Fset_impl*
-end;//TnscCustomTasksPanelView.pm_SetTasksPanel
-
-procedure TnscCustomTasksPanelView.pm_SetGroupImages(aValue: TCustomImageList);
-//#UC START# *508EB30E0238_508EBA08009Fset_var*
-//#UC END# *508EB30E0238_508EBA08009Fset_var*
-begin
-//#UC START# *508EB30E0238_508EBA08009Fset_impl*
- f_GroupImages := aValue;
-//#UC END# *508EB30E0238_508EBA08009Fset_impl*
-end;//TnscCustomTasksPanelView.pm_SetGroupImages
-
-function TnscCustomTasksPanelView.pm_GetTabTable: InscTabTable;
-//#UC START# *508EBC200154_508EBA08009Fget_var*
-//#UC END# *508EBC200154_508EBA08009Fget_var*
-begin
-//#UC START# *508EBC200154_508EBA08009Fget_impl*
- if f_TabTable = nil then
-  f_TabTable := TnscTabTable.Make;
- Result := f_TabTable;
-//#UC END# *508EBC200154_508EBA08009Fget_impl*
-end;//TnscCustomTasksPanelView.pm_GetTabTable
-
-function TnscCustomTasksPanelView.pm_GetIsViewLocked: Boolean;
-//#UC START# *508EBC4B00B3_508EBA08009Fget_var*
-//#UC END# *508EBC4B00B3_508EBA08009Fget_var*
-begin
-//#UC START# *508EBC4B00B3_508EBA08009Fget_impl*
- Result := f_UpdateRequests > 0;
-//#UC END# *508EBC4B00B3_508EBA08009Fget_impl*
-end;//TnscCustomTasksPanelView.pm_GetIsViewLocked
-
-function TnscCustomTasksPanelView.pm_GetHideField(anIndex: Integer): TnscTasksPanelHideField;
-//#UC START# *510261DC001C_508EBA08009Fget_var*
+procedure TnscCustomTasksPanelView.AddGroup(const aGroup: IvcmCustOpsGroup);
+//#UC START# *508EBB16008E_508EBA08009F_var*
 var
- l_Group: IagControlCell;
-//#UC END# *510261DC001C_508EBA08009Fget_var*
+ l_HideField: TnscTasksPanelHideField;
+ l_TreeView: TnscTasksPanelTreeView;
+ l_Control: TWinControl;
+ l_TmpComponent: TComponent;
+//#UC END# *508EBB16008E_508EBA08009F_var*
 begin
-//#UC START# *510261DC001C_508EBA08009Fget_impl*
- if Supports(Grid.Column[0].Cell[anIndex], IagControlCell, l_Group) then
-  Result := l_Group.Control as TnscTasksPanelHideField;
-//#UC END# *510261DC001C_508EBA08009Fget_impl*
-end;//TnscCustomTasksPanelView.pm_GetHideField
-
-function TnscCustomTasksPanelView.pm_GetCount: Integer;
-//#UC START# *510261F0028D_508EBA08009Fget_var*
-//#UC END# *510261F0028D_508EBA08009Fget_var*
-begin
-//#UC START# *510261F0028D_508EBA08009Fget_impl*
- if Grid.ColumnCount > 0
-  then Result := Grid.Column[0].CellCount
-  else Result := 0;
-//#UC END# *510261F0028D_508EBA08009Fget_impl*
-end;//TnscCustomTasksPanelView.pm_GetCount
-
-function TnscCustomTasksPanelView.pm_GetGrid: InscArrangeGrid;
-//#UC START# *510288E102AC_508EBA08009Fget_var*
-//#UC END# *510288E102AC_508EBA08009Fget_var*
-begin
-//#UC START# *510288E102AC_508EBA08009Fget_impl*
- if f_Grid = nil then
+//#UC START# *508EBB16008E_508EBA08009F_impl*
+ if aGroup.IsLinkToExistingControl then
  begin
-  f_Grid := TnscArrangeGrid.Make(False, True);
-  f_Grid.OnSizeChanged := GrideSizeChanged;
- end;//if f_Grid = nil then
- Result := f_Grid;
-//#UC END# *510288E102AC_508EBA08009Fget_impl*
-end;//TnscCustomTasksPanelView.pm_GetGrid
+  l_Control := aGroup.Control;
+  Assert(l_Control <> nil);
+  l_TreeView := nil;
+ end//aGroup.IsLinkToExistingControl
+ else
+ begin
+  l_TreeView := TnscTasksPanelTreeView.Create(Self, aGroup);
+  l_TreeView.Name := Self.Name + '_' +  IntToStr(aGroup.Position) + '_' + IntToStr(aGroup.RepGroup.ID);
+  l_Control := l_TreeView;
+ end;//aGroup.IsLinkToExistingControl
+
+  // компонент может не быть удален из-за взведенного счетчика ссылок
+  // http://mdp.garant.ru/pages/viewpage.action?pageId=522786290
+ l_TmpComponent := Self.FindComponent('field_' + l_Control.Name);
+ if Assigned(l_TmpComponent) then
+ begin
+  l_TmpComponent.Name := '';
+ end;
+
+ l_HideField := TnscTasksPanelHideField.Create(Self, aGroup);
+ l_HideField.Name := 'field_' + l_Control.Name;
+ with l_HideField do
+ begin
+  Parent := Self;
+  ClientControl := l_Control;
+  Font.Style := [fsBold];
+  Options := [hfoCanHide];
+  LeftHeaderIndent := 5;
+  TopHeaderIndent := 5;
+  ButtonImageList := GroupImages;
+  {$IfDef HideFieldVgSceneStyle}
+  { Для DFM-a не подходит $IfDef, и подгружаемые из TasksPanel_Form.dfm индексы картинок
+    затирают значения, установленные в TPrimContentsForm.InitLists. Поэтому выставляем их явно. }
+  CollapseGroupImage := 2;
+  ExpandGroupImage := 3;
+  {$EndIf HideFieldVgSceneStyle}
+  ButtonOpenImage := ExpandGroupImage;
+  ButtonCloseImage := CollapseGroupImage;
+  HeaderColor := GroupColor;
+  TabStop := True;
+//  l_HideField.Perform(CM_FONTCHANGED, 0, 0);
+ {$IfDef HideFieldVgSceneStyle}
+  SetBitmapButton;
+ {$EndIf HideFieldVgSceneStyle}
+ end;//with l_HideField do
+ if (l_TreeView = nil) then
+ begin
+//  l_Control.Parent := l_HideField;
+ end//l_TreeView = nil
+ else
+  l_TreeView.Images := ImageList;
+ // Сетка контролов:
+ with Grid do
+ begin
+  AddRow;
+  Cell[Pred(RowCount), 0] := TnscHideFieldCell.Make(l_HideField, false{(l_TreeView = nil)});
+ end;//with f_Grid do
+ // Сетка перехода фокуса:
+ with TabTable do
+ begin
+  if ColumnCount = 0 then
+   AddColumn;
+  if (l_TreeView = nil) then
+  begin
+   if (l_Control is TeeTreeView) then
+    Column[0].AddItem(TnscTreeViewTabCell.Make(TeeTreeView(l_Control)))
+   else
+    Column[0].AddItem(TnscTabCell.Make(l_Control));
+  end//l_TreeView = nil
+  else
+   Column[0].AddItem(TnscTreeViewTabCell.Make(l_TreeView));
+ end;//with TabTable do
+//#UC END# *508EBB16008E_508EBA08009F_impl*
+end;//TnscCustomTasksPanelView.AddGroup
+
+procedure TnscCustomTasksPanelView.GrideSizeChanged(aSender: TObject);
+//#UC START# *508EBB35000D_508EBA08009F_var*
+//#UC END# *508EBB35000D_508EBA08009F_var*
+begin
+//#UC START# *508EBB35000D_508EBA08009F_impl*
+ ArrangeGrid;
+//#UC END# *508EBB35000D_508EBA08009F_impl*
+end;//TnscCustomTasksPanelView.GrideSizeChanged
+
+procedure TnscCustomTasksPanelView.LockView;
+//#UC START# *508EBB4E0337_508EBA08009F_var*
+//#UC END# *508EBB4E0337_508EBA08009F_var*
+begin
+//#UC START# *508EBB4E0337_508EBA08009F_impl*
+ if not IsViewLocked then
+  Grid.BeginUpdate;
+ Inc(f_UpdateRequests);
+//#UC END# *508EBB4E0337_508EBA08009F_impl*
+end;//TnscCustomTasksPanelView.LockView
+
+procedure TnscCustomTasksPanelView.UnlockView;
+//#UC START# *508EBB5B038C_508EBA08009F_var*
+//#UC END# *508EBB5B038C_508EBA08009F_var*
+begin
+//#UC START# *508EBB5B038C_508EBA08009F_impl*
+ Dec(f_UpdateRequests);
+ if not IsViewLocked then
+ begin
+  Grid.EndUpdate;
+  // http://mdp.garant.ru/pages/viewpage.action?pageId=505415962
+  if HandleAllocated then
+   ArrangeGrid(True);
+ end;//if not IsViewLocked then
+//#UC END# *508EBB5B038C_508EBA08009F_impl*
+end;//TnscCustomTasksPanelView.UnlockView
 
 procedure TnscCustomTasksPanelView.WMEraseBkGnd(var aMessage: TWMEraseBkGnd);
 //#UC START# *508EBAB102AA_508EBA08009F_var*
@@ -957,8 +852,9 @@ begin
 //#UC END# *508EBAB102AA_508EBA08009F_impl*
 end;//TnscCustomTasksPanelView.WMEraseBkGnd
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 procedure TnscCustomTasksPanelView.StyleTableChanged;
+ {* таблица стилей изменилась. }
 //#UC START# *467D2CB10135_508EBA08009F_var*
 var
  l_Index: Integer;
@@ -982,11 +878,12 @@ begin
  ArrangeGrid(True);
 //#UC END# *467D2CB10135_508EBA08009F_impl*
 end;//TnscCustomTasksPanelView.StyleTableChanged
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure TnscCustomTasksPanelView.Notify(const aNotifier: Il3ChangeNotifier;
-  aOperation: Integer;
-  aIndex: Integer);
+ aOperation: Integer;
+ aIndex: Integer);
+ {* прошла операция. }
 //#UC START# *46A4504B03C4_508EBA08009F_var*
 //#UC END# *46A4504B03C4_508EBA08009F_var*
 begin
@@ -998,10 +895,11 @@ begin
 //#UC END# *46A4504B03C4_508EBA08009F_impl*
 end;//TnscCustomTasksPanelView.Notify
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TnscCustomTasksPanelView.TaskPanelNotify(const aNotifier: Il3ChangeNotifier;
-  aOperation: TvcmTaskPanelOperation;
-  const aInterface: IvcmCustOpsItem);
+ aOperation: TvcmTaskPanelOperation;
+ const aInterface: IvcmCustOpsItem);
+ {* прошла операция. }
 //#UC START# *46A450C703AE_508EBA08009F_var*
 var
  l_Group: IvcmCustOpsGroup;
@@ -1019,9 +917,10 @@ begin
  end;//try..finally
 //#UC END# *46A450C703AE_508EBA08009F_impl*
 end;//TnscCustomTasksPanelView.TaskPanelNotify
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TnscCustomTasksPanelView.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_508EBA08009F_var*
 //#UC END# *479731C50290_508EBA08009F_var*
 begin
@@ -1058,6 +957,7 @@ begin
 end;//TnscCustomTasksPanelView.Create
 
 procedure TnscCustomTasksPanelView.Paint(const CN: Il3Canvas);
+ {* процедура рисования внешнего вида управляющего элемента }
 //#UC START# *48C6C044025E_508EBA08009F_var*
 var
 {$IfDef DesignTimeLibrary}
@@ -1114,7 +1014,7 @@ begin
 //#UC END# *48C6C044025E_508EBA08009F_impl*
 end;//TnscCustomTasksPanelView.Paint
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TnscCustomTasksPanelView.Resize;
 //#UC START# *4CC8417A0288_508EBA08009F_var*
 //#UC END# *4CC8417A0288_508EBA08009F_var*
@@ -1124,30 +1024,17 @@ begin
  ArrangeGrid;
 //#UC END# *4CC8417A0288_508EBA08009F_impl*
 end;//TnscCustomTasksPanelView.Resize
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TnscCustomTasksPanelView.ClearFields;
- {-}
 begin
- {$If defined(Nemesis)}
  TasksPanel := nil;
- {$IfEnd} //Nemesis
- {$If defined(Nemesis)}
  f_TabTable := nil;
- {$IfEnd} //Nemesis
- {$If defined(Nemesis)}
  f_Grid := nil;
- {$IfEnd} //Nemesis
  inherited;
 end;//TnscCustomTasksPanelView.ClearFields
-const
-    { Константы настройки скрываемого поля. }
-   c_CaptionIndent = 5;
-   c_TopClientIndent = 5;
 
-// start class TnscTasksPanelHideField
-
-{$If defined(HideFieldVgSceneStyle) AND defined(Nemesis)}
+{$If Defined(HideFieldVgSceneStyle)}
 procedure TnscTasksPanelHideField.RefreshContent;
 //#UC START# *508F860C0236_508EBD7703BF_var*
 var
@@ -1194,9 +1081,41 @@ begin
  end;
 //#UC END# *508F860C0236_508EBD7703BF_impl*
 end;//TnscTasksPanelHideField.RefreshContent
-{$IfEnd} //HideFieldVgSceneStyle AND Nemesis
+{$IfEnd} // Defined(HideFieldVgSceneStyle)
 
-{$If defined(HideFieldVgSceneStyle) AND defined(Nemesis)}
+{$If Defined(HideFieldVgSceneStyle)}
+procedure TnscTasksPanelHideField.SetBitmapButton;
+//#UC START# *508F861E00EF_508EBD7703BF_var*
+var
+ l_Image: Integer;
+//#UC END# *508F861E00EF_508EBD7703BF_var*
+begin
+//#UC START# *508F861E00EF_508EBD7703BF_impl*
+ if (f_HeaderSpeedButton = nil) then Exit;
+ with f_HeaderNonVGLayout do
+ begin
+  Position.Point := vgPoint(f_HeaderRectangle.Width - 20, 6);
+  case State of
+   hfsHide:
+    l_Image := ButtonOpenImage;
+   hfsShow:
+    l_Image := ButtonCloseImage;
+   else
+    l_Image := -1;
+  end;
+  if CheckImage(ButtonImageList, l_Image) then
+  begin
+   Width  := ButtonImageList.Width;
+   Height := ButtonImageList.Height;
+   f_HeaderSpeedButton.Images := ButtonImageList;
+   f_HeaderSpeedButton.ImageIndex := l_Image;
+  end;
+ end;
+//#UC END# *508F861E00EF_508EBD7703BF_impl*
+end;//TnscTasksPanelHideField.SetBitmapButton
+{$IfEnd} // Defined(HideFieldVgSceneStyle)
+
+{$If Defined(HideFieldVgSceneStyle)}
 procedure TnscTasksPanelHideField.DoOnClick(aSender: TObject);
 //#UC START# *508F862C0013_508EBD7703BF_var*
 //#UC END# *508F862C0013_508EBD7703BF_var*
@@ -1214,7 +1133,7 @@ begin
  RefreshContent;
 //#UC END# *508F862C0013_508EBD7703BF_impl*
 end;//TnscTasksPanelHideField.DoOnClick
-{$IfEnd} //HideFieldVgSceneStyle AND Nemesis
+{$IfEnd} // Defined(HideFieldVgSceneStyle)
 
 function TnscTasksPanelHideField.MakeSettingFromTasksPanel: TafwSettingId;
 //#UC START# *508F91900101_508EBD7703BF_var*
@@ -1271,40 +1190,8 @@ begin
 //#UC END# *508F91D100B8_508EBD7703BF_impl*
 end;//TnscTasksPanelHideField.UpdateCaption
 
-{$If defined(HideFieldVgSceneStyle) AND defined(Nemesis)}
-procedure TnscTasksPanelHideField.SetBitmapButton;
-//#UC START# *508F861E00EF_508EBD7703BF_var*
-var
- l_Image: Integer;
-//#UC END# *508F861E00EF_508EBD7703BF_var*
-begin
-//#UC START# *508F861E00EF_508EBD7703BF_impl*
- if (f_HeaderSpeedButton = nil) then Exit;
- with f_HeaderNonVGLayout do
- begin
-  Position.Point := vgPoint(f_HeaderRectangle.Width - 20, 6);
-  case State of
-   hfsHide:
-    l_Image := ButtonOpenImage;
-   hfsShow:
-    l_Image := ButtonCloseImage;
-   else
-    l_Image := -1;
-  end;
-  if CheckImage(ButtonImageList, l_Image) then
-  begin
-   Width  := ButtonImageList.Width;
-   Height := ButtonImageList.Height;
-   f_HeaderSpeedButton.Images := ButtonImageList;
-   f_HeaderSpeedButton.ImageIndex := l_Image;
-  end;
- end;
-//#UC END# *508F861E00EF_508EBD7703BF_impl*
-end;//TnscTasksPanelHideField.SetBitmapButton
-{$IfEnd} //HideFieldVgSceneStyle AND Nemesis
-
 constructor TnscTasksPanelHideField.Create(AOwner: TComponent;
-  const aGroup: IvcmCustOpsGroup);
+ const aGroup: IvcmCustOpsGroup);
 //#UC START# *508F96B20262_508EBD7703BF_var*
 //#UC END# *508F96B20262_508EBD7703BF_var*
 begin
@@ -1415,8 +1302,9 @@ begin
 end;//TnscTasksPanelHideField.AFWCMTextChanged
 
 procedure TnscTasksPanelHideField.Notify(const aNotifier: Il3ChangeNotifier;
-  aOperation: Integer;
-  aIndex: Integer);
+ aOperation: Integer;
+ aIndex: Integer);
+ {* прошла операция. }
 //#UC START# *46A4504B03C4_508EBD7703BF_var*
 //#UC END# *46A4504B03C4_508EBD7703BF_var*
 begin
@@ -1448,6 +1336,7 @@ begin
 end;//TnscTasksPanelHideField.Notify
 
 procedure TnscTasksPanelHideField.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_508EBD7703BF_var*
 //#UC END# *479731C50290_508EBD7703BF_var*
 begin
@@ -1472,6 +1361,7 @@ begin
 end;//TnscTasksPanelHideField.Cleanup
 
 procedure TnscTasksPanelHideField.Paint(const CN: Il3Canvas);
+ {* процедура рисования внешнего вида управляющего элемента }
 //#UC START# *48C6C044025E_508EBD7703BF_var*
 //#UC END# *48C6C044025E_508EBD7703BF_var*
 begin
@@ -1495,7 +1385,7 @@ begin
 //#UC END# *48C6C044025E_508EBD7703BF_impl*
 end;//TnscTasksPanelHideField.Paint
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TnscTasksPanelHideField.SetParent(AParent: TWinControl);
 //#UC START# *4A97E78202FC_508EBD7703BF_var*
 //#UC END# *4A97E78202FC_508EBD7703BF_var*
@@ -1506,9 +1396,9 @@ begin
   SettingId := MakeSettingFromTasksPanel;
 //#UC END# *4A97E78202FC_508EBD7703BF_impl*
 end;//TnscTasksPanelHideField.SetParent
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TnscTasksPanelHideField.Resize;
 //#UC START# *4CC8417A0288_508EBD7703BF_var*
 //#UC END# *4CC8417A0288_508EBD7703BF_var*
@@ -1520,21 +1410,16 @@ begin
  {$EndIf HideFieldVgSceneStyle}
 //#UC END# *4CC8417A0288_508EBD7703BF_impl*
 end;//TnscTasksPanelHideField.Resize
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TnscTasksPanelHideField.ClearFields;
- {-}
 begin
- {$If defined(Nemesis)}
  Group := nil;
- {$IfEnd} //Nemesis
- {$If defined(Nemesis)}
  TasksPanel := nil;
- {$IfEnd} //Nemesis
  inherited;
 end;//TnscTasksPanelHideField.ClearFields
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TnscTasksPanelHideField.AdjustClientRect(var Rect: TRect);
 //#UC START# *508F957E0283_508EBD7703BF_var*
 //#UC END# *508F957E0283_508EBD7703BF_var*
@@ -1544,7 +1429,7 @@ begin
  Rect.Top := ClientRect.Top;
 //#UC END# *508F957E0283_508EBD7703BF_impl*
 end;//TnscTasksPanelHideField.AdjustClientRect
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TnscTasksPanelHideField.DoStateChanged;
 //#UC START# *508F96700139_508EBD7703BF_var*
@@ -1586,7 +1471,17 @@ begin
  //http://mdp.garant.ru/pages/viewpage.action?pageId=505436427
 //#UC END# *5295F76F02C5_508EBD7703BF_impl*
 end;//TnscTasksPanelHideField.HideControl
-// start class TnscTasksPanelTreeView
+
+function TnscTasksPanelTreeView.pm_GetPopupMenu: TvcmPopupMenuPrim;
+//#UC START# *508F7DD70004_508EBD870312get_var*
+//#UC END# *508F7DD70004_508EBD870312get_var*
+begin
+//#UC START# *508F7DD70004_508EBD870312get_impl*
+ if f_PopupMenu = nil then
+  f_PopupMenu := TvcmPopupMenuPrim.Create(Self);
+ Result := f_PopupMenu;
+//#UC END# *508F7DD70004_508EBD870312get_impl*
+end;//TnscTasksPanelTreeView.pm_GetPopupMenu
 
 procedure TnscTasksPanelTreeView.AddOp(const aOp: IvcmCustOpsGroupOperation);
 //#UC START# *508F7E6E004B_508EBD870312_var*
@@ -1670,7 +1565,7 @@ begin
 end;//TnscTasksPanelTreeView.ItemAction
 
 function TnscTasksPanelTreeView.DoOnGetCursor(aSender: TObject;
-  aIndex: Integer): TCursor;
+ aIndex: Integer): TCursor;
 //#UC START# *508F7FED005E_508EBD870312_var*
 //#UC END# *508F7FED005E_508EBD870312_var*
 begin
@@ -1682,7 +1577,7 @@ begin
 end;//TnscTasksPanelTreeView.DoOnGetCursor
 
 constructor TnscTasksPanelTreeView.Create(AOwner: TComponent;
-  const aGroup: IvcmCustOpsGroup);
+ const aGroup: IvcmCustOpsGroup);
 //#UC START# *50913263038F_508EBD870312_var*
 //#UC END# *50913263038F_508EBD870312_var*
 begin
@@ -1706,21 +1601,11 @@ begin
 //#UC END# *50913263038F_508EBD870312_impl*
 end;//TnscTasksPanelTreeView.Create
 
-function TnscTasksPanelTreeView.pm_GetPopupMenu: TvcmPopupMenuPrim;
-//#UC START# *508F7DD70004_508EBD870312get_var*
-//#UC END# *508F7DD70004_508EBD870312get_var*
-begin
-//#UC START# *508F7DD70004_508EBD870312get_impl*
- if f_PopupMenu = nil then
-  f_PopupMenu := TvcmPopupMenuPrim.Create(Self);
- Result := f_PopupMenu;
-//#UC END# *508F7DD70004_508EBD870312get_impl*
-end;//TnscTasksPanelTreeView.pm_GetPopupMenu
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TnscTasksPanelTreeView.TaskPanelNotify(const aNotifier: Il3ChangeNotifier;
-  aOperation: TvcmTaskPanelOperation;
-  const aInterface: IvcmCustOpsItem);
+ aOperation: TvcmTaskPanelOperation;
+ const aInterface: IvcmCustOpsItem);
+ {* прошла операция. }
 //#UC START# *46A450C703AE_508EBD870312_var*
 var
  l_Op: IvcmCustOpsGroupOperation;
@@ -1737,9 +1622,10 @@ begin
  end;//try..finally
 //#UC END# *46A450C703AE_508EBD870312_impl*
 end;//TnscTasksPanelTreeView.TaskPanelNotify
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TnscTasksPanelTreeView.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_508EBD870312_var*
 //#UC END# *479731C50290_508EBD870312_var*
 begin
@@ -1751,7 +1637,7 @@ begin
 //#UC END# *479731C50290_508EBD870312_impl*
 end;//TnscTasksPanelTreeView.Cleanup
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TnscTasksPanelTreeView.SetParent(AParent: TWinControl);
 //#UC START# *4F71E1460089_508EBD870312_var*
 //#UC END# *4F71E1460089_508EBD870312_var*
@@ -1765,9 +1651,9 @@ begin
  end;//if AParent then
 //#UC END# *4F71E1460089_508EBD870312_impl*
 end;//TnscTasksPanelTreeView.SetParent
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TnscTasksPanelTreeView.InitiateAction;
 //#UC START# *4F884F39020F_508EBD870312_var*
  function lp_IteratorFunc(const aNode: Il3Node): Boolean;
@@ -1797,14 +1683,11 @@ begin
  end;//try..finally
 //#UC END# *4F884F39020F_508EBD870312_impl*
 end;//TnscTasksPanelTreeView.InitiateAction
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TnscTasksPanelTreeView.ClearFields;
- {-}
 begin
- {$If defined(Nemesis)}
  Group := nil;
- {$IfEnd} //Nemesis
  inherited;
 end;//TnscTasksPanelTreeView.ClearFields
 
@@ -1825,7 +1708,7 @@ begin
 end;//TnscTasksPanelTreeView.DoIsCommandPublished
 
 function TnscTasksPanelTreeView.DoOnGetItemImageIndex(aItemIndex: LongInt;
-  var aImages: TCustomImageList): Integer;
+ var aImages: TCustomImageList): Integer;
 //#UC START# *508F81110075_508EBD870312_var*
 //#UC END# *508F81110075_508EBD870312_var*
 begin
@@ -1951,12 +1834,12 @@ begin
 end;//TnscTasksPanelTreeView.DoOnActionElement
 
 procedure TnscTasksPanelTreeView.DoOnGetItemStyle(aItemIndex: Integer;
-  const aFont: Il3Font;
-  var aTextBackColor: TColor;
-  var aItemBackColor: TColor;
-  var aVJustify: TvtVJustify;
-  var aFocused: Boolean;
-  var theImageVertOffset: Integer);
+ const aFont: Il3Font;
+ var aTextBackColor: TColor;
+ var aItemBackColor: TColor;
+ var aVJustify: TvtVJustify;
+ var aFocused: Boolean;
+ var theImageVertOffset: Integer);
 //#UC START# *508F825303E4_508EBD870312_var*
 var
  l_Op: InscOperationNode;
@@ -1983,7 +1866,7 @@ begin
 end;//TnscTasksPanelTreeView.DoOnGetItemStyle
 
 procedure TnscTasksPanelTreeView.DoOnGetItemImageState(const aItemIndex: LongInt;
-  var aEnabled: Boolean);
+ var aEnabled: Boolean);
 //#UC START# *508F83890058_508EBD870312_var*
 //#UC END# *508F83890058_508EBD870312_var*
 begin
@@ -1995,22 +1878,19 @@ end;//TnscTasksPanelTreeView.DoOnGetItemImageState
 //#UC START# *4D3424C203C2impl*
 //#UC END# *4D3424C203C2impl*
 
-{$IfEnd} //Nemesis
-
 initialization
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация TnscCustomTasksPanelView
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnscCustomTasksPanelView);
-{$IfEnd} //Nemesis AND not NoScripts
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация TnscTasksPanelHideField
+ {* Регистрация TnscCustomTasksPanelView }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnscTasksPanelHideField);
-{$IfEnd} //Nemesis AND not NoScripts
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация TnscTasksPanelTreeView
+ {* Регистрация TnscTasksPanelHideField }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnscTasksPanelTreeView);
-{$IfEnd} //Nemesis AND not NoScripts
-{$If defined(Nemesis)}
+ {* Регистрация TnscTasksPanelTreeView }
+{$IfEnd} // NOT Defined(NoScripts)
 //#UC START# *54D50DBA0137*
  {$IfNDef NoScripts}
  {$If not defined(NoVCM)}
@@ -2019,10 +1899,10 @@ initialization
  {$IfEnd}
  {$EndIf}
 //#UC END# *54D50DBA0137*
-{$IfEnd} //Nemesis
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация TnscTasksPanelView
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnscTasksPanelView);
-{$IfEnd} //Nemesis AND not NoScripts
+ {* Регистрация TnscTasksPanelView }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(Nemesis)
 
 end.

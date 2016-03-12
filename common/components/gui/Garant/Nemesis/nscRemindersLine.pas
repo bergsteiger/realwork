@@ -1,39 +1,30 @@
 unit nscRemindersLine;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Модуль: "w:/common/components/gui/Garant/Nemesis/nscRemindersLine.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For F1::Nemesis::Reminders::nscRemindersLine
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nscRemindersLine.pas"
+// Стереотип: "UtilityPack"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  Classes
-  {$If not defined(NoVGScene)}
-  ,
-  vgRemindersLineWithState
-  {$IfEnd} //not NoVGScene
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVGScene)}
+ , vgRemindersLineWithState
+ {$IfEnd} // NOT Defined(NoVGScene)
+;
 
 type
- TnscRemindersLine = vgRemindersLineWithState.TvgRemindersLineWithState;
-{$IfEnd} //Nemesis
+ TnscRemindersLine = TvgRemindersLineWithState;
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
-{$IfEnd} //Nemesis
+{$If Defined(Nemesis)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(Nemesis)
+
 end.

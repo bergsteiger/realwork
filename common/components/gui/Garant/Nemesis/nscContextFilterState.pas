@@ -1,69 +1,50 @@
 unit nscContextFilterState;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Автор: Р. Лукьянец
-// Модуль: "w:/common/components/gui/Garant/Nemesis/nscContextFilterState.pas"
-// Начат: 2007/03/19 10:44:06
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For F1::Nemesis::CoreObjects::TnscContextFilterState
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nscContextFilterState.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  l3Interfaces,
-  l3CacheableBase
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3TreeInterfaces,
-  nscNewInterfaces
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , l3CacheableBase
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3TreeInterfaces
+ , nscNewInterfaces
+ , l3Interfaces
+;
 
-{$If defined(Nemesis)}
 type
- TnscContextFilterState = class(Tl3CacheableBase {$If not defined(NoVCM)}, IvcmBase{$IfEnd} //not NoVCM
+ TnscContextFilterState = class(Tl3CacheableBase{$If NOT Defined(NoVCM)}
+ , IvcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
  , Il3ContextFilterNotifier, InscContextFilterState)
- private
- // private fields
-   f_Active : Boolean;
-   f_CaretPos : Integer;
-   f_NeedRefilterTree : Boolean;
-   f_Context : Il3CString;
-   f_NotificationSource : Il3ContextFilterNotifySource;
- protected
- // realized methods
+  private
+   f_Active: Boolean;
+   f_CaretPos: Integer;
+   f_NeedRefilterTree: Boolean;
+   f_Context: Il3CString;
+   f_NotificationSource: Il3ContextFilterNotifySource;
+  protected
    procedure RequestReapply;
-     {* Желательно переприменить фильтр. }
+    {* Желательно переприменить фильтр. }
    procedure RequestClearAndTurnOff;
-     {* Дерево выключило на себе фильтр. }
+    {* Дерево выключило на себе фильтр. }
    procedure RequestCheckValid;
-     {* Дерево поменялось - нужно проверить валидность фильтра. }
+    {* Дерево поменялось - нужно проверить валидность фильтра. }
    function pm_GetActive: Boolean;
    function pm_GetContext: Il3CString;
    function pm_GetActiveContext: Il3CString;
    function pm_GetCaretPos: Integer;
    function NeedRefilterTree: Boolean;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(IsActive: Boolean;
     const aContext: Il3CString;
     aPos: Integer;
@@ -72,28 +53,24 @@ type
    class function Make(IsActive: Boolean;
     const aContext: Il3CString;
     aPos: Integer;
-    aNeedRefilterTree: Boolean = false;
+    aNeedRefilterTree: Boolean = False;
     const aContextFilterTarget: Il3ContextFilterTarget = nil): InscContextFilterState; reintroduce;
  end;//TnscContextFilterState
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //Nemesis
-
-{$If defined(Nemesis)}
-
-// start class TnscContextFilterState
+ l3ImplUses
+ , SysUtils
+;
 
 constructor TnscContextFilterState.Create(IsActive: Boolean;
-  const aContext: Il3CString;
-  aPos: Integer;
-  aNeedRefilterTree: Boolean;
-  const aContextFilterTarget: Il3ContextFilterTarget);
+ const aContext: Il3CString;
+ aPos: Integer;
+ aNeedRefilterTree: Boolean;
+ const aContextFilterTarget: Il3ContextFilterTarget);
 //#UC START# *4908477B00BE_4908462903E0_var*
 
  function lp_ExtractNotifySource(const aSource: Il3ContextFilterTarget): Il3ContextFilterNotifySource;
@@ -123,10 +100,10 @@ begin
 end;//TnscContextFilterState.Create
 
 class function TnscContextFilterState.Make(IsActive: Boolean;
-  const aContext: Il3CString;
-  aPos: Integer;
-  aNeedRefilterTree: Boolean = false;
-  const aContextFilterTarget: Il3ContextFilterTarget = nil): InscContextFilterState;
+ const aContext: Il3CString;
+ aPos: Integer;
+ aNeedRefilterTree: Boolean = False;
+ const aContextFilterTarget: Il3ContextFilterTarget = nil): InscContextFilterState;
 var
  l_Inst : TnscContextFilterState;
 begin
@@ -136,9 +113,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnscContextFilterState.Make
 
 procedure TnscContextFilterState.RequestReapply;
+ {* Желательно переприменить фильтр. }
 //#UC START# *477250FC0040_4908462903E0_var*
 //#UC END# *477250FC0040_4908462903E0_var*
 begin
@@ -148,6 +126,7 @@ begin
 end;//TnscContextFilterState.RequestReapply
 
 procedure TnscContextFilterState.RequestClearAndTurnOff;
+ {* Дерево выключило на себе фильтр. }
 //#UC START# *4772510D0043_4908462903E0_var*
 //#UC END# *4772510D0043_4908462903E0_var*
 begin
@@ -158,6 +137,7 @@ begin
 end;//TnscContextFilterState.RequestClearAndTurnOff
 
 procedure TnscContextFilterState.RequestCheckValid;
+ {* Дерево поменялось - нужно проверить валидность фильтра. }
 //#UC START# *4772511D0316_4908462903E0_var*
 //#UC END# *4772511D0316_4908462903E0_var*
 begin
@@ -215,6 +195,7 @@ begin
 end;//TnscContextFilterState.NeedRefilterTree
 
 procedure TnscContextFilterState.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4908462903E0_var*
 //#UC END# *479731C50290_4908462903E0_var*
 begin
@@ -226,7 +207,6 @@ begin
  inherited;
 //#UC END# *479731C50290_4908462903E0_impl*
 end;//TnscContextFilterState.Cleanup
-
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 end.

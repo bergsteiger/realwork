@@ -23,6 +23,7 @@ uses
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
+ , l3Interfaces
 ;
 
 type
@@ -32,14 +33,12 @@ type
  {$If NOT Defined(NoVCM)}
  , IvcmCustOpsRepGroup
  {$IfEnd} // NOT Defined(NoVCM)
- , Il3ChangeNotifier)
+ )
   private
    f_Desc: TnscTasksPanelGroupDesc;
    f_ID: Integer;
   protected
-   function As_Il3ChangeNotifier: Il3ChangeNotifier; overload;
-    {* Метод приведения нашего интерфейса к Il3ChangeNotifier }
-   function As_Il3ChangeNotifier: Il3ChangeNotifier; overload;
+   function As_Il3ChangeNotifier: Il3ChangeNotifier;
     {* Метод приведения нашего интерфейса к Il3ChangeNotifier }
    {$If NOT Defined(NoVCM)}
    function pm_GetPosition: Integer;
@@ -91,6 +90,7 @@ uses
  l3ImplUses
 ;
 
+{$If NOT Defined(NoVCM)}
 constructor TnscTasksPanelGroup.Create(anID: Integer;
  const aDesc: TnscTasksPanelGroupDesc);
 //#UC START# *4D3454300132_4D34310D0115_var*
@@ -122,13 +122,6 @@ begin
  Result := Self;
 end;//TnscTasksPanelGroup.As_Il3ChangeNotifier
 
-function TnscTasksPanelGroup.As_Il3ChangeNotifier: Il3ChangeNotifier;
- {* Метод приведения нашего интерфейса к Il3ChangeNotifier }
-begin
- Result := Self;
-end;//TnscTasksPanelGroup.As_Il3ChangeNotifier
-
-{$If NOT Defined(NoVCM)}
 function TnscTasksPanelGroup.pm_GetPosition: Integer;
 //#UC START# *4992FD01012E_4D34310D0115get_var*
 //#UC END# *4992FD01012E_4D34310D0115get_var*
@@ -137,9 +130,7 @@ begin
  Result := f_ID;
 //#UC END# *4992FD01012E_4D34310D0115get_impl*
 end;//TnscTasksPanelGroup.pm_GetPosition
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TnscTasksPanelGroup.pm_SetPosition(aValue: Integer);
 //#UC START# *4992FD01012E_4D34310D0115set_var*
 //#UC END# *4992FD01012E_4D34310D0115set_var*
@@ -148,9 +139,7 @@ begin
  Assert(false);
 //#UC END# *4992FD01012E_4D34310D0115set_impl*
 end;//TnscTasksPanelGroup.pm_SetPosition
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TnscTasksPanelGroup.AddOperation(const aRepOp: IvcmCustOpsRepOperation;
  aForAllUseCases: Boolean;
  aPosition: Integer;
@@ -163,9 +152,7 @@ begin
  Assert(false);
 //#UC END# *4992FD32031B_4D34310D0115_impl*
 end;//TnscTasksPanelGroup.AddOperation
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TnscTasksPanelGroup.pm_GetOperations: IvcmCustOpsGroupOperationsIterator;
 //#UC START# *4992FD530270_4D34310D0115get_var*
 //#UC END# *4992FD530270_4D34310D0115get_var*
@@ -174,9 +161,7 @@ begin
  Result := nil;
 //#UC END# *4992FD530270_4D34310D0115get_impl*
 end;//TnscTasksPanelGroup.pm_GetOperations
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TnscTasksPanelGroup.pm_GetRepGroup: IvcmCustOpsRepGroup;
 //#UC START# *4992FD8302D9_4D34310D0115get_var*
 //#UC END# *4992FD8302D9_4D34310D0115get_var*
@@ -185,9 +170,7 @@ begin
  Result := Self;
 //#UC END# *4992FD8302D9_4D34310D0115get_impl*
 end;//TnscTasksPanelGroup.pm_GetRepGroup
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TnscTasksPanelGroup.pm_GetCaption: IvcmCString;
 //#UC START# *4992FF4F02E2_4D34310D0115get_var*
 //#UC END# *4992FF4F02E2_4D34310D0115get_var*
@@ -196,9 +179,7 @@ begin
  Result := f_Desc.rCaption.AsCStr;
 //#UC END# *4992FF4F02E2_4D34310D0115get_impl*
 end;//TnscTasksPanelGroup.pm_GetCaption
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 procedure TnscTasksPanelGroup.pm_SetCaption(const aValue: IvcmCString);
 //#UC START# *4992FF4F02E2_4D34310D0115set_var*
 //#UC END# *4992FF4F02E2_4D34310D0115set_var*
@@ -207,9 +188,7 @@ begin
  Assert(false);
 //#UC END# *4992FF4F02E2_4D34310D0115set_impl*
 end;//TnscTasksPanelGroup.pm_SetCaption
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TnscTasksPanelGroup.pm_GetId: Integer;
 //#UC START# *4992FF64034E_4D34310D0115get_var*
 //#UC END# *4992FF64034E_4D34310D0115get_var*
@@ -218,9 +197,7 @@ begin
  Result := f_ID;
 //#UC END# *4992FF64034E_4D34310D0115get_impl*
 end;//TnscTasksPanelGroup.pm_GetId
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TnscTasksPanelGroup.Get_IsLinkToExistingControl: Boolean;
 //#UC START# *4D346D3403BD_4D34310D0115get_var*
 //#UC END# *4D346D3403BD_4D34310D0115get_var*
@@ -229,9 +206,7 @@ begin
  Result := true;
 //#UC END# *4D346D3403BD_4D34310D0115get_impl*
 end;//TnscTasksPanelGroup.Get_IsLinkToExistingControl
-{$IfEnd} // NOT Defined(NoVCM)
 
-{$If NOT Defined(NoVCM)}
 function TnscTasksPanelGroup.Get_Control: TWinControl;
 //#UC START# *4D346D830170_4D34310D0115get_var*
 //#UC END# *4D346D830170_4D34310D0115get_var*
@@ -240,13 +215,13 @@ begin
  Result := f_Desc.rControl;
 //#UC END# *4D346D830170_4D34310D0115get_impl*
 end;//TnscTasksPanelGroup.Get_Control
-{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TnscTasksPanelGroup.ClearFields;
 begin
  Finalize(f_Desc);
  inherited;
 end;//TnscTasksPanelGroup.ClearFields
-{$IfEnd} // Defined(Nemesis)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(Nemesis)
 end.

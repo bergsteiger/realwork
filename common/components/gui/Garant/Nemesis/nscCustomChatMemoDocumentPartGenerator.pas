@@ -1,98 +1,75 @@
 unit nscCustomChatMemoDocumentPartGenerator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Nemesis/nscCustomChatMemoDocumentPartGenerator.pas"
-// Начат: 19.08.2009 12:10
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For F1::Nemesis::Memos::TnscCustomChatMemoDocumentPartGenerator
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nscCustomChatMemoDocumentPartGenerator.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  evDocumentPartGenerator,
-  l3StringIDEx,
-  l3Variant,
-  k2DocumentGenerator
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , evDocumentPartGenerator
+ , l3Variant
+ , k2DocumentGenerator
+;
 
-{$If defined(Nemesis)}
 type
  TnscCustomChatMemoDocumentPartGenerator = class(TevDocumentPartGenerator)
- private
- // private fields
-   f_WasHandle : Boolean;
-   f_WasInheritedParaAdd : Boolean;
-    {* Было унаследованное добавление параграфа}
-   f_Doc : Tl3Variant;
-   f_ExternalHandle : Integer;
-   f_NumberedPara : Tl3Variant;
- protected
- // overridden protected methods
+  private
+   f_WasHandle: Boolean;
+   f_WasInheritedParaAdd: Boolean;
+    {* Было унаследованное добавление параграфа }
+   f_Doc: Tl3Variant;
+   f_ExternalHandle: Integer;
+   f_NumberedPara: Tl3Variant;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoAddAtom(const Atom: Tk2StackAtom;
     Prop: Integer;
     aSource: Tl3Variant); override;
    function AddChild(var aChild: Tk2StackAtom): Integer; override;
    procedure FinishInsertion; override;
  end;//TnscCustomChatMemoDocumentPartGenerator
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  k2Tags,
-  Document_Const,
-  Para_Const
-  {$If defined(k2ForEditor)}
-  ,
-  evCursorTools
-  {$IfEnd} //k2ForEditor
-  ,
-  evOp
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  TextPara_Const,
-  l3Defaults,
-  k2Base,
-  HyperLink_Const,
-  evdTypes,
-  LeafPara_Const,
-  l3Types,
-  SysUtils,
-  nevBase,
-  l3MessageID
-  ;
-{$IfEnd} //Nemesis
+ l3ImplUses
+ , l3StringIDEx
+ , k2Tags
+ , Document_Const
+ , Para_Const
+ {$If Defined(k2ForEditor)}
+ , evCursorTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , evOp
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , TextPara_Const
+ , l3Defaults
+ , k2Base
+ , HyperLink_Const
+ , evdTypes
+ , LeafPara_Const
+ , l3Types
+ , SysUtils
+ , nevBase
+ , l3MessageID
+;
 
-{$If defined(Nemesis)}
-
-var
-   { Локализуемые строки Local }
-  str_ChatPastePrefix : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ChatPastePrefix'; rValue : 'Из документа ГАРАНТ:');
-   { 'Из документа ГАРАНТ:' }
-
-// start class TnscCustomChatMemoDocumentPartGenerator
+const
+ {* Локализуемые строки Local }
+ str_ChatPastePrefix: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ChatPastePrefix'; rValue : 'Из документа ГАРАНТ:');
+  {* 'Из документа ГАРАНТ:' }
 
 procedure TnscCustomChatMemoDocumentPartGenerator.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A8BB357000F_var*
 //#UC END# *479731C50290_4A8BB357000F_var*
 begin
@@ -104,8 +81,8 @@ begin
 end;//TnscCustomChatMemoDocumentPartGenerator.Cleanup
 
 procedure TnscCustomChatMemoDocumentPartGenerator.DoAddAtom(const Atom: Tk2StackAtom;
-  Prop: Integer;
-  aSource: Tl3Variant);
+ Prop: Integer;
+ aSource: Tl3Variant);
 //#UC START# *4836B3DB01C9_4A8BB357000F_var*
 //#UC END# *4836B3DB01C9_4A8BB357000F_var*
 begin
@@ -262,12 +239,9 @@ begin
 //#UC END# *48E4B7F403D6_4A8BB357000F_impl*
 end;//TnscCustomChatMemoDocumentPartGenerator.FinishInsertion
 
-{$IfEnd} //Nemesis
-
 initialization
-{$If defined(Nemesis)}
-// Инициализация str_ChatPastePrefix
  str_ChatPastePrefix.Init;
-{$IfEnd} //Nemesis
+ {* Инициализация str_ChatPastePrefix }
+{$IfEnd} // Defined(Nemesis)
 
 end.

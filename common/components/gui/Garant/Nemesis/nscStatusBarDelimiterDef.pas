@@ -1,64 +1,49 @@
 unit nscStatusBarDelimiterDef;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Модуль: "w:/common/components/gui/Garant/Nemesis/nscStatusBarDelimiterDef.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For F1::Nemesis::StatusBar::TnscStatusBarDelimiterDef
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nscStatusBarDelimiterDef.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  nscNewInterfaces,
-  nscStatusBarItemDef
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , nscStatusBarItemDef
+ , nscNewInterfaces
+;
 
-{$If defined(Nemesis)}
 type
  TnscStatusBarDelimiterDef = class(TnscStatusBarItemDef, InscStatusBarDelimiterDef)
- private
- // private fields
-   f_SeparatorPos : TsbdSeparatorPos;
-   f_SeparatorVisible : Boolean;
-   f_Width : integer;
- protected
- // realized methods
+  private
+   f_SeparatorPos: TsbdSeparatorPos;
+   f_SeparatorVisible: Boolean;
+   f_Width: integer;
+  protected
    function Get_SeparatorPos: TsbdSeparatorPos;
    function Get_IsSeparatorVisible: Boolean;
    function Get_Width: integer;
- public
- // public methods
+  public
    constructor Create(aSeparatorVisible: Boolean;
-     aSeparatorPos: TsbdSeparatorPos = spMiddle;
-     aWidth: Integer = 0); reintroduce;
+    aSeparatorPos: TsbdSeparatorPos = spMiddle;
+    aWidth: Integer = 0); reintroduce;
    class function Make(aSeparatorVisible: Boolean;
-     aSeparatorPos: TsbdSeparatorPos = spMiddle;
-     aWidth: Integer = 0): InscStatusBarDelimiterDef; reintroduce;
-     {* Сигнатура фабрики TnscStatusBarDelimiterDef.Make }
+    aSeparatorPos: TsbdSeparatorPos = spMiddle;
+    aWidth: Integer = 0): InscStatusBarDelimiterDef; reintroduce;
  end;//TnscStatusBarDelimiterDef
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
-
-// start class TnscStatusBarDelimiterDef
+{$If Defined(Nemesis)}
+uses
+ l3ImplUses
+;
 
 constructor TnscStatusBarDelimiterDef.Create(aSeparatorVisible: Boolean;
-  aSeparatorPos: TsbdSeparatorPos = spMiddle;
-  aWidth: Integer = 0);
+ aSeparatorPos: TsbdSeparatorPos = spMiddle;
+ aWidth: Integer = 0);
 //#UC START# *4FEC49660337_4FEC3C5B007C_var*
 //#UC END# *4FEC49660337_4FEC3C5B007C_var*
 begin
@@ -71,8 +56,8 @@ begin
 end;//TnscStatusBarDelimiterDef.Create
 
 class function TnscStatusBarDelimiterDef.Make(aSeparatorVisible: Boolean;
-  aSeparatorPos: TsbdSeparatorPos = spMiddle;
-  aWidth: Integer = 0): InscStatusBarDelimiterDef;
+ aSeparatorPos: TsbdSeparatorPos = spMiddle;
+ aWidth: Integer = 0): InscStatusBarDelimiterDef;
 var
  l_Inst : TnscStatusBarDelimiterDef;
 begin
@@ -82,7 +67,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnscStatusBarDelimiterDef.Make
 
 function TnscStatusBarDelimiterDef.Get_SeparatorPos: TsbdSeparatorPos;
 //#UC START# *4FF315450358_4FEC3C5B007Cget_var*
@@ -110,7 +95,6 @@ begin
  Result := f_Width;
 //#UC END# *4FF3159402B4_4FEC3C5B007Cget_impl*
 end;//TnscStatusBarDelimiterDef.Get_Width
-
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 end.

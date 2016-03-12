@@ -1,77 +1,54 @@
 unit nscSizeGripPanel;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Модуль: "w:/common/components/gui/Garant/Nemesis/nscSizeGripPanel.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi For F1::Nemesis::StatusBar::TnscSizeGripPanel
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nscSizeGripPanel.pas"
+// Стереотип: "GuiControl"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  Classes
-  {$If not defined(NoTB97)}
-  ,
-  tb97Ctls
-  {$IfEnd} //not NoTB97
-  ,
-  Messages,
-  nscNewInterfaces,
-  StatusBarUtils,
-  Controls {a}
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ {$If NOT Defined(NoTB97)}
+ , tb97Ctls
+ {$IfEnd} // NOT Defined(NoTB97)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , StatusBarUtils
+ , nscNewInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Messages
+;
 
-{$If defined(Nemesis)}
 type
  _nscStatusBarItemNotification_Parent_ = TSizeGripPanel;
- {$Include ..\Nemesis\nscStatusBarItemNotification.imp.pas}
+ {$Include w:\common\components\gui\Garant\Nemesis\nscStatusBarItemNotification.imp.pas}
  TnscSizeGripPanel = class(_nscStatusBarItemNotification_)
- protected
- // overridden protected methods
-    {$If not defined(NoTB97)}
+  protected
+   {$If NOT Defined(NoTB97)}
    function GetFormToResize: TCustomForm; override;
-    {$IfEnd} //not NoTB97
+   {$IfEnd} // NOT Defined(NoTB97)
  end;//TnscSizeGripPanel
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3Base
-  ;
-{$IfEnd} //Nemesis
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , l3Base
+;
 
-{$If defined(Nemesis)}
+{$If NOT Defined(NoTB97)}
+{$Include w:\common\components\gui\Garant\Nemesis\nscStatusBarItemNotification.imp.pas}
 
-{$Include ..\Nemesis\nscStatusBarItemNotification.imp.pas}
-
-// start class TnscSizeGripPanel
-
-{$If not defined(NoTB97)}
 function TnscSizeGripPanel.GetFormToResize: TCustomForm;
 //#UC START# *53CE39CD0045_5058B67D0085_var*
 
@@ -114,14 +91,13 @@ begin
  Result := l_ParentForm;
 //#UC END# *53CE39CD0045_5058B67D0085_impl*
 end;//TnscSizeGripPanel.GetFormToResize
-{$IfEnd} //not NoTB97
-
-{$IfEnd} //Nemesis
 
 initialization
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация TnscSizeGripPanel
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnscSizeGripPanel);
-{$IfEnd} //Nemesis AND not NoScripts
+ {* Регистрация TnscSizeGripPanel }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoTB97)
 
+{$IfEnd} // Defined(Nemesis)
 end.

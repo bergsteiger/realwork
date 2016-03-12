@@ -64,6 +64,7 @@ uses
  , SysUtils
 ;
 
+{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TdsConsultationMark;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
@@ -163,6 +164,7 @@ begin
  f_Mark := bs_cmNone;
 //#UC END# *47A042E100E2_49216B3C02E8_impl*
 end;//TdsConsultationMark.InitFields
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

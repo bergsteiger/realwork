@@ -1,71 +1,53 @@
 unit nscStatusBarSep;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Модуль: "w:/common/components/gui/Garant/Nemesis/nscStatusBarSep.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi For F1::Nemesis::StatusBar::TnscStatusBarSep
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nscStatusBarSep.pas"
+// Стереотип: "GuiControl"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  Classes
-  {$If not defined(NoTB97)}
-  ,
-  TB97Tlbr
-  {$IfEnd} //not NoTB97
-  ,
-  Messages,
-  nscNewInterfaces,
-  StatusBarUtils,
-  Controls {a}
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ {$If NOT Defined(NoTB97)}
+ , TB97Tlbr
+ {$IfEnd} // NOT Defined(NoTB97)
+ , StatusBarUtils
+ , nscNewInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Messages
+;
 
-{$If defined(Nemesis)}
 type
  _nscStatusBarItemNotification_Parent_ = TToolbarSep97;
- {$Include ..\Nemesis\nscStatusBarItemNotification.imp.pas}
+ {$Include w:\common\components\gui\Garant\Nemesis\nscStatusBarItemNotification.imp.pas}
  TnscStatusBarSep = class(_nscStatusBarItemNotification_)
  end;//TnscStatusBarSep
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3Base
-  ;
-{$IfEnd} //Nemesis
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , l3Base
+;
 
-{$If defined(Nemesis)}
-
-{$Include ..\Nemesis\nscStatusBarItemNotification.imp.pas}
-
-
-{$IfEnd} //Nemesis
+{$If NOT Defined(NoTB97)}
+{$Include w:\common\components\gui\Garant\Nemesis\nscStatusBarItemNotification.imp.pas}
 
 initialization
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация TnscStatusBarSep
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnscStatusBarSep);
-{$IfEnd} //Nemesis AND not NoScripts
+ {* Регистрация TnscStatusBarSep }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoTB97)
 
+{$IfEnd} // Defined(Nemesis)
 end.

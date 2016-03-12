@@ -1,53 +1,36 @@
 unit nscFixedWidthControlCell;
+ {* Ячейка содержащая контрол и ширина которой ВСЕГДА равна ширине контрола }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Nemesis/nscFixedWidthControlCell.pas"
-// Начат: 05.10.2009 22:24
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For F1::Nemesis::Grid::TnscFixedWidthControlCell
-//
-// Ячейка содержащая контрол и ширина которой ВСЕГДА равна ширине контрола
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nscFixedWidthControlCell.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  nscArrangeGridCell
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , nscArrangeGridCell
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
-{$If defined(Nemesis)}
 type
  TnscFixedWidthControlCell = class(TagControlCell)
   {* Ячейка содержащая контрол и ширина которой ВСЕГДА равна ширине контрола }
- public
- // overridden public methods
+  public
    constructor Create(aControl: TControl); override;
  end;//TnscFixedWidthControlCell
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
-
-// start class TnscFixedWidthControlCell
+{$If Defined(Nemesis)}
+uses
+ l3ImplUses
+;
 
 constructor TnscFixedWidthControlCell.Create(aControl: TControl);
 //#UC START# *4ACA31830369_4ACA39B902E9_var*
@@ -59,7 +42,6 @@ begin
  FullWidth := aControl.Width;
 //#UC END# *4ACA31830369_4ACA39B902E9_impl*
 end;//TnscFixedWidthControlCell.Create
-
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 end.

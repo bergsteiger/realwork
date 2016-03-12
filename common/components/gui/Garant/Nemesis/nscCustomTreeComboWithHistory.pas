@@ -1,68 +1,54 @@
 unit nscCustomTreeComboWithHistory;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Модуль: "w:/common/components/gui/Garant/Nemesis/nscCustomTreeComboWithHistory.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi For F1::Nemesis::Editor::TnscCustomTreeComboWithHistory
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nscCustomTreeComboWithHistory.pas"
+// Стереотип: "GuiControl"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  l3Interfaces,
-  l3TreeInterfaces,
-  Types,
-  Messages,
-  Classes,
-  l3ControlsTypes,
-  Graphics,
-  afwFont,
-  l3VCLStrings,
-  Windows
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  vtLister,
-  DropDownTree,
-  l3Region,
-  Controls {a},
-  l3InternalInterfaces,
-  evEditorWithOperations,
-  ctTypes
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , DropDownTree
+ , l3VCLStrings
+ , l3TreeInterfaces
+ , Graphics
+ , l3ControlsTypes
+ , l3Interfaces
+ , Classes
+ , afwFont
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Messages
+ , evEditorWithOperations
+ , ctTypes
+ , Types
+ , Windows
+ , l3InternalInterfaces
+ , l3Region
+ , vtLister
+;
 
-{$If defined(Nemesis)}
 type
  _RegionableControl_Parent_ = TSubTree;
-{$Include w:\common\components\gui\Garant\SkinnedControls\RegionableControl.imp.pas}
+ {$Include w:\common\components\gui\Garant\SkinnedControls\RegionableControl.imp.pas}
  TnscSubTree = class(_RegionableControl_)
- private
- // private fields
-   f_CloseSize : TSize;
-   f_CloseRect : TRect;
-   f_MouseTrackItemIndex : Integer;
-   f_UseCloseHyperlink : Boolean;
-    {* Поле для свойства UseCloseHyperlink}
-   f_HotTrackColor : TColor;
-    {* Поле для свойства HotTrackColor}
-   f_YandexLikeBehaviour : Boolean;
-    {* Поле для свойства YandexLikeBehaviour}
- private
- // private methods
+  private
+   f_CloseSize: TSize;
+   f_CloseRect: TRect;
+   f_MouseTrackItemIndex: Integer;
+   f_UseCloseHyperlink: Boolean;
+    {* Поле для свойства UseCloseHyperlink }
+   f_HotTrackColor: TColor;
+    {* Поле для свойства HotTrackColor }
+   f_YandexLikeBehaviour: Boolean;
+    {* Поле для свойства YandexLikeBehaviour }
+  private
    procedure SetMouseTrackItemIndex(aIndex: Integer);
    procedure WMNCLButtonDown(var Message: TWMNCLButtonDown); message WM_NCLBUTTONDOWN;
    procedure WMNCLButtonUp(var Message: TWMNCLButtonUp); message WM_NCLBUTTONUP;
@@ -71,137 +57,129 @@ type
    procedure WMNCCalcSize(var Message: TWMNCCalcSize); message WM_NCCALCSIZE;
    procedure WMMouseMove(var Message: TWMMouseMove); message WM_MOUSEMOVE;
    procedure CMMouseLeave(var Message: TMessage); message CM_MOUSELEAVE;
- protected
- // overridden protected methods
+  protected
+   procedure DrawCloseButton(aDC: hDC;
+    const DrawRect: TRect);
    procedure InitFields; override;
    procedure Paint(const CN: Il3Canvas); override;
-     {* процедура рисования внешнего вида управляющего элемента }
-  {$If not defined(NoVCL)}
+    {* процедура рисования внешнего вида управляющего элемента }
+   {$If NOT Defined(NoVCL)}
    procedure CreateParams(var Params: TCreateParams); override;
-  {$IfEnd} //not NoVCL
+   {$IfEnd} // NOT Defined(NoVCL)
    procedure TuneRegion(aRegion: Tl3Region); override;
    procedure DoOnGetItemStyle(aItemIndex: Integer;
-     const aFont: Il3Font;
-     var aTextBackColor: TColor;
-     var aItemBackColor: TColor;
-     var aVJustify: TvtVJustify;
-     var aFocused: Boolean;
-     var theImageVertOffset: Integer); override;
+    const aFont: Il3Font;
+    var aTextBackColor: TColor;
+    var aItemBackColor: TColor;
+    var aVJustify: TvtVJustify;
+    var aFocused: Boolean;
+    var theImageVertOffset: Integer); override;
    function CanScrollWindow: Boolean; override;
    function NeedChangeCurrentOnMouseTrack: Boolean; override;
    function NeedDrawArrowSelection(aItemIndex: Integer): Boolean; override;
    function IsShowGripper: Boolean; override;
    procedure NCDraw(aDC: hDC); override;
- public
- // overridden public methods
-   {$If not defined(NoVCL)}
+  public
+   {$If NOT Defined(NoVCL)}
    procedure MouseWheelHandler(var Message: TMessage); override;
-   {$IfEnd} //not NoVCL
+   {$IfEnd} // NOT Defined(NoVCL)
    function ExcludeRect: TRect; override;
- protected
- // protected methods
-   procedure DrawCloseButton(aDC: hDC;
-     const DrawRect: TRect);
- public
- // public properties
+  public
    property UseCloseHyperlink: Boolean
-     read f_UseCloseHyperlink
-     write f_UseCloseHyperlink;
+    read f_UseCloseHyperlink
+    write f_UseCloseHyperlink;
    property HotTrackColor: TColor
-     read f_HotTrackColor
-     write f_HotTrackColor;
+    read f_HotTrackColor
+    write f_HotTrackColor;
    property YandexLikeBehaviour: Boolean
-     read f_YandexLikeBehaviour
-     write f_YandexLikeBehaviour;
+    read f_YandexLikeBehaviour
+    write f_YandexLikeBehaviour;
  end;//TnscSubTree
 
- TnscOnPastingString = procedure (Sender: TObject;
+ TnscOnPastingString = procedure(Sender: TObject;
   var aText: Il3CString) of object;
 
  TnscCustomTreeComboWithHistory = class(TDropDownTree)
- private
- // private fields
-   f_ShowHistory : Boolean;
-   f_HistoryRoot : Il3SimpleRootNode;
-   f_LockShowPrompts : Integer;
-   f_ListIsHistory : Boolean;
-   f_SavedText : Il3CString;
-   f_LockSaveText : Boolean;
-   f_Pasting : Boolean;
-   f_Filtering : Boolean;
-   f_CloseFont : TafwFont;
-   f_ChangeTimer : TTimer;
-   f_ChangeTime : Cardinal;
-   f_OnPastingString : TnscOnPastingString;
-    {* Поле для свойства OnPastingString}
-   f_HistoryItems : Tl3Strings;
-    {* Поле для свойства HistoryItems}
-   f_PromptTree : Il3SimpleTree;
-    {* Поле для свойства PromptTree}
-  {$If defined(Nemesis) AND not defined(DesignTimeLibrary)}
-   f_RootNode : Il3SimpleNode;
-    {* Поле для свойства RootNode}
-  {$IfEnd} //Nemesis AND not DesignTimeLibrary
-   f_DropDownCount : Integer;
-    {* Поле для свойства DropDownCount}
-   f_PromptColor : TColor;
-    {* Поле для свойства PromptColor}
-   f_PromptStyle : TFontStyles;
-    {* Поле для свойства PromptStyle}
-   f_PromptBackColor : TColor;
-    {* Поле для свойства PromptBackColor}
-   f_PromptViewOptions : TvtViewOptions;
-    {* Поле для свойства PromptViewOptions}
-   f_OnSelect : TNotifyEvent;
-    {* Поле для свойства OnSelect}
-   f_PropmtTreeUsed : Boolean;
-    {* Поле для свойства PropmtTreeUsed}
-   f_CloseHyperLinkColor : TColor;
-    {* Поле для свойства CloseHyperLinkColor}
- private
- // private methods
+  private
+   f_ShowHistory: Boolean;
+   f_HistoryRoot: Il3SimpleRootNode;
+   f_LockShowPrompts: Integer;
+   f_ListIsHistory: Boolean;
+   f_SavedText: Il3CString;
+   f_LockSaveText: Boolean;
+   f_Pasting: Boolean;
+   f_Filtering: Boolean;
+   f_CloseFont: TafwFont;
+   f_ChangeTimer: TTimer;
+   f_ChangeTime: Cardinal;
+   f_OnPastingString: TnscOnPastingString;
+    {* Поле для свойства OnPastingString }
+   f_HistoryItems: Tl3Strings;
+    {* Поле для свойства HistoryItems }
+   f_PromptTree: Il3SimpleTree;
+    {* Поле для свойства PromptTree }
+   {$If NOT Defined(DesignTimeLibrary)}
+   f_RootNode: Il3SimpleNode;
+    {* Поле для свойства RootNode }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   f_DropDownCount: Integer;
+    {* Поле для свойства DropDownCount }
+   f_PromptColor: TColor;
+    {* Поле для свойства PromptColor }
+   f_PromptStyle: TFontStyles;
+    {* Поле для свойства PromptStyle }
+   f_PromptBackColor: TColor;
+    {* Поле для свойства PromptBackColor }
+   f_PromptViewOptions: TvtViewOptions;
+    {* Поле для свойства PromptViewOptions }
+   f_OnSelect: TNotifyEvent;
+    {* Поле для свойства OnSelect }
+   f_PropmtTreeUsed: Boolean;
+    {* Поле для свойства PropmtTreeUsed }
+   f_CloseHyperLinkColor: TColor;
+    {* Поле для свойства CloseHyperLinkColor }
+  private
    procedure MakeNodesFromItems;
-     {* Сигнатура метода MakeNodesFromItems }
    procedure FilterNewTree;
-     {* Сигнатура метода FilterNewTree }
    procedure ChangeDropTree(ForHistory: Boolean;
-     ForceChange: Boolean = False);
+    ForceChange: Boolean = False);
    procedure TreeCurrentChanged(Sender: TObject;
-     aNewCurrent: LongInt;
-     aOldCurrent: LongInt);
+    aNewCurrent: LongInt;
+    aOldCurrent: LongInt);
    procedure DoSetContextText(const aText: Il3CString;
-     SetToEnd: Boolean);
+    SetToEnd: Boolean);
    function CloseFont: TFont;
    procedure ChangeTimerTick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-    {$If defined(Nemesis) AND not defined(DesignTimeLibrary)}
+   {$If NOT Defined(DesignTimeLibrary)}
    procedure SetRoot(const aRoot: Il3SimpleNode);
-    {$IfEnd} //Nemesis AND not DesignTimeLibrary
-    {$If defined(Nemesis) AND not defined(DesignTimeLibrary)}
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   {$If NOT Defined(DesignTimeLibrary)}
    function GetFullPath(const aNode: Il3SimpleNode): Il3CString;
-    {$IfEnd} //Nemesis AND not DesignTimeLibrary
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    procedure CNKeyDown(var Message: TWMKeyDown); message CN_KEYDOWN;
    procedure CMFontChanged(var Message: TMessage); message CM_FONTCHANGED;
    procedure WMSysKeyDown(var Message: TWMSysKeyDown); message WM_SYSKEYDOWN;
- protected
- // property methods
+  protected
    procedure pm_SetHistoryItems(aValue: Tl3Strings);
-   {$If defined(Nemesis) AND not defined(DesignTimeLibrary)}
+   {$If NOT Defined(DesignTimeLibrary)}
    procedure pm_SetRootNode(const aValue: Il3SimpleNode);
-   {$IfEnd} //Nemesis AND not DesignTimeLibrary
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    procedure pm_SetDropDownCount(aValue: Integer);
    procedure pm_SetCloseHyperLinkColor(aValue: TColor);
- protected
- // overridden property methods
-   procedure pm_SetDropped(aValue: Boolean); override;
- protected
- // overridden protected methods
+   {$If NOT Defined(DesignTimeLibrary)}
+   function CurrentIsLink: Boolean;
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   {$If NOT Defined(DesignTimeLibrary)}
+   function GetNodeText(const aNode: Il3SimpleNode): Il3CString;
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   procedure CloseDropDownByHyperlink;
+   procedure DoSelect;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure Change; override;
    procedure Validate; override;
    function DefineProvideOperations: TevEditorProvideOperationTypes; override;
-     {* Какие операции публикуются компонентом. }
+    {* Какие операции публикуются компонентом. }
    function DoProcessCommand(Cmd: Tl3OperationCode;
     aForce: Boolean;
     aCount: Integer): Boolean; override;
@@ -209,431 +187,110 @@ type
     const aMedium: Tl3StoragePlace;
     var dwEffect: Integer): Boolean; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
+   procedure pm_SetDropped(aValue: Boolean); override;
    procedure ButtonClick(Sender: TObject); override;
-     {* TNotifyEvent is used for events that do not require parameters. }
    function TranslateHomeEndToDropDown: Boolean; override;
    procedure RecreateTreeIfNeeded(aValue: TComboStyle); override;
    function CreateSubTree: TSubTree; override;
    function EstimateTreeHeight(aMinSize: Integer;
-      aMaxSize: Integer): Integer; override;
+    aMaxSize: Integer): Integer; override;
    function EstimateTreeWidth(aMaxSizeX: Integer;
-      aSizeY: Integer): Integer; override;
+    aSizeY: Integer): Integer; override;
    procedure ProcessTreeSelect(ChooseFromTree: Boolean;
-      aTriggerSelect: Boolean); override;
- public
- // overridden public methods
+    aTriggerSelect: Boolean); override;
+  public
+   procedure ResetPropmtTreeUsage;
    constructor Create(AOwner: TComponent); override;
    function NeedAlignMarksOnSingleClick: Boolean; override;
- protected
- // protected methods
-    {$If defined(Nemesis) AND not defined(DesignTimeLibrary)}
-   function CurrentIsLink: Boolean;
-    {$IfEnd} //Nemesis AND not DesignTimeLibrary
-    {$If defined(Nemesis) AND not defined(DesignTimeLibrary)}
-   function GetNodeText(const aNode: Il3SimpleNode): Il3CString;
-    {$IfEnd} //Nemesis AND not DesignTimeLibrary
-   procedure CloseDropDownByHyperlink;
-     {* Сигнатура метода CloseDropDownByHyperlink }
-   procedure DoSelect;
-     {* Сигнатура метода DoSelect }
- public
- // public methods
-   procedure ResetPropmtTreeUsage;
-     {* Сигнатура метода ResetPropmtTreeUsage }
- protected
- // protected properties
+  protected
    property OnPastingString: TnscOnPastingString
-     read f_OnPastingString
-     write f_OnPastingString;
-   {$If defined(Nemesis) AND not defined(DesignTimeLibrary)}
+    read f_OnPastingString
+    write f_OnPastingString;
+   {$If NOT Defined(DesignTimeLibrary)}
    property RootNode: Il3SimpleNode
-     read f_RootNode
-     write pm_SetRootNode;
-   {$IfEnd} //Nemesis AND not DesignTimeLibrary
+    read f_RootNode
+    write pm_SetRootNode;
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    property DropDownCount: Integer
-     read f_DropDownCount
-     write pm_SetDropDownCount;
+    read f_DropDownCount
+    write pm_SetDropDownCount;
    property PromptColor: TColor
-     read f_PromptColor
-     write f_PromptColor;
+    read f_PromptColor
+    write f_PromptColor;
    property PromptStyle: TFontStyles
-     read f_PromptStyle
-     write f_PromptStyle;
+    read f_PromptStyle
+    write f_PromptStyle;
    property PromptBackColor: TColor
-     read f_PromptBackColor
-     write f_PromptBackColor;
+    read f_PromptBackColor
+    write f_PromptBackColor;
    property PromptViewOptions: TvtViewOptions
-     read f_PromptViewOptions
-     write f_PromptViewOptions;
+    read f_PromptViewOptions
+    write f_PromptViewOptions;
    property OnSelect: TNotifyEvent
-     read f_OnSelect
-     write f_OnSelect;
+    read f_OnSelect
+    write f_OnSelect;
    property CloseHyperLinkColor: TColor
-     read f_CloseHyperLinkColor
-     write pm_SetCloseHyperLinkColor;
- public
- // public properties
+    read f_CloseHyperLinkColor
+    write pm_SetCloseHyperLinkColor;
+  public
    property HistoryItems: Tl3Strings
-     read f_HistoryItems
-     write pm_SetHistoryItems;
+    read f_HistoryItems
+    write pm_SetHistoryItems;
    property PromptTree: Il3SimpleTree
-     read f_PromptTree
-     write f_PromptTree;
+    read f_PromptTree
+    write f_PromptTree;
    property PropmtTreeUsed: Boolean
-     read f_PropmtTreeUsed;
+    read f_PropmtTreeUsed;
  end;//TnscCustomTreeComboWithHistory
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoVCL)}
-  ,
-  Themes
-  {$IfEnd} //not NoVCL
-  ,
-  nscCustomTreeComboWithHistoryRes,
-  l3Defaults,
-  l3String,
-  l3Base,
-  evOp,
-  nscNewInterfaces,
-  l3Drawer,
-  l3Units,
-  l3MinMax
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  nscConst,
-  afwFacade,
-  OvcCmd,
-  OvcConst,
-  ComboBoxStrings,
-  nevBase,
-  l3SimpleTree,
-  l3Nodes,
-  evMsgCode
-  {$If not defined(NoVCL)}
-  ,
-  l3GetComponentBoundsHelper
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //Nemesis
-
-{$If defined(Nemesis)}
+ l3ImplUses
+ , nscCustomTreeComboWithHistoryRes
+ , SysUtils
+ , l3Defaults
+ , l3String
+ , l3Base
+ , evOp
+ , nscNewInterfaces
+ , l3Drawer
+ , l3Units
+ , l3MinMax
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nscConst
+ , afwFacade
+ , OvcCmd
+ , OvcConst
+ , ComboBoxStrings
+ , nevBase
+ , l3SimpleTree
+ , l3Nodes
+ , evMsgCode
+ {$If NOT Defined(NoVCL)}
+ , l3GetComponentBoundsHelper
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCL)}
+ , Themes
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 const
-   { TreeCombo Private Const }
-  cHalfChangeInterval = 125;
-  cMouseTrackItemIndexNone = -1;
-  cFrameWidth = 3;
-  cRad = 26;
-  cButtonHeight = 22;
-  op_local_Paste = ev_msgLast + 1;
+ cHalfChangeInterval = 125;
+ cMouseTrackItemIndexNone = -1;
+ cFrameWidth = 3;
+ cRad = 26;
+ cButtonHeight = 22;
+ op_local_Paste = ev_msgLast + 1;
 
-// start class TnscCustomTreeComboWithHistory
-
-procedure TnscCustomTreeComboWithHistory.MakeNodesFromItems;
-//#UC START# *53FDCC2C033C_4B97EDFB0057_var*
-{$IfNDef DesignTimeLibrary}
-var
- l_Node: Il3SimpleRootNode;
-{$EndIf DesignTimeLibrary}
-//#UC END# *53FDCC2C033C_4B97EDFB0057_var*
-begin
-//#UC START# *53FDCC2C033C_4B97EDFB0057_impl*
- {$IfNDef DesignTimeLibrary}
- if (f_HistoryItems.Count > 0) then
- begin
-  if Supports(f_HistoryItems, Il3SimpleRootNode, l_Node) then
-   try
-    f_HistoryRoot := l_Node;
-   finally
-    l_Node := nil;
-   end;//try..finally
- end;//FItems.Count > 0
- {$EndIf DesignTimeLibrary}
-//#UC END# *53FDCC2C033C_4B97EDFB0057_impl*
-end;//TnscCustomTreeComboWithHistory.MakeNodesFromItems
-
-procedure TnscCustomTreeComboWithHistory.FilterNewTree;
-//#UC START# *53FDCC3E02F8_4B97EDFB0057_var*
-{$IfNDef DesignTimeLibrary}
-var
- l_FilterableTree: Il3FilterableTree;
- l_SyncIndex: Integer;
-{$EndIf DesignTimeLibrary}
-//#UC END# *53FDCC3E02F8_4B97EDFB0057_var*
-begin
-//#UC START# *53FDCC3E02F8_4B97EDFB0057_impl*
- {$IfNDef DesignTimeLibrary}
- f_Filtering := True;
- try
-  if Supports(f_PromptTree, Il3FilterableTree, l_FilterableTree) then
-  begin
-   f_PromptTree := l_FilterableTree.MakeFiltered(l_FilterableTree.CloneFilters.SetContext(Text),
-                                                 nil,
-                                                 l_SyncIndex);
-   ChangeDropTree(False, True);
-   if Assigned(f_PromptTree) then
-   begin
-    RootNode := f_PromptTree.RootNode;
-    Tree.Current := -1;
-   end
-   else
-    RootNode := nil;
-  end//if Supports(f_PromptTree, Il3FilterableTree, l_FilterableTree)
- finally
-  f_Filtering := False;
- end;
- {$EndIf DesignTimeLibrary}
-//#UC END# *53FDCC3E02F8_4B97EDFB0057_impl*
-end;//TnscCustomTreeComboWithHistory.FilterNewTree
-
-procedure TnscCustomTreeComboWithHistory.ChangeDropTree(ForHistory: Boolean;
-  ForceChange: Boolean = False);
-//#UC START# *53FDCC4E025A_4B97EDFB0057_var*
-//#UC END# *53FDCC4E025A_4B97EDFB0057_var*
-begin
-//#UC START# *53FDCC4E025A_4B97EDFB0057_impl*
- Tree.SelectColor.TextColor := clWhite;
- Tree.SelectColor.BackColor := cGarant2011SelectionColor;
- Tree.SelectNonFocusColor.TextColor := clWhite;
- Tree.SelectNonFocusColor.BackColor := cGarant2011SelectionColor;
- if ForHistory then
- begin
-  if not f_ListIsHistory or ForceChange then
-  begin
-   f_ListIsHistory := True;
-   Tree.SetSimpleTree(nil);
-   Tree.Font := Self.Font;
-   Tree.Color := Color;
-   Tree.AllowWithoutCurrent := False;
-   TnscSubTree(Tree).UseCloseHyperLink := False;
-   Tree.ViewOptions := PromptViewOptions;
-   Tree.MultiStrokeItem := True;
-  end;//not f_ListIsHistory or ForceChange
- end//ForHistory
- else
- begin
-  if f_ListIsHistory or ForceChange then
-  begin
-   f_ListIsHistory := False;
-   Tree.SetSimpleTree(f_PromptTree);
-   Tree.Font := Self.Font;
-   Tree.Font.Style := PromptStyle;
-   Tree.Font.Color := PromptColor;
-   Tree.Color := PromptBackColor;
-   Tree.AllowWithoutCurrent := True;
-   Tree.Current := -1;
-   //TnscSubTree(Tree).UseCloseHyperLink := True;
-   TnscSubTree(Tree).UseCloseHyperLink := False;
-   Tree.ViewOptions := PromptViewOptions;
-   Tree.MultiStrokeItem := True;
-  end;//f_ListIsHistory or ForceChange
- end;//ForHistory
-//#UC END# *53FDCC4E025A_4B97EDFB0057_impl*
-end;//TnscCustomTreeComboWithHistory.ChangeDropTree
-
-procedure TnscCustomTreeComboWithHistory.TreeCurrentChanged(Sender: TObject;
-  aNewCurrent: LongInt;
-  aOldCurrent: LongInt);
-//#UC START# *53FDCCF6009E_4B97EDFB0057_var*
-//#UC END# *53FDCCF6009E_4B97EDFB0057_var*
-begin
-//#UC START# *53FDCCF6009E_4B97EDFB0057_impl*
-{$IfNDef DesignTimeLibrary}
- if not f_ListIsHistory and (f_Filtering or Dropped) then
- begin
-  if Dropped and not f_Filtering then
-   f_PropmtTreeUsed := True;
-
-  f_LockSaveText := True;
-  Inc(FRestrictOnTextChange); // http://mdp.garant.ru/pages/viewpage.action?pageId=314216049
-  try
-   if (aNewCurrent = -1) or CurrentIsLink then
-    DoSetContextText(f_SavedText, Dropped and not f_Filtering)
-   else
-    DoSetContextText(GetNodeText(Tree.GetCurrentNode), Dropped and not f_Filtering);
-  finally
-   f_LockSaveText := False;
-   Dec(FRestrictOnTextChange);
-  end;
- end;
-{$EndIf DesignTimeLibrary}
-//#UC END# *53FDCCF6009E_4B97EDFB0057_impl*
-end;//TnscCustomTreeComboWithHistory.TreeCurrentChanged
-
-procedure TnscCustomTreeComboWithHistory.DoSetContextText(const aText: Il3CString;
-  SetToEnd: Boolean);
-//#UC START# *53FDCD1500B3_4B97EDFB0057_var*
-//#UC END# *53FDCD1500B3_4B97EDFB0057_var*
-begin
-//#UC START# *53FDCD1500B3_4B97EDFB0057_impl*
- if not l3Same(Text, aText) then
-  Paras.ParagraphStrings[0] := aText;
- if SetToEnd then
-  ProcessCommand(ev_ocLineEnd, False, 1);
-//#UC END# *53FDCD1500B3_4B97EDFB0057_impl*
-end;//TnscCustomTreeComboWithHistory.DoSetContextText
-
-function TnscCustomTreeComboWithHistory.CloseFont: TFont;
-//#UC START# *53FDCDAC02AE_4B97EDFB0057_var*
-//#UC END# *53FDCDAC02AE_4B97EDFB0057_var*
-begin
-//#UC START# *53FDCDAC02AE_4B97EDFB0057_impl*
- if f_CloseFont = nil then
- begin
-  f_CloseFont := TafwFont.Create;
-  f_CloseFont.Assign(Font);
-  f_CloseFont.Size := f_CloseFont.Size - 2;
-  f_CloseFont.Style := f_CloseFont.Style + [fsUnderline];
-  f_CloseFont.Color := CloseHyperLinkColor;
-  // Открытый вопрос с CharSet. Сейчас берется от Self.Font, но возможно
-  // надо вычислять от Il3CString.AsWStr.SCodePage..
- end;
- Result := f_CloseFont;
-//#UC END# *53FDCDAC02AE_4B97EDFB0057_impl*
-end;//TnscCustomTreeComboWithHistory.CloseFont
-
-procedure TnscCustomTreeComboWithHistory.ChangeTimerTick(Sender: TObject);
-//#UC START# *53FDCDD50329_4B97EDFB0057_var*
-//#UC END# *53FDCDD50329_4B97EDFB0057_var*
-begin
-//#UC START# *53FDCDD50329_4B97EDFB0057_impl*
- if f_ChangeTimer.Enabled and ((GetTickCount - f_ChangeTime) > cHalfChangeInterval) then
- begin
-  f_SavedText := Text;
-  if Assigned(f_PromptTree) and (TextLen > 0) and (f_LockShowPrompts = 0) then
-  begin
-   FilterNewTree;
-   if Assigned(f_PromptTree) and (f_PromptTree.CountView > 0) then
-   begin
-    if Dropped and f_ShowHistory then
-     Dropped := False;
-    f_ShowHistory := False;
-    Dropped := True;
-   end
-   else
-    Dropped := False;
-  end;
-  if (TextLen = 0) and not f_ShowHistory then
-   Dropped := False;
-  f_ChangeTimer.Enabled := False;
- end;
-//#UC END# *53FDCDD50329_4B97EDFB0057_impl*
-end;//TnscCustomTreeComboWithHistory.ChangeTimerTick
-
-{$If defined(Nemesis) AND not defined(DesignTimeLibrary)}
-procedure TnscCustomTreeComboWithHistory.SetRoot(const aRoot: Il3SimpleNode);
-//#UC START# *53FDCDF8015C_4B97EDFB0057_var*
-//#UC END# *53FDCDF8015C_4B97EDFB0057_var*
-begin
-//#UC START# *53FDCDF8015C_4B97EDFB0057_impl*
- if not Tree.TreeStruct.RootNode.IsSame(aRoot) then
- begin
-  DropSessionSettings;
-  Tree.SetTreeRoot(aRoot);
- end;//not Tree.TreeStruct.RootNode.IsSame(aRoot)
-//#UC END# *53FDCDF8015C_4B97EDFB0057_impl*
-end;//TnscCustomTreeComboWithHistory.SetRoot
-{$IfEnd} //Nemesis AND not DesignTimeLibrary
-
-{$If defined(Nemesis) AND not defined(DesignTimeLibrary)}
-function TnscCustomTreeComboWithHistory.GetFullPath(const aNode: Il3SimpleNode): Il3CString;
-//#UC START# *53FDCE26002B_4B97EDFB0057_var*
- function GetPath(const aNode: Il3SimpleNode): Il3CString;
- begin//GetPath
-  Result := nil;
-  if (aNode.Parent <> nil) and not aNode.IsSame(RootNode) then
-  begin
-   Result := GetPath(aNode.Parent);
-   if not l3IsNil(Result) then
-    Result := l3Cat(Result, '\');
-   Result := l3Cat([Result, l3CStr(aNode)]);
-  end;
- end;//GetPath
-//#UC END# *53FDCE26002B_4B97EDFB0057_var*
-begin
-//#UC START# *53FDCE26002B_4B97EDFB0057_impl*
- if (aNode = nil) then
-  Result := nil
- else
- { если передают рутовую ноду - показываем иначе строим путь без рутовой ноды (СКР в Немезисе) }
- if (Tree.ShowRoot) and (aNode.Parent = nil) then
-  Result := l3CStr(aNode)
- else
-  Result := GetPath(aNode);
-//#UC END# *53FDCE26002B_4B97EDFB0057_impl*
-end;//TnscCustomTreeComboWithHistory.GetFullPath
-{$IfEnd} //Nemesis AND not DesignTimeLibrary
-
-{$If defined(Nemesis) AND not defined(DesignTimeLibrary)}
-function TnscCustomTreeComboWithHistory.CurrentIsLink: Boolean;
-//#UC START# *53FDCECE0069_4B97EDFB0057_var*
-var
- l_Node: InscBaseSearchPromptNode;
-//#UC END# *53FDCECE0069_4B97EDFB0057_var*
-begin
-//#UC START# *53FDCECE0069_4B97EDFB0057_impl*
- Result := Supports(Tree.GetCurrentNode, InscBaseSearchPromptNode, l_Node) and
-  l_Node.IsLinkOnDocument; 
-//#UC END# *53FDCECE0069_4B97EDFB0057_impl*
-end;//TnscCustomTreeComboWithHistory.CurrentIsLink
-{$IfEnd} //Nemesis AND not DesignTimeLibrary
-
-{$If defined(Nemesis) AND not defined(DesignTimeLibrary)}
-function TnscCustomTreeComboWithHistory.GetNodeText(const aNode: Il3SimpleNode): Il3CString;
-//#UC START# *53FDCF2E037D_4B97EDFB0057_var*
-//#UC END# *53FDCF2E037D_4B97EDFB0057_var*
-begin
-//#UC START# *53FDCF2E037D_4B97EDFB0057_impl*
- Result := GetFullPath(aNode);
-//#UC END# *53FDCF2E037D_4B97EDFB0057_impl*
-end;//TnscCustomTreeComboWithHistory.GetNodeText
-{$IfEnd} //Nemesis AND not DesignTimeLibrary
-
-procedure TnscCustomTreeComboWithHistory.CloseDropDownByHyperlink;
-//#UC START# *53FDCF7E0267_4B97EDFB0057_var*
-//#UC END# *53FDCF7E0267_4B97EDFB0057_var*
-begin
-//#UC START# *53FDCF7E0267_4B97EDFB0057_impl*
- ButtonClick(Button);
-//#UC END# *53FDCF7E0267_4B97EDFB0057_impl*
-end;//TnscCustomTreeComboWithHistory.CloseDropDownByHyperlink
-
-procedure TnscCustomTreeComboWithHistory.ResetPropmtTreeUsage;
-//#UC START# *53FDCF9202E9_4B97EDFB0057_var*
-//#UC END# *53FDCF9202E9_4B97EDFB0057_var*
-begin
-//#UC START# *53FDCF9202E9_4B97EDFB0057_impl*
- f_PropmtTreeUsed := False;
-//#UC END# *53FDCF9202E9_4B97EDFB0057_impl*
-end;//TnscCustomTreeComboWithHistory.ResetPropmtTreeUsage
-
-procedure TnscCustomTreeComboWithHistory.DoSelect;
-//#UC START# *53FDD1FC00F6_4B97EDFB0057_var*
-//#UC END# *53FDD1FC00F6_4B97EDFB0057_var*
-begin
-//#UC START# *53FDD1FC00F6_4B97EDFB0057_impl*
- if Assigned(f_OnSelect) then
-  f_OnSelect(Self);
-//#UC END# *53FDD1FC00F6_4B97EDFB0057_impl*
-end;//TnscCustomTreeComboWithHistory.DoSelect
 {$Include w:\common\components\gui\Garant\SkinnedControls\RegionableControl.imp.pas}
-
-// start class TnscSubTree
 
 procedure TnscSubTree.SetMouseTrackItemIndex(aIndex: Integer);
 //#UC START# *53FDAD2F00B9_53FDAB5501EB_var*
@@ -655,7 +312,7 @@ begin
 end;//TnscSubTree.SetMouseTrackItemIndex
 
 procedure TnscSubTree.DrawCloseButton(aDC: hDC;
-  const DrawRect: TRect);
+ const DrawRect: TRect);
 //#UC START# *53FDBA020245_53FDAB5501EB_var*
 var
  l_BkMode: Cardinal;
@@ -863,6 +520,7 @@ begin
 end;//TnscSubTree.InitFields
 
 procedure TnscSubTree.Paint(const CN: Il3Canvas);
+ {* процедура рисования внешнего вида управляющего элемента }
 //#UC START# *48C6C044025E_53FDAB5501EB_var*
 //#UC END# *48C6C044025E_53FDAB5501EB_var*
 begin
@@ -873,7 +531,7 @@ begin
 //#UC END# *48C6C044025E_53FDAB5501EB_impl*
 end;//TnscSubTree.Paint
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TnscSubTree.CreateParams(var Params: TCreateParams);
 //#UC START# *48C7925A02E5_53FDAB5501EB_var*
 //#UC END# *48C7925A02E5_53FDAB5501EB_var*
@@ -885,7 +543,7 @@ begin
  Params.Style := Params.Style and (not WS_BORDER);
 //#UC END# *48C7925A02E5_53FDAB5501EB_impl*
 end;//TnscSubTree.CreateParams
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TnscSubTree.TuneRegion(aRegion: Tl3Region);
 //#UC START# *4CC847800383_53FDAB5501EB_var*
@@ -910,12 +568,12 @@ begin
 end;//TnscSubTree.TuneRegion
 
 procedure TnscSubTree.DoOnGetItemStyle(aItemIndex: Integer;
-  const aFont: Il3Font;
-  var aTextBackColor: TColor;
-  var aItemBackColor: TColor;
-  var aVJustify: TvtVJustify;
-  var aFocused: Boolean;
-  var theImageVertOffset: Integer);
+ const aFont: Il3Font;
+ var aTextBackColor: TColor;
+ var aItemBackColor: TColor;
+ var aVJustify: TvtVJustify;
+ var aFocused: Boolean;
+ var theImageVertOffset: Integer);
 //#UC START# *508F825303E4_53FDAB5501EB_var*
 //#UC END# *508F825303E4_53FDAB5501EB_var*
 begin
@@ -939,7 +597,7 @@ begin
 //#UC END# *5152BAA303BA_53FDAB5501EB_impl*
 end;//TnscSubTree.CanScrollWindow
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TnscSubTree.MouseWheelHandler(var Message: TMessage);
 //#UC START# *515317860183_53FDAB5501EB_var*
 //#UC END# *515317860183_53FDAB5501EB_var*
@@ -951,7 +609,7 @@ begin
  // - если этого не сделать, то можем видеть мусор от кнопки "Закрыть".
 //#UC END# *515317860183_53FDAB5501EB_impl*
 end;//TnscSubTree.MouseWheelHandler
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 function TnscSubTree.ExcludeRect: TRect;
 //#UC START# *515586DF00E9_53FDAB5501EB_var*
@@ -1039,7 +697,7 @@ begin
 //#UC END# *53FDC57C0274_4B97EDFB0057set_impl*
 end;//TnscCustomTreeComboWithHistory.pm_SetHistoryItems
 
-{$If defined(Nemesis) AND not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 procedure TnscCustomTreeComboWithHistory.pm_SetRootNode(const aValue: Il3SimpleNode);
 //#UC START# *53FDC68D0081_4B97EDFB0057set_var*
 //#UC END# *53FDC68D0081_4B97EDFB0057set_var*
@@ -1070,7 +728,7 @@ begin
  end;//if not aValue.IsSame(f_RootNode)
 //#UC END# *53FDC68D0081_4B97EDFB0057set_impl*
 end;//TnscCustomTreeComboWithHistory.pm_SetRootNode
-{$IfEnd} //Nemesis AND not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure TnscCustomTreeComboWithHistory.pm_SetDropDownCount(aValue: Integer);
 //#UC START# *53FDC6D4010B_4B97EDFB0057set_var*
@@ -1098,6 +756,294 @@ begin
  end;
 //#UC END# *53FDCB0D03A4_4B97EDFB0057set_impl*
 end;//TnscCustomTreeComboWithHistory.pm_SetCloseHyperLinkColor
+
+procedure TnscCustomTreeComboWithHistory.MakeNodesFromItems;
+//#UC START# *53FDCC2C033C_4B97EDFB0057_var*
+{$IfNDef DesignTimeLibrary}
+var
+ l_Node: Il3SimpleRootNode;
+{$EndIf DesignTimeLibrary}
+//#UC END# *53FDCC2C033C_4B97EDFB0057_var*
+begin
+//#UC START# *53FDCC2C033C_4B97EDFB0057_impl*
+ {$IfNDef DesignTimeLibrary}
+ if (f_HistoryItems.Count > 0) then
+ begin
+  if Supports(f_HistoryItems, Il3SimpleRootNode, l_Node) then
+   try
+    f_HistoryRoot := l_Node;
+   finally
+    l_Node := nil;
+   end;//try..finally
+ end;//FItems.Count > 0
+ {$EndIf DesignTimeLibrary}
+//#UC END# *53FDCC2C033C_4B97EDFB0057_impl*
+end;//TnscCustomTreeComboWithHistory.MakeNodesFromItems
+
+procedure TnscCustomTreeComboWithHistory.FilterNewTree;
+//#UC START# *53FDCC3E02F8_4B97EDFB0057_var*
+{$IfNDef DesignTimeLibrary}
+var
+ l_FilterableTree: Il3FilterableTree;
+ l_SyncIndex: Integer;
+{$EndIf DesignTimeLibrary}
+//#UC END# *53FDCC3E02F8_4B97EDFB0057_var*
+begin
+//#UC START# *53FDCC3E02F8_4B97EDFB0057_impl*
+ {$IfNDef DesignTimeLibrary}
+ f_Filtering := True;
+ try
+  if Supports(f_PromptTree, Il3FilterableTree, l_FilterableTree) then
+  begin
+   f_PromptTree := l_FilterableTree.MakeFiltered(l_FilterableTree.CloneFilters.SetContext(Text),
+                                                 nil,
+                                                 l_SyncIndex);
+   ChangeDropTree(False, True);
+   if Assigned(f_PromptTree) then
+   begin
+    RootNode := f_PromptTree.RootNode;
+    Tree.Current := -1;
+   end
+   else
+    RootNode := nil;
+  end//if Supports(f_PromptTree, Il3FilterableTree, l_FilterableTree)
+ finally
+  f_Filtering := False;
+ end;
+ {$EndIf DesignTimeLibrary}
+//#UC END# *53FDCC3E02F8_4B97EDFB0057_impl*
+end;//TnscCustomTreeComboWithHistory.FilterNewTree
+
+procedure TnscCustomTreeComboWithHistory.ChangeDropTree(ForHistory: Boolean;
+ ForceChange: Boolean = False);
+//#UC START# *53FDCC4E025A_4B97EDFB0057_var*
+//#UC END# *53FDCC4E025A_4B97EDFB0057_var*
+begin
+//#UC START# *53FDCC4E025A_4B97EDFB0057_impl*
+ Tree.SelectColor.TextColor := clWhite;
+ Tree.SelectColor.BackColor := cGarant2011SelectionColor;
+ Tree.SelectNonFocusColor.TextColor := clWhite;
+ Tree.SelectNonFocusColor.BackColor := cGarant2011SelectionColor;
+ if ForHistory then
+ begin
+  if not f_ListIsHistory or ForceChange then
+  begin
+   f_ListIsHistory := True;
+   Tree.SetSimpleTree(nil);
+   Tree.Font := Self.Font;
+   Tree.Color := Color;
+   Tree.AllowWithoutCurrent := False;
+   TnscSubTree(Tree).UseCloseHyperLink := False;
+   Tree.ViewOptions := PromptViewOptions;
+   Tree.MultiStrokeItem := True;
+  end;//not f_ListIsHistory or ForceChange
+ end//ForHistory
+ else
+ begin
+  if f_ListIsHistory or ForceChange then
+  begin
+   f_ListIsHistory := False;
+   Tree.SetSimpleTree(f_PromptTree);
+   Tree.Font := Self.Font;
+   Tree.Font.Style := PromptStyle;
+   Tree.Font.Color := PromptColor;
+   Tree.Color := PromptBackColor;
+   Tree.AllowWithoutCurrent := True;
+   Tree.Current := -1;
+   //TnscSubTree(Tree).UseCloseHyperLink := True;
+   TnscSubTree(Tree).UseCloseHyperLink := False;
+   Tree.ViewOptions := PromptViewOptions;
+   Tree.MultiStrokeItem := True;
+  end;//f_ListIsHistory or ForceChange
+ end;//ForHistory
+//#UC END# *53FDCC4E025A_4B97EDFB0057_impl*
+end;//TnscCustomTreeComboWithHistory.ChangeDropTree
+
+procedure TnscCustomTreeComboWithHistory.TreeCurrentChanged(Sender: TObject;
+ aNewCurrent: LongInt;
+ aOldCurrent: LongInt);
+//#UC START# *53FDCCF6009E_4B97EDFB0057_var*
+//#UC END# *53FDCCF6009E_4B97EDFB0057_var*
+begin
+//#UC START# *53FDCCF6009E_4B97EDFB0057_impl*
+{$IfNDef DesignTimeLibrary}
+ if not f_ListIsHistory and (f_Filtering or Dropped) then
+ begin
+  if Dropped and not f_Filtering then
+   f_PropmtTreeUsed := True;
+
+  f_LockSaveText := True;
+  Inc(FRestrictOnTextChange); // http://mdp.garant.ru/pages/viewpage.action?pageId=314216049
+  try
+   if (aNewCurrent = -1) or CurrentIsLink then
+    DoSetContextText(f_SavedText, Dropped and not f_Filtering)
+   else
+    DoSetContextText(GetNodeText(Tree.GetCurrentNode), Dropped and not f_Filtering);
+  finally
+   f_LockSaveText := False;
+   Dec(FRestrictOnTextChange);
+  end;
+ end;
+{$EndIf DesignTimeLibrary}
+//#UC END# *53FDCCF6009E_4B97EDFB0057_impl*
+end;//TnscCustomTreeComboWithHistory.TreeCurrentChanged
+
+procedure TnscCustomTreeComboWithHistory.DoSetContextText(const aText: Il3CString;
+ SetToEnd: Boolean);
+//#UC START# *53FDCD1500B3_4B97EDFB0057_var*
+//#UC END# *53FDCD1500B3_4B97EDFB0057_var*
+begin
+//#UC START# *53FDCD1500B3_4B97EDFB0057_impl*
+ if not l3Same(Text, aText) then
+  Paras.ParagraphStrings[0] := aText;
+ if SetToEnd then
+  ProcessCommand(ev_ocLineEnd, False, 1);
+//#UC END# *53FDCD1500B3_4B97EDFB0057_impl*
+end;//TnscCustomTreeComboWithHistory.DoSetContextText
+
+function TnscCustomTreeComboWithHistory.CloseFont: TFont;
+//#UC START# *53FDCDAC02AE_4B97EDFB0057_var*
+//#UC END# *53FDCDAC02AE_4B97EDFB0057_var*
+begin
+//#UC START# *53FDCDAC02AE_4B97EDFB0057_impl*
+ if f_CloseFont = nil then
+ begin
+  f_CloseFont := TafwFont.Create;
+  f_CloseFont.Assign(Font);
+  f_CloseFont.Size := f_CloseFont.Size - 2;
+  f_CloseFont.Style := f_CloseFont.Style + [fsUnderline];
+  f_CloseFont.Color := CloseHyperLinkColor;
+  // Открытый вопрос с CharSet. Сейчас берется от Self.Font, но возможно
+  // надо вычислять от Il3CString.AsWStr.SCodePage..
+ end;
+ Result := f_CloseFont;
+//#UC END# *53FDCDAC02AE_4B97EDFB0057_impl*
+end;//TnscCustomTreeComboWithHistory.CloseFont
+
+procedure TnscCustomTreeComboWithHistory.ChangeTimerTick(Sender: TObject);
+//#UC START# *53FDCDD50329_4B97EDFB0057_var*
+//#UC END# *53FDCDD50329_4B97EDFB0057_var*
+begin
+//#UC START# *53FDCDD50329_4B97EDFB0057_impl*
+ if f_ChangeTimer.Enabled and ((GetTickCount - f_ChangeTime) > cHalfChangeInterval) then
+ begin
+  f_SavedText := Text;
+  if Assigned(f_PromptTree) and (TextLen > 0) and (f_LockShowPrompts = 0) then
+  begin
+   FilterNewTree;
+   if Assigned(f_PromptTree) and (f_PromptTree.CountView > 0) then
+   begin
+    if Dropped and f_ShowHistory then
+     Dropped := False;
+    f_ShowHistory := False;
+    Dropped := True;
+   end
+   else
+    Dropped := False;
+  end;
+  if (TextLen = 0) and not f_ShowHistory then
+   Dropped := False;
+  f_ChangeTimer.Enabled := False;
+ end;
+//#UC END# *53FDCDD50329_4B97EDFB0057_impl*
+end;//TnscCustomTreeComboWithHistory.ChangeTimerTick
+
+{$If NOT Defined(DesignTimeLibrary)}
+procedure TnscCustomTreeComboWithHistory.SetRoot(const aRoot: Il3SimpleNode);
+//#UC START# *53FDCDF8015C_4B97EDFB0057_var*
+//#UC END# *53FDCDF8015C_4B97EDFB0057_var*
+begin
+//#UC START# *53FDCDF8015C_4B97EDFB0057_impl*
+ if not Tree.TreeStruct.RootNode.IsSame(aRoot) then
+ begin
+  DropSessionSettings;
+  Tree.SetTreeRoot(aRoot);
+ end;//not Tree.TreeStruct.RootNode.IsSame(aRoot)
+//#UC END# *53FDCDF8015C_4B97EDFB0057_impl*
+end;//TnscCustomTreeComboWithHistory.SetRoot
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
+
+{$If NOT Defined(DesignTimeLibrary)}
+function TnscCustomTreeComboWithHistory.GetFullPath(const aNode: Il3SimpleNode): Il3CString;
+//#UC START# *53FDCE26002B_4B97EDFB0057_var*
+ function GetPath(const aNode: Il3SimpleNode): Il3CString;
+ begin//GetPath
+  Result := nil;
+  if (aNode.Parent <> nil) and not aNode.IsSame(RootNode) then
+  begin
+   Result := GetPath(aNode.Parent);
+   if not l3IsNil(Result) then
+    Result := l3Cat(Result, '\');
+   Result := l3Cat([Result, l3CStr(aNode)]);
+  end;
+ end;//GetPath
+//#UC END# *53FDCE26002B_4B97EDFB0057_var*
+begin
+//#UC START# *53FDCE26002B_4B97EDFB0057_impl*
+ if (aNode = nil) then
+  Result := nil
+ else
+ { если передают рутовую ноду - показываем иначе строим путь без рутовой ноды (СКР в Немезисе) }
+ if (Tree.ShowRoot) and (aNode.Parent = nil) then
+  Result := l3CStr(aNode)
+ else
+  Result := GetPath(aNode);
+//#UC END# *53FDCE26002B_4B97EDFB0057_impl*
+end;//TnscCustomTreeComboWithHistory.GetFullPath
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
+
+{$If NOT Defined(DesignTimeLibrary)}
+function TnscCustomTreeComboWithHistory.CurrentIsLink: Boolean;
+//#UC START# *53FDCECE0069_4B97EDFB0057_var*
+var
+ l_Node: InscBaseSearchPromptNode;
+//#UC END# *53FDCECE0069_4B97EDFB0057_var*
+begin
+//#UC START# *53FDCECE0069_4B97EDFB0057_impl*
+ Result := Supports(Tree.GetCurrentNode, InscBaseSearchPromptNode, l_Node) and
+  l_Node.IsLinkOnDocument; 
+//#UC END# *53FDCECE0069_4B97EDFB0057_impl*
+end;//TnscCustomTreeComboWithHistory.CurrentIsLink
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
+
+{$If NOT Defined(DesignTimeLibrary)}
+function TnscCustomTreeComboWithHistory.GetNodeText(const aNode: Il3SimpleNode): Il3CString;
+//#UC START# *53FDCF2E037D_4B97EDFB0057_var*
+//#UC END# *53FDCF2E037D_4B97EDFB0057_var*
+begin
+//#UC START# *53FDCF2E037D_4B97EDFB0057_impl*
+ Result := GetFullPath(aNode);
+//#UC END# *53FDCF2E037D_4B97EDFB0057_impl*
+end;//TnscCustomTreeComboWithHistory.GetNodeText
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
+
+procedure TnscCustomTreeComboWithHistory.CloseDropDownByHyperlink;
+//#UC START# *53FDCF7E0267_4B97EDFB0057_var*
+//#UC END# *53FDCF7E0267_4B97EDFB0057_var*
+begin
+//#UC START# *53FDCF7E0267_4B97EDFB0057_impl*
+ ButtonClick(Button);
+//#UC END# *53FDCF7E0267_4B97EDFB0057_impl*
+end;//TnscCustomTreeComboWithHistory.CloseDropDownByHyperlink
+
+procedure TnscCustomTreeComboWithHistory.ResetPropmtTreeUsage;
+//#UC START# *53FDCF9202E9_4B97EDFB0057_var*
+//#UC END# *53FDCF9202E9_4B97EDFB0057_var*
+begin
+//#UC START# *53FDCF9202E9_4B97EDFB0057_impl*
+ f_PropmtTreeUsed := False;
+//#UC END# *53FDCF9202E9_4B97EDFB0057_impl*
+end;//TnscCustomTreeComboWithHistory.ResetPropmtTreeUsage
+
+procedure TnscCustomTreeComboWithHistory.DoSelect;
+//#UC START# *53FDD1FC00F6_4B97EDFB0057_var*
+//#UC END# *53FDD1FC00F6_4B97EDFB0057_var*
+begin
+//#UC START# *53FDD1FC00F6_4B97EDFB0057_impl*
+ if Assigned(f_OnSelect) then
+  f_OnSelect(Self);
+//#UC END# *53FDD1FC00F6_4B97EDFB0057_impl*
+end;//TnscCustomTreeComboWithHistory.DoSelect
 
 procedure TnscCustomTreeComboWithHistory.CNKeyDown(var Message: TWMKeyDown);
 //#UC START# *53FDD305025F_4B97EDFB0057_var*
@@ -1164,6 +1110,7 @@ begin
 end;//TnscCustomTreeComboWithHistory.WMSysKeyDown
 
 procedure TnscCustomTreeComboWithHistory.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4B97EDFB0057_var*
 //#UC END# *479731C50290_4B97EDFB0057_var*
 begin
@@ -1263,6 +1210,7 @@ begin
 end;//TnscCustomTreeComboWithHistory.Validate
 
 function TnscCustomTreeComboWithHistory.DefineProvideOperations: TevEditorProvideOperationTypes;
+ {* Какие операции публикуются компонентом. }
 //#UC START# *48735C4A03C3_4B97EDFB0057_var*
 //#UC END# *48735C4A03C3_4B97EDFB0057_var*
 begin
@@ -1272,8 +1220,8 @@ begin
 end;//TnscCustomTreeComboWithHistory.DefineProvideOperations
 
 function TnscCustomTreeComboWithHistory.DoProcessCommand(Cmd: Tl3OperationCode;
-  aForce: Boolean;
-  aCount: Integer): Boolean;
+ aForce: Boolean;
+ aCount: Integer): Boolean;
 //#UC START# *48BD22E601F2_4B97EDFB0057_var*
 //#UC END# *48BD22E601F2_4B97EDFB0057_var*
 begin
@@ -1286,8 +1234,8 @@ begin
 end;//TnscCustomTreeComboWithHistory.DoProcessCommand
 
 function TnscCustomTreeComboWithHistory.DoDoDrop(aFormat: Tl3ClipboardFormat;
-  const aMedium: Tl3StoragePlace;
-  var dwEffect: Integer): Boolean;
+ const aMedium: Tl3StoragePlace;
+ var dwEffect: Integer): Boolean;
 //#UC START# *48BFB6D800B3_4B97EDFB0057_var*
 var
  l_Op: InevOp;
@@ -1319,14 +1267,11 @@ begin
 end;//TnscCustomTreeComboWithHistory.NeedAlignMarksOnSingleClick
 
 procedure TnscCustomTreeComboWithHistory.ClearFields;
- {-}
 begin
- {$If defined(Nemesis)}
  PromptTree := nil;
- {$IfEnd} //Nemesis
- {$If defined(Nemesis) AND not defined(DesignTimeLibrary)}
+ {$If NOT Defined(DesignTimeLibrary)}
  RootNode := nil;
- {$IfEnd} //Nemesis AND not DesignTimeLibrary
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
  inherited;
 end;//TnscCustomTreeComboWithHistory.ClearFields
 
@@ -1459,7 +1404,7 @@ begin
 end;//TnscCustomTreeComboWithHistory.CreateSubTree
 
 function TnscCustomTreeComboWithHistory.EstimateTreeHeight(aMinSize: Integer;
-  aMaxSize: Integer): Integer;
+ aMaxSize: Integer): Integer;
 //#UC START# *53EE09AA0268_4B97EDFB0057_var*
 //#UC END# *53EE09AA0268_4B97EDFB0057_var*
 begin
@@ -1471,7 +1416,7 @@ begin
 end;//TnscCustomTreeComboWithHistory.EstimateTreeHeight
 
 function TnscCustomTreeComboWithHistory.EstimateTreeWidth(aMaxSizeX: Integer;
-  aSizeY: Integer): Integer;
+ aSizeY: Integer): Integer;
 //#UC START# *53EE09D70249_4B97EDFB0057_var*
 //#UC END# *53EE09D70249_4B97EDFB0057_var*
 begin
@@ -1488,7 +1433,7 @@ begin
 end;//TnscCustomTreeComboWithHistory.EstimateTreeWidth
 
 procedure TnscCustomTreeComboWithHistory.ProcessTreeSelect(ChooseFromTree: Boolean;
-  aTriggerSelect: Boolean);
+ aTriggerSelect: Boolean);
 //#UC START# *53EE0A730393_4B97EDFB0057_var*
 {$IfNDef DesignTimeLibrary}
 var
@@ -1521,16 +1466,15 @@ begin
 //#UC END# *53EE0A730393_4B97EDFB0057_impl*
 end;//TnscCustomTreeComboWithHistory.ProcessTreeSelect
 
-{$IfEnd} //Nemesis
-
 initialization
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация TnscSubTree
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnscSubTree);
-{$IfEnd} //Nemesis AND not NoScripts
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация TnscCustomTreeComboWithHistory
+ {* Регистрация TnscSubTree }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnscCustomTreeComboWithHistory);
-{$IfEnd} //Nemesis AND not NoScripts
+ {* Регистрация TnscCustomTreeComboWithHistory }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(Nemesis)
 
 end.

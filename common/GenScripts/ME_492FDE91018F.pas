@@ -52,6 +52,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TdsNewsLine;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
@@ -66,7 +67,6 @@ begin
 //#UC END# *479731C50290_492FDE91018F_impl*
 end;//TdsNewsLine.Cleanup
 
-{$If NOT Defined(NoVCM)}
 function TdsNewsLine.GetIsDataAvailable: Boolean;
  {* существуют ли данные }
 //#UC START# *55097FF5008E_492FDE91018F_var*

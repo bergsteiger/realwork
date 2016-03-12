@@ -1,156 +1,112 @@
 unit nscHideField;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Модуль: "w:/common/components/gui/Garant/Nemesis/nscHideField.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi For F1::Nemesis::Grid::TnscHideField
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nscHideField.pas"
+// Стереотип: "GuiControl"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  l3ProtoObject,
-  vtHideField
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  afwInterfaces
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , vtHideField
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , afwInterfaces
+ , l3ProtoObject
+;
 
-{$If defined(Nemesis)}
 type
  _nsUnknownComponentWithIvcmState_Parent_ = TvtHideField;
-{$Include w:\common\components\gui\Garant\VT\nsUnknownComponentWithIvcmState.imp.pas}
+ {$Include w:\common\components\gui\Garant\VT\nsUnknownComponentWithIvcmState.imp.pas}
  TnscCustomHideField = class(_nsUnknownComponentWithIvcmState_)
- private
- // private fields
-   f_SettingId : AnsiString;
-    {* Поле для свойства SettingId}
- protected
- // property methods
+  private
+   f_SettingId: AnsiString;
+    {* Поле для свойства SettingId }
+  protected
    procedure pm_SetSettingId(const aValue: AnsiString); virtual;
- protected
- // overridden protected methods
-   {$If not defined(DesignTimeLibrary) AND not defined(NoVGScene)}
-   procedure LoadSettings; override;
-   {$IfEnd} //not DesignTimeLibrary AND not NoVGScene
-   {$If not defined(DesignTimeLibrary) AND not defined(NoVGScene)}
-   procedure SaveSettings; override;
-   {$IfEnd} //not DesignTimeLibrary AND not NoVGScene
- public
- // overridden public methods
-   {$If not defined(DesignTimeLibrary) AND not defined(NoVGScene)}
-   function DoLoadState(const theState: IUnknown;
-    aStateType: TvcmStateType): Boolean; override;
-   {$IfEnd} //not DesignTimeLibrary AND not NoVGScene
-   {$If not defined(DesignTimeLibrary) AND not defined(NoVGScene)}
-   function DoSaveState(out theState: IUnknown;
-    aStateType: TvcmStateType): Boolean; override;
-   {$IfEnd} //not DesignTimeLibrary AND not NoVGScene
- protected
- // protected methods
    function MakeSettingId(const aSettingId: AnsiString): AnsiString;
    function SettingIdStored: Boolean;
-     {* "Функция определяющая, что свойство SettingId сохраняется" }
- public
- // public properties
+    {* "Функция определяющая, что свойство SettingId сохраняется" }
+   {$If NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)}
+   procedure LoadSettings; override;
+   {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)
+   {$If NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)}
+   procedure SaveSettings; override;
+   {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)
+  public
+   {$If NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)}
+   function DoLoadState(const theState: IUnknown;
+    aStateType: TvcmStateType): Boolean; override;
+   {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)
+   {$If NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)}
+   function DoSaveState(out theState: IUnknown;
+    aStateType: TvcmStateType): Boolean; override;
+   {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)
+  public
    property SettingId: AnsiString
-     read f_SettingId
-     write pm_SetSettingId
-     stored SettingIdStored;
+    read f_SettingId
+    write pm_SetSettingId
+    stored SettingIdStored;
  end;//TnscCustomHideField
 
- InscHideFieldState = interface(IUnknown)
-   ['{D8BAE182-0965-4D86-91A1-6E1145FB0DAD}']
-   function pm_GetState: ThfState;
-   procedure pm_SetState(aValue: ThfState);
-   property State: ThfState
-     read pm_GetState
-     write pm_SetState;
+ InscHideFieldState = interface
+  ['{D8BAE182-0965-4D86-91A1-6E1145FB0DAD}']
+  function pm_GetState: ThfState;
+  procedure pm_SetState(aValue: ThfState);
+  property State: ThfState
+   read pm_GetState
+   write pm_SetState;
  end;//InscHideFieldState
 
  TnscHideFieldState = class(Tl3ProtoObject, InscHideFieldState)
- private
- // private fields
-   f_State : ThfState;
-    {* Поле для свойства State}
- protected
- // realized methods
+  private
+   f_State: ThfState;
+    {* Поле для свойства State }
+  protected
    function pm_GetState: ThfState;
    procedure pm_SetState(aValue: ThfState);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    class function Make: InscHideFieldState; reintroduce;
- public
- // public properties
+  public
    property State: ThfState
-     read pm_GetState
-     write pm_SetState;
+    read pm_GetState
+    write pm_SetState;
  end;//TnscHideFieldState
 
-//#UC START# *4AC9C67300A2ci*
-//#UC END# *4AC9C67300A2ci*
-//#UC START# *4AC9C67300A2cit*
-//#UC END# *4AC9C67300A2cit*
+ //#UC START# *4AC9C67300A2ci*
+ //#UC END# *4AC9C67300A2ci*
+ //#UC START# *4AC9C67300A2cit*
+ //#UC END# *4AC9C67300A2cit*
  TnscHideField = class(TnscCustomHideField)
-//#UC START# *4AC9C67300A2publ*
+ //#UC START# *4AC9C67300A2publ*
   published
    property SettingId;
-//#UC END# *4AC9C67300A2publ*
+ //#UC END# *4AC9C67300A2publ*
  end;//TnscHideField
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  SysUtils,
-  afwConsts
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //Nemesis
-
-{$If defined(Nemesis)}
-
-{$Include w:\common\components\gui\Garant\VT\nsUnknownComponentWithIvcmState.imp.pas}
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , SysUtils
+ , afwConsts
+;
 
 const
-    { TnscHideField const }
-   cstidState = 'State';
-    { идентификатор настройки для состояния }
+ cstidState = 'State';
+  {* идентификатор настройки для состояния }
 
-// start class TnscCustomHideField
-
-function TnscCustomHideField.MakeSettingId(const aSettingId: AnsiString): AnsiString;
-//#UC START# *511258C60285_4E732E0B0308_var*
-//#UC END# *511258C60285_4E732E0B0308_var*
-begin
-//#UC START# *511258C60285_4E732E0B0308_impl*
- Result := f_SettingId + g_afwPathSep + aSettingId;
-//#UC END# *511258C60285_4E732E0B0308_impl*
-end;//TnscCustomHideField.MakeSettingId
+{$Include w:\common\components\gui\Garant\VT\nsUnknownComponentWithIvcmState.imp.pas}
 
 procedure TnscCustomHideField.pm_SetSettingId(const aValue: AnsiString);
 //#UC START# *51125768008D_4E732E0B0308set_var*
@@ -167,7 +123,17 @@ begin
 //#UC END# *51125768008D_4E732E0B0308set_impl*
 end;//TnscCustomHideField.pm_SetSettingId
 
+function TnscCustomHideField.MakeSettingId(const aSettingId: AnsiString): AnsiString;
+//#UC START# *511258C60285_4E732E0B0308_var*
+//#UC END# *511258C60285_4E732E0B0308_var*
+begin
+//#UC START# *511258C60285_4E732E0B0308_impl*
+ Result := f_SettingId + g_afwPathSep + aSettingId;
+//#UC END# *511258C60285_4E732E0B0308_impl*
+end;//TnscCustomHideField.MakeSettingId
+
 function TnscCustomHideField.SettingIdStored: Boolean;
+ {* "Функция определяющая, что свойство SettingId сохраняется" }
 //#UC START# *704562C84A3F_4E732E0B0308_var*
 //#UC END# *704562C84A3F_4E732E0B0308_var*
 begin
@@ -176,7 +142,7 @@ begin
 //#UC END# *704562C84A3F_4E732E0B0308_impl*
 end;//TnscCustomHideField.SettingIdStored
 
-{$If not defined(DesignTimeLibrary) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)}
 procedure TnscCustomHideField.LoadSettings;
 //#UC START# *4F9A5C410274_4E732E0B0308_var*
 //#UC END# *4F9A5C410274_4E732E0B0308_var*
@@ -187,9 +153,9 @@ begin
    Ord(State)));
 //#UC END# *4F9A5C410274_4E732E0B0308_impl*
 end;//TnscCustomHideField.LoadSettings
-{$IfEnd} //not DesignTimeLibrary AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)
 
-{$If not defined(DesignTimeLibrary) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)}
 procedure TnscCustomHideField.SaveSettings;
 //#UC START# *4F9A5C530398_4E732E0B0308_var*
 //#UC END# *4F9A5C530398_4E732E0B0308_var*
@@ -199,11 +165,11 @@ begin
   Settings.SaveInteger(MakeSettingId(cstidState), Ord(State));
 //#UC END# *4F9A5C530398_4E732E0B0308_impl*
 end;//TnscCustomHideField.SaveSettings
-{$IfEnd} //not DesignTimeLibrary AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)
 
-{$If not defined(DesignTimeLibrary) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)}
 function TnscCustomHideField.DoLoadState(const theState: IUnknown;
-  aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType): Boolean;
 //#UC START# *4F9AB1780087_4E732E0B0308_var*
 var
  lState : InscHideFieldState;
@@ -227,11 +193,11 @@ begin
  end;
 //#UC END# *4F9AB1780087_4E732E0B0308_impl*
 end;//TnscCustomHideField.DoLoadState
-{$IfEnd} //not DesignTimeLibrary AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)
 
-{$If not defined(DesignTimeLibrary) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)}
 function TnscCustomHideField.DoSaveState(out theState: IUnknown;
-  aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType): Boolean;
 //#UC START# *4F9AB19F020B_4E732E0B0308_var*
 var
  l_State : InscHideFieldState;
@@ -256,8 +222,7 @@ begin
  end;
 //#UC END# *4F9AB19F020B_4E732E0B0308_impl*
 end;//TnscCustomHideField.DoSaveState
-{$IfEnd} //not DesignTimeLibrary AND not NoVGScene
-// start class TnscHideFieldState
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)
 
 class function TnscHideFieldState.Make: InscHideFieldState;
 var
@@ -269,7 +234,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnscHideFieldState.Make
 
 function TnscHideFieldState.pm_GetState: ThfState;
 //#UC START# *51124F310001_51124F6C00F0get_var*
@@ -290,6 +255,7 @@ begin
 end;//TnscHideFieldState.pm_SetState
 
 procedure TnscHideFieldState.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_51124F6C00F0_var*
 //#UC END# *479731C50290_51124F6C00F0_var*
 begin
@@ -302,16 +268,15 @@ end;//TnscHideFieldState.Cleanup
 //#UC START# *4AC9C67300A2impl*
 //#UC END# *4AC9C67300A2impl*
 
-{$IfEnd} //Nemesis
-
 initialization
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация TnscCustomHideField
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnscCustomHideField);
-{$IfEnd} //Nemesis AND not NoScripts
-{$If defined(Nemesis) AND not defined(NoScripts)}
-// Регистрация TnscHideField
+ {* Регистрация TnscCustomHideField }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnscHideField);
-{$IfEnd} //Nemesis AND not NoScripts
+ {* Регистрация TnscHideField }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(Nemesis)
 
 end.

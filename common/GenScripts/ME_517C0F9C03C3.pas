@@ -38,8 +38,10 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
+{$If NOT Defined(NoVCL)}
 {$Include w:\common\components\rtl\Garant\L3\RefCounted.imp.pas}
 
 {$Include w:\common\components\SandBox\RoundedControl.imp.pas}
+{$IfEnd} // NOT Defined(NoVCL)
 
 end.

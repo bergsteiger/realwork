@@ -1,49 +1,39 @@
 unit nscTaskPanelInterfaces;
+ {* Интерфейсы для Панели Задач }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Nemesis"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Nemesis/nscTaskPanelInterfaces.pas"
-// Начат: 18.02.2009 17:24
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi For F1::Nemesis::nscTaskPanelInterfaces
-//
-// Интерфейсы для Панели Задач
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Nemesis\nscTaskPanelInterfaces.pas"
+// Стереотип: "Interfaces"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Nemesis\nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmTaskPanelInterfaces
-  {$IfEnd} //not NoVCM
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmTaskPanelInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
- InscOperationNode = interface(IUnknown)
+ InscOperationNode = interface
   {* Узел операции панели задач }
-   ['{6B165312-3701-4BB0-A2B2-9E73321E893C}']
-   function pm_GetOp: IvcmCustOpsGroupOperation;
-   procedure CaptionChanged;
-     {* изменилось название операции }
-   property Op: IvcmCustOpsGroupOperation
-     read pm_GetOp;
+  ['{6B165312-3701-4BB0-A2B2-9E73321E893C}']
+  function pm_GetOp: IvcmCustOpsGroupOperation;
+  procedure CaptionChanged;
+   {* изменилось название операции }
+  property Op: IvcmCustOpsGroupOperation
+   read pm_GetOp;
  end;//InscOperationNode
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
+
+{$If Defined(Nemesis)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(Nemesis)
 
 end.

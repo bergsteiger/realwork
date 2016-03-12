@@ -46,9 +46,9 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoTB97)}
 {$Include w:\common\components\gui\Garant\Nemesis\nscStatusBarItemNotification.imp.pas}
 
-{$If NOT Defined(NoTB97)}
 function TnscSizeGripPanel.GetFormToResize: TCustomForm;
 //#UC START# *53CE39CD0045_5058B67D0085_var*
 
@@ -91,13 +91,13 @@ begin
  Result := l_ParentForm;
 //#UC END# *53CE39CD0045_5058B67D0085_impl*
 end;//TnscSizeGripPanel.GetFormToResize
-{$IfEnd} // NOT Defined(NoTB97)
 
 initialization
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnscSizeGripPanel);
  {* Регистрация TnscSizeGripPanel }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // Defined(Nemesis)
+{$IfEnd} // NOT Defined(NoTB97)
 
+{$IfEnd} // Defined(Nemesis)
 end.
