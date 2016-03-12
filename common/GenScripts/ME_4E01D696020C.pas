@@ -71,37 +71,37 @@ type
     {* Метод получения экземпляра синглетона TvcmHugeMessageDlgWithWikiImpl }
  end;//TvcmHugeMessageDlgWithWikiImpl
 
-procedure Say(const aMsg: Tl3StringIDEx;
+procedure vcmSay(const aMsg: Tl3StringIDEx;
  aDlgType: TMsgDlgType = mtError); overload;
-function ShowMessageDlg(const aMsg: Tl3Message;
+function vcmShowMessageDlg(const aMsg: Tl3Message;
  out theChecked: Boolean;
  aChoices: TPl3StringIDExList;
  aJumpTo: TevJumpToEvent = nil): Integer; overload;
-function Ask(const aMsg: TvcmMessageID): Boolean; overload;
-function MessageDlg(const aMsg: TvcmMessageID): Integer; overload;
-function MessageDlg(const aMsg: TvcmMessageID;
+function vcmAsk(const aMsg: TvcmMessageID): Boolean; overload;
+function vcmMessageDlg(const aMsg: TvcmMessageID): Integer; overload;
+function vcmMessageDlg(const aMsg: TvcmMessageID;
  const aData: array of const): Integer; overload;
-procedure Say(const aMsg: Tl3StringIDEx;
+procedure vcmSay(const aMsg: Tl3StringIDEx;
  const aData: array of const;
  aDlgType: TMsgDlgType = mtError); overload;
-procedure Say(const aMsg: TvcmMessageID); overload;
-procedure Say(const aMsg: TvcmMessageID;
+procedure vcmSay(const aMsg: TvcmMessageID); overload;
+procedure vcmSay(const aMsg: TvcmMessageID;
  const aData: array of const); overload;
-function Ask(const aMsg: TvcmMessageID;
+function vcmAsk(const aMsg: TvcmMessageID;
  const aData: array of const): Boolean; overload;
-function MessageDlg(const anItem: Tl3Message;
+function vcmMessageDlg(const anItem: Tl3Message;
  aJumpTo: TevJumpToEvent = nil): Integer; overload;
-function GetVisibleName(const aName: Il3CString;
+function vcmGetVisibleName(const aName: Il3CString;
  aChoices: TPl3StringIDExList;
  aDlgType: TMsgDlgType): Il3CString;
-function MessageIDToMessage(const aMsgID: TvcmMessageID;
+function vcmMessageIDToMessage(const aMsgID: TvcmMessageID;
  const aMessage: Il3CString): Tl3Message;
-function MessageDlg(const aMsgId: TvcmMessageID;
+function vcmMessageDlg(const aMsgId: TvcmMessageID;
  const aMessage: Il3CString): Integer; overload;
-function ShowMessageDlg(const aMsg: Tl3Message): Integer; overload;
-function Ask(const aMsg: Tl3MessageID;
+function vcmShowMessageDlg(const aMsg: Tl3Message): Integer; overload;
+function vcmAsk(const aMsg: Tl3MessageID;
  const aData: array of const): Boolean; overload;
-function MessageDlg(const aMsg: Tl3MessageID;
+function vcmMessageDlg(const aMsg: Tl3MessageID;
  const aData: array of const): Integer; overload;
 
 var g_HasMesssage: Boolean;
@@ -148,7 +148,7 @@ begin
  l3Free(g_TvcmHugeMessageDlgWithWikiImpl);
 end;//TvcmHugeMessageDlgWithWikiImplFree
 
-procedure ProcessMessageFromQueue;
+procedure vcmProcessMessageFromQueue;
 //#UC START# *4E01EF000123_4E01D696020C_var*
 var
  l_Item: TvcmMessageQueueItem;
@@ -164,9 +164,9 @@ begin
     vcmMessageDlg(rMsgId, rMessage);
   end;//while (TvcmMessageQueue.Instance.Count > 0)
 //#UC END# *4E01EF000123_4E01D696020C_impl*
-end;//ProcessMessageFromQueue
+end;//vcmProcessMessageFromQueue
 
-function AddMessageToQueue(aItem: TvcmMessagesCollectionItem;
+function vcmAddMessageToQueue(aItem: TvcmMessagesCollectionItem;
  const aMsg: TvcmMessageID;
  const aData: array of const): Boolean;
 //#UC START# *4E01EF180178_4E01D696020C_var*
@@ -191,9 +191,9 @@ begin
   Result := True;
  end;//g_HasMesssage..
 //#UC END# *4E01EF180178_4E01D696020C_impl*
-end;//AddMessageToQueue
+end;//vcmAddMessageToQueue
 
-procedure Say(const aMsg: Tl3StringIDEx;
+procedure vcmSay(const aMsg: Tl3StringIDEx;
  aDlgType: TMsgDlgType = mtError);
 //#UC START# *4A9D129E00FA_4E01D696020C_var*
 //#UC END# *4A9D129E00FA_4E01D696020C_var*
@@ -201,9 +201,9 @@ begin
 //#UC START# *4A9D129E00FA_4E01D696020C_impl*
  vcmShowMessageDlg(Tl3Message_C(aMsg, aDlgType));
 //#UC END# *4A9D129E00FA_4E01D696020C_impl*
-end;//Say
+end;//vcmSay
 
-function ShowMessageDlg(const aMsg: Tl3Message;
+function vcmShowMessageDlg(const aMsg: Tl3Message;
  out theChecked: Boolean;
  aChoices: TPl3StringIDExList;
  aJumpTo: TevJumpToEvent = nil): Integer;
@@ -291,27 +291,27 @@ begin
   g_MenuManager.RestoreOpStatus;
  end;//try..finally
 //#UC END# *4A9D12BB00CC_4E01D696020C_impl*
-end;//ShowMessageDlg
+end;//vcmShowMessageDlg
 
-function Ask(const aMsg: TvcmMessageID): Boolean;
+function vcmAsk(const aMsg: TvcmMessageID): Boolean;
 //#UC START# *4AA13EB80322_4E01D696020C_var*
 //#UC END# *4AA13EB80322_4E01D696020C_var*
 begin
 //#UC START# *4AA13EB80322_4E01D696020C_impl*
  Result := vcmAsk(aMsg, []);
 //#UC END# *4AA13EB80322_4E01D696020C_impl*
-end;//Ask
+end;//vcmAsk
 
-function MessageDlg(const aMsg: TvcmMessageID): Integer;
+function vcmMessageDlg(const aMsg: TvcmMessageID): Integer;
 //#UC START# *4E01E08F0038_4E01D696020C_var*
 //#UC END# *4E01E08F0038_4E01D696020C_var*
 begin
 //#UC START# *4E01E08F0038_4E01D696020C_impl*
  Result := vcmMessageDlg(aMsg, []);
 //#UC END# *4E01E08F0038_4E01D696020C_impl*
-end;//MessageDlg
+end;//vcmMessageDlg
 
-function MessageDlg(const aMsg: TvcmMessageID;
+function vcmMessageDlg(const aMsg: TvcmMessageID;
  const aData: array of const): Integer;
 //#UC START# *4E01E0B8018E_4E01D696020C_var*
 var
@@ -340,9 +340,9 @@ begin
  end;//try..finally
  vcmProcessMessageFromQueue;
 //#UC END# *4E01E0B8018E_4E01D696020C_impl*
-end;//MessageDlg
+end;//vcmMessageDlg
 
-procedure Say(const aMsg: Tl3StringIDEx;
+procedure vcmSay(const aMsg: Tl3StringIDEx;
  const aData: array of const;
  aDlgType: TMsgDlgType = mtError);
 //#UC START# *4E01E11201EB_4E01D696020C_var*
@@ -351,18 +351,18 @@ begin
 //#UC START# *4E01E11201EB_4E01D696020C_impl*
  vcmShowMessageDlg(Tl3Message_C(vcmFmt(aMsg.AsCStr, aData), aMsg.rKey, aDlgType));
 //#UC END# *4E01E11201EB_4E01D696020C_impl*
-end;//Say
+end;//vcmSay
 
-procedure Say(const aMsg: TvcmMessageID);
+procedure vcmSay(const aMsg: TvcmMessageID);
 //#UC START# *4E01E14400AB_4E01D696020C_var*
 //#UC END# *4E01E14400AB_4E01D696020C_var*
 begin
 //#UC START# *4E01E14400AB_4E01D696020C_impl*
  vcmMessageDlg(aMsg);
 //#UC END# *4E01E14400AB_4E01D696020C_impl*
-end;//Say
+end;//vcmSay
 
-procedure Say(const aMsg: TvcmMessageID;
+procedure vcmSay(const aMsg: TvcmMessageID;
  const aData: array of const);
 //#UC START# *4E01E15B03AA_4E01D696020C_var*
 //#UC END# *4E01E15B03AA_4E01D696020C_var*
@@ -370,9 +370,9 @@ begin
 //#UC START# *4E01E15B03AA_4E01D696020C_impl*
  vcmMessageDlg(aMsg, aData);
 //#UC END# *4E01E15B03AA_4E01D696020C_impl*
-end;//Say
+end;//vcmSay
 
-function Ask(const aMsg: TvcmMessageID;
+function vcmAsk(const aMsg: TvcmMessageID;
  const aData: array of const): Boolean;
 //#UC START# *4E01E19B00CB_4E01D696020C_var*
 var
@@ -385,9 +385,9 @@ begin
  l_Result := vcmMessageDlg(aMsg, aData);
  Result := (l_Result = mrOk) or (l_Result = mrYes);
 //#UC END# *4E01E19B00CB_4E01D696020C_impl*
-end;//Ask
+end;//vcmAsk
 
-function MessageDlg(const anItem: Tl3Message;
+function vcmMessageDlg(const anItem: Tl3Message;
  aJumpTo: TevJumpToEvent = nil): Integer;
 //#UC START# *4E01E90202D0_4E01D696020C_var*
 
@@ -554,9 +554,9 @@ begin
   FreeAndNil(l_Choices);
  end;//try..finally
 //#UC END# *4E01E90202D0_4E01D696020C_impl*
-end;//MessageDlg
+end;//vcmMessageDlg
 
-function GetVisibleName(const aName: Il3CString;
+function vcmGetVisibleName(const aName: Il3CString;
  aChoices: TPl3StringIDExList;
  aDlgType: TMsgDlgType): Il3CString;
 //#UC START# *4E0890BE038F_4E01D696020C_var*
@@ -586,9 +586,9 @@ begin
    end;//Case DlgType
  end;//l_Len > 0
 //#UC END# *4E0890BE038F_4E01D696020C_impl*
-end;//GetVisibleName
+end;//vcmGetVisibleName
 
-function MessageIDToMessage(const aMsgID: TvcmMessageID;
+function vcmMessageIDToMessage(const aMsgID: TvcmMessageID;
  const aMessage: Il3CString): Tl3Message;
 //#UC START# *4E08A89601F5_4E01D696020C_var*
 var
@@ -610,9 +610,9 @@ begin
  Result.rData.rSettingsCaptionOld := l_Item.SettingsCaption;
  Result.rData.rLongHintOld := l_Item.LongHint;
 //#UC END# *4E08A89601F5_4E01D696020C_impl*
-end;//MessageIDToMessage
+end;//vcmMessageIDToMessage
 
-function MessageDlg(const aMsgId: TvcmMessageID;
+function vcmMessageDlg(const aMsgId: TvcmMessageID;
  const aMessage: Il3CString): Integer;
 //#UC START# *4E08A8FC038F_4E01D696020C_var*
 //#UC END# *4E08A8FC038F_4E01D696020C_var*
@@ -620,9 +620,9 @@ begin
 //#UC START# *4E08A8FC038F_4E01D696020C_impl*
  Result := vcmMessageDlg(vcmMessageIDToMessage(aMsgId, aMessage));
 //#UC END# *4E08A8FC038F_4E01D696020C_impl*
-end;//MessageDlg
+end;//vcmMessageDlg
 
-function ShowMessageDlg(const aMsg: Tl3Message): Integer;
+function vcmShowMessageDlg(const aMsg: Tl3Message): Integer;
 //#UC START# *4E0B316101C7_4E01D696020C_var*
 var
  l_Checked : Boolean;
@@ -631,9 +631,9 @@ begin
 //#UC START# *4E0B316101C7_4E01D696020C_impl*
  Result := vcmShowMessageDlg(aMsg, l_Checked, nil);
 //#UC END# *4E0B316101C7_4E01D696020C_impl*
-end;//ShowMessageDlg
+end;//vcmShowMessageDlg
 
-function Ask(const aMsg: Tl3MessageID;
+function vcmAsk(const aMsg: Tl3MessageID;
  const aData: array of const): Boolean;
 //#UC START# *4E7CA37100CD_4E01D696020C_var*
 var
@@ -645,9 +645,9 @@ begin
  Result := (l_Result = mrOk) or (l_Result = mrYes) or
            ((l_Result < 0) and (l_Result = aMsg.rData.rDefaultChoice));
 //#UC END# *4E7CA37100CD_4E01D696020C_impl*
-end;//Ask
+end;//vcmAsk
 
-function MessageDlg(const aMsg: Tl3MessageID;
+function vcmMessageDlg(const aMsg: Tl3MessageID;
  const aData: array of const): Integer;
 //#UC START# *4E9E898302DC_4E01D696020C_var*
 //#UC END# *4E9E898302DC_4E01D696020C_var*
@@ -655,7 +655,7 @@ begin
 //#UC START# *4E9E898302DC_4E01D696020C_impl*
  Result := vcmMessageDlg(aMsg.AsMessage.ChangeMessage(l3Fmt(aMsg.AsStr, aData)));
 //#UC END# *4E9E898302DC_4E01D696020C_impl*
-end;//MessageDlg
+end;//vcmMessageDlg
 
 function TvcmHugeMessageDlgWithWikiImpl.OnJumpTo(Sender: TObject;
  anEffects: TafwJumpToEffects;

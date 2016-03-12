@@ -46,6 +46,7 @@ uses
  , Graphics
 ;
 
+{$If NOT Defined(NoVCL)}
 type
  THackControl = class(TControl)
  end;//THackControl
@@ -93,6 +94,7 @@ begin
  DoParamsChanging(anAction);
 //#UC END# *476961A40369_52A845E50292_impl*
 end;//TvcmWinControlActionLink.ParamsChanging
-{$IfEnd} // NOT Defined(NoVCM)
+{$IfEnd} // NOT Defined(NoVCL)
 
+{$IfEnd} // NOT Defined(NoVCM)
 end.

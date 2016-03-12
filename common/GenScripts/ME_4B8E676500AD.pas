@@ -108,7 +108,7 @@ type
    constructor Create(AOwner: TComponent); override;
    {$If NOT Defined(NoVCL)}
    constructor CreateNew(AOwner: TComponent;
-    Dummy: Integer); override;
+    Dummy: Integer = 0); override;
    {$IfEnd} // NOT Defined(NoVCL)
    {$If NOT Defined(NoVCL)}
    function ShowModal: Integer; override;
@@ -1218,7 +1218,7 @@ end;//TMessageForm.DoShow
 
 {$If NOT Defined(NoVCL)}
 constructor TMessageForm.CreateNew(AOwner: TComponent;
- Dummy: Integer);
+ Dummy: Integer = 0);
 //#UC START# *4F9007B20376_4F9000EA02E5_var*
 //#UC END# *4F9007B20376_4F9000EA02E5_var*
 begin
