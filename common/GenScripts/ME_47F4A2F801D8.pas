@@ -14,6 +14,7 @@ uses
  , MedicInterfaces
  , DocumentInterfaces
  , DocumentAndListInterfaces
+ , WorkWithDocumentInterfaces
  , BaseDocumentWithAttributesInterfaces
  , DocumentUnit
  , bsTypesNew

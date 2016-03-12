@@ -48,14 +48,14 @@ type
    procedure Remove; override;
    function IterateChild(Action: Tl3NodeAction;
     IterMode: Integer;
-    const aFromNode: Il3Node): Il3Node; override;
-   function DoGetNumInParent(aOnlyOneLevel: Boolean): Integer; override;
+    const aFromNode: Il3Node = nil): Il3Node; override;
+   function DoGetNumInParent(aOnlyOneLevel: Boolean = False): Integer; override;
    procedure DoReleaseChilds; override;
    procedure DoIncAllChildrenCount(aInc: Integer); override;
    function DoGetChildByNumber(aNum: Integer): Il3Node; override;
    function DoIterate(Action: Tl3NodeAction;
-    IterMode: Integer;
-    const aFromNode: Il3Node): Il3Node; override;
+    IterMode: Integer = 0;
+    const aFromNode: Il3Node = nil): Il3Node; override;
    function DoInsertChildBefore(const aNextChild: Il3Node;
     const aChild: Il3Node): Il3Node; override;
   public
@@ -277,7 +277,7 @@ end;//Tl3CustomVirtualNode.Remove
 
 function Tl3CustomVirtualNode.IterateChild(Action: Tl3NodeAction;
  IterMode: Integer;
- const aFromNode: Il3Node): Il3Node;
+ const aFromNode: Il3Node = nil): Il3Node;
 //#UC START# *54C8DFF102DD_4ADDF3930121_var*
 //#UC END# *54C8DFF102DD_4ADDF3930121_var*
 begin
@@ -286,7 +286,7 @@ begin
 //#UC END# *54C8DFF102DD_4ADDF3930121_impl*
 end;//Tl3CustomVirtualNode.IterateChild
 
-function Tl3CustomVirtualNode.DoGetNumInParent(aOnlyOneLevel: Boolean): Integer;
+function Tl3CustomVirtualNode.DoGetNumInParent(aOnlyOneLevel: Boolean = False): Integer;
 //#UC START# *54C8E1F30128_4ADDF3930121_var*
 //#UC END# *54C8E1F30128_4ADDF3930121_var*
 begin
@@ -332,8 +332,8 @@ begin
 end;//Tl3CustomVirtualNode.DoGetChildByNumber
 
 function Tl3CustomVirtualNode.DoIterate(Action: Tl3NodeAction;
- IterMode: Integer;
- const aFromNode: Il3Node): Il3Node;
+ IterMode: Integer = 0;
+ const aFromNode: Il3Node = nil): Il3Node;
 //#UC START# *54C8E5AF00F8_4ADDF3930121_var*
 //#UC END# *54C8E5AF00F8_4ADDF3930121_var*
 begin

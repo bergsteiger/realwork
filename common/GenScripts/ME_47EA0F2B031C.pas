@@ -19,6 +19,8 @@ uses
  , l3TreeInterfaces
  , DocumentAndListInterfaces
  , l3Interfaces
+ , SimpleListInterfaces
+ , WorkWithListInterfaces
  , DocumentInterfaces
  , BaseDocumentWithAttributesInterfaces
  , DocumentUnit

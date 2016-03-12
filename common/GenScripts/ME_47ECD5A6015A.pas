@@ -65,6 +65,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TdsDrugListSynchroView;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
@@ -180,6 +181,7 @@ begin
  SDS.OpenDrugInternationalNameSynonims;
 //#UC END# *FED42B6D17CA_47ECD5A6015A_impl*
 end;//TdsDrugListSynchroView.OpenDrugInternationalNameSynonims
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

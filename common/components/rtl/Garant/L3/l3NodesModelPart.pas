@@ -275,18 +275,18 @@ type
    procedure Remove; override;
    function IterateChild(Action: Tl3NodeAction;
     IterMode: Integer;
-    const aFromNode: Il3Node): Il3Node; override;
-   function DoGetNumInParent(aOnlyOneLevel: Boolean): Integer; override;
+    const aFromNode: Il3Node = nil): Il3Node; override;
+   function DoGetNumInParent(aOnlyOneLevel: Boolean = False): Integer; override;
    procedure DoReleaseChilds; override;
    function DoGetChildByNumber(aNum: Integer): Il3Node; override;
    function DoIterate(Action: Tl3NodeAction;
-    IterMode: Integer;
-    const aFromNode: Il3Node): Il3Node; override;
+    IterMode: Integer = 0;
+    const aFromNode: Il3Node = nil): Il3Node; override;
    function DoInsertChildBefore(const aNextChild: Il3Node;
     const aChild: Il3Node): Il3Node; override;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
-   procedure DoSortChilds(const aChild: Il3Node); override;
+   procedure DoSortChilds(const aChild: Il3Node = nil); override;
    function DoMove(aDirection: Tl3Direction): Boolean; override;
    procedure DoNotify(aOperation: Integer;
     const aNode: Il3Node); override;
@@ -437,7 +437,7 @@ type
    function HasChildNode: Boolean; override;
    function IterateChild(Action: Tl3NodeAction;
     IterMode: Integer;
-    const aFromNode: Il3Node): Il3Node; override;
+    const aFromNode: Il3Node = nil): Il3Node; override;
    procedure DoNotify(aOperation: Integer;
     const aNode: Il3Node); override;
    function DoGetChildByNumber(aNum: Integer): Il3Node; override;
@@ -487,10 +487,10 @@ type
     aValue: Boolean); override;
    function IsFirstNode: Boolean; override;
    function IsLastNode: Boolean; override;
-   function DoGetNumInParent(aOnlyOneLevel: Boolean): Integer; override;
+   function DoGetNumInParent(aOnlyOneLevel: Boolean = False): Integer; override;
    function DoIterate(Action: Tl3NodeAction;
-    IterMode: Integer;
-    const aFromNode: Il3Node): Il3Node; override;
+    IterMode: Integer = 0;
+    const aFromNode: Il3Node = nil): Il3Node; override;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure Release; override;
@@ -1681,7 +1681,7 @@ end;//Tl3Node.Remove
 
 function Tl3Node.IterateChild(Action: Tl3NodeAction;
  IterMode: Integer;
- const aFromNode: Il3Node): Il3Node;
+ const aFromNode: Il3Node = nil): Il3Node;
 //#UC START# *54C8DFF102DD_4ADDDFC50302_var*
 var
  lCurNode : Il3Node;
@@ -1717,7 +1717,7 @@ begin
 //#UC END# *54C8DFF102DD_4ADDDFC50302_impl*
 end;//Tl3Node.IterateChild
 
-function Tl3Node.DoGetNumInParent(aOnlyOneLevel: Boolean): Integer;
+function Tl3Node.DoGetNumInParent(aOnlyOneLevel: Boolean = False): Integer;
 //#UC START# *54C8E1F30128_4ADDDFC50302_var*
 var
  lNode : Tl3Node;
@@ -1802,8 +1802,8 @@ begin
 end;//Tl3Node.DoGetChildByNumber
 
 function Tl3Node.DoIterate(Action: Tl3NodeAction;
- IterMode: Integer;
- const aFromNode: Il3Node): Il3Node;
+ IterMode: Integer = 0;
+ const aFromNode: Il3Node = nil): Il3Node;
 //#UC START# *54C8E5AF00F8_4ADDDFC50302_var*
 var
  lCurNode : Il3Node;
@@ -1980,7 +1980,7 @@ begin
 //#UC END# *479731C50290_4ADDDFC50302_impl*
 end;//Tl3Node.Cleanup
 
-procedure Tl3Node.DoSortChilds(const aChild: Il3Node);
+procedure Tl3Node.DoSortChilds(const aChild: Il3Node = nil);
 //#UC START# *54C8E0850062_4ADDDFC50302_var*
 var
  lChild : Tl3Node;
@@ -2986,7 +2986,7 @@ end;//Tl3CustomListContainerNode.HasChildNode
 
 function Tl3CustomListContainerNode.IterateChild(Action: Tl3NodeAction;
  IterMode: Integer;
- const aFromNode: Il3Node): Il3Node;
+ const aFromNode: Il3Node = nil): Il3Node;
 //#UC START# *54C8DFF102DD_4ADDE0F50179_var*
 var
  I : Integer;
@@ -3371,7 +3371,7 @@ begin
 //#UC END# *54C78F8902C6_4ADDE17D0077_impl*
 end;//Tl3ListItemNode.IsLastNode
 
-function Tl3ListItemNode.DoGetNumInParent(aOnlyOneLevel: Boolean): Integer;
+function Tl3ListItemNode.DoGetNumInParent(aOnlyOneLevel: Boolean = False): Integer;
 //#UC START# *54C8E1F30128_4ADDE17D0077_var*
 //#UC END# *54C8E1F30128_4ADDE17D0077_var*
 begin
@@ -3381,8 +3381,8 @@ begin
 end;//Tl3ListItemNode.DoGetNumInParent
 
 function Tl3ListItemNode.DoIterate(Action: Tl3NodeAction;
- IterMode: Integer;
- const aFromNode: Il3Node): Il3Node;
+ IterMode: Integer = 0;
+ const aFromNode: Il3Node = nil): Il3Node;
 //#UC START# *54C8E5AF00F8_4ADDE17D0077_var*
 var
  lCurNode : Il3Node;
