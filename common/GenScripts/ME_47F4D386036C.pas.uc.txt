@@ -122,3 +122,55 @@ var
 //#UC END# *4F1D334C0371_47F4D386036C_impl*
 //#UC START# *4F1D334C0371_47F4D386036C_var*
 //#UC END# *4F1D334C0371_47F4D386036C_var*
+//#UC START# *51F1503E01A9_47F4D386036C_impl*
+ if RootNode <> nil then
+ begin
+  l_OldSelectCount := RootNode.GetFlagCount(FM_SELECTION);
+  if aMode = sbSelect then
+   RootNode.SetAllFlagExceptFirstChildrenOfRootChildren(FM_SELECTION, True)
+  else
+   if aMode = sbDeselect then
+    RootNode.SetAllFlag(FM_SELECTION, False);
+  l_NewSelectCount := RootNode.GetFlagCount(FM_SELECTION);
+  SelectCountChanged(l_OldSelectCount, l_NewSelectCount);
+ end;
+//#UC END# *51F1503E01A9_47F4D386036C_impl*
+//#UC START# *51F1503E01A9_47F4D386036C_var*
+var
+ l_OldSelectCount,
+ l_NewSelectCount: Integer;
+//#UC END# *51F1503E01A9_47F4D386036C_var*
+//#UC START# *51F1508A01EA_47F4D386036C_impl*
+ if CurrentNode <> nil then
+ begin
+  l_Node := CurrentNode;
+  l_First := aFirstIndex - CurrentNodeIndex;
+  l_Last := aLastIndex - CurrentNodeIndex;
+ end
+ else
+  if RootNode <> nil then
+  begin
+   l_Node := RootNode;
+   l_First := aFirstIndex;
+   l_Last := aLastIndex;
+  end
+  else
+   exit;
+
+ l_OldSelectCount := RootNode.GetFlagCount(FM_SELECTION);
+ if aMode = sbSelect then
+  l_Node.SetRangeFlagExceptFirstChildrenOfRootChildren(l_First, l_Last, FM_SELECTION, True, aCleanOther)
+ else
+  if aMode = sbDeselect then
+   l_Node.SetRangeFlag(l_First, l_Last, FM_SELECTION, False, aCleanOther);
+ l_NewSelectCount := RootNode.GetFlagCount(FM_SELECTION);
+ SelectCountChanged(l_OldSelectCount, l_NewSelectCount);
+//#UC END# *51F1508A01EA_47F4D386036C_impl*
+//#UC START# *51F1508A01EA_47F4D386036C_var*
+var
+ l_Node: INodeBase;
+ l_First,
+ l_Last: LongInt;
+ l_OldSelectCount,
+ l_NewSelectCount: Integer;
+//#UC END# *51F1508A01EA_47F4D386036C_var*

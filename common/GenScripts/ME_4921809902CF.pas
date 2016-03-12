@@ -50,6 +50,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TdsEditions;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
@@ -64,7 +65,6 @@ begin
 //#UC END# *49217DB001A7_4921809902CF_impl*
 end;//TdsEditions.GetEditionsRoot
 
-{$If NOT Defined(NoVCM)}
 function TdsEditions.GetIsSame(const aValue: _FormDataSourceType_): Boolean;
 //#UC START# *49147FB4028C_4921809902CF_var*
 var
