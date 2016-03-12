@@ -40,6 +40,7 @@ uses
  , OvcConst
 ;
 
+{$If NOT Defined(DesignTimeLibrary)}
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwShortcutsHandler.imp.pas}
 
 initialization
@@ -47,6 +48,7 @@ initialization
  TtfwClassRef.Register(TvgScenePrim);
  {* Регистрация TvgScenePrim }
 {$IfEnd} // NOT Defined(NoScripts)
-{$IfEnd} // NOT Defined(NoVGScene)
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
+{$IfEnd} // NOT Defined(NoVGScene)
 end.

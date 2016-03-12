@@ -50,9 +50,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4B7AB0B6016E_3337505C7D4E_impl*
 end;//TReleaseToK3.CommandLineKey
-{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$If NOT Defined(NotTunedDUnit)}
 class function TReleaseToK3.TimesPage: Integer;
  {* Страница для вывода замеров времени }
 //#UC START# *4B7C0B43005B_3337505C7D4E_var*
@@ -62,9 +60,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4B7C0B43005B_3337505C7D4E_impl*
 end;//TReleaseToK3.TimesPage
-{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$If NOT Defined(NotTunedDUnit)}
 class function TReleaseToK3.ResultsPage: Integer;
  {* Страница для вывода результатов тестов }
 //#UC START# *4B7C0B670215_3337505C7D4E_var*

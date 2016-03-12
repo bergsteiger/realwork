@@ -30,6 +30,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCL)}
 function TvtSaveDialog.GetFileNameForAdjust: AnsiString;
 //#UC START# *4DCAD2B2008F_4C37236E02A1_var*
 const
@@ -63,5 +64,6 @@ begin
  Windows.SetDlgItemText(DialogHandle, vtFileNameDlgCtlId(Handle), PAnsiChar(aFileName));
 //#UC END# *4DCBC96000E3_4C37236E02A1_impl*
 end;//TvtSaveDialog.SetAdjustedFileName
+{$IfEnd} // NOT Defined(NoVCL)
 
 end.

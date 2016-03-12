@@ -15,10 +15,10 @@ uses
  , vcmCommandIDsList
 ;
 
-function CommandID(aItemID: Integer;
+function vcmCommandID(aItemID: Integer;
  aIsModule: Boolean;
  aOperationID: Integer): Word;
-function CommandInfo(anID: Word): TvcmCommandInfo;
+function vcmCommandInfo(anID: Word): TvcmCommandInfo;
 {$IfEnd} // NOT Defined(NoVCM)
 
 implementation
@@ -31,7 +31,7 @@ uses
 const
  c_Offset = 512;
 
-function CommandID(aItemID: Integer;
+function vcmCommandID(aItemID: Integer;
  aIsModule: Boolean;
  aOperationID: Integer): Word;
 var l_C: TvcmCommandInfo;
@@ -51,9 +51,9 @@ begin
   Result := l_Index;
  Inc(Result, c_Offset);  
 //#UC END# *4A8D78F801FC_4A8D789702FA_impl*
-end;//CommandID
+end;//vcmCommandID
 
-function CommandInfo(anID: Word): TvcmCommandInfo;
+function vcmCommandInfo(anID: Word): TvcmCommandInfo;
 //#UC START# *4A8D7BCE03E4_4A8D789702FA_var*
 //#UC END# *4A8D7BCE03E4_4A8D789702FA_var*
 begin
@@ -62,7 +62,7 @@ begin
  Dec(anID, c_Offset);
  Result := TvcmCommandIDsList.Instance.Items[anID];
 //#UC END# *4A8D7BCE03E4_4A8D789702FA_impl*
-end;//CommandInfo
+end;//vcmCommandInfo
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

@@ -14,7 +14,7 @@
 
  _l3Notifier_Parent_ = Tl3ProtoObjectWithCOMQI;
  {$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
- _vcmFormSetDataSource_ = class(_l3Notifier_, IvcmFormSetDataSource, Il3ChangeNotifier)
+ _vcmFormSetDataSource_ = class(_l3Notifier_, IvcmFormSetDataSource)
   {* Бизнес объект сборки }
   private
    f_RefreshCount: Integer;

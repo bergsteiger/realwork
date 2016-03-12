@@ -52,9 +52,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4B7AB0B6016E_46C66075B1E8_impl*
 end;//TReleaseItsLAW.CommandLineKey
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
 
-{$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
 class function TReleaseItsLAW.TimesPage: Integer;
  {* Страница для вывода замеров времени }
 //#UC START# *4B7C0B43005B_46C66075B1E8_var*
@@ -64,9 +62,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4B7C0B43005B_46C66075B1E8_impl*
 end;//TReleaseItsLAW.TimesPage
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
 
-{$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
 class function TReleaseItsLAW.ResultsPage: Integer;
  {* Страница для вывода результатов тестов }
 //#UC START# *4B7C0B670215_46C66075B1E8_var*

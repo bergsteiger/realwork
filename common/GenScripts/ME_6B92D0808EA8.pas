@@ -52,9 +52,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4B7AB0B6016E_6B92D0808EA8_impl*
 end;//TReleaseArchi2.CommandLineKey
-{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$If NOT Defined(NotTunedDUnit)}
 class function TReleaseArchi2.TimesPage: Integer;
  {* Страница для вывода замеров времени }
 //#UC START# *4B7C0B43005B_6B92D0808EA8_var*
@@ -64,9 +62,7 @@ begin
  Result := 260441631;
 //#UC END# *4B7C0B43005B_6B92D0808EA8_impl*
 end;//TReleaseArchi2.TimesPage
-{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$If NOT Defined(NotTunedDUnit)}
 class function TReleaseArchi2.ResultsPage: Integer;
  {* Страница для вывода результатов тестов }
 //#UC START# *4B7C0B670215_6B92D0808EA8_var*

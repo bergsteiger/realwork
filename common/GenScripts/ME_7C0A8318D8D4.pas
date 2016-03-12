@@ -57,9 +57,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4B7AB0B6016E_7C0A8318D8D4_impl*
 end;//TReleasetoKT.CommandLineKey
-{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$If NOT Defined(NotTunedDUnit)}
 class function TReleasetoKT.TimesPage: Integer;
  {* Страница для вывода замеров времени }
 //#UC START# *4B7C0B43005B_7C0A8318D8D4_var*
@@ -70,9 +68,7 @@ begin
  Assert(false);
 //#UC END# *4B7C0B43005B_7C0A8318D8D4_impl*
 end;//TReleasetoKT.TimesPage
-{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$If NOT Defined(NotTunedDUnit)}
 class function TReleasetoKT.ResultsPage: Integer;
  {* Страница для вывода результатов тестов }
 //#UC START# *4B7C0B670215_7C0A8318D8D4_var*
@@ -83,9 +79,7 @@ begin
  Assert(false);
 //#UC END# *4B7C0B670215_7C0A8318D8D4_impl*
 end;//TReleasetoKT.ResultsPage
-{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$If NOT Defined(NotTunedDUnit)}
 class function TReleasetoKT.IsGK: Boolean;
  {* Тесты запущены ГК }
 //#UC START# *4BEA9969001B_7C0A8318D8D4_var*
