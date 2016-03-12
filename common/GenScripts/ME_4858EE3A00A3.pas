@@ -26,6 +26,6 @@ implementation
 uses
  l3ImplUses
 ;
-{$IfEnd} // Defined(k2ForEditor) AND Defined(Archi)
 
+{$IfEnd} // Defined(k2ForEditor) AND Defined(Archi)
 end.
