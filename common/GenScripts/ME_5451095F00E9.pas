@@ -20,7 +20,7 @@ uses
 ;
 
 type
- Tm3CustomNewStorage = {abstract} class(Tm3NewStoragePrim, Im3IndexedStorage, IStorage)
+ Tm3CustomNewStorage = {abstract} class(Tm3NewStoragePrim, Im3IndexedStorage)
   protected
    function FindItemByIndex(anIndex: Tm3StoreElementIndex;
     aStoreType: Tm3StoreType;

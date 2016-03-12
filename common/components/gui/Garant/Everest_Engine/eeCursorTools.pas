@@ -1,48 +1,34 @@
 unit eeCursorTools;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest Engine"
-// Модуль: "w:/common/components/gui/Garant/Everest_Engine/eeCursorTools.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For F1::Everest Engine::Cursors::eeCursorTools
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeCursorTools.pas"
+// Стереотип: "UtilityPack"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest_Engine\eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 
 uses
-  nevTools,
-  eeInterfaces
-  ;
+ l3IntfUses
+ , eeInterfaces
+ , nevTools
+;
 
-function EeEditorByPara(const aPara: InevPara): IeeEditor;
-function EeIsReadOnlyPara(const aView: InevView;
-  const aPara: InevPara): Boolean;
+function eeEditorByPara(const aPara: InevPara): IeeEditor;
+function eeIsReadOnlyPara(const aView: InevView;
+ const aPara: InevPara): Boolean;
 
 implementation
 
 uses
-  Classes
-  {$If defined(Nemesis)}
-  ,
-  eePara
-  {$IfEnd} //Nemesis
-  ,
-  evdStyles,
-  eeInterfacesEx
-  ;
+ l3ImplUses
+ {$If Defined(Nemesis)}
+ , eePara
+ {$IfEnd} // Defined(Nemesis)
+ , evdStyles
+ , eeInterfacesEx
+;
 
-// unit methods
-
-function EeEditorByPara(const aPara: InevPara): IeeEditor;
+function eeEditorByPara(const aPara: InevPara): IeeEditor;
 //#UC START# *54BE4C5B0165_54BE4C0B0137_var*
 var
  l_Container : InevDocumentContainer;
@@ -55,10 +41,10 @@ begin
  else
   l_Container.TextSource.CastAnyEditorTo(IeeEditor, Result);
 //#UC END# *54BE4C5B0165_54BE4C0B0137_impl*
-end;//EeEditorByPara
+end;//eeEditorByPara
 
-function EeIsReadOnlyPara(const aView: InevView;
-  const aPara: InevPara): Boolean;
+function eeIsReadOnlyPara(const aView: InevView;
+ const aPara: InevPara): Boolean;
 //#UC START# *54BE4CA1027C_54BE4C0B0137_var*
 var
  l_Para   : IeeStyledLeafPara;
@@ -83,6 +69,6 @@ begin
  else
   Result := false;
 //#UC END# *54BE4CA1027C_54BE4C0B0137_impl*
-end;//EeIsReadOnlyPara
+end;//eeIsReadOnlyPara
 
 end.

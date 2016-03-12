@@ -75,6 +75,7 @@ uses
  , evOp
 ;
 
+{$If Defined(evUseVisibleCursors)}
 function TeeTextParaCursor.Editor: IeeEditor;
 //#UC START# *54BE4B260181_54BE4A4902B9_var*
 //#UC END# *54BE4B260181_54BE4A4902B9_var*
@@ -105,7 +106,6 @@ begin
 //#UC END# *54BE4BE30128_54BE4A4902B9_impl*
 end;//TeeTextParaCursor.ShowComments
 
-{$If Defined(evUseVisibleCursors)}
 function TeeTextParaCursor.DoJoinWith(const aView: InevView;
  aSecondPara: Tl3Variant;
  const anOp: InevOp;
@@ -182,9 +182,7 @@ begin
   // - это не специфический редактор - можно объединять параграфы
 //#UC END# *49DEFB410161_54BE4A4902B9_impl*
 end;//TeeTextParaCursor.DoJoinWith
-{$IfEnd} // Defined(evUseVisibleCursors)
 
-{$If Defined(evUseVisibleCursors)}
 function TeeTextParaCursor.DoSplit(const aView: InevView;
  aFlags: TnevInsertStringFlags;
  const anOp: InevOp): Il3TagRef;
@@ -238,9 +236,7 @@ begin
  end;//ShowComments(aView)
 //#UC END# *49DEFB770015_54BE4A4902B9_impl*
 end;//TeeTextParaCursor.DoSplit
-{$IfEnd} // Defined(evUseVisibleCursors)
 
-{$If Defined(evUseVisibleCursors)}
 function TeeTextParaCursor.DoInsertString(const aView: InevView;
  const aString: Il3CString;
  const anOp: InevOp;
@@ -259,9 +255,7 @@ begin
   Result := inherited DoInsertString(aView, aString, anOp, InsertMode, aFlags);
 //#UC END# *4A38F71601D6_54BE4A4902B9_impl*
 end;//TeeTextParaCursor.DoInsertString
-{$IfEnd} // Defined(evUseVisibleCursors)
 
-{$If Defined(evUseVisibleCursors)}
 function TeeTextParaCursor.DoDeleteString(const aView: InevView;
  aCount: Integer;
  const anOp: InevOp;
@@ -279,9 +273,7 @@ begin
   Result := inherited DoDeleteString(aView, aCount, anOp, aFlags); 
 //#UC END# *4A38F748002D_54BE4A4902B9_impl*
 end;//TeeTextParaCursor.DoDeleteString
-{$IfEnd} // Defined(evUseVisibleCursors)
 
-{$If Defined(evUseVisibleCursors)}
 function TeeTextParaCursor.GetInevDataFormattingModify(const aView: InevView): InevDataFormattingModify;
 //#UC START# *4A3A61DC00AB_54BE4A4902B9_var*
 //#UC END# *4A3A61DC00AB_54BE4A4902B9_var*

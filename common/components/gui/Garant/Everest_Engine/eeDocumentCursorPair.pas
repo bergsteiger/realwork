@@ -1,76 +1,56 @@
 unit eeDocumentCursorPair;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest Engine"
-// Модуль: "w:/common/components/gui/Garant/Everest_Engine/eeDocumentCursorPair.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For F1::Everest Engine::Cursors::TeeDocumentCursorPair
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeDocumentCursorPair.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest_Engine\eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 
 uses
-  Classes
-  {$If defined(evUseVisibleCursors)}
-  ,
-  evDocumentCursorPair
-  {$IfEnd} //evUseVisibleCursors
-  ,
-  l3Interfaces,
-  nevBase,
-  nevTools
-  ;
+ l3IntfUses
+ {$If Defined(evUseVisibleCursors)}
+ , evDocumentCursorPair
+ {$IfEnd} // Defined(evUseVisibleCursors)
+ , nevTools
+ , l3Interfaces
+ , nevBase
+;
 
 type
  TeeDocumentCursorPair = class(TevDocumentCursorPair)
- protected
- // overridden protected methods
-   {$If defined(evUseVisibleCursors)}
+  protected
+   {$If Defined(evUseVisibleCursors)}
    function DoInsertStream(const aView: InevView;
     const aStream: IStream;
     aFormat: TnevFormat;
     const anOp: InevOp;
     aFlags: TevLoadFlags;
     aCodePage: Integer): Boolean; override;
-   {$IfEnd} //evUseVisibleCursors
+   {$IfEnd} // Defined(evUseVisibleCursors)
  end;//TeeDocumentCursorPair
 
 implementation
 
 uses
-  SysUtils
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  eeCursorTools,
-  CommentPara_Const
-  {$If defined(k2ForEditor)}
-  ,
-  evCursorTools
-  {$IfEnd} //k2ForEditor
-  
-  ;
+ l3ImplUses
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , eeCursorTools
+ , CommentPara_Const
+ {$If Defined(k2ForEditor)}
+ , evCursorTools
+ {$IfEnd} // Defined(k2ForEditor)
+;
 
-// start class TeeDocumentCursorPair
-
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 function TeeDocumentCursorPair.DoInsertStream(const aView: InevView;
-  const aStream: IStream;
-  aFormat: TnevFormat;
-  const anOp: InevOp;
-  aFlags: TevLoadFlags;
-  aCodePage: Integer): Boolean;
+ const aStream: IStream;
+ aFormat: TnevFormat;
+ const anOp: InevOp;
+ aFlags: TevLoadFlags;
+ aCodePage: Integer): Boolean;
 //#UC START# *4A3A8BEE029F_54BE50DC0032_var*
 var
  l_S : InevBasePoint;
@@ -105,6 +85,6 @@ begin
  Result := inherited DoInsertStream(aView, aStream, aFormat, anOp, aFlags, aCodePage);
 //#UC END# *4A3A8BEE029F_54BE50DC0032_impl*
 end;//TeeDocumentCursorPair.DoInsertStream
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

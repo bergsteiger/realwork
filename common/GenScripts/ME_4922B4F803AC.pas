@@ -76,6 +76,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TdsSynchroView;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
@@ -284,6 +285,7 @@ begin
  UseCaseController.OpenSimilarDocuments;
 //#UC END# *EB3722A70D75_4922B4F803AC_impl*
 end;//TdsSynchroView.OpenSimilarDocuments
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

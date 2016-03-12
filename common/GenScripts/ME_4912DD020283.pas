@@ -13,6 +13,7 @@ uses
  , k2Base
  , l3Variant
  , evdTypes
+ , eeConst
  , nevNavigation
  , ActiveX
  , evInternalInterfaces

@@ -1,62 +1,41 @@
 unit eeDocumentPartGenerator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest Engine"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest_Engine/eeDocumentPartGenerator.pas"
-// Начат: 30.03.2011 20:21
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For F1::Everest Engine::eeDocumentContainer::TeeDocumentPartGenerator
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeDocumentPartGenerator.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest_Engine\eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  evDocumentPartGenerator,
-  nevTools
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , evDocumentPartGenerator
+ , nevTools
+;
 
-{$If defined(Nemesis)}
 type
  TeeDocumentPartGenerator = class(TevDocumentPartGenerator)
- protected
- // overridden protected methods
+  protected
    procedure SetInsertionPoint(const aPoint: InevBasePoint;
-     aPID: Integer); override;
+    aPID: Integer); override;
  end;//TeeDocumentPartGenerator
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  evOp
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  CommentPara_Const
-  ;
-{$IfEnd} //Nemesis
-
-{$If defined(Nemesis)}
-
-// start class TeeDocumentPartGenerator
+ l3ImplUses
+ , evOp
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , CommentPara_Const
+;
 
 procedure TeeDocumentPartGenerator.SetInsertionPoint(const aPoint: InevBasePoint;
-  aPID: Integer);
+ aPID: Integer);
 //#UC START# *4D9359AA01A2_4D93589403E2_var*
 //#UC END# *4D9359AA01A2_4D93589403E2_var*
 begin
@@ -71,7 +50,6 @@ begin
  end;//while true
 //#UC END# *4D9359AA01A2_4D93589403E2_impl*
 end;//TeeDocumentPartGenerator.SetInsertionPoint
-
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 end.

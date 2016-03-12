@@ -54,9 +54,7 @@ begin
   Result := inherited DoGetFont(aView, aMap, Stop);
 //#UC END# *4A29477801BF_54BE505F0038_impl*
 end;//TeeTextCursorPair.DoGetFont
-{$IfEnd} // Defined(evUseVisibleCursors)
 
-{$If Defined(evUseVisibleCursors)}
 function TeeTextCursorPair.GetInevDataFormattingModify(const aView: InevView): InevDataFormattingModify;
 //#UC START# *4A3A61DC00AB_54BE505F0038_var*
 //#UC END# *4A3A61DC00AB_54BE505F0038_var*

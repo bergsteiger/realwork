@@ -24,4 +24,6 @@ uses
  l3ImplUses
 ;
 
+{$If Defined(evUseVisibleCursors)}
+{$IfEnd} // Defined(evUseVisibleCursors)
 end.

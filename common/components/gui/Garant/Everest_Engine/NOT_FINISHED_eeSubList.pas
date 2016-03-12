@@ -13,6 +13,7 @@ uses
  , eeTagEditorTool
  , eeInterfaces
  , l3Interfaces
+ , eeConst
 ;
 
 type

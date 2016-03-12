@@ -18,7 +18,7 @@ type
  //#UC END# *4FA276800294ci*
  //#UC START# *4FA276800294cit*
  //#UC END# *4FA276800294cit*
- Tm3BaseStream = {abstract} class(Tm3PrimStream, IStream)
+ Tm3BaseStream = {abstract} class(Tm3PrimStream)
  //#UC START# *4FA276800294publ*
    public
    // public methods

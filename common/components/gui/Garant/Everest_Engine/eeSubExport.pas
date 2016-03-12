@@ -1,35 +1,29 @@
 unit eeSubExport;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest Engine"
-// Модуль: "w:/common/components/gui/Garant/Everest_Engine/eeSubExport.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For F1::Everest Engine::eeSubExport::TeeSubExport
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeSubExport.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest_Engine\eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  evSubImplementation
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , evSubImplementation
+;
 
-{$If defined(Nemesis)}
 type
  TeeSubExport = class(TevSubImplementation)
  end;//TeeSubExport
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
+
+{$If Defined(Nemesis)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(Nemesis)
 
 end.

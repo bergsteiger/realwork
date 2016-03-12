@@ -1,76 +1,53 @@
 unit eeSubPanelExport;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest Engine"
-// Модуль: "w:/common/components/gui/Garant/Everest_Engine/eeSubPanelExport.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi For F1::Everest Engine::eeSubPanel::TeeSubPanelExport
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeSubPanelExport.pas"
+// Стереотип: "GuiControl"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest_Engine\eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 
 uses
-  eeInterfaces,
-  evSubPanel
-  ;
+ l3IntfUses
+ , evSubPanel
+ , eeInterfaces
+;
 
 type
  TeeSubPanelExport = class(TevCustomSubPanel, IeeSubPanel)
- protected
- // realized methods
-   function Get_SubViewDescriptors: IeeSubViewDescriptors;
- protected
- // protected methods
+  protected
    function GetHotSpot(aSubType: Integer;
-     aSubHandle: Integer): IeeHotSpot;
- public
- // public methods
+    aSubHandle: Integer): IeeHotSpot;
+   function Get_SubViewDescriptors: IeeSubViewDescriptors;
+  public
    function CheckSubOnPoint(aX: Integer;
-     aY: Integer;
-     out theSub: IeeSub): Boolean;
+    aY: Integer;
+    out theSub: IeeSub): Boolean;
  end;//TeeSubPanelExport
 
 implementation
 
 uses
-  nevTools,
-  eeInterfacesEx
-  {$If defined(Nemesis)}
-  ,
-  eeSubDescriptorsExport
-  {$IfEnd} //Nemesis
-  ,
-  SysUtils
-  {$If defined(Nemesis)}
-  ,
-  eeSub
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  eeHotSpot
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TeeSubPanelExport
+ l3ImplUses
+ , nevTools
+ , eeInterfacesEx
+ {$If Defined(Nemesis)}
+ , eeSubDescriptorsExport
+ {$IfEnd} // Defined(Nemesis)
+ , SysUtils
+ {$If Defined(Nemesis)}
+ , eeSub
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , eeHotSpot
+ {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 function TeeSubPanelExport.GetHotSpot(aSubType: Integer;
-  aSubHandle: Integer): IeeHotSpot;
+ aSubHandle: Integer): IeeHotSpot;
 //#UC START# *5481C789009F_4C7F94A9028D_var*
 var
  l_LayerID: Integer;
@@ -102,8 +79,8 @@ begin
 end;//TeeSubPanelExport.GetHotSpot
 
 function TeeSubPanelExport.CheckSubOnPoint(aX: Integer;
-  aY: Integer;
-  out theSub: IeeSub): Boolean;
+ aY: Integer;
+ out theSub: IeeSub): Boolean;
 //#UC START# *5481D1B20067_4C7F94A9028D_var*
 var
  l_Flag: Integer;
@@ -143,9 +120,9 @@ begin
 end;//TeeSubPanelExport.Get_SubViewDescriptors
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TeeSubPanelExport
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TeeSubPanelExport);
-{$IfEnd} //not NoScripts
+ {* Регистрация TeeSubPanelExport }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

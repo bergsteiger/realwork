@@ -1,101 +1,81 @@
 unit eeTextParaCursor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest Engine"
-// Модуль: "w:/common/components/gui/Garant/Everest_Engine/eeTextParaCursor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For F1::Everest Engine::Cursors::TeeTextParaCursor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeTextParaCursor.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest_Engine\eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 
 uses
-  nevTools,
-  eeInterfaces
-  {$If defined(evUseVisibleCursors)}
-  ,
-  evTextParaCursor
-  {$IfEnd} //evUseVisibleCursors
-  ,
-  nevBase,
-  l3Variant,
-  l3Interfaces
-  ;
+ l3IntfUses
+ {$If Defined(evUseVisibleCursors)}
+ , evTextParaCursor
+ {$IfEnd} // Defined(evUseVisibleCursors)
+ , eeInterfaces
+ , nevTools
+ , l3Variant
+ , nevBase
+ , l3Interfaces
+;
 
 type
  TeeTextParaCursor = class(TevTextParaCursor)
- private
- // private methods
+  private
    function Editor: IeeEditor;
- protected
- // overridden protected methods
-   {$If defined(evUseVisibleCursors)}
+  protected
+   function IsReadOnly(const aView: InevView): Boolean;
+   function ShowComments(const aView: InevView): Boolean;
+   {$If Defined(evUseVisibleCursors)}
    function DoJoinWith(const aView: InevView;
     aSecondPara: Tl3Variant;
     const anOp: InevOp;
     MoveSubs: Boolean): Integer; override;
-   {$IfEnd} //evUseVisibleCursors
-   {$If defined(evUseVisibleCursors)}
+   {$IfEnd} // Defined(evUseVisibleCursors)
+   {$If Defined(evUseVisibleCursors)}
    function DoSplit(const aView: InevView;
     aFlags: TnevInsertStringFlags;
     const anOp: InevOp): Il3TagRef; override;
-   {$IfEnd} //evUseVisibleCursors
-   {$If defined(evUseVisibleCursors)}
+   {$IfEnd} // Defined(evUseVisibleCursors)
+   {$If Defined(evUseVisibleCursors)}
    function DoInsertString(const aView: InevView;
     const aString: Il3CString;
     const anOp: InevOp;
     InsertMode: Boolean;
     aFlags: TnevInsertStringFlags): Boolean; override;
-   {$IfEnd} //evUseVisibleCursors
-   {$If defined(evUseVisibleCursors)}
+   {$IfEnd} // Defined(evUseVisibleCursors)
+   {$If Defined(evUseVisibleCursors)}
    function DoDeleteString(const aView: InevView;
     aCount: Integer;
     const anOp: InevOp;
     aFlags: TnevInsertStringFlags): Boolean; override;
-   {$IfEnd} //evUseVisibleCursors
-   {$If defined(evUseVisibleCursors)}
+   {$IfEnd} // Defined(evUseVisibleCursors)
+   {$If Defined(evUseVisibleCursors)}
    function GetInevDataFormattingModify(const aView: InevView): InevDataFormattingModify; override;
-   {$IfEnd} //evUseVisibleCursors
- protected
- // protected methods
-   function IsReadOnly(const aView: InevView): Boolean;
-   function ShowComments(const aView: InevView): Boolean;
+   {$IfEnd} // Defined(evUseVisibleCursors)
  end;//TeeTextParaCursor
 
 implementation
 
 uses
-  eeCursorTools
-  {$If defined(Nemesis)}
-  ,
-  eePara
-  {$IfEnd} //Nemesis
-  ,
-  evdStyles,
-  LeafPara_Const,
-  eeInterfacesEx
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  k2OpMisc,
-  CommentPara_Const,
-  SysUtils,
-  evOp
-  ;
+ l3ImplUses
+ , eeCursorTools
+ {$If Defined(Nemesis)}
+ , eePara
+ {$IfEnd} // Defined(Nemesis)
+ , evdStyles
+ , LeafPara_Const
+ , eeInterfacesEx
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , k2OpMisc
+ , CommentPara_Const
+ , SysUtils
+ , evOp
+;
 
-// start class TeeTextParaCursor
-
+{$If Defined(evUseVisibleCursors)}
 function TeeTextParaCursor.Editor: IeeEditor;
 //#UC START# *54BE4B260181_54BE4A4902B9_var*
 //#UC END# *54BE4B260181_54BE4A4902B9_var*
@@ -126,11 +106,10 @@ begin
 //#UC END# *54BE4BE30128_54BE4A4902B9_impl*
 end;//TeeTextParaCursor.ShowComments
 
-{$If defined(evUseVisibleCursors)}
 function TeeTextParaCursor.DoJoinWith(const aView: InevView;
-  aSecondPara: Tl3Variant;
-  const anOp: InevOp;
-  MoveSubs: Boolean): Integer;
+ aSecondPara: Tl3Variant;
+ const anOp: InevOp;
+ MoveSubs: Boolean): Integer;
 //#UC START# *49DEFB410161_54BE4A4902B9_var*
 var
  l_Leaf   : IeeStyledLeafPara;
@@ -203,12 +182,10 @@ begin
   // - это не специфический редактор - можно объединять параграфы
 //#UC END# *49DEFB410161_54BE4A4902B9_impl*
 end;//TeeTextParaCursor.DoJoinWith
-{$IfEnd} //evUseVisibleCursors
 
-{$If defined(evUseVisibleCursors)}
 function TeeTextParaCursor.DoSplit(const aView: InevView;
-  aFlags: TnevInsertStringFlags;
-  const anOp: InevOp): Il3TagRef;
+ aFlags: TnevInsertStringFlags;
+ const anOp: InevOp): Il3TagRef;
 //#UC START# *49DEFB770015_54BE4A4902B9_var*
 var
  l_Editor   : IeeEditor;
@@ -259,14 +236,12 @@ begin
  end;//ShowComments(aView)
 //#UC END# *49DEFB770015_54BE4A4902B9_impl*
 end;//TeeTextParaCursor.DoSplit
-{$IfEnd} //evUseVisibleCursors
 
-{$If defined(evUseVisibleCursors)}
 function TeeTextParaCursor.DoInsertString(const aView: InevView;
-  const aString: Il3CString;
-  const anOp: InevOp;
-  InsertMode: Boolean;
-  aFlags: TnevInsertStringFlags): Boolean;
+ const aString: Il3CString;
+ const anOp: InevOp;
+ InsertMode: Boolean;
+ aFlags: TnevInsertStringFlags): Boolean;
 //#UC START# *4A38F71601D6_54BE4A4902B9_var*
 //#UC END# *4A38F71601D6_54BE4A4902B9_var*
 begin
@@ -280,13 +255,11 @@ begin
   Result := inherited DoInsertString(aView, aString, anOp, InsertMode, aFlags);
 //#UC END# *4A38F71601D6_54BE4A4902B9_impl*
 end;//TeeTextParaCursor.DoInsertString
-{$IfEnd} //evUseVisibleCursors
 
-{$If defined(evUseVisibleCursors)}
 function TeeTextParaCursor.DoDeleteString(const aView: InevView;
-  aCount: Integer;
-  const anOp: InevOp;
-  aFlags: TnevInsertStringFlags): Boolean;
+ aCount: Integer;
+ const anOp: InevOp;
+ aFlags: TnevInsertStringFlags): Boolean;
 //#UC START# *4A38F748002D_54BE4A4902B9_var*
 //#UC END# *4A38F748002D_54BE4A4902B9_var*
 begin
@@ -300,9 +273,7 @@ begin
   Result := inherited DoDeleteString(aView, aCount, anOp, aFlags); 
 //#UC END# *4A38F748002D_54BE4A4902B9_impl*
 end;//TeeTextParaCursor.DoDeleteString
-{$IfEnd} //evUseVisibleCursors
 
-{$If defined(evUseVisibleCursors)}
 function TeeTextParaCursor.GetInevDataFormattingModify(const aView: InevView): InevDataFormattingModify;
 //#UC START# *4A3A61DC00AB_54BE4A4902B9_var*
 //#UC END# *4A3A61DC00AB_54BE4A4902B9_var*
@@ -314,6 +285,6 @@ begin
   Result := inherited GetInevDataFormattingModify(aView); 
 //#UC END# *4A3A61DC00AB_54BE4A4902B9_impl*
 end;//TeeTextParaCursor.GetInevDataFormattingModify
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

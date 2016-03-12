@@ -58,6 +58,7 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TdsListInfo;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourceWithFlexUseCaseControllerType.imp.pas}
@@ -103,7 +104,6 @@ begin
 //#UC END# *479731C50290_47FEF9AA00CC_impl*
 end;//TdsListInfo.Cleanup
 
-{$If NOT Defined(NoVCM)}
 procedure TdsListInfo.GotData;
  {* - данные изменились. }
 //#UC START# *492ACF630072_47FEF9AA00CC_var*

@@ -87,7 +87,7 @@ type
     {* текущий параграф изменился. }
    procedure MakeTextSource(out theTextSource: TevCustomTextSource); override;
    function AllowDrawDocumentEdge: Boolean; override;
-   function WantTab(aKeyPressed: Boolean): Boolean; override;
+   function WantTab(aKeyPressed: Boolean = False): Boolean; override;
    function DoDoDragOver(const aData: IDataObject;
     const aPoint: TPoint): Boolean; override;
    function DoGetAcceptableFormats: Tl3ClipboardFormats; override;
@@ -142,8 +142,8 @@ type
    function GetNearestBlockByCursor(const aCursor: InevBasePoint): IevDocumentPart;
    constructor Create(AOwner: TComponent); override;
    function IsReadOnlyTarget(const aTarget: IUnknown): Boolean; override;
-   function InsertPageBreak(NeedNewSection: Boolean;
-    aPageOrientation: TevPageOrientation): Boolean; override;
+   function InsertPageBreak(NeedNewSection: Boolean = False;
+    aPageOrientation: TevPageOrientation = Portrait): Boolean; override;
    procedure DecIndent; override;
    procedure IncIndent; override;
   protected
@@ -736,7 +736,7 @@ begin
 //#UC END# *482BFBEE00D5_4952693000EA_impl*
 end;//TeeEditorExport.AllowDrawDocumentEdge
 
-function TeeEditorExport.WantTab(aKeyPressed: Boolean): Boolean;
+function TeeEditorExport.WantTab(aKeyPressed: Boolean = False): Boolean;
 //#UC START# *482BFCAE0072_4952693000EA_var*
 //#UC END# *482BFCAE0072_4952693000EA_var*
 begin
@@ -1426,8 +1426,8 @@ begin
 //#UC END# *54C108A40224_4952693000EA_impl*
 end;//TeeEditorExport.VScrollWidth
 
-function TeeEditorExport.InsertPageBreak(NeedNewSection: Boolean;
- aPageOrientation: TevPageOrientation): Boolean;
+function TeeEditorExport.InsertPageBreak(NeedNewSection: Boolean = False;
+ aPageOrientation: TevPageOrientation = Portrait): Boolean;
 //#UC START# *54C10AFF0075_4952693000EA_var*
 //#UC END# *54C10AFF0075_4952693000EA_var*
 begin

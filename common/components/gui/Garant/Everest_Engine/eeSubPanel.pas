@@ -1,45 +1,33 @@
 unit eeSubPanel;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest Engine"
-// Модуль: "w:/common/components/gui/Garant/Everest_Engine/eeSubPanel.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi For F1::Everest Engine::eeSubPanel::TeeSubPanel
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeSubPanel.pas"
+// Стереотип: "GuiControl"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest_Engine\eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 
 uses
-  eeInterfaces,
-  eeSubPanelExport
-  ;
+ l3IntfUses
+ , eeSubPanelExport
+ , eeInterfaces
+;
 
 type
  TeeCustomSubPanel = class(TeeSubPanelExport)
- protected
- // property methods
+  protected
    function pm_GetSubPanel: IeeSubPanel;
- public
- // public properties
+  public
    property SubPanel: IeeSubPanel
-     read pm_GetSubPanel;
+    read pm_GetSubPanel;
  end;//TeeCustomSubPanel
 
-//#UC START# *4C7F948C03BDci*
-//#UC END# *4C7F948C03BDci*
-//#UC START# *4C7F948C03BDcit*
-//#UC END# *4C7F948C03BDcit*
+ //#UC START# *4C7F948C03BDci*
+ //#UC END# *4C7F948C03BDci*
+ //#UC START# *4C7F948C03BDcit*
+ //#UC END# *4C7F948C03BDcit*
  TeeSubPanel = class(TeeCustomSubPanel)
-//#UC START# *4C7F948C03BDpubl*
+ //#UC START# *4C7F948C03BDpubl*
     public
     // public properties
       property Color;
@@ -60,21 +48,17 @@ type
         {-}
       property OnClickSub;
         {-}
-//#UC END# *4C7F948C03BDpubl*
+ //#UC END# *4C7F948C03BDpubl*
  end;//TeeSubPanel
 
 implementation
 
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TeeCustomSubPanel
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 function TeeCustomSubPanel.pm_GetSubPanel: IeeSubPanel;
 //#UC START# *5481CD0A031C_5481CCAE029Dget_var*
@@ -89,13 +73,13 @@ end;//TeeCustomSubPanel.pm_GetSubPanel
 //#UC END# *4C7F948C03BDimpl*
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TeeCustomSubPanel
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TeeCustomSubPanel);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TeeSubPanel
+ {* Регистрация TeeCustomSubPanel }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TeeSubPanel);
-{$IfEnd} //not NoScripts
+ {* Регистрация TeeSubPanel }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

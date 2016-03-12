@@ -36,6 +36,7 @@ uses
  , eeDocumentCursorPair
 ;
 
+{$If Defined(k2ForEditor)}
 function TeeDocumentInterfaceFactory.QueryTool(aTag: Tl3Variant;
  const ID: Tl3IID;
  out I: Tk2ToolPrim): Boolean;
@@ -46,6 +47,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4D63D26D033F_54BE51580257_impl*
 end;//TeeDocumentInterfaceFactory.QueryTool
-{$IfEnd} // Defined(Nemesis)
+{$IfEnd} // Defined(k2ForEditor)
 
+{$IfEnd} // Defined(Nemesis)
 end.

@@ -96,7 +96,7 @@
    function DoOpenDocument(out theDataInfo: IdeDocInfo): Boolean; override;
     {* - возвращает SDS для открытия сборки документ. }
    function DataForNewList(const aNewList: IDynList;
-    aAllDocumentsFiltered: Boolean): IdeList; override;
+    aAllDocumentsFiltered: Boolean = False): IdeList; override;
     {* - данные для открытия списка в новом окне. }
    function MakeImageList: Il3ImageList; override;
     {* - создать иконки дерева. }
@@ -789,7 +789,7 @@ begin
 end;//_dsDocumentList_.DoOpenDocument
 
 function _dsDocumentList_.DataForNewList(const aNewList: IDynList;
- aAllDocumentsFiltered: Boolean): IdeList;
+ aAllDocumentsFiltered: Boolean = False): IdeList;
  {* - данные для открытия списка в новом окне. }
 //#UC START# *47F33B990105_47E9EDC602B2_var*
 var

@@ -44,7 +44,7 @@ type
  TeeTreeViewExportPrim = class(TvtOutlinerWithDragDrop{$If NOT Defined(NoVCM)}
  , IvcmState
  {$IfEnd} // NOT Defined(NoVCM)
- , Il3SelectCountChangedRecipient, IafwStatusElement, Il3RootSpy, Il3NodeNotifyRecipient{$If NOT Defined(NoVCM)}
+ , IafwStatusElement, Il3RootSpy, Il3NodeNotifyRecipient{$If NOT Defined(NoVCM)}
  , IvcmCloneableState
  {$IfEnd} // NOT Defined(NoVCM)
  )
@@ -287,9 +287,6 @@ type
  //#UC END# *499C0B7B012Epubl*
  end;//TeeTreeViewExport
 
-const
- eeBT2L3BT: TeeBT2L3BTMap = (sbSelect, sbDeselect, sbInvert);
-
 implementation
 
 uses
@@ -317,6 +314,9 @@ uses
 
 type
  TeeBT2L3BTMap = array [TeeSetBitType] of Tl3SetBitType;
+
+const
+ eeBT2L3BT: TeeBT2L3BTMap = (sbSelect, sbDeselect, sbInvert);
 
 function TeeTreeViewExportPrim.pm_GetTreeView: IeeTreeView;
 //#UC START# *5319ECD7006D_531DB14D03CCget_var*

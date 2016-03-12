@@ -1,42 +1,26 @@
 unit eeDocumentContainer;
+ {* Контейнер документа. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest Engine"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest_Engine/eeDocumentContainer.pas"
-// Начат: 02.07.2003 22:40
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For F1::Everest Engine::eeDocumentContainer::TeeDocumentContainer
-//
-// Контейнер документа.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeDocumentContainer.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest_Engine\eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  eeDocumentContainerPrim,
-  nevTools,
-  k2TagGen,
-  nevBase
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , eeDocumentContainerPrim
+ , k2TagGen
+ , nevTools
+ , nevBase
+;
 
-{$If defined(Nemesis)}
 type
  TeeDocumentContainer = class(TeeDocumentContainerPrim)
   {* Контейнер документа. }
- protected
- // overridden protected methods
+  protected
    function GetGeneratorPrim(const aView: InevView;
     const aGeneratorTarget: IUnknown): Tk2TagGenerator; override;
    procedure DoGetWriter(aFormat: TnevFormat;
@@ -44,49 +28,43 @@ type
     var theWriter: Tk2TagGenerator;
     aCodePage: Integer); override;
  end;//TeeDocumentContainer
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  evCommentParaDecorator,
-  eeProcessor,
-  evLeafParaDecorationsHolderEliminator,
-  evBlocksEliminator,
-  evdPageParamsFilter,
-  evOp
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  CommentPara_Const,
-  evTypes,
-  evGeneratorsInterfaces,
-  SysUtils,
-  evUserCommentFilter,
-  evCommentDecorator,
-  evNestedDocumentEliminator,
-  afwFacade,
-  evCommentParaAdder,
-  evPageBreakEliminator,
-  evControlParaFilter,
-  evTagsListFilter,
-  k2Tags,
-  LeafPara_Const,
-  evBlocksButNotCommentsEliminator,
-  evStrictContentsElementEliminator,
-  l3Interfaces
-  ;
-{$IfEnd} //Nemesis
-
-{$If defined(Nemesis)}
-
-// start class TeeDocumentContainer
+ l3ImplUses
+ , evCommentParaDecorator
+ , eeProcessor
+ , evLeafParaDecorationsHolderEliminator
+ , evBlocksEliminator
+ , evdPageParamsFilter
+ , evOp
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , CommentPara_Const
+ , evTypes
+ , evGeneratorsInterfaces
+ , SysUtils
+ , evUserCommentFilter
+ , evCommentDecorator
+ , evNestedDocumentEliminator
+ , afwFacade
+ , evCommentParaAdder
+ , evPageBreakEliminator
+ , evControlParaFilter
+ , evTagsListFilter
+ , k2Tags
+ , LeafPara_Const
+ , evBlocksButNotCommentsEliminator
+ , evStrictContentsElementEliminator
+ , l3Interfaces
+;
 
 function TeeDocumentContainer.GetGeneratorPrim(const aView: InevView;
-  const aGeneratorTarget: IUnknown): Tk2TagGenerator;
+ const aGeneratorTarget: IUnknown): Tk2TagGenerator;
 //#UC START# *47F217080359_4680E83D00C8_var*
 var
  l_MI        : InevBasePoint;
@@ -220,9 +198,9 @@ begin
 end;//TeeDocumentContainer.GetGeneratorPrim
 
 procedure TeeDocumentContainer.DoGetWriter(aFormat: TnevFormat;
-  anInternal: Boolean;
-  var theWriter: Tk2TagGenerator;
-  aCodePage: Integer);
+ anInternal: Boolean;
+ var theWriter: Tk2TagGenerator;
+ aCodePage: Integer);
 //#UC START# *483E6C150277_4680E83D00C8_var*
 //#UC END# *483E6C150277_4680E83D00C8_var*
 begin
@@ -254,7 +232,6 @@ begin
  end;//not anInternal
 //#UC END# *483E6C150277_4680E83D00C8_impl*
 end;//TeeDocumentContainer.DoGetWriter
-
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 end.

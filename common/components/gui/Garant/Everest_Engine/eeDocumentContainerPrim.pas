@@ -1,63 +1,44 @@
 unit eeDocumentContainerPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest Engine"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest_Engine/eeDocumentContainerPrim.pas"
-// Начат: 30.03.2011 20:15
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For F1::Everest Engine::eeDocumentContainer::TeeDocumentContainerPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeDocumentContainerPrim.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest_Engine\eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  nevPrintableDocumentContainer,
-  nevTools,
-  evOpProc,
-  nevDocumentContainer
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , nevPrintableDocumentContainer
+ , nevTools
+ , nevDocumentContainer
+ , evOpProc
+;
 
-{$If defined(Nemesis)}
 type
  TeeDocumentContainerPrim = class(TnevPrintableDocumentContainer)
- protected
- // overridden protected methods
+  protected
    function DoGetSubEx(anID: Integer;
     aLayerID: Integer): IevSub; override;
    procedure MakeProcessor(out theProcessor: TevCustomUndoProcessor); override;
    function PartGeneratorClass: RevDocumentPartGenerator; override;
  end;//TeeDocumentContainerPrim
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  eeProcessor,
-  evDefaultContext,
-  eeDocumentPartGenerator,
-  eeSubExport
-  ;
-{$IfEnd} //Nemesis
-
-{$If defined(Nemesis)}
-
-// start class TeeDocumentContainerPrim
+ l3ImplUses
+ , eeProcessor
+ , evDefaultContext
+ , eeDocumentPartGenerator
+ , eeSubExport
+;
 
 function TeeDocumentContainerPrim.DoGetSubEx(anID: Integer;
-  aLayerID: Integer): IevSub;
+ aLayerID: Integer): IevSub;
 //#UC START# *47F27721012A_4D9357060196_var*
 //#UC END# *47F27721012A_4D9357060196_var*
 begin
@@ -86,7 +67,6 @@ begin
  Result := TeeDocumentPartGenerator;
 //#UC END# *48033300004D_4D9357060196_impl*
 end;//TeeDocumentContainerPrim.PartGeneratorClass
-
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 end.

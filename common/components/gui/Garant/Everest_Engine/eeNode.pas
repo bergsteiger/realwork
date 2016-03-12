@@ -1,38 +1,26 @@
 unit eeNode;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest Engine"
-// Модуль: "w:/common/components/gui/Garant/Everest_Engine/eeNode.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For F1::Everest Engine::Nodes::TeeNode
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeNode.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest_Engine\eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 
 uses
-  l3CacheableBase,
-  l3TreeInterfaces,
-  eeInterfaces,
-  l3IID,
-  l3Interfaces
-  ;
+ l3IntfUses
+ , l3CacheableBase
+ , eeInterfaces
+ , l3TreeInterfaces
+ , l3Interfaces
+ , l3IID
+;
 
 type
  TeeNode = class(Tl3CacheableBase, IeeNode)
- private
- // private fields
-   f_Node : Il3SimpleNode;
- protected
- // realized methods
+  private
+   f_Node: Il3SimpleNode;
+  protected
    function Get_Text: Il3CString;
    procedure Set_Text(const aValue: Il3CString);
    function Get_ID: Integer;
@@ -48,42 +36,33 @@ type
    function Get_ThisChildrenCount: Integer;
    function InsertChild(const aNode: IeeNode): IeeNode;
    function InsertChildBefore(const aNextChild: IeeNode;
-     const aChild: IeeNode): IeeNode;
+    const aChild: IeeNode): IeeNode;
    procedure Changing;
-     {* Сигнатура метода Changing }
    procedure Changed;
-     {* Сигнатура метода Changed }
    procedure Remove;
-     {* Сигнатура метода Remove }
    procedure Delete;
-     {* Сигнатура метода Delete }
    procedure RemoveChildren;
-     {* Сигнатура метода RemoveChildren }
    function Move(aDirection: TeeDirection): Boolean;
    procedure RelocateChild(const aChild: IeeNode);
-     {* перемещает указанного ребенка, руководствуясь критериями сортировки относительно других детей (в пределах одного уровня) }
+    {* перемещает указанного ребенка, руководствуясь критериями сортировки относительно других детей (в пределах одного уровня) }
    procedure SortChilds;
-     {* Сигнатура метода SortChilds }
    function GetLevelForParent(const aParent: IeeNode): Integer;
-     {* Рассчитывает уровень текущей ноды относительно заданного Paretnt'а }
+    {* Рассчитывает уровень текущей ноды относительно заданного Paretnt'а }
    function Iterate(anAction: TeeNodeAction;
-     anIterMode: Integer = 0;
-     const aFromNode: IeeNode = nil): IeeNode;
-     {* перебрать все дочерние узлы. IterMode см. imExpandOnly etc. }
+    anIterMode: Integer = 0;
+    const aFromNode: IeeNode = nil): IeeNode;
+    {* перебрать все дочерние узлы. IterMode см. imExpandOnly etc. }
    function IterateF(anAction: TeeNodeAction;
-     anIterMode: Integer = 0;
-     const aFromNode: IeeNode = nil): IeeNode;
-     {* перебрать все дочерние узлы и освободить заглушку для Action }
+    anIterMode: Integer = 0;
+    const aFromNode: IeeNode = nil): IeeNode;
+    {* перебрать все дочерние узлы и освободить заглушку для Action }
    function IsSameNode(const aNode: IeeNode): Boolean;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
- public
- // public methods
+    {* Реализация запроса интерфейса }
+  public
    constructor Create(const aNode: Il3SimpleNode); reintroduce;
    class function Make(const aNode: Il3SimpleNode): IeeNode;
  end;//TeeNode
@@ -91,17 +70,16 @@ type
 implementation
 
 uses
-  eeNodeUtils,
-  SysUtils,
-  l3Base,
-  l3Tree_TLB,
-  l3Types,
-  l3String,
-  l3Nodes,
-  l3InterfacesMisc
-  ;
-
-// start class TeeNode
+ l3ImplUses
+ , eeNodeUtils
+ , SysUtils
+ , l3Base
+ , l3Tree_TLB
+ , l3Types
+ , l3String
+ , l3Nodes
+ , l3InterfacesMisc
+;
 
 constructor TeeNode.Create(const aNode: Il3SimpleNode);
 //#UC START# *54C4FE700267_4AE8269E010D_var*
@@ -350,7 +328,7 @@ begin
 end;//TeeNode.InsertChild
 
 function TeeNode.InsertChildBefore(const aNextChild: IeeNode;
-  const aChild: IeeNode): IeeNode;
+ const aChild: IeeNode): IeeNode;
 //#UC START# *5481A2C20167_4AE8269E010D_var*
 var
  l_NextChild,
@@ -494,6 +472,7 @@ begin
 end;//TeeNode.Move
 
 procedure TeeNode.RelocateChild(const aChild: IeeNode);
+ {* перемещает указанного ребенка, руководствуясь критериями сортировки относительно других детей (в пределах одного уровня) }
 //#UC START# *5481A3190230_4AE8269E010D_var*
 var
  l_Child,
@@ -540,6 +519,7 @@ begin
 end;//TeeNode.SortChilds
 
 function TeeNode.GetLevelForParent(const aParent: IeeNode): Integer;
+ {* Рассчитывает уровень текущей ноды относительно заданного Paretnt'а }
 //#UC START# *5481A3590043_4AE8269E010D_var*
 var
  l_Parent : Il3SimpleNode;
@@ -572,8 +552,9 @@ begin
 end;//TeeNode.GetLevelForParent
 
 function TeeNode.Iterate(anAction: TeeNodeAction;
-  anIterMode: Integer = 0;
-  const aFromNode: IeeNode = nil): IeeNode;
+ anIterMode: Integer = 0;
+ const aFromNode: IeeNode = nil): IeeNode;
+ {* перебрать все дочерние узлы. IterMode см. imExpandOnly etc. }
 //#UC START# *5481A3900306_4AE8269E010D_var*
  function l_CheckNode(const aNode: Il3Node): Boolean;
  begin
@@ -608,8 +589,9 @@ begin
 end;//TeeNode.Iterate
 
 function TeeNode.IterateF(anAction: TeeNodeAction;
-  anIterMode: Integer = 0;
-  const aFromNode: IeeNode = nil): IeeNode;
+ anIterMode: Integer = 0;
+ const aFromNode: IeeNode = nil): IeeNode;
+ {* перебрать все дочерние узлы и освободить заглушку для Action }
 //#UC START# *5481A3D0039F_4AE8269E010D_var*
 //#UC END# *5481A3D0039F_4AE8269E010D_var*
 begin
@@ -648,6 +630,7 @@ begin
 end;//TeeNode.IsSameNode
 
 procedure TeeNode.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4AE8269E010D_var*
 //#UC END# *479731C50290_4AE8269E010D_var*
 begin
@@ -658,7 +641,8 @@ begin
 end;//TeeNode.Cleanup
 
 function TeeNode.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_4AE8269E010D_var*
 //#UC END# *4A60B23E00C3_4AE8269E010D_var*
 begin
