@@ -195,7 +195,7 @@ var
   begin
    if not FileExists(aIn) then
    begin
-    l3FileUtils.CopyFile(aOut, aIn);
+    CopyFile(aOut, aIn);
     if not IsFakeCVS then
     begin
      if OutputFolderName <> '' then
@@ -205,7 +205,7 @@ var
       l_CVS := l_CVSPath + ExtractFileName(aIn);
       if not FileExists(l_CVS) then
       begin
-       l3FileUtils.CopyFile(aOut, l_CVS);
+       CopyFile(aOut, l_CVS);
        ToLog(Format('Сделан эталон для помещения в CVS - "%s"', [l_CVS]));
       end;//not FileExists(l_CVS)
       CheckExternalPicture(True, l_CVSPath, l_ComparedImage);
@@ -608,8 +608,7 @@ var
 
  function l_CalcEtalonFile(const aFileName: string): Boolean;
  begin
-  if ExtractFileName(aFileName) <> '.gitignore' then  
-   Inc(l_EtalonFilesCount);
+  Inc(l_EtalonFilesCount);
   Result := True;
  end;
 
@@ -664,16 +663,16 @@ var
     l_CVS := NormalDir(l_CVSDir) + ExtractFileName(l_ExtraEtalon);
     if aMakeEtalon then
     begin
-     l3FileUtils.CopyFile(l_Path, l_ExtraEtalon);
+     CopyFile(l_Path, l_ExtraEtalon);
      if not FileExists(l_CVS) then
-      l3FileUtils.CopyFile(l_Path, l_CVS)
+      CopyFile(l_Path, l_CVS)
     end // if aMakeEtalon then
     else
     begin
      l_ExtraEtalon := FileFromCurrent(l_ExtraEtalon);
-     if l3FileUtils.GetFileSize(l_CVS) <= 0 then Continue;
+     if GetFileSize(l_CVS) <= 0 then Continue;
      if FileExists(l_CVS) then
-      l3FileUtils.CopyFile(l_CVS, l_ExtraEtalon, cmNoBakCopy);
+      CopyFile(l_CVS, l_ExtraEtalon, cmNoBakCopy);
      l_ExtraDiff := ChangeFileExt(l_Path, '.diff' + l_Ext);
      l_ResultCode := l3IsImageEqual(l_ExtraEtalon, l_Path, l_ExtraDiff);
      if l_ResultCode = l3_rImagesDissimilar then

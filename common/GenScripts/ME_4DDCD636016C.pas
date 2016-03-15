@@ -114,7 +114,7 @@ type
    function RedactionCurrentPara: IeeLeafPara; override;
     {* Текущий параграф редакции для синхронизации с окном сравннения редакций }
    procedure GotoPoint(aPointID: Cardinal;
-    aPointType: TDocumentPositionType = Sub); override;
+    aPointType: TDocumentPositionType = bsTypesNew.dptSub); override;
     {* Переход на точку в документе }
    function HyperlinkDocument: IDocument; override;
     {* Документ ИЗ которого ведёт ссылка }
@@ -144,7 +144,7 @@ type
    function GetRedactionOnLeftEdition: Integer; override;
   public
    function Document_SetPosition_Execute(aPointID: Cardinal;
-    aPointType: TDocumentPositionType = Sub;
+    aPointType: TDocumentPositionType = bsTypesNew.dptSub;
     aUserType: Integer = 0): Boolean;
    procedure Document_SetPosition(const aParams: IvcmExecuteParamsPrim);
    procedure Edition_ReturnToDocument_Test(const aParams: IvcmTestParamsPrim);
@@ -395,7 +395,7 @@ begin
 end;//TPrimChangesBetweenEditonsForm.RedactionCurrentPara
 
 procedure TPrimChangesBetweenEditonsForm.GotoPoint(aPointID: Cardinal;
- aPointType: TDocumentPositionType = Sub);
+ aPointType: TDocumentPositionType = bsTypesNew.dptSub);
  {* Переход на точку в документе }
 //#UC START# *4A8164E801AE_4DDCD636016C_var*
 var
@@ -527,7 +527,7 @@ begin
 end;//TPrimChangesBetweenEditonsForm.IsDrug
 
 function TPrimChangesBetweenEditonsForm.Document_SetPosition_Execute(aPointID: Cardinal;
- aPointType: TDocumentPositionType = Sub;
+ aPointType: TDocumentPositionType = bsTypesNew.dptSub;
  aUserType: Integer = 0): Boolean;
 //#UC START# *4AE9D38A02DA_4DDCD636016Cexec_var*
 //#UC END# *4AE9D38A02DA_4DDCD636016Cexec_var*
