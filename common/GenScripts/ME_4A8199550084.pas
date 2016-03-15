@@ -125,7 +125,7 @@ type
     aBehaviour: TbsProcessHyperLinkBehaviour;
     aNeedCorrectRedaction: Boolean;
     aForceOpen: Boolean = False;
-    aPointType: TDocumentPositionType = Sub);
+    aPointType: TDocumentPositionType = bsTypesNew.dptSub);
    function GetContainer(aBehaviour: TbsProcessHyperLinkBehaviour): IvcmContainer;
   protected
    procedure Cleanup; override;
@@ -405,7 +405,7 @@ procedure TbsHyperLinkProcessor.OpenDocumentLink(const aDocument: IDocument;
  aBehaviour: TbsProcessHyperLinkBehaviour;
  aNeedCorrectRedaction: Boolean;
  aForceOpen: Boolean = False;
- aPointType: TDocumentPositionType = Sub);
+ aPointType: TDocumentPositionType = bsTypesNew.dptSub);
 //#UC START# *51AF2A2E0257_4B0A77F30378_var*
   function lpDocInfo(const aData: IdeDocInfo): Boolean;
   {* При открытии ссылки на документ. }

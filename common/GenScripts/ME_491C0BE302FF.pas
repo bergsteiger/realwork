@@ -119,7 +119,7 @@ type
     aLanguage: TbsLanguage); reintroduce; overload;
    class function Make(const aDoc: IDocument;
     const aPos: TbsDocPos;
-    aLanguage: TbsLanguage = LG_RUSSIAN): IdeDocInfo; overload;
+    aLanguage: TbsLanguage = bsTypes.LG_RUSSIAN): IdeDocInfo; overload;
    class function Make: IdeDocInfo; overload;
    class function Make(const aDoc: IbsDocumentContainer;
     const aPos: TbsDocPos;
@@ -281,7 +281,7 @@ end;//TdeDocInfo.Create
 
 class function TdeDocInfo.Make(const aDoc: IDocument;
  const aPos: TbsDocPos;
- aLanguage: TbsLanguage = LG_RUSSIAN): IdeDocInfo;
+ aLanguage: TbsLanguage = bsTypes.LG_RUSSIAN): IdeDocInfo;
 //#UC START# *4B1E76F30227_491C0BE302FF_var*
 //#UC END# *4B1E76F30227_491C0BE302FF_var*
 begin
