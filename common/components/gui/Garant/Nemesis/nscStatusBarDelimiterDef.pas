@@ -26,10 +26,10 @@ type
    function Get_Width: integer;
   public
    constructor Create(aSeparatorVisible: Boolean;
-    aSeparatorPos: TsbdSeparatorPos = spMiddle;
+    aSeparatorPos: TsbdSeparatorPos = nscNewInterfaces.spMiddle;
     aWidth: Integer = 0); reintroduce;
    class function Make(aSeparatorVisible: Boolean;
-    aSeparatorPos: TsbdSeparatorPos = spMiddle;
+    aSeparatorPos: TsbdSeparatorPos = nscNewInterfaces.spMiddle;
     aWidth: Integer = 0): InscStatusBarDelimiterDef; reintroduce;
  end;//TnscStatusBarDelimiterDef
 {$IfEnd} // Defined(Nemesis)
@@ -42,7 +42,7 @@ uses
 ;
 
 constructor TnscStatusBarDelimiterDef.Create(aSeparatorVisible: Boolean;
- aSeparatorPos: TsbdSeparatorPos = spMiddle;
+ aSeparatorPos: TsbdSeparatorPos = nscNewInterfaces.spMiddle;
  aWidth: Integer = 0);
 //#UC START# *4FEC49660337_4FEC3C5B007C_var*
 //#UC END# *4FEC49660337_4FEC3C5B007C_var*
@@ -56,7 +56,7 @@ begin
 end;//TnscStatusBarDelimiterDef.Create
 
 class function TnscStatusBarDelimiterDef.Make(aSeparatorVisible: Boolean;
- aSeparatorPos: TsbdSeparatorPos = spMiddle;
+ aSeparatorPos: TsbdSeparatorPos = nscNewInterfaces.spMiddle;
  aWidth: Integer = 0): InscStatusBarDelimiterDef;
 var
  l_Inst : TnscStatusBarDelimiterDef;

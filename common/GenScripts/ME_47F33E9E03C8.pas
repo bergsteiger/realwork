@@ -56,7 +56,7 @@ type
     aIsChanged: Boolean); reintroduce;
    class function Make(const aList: IDynList;
     aTimeMachineOff: Boolean = True;
-    aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc = wdAlwaysOpen;
+    aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc = bsTypes.wdAlwaysOpen;
     const aNodeForPositioning: Il3SimpleNode = nil;
     const aSearchInfo: IdeSearchInfo = nil;
     aAllDocumentsFiltered: Boolean = False;
@@ -104,7 +104,7 @@ end;//TdeList.Create
 
 class function TdeList.Make(const aList: IDynList;
  aTimeMachineOff: Boolean = True;
- aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc = wdAlwaysOpen;
+ aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc = bsTypes.wdAlwaysOpen;
  const aNodeForPositioning: Il3SimpleNode = nil;
  const aSearchInfo: IdeSearchInfo = nil;
  aAllDocumentsFiltered: Boolean = False;

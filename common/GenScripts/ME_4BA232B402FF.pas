@@ -38,10 +38,10 @@ type
   public
    constructor Create(aFilterType: TnsFolderFilter;
     aFilterFor: TnsFolderFilterFor;
-    aShowFolders: TnsShowFolders = sfAll); reintroduce;
+    aShowFolders: TnsShowFolders = FoldersDomainInterfaces.sfAll); reintroduce;
    class function Make(aFilterType: TnsFolderFilter;
     aFilterFor: TnsFolderFilterFor;
-    aShowFolders: TnsShowFolders = sfAll): _l3Notifier_; reintroduce;
+    aShowFolders: TnsShowFolders = FoldersDomainInterfaces.sfAll): _l3Notifier_; reintroduce;
  end;//TnsFolderFilterInfo
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -58,7 +58,7 @@ uses
 
 constructor TnsFolderFilterInfo.Create(aFilterType: TnsFolderFilter;
  aFilterFor: TnsFolderFilterFor;
- aShowFolders: TnsShowFolders = sfAll);
+ aShowFolders: TnsShowFolders = FoldersDomainInterfaces.sfAll);
 //#UC START# *4BA3A8330320_4BA232B402FF_var*
 //#UC END# *4BA3A8330320_4BA232B402FF_var*
 begin
@@ -72,7 +72,7 @@ end;//TnsFolderFilterInfo.Create
 
 class function TnsFolderFilterInfo.Make(aFilterType: TnsFolderFilter;
  aFilterFor: TnsFolderFilterFor;
- aShowFolders: TnsShowFolders = sfAll): _l3Notifier_;
+ aShowFolders: TnsShowFolders = FoldersDomainInterfaces.sfAll): _l3Notifier_;
 var
  l_Inst : TnsFolderFilterInfo;
 begin

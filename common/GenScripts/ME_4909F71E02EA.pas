@@ -104,7 +104,7 @@ type
    procedure ClearFields; override;
   public
    class function Make(const aDocument: IDocument;
-    aOnlyPrevEditions: TnsEditionsTreeKind = All): Il3Node; reintroduce;
+    aOnlyPrevEditions: TnsEditionsTreeKind = ns_etkAll): Il3Node; reintroduce;
    class function MakeForPrevEditions(const aDocument: IDocument): Il3Node;
    class function MakeForNextEditions(const aDocument: IDocument): Il3Node;
    constructor Create(const aDocument: IDocument;
@@ -195,7 +195,7 @@ const
   {* 'Недействующие' }
 
 class function TnsEditionsRoot.Make(const aDocument: IDocument;
- aOnlyPrevEditions: TnsEditionsTreeKind = All): Il3Node;
+ aOnlyPrevEditions: TnsEditionsTreeKind = ns_etkAll): Il3Node;
 var
  l_Inst : TnsEditionsRoot;
 begin

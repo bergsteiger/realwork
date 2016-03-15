@@ -33,7 +33,7 @@ type
    procedure AssignFromClone(const aData: IdeDocInfo); override;
   public
    class function Make(const aDocument: IDocument;
-    aDictLanguage: TbsLanguage = LG_RUSSIAN;
+    aDictLanguage: TbsLanguage = bsTypes.LG_RUSSIAN;
     const aContextMap: InsLangToContextMap = nil): IdeDocInfo;
    class function Convert(const aDocInfo: IdeDocInfo;
     aLang: TbsLanguage): IdeDiction;
@@ -50,7 +50,7 @@ uses
 ;
 
 class function TdeDiction.Make(const aDocument: IDocument;
- aDictLanguage: TbsLanguage = LG_RUSSIAN;
+ aDictLanguage: TbsLanguage = bsTypes.LG_RUSSIAN;
  const aContextMap: InsLangToContextMap = nil): IdeDocInfo;
 //#UC START# *4B1E9B7E023E_4925538201C4_var*
 var
