@@ -68,7 +68,7 @@ type
   protected
    procedure PositionOnRequestedSub(aSubID: TnsWarningSub);
    procedure GotoPoint(aPointID: Cardinal;
-    aPointType: TDocumentPositionType = Sub); override;
+    aPointType: TDocumentPositionType = bsTypesNew.dptSub); override;
     {* Переход на точку в документе }
    function HyperlinkDocument: IDocument; override;
     {* Документ ИЗ которого ведёт ссылка }
@@ -181,7 +181,7 @@ begin
 end;//TPrimWarningForm.MakeDocumentContainer
 
 procedure TPrimWarningForm.GotoPoint(aPointID: Cardinal;
- aPointType: TDocumentPositionType = Sub);
+ aPointType: TDocumentPositionType = bsTypesNew.dptSub);
  {* Переход на точку в документе }
 //#UC START# *4A8164E801AE_4979E5520222_var*
 //#UC END# *4A8164E801AE_4979E5520222_var*

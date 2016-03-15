@@ -234,7 +234,7 @@ type
     {* Информация о документе }
    function Loadable_Load_Execute(const aNode: IeeNode;
     const aData: IUnknown;
-    anOp: TListLogicOperation = LLO_NONE): Boolean;
+    anOp: TListLogicOperation = nsTypes.LLO_NONE): Boolean;
     {* Коллеги, кто может описать этот метод? }
    procedure Loadable_Load(const aParams: IvcmExecuteParamsPrim);
     {* Коллеги, кто может описать этот метод? }
@@ -882,7 +882,7 @@ end;//TPrimDocumentWithFlashForm.Document_GetAttributesFrmAct_Execute
 
 function TPrimDocumentWithFlashForm.Loadable_Load_Execute(const aNode: IeeNode;
  const aData: IUnknown;
- anOp: TListLogicOperation = LLO_NONE): Boolean;
+ anOp: TListLogicOperation = nsTypes.LLO_NONE): Boolean;
  {* Коллеги, кто может описать этот метод? }
 //#UC START# *49895A2102E8_497EDE780363exec_var*
 var
