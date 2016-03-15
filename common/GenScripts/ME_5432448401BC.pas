@@ -27,6 +27,7 @@ type
 
  TdaBaseFlag = (
   bfAAC
+  , bfAutoLink
  );//TdaBaseFlag
 
  TdaBaseFlags = set of TdaBaseFlag;

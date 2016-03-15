@@ -26,9 +26,9 @@ type
     {* Функция очистки полей объекта. }
   public
    constructor Create(const aSelectField: IdaSelectField;
-    aSortOrder: TdaSortOrder = da_soAscending); reintroduce;
+    aSortOrder: TdaSortOrder = daTypes.da_soAscending); reintroduce;
    class function Make(const aSelectField: IdaSelectField;
-    aSortOrder: TdaSortOrder = da_soAscending): IdaSortField; reintroduce;
+    aSortOrder: TdaSortOrder = daTypes.da_soAscending): IdaSortField; reintroduce;
  end;//TdaSortField
 
 implementation
@@ -38,7 +38,7 @@ uses
 ;
 
 constructor TdaSortField.Create(const aSelectField: IdaSelectField;
- aSortOrder: TdaSortOrder = da_soAscending);
+ aSortOrder: TdaSortOrder = daTypes.da_soAscending);
 //#UC START# *5680EF4703D5_5680EF290107_var*
 //#UC END# *5680EF4703D5_5680EF290107_var*
 begin
@@ -50,7 +50,7 @@ begin
 end;//TdaSortField.Create
 
 class function TdaSortField.Make(const aSelectField: IdaSelectField;
- aSortOrder: TdaSortOrder = da_soAscending): IdaSortField;
+ aSortOrder: TdaSortOrder = daTypes.da_soAscending): IdaSortField;
 var
  l_Inst : TdaSortField;
 begin

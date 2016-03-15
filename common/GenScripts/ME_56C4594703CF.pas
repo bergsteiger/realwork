@@ -41,7 +41,7 @@ type
     const aField: IdaFieldDescription;
     const aQuery: IdaTabledQuery): IdaCondition;
    function MakeSortField(const aSelectField: IdaSelectField;
-    aSortOrder: TdaSortOrder = da_soAscending): IdaSortField;
+    aSortOrder: TdaSortOrder = daTypes.da_soAscending): IdaSortField;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -171,7 +171,7 @@ begin
 end;//TcaTableQueryFactory.MakeSubQueryCondition
 
 function TcaTableQueryFactory.MakeSortField(const aSelectField: IdaSelectField;
- aSortOrder: TdaSortOrder = da_soAscending): IdaSortField;
+ aSortOrder: TdaSortOrder = daTypes.da_soAscending): IdaSortField;
 //#UC START# *56811844032C_56C4594703CF_var*
 //#UC END# *56811844032C_56C4594703CF_var*
 begin
