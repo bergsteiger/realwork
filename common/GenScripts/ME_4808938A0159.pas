@@ -29,7 +29,7 @@ type
    constructor Create(parType: TCLPType;
     const name: AnsiString;
     const description: AnsiString = '';
-    const defaultValue: AnsiString = INVALID_DEFAULT_VALUE); reintroduce;
+    const defaultValue: AnsiString = atParameter.INVALID_DEFAULT_VALUE); reintroduce;
   public
    property ParamType: TCLPType
     read f_ParamType;
@@ -55,7 +55,7 @@ end;//TatCommandLineParameter.pm_GetIsRequired
 constructor TatCommandLineParameter.Create(parType: TCLPType;
  const name: AnsiString;
  const description: AnsiString = '';
- const defaultValue: AnsiString = INVALID_DEFAULT_VALUE);
+ const defaultValue: AnsiString = atParameter.INVALID_DEFAULT_VALUE);
 //#UC START# *4808941B0073_4808938A0159_var*
 //#UC END# *4808941B0073_4808938A0159_var*
 begin
