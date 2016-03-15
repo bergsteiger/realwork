@@ -29,7 +29,7 @@ type
   procedure Send(aMessage: TncsMessage);
   function WaitForReply(aMessage: TncsMessage;
    var theReply: TncsMessage;
-   aTimeOut: LongWord = INFINITE): Boolean;
+   aTimeOut: LongWord = Windows.INFINITE): Boolean;
   property Connected: Boolean
    read Get_Connected;
    {* Есть физический коннект }

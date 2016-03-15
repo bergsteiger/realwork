@@ -61,7 +61,7 @@ type
    procedure Send(aMessage: TncsMessage);
    function WaitForReply(aMessage: TncsMessage;
     var theReply: TncsMessage;
-    aTimeOut: LongWord = INFINITE): Boolean;
+    aTimeOut: LongWord = Windows.INFINITE): Boolean;
    function Get_Connected: Boolean;
    function Get_ClientID: TCsClientId;
    procedure Set_ClientID(aValue: TCsClientId);
@@ -224,7 +224,7 @@ end;//TncsTransporter.Send
 
 function TncsTransporter.WaitForReply(aMessage: TncsMessage;
  var theReply: TncsMessage;
- aTimeOut: LongWord = INFINITE): Boolean;
+ aTimeOut: LongWord = Windows.INFINITE): Boolean;
 //#UC START# *5464B52F02D5_544A09EE005F_var*
 //#UC END# *5464B52F02D5_544A09EE005F_var*
 begin

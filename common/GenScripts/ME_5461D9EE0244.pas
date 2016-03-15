@@ -36,7 +36,7 @@ type
    procedure Clear;
    function WaitForReply(aMessage: TncsMessage;
     var theReply: TncsMessage;
-    aTimeOut: LongWord = INFINITE): Boolean;
+    aTimeOut: LongWord = Windows.INFINITE): Boolean;
  end;//TncsReplyWaiter
 {$IfEnd} // NOT Defined(Nemesis)
 
@@ -134,7 +134,7 @@ end;//TncsReplyWaiter.Clear
 
 function TncsReplyWaiter.WaitForReply(aMessage: TncsMessage;
  var theReply: TncsMessage;
- aTimeOut: LongWord = INFINITE): Boolean;
+ aTimeOut: LongWord = Windows.INFINITE): Boolean;
 //#UC START# *54630A80027D_5461D9EE0244_var*
 var
  l_Desc: TncsReplyDescription;

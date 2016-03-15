@@ -13,6 +13,7 @@ uses
  , csClientMessageRequest
  , l3ProtoObject
  , ddClientMessageSortableListPrim
+ , evdTaskTypes
  , SyncObjs
 ;
 
@@ -40,6 +41,7 @@ type
   public
    procedure Add(anItem: TddClientMessage);
    procedure Clear;
+   procedure PackMessagesExceptTheseTypes(AllowedTypes: TCsNotificationTypes);
    procedure ForEachF(anAction: ddClientMessageIterator_ForEachF_Action);
   protected
    property Items: TddClientMessageSortableListPrim
@@ -106,6 +108,25 @@ begin
  end;//try..finally
 //#UC END# *53A2FA2003C6_53A2EA3D0044_impl*
 end;//TddClientMessageSortableList.Clear
+
+procedure TddClientMessageSortableList.PackMessagesExceptTheseTypes(AllowedTypes: TCsNotificationTypes);
+//#UC START# *56E7B945026A_53A2EA3D0044_var*
+var
+ l_IDX: Integer;
+//#UC END# *56E7B945026A_53A2EA3D0044_var*
+begin
+//#UC START# *56E7B945026A_53A2EA3D0044_impl*
+ Lock;
+ try
+  for l_IDX := Items.Count - 1 downto 0 do
+   if (Ord(Items[l_IDX].NotifyType) < Ord(Low(TCsNotificationType))) or (Ord(Items[l_IDX].NotifyType) > Ord(High(TCsNotificationType))) or
+     (not (Items[l_IDX].NotifyType in AllowedTypes)) then
+     Items.Delete(l_IDX);
+ finally
+  Unlock;
+ end;
+//#UC END# *56E7B945026A_53A2EA3D0044_impl*
+end;//TddClientMessageSortableList.PackMessagesExceptTheseTypes
 
 procedure TddClientMessageSortableList.ForEachF(anAction: ddClientMessageIterator_ForEachF_Action);
 //#UC START# *53A2FAD90339_53A2EA3D0044_var*

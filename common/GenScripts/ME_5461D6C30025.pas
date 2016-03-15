@@ -31,7 +31,7 @@ type
   public
    constructor Create(aMessage: TncsMessage); reintroduce;
    procedure RequestEvent;
-   function WaitForReply(aTimeOut: LongWord = INFINITE): Boolean;
+   function WaitForReply(aTimeOut: LongWord = Windows.INFINITE): Boolean;
    procedure AbortWait;
   public
    property Message: TncsMessage
@@ -84,7 +84,7 @@ begin
 //#UC END# *5463220800C9_5461D6C30025_impl*
 end;//TncsReplyDescription.RequestEvent
 
-function TncsReplyDescription.WaitForReply(aTimeOut: LongWord = INFINITE): Boolean;
+function TncsReplyDescription.WaitForReply(aTimeOut: LongWord = Windows.INFINITE): Boolean;
 //#UC START# *546335030341_5461D6C30025_var*
 //#UC END# *546335030341_5461D6C30025_var*
 begin

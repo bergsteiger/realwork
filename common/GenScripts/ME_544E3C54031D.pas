@@ -34,7 +34,7 @@ type
   public
    procedure SignalMessageReady;
    procedure Push(aMessage: TncsMessage);
-   function WaitForMessage(aTimeOut: LongWord = INFINITE): Boolean;
+   function WaitForMessage(aTimeOut: LongWord = Windows.INFINITE): Boolean;
    function ExtractMessage(out theMessage: TncsMessage): Boolean;
     {* Увеличивает счетчик theMessage! Требуется theMessage.Free }
   public
@@ -104,7 +104,7 @@ begin
 //#UC END# *544E3DE3032D_544E3C54031D_impl*
 end;//TncsMessageQueue.Push
 
-function TncsMessageQueue.WaitForMessage(aTimeOut: LongWord = INFINITE): Boolean;
+function TncsMessageQueue.WaitForMessage(aTimeOut: LongWord = Windows.INFINITE): Boolean;
 //#UC START# *5452022F026A_544E3C54031D_var*
 //#UC END# *5452022F026A_544E3C54031D_var*
 begin
