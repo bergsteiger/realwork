@@ -2046,144 +2046,149 @@ var
 //#UC START# *5152BAD2033B_4CFFE36B00FA_var*
 //#UC END# *5152BAD2033B_4CFFE36B00FA_var*
 //#UC START# *5152BB1A0168_4CFFE36B00FA_impl*
- f_NeedCurrentVisible := False;
- if csDesigning in ComponentState then
-  Exit;
- if Index < 0 then
-  Index := -1;
- Index := Min(Index, Pred(f_Total));
- if Index <> f_TopIndex then
- begin
-  if (Index >= 0) and (Index <= f_HighIndex) then
+ g_InSetTop := true;
+ try
+  f_NeedCurrentVisible := False;
+  if csDesigning in ComponentState then
+   Exit;
+  if Index < 0 then
+   Index := -1;
+  Index := Min(Index, Pred(f_Total));
+  if Index <> f_TopIndex then
   begin
-   CN := Canvas;
-   CN.BeginPaint;
-   try
-    CN.DrawEnabled := true;
+   if (Index >= 0) and (Index <= f_HighIndex) then
+   begin
+    CN := Canvas;
+    CN.BeginPaint;
+    try
+     CN.DrawEnabled := true;
 
-    if (f_Current >= f_TopIndex) and (f_Current < f_TopIndex + ItemOnScreen(True)) then
-     vlbDrawFocusRect(CN, f_Current);
+     if (f_Current >= f_TopIndex) and (f_Current < f_TopIndex + ItemOnScreen(True)) then
+      vlbDrawFocusRect(CN, f_Current);
 
-    SaveD := f_TopIndex;
+     SaveD := f_TopIndex;
 
-    {if we can't make the requested item the top one, at least show it}
-    //if f_MultiStrokeItem or (Index + f_Rows -1 <= f_HighIndex)
-    // then f_TopIndex := Index
-    // else f_TopIndex := f_HighIndex - f_Rows + 1;
+     {if we can't make the requested item the top one, at least show it}
+     //if f_MultiStrokeItem or (Index + f_Rows -1 <= f_HighIndex)
+     // then f_TopIndex := Index
+     // else f_TopIndex := f_HighIndex - f_Rows + 1;
 
-    f_TopIndex := Index;
-    if f_TopIndex < 0 then
-     f_TopIndex := 0;
+     f_TopIndex := Index;
+     if f_TopIndex < 0 then
+      f_TopIndex := 0;
 
-    AlignTopIndex;
+     AlignTopIndex;
 
-    vlbSetVScrollPos;
+     vlbSetVScrollPos;
 
-    if SaveD <> f_TopIndex then
-    begin
-     ClipArea := ClientRect;
-     {adjust top of the clipping region to exclude the header, if any}
-     if ShowHeader then
-      with ClipArea do
-       Top := Top + f_Header.Height;
-     TopIndentArea := ClipArea;
-     with ClipArea do
+     if SaveD <> f_TopIndex then
      begin
-      Top := Top + InterRowIndent;
-      TopIndentArea.Bottom := TopIndentArea.Top + InterRowIndent;
-      Windows.InvalidateRect(Handle, @TopIndentArea, True);
-      if ((Bottom - Top) > 0) and ((Right - Left) > 0) then
-       if SaveD > f_HighIndex then
-        Windows.InvalidateRect(Handle, @ClipArea, True)
-       else
-         {adjust bottom of the clipping region to an even number of rows}
-        with ClipArea do
-         if UseDrawPoints then
-         begin
-          DY := SaveD - f_TopIndex;
-          ScrollArea := ClipArea;
-          if (DrawPoints.Count <= 0) then
-           ScrollArea.Bottom := ClientHeight
-          else
-           ScrollArea.Bottom := DrawPoints.Last;
-          if ScrollArea.Bottom > ClientHeight then
-           ScrollArea.Bottom := ClientHeight;
-          if DY > 0 then {ScrollDown}
-           DropDrawPoints; {New Item Height Table}
-          if CanScrollWindow AND
-             (Abs(DY) < ItemOnScreen(false)) then
-            {scroll the window setting up a clipping region}
+      ClipArea := ClientRect;
+      {adjust top of the clipping region to exclude the header, if any}
+      if ShowHeader then
+       with ClipArea do
+        Top := Top + f_Header.Height;
+      TopIndentArea := ClipArea;
+      with ClipArea do
+      begin
+       Top := Top + InterRowIndent;
+       TopIndentArea.Bottom := TopIndentArea.Top + InterRowIndent;
+       Windows.InvalidateRect(Handle, @TopIndentArea, True);
+       if ((Bottom - Top) > 0) and ((Right - Left) > 0) then
+        if SaveD > f_HighIndex then
+         Windows.InvalidateRect(Handle, @ClipArea, True)
+        else
+          {adjust bottom of the clipping region to an even number of rows}
+         with ClipArea do
+          if UseDrawPoints then
           begin
-           l_CR := ClipArea;
-           if DY > 0 then
-            {Down}
-           begin
-            ScrollArea.Bottom := ClientHeight - DrawPoints[Pred(DY)];
-            l_CR.Bottom := l_CR.Top + DrawPoints[Pred(DY)];
-            ShiftArea(DrawPoints[Pred(DY)]);
-            Inc(f_CaretPoint.Y,DrawPoints[Pred(DY)]);
-           end//if DY > 0 then
-           else
-            {Up}
-           begin
-            DY := Abs(DY);
-            Inc(ScrollArea.Top,DrawPoints[Pred(DY)]);
-            {l_CR.Top := l_CR.Bottom - Integer(lDrawPointArray[Pred(DY)]);}
-            l_CR.Top := l_CR.Top + (ScrollArea.Bottom - ScrollArea.Top);
-            ShiftArea(-(DrawPoints[Pred(DY)]));
-            Dec(f_CaretPoint.Y,DrawPoints[Pred(DY)]);
-            DropDrawPoints;
-           end;//if DY > 0 then
-           Windows.InvalidateRect(Handle, @l_CR, True);
-          end//if Abs(DY) < ItemOnScreen(false) then
-          else
-          begin
-           Windows.InvalidateRect(Handle, @ClipArea, True);
-           DropDrawPoints;
-          end;//if Abs(DY) < ItemOnScreen(false) then
-         end//if UseDrawPoints then
-         else
-         begin
-          //ClipArea.Bottom := ClipArea.Top + ((ClipArea.Bottom - ClipArea.Top) div RowHeight) * RowHeight;
-           {adjust bottom of the clipping region to an even number of rows}
-          DY := SaveD - f_TopIndex;
-          if CanScrollWindow AND
-             (Abs(DY) < ItemOnScreen(false)) then
-           {scroll the window setting up a clipping region}
-          begin
+           DY := SaveD - f_TopIndex;
            ScrollArea := ClipArea;
-           l_CR := ClipArea;
-           if DY > 0 then {Down}
+           if (DrawPoints.Count <= 0) then
+            ScrollArea.Bottom := ClientHeight
+           else
+            ScrollArea.Bottom := DrawPoints.Last;
+           if ScrollArea.Bottom > ClientHeight then
+            ScrollArea.Bottom := ClientHeight;
+           if DY > 0 then {ScrollDown}
+            DropDrawPoints; {New Item Height Table}
+           if CanScrollWindow AND
+              (Abs(DY) < ItemOnScreen(false)) then
+             {scroll the window setting up a clipping region}
            begin
-            Dec(ScrollArea.Bottom, DY * CompleteRowHeight);
-            l_CR.Bottom := l_CR.Top + DY * CompleteRowHeight;
-           end
-           else {Up}
+            l_CR := ClipArea;
+            if DY > 0 then
+             {Down}
+            begin
+             ScrollArea.Bottom := ClientHeight - DrawPoints[Pred(DY)];
+             l_CR.Bottom := l_CR.Top + DrawPoints[Pred(DY)];
+             ShiftArea(DrawPoints[Pred(DY)]);
+             Inc(f_CaretPoint.Y,DrawPoints[Pred(DY)]);
+            end//if DY > 0 then
+            else
+             {Up}
+            begin
+             DY := Abs(DY);
+             Inc(ScrollArea.Top,DrawPoints[Pred(DY)]);
+             {l_CR.Top := l_CR.Bottom - Integer(lDrawPointArray[Pred(DY)]);}
+             l_CR.Top := l_CR.Top + (ScrollArea.Bottom - ScrollArea.Top);
+             ShiftArea(-(DrawPoints[Pred(DY)]));
+             Dec(f_CaretPoint.Y,DrawPoints[Pred(DY)]);
+             DropDrawPoints;
+            end;//if DY > 0 then
+            Windows.InvalidateRect(Handle, @l_CR, True);
+           end//if Abs(DY) < ItemOnScreen(false) then
+           else
            begin
-            Inc(ScrollArea.Top, DY * CompleteRowHeight);
-            l_CR.Top := l_CR.Bottom - DY * CompleteRowHeight;
-           end;
-           ShiftArea(DY * CompleteRowHeight);
-           Inc(f_CaretPoint.Y, DY * CompleteRowHeight);
-           Windows.InvalidateRect(Handle, @l_CR, True);
-          end//if Abs(DY) < ItemOnScreen(false) then
+            Windows.InvalidateRect(Handle, @ClipArea, True);
+            DropDrawPoints;
+           end;//if Abs(DY) < ItemOnScreen(false) then
+          end//if UseDrawPoints then
           else
-           Windows.InvalidateRect(Handle, @ClipArea, True);
-         end;//if UseDrawPoints then
-     end;//with ClipArea do
-    end;//if SaveD <> f_TopIndex then
-    {pm_SetCurrent(f_Current);}
-    if (f_Current >= f_TopIndex) and (f_Current < f_TopIndex + ItemOnScreen(True)) then
-     vlbDrawFocusRect(CN, f_Current);
-    {notify that top index has changed}
-    if SaveD <> f_TopIndex then
-     DoOnTopIndexChanged(f_TopIndex);
-   finally
-    CN.EndPaint;
-   end;{try..finally}
-  end;//if (Index >= 0) and (Index <= f_HighIndex) then
- end;//if Index <> f_TopIndex then
- SetCaret;
+          begin
+           //ClipArea.Bottom := ClipArea.Top + ((ClipArea.Bottom - ClipArea.Top) div RowHeight) * RowHeight;
+            {adjust bottom of the clipping region to an even number of rows}
+           DY := SaveD - f_TopIndex;
+           if CanScrollWindow AND
+              (Abs(DY) < ItemOnScreen(false)) then
+            {scroll the window setting up a clipping region}
+           begin
+            ScrollArea := ClipArea;
+            l_CR := ClipArea;
+            if DY > 0 then {Down}
+            begin
+             Dec(ScrollArea.Bottom, DY * CompleteRowHeight);
+             l_CR.Bottom := l_CR.Top + DY * CompleteRowHeight;
+            end
+            else {Up}
+            begin
+             Inc(ScrollArea.Top, DY * CompleteRowHeight);
+             l_CR.Top := l_CR.Bottom - DY * CompleteRowHeight;
+            end;
+            ShiftArea(DY * CompleteRowHeight);
+            Inc(f_CaretPoint.Y, DY * CompleteRowHeight);
+            Windows.InvalidateRect(Handle, @l_CR, True);
+           end//if Abs(DY) < ItemOnScreen(false) then
+           else
+            Windows.InvalidateRect(Handle, @ClipArea, True);
+          end;//if UseDrawPoints then
+      end;//with ClipArea do
+     end;//if SaveD <> f_TopIndex then
+     {pm_SetCurrent(f_Current);}
+     if (f_Current >= f_TopIndex) and (f_Current < f_TopIndex + ItemOnScreen(True)) then
+      vlbDrawFocusRect(CN, f_Current);
+     {notify that top index has changed}
+     if SaveD <> f_TopIndex then
+      DoOnTopIndexChanged(f_TopIndex);
+    finally
+     CN.EndPaint;
+    end;{try..finally}
+   end;//if (Index >= 0) and (Index <= f_HighIndex) then
+  end;//if Index <> f_TopIndex then
+  SetCaret;
+ finally
+  g_InSetTop := false;
+ end;//try..finally
 
  if NeedInitScrollInfoInvlbInitScrollInfo then
   vlbInitScrollInfo;
@@ -2525,7 +2530,7 @@ var
  if (aIndex = f_Current) then
  begin
   //если ткнули в текущий, а он не выделен, то надо выделить
-  if (f_Current >= 0) and (total > 0) and not (PickedList or Selected[f_Current]) and not f_LockSelectChange then
+  if (f_Current >= 0) and (total > 0) and not (PickedList or Selected[f_Current]) then
    Selected[f_Current] := True;
   Exit;
  end;
@@ -5354,8 +5359,8 @@ var
   end;
   if (not PickedList and f_MultiSelect) then
   begin
-//   DoOnSelect(f_Current, 1); //закомментировал из-за 619559545
-//   InvalidateItem(f_Current);
+   DoOnSelect(f_Current, 1);
+   InvalidateItem(f_Current);
   end;
  end;
 //#UC END# *515998420356_4CFFE36B00FA_impl*

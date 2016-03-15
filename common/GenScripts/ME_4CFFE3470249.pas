@@ -1628,8 +1628,6 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
-var g_InSetTop: Boolean = False;
-
 const
  gHintTimerTickInterval = 250;
  cXOffsetTextHint = 20;
