@@ -80,14 +80,14 @@ function evQueryParaInterface(const aView: InevView;
 procedure evClearPara(const aView: InevView;
  const aPara: InevObject;
  const anOp: InevOp;
- aMode: TevClearMode = ev_cmKeepOne;
+ aMode: TevClearMode = nevTools.ev_cmKeepOne;
  const aTopPara: InevPara = nil);
  {* Очищает параграф aPara }
 function evCopyParaList(const aView: InevView;
  const aContext: InevProcessor;
  const aDest: InevPara;
  const aSource: InevPara;
- aFlags: TevLoadFlags = evDefaultCopyFlags;
+ aFlags: TevLoadFlags = nevBase.evDefaultCopyFlags;
  SkipEmpty: Boolean = False;
  const aStart: InevPoint = nil;
  NeedDelete: Boolean = False): Boolean;
@@ -777,7 +777,7 @@ end;//evQueryParaInterface
 procedure evClearPara(const aView: InevView;
  const aPara: InevObject;
  const anOp: InevOp;
- aMode: TevClearMode = ev_cmKeepOne;
+ aMode: TevClearMode = nevTools.ev_cmKeepOne;
  const aTopPara: InevPara = nil);
  {* Очищает параграф aPara }
 //#UC START# *48E4E992004F_47F1F3BC0330_var*
@@ -811,7 +811,7 @@ function evCopyParaList(const aView: InevView;
  const aContext: InevProcessor;
  const aDest: InevPara;
  const aSource: InevPara;
- aFlags: TevLoadFlags = evDefaultCopyFlags;
+ aFlags: TevLoadFlags = nevBase.evDefaultCopyFlags;
  SkipEmpty: Boolean = False;
  const aStart: InevPoint = nil;
  NeedDelete: Boolean = False): Boolean;

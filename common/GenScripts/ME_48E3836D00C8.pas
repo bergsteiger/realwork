@@ -292,7 +292,7 @@ type
   procedure UpdateWidth(aNewWidth: Integer);
   procedure UpdateWidthAndCheckHead(aNewWidth: Integer);
    {* измен€ет ширину €чейки, в том числе и объединенных }
-  function Merge(aNeighbour: TedNeighbourIndex = Right): Boolean;
+  function Merge(aNeighbour: TedNeighbourIndex = ed_fpiRight): Boolean;
    {* объедин€ет €чейку с соседом }
   function Split(aColNum: Integer = 2;
    aRowNum: Integer = 1): Boolean; overload;
@@ -482,7 +482,7 @@ type
   function pm_GetTable: IedTable;
   function pm_GetVerticalAligment: TevVerticalAligment;
   procedure pm_SetVerticalAligment(aValue: TevVerticalAligment);
-  function Merge(aMergeAlg: TedMergeAlgorythm = All): Boolean;
+  function Merge(aMergeAlg: TedMergeAlgorythm = ed_maAll): Boolean;
    {* объединить €чейки в диапазоне }
   procedure Translate2Text;
    {* преобразуем диапазон €чеек в текст. }
@@ -529,7 +529,7 @@ type
    {* провер€ет содержит ли диапазон только один листьевой параграф }
   function AsString(aFormat: Tl3ClipboardFormat = cf_Text): AnsiString;
    {* получает текст в диапазоне }
-  function Delete(aMode: TevClearMode = ev_cmKeepOne): Boolean;
+  function Delete(aMode: TevClearMode = nevTools.ev_cmKeepOne): Boolean;
    {* удал€ет содержимое диапазона }
   function InsertData(aFormat: Tl3ClipboardFormat;
    aData: THandle;

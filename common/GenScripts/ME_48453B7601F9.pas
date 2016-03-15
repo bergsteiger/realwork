@@ -36,15 +36,15 @@ function evMergeParaList(const aView: InevView;
  {* объединяет список параграфов aCursor.Target с содержимым aParaList }
 function evDeletePara(const anOpPack: InevOp;
  const aCursor: InevBasePoint;
- aFlags: TevDeleteParaFlags = [ev_dpfAtEnd]): Boolean;
+ aFlags: TevDeleteParaFlags = nevTools.[ev_dpfAtEnd]): Boolean;
 function evInsertPara(const aProcessor: InevProcessor;
  const aCursor: InevBasePoint;
  aPara: Tl3Variant;
- aFlags: TevInsertParaFlags = [ev_ipfAtEnd]): Boolean; overload;
+ aFlags: TevInsertParaFlags = nevTools.[ev_ipfAtEnd]): Boolean; overload;
 function evInsertPara(const anOpPack: InevOp;
  const aCursor: InevBasePoint;
  aPara: Tl3Variant;
- aFlags: TevInsertParaFlags = [ev_ipfAtEnd]): Boolean; overload;
+ aFlags: TevInsertParaFlags = nevTools.[ev_ipfAtEnd]): Boolean; overload;
 function evCalcDiffInLines(const aView: InevView;
  const aFirstPoint: InevBasePoint;
  const aSecondPoint: InevBasePoint;
@@ -193,7 +193,7 @@ end;//evMergeParaList
 
 function evDeletePara(const anOpPack: InevOp;
  const aCursor: InevBasePoint;
- aFlags: TevDeleteParaFlags = [ev_dpfAtEnd]): Boolean;
+ aFlags: TevDeleteParaFlags = nevTools.[ev_dpfAtEnd]): Boolean;
 //#UC START# *4F6B07C20045_48453B7601F9_var*
 var
  l_Op : IevOpDeletePara;
@@ -214,7 +214,7 @@ end;//evDeletePara
 function evInsertPara(const aProcessor: InevProcessor;
  const aCursor: InevBasePoint;
  aPara: Tl3Variant;
- aFlags: TevInsertParaFlags = [ev_ipfAtEnd]): Boolean;
+ aFlags: TevInsertParaFlags = nevTools.[ev_ipfAtEnd]): Boolean;
 //#UC START# *4F6B0ECD019E_48453B7601F9_var*
 //#UC END# *4F6B0ECD019E_48453B7601F9_var*
 begin
@@ -229,7 +229,7 @@ end;//evInsertPara
 function evInsertPara(const anOpPack: InevOp;
  const aCursor: InevBasePoint;
  aPara: Tl3Variant;
- aFlags: TevInsertParaFlags = [ev_ipfAtEnd]): Boolean;
+ aFlags: TevInsertParaFlags = nevTools.[ev_ipfAtEnd]): Boolean;
 //#UC START# *4F6B0F34012A_48453B7601F9_var*
 var
  l_Op : IevOpInsertPara;

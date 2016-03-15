@@ -29,7 +29,7 @@ type
    function Get_Frame: IedFrame;
    procedure UpdateWidthAndCheckHead(aNewWidth: Integer);
     {* измен€ет ширину €чейки, в том числе и объединенных }
-   function Merge(aNeighbour: TedNeighbourIndex = Right): Boolean;
+   function Merge(aNeighbour: TedNeighbourIndex = ed_fpiRight): Boolean;
     {* объедин€ет €чейку с соседом }
    function Split(aColNum: Integer = 2;
     aRowNum: Integer = 1): Boolean; overload;
@@ -226,7 +226,7 @@ begin
 //#UC END# *4BBC90300154_502CC6560261_impl*
 end;//TevCell.UpdateWidthAndCheckHead
 
-function TevCell.Merge(aNeighbour: TedNeighbourIndex = Right): Boolean;
+function TevCell.Merge(aNeighbour: TedNeighbourIndex = ed_fpiRight): Boolean;
  {* объедин€ет €чейку с соседом }
 //#UC START# *4BBC906D00E8_502CC6560261_var*
 

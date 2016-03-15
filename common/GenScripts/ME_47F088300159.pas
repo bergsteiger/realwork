@@ -51,8 +51,8 @@ type
    aValue: Integer;
    const anOpPack: InevOp;
    SeeByLevel: Boolean = False;
-   aMinIndex: Tl3Index = l3MinIndex;
-   aMaxIndex: Tl3Index = l3MaxIndex): Boolean;
+   aMinIndex: Tl3Index = l3Types.l3MinIndex;
+   aMaxIndex: Tl3Index = l3Types.l3MaxIndex): Boolean;
    {* Изменить значение параметра }
  end;//IevChangeParamTool
  {$IfEnd} // Defined(evNeedHotSpot)

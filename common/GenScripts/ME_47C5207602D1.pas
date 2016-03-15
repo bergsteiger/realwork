@@ -276,7 +276,7 @@ type
    const aStream: IStream;
    aFormat: TnevFormat;
    const anOp: InevOp = nil;
-   aFlags: TevLoadFlags = evDefaultLoadFlags;
+   aFlags: TevLoadFlags = nevBase.evDefaultLoadFlags;
    aCodePage: Integer = CP_DefaultValue): Boolean;
   function DeleteString(const aView: InevView;
    Count: Integer;
@@ -343,10 +343,10 @@ type
   {* Выделенная часть объекта. Для удобства переноса на модель }
   ['{8336B718-F0A5-4D74-9CFE-DF549D39EE7E}']
   function Iterate(anAction: InevRangePrim_Iterate_Action;
-   aStart: Integer = l3MinIndex): Integer;
+   aStart: Integer = l3Types.l3MinIndex): Integer;
    {* Итератор по вложенным выделенным объектам }
   function IterateF(anAction: InevRangePrim_Iterate_Action;
-   aStart: Integer = l3MinIndex): Integer;
+   aStart: Integer = l3Types.l3MinIndex): Integer;
    {* Итератор по вложенным выделенным объектам }
  end;//InevRangePrim
 
@@ -1457,7 +1457,7 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
   ['{539DB483-87BC-4C78-AEF6-D38B0D3D2FE5}']
   procedure Store(const aView: InevView;
    const G: InevTagGenerator;
-   aFlags: TevdStoreFlags = evDefaultStoreFlags); overload;
+   aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags); overload;
    {* сохраняет выделение в G. }
  end;//InevStorable
 
@@ -1526,13 +1526,13 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
    const aPool: IStream;
    const aFilters: InevTagGenerator;
    const Block: InevDataObjectPrim2 = nil;
-   aFlags: TevdStoreFlags = evDefaultStoreFlags;
+   aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags;
    aCodePage: Integer = CP_DefaultValue): Integer;
    {* считать тег из Storage в aPool. }
   function ReadTagEx(const Writer: InevTagGenerator;
    const aPool: IStream = nil;
    const aBlock: InevDataObjectPrim2 = nil;
-   aFlags: TevdStoreFlags = evDefaultStoreFlags;
+   aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags;
    CharCountMul: Integer = 2;
    const FormatName: Il3CString = nil;
    aCodePage: Integer = CP_DefaultValue): Integer;
@@ -1545,13 +1545,13 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
    aFormat: TnevFormat;
    const aPool: IStream;
    const aBlock: IUnknown = nil;
-   aFlags: TevLoadFlags = evDefaultLoadFlags;
+   aFlags: TevLoadFlags = nevBase.evDefaultLoadFlags;
    aCodePage: Integer = CP_DefaultValue): Boolean;
    {* записать тэг из Pool в Storage. }
   procedure WriteTagEx(const aView: InevView;
    const aReader: InevReader;
    const aBlock: IUnknown = nil;
-   aFlags: TevLoadFlags = evDefaultLoadFlags);
+   aFlags: TevLoadFlags = nevBase.evDefaultLoadFlags);
    {* записать тэг из Pool в Storage. }
  end;//InevTagWriter
 
