@@ -32,12 +32,42 @@ const
  end;
 //#UC END# *4BEBC4090016_49EEF16603C9_impl*
 //#UC START# *4BEBC4090016_49EEF16603C9_var*
+const
+  cSharpChar: String = '#';
+  cBlockMark: String = '#block_';
 var
  l_Pos: Integer;
  l_URL: Il3CString;
  l_InitedDoc: Boolean;
 
  function lp_Iterate(const aStr : Tl3PCharLen; IsLast: Bool): Bool;
+
+  function lp_TryParseInt(const aString: String;
+   const aAfterSubstrs: array of String; out aVal: Integer): Boolean;
+  var
+   l_Index: Integer;
+   l_SubStrPos: Integer;
+   l_SubStrEndPos: Integer;
+   l_IntStr: String;
+  begin
+   Result := False;
+   for l_Index := Low(aAfterSubstrs) to High(aAfterSubstrs) do
+   begin
+    l_SubStrPos := Pos(aAfterSubStrs[l_Index], aString);
+    Result := l_SubStrPos <> 0;
+    aVal := 0;
+    if Result then
+    begin
+     l_SubStrEndPos := l_SubStrPos + Length(aAfterSubstrs[l_Index]);
+     l_IntStr := Copy(aString, l_SubStrEndPos,
+      (Length(aString) - l_SubStrEndPos) + 1);
+     Result := TryStrToInt(l_IntStr, aVal);
+     if Result then
+      Break;
+    end;
+   end;
+  end; 
+
  var
   l_ID: Integer;
   l_Str: String;
@@ -50,8 +80,8 @@ var
     DocID := l_ID;
     l_InitedDoc := True;
    end;
-  if (Length(l_Str) > 1) and (l_Str[1] = '#') then
-   if TryStrToInt(Copy(l_Str, 2, Length(l_Str) - 1), l_ID) then
+  if (Length(l_Str) > 1) and (l_Str[1] = cSharpChar) then
+   if lp_TryParseInt(l_Str, [cSharpChar, cBlockMark], l_ID) then
     SubID := l_ID;
  end;
 
@@ -109,6 +139,7 @@ const
 //#UC END# *5524E8BE0065_49EEF16603C9_var*
 //#UC START# *553A26CA015B_49EEF16603C9_impl*
  Result := False;
+// l_Found := False;
  for l_Index := Low(InternalBrowserURLArr) to High(InternalBrowserURLArr) do
  begin
   Result := l3CheckStrByPattern(Format(cMask, [InternalBrowserURLArr[l_Index]]),
@@ -116,10 +147,12 @@ const
   if Result then
    Break;
  end;
+// Result := l_Found;
 //#UC END# *553A26CA015B_49EEF16603C9_impl*
 //#UC START# *553A26CA015B_49EEF16603C9_var*
 const
  cMask = '^(res\:\/\/.+#)*https?\:\/\/([^\\\.]+\.)*%s($|\_)';
 var
  l_Index: Integer;
+// l_Found: Boolean;
 //#UC END# *553A26CA015B_49EEF16603C9_var*

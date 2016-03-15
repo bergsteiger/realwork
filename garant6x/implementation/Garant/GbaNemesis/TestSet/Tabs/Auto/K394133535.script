@@ -1,48 +1,35 @@
 Тест K394133535
 
- INTERFACE VAR l_Node
- INTERFACE VAR l_Node_last
-
- BOOLEAN VAR l_Done
- false >>> l_Done
-
- INTEGER VAR item
- 0 >>> item
-
- : "Имя последней ноды"
-  cc:End
-  контрол::AttributeTree:push tree:CurrentNode =: l_Node_last
- ;
-
- : "Следующая нода"
-  item раз ( "Стрелка вниз" )
-  контрол::AttributeTree:push tree:CurrentNode =: l_Node
+ PROCEDURE "Выбрать ноду номер" INTEGER IN aNum
+  aNum раз ( "Стрелка вниз" )
   "Нажать Enter"
  ;
 
  Параметры: ( "Открывать документы из списка в текущем окне"  )
  Выполнить (
+  INTEGER VAR l_NodeCount
+  INTEGER VAR item
+  item := 0
+
   ППР
   "Перевести фокус в поле 'Вид правовой информации' в ППР"
-  @ ( "Нажать Enter" ) MODAL ( "Имя последней ноды" )
-
-  ПОКА  ( l_Done ! ) 
-   BEGIN
+  @ ( "Нажать Enter" ) MODAL ( l_NodeCount := ( контрол::AttributeTree:push tree:GetItemsCount ) )
+  l_NodeCount раз (
    ППР
    "Перевести фокус в поле 'Вид правовой информации' в ППР"
-   @ ( "Нажать {('Enter')}" ) MODAL ( "Следующая нода" )
+   @ ( "Нажать Enter" ) MODAL ( "Выбрать ноду номер {(item)}" )
    "Нажать Искать"
    "Перевести фокус в список"
    "Нажать Enter"
-   5 раз ( "Дать системе перерисоваться"
-   "Следующий документ в списке" )
+   5 раз ( 
+    "Дать системе перерисоваться"
+    "Следующий документ в списке" 
+   )
    "Дать системе перерисоваться"
    ОМ
    "Очистить журнал работы"
-   item ++ >>> item
-   Если ( l_Node Node:Text l_Node_last Node:Text == ) то
-    ( true >>> l_Done )
-  END
+   item := ( item ++ )
+  )
  )
 ;
 

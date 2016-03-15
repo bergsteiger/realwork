@@ -2166,10 +2166,17 @@ f _NeedFinalize
 
 	\n\
 	: %S%f_pas_script_Name()
+
+	[{%SC!=Dependency&%SC!=Parameter}\
+	[\
 	 CONST UID '%SU'
+	]\
+	]\
+
 	[{%S#f_IsInterface()=true}\
 	 CONST GUID '%SG'
 	]\
+
 	[{"%SN"!=""}\
 	 CONST Name '%f_str_replace(%f_N(%S),','')'
 	]\
@@ -2181,6 +2188,7 @@ f _NeedFinalize
 	[\
 	 CONST Class class_%SC
 	]\
+
 	[{"%SS"!=""}\
 	[{%SC=Category|%SC=Class}{\
 	[{%SC=Operation|%SC=Attribute|%SC=Dependency}{\

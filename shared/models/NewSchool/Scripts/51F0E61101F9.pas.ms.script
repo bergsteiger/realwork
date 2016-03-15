@@ -135,7 +135,6 @@ ref; // ME_52456E8C002F DoIt
 ref; // ME_52456E7802FA InitRegSearcher
 
 : ME_525BA8A50085
- CONST UID '525BA8A50085'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5245698300DC // TddRegSeacherOwner
@@ -1363,7 +1362,6 @@ FORWARD ME_53984619001D
 ref; // ME_539846260154 DoIt
 
 : ME_53984993018F
- CONST UID '53984993018F'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_53984619001D // AddWidthValue
@@ -1468,8 +1466,37 @@ ref; // ME_56C17094000E DoIt
 
 ref; // ME_56BC693D00CE Assign
 
+FORWARD ME_56E7C2C2036E
+
+: ME_56E7C2CA02B6
+ CONST UID '56E7C2CA02B6'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56E7C2C2036E // AnalyseTextTransform
+ ;
+
+ref; // ME_56E7C2CA02B6 DoIt
+
+: ME_56E7C2C2036E
+ CONST UID '56E7C2C2036E'
+ CONST Name 'AnalyseTextTransform'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_524159C700FE // TddHTMLTag
+ ;
+ : Operations
+   Seq: ( ME_56E7C2CA02B6 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56E7C2C2036E AnalyseTextTransform
+
 : ME_5241662602F1
- CONST UID '5241662602F1'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_524159C700FE // TddHTMLTag
@@ -1480,7 +1507,6 @@ ref; // ME_56BC693D00CE Assign
 ref; // ME_5241662602F1 
 
 : ME_524188D20021
- CONST UID '524188D20021'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_524159C700FE // TddHTMLTag
@@ -1491,7 +1517,6 @@ ref; // ME_5241662602F1
 ref; // ME_524188D20021 
 
 : ME_5243CA520090
- CONST UID '5243CA520090'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_524159C700FE // TddHTMLTag
@@ -1502,7 +1527,6 @@ ref; // ME_524188D20021
 ref; // ME_5243CA520090 
 
 : ME_525B8EBC0236
- CONST UID '525B8EBC0236'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_524159C700FE // TddHTMLTag
@@ -1573,6 +1597,7 @@ ref; // ME_479731C50290_ME_524159C700FE Cleanup
  ME_53984619001D // AddWidthValue
  ME_56A071C8034A // AnalyseBorder
  ME_56BC693D00CE // Assign
+ ME_56E7C2C2036E // AnalyseTextTransform
  )
  ; // Operations
  : Overridden

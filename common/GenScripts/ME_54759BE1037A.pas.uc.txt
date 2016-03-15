@@ -7,7 +7,7 @@
 //#UC START# *54607DDC0159_54759BE1037A_impl*
  l_Message := aContext.rMessage as TncsDeliveryResult;
  if not TaskList.ForOneByIDF(L2AlcuTasksIteratorForOneByIDFAction(@DoProcess), l_Message.TaskID) then
-  l3System.Msg2Log('Задача с идентификатором %s не найдена', [l_Message.TaskID]);
+  l3System.Msg2Log('Задача с идентификатором %s не найдена (результат передачи)', [l_Message.TaskID]);
  l3System.Msg2Log('Результат передачи %s - %s', [l_Message.TaskID, GetEnumName(TypeInfo(TncsResultKind), Ord(l_Message.ResultKind))]);
  l3System.Msg2Log('Передача результатов завершена');
 //#UC END# *54607DDC0159_54759BE1037A_impl*

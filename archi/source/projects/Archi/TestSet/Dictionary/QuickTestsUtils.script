@@ -21,6 +21,7 @@ USES
  axiom:Waited
  axiom:IniRec
  axiom:Filter
+ axiom:wnd
  
  ArchiSystem.script
  Mouse.script
@@ -1260,42 +1261,52 @@ PROCEDURE "Разбивка на блоки 'Больше пяти уровней'"
 	)
 ;
 
-PROCEDURE "Создать каталог, если он не существует" STRING IN aNameDir 
-	aNameDir sysutils:ForceDirectories ASSERT
-;
-
+// Работа с арчи
 PROCEDURE "Очистить каталог" STRING IN aPath
 	aPath PureDir
 ;
 
-PROCEDURE "Копировать файл" INTEGER IN aCopyMode STRING IN aDestFile STRING IN aSourceFile
-	aCopyMode aDestFile aSourceFile CopyFile
+STRING FUNCTION "Путь Архивариуса"
+	application:ExeName sysutils:ExtractFilePath >>> Result
 ;
 
-STRING FUNCTION "Получить полный путь к исполняемому файлу"
-	application:ExeName >>> Result
+STRING FUNCTION "Путь к копии Архивариуса" STRING IN aSourceDir
+	STRING VAR l_SubDir
+	script:FileName '' sysutils:ChangeFileExt sysutils:ExtractFileName >>> l_SubDir 
+	[ aSourceDir l_SubDir ] strings:Cat >>> Result	
 ;
 
-// из полного пути
-STRING FUNCTION "Извлечь путь" STRING IN aFullFileName 
-	aFullFileName sysutils:ExtractFilePath >>> Result
+PROCEDURE "Распаковка тестовой базы"
+	"Закрыть все окна"
+	"Обработать сообщения" 
+	'testbase.zip' "Путь к копии базы" ClearDataBase 
 ;
 
-//
-STRING FUNCTION "Получить имя ini-файла" STRING IN aPath
-	STRING VAR l_FileName
-	aPath '.ini' sysutils:ChangeFileExt sysutils:ExtractFileName >>> l_FileName
-	l_FileName >>> Result	
+PROCEDURE "Очистка после теста"
+	"Почистить за собой"
+	"Очистить каталог {('C:\Base\testbase2')}"
 ;
 
-STRING FUNCTION "Получить имя map-файла" STRING IN aPath
-	STRING VAR l_FileName
-	aPath '.map' sysutils:ChangeFileExt sysutils:ExtractFileName >>> l_FileName
-	l_FileName >>> Result	
+PROCEDURE "Запуск второй копии тестового Архивариуса" STRING IN aDestDir
+ 	STRING VAR l_CMDLINE
+	[ 'start ""' aDestDir 'ArchiTest.exe' '-toK -FakeK -File:OneTest.txt'] strings:Cat >>> l_CMDLINE
+	l_CMDLINE WinExec
 ;
 
-STRING FUNCTION "Получить имя exe-файла" STRING IN aPath
-	STRING VAR l_FileName
-	aPath '.exe' sysutils:ChangeFileExt sysutils:ExtractFileName >>> l_FileName
-	l_FileName >>> Result	
+// Перебор и сравнение с эталоном
+INTEGER FUNCTION "Количество открытых окон Арчи"
+	0 >>> Result
+ 		PROCEDURE "Перебор главных окон" INTEGER IN hWnd
+  			STRING VAR l_Class
+  			hWnd wnd:GetClassName >>> l_Class
+  		( l_Class РАВНО 'TMainForm' ) ?
+  	( ++! Result )  
+ ; 
+
+ @ "Перебор главных окон" IterateWindows
+ 	Result РАВНО 0 ! 'Открытых окон Арчи нет!' ASSERTS
+;
+
+PROCEDURE "Сравнить с эталоном количество открытых окон Арчи"
+	"Количество открытых окон Арчи" .
 ;

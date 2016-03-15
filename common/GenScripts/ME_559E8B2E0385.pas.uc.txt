@@ -58,7 +58,7 @@ var
 //#UC END# *559F5EBA0249_559E8B2E0385_var*
 //#UC START# *559FF0210296_559E8B2E0385_impl*
  Result := inherited DoGetDRbyCName(aName);
- if (Result = nil) then
+ if (Result = nil) OR (Result.Word = nil) then
   if (f_UsedDictionaries <> nil) then
    for l_Index := Pred(f_UsedDictionaries.Count) downto 0 do
    begin
@@ -89,7 +89,7 @@ var
    if (l_KW.Dictionary = Self) then
    begin
     l_W := l_KW.Word;
-    if l_W.IsVarLike then
+    if l_W.IsVarLike AND not l_W.IsGlobalVar then
      l_W.InitValue(aCtx);
    end;//l_KW.Dictionary = Self
   end;//for l_Index
