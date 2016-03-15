@@ -121,7 +121,7 @@ type
 
 function vcmMessageDlgPrim(const aMsg: Tl3Message;
  out Checked: Boolean;
- aTextAlign: TAlignment = taCenter;
+ aTextAlign: TAlignment = Classes.taCenter;
  aWndParent: HWND = 0;
  aChoices: TPl3StringIDExList = nil;
  aJumpTo: TevJumpToEvent = nil;
@@ -808,7 +808,7 @@ end;//vtCreateMessageDialog
 
 function vcmMessageDlgPrim(const aMsg: Tl3Message;
  out Checked: Boolean;
- aTextAlign: TAlignment = taCenter;
+ aTextAlign: TAlignment = Classes.taCenter;
  aWndParent: HWND = 0;
  aChoices: TPl3StringIDExList = nil;
  aJumpTo: TevJumpToEvent = nil;

@@ -62,19 +62,19 @@ type
     {* вставляет форму в контейнер }
    function pm_GetEntityFormIterator: IvcmEntityFormIterator;
    function HasForm(const aName: TvcmFormID;
-    aZoneType: TvcmZoneType = Any;
+    aZoneType: TvcmZoneType = vcm_ztAny;
     aRecursive: Boolean = True;
     theForm: PIvcmEntityForm = nil;
-    aUserType: TvcmUserType = vcm_utAny;
+    aUserType: TvcmUserType = vcmUserControls.vcm_utAny;
     aGUID: PGUID = nil;
-    aSubUserType: TvcmUserType = vcm_utAny): Boolean; overload;
+    aSubUserType: TvcmUserType = vcmUserControls.vcm_utAny): Boolean; overload;
     {* проверяет есть ли в контейнере такая форма }
-   function HasForm(aZoneType: TvcmZoneType = Any;
+   function HasForm(aZoneType: TvcmZoneType = vcm_ztAny;
     aRecursive: Boolean = True;
     theForm: PIvcmEntityForm = nil;
-    aUserType: TvcmUserType = vcm_utAny;
+    aUserType: TvcmUserType = vcmUserControls.vcm_utAny;
     aGUID: PGUID = nil;
-    aSubUserType: TvcmUserType = vcm_utAny): Boolean; overload;
+    aSubUserType: TvcmUserType = vcmUserControls.vcm_utAny): Boolean; overload;
     {* проверяет есть ли в контейнере такая форма }
    function Operation(const anOp: TvcmOPID;
     const aParams: IvcmExecuteParams): Boolean; overload;
@@ -83,7 +83,7 @@ type
     const aParams: IvcmTestParams): Boolean; overload;
     {* Выполнение операции по имени сущности }
    function Operation(const anOp: TvcmOPID;
-    aMode: TvcmOperationMode = vcm_omExecute): Boolean; overload;
+    aMode: TvcmOperationMode = vcmUserControls.vcm_omExecute): Boolean; overload;
     {* Выполнение операции по имени сущности }
    function IsNull: Boolean;
    procedure FormStyle(const aForm: IvcmEntityForm;
@@ -228,12 +228,12 @@ begin
 end;//TvcmContainerForm.pm_GetEntityFormIterator
 
 function TvcmContainerForm.HasForm(const aName: TvcmFormID;
- aZoneType: TvcmZoneType = Any;
+ aZoneType: TvcmZoneType = vcm_ztAny;
  aRecursive: Boolean = True;
  theForm: PIvcmEntityForm = nil;
- aUserType: TvcmUserType = vcm_utAny;
+ aUserType: TvcmUserType = vcmUserControls.vcm_utAny;
  aGUID: PGUID = nil;
- aSubUserType: TvcmUserType = vcm_utAny): Boolean;
+ aSubUserType: TvcmUserType = vcmUserControls.vcm_utAny): Boolean;
  {* проверяет есть ли в контейнере такая форма }
 //#UC START# *4995536001FF_49525C240170_var*
 //#UC END# *4995536001FF_49525C240170_var*
@@ -243,12 +243,12 @@ begin
 //#UC END# *4995536001FF_49525C240170_impl*
 end;//TvcmContainerForm.HasForm
 
-function TvcmContainerForm.HasForm(aZoneType: TvcmZoneType = Any;
+function TvcmContainerForm.HasForm(aZoneType: TvcmZoneType = vcm_ztAny;
  aRecursive: Boolean = True;
  theForm: PIvcmEntityForm = nil;
- aUserType: TvcmUserType = vcm_utAny;
+ aUserType: TvcmUserType = vcmUserControls.vcm_utAny;
  aGUID: PGUID = nil;
- aSubUserType: TvcmUserType = vcm_utAny): Boolean;
+ aSubUserType: TvcmUserType = vcmUserControls.vcm_utAny): Boolean;
  {* проверяет есть ли в контейнере такая форма }
 //#UC START# *499554390363_49525C240170_var*
 //#UC END# *499554390363_49525C240170_var*
@@ -281,7 +281,7 @@ begin
 end;//TvcmContainerForm.Operation
 
 function TvcmContainerForm.Operation(const anOp: TvcmOPID;
- aMode: TvcmOperationMode = vcm_omExecute): Boolean;
+ aMode: TvcmOperationMode = vcmUserControls.vcm_omExecute): Boolean;
  {* Выполнение операции по имени сущности }
 //#UC START# *49955492037E_49525C240170_var*
 //#UC END# *49955492037E_49525C240170_var*

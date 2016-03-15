@@ -72,7 +72,7 @@ type
  end;//TvcmHugeMessageDlgWithWikiImpl
 
 procedure vcmSay(const aMsg: Tl3StringIDEx;
- aDlgType: TMsgDlgType = mtError); overload;
+ aDlgType: TMsgDlgType = Dialogs.mtError); overload;
 function vcmShowMessageDlg(const aMsg: Tl3Message;
  out theChecked: Boolean;
  aChoices: TPl3StringIDExList;
@@ -83,7 +83,7 @@ function vcmMessageDlg(const aMsg: TvcmMessageID;
  const aData: array of const): Integer; overload;
 procedure vcmSay(const aMsg: Tl3StringIDEx;
  const aData: array of const;
- aDlgType: TMsgDlgType = mtError); overload;
+ aDlgType: TMsgDlgType = Dialogs.mtError); overload;
 procedure vcmSay(const aMsg: TvcmMessageID); overload;
 procedure vcmSay(const aMsg: TvcmMessageID;
  const aData: array of const); overload;
@@ -194,7 +194,7 @@ begin
 end;//vcmAddMessageToQueue
 
 procedure vcmSay(const aMsg: Tl3StringIDEx;
- aDlgType: TMsgDlgType = mtError);
+ aDlgType: TMsgDlgType = Dialogs.mtError);
 //#UC START# *4A9D129E00FA_4E01D696020C_var*
 //#UC END# *4A9D129E00FA_4E01D696020C_var*
 begin
@@ -344,7 +344,7 @@ end;//vcmMessageDlg
 
 procedure vcmSay(const aMsg: Tl3StringIDEx;
  const aData: array of const;
- aDlgType: TMsgDlgType = mtError);
+ aDlgType: TMsgDlgType = Dialogs.mtError);
 //#UC START# *4E01E11201EB_4E01D696020C_var*
 //#UC END# *4E01E11201EB_4E01D696020C_var*
 begin

@@ -33,7 +33,7 @@ type
     aZoneType: TvcmZoneType;
     const aFormDescriptor: TvcmFormDescriptor;
     aUserType: TvcmUserType;
-    aNeedMakeDS: TvcmNeedMakeDS = vcm_nmNo): TvcmFormSetFormsCollectionItemModelPart; overload;
+    aNeedMakeDS: TvcmNeedMakeDS = vcmBaseTypes.vcm_nmNo): TvcmFormSetFormsCollectionItemModelPart; overload;
   public
    property FormList: TvcmFormSetFormList
     read pm_GetFormList
@@ -84,7 +84,7 @@ function TvcmFormSetFormsCollectionItemModelPart.AddZone(const aName: AnsiString
  aZoneType: TvcmZoneType;
  const aFormDescriptor: TvcmFormDescriptor;
  aUserType: TvcmUserType;
- aNeedMakeDS: TvcmNeedMakeDS = vcm_nmNo): TvcmFormSetFormsCollectionItemModelPart;
+ aNeedMakeDS: TvcmNeedMakeDS = vcmBaseTypes.vcm_nmNo): TvcmFormSetFormsCollectionItemModelPart;
 //#UC START# *528DB98D00C0_4FFC4EA6004A_var*
 //#UC END# *528DB98D00C0_4FFC4EA6004A_var*
 begin

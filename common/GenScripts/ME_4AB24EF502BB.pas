@@ -316,7 +316,7 @@ type
    function GetFastenMode: Boolean; virtual;
    function BuildVirtualForm(const aFormClass: RvcmEntityForm;
     out NeedFreeForm: Boolean;
-    aUserType: TvcmUserType = vcm_utAny): TvcmEntityForm;
+    aUserType: TvcmUserType = vcmUserControls.vcm_utAny): TvcmEntityForm;
    function ObjectByType(anObject: TvcmObject;
     const anObjectName: AnsiString;
     const aSubName: AnsiString = '';
@@ -2433,7 +2433,7 @@ end;//TvcmBaseMenuManagerPrim.GetFastenMode
 
 function TvcmBaseMenuManagerPrim.BuildVirtualForm(const aFormClass: RvcmEntityForm;
  out NeedFreeForm: Boolean;
- aUserType: TvcmUserType = vcm_utAny): TvcmEntityForm;
+ aUserType: TvcmUserType = vcmUserControls.vcm_utAny): TvcmEntityForm;
 //#UC START# *52A1FEC30321_4AD5DBBD0147_var*
 var
  l_Index : Integer;
