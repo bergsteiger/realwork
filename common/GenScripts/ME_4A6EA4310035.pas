@@ -58,7 +58,7 @@ type
    function Get_UserID: TbsUserID;
    procedure ActivateChatWindow;
    procedure GotoPoint(aPointID: Cardinal;
-    aPointType: TDocumentPositionType = Sub); override;
+    aPointType: TDocumentPositionType = bsTypesNew.dptSub); override;
     {* Переход на точку в документе }
    function HyperlinkDocument: IDocument; override;
     {* Документ ИЗ которого ведёт ссылка }
@@ -270,7 +270,7 @@ begin
 end;//TAbstractHistoryForm.ActivateChatWindow
 
 procedure TAbstractHistoryForm.GotoPoint(aPointID: Cardinal;
- aPointType: TDocumentPositionType = Sub);
+ aPointType: TDocumentPositionType = bsTypesNew.dptSub);
  {* Переход на точку в документе }
 //#UC START# *4A8164E801AE_4A6EA4310035_var*
 //#UC END# *4A8164E801AE_4A6EA4310035_var*
