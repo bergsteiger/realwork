@@ -728,19 +728,19 @@ type
   function InsertForm(const aForm: IvcmEntityForm): Boolean;
    {* вставляет форму в контейнер }
   function HasForm(const aName: TvcmFormID;
-   aZoneType: TvcmZoneType = Any;
+   aZoneType: TvcmZoneType = vcm_ztAny;
    aRecursive: Boolean = True;
    theForm: PIvcmEntityForm = nil;
-   aUserType: TvcmUserType = vcm_utAny;
+   aUserType: TvcmUserType = vcmUserControls.vcm_utAny;
    aGUID: PGUID = nil;
-   aSubUserType: TvcmUserType = vcm_utAny): Boolean; overload;
+   aSubUserType: TvcmUserType = vcmUserControls.vcm_utAny): Boolean; overload;
    {* проверяет есть ли в контейнере такая форма }
-  function HasForm(aZoneType: TvcmZoneType = Any;
+  function HasForm(aZoneType: TvcmZoneType = vcm_ztAny;
    aRecursive: Boolean = True;
    theForm: PIvcmEntityForm = nil;
-   aUserType: TvcmUserType = vcm_utAny;
+   aUserType: TvcmUserType = vcmUserControls.vcm_utAny;
    aGUID: PGUID = nil;
-   aSubUserType: TvcmUserType = vcm_utAny): Boolean; overload;
+   aSubUserType: TvcmUserType = vcmUserControls.vcm_utAny): Boolean; overload;
    {* проверяет есть ли в контейнере такая форма }
   function Operation(const anOp: TvcmOPID;
    const aParams: IvcmExecuteParams): Boolean; overload;
@@ -749,7 +749,7 @@ type
    const aParams: IvcmTestParams): Boolean; overload;
    {* Выполнение операции по имени сущности }
   function Operation(const anOp: TvcmOPID;
-   aMode: TvcmOperationMode = vcm_omExecute): Boolean; overload;
+   aMode: TvcmOperationMode = vcmUserControls.vcm_omExecute): Boolean; overload;
    {* Выполнение операции по имени сущности }
   function IsNull: Boolean;
   procedure FormStyle(const aForm: IvcmEntityForm;
@@ -889,10 +889,10 @@ type
   procedure SaveClone(const aForm: IvcmEntityForm);
   procedure BeforeFormDestroy(const aForm: IvcmEntityForm);
   function ForceSaveState(const aForm: IvcmEntityForm;
-   aStateType: TvcmStateType = vcm_stContent): Boolean;
+   aStateType: TvcmStateType = vcmExternalInterfaces.vcm_stContent): Boolean;
    {* сохранение без проверки необходимости сохранения формы }
   function SaveState(const aForm: IvcmEntityForm;
-   aStateType: TvcmStateType = vcm_stContent): Boolean;
+   aStateType: TvcmStateType = vcmExternalInterfaces.vcm_stContent): Boolean;
   procedure SaveClose(const aForm: IvcmEntityForm;
    const aFormID: TvcmFormID;
    aUserType: TvcmUserType;
@@ -900,7 +900,7 @@ type
    aSubUserType: TvcmUserType);
    {* форма которая должна быть закрыта при переходе по истории }
   function HasInPreviousStep(const aFormClass: TvcmFormID;
-   aUserType: TvcmUserType = vcm_utAny): Boolean;
+   aUserType: TvcmUserType = vcmUserControls.vcm_utAny): Boolean;
   function Back(aTruncate: Boolean = False): Boolean; overload;
   function Forward: Boolean; overload;
   procedure Back(const aParams: IvcmExecuteParamsPrim;

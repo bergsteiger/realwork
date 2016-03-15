@@ -32,8 +32,8 @@ type
   function MessageDlg(const aMsg: Tl3MessageID): Integer; overload;
   function MessageDlg(const aMsg: IvcmCString;
    const aKey: AnsiString;
-   aDlgType: TMsgDlgType = mtCustom;
-   aButtons: TMsgDlgButtons = [mbOK]): Integer; overload;
+   aDlgType: TMsgDlgType = Dialogs.mtCustom;
+   aButtons: TMsgDlgButtons = Dialogs.[mbOK]): Integer; overload;
   function MessageDlg(const aMsg: TvcmMessageID): Integer; overload;
   procedure Say(const aMsg: TvcmMessageID); overload;
   procedure Say(const aMsg: TvcmMessageID;

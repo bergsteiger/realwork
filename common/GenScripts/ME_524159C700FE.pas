@@ -64,6 +64,7 @@ type
     {* Исключаем ссылки на служебные топики с www-ссылками }
    procedure AddWidthValue;
    procedure AnalyseBorder;
+   procedure AnalyseTextTransform;
   protected
    function pm_GetTagID: Integer; virtual;
    function pm_GetIsClosed: Boolean; virtual;
@@ -708,10 +709,10 @@ begin
  if not IsNil then
  begin
   l_Param := f_ParamsList.Last;
-  if (l_Param.rType = dd_BorderPart) then
+  if (l_Param.rType = dd_parBorderPart) then
    f_ParamsList.DeleteLast;
  end; // if not IsNil then
- l_Param.rType := dd_BorderPart;
+ l_Param.rType := dd_parBorderPart;
  l_FindStr := l3PCharLenPart(f_ParamsString.St, f_Start, f_ParamsString.Len, f_ParamsString.CodePage);
  if l3Compare(carHTMLBorderStyle, l_FindStr, l3_siCaseUnsensitive) = 0 then
   l_Param.rHasBorder := True;
@@ -735,6 +736,42 @@ begin
  f_Start := aTag.f_Start;
 //#UC END# *56BC693D00CE_524159C700FE_impl*
 end;//TddHTMLTag.Assign
+
+procedure TddHTMLTag.AnalyseTextTransform;
+//#UC START# *56E7C2C2036E_524159C700FE_var*
+var
+ l_Prev   : TddHTMLParam;
+ l_Param  : TddHTMLParam;
+ l_FindStr: Tl3PCharLen;
+//#UC END# *56E7C2C2036E_524159C700FE_var*
+begin
+//#UC START# *56E7C2C2036E_524159C700FE_impl*
+ l_Param.rTransform := ccNone;
+ if not IsNil then
+ begin
+  l_Prev := f_ParamsList.Last;
+  if (l_Prev.rType = dd_parString) then
+   f_ParamsList.DeleteLast
+ end; // if not IsNil then
+ if not IsNil then
+ begin
+  l_Param := f_ParamsList.Last;
+  if (l_Param.rType = dd_parTextTransform) then
+   f_ParamsList.DeleteLast;
+ end; // if not IsNil then
+ l_Param.rType := dd_parTextTransform;
+ l_FindStr := l3PCharLenPart(f_ParamsString.St, f_Start, f_ParamsString.Len, f_ParamsString.CodePage);
+ if l3Compare(carHTMLTransform[ccAllCaps], l_FindStr, l3_siCaseUnsensitive) = 0 then
+  l_Param.rTransform := ccAllCaps;
+ if l3Compare(carHTMLTransform[ccSmallCaps], l_FindStr, l3_siCaseUnsensitive) = 0 then
+  l_Param.rTransform := ccSmallCaps;
+ f_ParamsList.Add(l_Param);
+ f_Start := -1;
+ f_ParserAction := dd_ppaAddNewValue;
+ if f_ParamsString.Last = cc_SemiColon then
+  AddKeyValue(dd_paridSTYLE);
+//#UC END# *56E7C2C2036E_524159C700FE_impl*
+end;//TddHTMLTag.AnalyseTextTransform
 
 procedure TddHTMLTag.Cleanup;
  {* Функция очистки полей объекта. }

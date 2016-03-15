@@ -175,6 +175,12 @@ type
   , dd_lvTextAlign
  );//TddLiteVersion
 
+ TddCharCapsType = (
+  ccNone
+  , ccAllCaps
+  , ccSmallCaps
+ );//TddCharCapsType
+
 implementation
 
 uses
