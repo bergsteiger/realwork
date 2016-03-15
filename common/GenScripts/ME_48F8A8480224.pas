@@ -69,7 +69,7 @@ type
  end;//TevTreeStorable
 
 function TevTreeStorableData_C(const aTree: InevSimpleTree;
- aLevelTag: Integer = k2_tiVoid;
+ aLevelTag: Integer = k2Const.k2_tiVoid;
  aFlag: Word = 0): TevTreeStorableData;
 
 implementation
@@ -88,7 +88,7 @@ uses
 ;
 
 function TevTreeStorableData_C(const aTree: InevSimpleTree;
- aLevelTag: Integer = k2_tiVoid;
+ aLevelTag: Integer = k2Const.k2_tiVoid;
  aFlag: Word = 0): TevTreeStorableData;
 //#UC START# *48FC65A403CF_48FC655F025C_var*
 //#UC END# *48FC65A403CF_48FC655F025C_var*

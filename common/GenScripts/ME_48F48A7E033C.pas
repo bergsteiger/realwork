@@ -25,7 +25,7 @@ type
     aFlags: TevdStoreFlags); virtual; abstract;
    procedure Store(const aView: InevView;
     const G: InevTagGenerator;
-    aFlags: TevdStoreFlags = evDefaultStoreFlags); overload;
+    aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags); overload;
     {* сохраняет выделение в G. }
    function Store(aFormat: TevdClipboardFormat;
     const aPool: IStream;
@@ -58,7 +58,7 @@ end;//TevStorable.Create
 
 procedure TevStorable.Store(const aView: InevView;
  const G: InevTagGenerator;
- aFlags: TevdStoreFlags = evDefaultStoreFlags);
+ aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags);
  {* сохраняет выделение в G. }
 //#UC START# *47C68BFD011C_48F48A7E033C_var*
 //#UC END# *47C68BFD011C_48F48A7E033C_var*

@@ -41,7 +41,7 @@ type
    function pm_GetIsQuestionNeedBeforeFlush: Boolean;
    procedure Store(const aView: InevView;
     const G: InevTagGenerator;
-    aFlags: TevdStoreFlags = evDefaultStoreFlags); overload;
+    aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags); overload;
     {* сохраняет выделение в G. }
    function Store(aFormat: TevdClipboardFormat;
     const aPool: IStream;
@@ -222,7 +222,7 @@ end;//TevPersistentDataObject.pm_GetIsQuestionNeedBeforeFlush
 
 procedure TevPersistentDataObject.Store(const aView: InevView;
  const G: InevTagGenerator;
- aFlags: TevdStoreFlags = evDefaultStoreFlags);
+ aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags);
  {* сохраняет выделение в G. }
 //#UC START# *47C68BFD011C_48F4732803C8_var*
 var
