@@ -109,14 +109,14 @@
   public
    procedure CheckSort(aProp: Tl3VariantDef); override;
    function AssignTag(Source: Tl3Variant;
-    AssignMode: Tk2AssignModes = k2_amAll;
+    AssignMode: Tk2AssignModes = k2BaseTypes.k2_amAll;
     const Context: Il3OpPack = nil): Boolean; override;
    function CloneTag: Il3TagRef; override;
    procedure AssignCloneParams(aSource: Tl3Variant;
-    AssignMode: Tk2AssignModes = k2_amAll;
+    AssignMode: Tk2AssignModes = k2BaseTypes.k2_amAll;
     const Context: Il3OpPack = nil); override;
    procedure WriteTag(const G: Ik2TagGenerator;
-    Flags: Tk2StorePropertyFlags = l3_spfAll;
+    Flags: Tk2StorePropertyFlags = k2BaseTypes.l3_spfAll;
     Exclude: TByteSet = []); override;
     {* записать тег в генератор. }
    procedure InsertChildTag(anIndex: Integer;
@@ -536,7 +536,7 @@ begin
 end;//_k2TagPrim_.CheckSort
 
 function _k2TagPrim_.AssignTag(Source: Tl3Variant;
- AssignMode: Tk2AssignModes = k2_amAll;
+ AssignMode: Tk2AssignModes = k2BaseTypes.k2_amAll;
  const Context: Il3OpPack = nil): Boolean;
 //#UC START# *47612DD0012B_53280B9801E7_var*
 
@@ -693,7 +693,7 @@ begin
 end;//_k2TagPrim_.CloneTag
 
 procedure _k2TagPrim_.AssignCloneParams(aSource: Tl3Variant;
- AssignMode: Tk2AssignModes = k2_amAll;
+ AssignMode: Tk2AssignModes = k2BaseTypes.k2_amAll;
  const Context: Il3OpPack = nil);
 //#UC START# *47612E530082_53280B9801E7_var*
 {$IfNDef k2TagIsAtomic}
@@ -791,7 +791,7 @@ begin
 end;//_k2TagPrim_.AssignCloneParams
 
 procedure _k2TagPrim_.WriteTag(const G: Ik2TagGenerator;
- Flags: Tk2StorePropertyFlags = l3_spfAll;
+ Flags: Tk2StorePropertyFlags = k2BaseTypes.l3_spfAll;
  Exclude: TByteSet = []);
  {* записать тег в генератор. }
 //#UC START# *4761324203B8_53280B9801E7_var*

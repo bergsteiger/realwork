@@ -1574,6 +1574,10 @@ const
  {* Точки. }
  l3_Point0: Tl3_Point = (P: (X: 0; Y: 0));
   {* Начало координат. }
+ l3MinIndex = Low(Tl3Index);
+  {* минимальный индекс элемента }
+ l3MaxIndex = High(Tl3Index);
+  {* максимальный индекс элемента }
 
 function Tl3_Point_C(aX: Integer;
  aY: Integer): Tl3_Point;
