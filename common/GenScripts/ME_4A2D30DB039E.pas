@@ -35,7 +35,7 @@ type
    {$If Defined(evNeedEditableCursors)}
    function DoDelete(const aView: InevView;
     const anOpPack: InevOp = nil;
-    aMode: TevClearMode = ev_cmAll;
+    aMode: TevClearMode = nevTools.ev_cmAll;
     const aPara: InevPara = nil): Boolean; virtual;
    {$IfEnd} // Defined(evNeedEditableCursors)
    function DoGetChildSel(const aView: InevView;
@@ -67,7 +67,7 @@ type
     aNeedProgress: Boolean = True): Boolean; virtual;
    procedure Store(const aView: InevView;
     const G: InevTagGenerator;
-    aFlags: TevdStoreFlags = evDefaultStoreFlags); overload;
+    aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags); overload;
     {* сохраняет выделение в G. }
    function Store(aFormat: TevdClipboardFormat;
     const aPool: IStream;
@@ -139,7 +139,7 @@ type
    procedure DoIterate(anAction: InevRangePrim_Iterate_Action;
     const Progress: Il3Progress = nil;
     const aMessage: Il3CString = nil;
-    aStart: LongInt = l3MinIndex);
+    aStart: LongInt = l3Types.l3MinIndex);
     {* перебирает подтеги, входящие в выделение и вызывает anAction для каждого }
    procedure DoIterateBack(anAction: InevRangePrim_Iterate_Action;
     const Progress: Il3Progress = nil;
@@ -148,7 +148,7 @@ type
    procedure DoIterateF(anAction: InevRangePrim_Iterate_Action;
     const Progress: Il3Progress = nil;
     const aMessage: Il3CString = nil;
-    aStart: LongInt = l3MinIndex);
+    aStart: LongInt = l3Types.l3MinIndex);
     {* перебирает подтеги, входящие в выделение и вызывает anAction для каждого }
    procedure DoIterateBackF(anAction: InevRangePrim_Iterate_Action;
     const Progress: Il3Progress = nil;
@@ -231,7 +231,7 @@ end;//TevRange.DoStore
 {$If Defined(evNeedEditableCursors)}
 function TevRange.DoDelete(const aView: InevView;
  const anOpPack: InevOp = nil;
- aMode: TevClearMode = ev_cmAll;
+ aMode: TevClearMode = nevTools.ev_cmAll;
  const aPara: InevPara = nil): Boolean;
 //#UC START# *5108D66900C9_4A2D2D4300BE_var*
 //#UC END# *5108D66900C9_4A2D2D4300BE_var*
@@ -349,7 +349,7 @@ end;//TevRange.DoGetBorderPoints
 procedure TevRange.DoIterate(anAction: InevRangePrim_Iterate_Action;
  const Progress: Il3Progress = nil;
  const aMessage: Il3CString = nil;
- aStart: LongInt = l3MinIndex);
+ aStart: LongInt = l3Types.l3MinIndex);
  {* перебирает подтеги, входящие в выделение и вызывает anAction для каждого }
 //#UC START# *52D7C54903BD_4A2D2D4300BE_var*
 
@@ -456,7 +456,7 @@ end;//TevRange.DoIterateBack
 procedure TevRange.DoIterateF(anAction: InevRangePrim_Iterate_Action;
  const Progress: Il3Progress = nil;
  const aMessage: Il3CString = nil;
- aStart: LongInt = l3MinIndex);
+ aStart: LongInt = l3Types.l3MinIndex);
  {* перебирает подтеги, входящие в выделение и вызывает anAction для каждого }
 //#UC START# *52D7CBD0020F_4A2D2D4300BE_var*
 //#UC END# *52D7CBD0020F_4A2D2D4300BE_var*
@@ -502,7 +502,7 @@ end;//TevRange.DoSearchReplace
 
 procedure TevRange.Store(const aView: InevView;
  const G: InevTagGenerator;
- aFlags: TevdStoreFlags = evDefaultStoreFlags);
+ aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags);
  {* сохраняет выделение в G. }
 //#UC START# *47C68BFD011C_4A2D2D4300BE_var*
 //#UC END# *47C68BFD011C_4A2D2D4300BE_var*

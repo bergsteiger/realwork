@@ -26,7 +26,7 @@ type
     {* сохраняет выделение в G }
   public
    function Iterate(anAction: InevRangePrim_Iterate_Action;
-    aStart: Integer = l3MinIndex): Integer; override;
+    aStart: Integer = l3Types.l3MinIndex): Integer; override;
    class function Make(aTagWrap: Tl3Variant;
     aBlocks: TnevRangeList): InevRange; reintroduce;
     {* список блоков выделения, д. б отсортирован по порядку следования параграфов, и по положению блока внутри параграфа }
@@ -40,7 +40,7 @@ uses
 ;
 
 function TevLeafParaMultiSelectionBlock.Iterate(anAction: InevRangePrim_Iterate_Action;
- aStart: Integer = l3MinIndex): Integer;
+ aStart: Integer = l3Types.l3MinIndex): Integer;
 //#UC START# *4BAA60370285_48ECD64B005A_var*
 //#UC END# *4BAA60370285_48ECD64B005A_var*
 begin

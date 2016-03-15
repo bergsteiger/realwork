@@ -58,7 +58,7 @@ type
     const aStream: IStream;
     aFormat: TnevFormat;
     const anOp: InevOp = nil;
-    aFlags: TevLoadFlags = evDefaultLoadFlags;
+    aFlags: TevLoadFlags = nevBase.evDefaultLoadFlags;
     aCodePage: Integer = CP_DefaultValue): Boolean;
    function DeleteString(const aView: InevView;
     Count: Integer;
@@ -644,7 +644,7 @@ function TevBlockCursor.InsertStream(const aView: InevView;
  const aStream: IStream;
  aFormat: TnevFormat;
  const anOp: InevOp = nil;
- aFlags: TevLoadFlags = evDefaultLoadFlags;
+ aFlags: TevLoadFlags = nevBase.evDefaultLoadFlags;
  aCodePage: Integer = CP_DefaultValue): Boolean;
 //#UC START# *47C5B3410044_487B5D8D00ED_var*
 var
