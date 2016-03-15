@@ -1,21 +1,19 @@
 //#UC START# *BB0BB5CAA29B_5522D7A90252_impl*
- if Assigned(f_Alien)
-  then Result := f_Alien.GetBounds(aComponent)
-  else Result := c_EmptyRect;
+ if Assigned(f_Alien) then
+  Result := f_Alien.GetBounds(aComponent);
 
- if EqualRect(Result, c_EmptyRect) then
+ if EqualRect(Result, EmptyRect) then
   if (aComponent is TControl) then
   begin
    C := TControl(aComponent);
    P := C.Parent;
-   if not Assigned(P)
-    then Result := C.BoundsRect
-    else Result := Rect(P.ClientToScreen(C.BoundsRect.TopLeft), P.ClientToScreen(C.BoundsRect.BottomRight));                
+   if not Assigned(P) then
+    Result := C.BoundsRect
+   else
+    Result := Rect(P.ClientToScreen(C.BoundsRect.TopLeft), P.ClientToScreen(C.BoundsRect.BottomRight));                
   end;
 //#UC END# *BB0BB5CAA29B_5522D7A90252_impl*
 //#UC START# *BB0BB5CAA29B_5522D7A90252_var*
 var
- C, P: TControl;
-const
- c_EmptyRect: TRect = (Left: 0; Top: 0; Right: 0; Bottom: 0);
+ C, P : TControl;
 //#UC END# *BB0BB5CAA29B_5522D7A90252_var*
