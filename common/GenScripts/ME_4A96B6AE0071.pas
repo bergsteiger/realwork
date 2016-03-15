@@ -99,7 +99,7 @@ type
    procedure AdditionInfo_SetCaption(const aParams: IvcmExecuteParamsPrim);
    procedure Switcher_BecomeActive_Execute;
    procedure Switcher_BecomeActive(const aParams: IvcmExecuteParamsPrim);
-   procedure AdditionInfo_Close_Execute(aModalResult: Integer = mrCancel);
+   procedure AdditionInfo_Close_Execute(aModalResult: Integer = Controls.mrCancel);
    procedure AdditionInfo_Close(const aParams: IvcmExecuteParamsPrim);
   public
    property BackgroundPanel: TvtProportionalPanel
@@ -384,7 +384,7 @@ begin
  Self.Switcher_BecomeActive_Execute;
 end;//TPrimFoldersForm.Switcher_BecomeActive
 
-procedure TPrimFoldersForm.AdditionInfo_Close_Execute(aModalResult: Integer = mrCancel);
+procedure TPrimFoldersForm.AdditionInfo_Close_Execute(aModalResult: Integer = Controls.mrCancel);
 //#UC START# *4AE9BF890271_4A96B6AE0071exec_var*
 //#UC END# *4AE9BF890271_4A96B6AE0071exec_var*
 begin

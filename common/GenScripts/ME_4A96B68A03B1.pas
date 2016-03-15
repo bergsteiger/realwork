@@ -46,7 +46,7 @@ type
     const aCaption: Il3CString;
     const aUserData: IUnknown;
     anOpenType: TFoldersInfoType;
-    anOp: TListLogicOperation = LLO_NONE): Integer;
+    anOp: TListLogicOperation = nsTypes.LLO_NONE): Integer;
   protected
    procedure OpenFoldersPrim(const aContainer: IvcmContainer);
    function FindFoldersForm(const aContainer: IvcmContainer): IvcmEntityForm;
@@ -316,7 +316,7 @@ function TPrimFoldersModule.OpenFoldersForSelect(const aContainer: IvcmContainer
  const aCaption: Il3CString;
  const aUserData: IUnknown;
  anOpenType: TFoldersInfoType;
- anOp: TListLogicOperation = LLO_NONE): Integer;
+ anOp: TListLogicOperation = nsTypes.LLO_NONE): Integer;
 var l_Params: IvcmMakeParams;
 var l_Container: IvcmEntityForm;
 var l_Folders: ;

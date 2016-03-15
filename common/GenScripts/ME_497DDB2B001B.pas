@@ -547,7 +547,7 @@ type
     {* Информация о документе }
    function Loadable_Load_Execute(const aNode: IeeNode;
     const aData: IUnknown;
-    anOp: TListLogicOperation = LLO_NONE): Boolean;
+    anOp: TListLogicOperation = nsTypes.LLO_NONE): Boolean;
     {* Коллеги, кто может описать этот метод? }
    procedure Loadable_Load(const aParams: IvcmExecuteParamsPrim);
     {* Коллеги, кто может описать этот метод? }
@@ -2493,7 +2493,7 @@ end;//TPrimListForm.Document_GetAttributesFrmAct_Execute
 
 function TPrimListForm.Loadable_Load_Execute(const aNode: IeeNode;
  const aData: IUnknown;
- anOp: TListLogicOperation = LLO_NONE): Boolean;
+ anOp: TListLogicOperation = nsTypes.LLO_NONE): Boolean;
  {* Коллеги, кто может описать этот метод? }
 //#UC START# *49895A2102E8_497DDB2B001Bexec_var*
 
@@ -4272,7 +4272,7 @@ begin
  l_InnerState := nil;
  l_TreeStructState := nil;
  Result := inherited DoSaveState(l_InnerState, aStateType, aForClone);
- if aForClone then
+ if aForClone and tvList.IsTreeAssign then
  begin
   if Supports(tvList.TreeStruct, InsTreeStructStateProvider, l_TreeStructStateProvider) then
    l_TreeStructState := l_TreeStructStateProvider.MakeState;

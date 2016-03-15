@@ -60,7 +60,7 @@ type
    function DoGetTabCaption: IvcmCString; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   procedure Common_ShowSplitter_Execute;
+   procedure Common_ShowSplitter_Execute(aVisible: Boolean);
    procedure Common_ShowSplitter(const aParams: IvcmExecuteParamsPrim);
    {$If NOT Defined(NoVCM)}
    procedure NotifyUserTypeSet; override;
@@ -127,7 +127,7 @@ begin
 //#UC END# *4D7F8B4A0214_4D7A69F9028C_impl*
 end;//TPrimDictionContainerForm.ChildZoneQueryResize
 
-procedure TPrimDictionContainerForm.Common_ShowSplitter_Execute;
+procedure TPrimDictionContainerForm.Common_ShowSplitter_Execute(aVisible: Boolean);
 //#UC START# *4AE8744002F3_4D7A69F9028Cexec_var*
 //#UC END# *4AE8744002F3_4D7A69F9028Cexec_var*
 begin
@@ -141,7 +141,8 @@ end;//TPrimDictionContainerForm.Common_ShowSplitter_Execute
 
 procedure TPrimDictionContainerForm.Common_ShowSplitter(const aParams: IvcmExecuteParamsPrim);
 begin
- Self.Common_ShowSplitter_Execute;
+ with (aParams.Data As ICommon_ShowSplitter_Params) do
+  Self.Common_ShowSplitter_Execute(Visible);
 end;//TPrimDictionContainerForm.Common_ShowSplitter
 
 {$If NOT Defined(NoVCM)}

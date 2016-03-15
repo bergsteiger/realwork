@@ -34,7 +34,7 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   procedure AdditionInfo_Close_Execute(aModalResult: Integer = mrCancel);
+   procedure AdditionInfo_Close_Execute(aModalResult: Integer = Controls.mrCancel);
    procedure AdditionInfo_Close(const aParams: IvcmExecuteParamsPrim);
    procedure FolderElement_SetState_Execute(aInfoType: TFoldersInfoType);
    procedure FolderElement_SetState(const aParams: IvcmExecuteParamsPrim);
@@ -66,7 +66,7 @@ const
  str_utFoldersInfoContainerCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utFoldersInfoContainerCaption'; rValue : 'Свойства папок (модальный диалог)');
   {* Заголовок пользовательского типа "Свойства папок (модальный диалог)" }
 
-procedure TPrimFoldersInfoForm.AdditionInfo_Close_Execute(aModalResult: Integer = mrCancel);
+procedure TPrimFoldersInfoForm.AdditionInfo_Close_Execute(aModalResult: Integer = Controls.mrCancel);
 //#UC START# *4AE9BF890271_4AE9BEEF0229exec_var*
 //#UC END# *4AE9BF890271_4AE9BEEF0229exec_var*
 begin

@@ -152,7 +152,7 @@ type
     {* Загрузить из папок }
    function Loadable_Load_Execute(const aNode: IeeNode;
     const aData: IUnknown;
-    anOp: TListLogicOperation = LLO_NONE): Boolean;
+    anOp: TListLogicOperation = nsTypes.LLO_NONE): Boolean;
     {* Коллеги, кто может описать этот метод? }
    procedure Loadable_Load(const aParams: IvcmExecuteParamsPrim);
     {* Коллеги, кто может описать этот метод? }
@@ -1196,7 +1196,7 @@ end;//TPrimSaveLoadForm.File_LoadFromFolder_Execute
 
 function TPrimSaveLoadForm.Loadable_Load_Execute(const aNode: IeeNode;
  const aData: IUnknown;
- anOp: TListLogicOperation = LLO_NONE): Boolean;
+ anOp: TListLogicOperation = nsTypes.LLO_NONE): Boolean;
  {* Коллеги, кто может описать этот метод? }
 //#UC START# *49895A2102E8_4958E3AB0247exec_var*
 const
