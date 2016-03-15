@@ -202,7 +202,7 @@ type
    function DocumentIsValid: Boolean; override;
     {* Есть ли документ, готовый к работе }
    procedure GotoPoint(aPointID: Cardinal;
-    aPointType: TDocumentPositionType = Sub); override;
+    aPointType: TDocumentPositionType = bsTypesNew.dptSub); override;
     {* Переход на точку в документе }
    function HyperlinkDocument: IDocument; override;
     {* Документ ИЗ которого ведёт ссылка }
@@ -258,7 +258,7 @@ type
    procedure Finder_GotoPara(const aParams: IvcmExecuteParamsPrim);
     {* Перейти к параграфу по номеру }
    function Document_SetPosition_Execute(aPointID: Cardinal;
-    aPointType: TDocumentPositionType = Sub;
+    aPointType: TDocumentPositionType = bsTypesNew.dptSub;
     aUserType: Integer = 0): Boolean;
    procedure Document_SetPosition(const aParams: IvcmExecuteParamsPrim);
    procedure Document_OpenEditionLocalLink_Execute(const aDocument: IDocument;
@@ -1292,7 +1292,7 @@ begin
 end;//TDiffForm.DocumentIsValid
 
 procedure TDiffForm.GotoPoint(aPointID: Cardinal;
- aPointType: TDocumentPositionType = Sub);
+ aPointType: TDocumentPositionType = bsTypesNew.dptSub);
  {* Переход на точку в документе }
 //#UC START# *4A8164E801AE_4A6EBE900233_var*
 var
@@ -1439,7 +1439,7 @@ begin
 end;//TDiffForm.IsDrug
 
 function TDiffForm.Document_SetPosition_Execute(aPointID: Cardinal;
- aPointType: TDocumentPositionType = Sub;
+ aPointType: TDocumentPositionType = bsTypesNew.dptSub;
  aUserType: Integer = 0): Boolean;
 //#UC START# *4AE9D38A02DA_4A6EBE900233exec_var*
 //#UC END# *4AE9D38A02DA_4A6EBE900233exec_var*

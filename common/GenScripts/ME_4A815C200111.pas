@@ -39,7 +39,7 @@
     aSub: Cardinal;
     aBehaviour: TbsProcessHyperLinkBehaviour): Boolean; virtual;
    procedure GotoPoint(aPointID: Cardinal;
-    aPointType: TDocumentPositionType = Sub); virtual; abstract;
+    aPointType: TDocumentPositionType = bsTypesNew.dptSub); virtual; abstract;
     {* Переход на точку в документе }
    procedure OpenRedactionLocalLink(const aDocument: IDocument;
     aSub: Cardinal;

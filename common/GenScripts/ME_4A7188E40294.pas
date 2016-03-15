@@ -35,7 +35,7 @@
    function Get_RedactionName: Il3CString;
    procedure EditionChanged;
    function MakeFilterInfo(aType: TnsFolderFilter;
-    aShowFolders: TnsShowFolders = sfAll): InsFolderFilterInfo;
+    aShowFolders: TnsShowFolders = FoldersDomainInterfaces.sfAll): InsFolderFilterInfo;
    function Get_DocumentForReturn: TnsDocumentForReturnInfo;
    function DoGetControllable: IControllable; override;
    function DocumentForDocInfoProvider: IDocument; override;
@@ -178,7 +178,7 @@ begin
 end;//_dsEditionDiff_.EditionChanged
 
 function _dsEditionDiff_.MakeFilterInfo(aType: TnsFolderFilter;
- aShowFolders: TnsShowFolders = sfAll): InsFolderFilterInfo;
+ aShowFolders: TnsShowFolders = FoldersDomainInterfaces.sfAll): InsFolderFilterInfo;
 //#UC START# *4AE575FA030B_4A7188E40294_var*
 //#UC END# *4AE575FA030B_4A7188E40294_var*
 begin
