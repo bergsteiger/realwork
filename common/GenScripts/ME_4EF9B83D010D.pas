@@ -30,8 +30,8 @@ type
     aValue: Integer;
     const anOpPack: InevOp;
     SeeByLevel: Boolean = False;
-    aMinIndex: Tl3Index = l3MinIndex;
-    aMaxIndex: Tl3Index = l3MaxIndex): Boolean;
+    aMinIndex: Tl3Index = l3Types.l3MinIndex;
+    aMaxIndex: Tl3Index = l3Types.l3MaxIndex): Boolean;
     {* Изменить значение параметра }
    {$IfEnd} // Defined(evNeedHotSpot)
    function DoChangeParam(const aView: InevView;
@@ -70,8 +70,8 @@ function TevTableCursorPrim.ChangeParam(const aMarker: IevMarker;
  aValue: Integer;
  const anOpPack: InevOp;
  SeeByLevel: Boolean = False;
- aMinIndex: Tl3Index = l3MinIndex;
- aMaxIndex: Tl3Index = l3MaxIndex): Boolean;
+ aMinIndex: Tl3Index = l3Types.l3MinIndex;
+ aMaxIndex: Tl3Index = l3Types.l3MaxIndex): Boolean;
  {* Изменить значение параметра }
 //#UC START# *4A26260A00E6_4EF9B83D010D_var*
 var

@@ -26,7 +26,7 @@ type
    f_ShowCollapsed: Boolean;
   protected
    function ExpandOrCollapse(const aView: InevControlView;
-    aExpandMode: Tl3Bool = l3_bUnknown): Boolean; virtual;
+    aExpandMode: Tl3Bool = l3Types.l3_bUnknown): Boolean; virtual;
    procedure AfterCollapsed(const aView: InevControlView); virtual;
    function IsShowingDocumentParts(const aView: InevControlView): Boolean; virtual;
    procedure Cleanup; override;
@@ -72,7 +72,7 @@ uses
 ;
 
 function TevDocumentPartCursor.ExpandOrCollapse(const aView: InevControlView;
- aExpandMode: Tl3Bool = l3_bUnknown): Boolean;
+ aExpandMode: Tl3Bool = l3Types.l3_bUnknown): Boolean;
 //#UC START# *4A3FA3CC00CC_4A3FA3290296_var*
 var
  l_Value: Boolean;
