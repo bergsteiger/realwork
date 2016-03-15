@@ -91,7 +91,10 @@
 //#UC START# *4DB6C99F026E_4F733A0701F0_var*
 //#UC END# *4DB6C99F026E_4F733A0701F0_var*
 //#UC START# *4DB6CB1703AD_4F733A0701F0_impl*
- inherited;
+ if not f_CascadeDict then
+  AddInitialization(aCtx, aWord)
+ else
+  inherited;
 //#UC END# *4DB6CB1703AD_4F733A0701F0_impl*
 //#UC START# *4DB6CB1703AD_4F733A0701F0_var*
 //#UC END# *4DB6CB1703AD_4F733A0701F0_var*
@@ -295,21 +298,20 @@
 //#UC END# *4F4FEB6100A7_4F733A0701F0_var*
 //#UC START# *4F733B9C0064_4F733A0701F0_impl*
  Assert(f_UserDictionary = nil);
- {$IfNDef seDisableValidateCode}
  {$IfDef seCacheDict}
  if Self.CacheDict then
   ValidateCode;
  {$EndIf seCacheDict}
- {$EndIf  seDisableValidateCode}
  f_UserDictionary := nil;
  try
   f_Dictionaries := TtfwDictionaryList.Create;
   try
+   f_CascadeDict := true;
    f_ScriptFileName := aStream.FileName;
    l_N := TtfwCStringFactory.C(f_ScriptFileName);
    l_NeedCompile := true;
    {$IfDef seCacheDict}
-   if Self.CacheDict AND not l3IsNil(l_N) then
+   if Self.CacheDict then
    begin
     l_D := TtfwMainDictionaryCache.Instance.FindDictionary(l_N);
     if (l_D <> nil) then
@@ -623,7 +625,6 @@ var
    begin
     Result := false;
     CompilerAssert(f_Dictionaries <> nil, 'Список словарей пуст', aCtx);
-    //WriteLn(aCtx.rStreamfactory.FileName);
     l_N := TtfwCStringFactory.C(aCtx.rStreamfactory.FileName);
     l_D := nil;
     if l3Starts(l3PCharLen('res:'), l3PCharLen(l_N), true) then
@@ -656,7 +657,7 @@ var
       try
        AddToDictionaries(l_D);
        {$IfDef seCacheDict}
-       if Self.CacheDict AND not l3IsNil(l_N) then
+       if Self.CacheDict then
         TtfwDictionaryCache.Instance.Add(l_D);
        {$EndIf seCacheDict} 
        Result := true;
@@ -677,8 +678,19 @@ var
 //#UC START# *559E7749009C_4F733A0701F0_var*
 
  procedure AddToDictionaries(aD: TtfwDictionaryEx);
+ var
+  l_Index : Integer;
+  l_D : TtfwDictionaryEx;
  begin//AddToDictionaries
   f_Dictionaries.Add(aD);
+  if not f_CascadeDict then
+   if (aD.UsedDictionaries <> nil) then
+    for l_Index := 0 to Pred(aD.UsedDictionaries.Count) do
+    begin
+     l_D := aD.UsedDictionaries.Items[l_Index] As TtfwDictionaryEx;
+     if (f_Dictionaries.IndexOf(l_D) < 0) then
+      AddToDictionaries(l_D);
+    end;//for l_Index
  end;//AddToDictionaries
 
 var
@@ -740,12 +752,29 @@ var
 //#UC START# *55A7D34102A0_4F733A0701F0_var*
 //#UC END# *55A7D34102A0_4F733A0701F0_var*
 //#UC START# *55ACE5210310_4F733A0701F0_impl*
- if (f_UserDictionary <> nil) then
-  Result := f_UserDictionary.DRbyCName[aName]
+ Result := nil;
+ if f_CascadeDict then
+ begin
+  if (f_UserDictionary <> nil) then
+   Result := f_UserDictionary.DRbyCName[aName];
+ end//f_CascadeDict
  else
-  Result := nil;
+ begin
+  if (f_Dictionaries <> nil) then
+  begin
+   //for l_Index := Pred(f_Dictionaries.Count) downto 0 do
+   for l_Index := 0 to Pred(f_Dictionaries.Count) do
+   begin
+    Result := f_Dictionaries.Items[l_Index].DRbyCName[aName];
+    if (Result <> nil) then
+     Exit;
+   end;//for l_Index
+  end;//f_Dictionaries <> nil
+ end;//f_CascadeDict
 //#UC END# *55ACE5210310_4F733A0701F0_impl*
 //#UC START# *55ACE5210310_4F733A0701F0_var*
+var
+ l_Index : Integer;
 //#UC END# *55ACE5210310_4F733A0701F0_var*
 //#UC START# *55ACF0F5025D_4F733A0701F0_impl*
  Result := nil;
