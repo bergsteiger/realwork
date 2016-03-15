@@ -137,7 +137,7 @@ type
   function Get_Count: Integer;
   function Get_Subs(anIndex: Integer): IeeSub;
   function Get_SubsByID(anID: Integer): IeeSub;
-  function Add(anID: Integer = ee_SubAutoID;
+  function Add(anID: Integer = eeConst.ee_SubAutoID;
    const aName: Il3CString = nil): IeeSub;
   property Count: Integer
    read Get_Count;
@@ -436,26 +436,13 @@ type
    read Get_Name;
  end;//IeePicture
 
- IeeCommands = interface(IeeBase)
-  ['{3203A6BE-6BCE-41F6-9BEC-F0DA89C3D589}']
-  procedure Cut;
-  procedure Copy;
-  procedure Delete;
-  function Paste: Boolean;
-  procedure SelectAll;
-  procedure HideSelection;
- end;//IeeCommands
-
  IeeEditor = interface(IevF1LikeEditor)
   {* Корневой интерфейс, представляющий доступ к функциям редактора }
   ['{30C8F152-1DA6-4B92-8A76-A4588838F823}']
-  function Get_Commands: IeeCommands;
   function Get_Data: IeeData;
   function GetHotspotOnPoint(const aPt: TPoint;
    out theHotSpot: IeeHotSpot): Boolean;
   function CanSplitPara(const aPara: IeePara): Boolean;
-  property Commands: IeeCommands
-   read Get_Commands;
   property Data: IeeData
    read Get_Data;
  end;//IeeEditor

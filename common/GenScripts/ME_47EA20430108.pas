@@ -62,7 +62,7 @@
    function Get_PreviewCaleeArea: TafwPreviewCaleeArea;
    function MakeHAFMacroReplacer: IafwHAFMacroReplacer;
    function MakeFilterInfo(aType: TnsFolderFilter;
-    aShowFolders: TnsShowFolders = sfAll): InsFolderFilterInfo;
+    aShowFolders: TnsShowFolders = FoldersDomainInterfaces.sfAll): InsFolderFilterInfo;
    function DoGetControllable: IControllable; override;
    function Get_LikeState: TdocLikeState;
    procedure Set_LikeState(aValue: TdocLikeState);
@@ -453,7 +453,7 @@ begin
 end;//_dsBaseDocumentPrim_.MakeHAFMacroReplacer
 
 function _dsBaseDocumentPrim_.MakeFilterInfo(aType: TnsFolderFilter;
- aShowFolders: TnsShowFolders = sfAll): InsFolderFilterInfo;
+ aShowFolders: TnsShowFolders = FoldersDomainInterfaces.sfAll): InsFolderFilterInfo;
 //#UC START# *4AE575FA030B_47EA20430108_var*
   
  function nsFilterForDocument(const aDoc: IdeDocInfo): TnsFolderFilterFor;

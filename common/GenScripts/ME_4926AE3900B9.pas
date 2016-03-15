@@ -37,8 +37,8 @@ type
     aNeedApplyPermanentFilters: Boolean;
     aIsChanged: Boolean); reintroduce;
    class function Make(const aList: IDynList;
-    aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc = wdAlwaysOpen;
-    aOpenFrom: TbsListOpenFrom = lofNone;
+    aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc = bsTypes.wdAlwaysOpen;
+    aOpenFrom: TbsListOpenFrom = bsTypes.lofNone;
     aTimeMachineOff: Boolean = True;
     const aNodeForPositioning: Il3SimpleNode = nil;
     const aSearchInfo: IdeSearchInfo = nil;
@@ -81,8 +81,8 @@ begin
 end;//TdeListSet.Create
 
 class function TdeListSet.Make(const aList: IDynList;
- aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc = wdAlwaysOpen;
- aOpenFrom: TbsListOpenFrom = lofNone;
+ aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc = bsTypes.wdAlwaysOpen;
+ aOpenFrom: TbsListOpenFrom = bsTypes.lofNone;
  aTimeMachineOff: Boolean = True;
  const aNodeForPositioning: Il3SimpleNode = nil;
  const aSearchInfo: IdeSearchInfo = nil;

@@ -1,31 +1,24 @@
 unit eeCustomTreeView;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest Engine"
-// Модуль: "w:/common/components/gui/Garant/Everest_Engine/eeCustomTreeView.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For F1::Everest Engine::Tree::eeCustomTreeView
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeCustomTreeView.pas"
+// Стереотип: "UtilityPack"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest_Engine\eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 
 uses
-  eeTreeView,
-  l3TreeInterfaces
-  ;
+ l3IntfUses
+ , eeTreeView
+;
 
 type
  TeeCustomTreeView = eeTreeView.TeeCustomTreeView;
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

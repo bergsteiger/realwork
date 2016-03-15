@@ -292,16 +292,16 @@ type
   function pm_GetChild(anIndex: Integer): Tl3Variant;
   procedure Set_ChildrenCapacity(aValue: Integer);
   function IterateChildrenF(anAction: Mk2Children_IterateChildrenF_Action;
-   aLo: Tl3Index = l3MinIndex;
-   aHi: Tl3Index = l3MaxIndex;
+   aLo: Tl3Index = l3Interfaces.l3MinIndex;
+   aHi: Tl3Index = l3Interfaces.l3MaxIndex;
    aLoadedOnly: Boolean = False): Integer;
   function IterateChildrenBack(anAction: Mk2Children_IterateChildrenBack_Action;
-   aHi: Tl3Index = l3MaxIndex;
-   aLo: Tl3Index = l3MinIndex;
+   aHi: Tl3Index = l3Interfaces.l3MaxIndex;
+   aLo: Tl3Index = l3Interfaces.l3MinIndex;
    aLoadedOnly: Boolean = False): Integer;
   function IterateChildrenBackF(anAction: Mk2Children_IterateChildrenBack_Action;
-   aHi: Tl3Index = l3MaxIndex;
-   aLo: Tl3Index = l3MinIndex;
+   aHi: Tl3Index = l3Interfaces.l3MaxIndex;
+   aLo: Tl3Index = l3Interfaces.l3MinIndex;
    aLoadedOnly: Boolean = False): Integer;
   function AddChild(aChild: Tl3Variant;
    const aContext: Il3OpPack = nil): Integer;
@@ -544,7 +544,7 @@ type
   public
    function IsProp: Boolean;
    function IsNull: Boolean;
-   function MakeTag(aRef: Integer = l3NilLong): Il3TagRef;
+   function MakeTag(aRef: Integer = l3Const.l3NilLong): Il3TagRef;
    function IsSame(aType: Tl3VariantDef): Boolean;
   public
    property IDw: Integer
@@ -711,14 +711,14 @@ type
     theIndex: PLongint): Tl3Variant; virtual;
    function CloneTag: Il3TagRef; virtual;
    procedure WriteTag(const G: Ik2TagGenerator;
-    Flags: Tk2StorePropertyFlags = l3_spfAll;
+    Flags: Tk2StorePropertyFlags = k2BaseTypes.l3_spfAll;
     Exclude: TByteSet = []); virtual;
     {* записать тег в генератор. }
    function AssignTag(Source: Tl3Variant;
-    AssignMode: Tk2AssignModes = k2_amAll;
+    AssignMode: Tk2AssignModes = k2BaseTypes.k2_amAll;
     const Context: Il3OpPack = nil): Boolean; virtual;
    procedure AssignCloneParams(aSource: Tl3Variant;
-    AssignMode: Tk2AssignModes = k2_amAll;
+    AssignMode: Tk2AssignModes = k2BaseTypes.k2_amAll;
     const Context: Il3OpPack = nil); virtual;
    procedure DeleteChildren(const Context: Il3OpPack = nil); virtual;
     {* удалить всех детей. }
@@ -758,16 +758,16 @@ type
    procedure ForceStore;
    function MarkModified: Boolean;
    function IterateChildrenF(anAction: Mk2Children_IterateChildrenF_Action;
-    aLo: Tl3Index = l3MinIndex;
-    aHi: Tl3Index = l3MaxIndex;
+    aLo: Tl3Index = l3Interfaces.l3MinIndex;
+    aHi: Tl3Index = l3Interfaces.l3MaxIndex;
     aLoadedOnly: Boolean = False): Integer;
    function IterateChildrenBack(anAction: Mk2Children_IterateChildrenBack_Action;
-    aHi: Tl3Index = l3MaxIndex;
-    aLo: Tl3Index = l3MinIndex;
+    aHi: Tl3Index = l3Interfaces.l3MaxIndex;
+    aLo: Tl3Index = l3Interfaces.l3MinIndex;
     aLoadedOnly: Boolean = False): Integer;
    function IterateChildrenBackF(anAction: Mk2Children_IterateChildrenBack_Action;
-    aHi: Tl3Index = l3MaxIndex;
-    aLo: Tl3Index = l3MinIndex;
+    aHi: Tl3Index = l3Interfaces.l3MaxIndex;
+    aLo: Tl3Index = l3Interfaces.l3MinIndex;
     aLoadedOnly: Boolean = False): Integer;
    procedure IterateProperties(anAction: Ml3TagHolder_IterateProperties_Action;
     anAll: Boolean
@@ -1001,16 +1001,16 @@ type
    aValue: Tl3Variant);
   function IsOrd: Boolean;
   function IterateChildrenF(anAction: Mk2Children_IterateChildrenF_Action;
-   aLo: Tl3Index = l3MinIndex;
-   aHi: Tl3Index = l3MaxIndex;
+   aLo: Tl3Index = l3Interfaces.l3MinIndex;
+   aHi: Tl3Index = l3Interfaces.l3MaxIndex;
    aLoadedOnly: Boolean = False): Integer;
   function IterateChildrenBack(anAction: Mk2Children_IterateChildrenBack_Action;
-   aHi: Tl3Index = l3MaxIndex;
-   aLo: Tl3Index = l3MinIndex;
+   aHi: Tl3Index = l3Interfaces.l3MaxIndex;
+   aLo: Tl3Index = l3Interfaces.l3MinIndex;
    aLoadedOnly: Boolean = False): Integer;
   function IterateChildrenBackF(anAction: Mk2Children_IterateChildrenBack_Action;
-   aHi: Tl3Index = l3MaxIndex;
-   aLo: Tl3Index = l3MinIndex;
+   aHi: Tl3Index = l3Interfaces.l3MaxIndex;
+   aLo: Tl3Index = l3Interfaces.l3MinIndex;
    aLoadedOnly: Boolean = False): Integer;
   function AddChild(aChild: Tl3Variant;
    const aContext: Il3OpPack = nil): Integer;
@@ -1405,7 +1405,7 @@ begin
 //#UC END# *4A4DE23F0106_5331A06F028A_impl*
 end;//Tl3VariantDef.IsNull
 
-function Tl3VariantDef.MakeTag(aRef: Integer = l3NilLong): Il3TagRef;
+function Tl3VariantDef.MakeTag(aRef: Integer = l3Const.l3NilLong): Il3TagRef;
 //#UC START# *535690980333_5331A06F028A_var*
 //#UC END# *535690980333_5331A06F028A_var*
 begin
@@ -1849,7 +1849,7 @@ begin
 end;//Tl3Variant.CloneTag
 
 procedure Tl3Variant.WriteTag(const G: Ik2TagGenerator;
- Flags: Tk2StorePropertyFlags = l3_spfAll;
+ Flags: Tk2StorePropertyFlags = k2BaseTypes.l3_spfAll;
  Exclude: TByteSet = []);
  {* записать тег в генератор. }
 //#UC START# *4761324203B8_532031160122_var*
@@ -1861,7 +1861,7 @@ begin
 end;//Tl3Variant.WriteTag
 
 function Tl3Variant.AssignTag(Source: Tl3Variant;
- AssignMode: Tk2AssignModes = k2_amAll;
+ AssignMode: Tk2AssignModes = k2BaseTypes.k2_amAll;
  const Context: Il3OpPack = nil): Boolean;
 //#UC START# *47612DD0012B_532031160122_var*
 //#UC END# *47612DD0012B_532031160122_var*
@@ -1873,7 +1873,7 @@ begin
 end;//Tl3Variant.AssignTag
 
 procedure Tl3Variant.AssignCloneParams(aSource: Tl3Variant;
- AssignMode: Tk2AssignModes = k2_amAll;
+ AssignMode: Tk2AssignModes = k2BaseTypes.k2_amAll;
  const Context: Il3OpPack = nil);
 //#UC START# *47612E530082_532031160122_var*
 //#UC END# *47612E530082_532031160122_var*
@@ -2347,8 +2347,8 @@ begin
 end;//Tl3Variant.Set_Owner
 
 function Tl3Variant.IterateChildrenF(anAction: Mk2Children_IterateChildrenF_Action;
- aLo: Tl3Index = l3MinIndex;
- aHi: Tl3Index = l3MaxIndex;
+ aLo: Tl3Index = l3Interfaces.l3MinIndex;
+ aHi: Tl3Index = l3Interfaces.l3MaxIndex;
  aLoadedOnly: Boolean = False): Integer;
 //#UC START# *4BB21F9D022F_532031160122_var*
 //#UC END# *4BB21F9D022F_532031160122_var*
@@ -2359,8 +2359,8 @@ begin
 end;//Tl3Variant.IterateChildrenF
 
 function Tl3Variant.IterateChildrenBack(anAction: Mk2Children_IterateChildrenBack_Action;
- aHi: Tl3Index = l3MaxIndex;
- aLo: Tl3Index = l3MinIndex;
+ aHi: Tl3Index = l3Interfaces.l3MaxIndex;
+ aLo: Tl3Index = l3Interfaces.l3MinIndex;
  aLoadedOnly: Boolean = False): Integer;
 //#UC START# *4BBF49EB0260_532031160122_var*
 //#UC END# *4BBF49EB0260_532031160122_var*
@@ -2371,8 +2371,8 @@ begin
 end;//Tl3Variant.IterateChildrenBack
 
 function Tl3Variant.IterateChildrenBackF(anAction: Mk2Children_IterateChildrenBack_Action;
- aHi: Tl3Index = l3MaxIndex;
- aLo: Tl3Index = l3MinIndex;
+ aHi: Tl3Index = l3Interfaces.l3MaxIndex;
+ aLo: Tl3Index = l3Interfaces.l3MinIndex;
  aLoadedOnly: Boolean = False): Integer;
 var
  Hack : Pointer absolute anAction;

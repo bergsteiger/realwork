@@ -1,90 +1,68 @@
 unit eeHotSpot;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest Engine"
-// Модуль: "w:/common/components/gui/Garant/Everest_Engine/eeHotSpot.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For F1::Everest Engine::Engine Core::TeeHotSpot
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeHotSpot.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest_Engine\eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  eeInterfaces,
-  eeInterfacesEx,
-  nevNavigation,
-  l3Variant,
-  eeTagEditorTool,
-  l3IID
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , eeTagEditorTool
+ , eeInterfaces
+ , nevNavigation
+ , l3Variant
+ , eeInterfacesEx
+ , l3IID
+;
 
-{$If defined(Nemesis)}
 type
  TeeHotSpot = class(TeeTagEditorTool, IeeHotSpot)
- private
- // private fields
-   f_Hyperlink : IevHyperlink;
-   f_InSelection : Boolean;
-   f_Sub : IeeSub;
- protected
- // realized methods
+  private
+   f_Hyperlink: IevHyperlink;
+   f_InSelection: Boolean;
+   f_Sub: IeeSub;
+  protected
    function Get_Para: IeePara;
    function Get_Hyperlink: IevHyperlink;
    function Get_InSelection: Boolean;
    function Get_Sub: IeeSub;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
- public
- // public methods
+    {* Реализация запроса интерфейса }
+  public
    constructor Create(aTagWrap: Tl3Variant;
-     const aDocument: IeeDocumentEx;
-     const aHyperlink: IevHyperlink;
-     aInSelection: Boolean;
-     const aSub: IeeSub = nil); reintroduce;
+    const aDocument: IeeDocumentEx;
+    const aHyperlink: IevHyperlink;
+    aInSelection: Boolean;
+    const aSub: IeeSub = nil); reintroduce;
    class function Make(aTagWrap: Tl3Variant;
-     const aDocument: IeeDocumentEx;
-     const aHyperlink: IevHyperlink;
-     aInSelection: Boolean;
-     const aSub: IeeSub = nil): IeeHotSpot; reintroduce;
-     {* Сигнатура фабрики TeeHotSpot.Make }
+    const aDocument: IeeDocumentEx;
+    const aHyperlink: IevHyperlink;
+    aInSelection: Boolean;
+    const aSub: IeeSub = nil): IeeHotSpot; reintroduce;
  end;//TeeHotSpot
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  l3String,
-  eePara,
-  SysUtils
-  ;
-{$IfEnd} //Nemesis
-
-{$If defined(Nemesis)}
-
-// start class TeeHotSpot
+ l3ImplUses
+ , l3String
+ , eePara
+ , SysUtils
+;
 
 constructor TeeHotSpot.Create(aTagWrap: Tl3Variant;
-  const aDocument: IeeDocumentEx;
-  const aHyperlink: IevHyperlink;
-  aInSelection: Boolean;
-  const aSub: IeeSub = nil);
+ const aDocument: IeeDocumentEx;
+ const aHyperlink: IevHyperlink;
+ aInSelection: Boolean;
+ const aSub: IeeSub = nil);
 //#UC START# *54872F04032C_5481DD0C0363_var*
 //#UC END# *54872F04032C_5481DD0C0363_var*
 begin
@@ -97,10 +75,10 @@ begin
 end;//TeeHotSpot.Create
 
 class function TeeHotSpot.Make(aTagWrap: Tl3Variant;
-  const aDocument: IeeDocumentEx;
-  const aHyperlink: IevHyperlink;
-  aInSelection: Boolean;
-  const aSub: IeeSub = nil): IeeHotSpot;
+ const aDocument: IeeDocumentEx;
+ const aHyperlink: IevHyperlink;
+ aInSelection: Boolean;
+ const aSub: IeeSub = nil): IeeHotSpot;
 var
  l_Inst : TeeHotSpot;
 begin
@@ -110,7 +88,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TeeHotSpot.Make
 
 function TeeHotSpot.Get_Para: IeePara;
 //#UC START# *54819EA50228_5481DD0C0363get_var*
@@ -149,6 +127,7 @@ begin
 end;//TeeHotSpot.Get_Sub
 
 procedure TeeHotSpot.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5481DD0C0363_var*
 //#UC END# *479731C50290_5481DD0C0363_var*
 begin
@@ -161,7 +140,8 @@ begin
 end;//TeeHotSpot.Cleanup
 
 function TeeHotSpot.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_5481DD0C0363_var*
 //#UC END# *4A60B23E00C3_5481DD0C0363_var*
 begin
@@ -191,7 +171,6 @@ begin
   Result := inherited COMQueryInterface(IID, Obj);
 //#UC END# *4A60B23E00C3_5481DD0C0363_impl*
 end;//TeeHotSpot.COMQueryInterface
-
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 end.

@@ -1,60 +1,37 @@
 unit eeDocumentTool;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest Engine"
-// Модуль: "w:/common/components/gui/Garant/Everest_Engine/eeDocumentTool.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For F1::Everest Engine::Engine Core::TeeDocumentTool
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeDocumentTool.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest_Engine\eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  l3Tool,
-  eeInterfacesEx
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , l3Tool
+ , eeInterfacesEx
+;
 
-{$If defined(Nemesis)}
 type
  TeeDocumentTool = class(Tl3Tool)
- protected
- // property methods
+  protected
    function pm_GetDocument: IeeDocumentEx;
- public
- // public methods
+  public
    constructor Create(const aDocument: IeeDocumentEx); reintroduce;
- public
- // public properties
+  public
    property Document: IeeDocumentEx
-     read pm_GetDocument;
+    read pm_GetDocument;
  end;//TeeDocumentTool
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
-
-// start class TeeDocumentTool
-
-constructor TeeDocumentTool.Create(const aDocument: IeeDocumentEx);
-//#UC START# *548717AB01C5_54817DBA01BE_var*
-//#UC END# *548717AB01C5_54817DBA01BE_var*
-begin
-//#UC START# *548717AB01C5_54817DBA01BE_impl*
- inherited Create(aDocument as IeeToolOwner);
-//#UC END# *548717AB01C5_54817DBA01BE_impl*
-end;//TeeDocumentTool.Create
+{$If Defined(Nemesis)}
+uses
+ l3ImplUses
+;
 
 function TeeDocumentTool.pm_GetDocument: IeeDocumentEx;
 //#UC START# *5487171F0251_54817DBA01BEget_var*
@@ -65,6 +42,14 @@ begin
 //#UC END# *5487171F0251_54817DBA01BEget_impl*
 end;//TeeDocumentTool.pm_GetDocument
 
-{$IfEnd} //Nemesis
+constructor TeeDocumentTool.Create(const aDocument: IeeDocumentEx);
+//#UC START# *548717AB01C5_54817DBA01BE_var*
+//#UC END# *548717AB01C5_54817DBA01BE_var*
+begin
+//#UC START# *548717AB01C5_54817DBA01BE_impl*
+ inherited Create(aDocument as IeeToolOwner);
+//#UC END# *548717AB01C5_54817DBA01BE_impl*
+end;//TeeDocumentTool.Create
+{$IfEnd} // Defined(Nemesis)
 
 end.

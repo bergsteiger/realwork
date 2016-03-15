@@ -1,72 +1,62 @@
 unit eeTagEditorTool;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest Engine"
-// Модуль: "w:/common/components/gui/Garant/Everest_Engine/eeTagEditorTool.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For F1::Everest Engine::Engine Core::TeeTagEditorTool
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeTagEditorTool.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest_Engine\eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  nevTools,
-  eeInterfacesEx,
-  k2ProcessorTagTool,
-  l3Variant,
-  k2Interfaces
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , k2ProcessorTagTool
+ , eeInterfacesEx
+ , l3Variant
+ , nevTools
+ , k2Interfaces
+;
 
-{$If defined(Nemesis)}
 type
  TeeTagEditorTool = class(Tk2ProcessorTagTool, IeeTool)
- private
- // private fields
-   f_Document : Pointer;
- protected
- // property methods
+  private
+   f_Document: Pointer;
+  protected
    function pm_GetDocument: IeeDocumentEx;
- protected
- // realized methods
    procedure OwnerDead;
-     {* Нотификация о смерти родителя. }
- protected
- // overridden protected methods
+    {* Нотификация о смерти родителя. }
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function GetProcessor: Ik2Processor; override;
- public
- // public methods
+  public
    constructor Create(aTagWrap: Tl3Variant;
-     const aDocument: IeeDocumentEx;
-     const aProcessor: InevProcessor); reintroduce;
- protected
- // protected properties
+    const aDocument: IeeDocumentEx;
+    const aProcessor: InevProcessor); reintroduce;
+  protected
    property Document: IeeDocumentEx
-     read pm_GetDocument;
+    read pm_GetDocument;
  end;//TeeTagEditorTool
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
+uses
+ l3ImplUses
+;
 
-// start class TeeTagEditorTool
+function TeeTagEditorTool.pm_GetDocument: IeeDocumentEx;
+//#UC START# *54872D7C031E_5487291700EBget_var*
+//#UC END# *54872D7C031E_5487291700EBget_var*
+begin
+//#UC START# *54872D7C031E_5487291700EBget_impl*
+ Result := IeeDocumentEx(f_Document);
+//#UC END# *54872D7C031E_5487291700EBget_impl*
+end;//TeeTagEditorTool.pm_GetDocument
 
 constructor TeeTagEditorTool.Create(aTagWrap: Tl3Variant;
-  const aDocument: IeeDocumentEx;
-  const aProcessor: InevProcessor);
+ const aDocument: IeeDocumentEx;
+ const aProcessor: InevProcessor);
 //#UC START# *54872DB8021E_5487291700EB_var*
 //#UC END# *54872DB8021E_5487291700EB_var*
 begin
@@ -78,16 +68,8 @@ begin
 //#UC END# *54872DB8021E_5487291700EB_impl*
 end;//TeeTagEditorTool.Create
 
-function TeeTagEditorTool.pm_GetDocument: IeeDocumentEx;
-//#UC START# *54872D7C031E_5487291700EBget_var*
-//#UC END# *54872D7C031E_5487291700EBget_var*
-begin
-//#UC START# *54872D7C031E_5487291700EBget_impl*
- Result := IeeDocumentEx(f_Document);
-//#UC END# *54872D7C031E_5487291700EBget_impl*
-end;//TeeTagEditorTool.pm_GetDocument
-
 procedure TeeTagEditorTool.OwnerDead;
+ {* Нотификация о смерти родителя. }
 //#UC START# *46A5D4220369_5487291700EB_var*
 //#UC END# *46A5D4220369_5487291700EB_var*
 begin
@@ -97,6 +79,7 @@ begin
 end;//TeeTagEditorTool.OwnerDead
 
 procedure TeeTagEditorTool.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5487291700EB_var*
 //#UC END# *479731C50290_5487291700EB_var*
 begin
@@ -118,7 +101,6 @@ begin
   Result := Document.Processor;
 //#UC END# *54BD0F310322_5487291700EB_impl*
 end;//TeeTagEditorTool.GetProcessor
-
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 end.

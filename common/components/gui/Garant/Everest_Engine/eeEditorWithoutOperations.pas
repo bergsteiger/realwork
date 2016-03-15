@@ -1,50 +1,36 @@
 unit eeEditorWithoutOperations;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest Engine"
-// Модуль: "w:/common/components/gui/Garant/Everest_Engine/eeEditorWithoutOperations.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi For F1::Everest Engine::Editor::TeeEditorWithoutOperations
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeEditorWithoutOperations.pas"
+// Стереотип: "GuiControl"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest_Engine\eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 
 uses
-  eeEditor,
-  evEditorWithOperations
-  ;
+ l3IntfUses
+ , eeEditor
+ , evEditorWithOperations
+;
 
 type
  TeeEditorWithoutOperations = class(TeeEditor)
- protected
- // overridden protected methods
+  protected
    function DefineProvideOperations: TevEditorProvideOperationTypes; override;
-     {* Какие операции публикуются компонентом. }
+    {* Какие операции публикуются компонентом. }
  end;//TeeEditorWithoutOperations
 
 implementation
 
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TeeEditorWithoutOperations
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 function TeeEditorWithoutOperations.DefineProvideOperations: TevEditorProvideOperationTypes;
+ {* Какие операции публикуются компонентом. }
 //#UC START# *48735C4A03C3_4CFFD8F603A0_var*
 //#UC END# *48735C4A03C3_4CFFD8F603A0_var*
 begin
@@ -54,9 +40,9 @@ begin
 end;//TeeEditorWithoutOperations.DefineProvideOperations
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TeeEditorWithoutOperations
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TeeEditorWithoutOperations);
-{$IfEnd} //not NoScripts
+ {* Регистрация TeeEditorWithoutOperations }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

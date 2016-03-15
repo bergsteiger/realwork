@@ -20,7 +20,7 @@ type
  TnsDataExchangeRealization = class(Tl3ProtoDataContainer, InsDataExchangeSubscriber)
   protected
    procedure MakeAndOpenList(const aList: IDynList;
-    aOpenFrom: TbsListOpenFrom = lofNone);
+    aOpenFrom: TbsListOpenFrom = bsTypes.lofNone);
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -61,7 +61,7 @@ begin
 end;//TnsDataExchangeRealization.Exists
 
 procedure TnsDataExchangeRealization.MakeAndOpenList(const aList: IDynList;
- aOpenFrom: TbsListOpenFrom = lofNone);
+ aOpenFrom: TbsListOpenFrom = bsTypes.lofNone);
 //#UC START# *54FECB920224_54FECC970155_var*
 //#UC END# *54FECB920224_54FECC970155_var*
 begin

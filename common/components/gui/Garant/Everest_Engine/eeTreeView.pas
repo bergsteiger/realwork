@@ -1,111 +1,99 @@
 unit eeTreeView;
+ {* Компонент для импорта отображения дерева. Для конечного использования. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest Engine"
-// Модуль: "w:/common/components/gui/Garant/Everest_Engine/eeTreeView.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi For F1::Everest Engine::Tree::TeeTreeView
-//
-// Компонент для импорта отображения дерева. Для конечного использования.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeTreeView.pas"
+// Стереотип: "GuiControl"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest_Engine\eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 
 uses
-  l3TreeInterfaces,
-  eeInterfaces,
-  eeTreeViewExport
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  Messages
-  ;
+ l3IntfUses
+ , l3TreeInterfaces
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , eeInterfaces
+ , eeTreeViewExport
+ , Messages
+;
 
 type
- TeeCurrentChanged = procedure (aSender: TObject;
+ TeeCurrentChanged = procedure(aSender: TObject;
   aNewCurrent: Integer;
   aOldCurrent: Integer) of object;
+  {* событие для обработки изменения текущего элемента }
 
- TeeNewCharPressed = procedure (aChar: AnsiChar) of object;
+ TeeNewCharPressed = procedure(aChar: AnsiChar) of object;
+  {* событие для внешней обработки WMChar }
 
- TeeMakeTreeSource = procedure (out theTree: Il3SimpleTree) of object;
+ TeeMakeTreeSource = procedure(out theTree: Il3SimpleTree) of object;
 
- TeeGetItemImage = function (aSender: TObject;
+ TeeGetItemImage = function(aSender: TObject;
   anIndex: Integer;
   var aImages: TCustomImageList): Integer of object;
+  {* событие для определения иконки элемента }
 
- TeeActionElement = procedure (aSender: TObject;
+ TeeActionElement = procedure(aSender: TObject;
   anIndex: Integer) of object;
+  {* событие для обработки "двойного клика" на элементе }
 
- TeeBeforeExpandNode = function (Sender: TObject;
+ TeeBeforeExpandNode = function(Sender: TObject;
   const CNode: IeeNode;
   anExpand: Boolean): Boolean of object;
 
- TeeExpandNodeEvent = procedure (Sender: TObject;
+ TeeExpandNodeEvent = procedure(Sender: TObject;
   const CNode: IeeNode) of object;
 
  TeeCustomTreeView = class(TeeTreeViewExport)
   {* Компонент для импорта отображения дерева }
- private
- // private fields
-   f_OnMakeTreeSource : TeeMakeTreeSource;
-    {* Поле для свойства OnMakeTreeSource}
-   f_BeforeExpand : TeeBeforeExpandNode;
-    {* Поле для свойства BeforeExpand}
-   f_OnExpand : TeeExpandNodeEvent;
-    {* Поле для свойства OnExpand}
-   f_OnCollapse : TeeExpandNodeEvent;
-    {* Поле для свойства OnCollapse}
-   f_OnNewCharPressed : TeeNewCharPressed;
-    {* Поле для свойства OnNewCharPressed}
- protected
- // overridden protected methods
-   procedure VlbProcessingChar(const aMsg: TWMChar); override;
-     {* processing new pressed char }
+  private
+   f_OnMakeTreeSource: TeeMakeTreeSource;
+    {* Поле для свойства OnMakeTreeSource }
+   f_BeforeExpand: TeeBeforeExpandNode;
+    {* Поле для свойства BeforeExpand }
+   f_OnExpand: TeeExpandNodeEvent;
+    {* Поле для свойства OnExpand }
+   f_OnCollapse: TeeExpandNodeEvent;
+    {* Поле для свойства OnCollapse }
+   f_OnNewCharPressed: TeeNewCharPressed;
+    {* Поле для свойства OnNewCharPressed }
+  protected
+   procedure vlbProcessingChar(const aMsg: TWMChar); override;
+    {* processing new pressed char }
    function MakeTreeStruct: Il3SimpleTree; override;
    function DoOnExpand(Expand: Boolean;
-     const CNode: Il3SimpleNode): Boolean; override;
-     {* если CNode = nil значит выполнили операцию свернуть\развернуть все }
- public
- // public properties
+    const CNode: Il3SimpleNode): Boolean; override;
+    {* если CNode = nil значит выполнили операцию свернуть\развернуть все }
+  public
    property TreeView: IeeTreeView
-     read pm_GetTreeView;
-     {* дерево, отображаемое компонентом. }
+    read pm_GetTreeView;
+    {* дерево, отображаемое компонентом. }
    property OnMakeTreeSource: TeeMakeTreeSource
-     read f_OnMakeTreeSource
-     write f_OnMakeTreeSource;
+    read f_OnMakeTreeSource
+    write f_OnMakeTreeSource;
    property BeforeExpand: TeeBeforeExpandNode
-     read f_BeforeExpand
-     write f_BeforeExpand;
+    read f_BeforeExpand
+    write f_BeforeExpand;
    property OnExpand: TeeExpandNodeEvent
-     read f_OnExpand
-     write f_OnExpand;
+    read f_OnExpand
+    write f_OnExpand;
    property OnCollapse: TeeExpandNodeEvent
-     read f_OnCollapse
-     write f_OnCollapse;
+    read f_OnCollapse
+    write f_OnCollapse;
    property OnNewCharPressed: TeeNewCharPressed
-     read f_OnNewCharPressed
-     write f_OnNewCharPressed;
+    read f_OnNewCharPressed
+    write f_OnNewCharPressed;
  end;//TeeCustomTreeView
 
-//#UC START# *494B949E022Bci*
-//#UC END# *494B949E022Bci*
-//#UC START# *494B949E022Bcit*
-//#UC END# *494B949E022Bcit*
+ //#UC START# *494B949E022Bci*
+ //#UC END# *494B949E022Bci*
+ //#UC START# *494B949E022Bcit*
+ //#UC END# *494B949E022Bcit*
  TeeTreeView = class(TeeCustomTreeView)
   {* Компонент для импорта отображения дерева. Для конечного использования. }
-//#UC START# *494B949E022Bpubl*
+ //#UC START# *494B949E022Bpubl*
     published
     // published properties
       property Align;
@@ -224,27 +212,24 @@ type
         {-}
       property FooterActiveStyleID;
         {-}
-//#UC END# *494B949E022Bpubl*
+ //#UC END# *494B949E022Bpubl*
  end;//TeeTreeView
 
 implementation
 
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  Windows,
-  l3Const,
-  l3Types,
-  eeNode
-  ;
+ l3ImplUses
+ , Windows
+ , l3Const
+ , l3Types
+ , eeNode
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
-// start class TeeCustomTreeView
-
-procedure TeeCustomTreeView.VlbProcessingChar(const aMsg: TWMChar);
+procedure TeeCustomTreeView.vlbProcessingChar(const aMsg: TWMChar);
+ {* processing new pressed char }
 //#UC START# *5152C04F0258_531F287D025D_var*
  function IsNumPlus: Boolean;
  begin
@@ -261,7 +246,7 @@ begin
  else
   inherited;
 //#UC END# *5152C04F0258_531F287D025D_impl*
-end;//TeeCustomTreeView.VlbProcessingChar
+end;//TeeCustomTreeView.vlbProcessingChar
 
 function TeeCustomTreeView.MakeTreeStruct: Il3SimpleTree;
 //#UC START# *515EF1880228_531F287D025D_var*
@@ -277,7 +262,8 @@ begin
 end;//TeeCustomTreeView.MakeTreeStruct
 
 function TeeCustomTreeView.DoOnExpand(Expand: Boolean;
-  const CNode: Il3SimpleNode): Boolean;
+ const CNode: Il3SimpleNode): Boolean;
+ {* если CNode = nil значит выполнили операцию свернуть\развернуть все }
 //#UC START# *51629C9B00C2_531F287D025D_var*
 //#UC END# *51629C9B00C2_531F287D025D_var*
 begin
@@ -309,13 +295,13 @@ end;//TeeCustomTreeView.DoOnExpand
 //#UC END# *494B949E022Bimpl*
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TeeCustomTreeView
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TeeCustomTreeView);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TeeTreeView
+ {* Регистрация TeeCustomTreeView }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TeeTreeView);
-{$IfEnd} //not NoScripts
+ {* Регистрация TeeTreeView }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

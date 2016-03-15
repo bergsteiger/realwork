@@ -45,9 +45,9 @@ type
     aNeedApplyPermanentFilters: Boolean;
     aIsChanged: Boolean); reintroduce;
    class function Make(const aList: IDynList;
-    aOpenFrom: TbsListOpenFrom = lofNone;
+    aOpenFrom: TbsListOpenFrom = bsTypes.lofNone;
     aTimeMachineOff: Boolean = True;
-    aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc = wdAlwaysOpen;
+    aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc = bsTypes.wdAlwaysOpen;
     const aNodeForPositioning: Il3SimpleNode = nil;
     const aSearchInfo: IdeSearchInfo = nil;
     aAllDocumentsFiltered: Boolean = False;
@@ -104,9 +104,9 @@ begin
 end;//TdeDocumentList.Create
 
 class function TdeDocumentList.Make(const aList: IDynList;
- aOpenFrom: TbsListOpenFrom = lofNone;
+ aOpenFrom: TbsListOpenFrom = bsTypes.lofNone;
  aTimeMachineOff: Boolean = True;
- aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc = wdAlwaysOpen;
+ aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc = bsTypes.wdAlwaysOpen;
  const aNodeForPositioning: Il3SimpleNode = nil;
  const aSearchInfo: IdeSearchInfo = nil;
  aAllDocumentsFiltered: Boolean = False;

@@ -12,7 +12,7 @@
   {* Стандартный типизированный список с размером элемента в 4 байта }
   public
    {$If NOT Defined(l3Items_NoSort)}
-   constructor MakeSorted(aDuplicates: Tl3Duplicates = l3_dupIgnore;
+   constructor MakeSorted(aDuplicates: Tl3Duplicates = l3Types.l3_dupIgnore;
     aSortIndex: Tl3SortIndex = l3_siNative); reintroduce;
     {* Создает сортированный список }
    {$IfEnd} // NOT Defined(l3Items_NoSort)
@@ -28,7 +28,7 @@
 {$Include w:\common\components\rtl\Garant\L3\l3FourByteItemList.imp.pas}
 
 {$If NOT Defined(l3Items_NoSort)}
-constructor _l3StandardTypedList_.MakeSorted(aDuplicates: Tl3Duplicates = l3_dupIgnore;
+constructor _l3StandardTypedList_.MakeSorted(aDuplicates: Tl3Duplicates = l3Types.l3_dupIgnore;
  aSortIndex: Tl3SortIndex = l3_siNative);
  {* Создает сортированный список }
 //#UC START# *47B5B269032B_47B594B50330_var*

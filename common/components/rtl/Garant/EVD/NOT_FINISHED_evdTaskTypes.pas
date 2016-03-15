@@ -23,6 +23,8 @@ type
  TCsNotificationType = (
  );//TCsNotificationType
 
+ TCsNotificationTypes = set of TCsNotificationType;
+
 implementation
 
 uses

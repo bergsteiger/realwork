@@ -1,50 +1,36 @@
 unit eeMemoWithEditOperations;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest Engine"
-// Модуль: "w:/common/components/gui/Garant/Everest_Engine/eeMemoWithEditOperations.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi For F1::Everest Engine::Editor::TeeMemoWithEditOperations
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeMemoWithEditOperations.pas"
+// Стереотип: "GuiControl"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest_Engine\eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 
 uses
-  eeMemo,
-  evEditorWithOperations
-  ;
+ l3IntfUses
+ , eeMemo
+ , evEditorWithOperations
+;
 
 type
  TeeMemoWithEditOperations = class(TeeMemo)
- protected
- // overridden protected methods
+  protected
    function DefineProvideOperations: TevEditorProvideOperationTypes; override;
-     {* Какие операции публикуются компонентом. }
+    {* Какие операции публикуются компонентом. }
  end;//TeeMemoWithEditOperations
 
 implementation
 
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TeeMemoWithEditOperations
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 function TeeMemoWithEditOperations.DefineProvideOperations: TevEditorProvideOperationTypes;
+ {* Какие операции публикуются компонентом. }
 //#UC START# *48735C4A03C3_4AC5D3380185_var*
 //#UC END# *48735C4A03C3_4AC5D3380185_var*
 begin
@@ -54,9 +40,9 @@ begin
 end;//TeeMemoWithEditOperations.DefineProvideOperations
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TeeMemoWithEditOperations
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TeeMemoWithEditOperations);
-{$IfEnd} //not NoScripts
+ {* Регистрация TeeMemoWithEditOperations }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

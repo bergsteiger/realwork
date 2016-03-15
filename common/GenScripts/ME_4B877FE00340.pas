@@ -75,7 +75,7 @@ type
  TeeBlockScrollEvent = procedure(aSender: TObject;
   aDown: Boolean) of object;
 
- TeeEditorExportModelPart = class(TevTunedEditor, IeeEditor, IeeDocument, IeeData, IeeCommands)
+ TeeEditorExportModelPart = class(TevTunedEditor, IeeEditor, IeeDocument, IeeData)
   {* Часть TeeEditorExport перенесённная на модель }
   private
    f_OnCanSplitPara: TeeCanSplitParaEvent;
@@ -100,16 +100,9 @@ type
    function Get_Marks: IeeSubList;
    function Get_ExternalHandle: Integer;
    function Get_Document: IeeDocument;
-   procedure Cut;
-   procedure Copy;
-   procedure Delete;
-   function Paste: Boolean;
-   procedure SelectAll;
-   procedure HideSelection;
    function GetHotspotOnPoint(const aPt: TPoint;
     out theHotSpot: IeeHotSpot): Boolean;
    function CanSplitPara(const aPara: IeePara): Boolean;
-   function Get_Commands: IeeCommands;
    function Get_Data: IeeData;
    function pm_GetAllowParaType: TevAllowParaTypes; override;
    function DoSearchHyperLink(const anOption: TevSearchOptionSetEx): Boolean; override;
@@ -599,68 +592,6 @@ begin
 //#UC END# *5481988203C9_4B877FE00340get_impl*
 end;//TeeEditorExportModelPart.Get_Document
 
-procedure TeeEditorExportModelPart.Cut;
-//#UC START# *548198C00194_4B877FE00340_var*
-//#UC END# *548198C00194_4B877FE00340_var*
-begin
-//#UC START# *548198C00194_4B877FE00340_impl*
- inherited;
-//#UC END# *548198C00194_4B877FE00340_impl*
-end;//TeeEditorExportModelPart.Cut
-
-procedure TeeEditorExportModelPart.Copy;
-//#UC START# *548198CA0185_4B877FE00340_var*
-//#UC END# *548198CA0185_4B877FE00340_var*
-begin
-//#UC START# *548198CA0185_4B877FE00340_impl*
- inherited;
-//#UC END# *548198CA0185_4B877FE00340_impl*
-end;//TeeEditorExportModelPart.Copy
-
-procedure TeeEditorExportModelPart.Delete;
-//#UC START# *548198D20380_4B877FE00340_var*
-//#UC END# *548198D20380_4B877FE00340_var*
-begin
-//#UC START# *548198D20380_4B877FE00340_impl*
- Range.Delete;
-//#UC END# *548198D20380_4B877FE00340_impl*
-end;//TeeEditorExportModelPart.Delete
-
-function TeeEditorExportModelPart.Paste: Boolean;
-//#UC START# *548198D902BA_4B877FE00340_var*
-//#UC END# *548198D902BA_4B877FE00340_var*
-begin
-//#UC START# *548198D902BA_4B877FE00340_impl*
- Result := inherited Paste;
-//#UC END# *548198D902BA_4B877FE00340_impl*
-end;//TeeEditorExportModelPart.Paste
-
-procedure TeeEditorExportModelPart.SelectAll;
-//#UC START# *548198ED0189_4B877FE00340_var*
-//#UC END# *548198ED0189_4B877FE00340_var*
-begin
-//#UC START# *548198ED0189_4B877FE00340_impl*
- {$IfDef evNeedDisp}
- Process(Self, Self, Ord(ev_ccSelectAll), false);
- {$Else  evNeedDisp}
- Select(ev_stDocument);
- {$EndIf evNeedDisp}
-//#UC END# *548198ED0189_4B877FE00340_impl*
-end;//TeeEditorExportModelPart.SelectAll
-
-procedure TeeEditorExportModelPart.HideSelection;
-//#UC START# *548198F403CE_4B877FE00340_var*
-//#UC END# *548198F403CE_4B877FE00340_var*
-begin
-//#UC START# *548198F403CE_4B877FE00340_impl*
- {$IfDef evNeedDisp}
- Process(Self, Self, Ord(ev_ccHideSelection), false);
- {$Else  evNeedDisp}
- InevSelection(Selection).Unselect;
- {$EndIf evNeedDisp}
-//#UC END# *548198F403CE_4B877FE00340_impl*
-end;//TeeEditorExportModelPart.HideSelection
-
 function TeeEditorExportModelPart.GetHotspotOnPoint(const aPt: TPoint;
  out theHotSpot: IeeHotSpot): Boolean;
 //#UC START# *54819F7C006B_4B877FE00340_var*
@@ -694,15 +625,6 @@ begin
  Result := l_Result;
 //#UC END# *54819FA40295_4B877FE00340_impl*
 end;//TeeEditorExportModelPart.CanSplitPara
-
-function TeeEditorExportModelPart.Get_Commands: IeeCommands;
-//#UC START# *54819FB9026A_4B877FE00340get_var*
-//#UC END# *54819FB9026A_4B877FE00340get_var*
-begin
-//#UC START# *54819FB9026A_4B877FE00340get_impl*
- Result := Self;
-//#UC END# *54819FB9026A_4B877FE00340get_impl*
-end;//TeeEditorExportModelPart.Get_Commands
 
 function TeeEditorExportModelPart.Get_Data: IeeData;
 //#UC START# *54819FC5013E_4B877FE00340get_var*

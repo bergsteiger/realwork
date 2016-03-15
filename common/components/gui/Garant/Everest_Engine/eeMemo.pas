@@ -1,55 +1,42 @@
 unit eeMemo;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest Engine"
-// Модуль: "w:/common/components/gui/Garant/Everest_Engine/eeMemo.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi For F1::Everest Engine::Editor::TeeMemo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeMemo.pas"
+// Стереотип: "GuiControl"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest_Engine\eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  evCustomMemo
-  ;
+ l3IntfUses
+ , evCustomMemo
+ , Classes
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 type
-//#UC START# *54C26D790097ci*
-//#UC END# *54C26D790097ci*
-//#UC START# *54C26D790097cit*
-//#UC END# *54C26D790097cit*
+ //#UC START# *54C26D790097ci*
+ //#UC END# *54C26D790097ci*
+ //#UC START# *54C26D790097cit*
+ //#UC END# *54C26D790097cit*
  TeeCustomMemo = class(TevCustomMemo)
- public
- // overridden public methods
+  public
    constructor Create(AOwner: TComponent); override;
-//#UC START# *54C26D790097publ*
+ //#UC START# *54C26D790097publ*
    property NeedDefaultPopupMenu default false;
-//#UC END# *54C26D790097publ*
+ //#UC END# *54C26D790097publ*
  end;//TeeCustomMemo
 
  TBevelKind = Controls.TBevelKind;
 
-//#UC START# *4AC5D3DB0371ci*
-//#UC END# *4AC5D3DB0371ci*
-//#UC START# *4AC5D3DB0371cit*
-//#UC END# *4AC5D3DB0371cit*
+ //#UC START# *4AC5D3DB0371ci*
+ //#UC END# *4AC5D3DB0371ci*
+ //#UC START# *4AC5D3DB0371cit*
+ //#UC END# *4AC5D3DB0371cit*
  TeeMemo = class(TeeCustomMemo)
-//#UC START# *4AC5D3DB0371publ*
+ //#UC START# *4AC5D3DB0371publ*
   published
   // published properties
     property AutoSelect;
@@ -104,21 +91,17 @@ type
     property OnMouseUp;
     property OnStartDock;
     property OnStartDrag;
-//#UC END# *4AC5D3DB0371publ*
+ //#UC END# *4AC5D3DB0371publ*
  end;//TeeMemo
 
 implementation
 
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TeeCustomMemo
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 constructor TeeCustomMemo.Create(AOwner: TComponent);
 //#UC START# *47D1602000C6_54C26D790097_var*
@@ -137,13 +120,13 @@ end;//TeeCustomMemo.Create
 //#UC END# *4AC5D3DB0371impl*
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TeeCustomMemo
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TeeCustomMemo);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TeeMemo
+ {* Регистрация TeeCustomMemo }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TeeMemo);
-{$IfEnd} //not NoScripts
+ {* Регистрация TeeMemo }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

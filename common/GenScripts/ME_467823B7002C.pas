@@ -211,7 +211,7 @@ type
    {* находимся в процессе построения печати? }
   procedure Update(const aPanel: IafwPreviewPanel);
    {* установить preview на панель для отображения. }
-  procedure Print(anInterval: TafwPagesInterval = afw_piAll;
+  procedure Print(anInterval: TafwPagesInterval = afwTypes.afw_piAll;
    const aRange: Il3RangeManager = nil;
    aCopies: Integer = 1;
    const aFileName: AnsiString = '';
@@ -857,7 +857,7 @@ type
  MafwVisualizater = interface
   function MakeLongProcessVisualizer(const aCaption: IafwCString;
    anAttachWnd: THandle = 0;
-   anInitialTimeout: Cardinal = afw_lpwTimeout;
+   anInitialTimeout: Cardinal = afwInterfaces.afw_lpwTimeout;
    anImageList: TafwCustomImageList = nil;
    anImageIndex: Integer = -1): IafwLongProcessVisualizer;
  end;//MafwVisualizater
@@ -887,7 +887,7 @@ type
   {$If NOT Defined(NoVCL)}
   function MakeLongProcessVisualizer(const aCaption: IafwCString;
    anAttachWnd: THandle = 0;
-   anInitialTimeout: Cardinal = afw_lpwTimeout;
+   anInitialTimeout: Cardinal = afwInterfaces.afw_lpwTimeout;
    anImageList: TafwCustomImageList = nil;
    anImageIndex: Integer = -1): IafwLongProcessVisualizer;
   {$IfEnd} // NOT Defined(NoVCL)

@@ -22,7 +22,7 @@ type
    function Get_Count: Integer;
    function Get_Subs(anIndex: Integer): IeeSub;
    function Get_SubsByID(anID: Integer): IeeSub;
-   function Add(anID: Integer = ee_SubAutoID;
+   function Add(anID: Integer = eeConst.ee_SubAutoID;
     const aName: Il3CString = nil): IeeSub;
  end;//TeeSubList
 {$IfEnd} // Defined(Nemesis)
@@ -61,7 +61,7 @@ begin
 //#UC END# *54819961006C_54BE41340249get_impl*
 end;//TeeSubList.Get_SubsByID
 
-function TeeSubList.Add(anID: Integer = ee_SubAutoID;
+function TeeSubList.Add(anID: Integer = eeConst.ee_SubAutoID;
  const aName: Il3CString = nil): IeeSub;
 //#UC START# *5481997C03DD_54BE41340249_var*
 //#UC END# *5481997C03DD_54BE41340249_var*

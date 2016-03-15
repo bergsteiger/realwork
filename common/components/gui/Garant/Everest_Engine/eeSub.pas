@@ -1,43 +1,29 @@
 unit eeSub;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest Engine"
-// Модуль: "w:/common/components/gui/Garant/Everest_Engine/eeSub.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For F1::Everest Engine::Engine Core::TeeSub
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeSub.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest_Engine\eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  eeInterfaces,
-  eeInterfacesEx,
-  eeDocumentTool,
-  evdTypes,
-  l3Interfaces
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , eeDocumentTool
+ , eeInterfaces
+ , eeInterfacesEx
+ , evdTypes
+ , l3Interfaces
+;
 
-{$If defined(Nemesis)}
 type
  TeeSub = class(TeeDocumentTool, IeeSub)
- private
- // private fields
-   f_ID : Integer;
-   f_LayerID : Integer;
-   f_Flag : Integer;
- protected
- // realized methods
+  private
+   f_ID: Integer;
+   f_LayerID: Integer;
+   f_Flag: Integer;
+  protected
    function Delete: Boolean;
    function Exists: Boolean;
    function Select: Boolean;
@@ -52,39 +38,33 @@ type
    function Get_Next: IeeSub;
    function Get_LeafPara: IeeLeafPara;
    function Get_Para: IeePara;
- public
- // public methods
+  public
    constructor Create(const aDocument: IeeDocumentEx;
-     anID: Integer;
-     aLayerID: Integer;
-     aFlag: Integer); reintroduce;
+    anID: Integer;
+    aLayerID: Integer;
+    aFlag: Integer); reintroduce;
    class function Make(const aDocument: IeeDocumentEx;
-     anID: Integer;
-     aLayerID: Integer;
-     aFlag: Integer): IeeSub; reintroduce;
-     {* Сигнатура фабрики TeeSub.Make }
+    anID: Integer;
+    aLayerID: Integer;
+    aFlag: Integer): IeeSub; reintroduce;
  end;//TeeSub
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  l3InterfacesMisc,
-  l3String,
-  eePara,
-  nevTools
-  ;
-{$IfEnd} //Nemesis
-
-{$If defined(Nemesis)}
-
-// start class TeeSub
+ l3ImplUses
+ , l3InterfacesMisc
+ , l3String
+ , eePara
+ , nevTools
+;
 
 constructor TeeSub.Create(const aDocument: IeeDocumentEx;
-  anID: Integer;
-  aLayerID: Integer;
-  aFlag: Integer);
+ anID: Integer;
+ aLayerID: Integer;
+ aFlag: Integer);
 //#UC START# *5487199800AD_54817DA2016E_var*
 //#UC END# *5487199800AD_54817DA2016E_var*
 begin
@@ -97,9 +77,9 @@ begin
 end;//TeeSub.Create
 
 class function TeeSub.Make(const aDocument: IeeDocumentEx;
-  anID: Integer;
-  aLayerID: Integer;
-  aFlag: Integer): IeeSub;
+ anID: Integer;
+ aLayerID: Integer;
+ aFlag: Integer): IeeSub;
 var
  l_Inst : TeeSub;
 begin
@@ -109,7 +89,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TeeSub.Make
 
 function TeeSub.Delete: Boolean;
 //#UC START# *548188CE0291_54817DA2016E_var*
@@ -292,7 +272,6 @@ begin
   Result := nil;
 //#UC END# *54818AA901FF_54817DA2016Eget_impl*
 end;//TeeSub.Get_Para
-
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 end.

@@ -1,53 +1,41 @@
 unit eeEditorExport;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest Engine"
-// Модуль: "w:/common/components/gui/Garant/Everest_Engine/eeEditorExport.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi For F1::Everest Engine::Editor::TeeEditorExport
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeEditorExport.pas"
+// Стереотип: "GuiControl"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest_Engine\eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  ActiveX,
-  Classes,
-  nevTools
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  evInternalInterfaces,
-  eeInterfaces,
-  eeInterfacesEx,
-  eeEditorExportModelPart,
-  vtScrollBar,
-  evCustomTextSource,
-  l3IID,
-  afwInterfaces,
-  nevGUIInterfaces,
-  Types,
-  Windows,
-  nevBase,
-  evExcept,
-  l3InternalInterfaces,
-  evdTypes,
-  l3Variant
-  ;
+ l3IntfUses
+ , eeEditorExportModelPart
+ , eeInterfacesEx
+ , evInternalInterfaces
+ , vtScrollBar
+ , nevTools
+ , Classes
+ , ActiveX
+ , l3Interfaces
+ , eeInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Variant
+ , nevBase
+ , l3IID
+ , evCustomTextSource
+ , nevGUIInterfaces
+ , afwInterfaces
+ , Types
+ , Windows
+ , evExcept
+ , l3InternalInterfaces
+ , evdTypes
+;
 
 type
- TeeMouseActionEvent = function (aSender: TObject;
+ TeeMouseActionEvent = function(aSender: TObject;
   const aHotSpot: IeeHotSpot;
   aButton: TeeMouseButton;
   anAction: TeeMouseAction;
@@ -55,51 +43,48 @@ type
   aWasSelection: Boolean): Boolean of object;
 
  TeeEditorExport = class(TeeEditorExportModelPart, IeeDocumentEx, IevF1LikeEditor)
- private
- // private fields
-   f_PrevScrollPos : Integer;
-   f_PrevScrollPart : IevSub;
-   f_PrevPart : IevSub;
-   f_VScrollBar : TvtScrollBar;
-    {* Поле для свойства VScrollBar}
-   f_NeedDrawDocumentEdge : Boolean;
-    {* Поле для свойства NeedDrawDocumentEdge}
-   f_OnMouseAction : TeeMouseActionEvent;
-    {* Поле для свойства OnMouseAction}
-   f_OnVScroll : TNotifyEvent;
-    {* Поле для свойства OnVScroll}
-   f_OnUserCommentsHidden : TNotifyEvent;
-    {* Поле для свойства OnUserCommentsHidden}
- private
- // private methods
+  private
+   f_PrevScrollPos: Integer;
+   f_PrevScrollPart: IevSub;
+   f_PrevPart: IevSub;
+   f_VScrollBar: TvtScrollBar;
+    {* Поле для свойства VScrollBar }
+   f_NeedDrawDocumentEdge: Boolean;
+    {* Поле для свойства NeedDrawDocumentEdge }
+   f_OnMouseAction: TeeMouseActionEvent;
+    {* Поле для свойства OnMouseAction }
+   f_OnVScroll: TNotifyEvent;
+    {* Поле для свойства OnVScroll }
+   f_OnUserCommentsHidden: TNotifyEvent;
+    {* Поле для свойства OnUserCommentsHidden }
+  private
    class procedure RaiseUserCommentsHidden;
-     {* Сигнатура метода RaiseUserCommentsHidden }
    class function MB2eeMB(aButton: TMouseButton): TeeMouseButton;
- protected
- // property methods
+  protected
    procedure pm_SetVScrollBar(aValue: TvtScrollBar);
- protected
- // realized methods
+   function DontBreakInAACMode: Boolean;
+   function InUserComment: Boolean;
+   function CanInsertParaOnMove: Boolean;
+    {* Можно ли вставлять параграфы при движении курсора }
+   function IsInReadOnlyPara(const aPara: InevPara;
+    Delete: Boolean): Boolean;
+    {* Находимся ли в параграфе, в котором запрещено редактирование }
    function Get_DocumentPart(anID: Integer): IevDocumentPart;
-   function Get_DocumentPartEx(anID: Integer; aLayerID: Integer): IevDocumentPart;
+   function Get_DocumentPartEx(anID: Integer;
+    aLayerID: Integer): IevDocumentPart;
    function Get_Sub(anID: Integer): IevSub;
-   function Get_SubEx(anID: Integer; aLayerID: Integer): IevSub;
+   function Get_SubEx(anID: Integer;
+    aLayerID: Integer): IevSub;
    function Get_Selection: InevSelection;
    function Get_EntryPoint: Tl3Tag;
    function Get_Processor: InevProcessor;
    function Get_NewSub: IevSub;
    function Get_NewSubEx(aLayerID: Integer): IevSub;
    function AsIeeDocumentEx: IeeDocumentEx; override;
- protected
- // overridden property methods
-   function pm_GetTextSource: TevCustomTextSource; override;
-   procedure pm_SetTextSource(aValue: TevCustomTextSource); override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ParaChange; override;
-     {* текущий параграф изменился. }
+    {* текущий параграф изменился. }
    procedure MakeTextSource(out theTextSource: TevCustomTextSource); override;
    function AllowDrawDocumentEdge: Boolean; override;
    function WantTab(aKeyPressed: Boolean = False): Boolean; override;
@@ -111,163 +96,136 @@ type
     var dwEffect: Integer): Boolean; override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-    {$If not defined(NoVCL)}
+   {$If NOT Defined(NoVCL)}
    procedure MouseUp(Button: TMouseButton;
-     Shift: TShiftState;
-     X: Integer;
-     Y: Integer); override;
-    {$IfEnd} //not NoVCL
+    Shift: TShiftState;
+    X: Integer;
+    Y: Integer); override;
+   {$IfEnd} // NOT Defined(NoVCL)
    procedure Notification(AComponent: TComponent;
-     Operation: TOperation); override;
-    {$If not defined(NoVCL)}
+    Operation: TOperation); override;
+   {$If NOT Defined(NoVCL)}
    procedure MouseDown(Button: TMouseButton;
-     Shift: TShiftState;
-     X: Integer;
-     Y: Integer); override;
-    {$IfEnd} //not NoVCL
+    Shift: TShiftState;
+    X: Integer;
+    Y: Integer); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   function pm_GetTextSource: TevCustomTextSource; override;
+   procedure pm_SetTextSource(aValue: TevCustomTextSource); override;
    procedure DoHitTest(const aHotSpot: IevHotSpot;
-     const aState: TafwCursorState;
-     var theInfo: TafwCursorInfo); override;
-    {$If not defined(NoVCM)}
+    const aState: TafwCursorState;
+    var theInfo: TafwCursorInfo); override;
+   {$If NOT Defined(NoVCM)}
    function TextGetTarget(const aPt: TPoint;
-     out theTarget: IUnknown): Boolean; override;
-    {$IfEnd} //not NoVCM
+    out theTarget: IUnknown): Boolean; override;
+   {$IfEnd} // NOT Defined(NoVCM)
    function InTable: Boolean; override;
    function CheckMouseUp(const aHotSpot: IevHotSpot;
-     const aState: TevMouseState): Boolean; override;
+    const aState: TevMouseState): Boolean; override;
    procedure ScrollInfoChange(aVert: Boolean;
-     const aScrollInfo: TScrollInfo;
-     aPosChanged: Boolean); override;
+    const aScrollInfo: TScrollInfo;
+    aPosChanged: Boolean); override;
    function DoBreakPara(aDrawLines: Boolean;
-     const anOp: InevOp): Boolean; override;
+    const anOp: InevOp): Boolean; override;
    function HandledReadOnly(E: EevReadOnly): Boolean; override;
-    {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    function CanCut: Boolean; override;
-    {$IfEnd} //not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
    function VScrollWidth(const anIC: Il3InfoCanvas): Integer; override;
- public
- // overridden public methods
+  public
+   procedure SaveTo(const aStream: IStream;
+    aFormat: Tl3ClipboardFormat;
+    aSaveSelection: Boolean = True);
+   function GetBlockByCursor(const aCursor: InevBasePoint): IevDocumentPart;
+   procedure InsertUserComment;
+   function GetNearestSubByCursor(const aCursor: InevBasePoint = nil): IeeSub;
+   function GetNearestBlockByCursor(const aCursor: InevBasePoint): IevDocumentPart;
    constructor Create(AOwner: TComponent); override;
    function IsReadOnlyTarget(const aTarget: IUnknown): Boolean; override;
    function InsertPageBreak(NeedNewSection: Boolean = False;
-     aPageOrientation: TevPageOrientation = ev_poPortrait): Boolean; override;
+    aPageOrientation: TevPageOrientation = evdTypes.ev_poPortrait): Boolean; override;
    procedure DecIndent; override;
-     {* Сигнатура метода DecIndent }
    procedure IncIndent; override;
-     {* Сигнатура метода IncIndent }
- protected
- // protected methods
-   function DontBreakInAACMode: Boolean;
-   function InUserComment: Boolean;
-   function CanInsertParaOnMove: Boolean;
-     {* Можно ли вставлять параграфы при движении курсора }
-   function IsInReadOnlyPara(const aPara: InevPara;
-     Delete: Boolean): Boolean;
-     {* Находимся ли в параграфе, в котором запрещено редактирование }
- public
- // public methods
-   procedure SaveTo(const aStream: IStream;
-     aFormat: Tl3ClipboardFormat;
-     aSaveSelection: Boolean = True);
-   function GetBlockByCursor(const aCursor: InevBasePoint): IevDocumentPart;
-   procedure InsertUserComment;
-     {* Сигнатура метода InsertUserComment }
-   function GetNearestSubByCursor(const aCursor: InevBasePoint = nil): IeeSub;
-   function GetNearestBlockByCursor(const aCursor: InevBasePoint): IevDocumentPart;
- protected
- // protected properties
+  protected
    property OnUserCommentsHidden: TNotifyEvent
-     read f_OnUserCommentsHidden
-     write f_OnUserCommentsHidden;
- public
- // public properties
+    read f_OnUserCommentsHidden
+    write f_OnUserCommentsHidden;
+  public
    property VScrollBar: TvtScrollBar
-     read f_VScrollBar
-     write pm_SetVScrollBar;
+    read f_VScrollBar
+    write pm_SetVScrollBar;
    property NeedDrawDocumentEdge: Boolean
-     read f_NeedDrawDocumentEdge
-     write f_NeedDrawDocumentEdge;
+    read f_NeedDrawDocumentEdge
+    write f_NeedDrawDocumentEdge;
    property OnMouseAction: TeeMouseActionEvent
-     read f_OnMouseAction
-     write f_OnMouseAction;
+    read f_OnMouseAction
+    write f_OnMouseAction;
    property OnVScroll: TNotifyEvent
-     read f_OnVScroll
-     write f_OnVScroll;
+    read f_OnVScroll
+    write f_OnVScroll;
  end;//TeeEditorExport
 
 implementation
 
 uses
-  eeExceptions,
-  LeafPara_Const,
-  ContentsElement_Const,
-  CommentPara_Const,
-  LeafParaDecorationsHolder_Const,
-  Document_Const,
-  Table_Const,
-  Block_Const,
-  k2Tags
-  {$If defined(k2ForEditor)}
-  ,
-  evCursorTools
-  {$IfEnd} //k2ForEditor
-  
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  evMsgCode
-  {$If defined(Nemesis)}
-  ,
-  eeSub
-  {$IfEnd} //Nemesis
-  ,
-  evOp,
-  nevFacade,
-  l3Base,
-  afwFacade
-  {$If defined(Nemesis)}
-  ,
-  eeTextSourceExport
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  l3MinMax,
-  l3Units,
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3ImplUses
+ , eeExceptions
+ , LeafPara_Const
+ , ContentsElement_Const
+ , CommentPara_Const
+ , LeafParaDecorationsHolder_Const
+ , Document_Const
+ , Table_Const
+ , Block_Const
+ , k2Tags
+ {$If Defined(k2ForEditor)}
+ , evCursorTools
+ {$IfEnd} // Defined(k2ForEditor)
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , evMsgCode
+ {$If Defined(Nemesis)}
+ , eeSub
+ {$IfEnd} // Defined(Nemesis)
+ , evOp
+ , nevFacade
+ , l3Base
+ , afwFacade
+ {$If Defined(Nemesis)}
+ , eeTextSourceExport
+ {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3MinMax
+ , l3Units
+ , SysUtils
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
-// start class TeeEditorExport
-
-class procedure TeeEditorExport.RaiseUserCommentsHidden;
-//#UC START# *54C10C4B034D_4952693000EA_var*
-//#UC END# *54C10C4B034D_4952693000EA_var*
+procedure TeeEditorExport.pm_SetVScrollBar(aValue: TvtScrollBar);
+//#UC START# *54C0F6E701DB_4952693000EAset_var*
+//#UC END# *54C0F6E701DB_4952693000EAset_var*
 begin
-//#UC START# *54C10C4B034D_4952693000EA_impl*
- raise EeeUserCommentsHidden.Create('Нельзя вставить комментарий. Режим пользовательских комментариев выключен.');
-//#UC END# *54C10C4B034D_4952693000EA_impl*
-end;//TeeEditorExport.RaiseUserCommentsHidden
-
-class function TeeEditorExport.MB2eeMB(aButton: TMouseButton): TeeMouseButton;
-//#UC START# *54C10EA7019B_4952693000EA_var*
-const
- _MB : array [TMouseButton] of TeeMouseButton = (ee_mbLeft, ee_mbRight, ee_mbMiddle);
-//#UC END# *54C10EA7019B_4952693000EA_var*
-begin
-//#UC START# *54C10EA7019B_4952693000EA_impl*
- Result := _MB[aButton];
-//#UC END# *54C10EA7019B_4952693000EA_impl*
-end;//TeeEditorExport.MB2eeMB
+//#UC START# *54C0F6E701DB_4952693000EAset_impl*
+ if (f_VScrollBar <> aValue) then
+ begin
+  f_VScrollBar := aValue;
+  if (f_VScrollBar <> nil) then
+  begin
+   if (ScrollStyle in [ssHorizontal, ssBoth]) then
+    ScrollStyle := ssHorizontal
+   else
+    ScrollStyle := ssNone;
+   f_VScrollBar.OnScroll := VScrollEvent;
+  end{ else ScrollStyle := ssBoth};
+  UpdateScrollRange([afw_sbVert]);
+ end;
+//#UC END# *54C0F6E701DB_4952693000EAset_impl*
+end;//TeeEditorExport.pm_SetVScrollBar
 
 function TeeEditorExport.DontBreakInAACMode: Boolean;
 //#UC START# *54C0FD320345_4952693000EA_var*
@@ -279,8 +237,8 @@ begin
 end;//TeeEditorExport.DontBreakInAACMode
 
 procedure TeeEditorExport.SaveTo(const aStream: IStream;
-  aFormat: Tl3ClipboardFormat;
-  aSaveSelection: Boolean = True);
+ aFormat: Tl3ClipboardFormat;
+ aSaveSelection: Boolean = True);
 //#UC START# *54C0FE7902BD_4952693000EA_var*
 //#UC END# *54C0FE7902BD_4952693000EA_var*
 begin
@@ -314,6 +272,7 @@ begin
 end;//TeeEditorExport.InUserComment
 
 function TeeEditorExport.CanInsertParaOnMove: Boolean;
+ {* Можно ли вставлять параграфы при движении курсора }
 //#UC START# *54C106630180_4952693000EA_var*
 //#UC END# *54C106630180_4952693000EA_var*
 begin
@@ -323,7 +282,8 @@ begin
 end;//TeeEditorExport.CanInsertParaOnMove
 
 function TeeEditorExport.IsInReadOnlyPara(const aPara: InevPara;
-  Delete: Boolean): Boolean;
+ Delete: Boolean): Boolean;
+ {* Находимся ли в параграфе, в котором запрещено редактирование }
 //#UC START# *54C106AB020C_4952693000EA_var*
 //#UC END# *54C106AB020C_4952693000EA_var*
 begin
@@ -556,26 +516,25 @@ begin
 //#UC END# *54C10B9F01AE_4952693000EA_impl*
 end;//TeeEditorExport.GetNearestBlockByCursor
 
-procedure TeeEditorExport.pm_SetVScrollBar(aValue: TvtScrollBar);
-//#UC START# *54C0F6E701DB_4952693000EAset_var*
-//#UC END# *54C0F6E701DB_4952693000EAset_var*
+class procedure TeeEditorExport.RaiseUserCommentsHidden;
+//#UC START# *54C10C4B034D_4952693000EA_var*
+//#UC END# *54C10C4B034D_4952693000EA_var*
 begin
-//#UC START# *54C0F6E701DB_4952693000EAset_impl*
- if (f_VScrollBar <> aValue) then
- begin
-  f_VScrollBar := aValue;
-  if (f_VScrollBar <> nil) then
-  begin
-   if (ScrollStyle in [ssHorizontal, ssBoth]) then
-    ScrollStyle := ssHorizontal
-   else
-    ScrollStyle := ssNone;
-   f_VScrollBar.OnScroll := VScrollEvent;
-  end{ else ScrollStyle := ssBoth};
-  UpdateScrollRange([afw_sbVert]);
- end;
-//#UC END# *54C0F6E701DB_4952693000EAset_impl*
-end;//TeeEditorExport.pm_SetVScrollBar
+//#UC START# *54C10C4B034D_4952693000EA_impl*
+ raise EeeUserCommentsHidden.Create('Нельзя вставить комментарий. Режим пользовательских комментариев выключен.');
+//#UC END# *54C10C4B034D_4952693000EA_impl*
+end;//TeeEditorExport.RaiseUserCommentsHidden
+
+class function TeeEditorExport.MB2eeMB(aButton: TMouseButton): TeeMouseButton;
+//#UC START# *54C10EA7019B_4952693000EA_var*
+const
+ _MB : array [TMouseButton] of TeeMouseButton = (ee_mbLeft, ee_mbRight, ee_mbMiddle);
+//#UC END# *54C10EA7019B_4952693000EA_var*
+begin
+//#UC START# *54C10EA7019B_4952693000EA_impl*
+ Result := _MB[aButton];
+//#UC END# *54C10EA7019B_4952693000EA_impl*
+end;//TeeEditorExport.MB2eeMB
 
 function TeeEditorExport.Get_DocumentPart(anID: Integer): IevDocumentPart;
 //#UC START# *54872A3C0371_4952693000EAget_var*
@@ -589,7 +548,8 @@ begin
 //#UC END# *54872A3C0371_4952693000EAget_impl*
 end;//TeeEditorExport.Get_DocumentPart
 
-function TeeEditorExport.Get_DocumentPartEx(anID: Integer; aLayerID: Integer): IevDocumentPart;
+function TeeEditorExport.Get_DocumentPartEx(anID: Integer;
+ aLayerID: Integer): IevDocumentPart;
 //#UC START# *54872A520084_4952693000EAget_var*
 //#UC END# *54872A520084_4952693000EAget_var*
 begin
@@ -613,7 +573,8 @@ begin
 //#UC END# *54872A8901AE_4952693000EAget_impl*
 end;//TeeEditorExport.Get_Sub
 
-function TeeEditorExport.Get_SubEx(anID: Integer; aLayerID: Integer): IevSub;
+function TeeEditorExport.Get_SubEx(anID: Integer;
+ aLayerID: Integer): IevSub;
 //#UC START# *54872AA70157_4952693000EAget_var*
 //#UC END# *54872AA70157_4952693000EAget_var*
 begin
@@ -686,6 +647,7 @@ begin
 end;//TeeEditorExport.AsIeeDocumentEx
 
 procedure TeeEditorExport.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4952693000EA_var*
 //#UC END# *479731C50290_4952693000EA_var*
 begin
@@ -712,6 +674,7 @@ begin
 end;//TeeEditorExport.Create
 
 procedure TeeEditorExport.ParaChange;
+ {* текущий параграф изменился. }
 //#UC START# *482BFA340236_4952693000EA_var*
 var
  l_Block : IevSub;
@@ -784,7 +747,7 @@ begin
 end;//TeeEditorExport.WantTab
 
 function TeeEditorExport.DoDoDragOver(const aData: IDataObject;
-  const aPoint: TPoint): Boolean;
+ const aPoint: TPoint): Boolean;
 //#UC START# *48BFA1300211_4952693000EA_var*
 //#UC END# *48BFA1300211_4952693000EA_var*
 begin
@@ -809,8 +772,8 @@ begin
 end;//TeeEditorExport.DoGetAcceptableFormats
 
 function TeeEditorExport.DoDoDrop(aFormat: Tl3ClipboardFormat;
-  const aMedium: Tl3StoragePlace;
-  var dwEffect: Integer): Boolean;
+ const aMedium: Tl3StoragePlace;
+ var dwEffect: Integer): Boolean;
 //#UC START# *48BFB6D800B3_4952693000EA_var*
 var
  l_TopAnchor     : InevBasePoint;
@@ -913,7 +876,7 @@ begin
 end;//TeeEditorExport.DoDoDrop
 
 function TeeEditorExport.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
 //#UC START# *48C7C4990287_4952693000EA_var*
 //#UC END# *48C7C4990287_4952693000EA_var*
 begin
@@ -928,11 +891,11 @@ begin
 //#UC END# *48C7C4990287_4952693000EA_impl*
 end;//TeeEditorExport.COMQueryInterface
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TeeEditorExport.MouseUp(Button: TMouseButton;
-  Shift: TShiftState;
-  X: Integer;
-  Y: Integer);
+ Shift: TShiftState;
+ X: Integer;
+ Y: Integer);
 //#UC START# *4E7896270076_4952693000EA_var*
 var
  l_HotSpot : IeeHotSpot;
@@ -968,10 +931,10 @@ begin
  inherited;
 //#UC END# *4E7896270076_4952693000EA_impl*
 end;//TeeEditorExport.MouseUp
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TeeEditorExport.Notification(AComponent: TComponent;
-  Operation: TOperation);
+ Operation: TOperation);
 //#UC START# *4F884378016A_4952693000EA_var*
 //#UC END# *4F884378016A_4952693000EA_var*
 begin
@@ -984,11 +947,11 @@ begin
 //#UC END# *4F884378016A_4952693000EA_impl*
 end;//TeeEditorExport.Notification
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TeeEditorExport.MouseDown(Button: TMouseButton;
-  Shift: TShiftState;
-  X: Integer;
-  Y: Integer);
+ Shift: TShiftState;
+ X: Integer;
+ Y: Integer);
 //#UC START# *4F88473B03CD_4952693000EA_var*
 var
  l_HotSpot : IeeHotSpot;
@@ -1036,7 +999,7 @@ begin
  end;//try..finally
 //#UC END# *4F88473B03CD_4952693000EA_impl*
 end;//TeeEditorExport.MouseDown
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 function TeeEditorExport.pm_GetTextSource: TevCustomTextSource;
 //#UC START# *54C0FC1000D3_4952693000EAget_var*
@@ -1073,8 +1036,8 @@ begin
 end;//TeeEditorExport.pm_SetTextSource
 
 procedure TeeEditorExport.DoHitTest(const aHotSpot: IevHotSpot;
-  const aState: TafwCursorState;
-  var theInfo: TafwCursorInfo);
+ const aState: TafwCursorState;
+ var theInfo: TafwCursorInfo);
 //#UC START# *54C0FCF701F6_4952693000EA_var*
 var
  l_HotSpot: IeeHotSpot;
@@ -1097,9 +1060,9 @@ begin
 //#UC END# *54C0FCF701F6_4952693000EA_impl*
 end;//TeeEditorExport.DoHitTest
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TeeEditorExport.TextGetTarget(const aPt: TPoint;
-  out theTarget: IUnknown): Boolean;
+ out theTarget: IUnknown): Boolean;
 //#UC START# *54C0FF240304_4952693000EA_var*
 //#UC END# *54C0FF240304_4952693000EA_var*
 begin
@@ -1107,7 +1070,7 @@ begin
  Result := GetHotspotOnPoint(aPt, IeeHotSpot(theTarget));
 //#UC END# *54C0FF240304_4952693000EA_impl*
 end;//TeeEditorExport.TextGetTarget
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 function TeeEditorExport.InTable: Boolean;
 //#UC START# *54C0FF7C0012_4952693000EA_var*
@@ -1144,7 +1107,7 @@ begin
 end;//TeeEditorExport.IsReadOnlyTarget
 
 function TeeEditorExport.CheckMouseUp(const aHotSpot: IevHotSpot;
-  const aState: TevMouseState): Boolean;
+ const aState: TevMouseState): Boolean;
 //#UC START# *54C1012501EA_4952693000EA_var*
 var
  l_HotSpot : IeeHotSpot;
@@ -1179,8 +1142,8 @@ begin
 end;//TeeEditorExport.CheckMouseUp
 
 procedure TeeEditorExport.ScrollInfoChange(aVert: Boolean;
-  const aScrollInfo: TScrollInfo;
-  aPosChanged: Boolean);
+ const aScrollInfo: TScrollInfo;
+ aPosChanged: Boolean);
 //#UC START# *54C101DD01C5_4952693000EA_var*
 var
  l_ScrollInfo : TeeScrollInfo;
@@ -1272,7 +1235,7 @@ begin
 end;//TeeEditorExport.ScrollInfoChange
 
 function TeeEditorExport.DoBreakPara(aDrawLines: Boolean;
-  const anOp: InevOp): Boolean;
+ const anOp: InevOp): Boolean;
 //#UC START# *54C1028A038A_4952693000EA_var*
 
  procedure lp_CheckCursor;
@@ -1422,7 +1385,7 @@ begin
 //#UC END# *54C1033D03DF_4952693000EA_impl*
 end;//TeeEditorExport.HandledReadOnly
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TeeEditorExport.CanCut: Boolean;
 //#UC START# *54C1051E0360_4952693000EA_var*
 var
@@ -1447,7 +1410,7 @@ begin
  end;//Result
 //#UC END# *54C1051E0360_4952693000EA_impl*
 end;//TeeEditorExport.CanCut
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 function TeeEditorExport.VScrollWidth(const anIC: Il3InfoCanvas): Integer;
 //#UC START# *54C108A40224_4952693000EA_var*
@@ -1464,7 +1427,7 @@ begin
 end;//TeeEditorExport.VScrollWidth
 
 function TeeEditorExport.InsertPageBreak(NeedNewSection: Boolean = False;
-  aPageOrientation: TevPageOrientation = ev_poPortrait): Boolean;
+ aPageOrientation: TevPageOrientation = evdTypes.ev_poPortrait): Boolean;
 //#UC START# *54C10AFF0075_4952693000EA_var*
 //#UC END# *54C10AFF0075_4952693000EA_var*
 begin
@@ -1494,9 +1457,9 @@ begin
 end;//TeeEditorExport.IncIndent
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TeeEditorExport
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TeeEditorExport);
-{$IfEnd} //not NoScripts
+ {* Регистрация TeeEditorExport }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

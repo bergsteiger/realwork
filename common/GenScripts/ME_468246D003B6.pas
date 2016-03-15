@@ -95,7 +95,7 @@ var
 begin
  l_Inst := Create(aList, aListType);
  try
-  Result := l_Inst;
+  Result := l_Inst As IDataObject;
  finally
   l_Inst.Free;
  end;//try..finally

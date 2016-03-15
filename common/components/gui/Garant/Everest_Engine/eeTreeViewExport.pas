@@ -1,256 +1,222 @@
 unit eeTreeViewExport;
+ {* Компонент для экспорта отображения дерева }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest Engine"
-// Модуль: "w:/common/components/gui/Garant/Everest_Engine/eeTreeViewExport.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi For F1::Everest Engine::Tree::TeeTreeViewExport
-//
-// Компонент для экспорта отображения дерева
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeTreeViewExport.pas"
+// Стереотип: "GuiControl"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest_Engine\eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3CacheableBase,
-  afwInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3TreeInterfaces,
-  Messages,
-  eeInterfaces,
-  eeInterfacesEx,
-  vtOutlinerWithDragDrop,
-  vtOutliner,
-  Classes,
-  l3IID
-  ;
+ l3IntfUses
+ , eeInterfaces
+ , l3Interfaces
+ , vtOutlinerWithDragDrop
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , afwInterfaces
+ , l3TreeInterfaces
+ , Messages
+ , l3IID
+ , Classes
+ , vtOutliner
+ , l3CacheableBase
+ , eeInterfacesEx
+;
 
 type
- TeeRootChangedEvent = procedure (aSender: TObject;
+ TeeRootChangedEvent = procedure(aSender: TObject;
   const anOldRoot: IeeNode;
   const aNewRoot: IeeNode) of object;
 
- TeeFormatStatusInfo = procedure (aSender: TObject;
+ TeeFormatStatusInfo = procedure(aSender: TObject;
   var Info: Il3CString;
   aCurrent: Integer;
   aCount: Integer;
   aSelected: Integer) of object;
 
- TeeCurrentIndexChangedEvent = procedure (aNew: Integer;
+ TeeCurrentIndexChangedEvent = procedure(aNew: Integer;
   anOld: Integer) of object;
+  {* Событие смены индекса текущего в дереве }
 
- TeeBT2L3BTMap = array [TeeSetBitType] of Tl3SetBitType;
-const
-  { eeTreeViewExport Private Const }
- eeBT2L3BT : TeeBT2L3BTMap = (sbSelect, sbDeselect, sbInvert);
-
-type
- TeeTreeViewExportPrim = class(TvtOutlinerWithDragDrop {$If not defined(NoVCM)}, IvcmState{$IfEnd} //not NoVCM
- , IafwStatusElement, Il3RootSpy, Il3NodeNotifyRecipient {$If not defined(NoVCM)}, IvcmCloneableState{$IfEnd} //not NoVCM
+ TeeTreeViewExportPrim = class(TvtOutlinerWithDragDrop{$If NOT Defined(NoVCM)}
+ , IvcmState
+ {$IfEnd} // NOT Defined(NoVCM)
+ , IafwStatusElement, Il3RootSpy, Il3NodeNotifyRecipient{$If NOT Defined(NoVCM)}
+ , IvcmCloneableState
+ {$IfEnd} // NOT Defined(NoVCM)
  )
- private
- // private fields
-   f_PrevNode : IeeNode;
-   f_CurNode : IeeNode;
-   f_TreeView : IeeTreeView;
-    {* Поле для свойства TreeView}
-   f_DblClickOnFolder : Boolean;
-    {* Поле для свойства DblClickOnFolder}
-   f_ClearTreeStructOnSaveState : Boolean;
-    {* Поле для свойства ClearTreeStructOnSaveState}
-   f_NeedStatus : Boolean;
-    {* Поле для свойства NeedStatus}
-   f_OnRootChanged : TeeRootChangedEvent;
-    {* Поле для свойства OnRootChanged}
-   f_OnFormatStatusInfo : TeeFormatStatusInfo;
-    {* Поле для свойства OnFormatStatusInfo}
-   f_OnCurrentIndexChanged : TeeCurrentIndexChangedEvent;
-    {* Поле для свойства OnCurrentIndexChanged}
-   f_LoadingCloneState : Boolean;
-    {* Поле для свойства LoadingCloneState}
- private
- // private methods
+  private
+   f_PrevNode: IeeNode;
+   f_CurNode: IeeNode;
+   f_TreeView: IeeTreeView;
+    {* Поле для свойства TreeView }
+   f_DblClickOnFolder: Boolean;
+    {* Поле для свойства DblClickOnFolder }
+   f_ClearTreeStructOnSaveState: Boolean;
+    {* Поле для свойства ClearTreeStructOnSaveState }
+   f_NeedStatus: Boolean;
+    {* Поле для свойства NeedStatus }
+   f_OnRootChanged: TeeRootChangedEvent;
+    {* Поле для свойства OnRootChanged }
+   f_OnFormatStatusInfo: TeeFormatStatusInfo;
+    {* Поле для свойства OnFormatStatusInfo }
+   f_OnCurrentIndexChanged: TeeCurrentIndexChangedEvent;
+    {* Поле для свойства OnCurrentIndexChanged }
+   f_LoadingCloneState: Boolean;
+    {* Поле для свойства LoadingCloneState }
+  private
    procedure WMLButtonDblClk(var Msg: TWMLButtonDblClk); message WM_LBUTTONDBLCLK;
- protected
- // property methods
+  protected
    function pm_GetTreeView: IeeTreeView;
- protected
- // realized methods
-  {$If not defined(NoVCM)}
-   function SaveState(out theState: IUnknown;
-   aStateType: TvcmStateType): Boolean;
-  {$IfEnd} //not NoVCM
-  {$If not defined(NoVCM)}
-   function LoadState(const theState: IUnknown;
-   aStateType: TvcmStateType): Boolean;
-  {$IfEnd} //not NoVCM
-   procedure GetStatusInfo(out theString: IafwCString;
-   out theNeedProgress: Boolean);
-   procedure Notify(aOperation: Integer;
-   const aNode: Il3SimpleNode);
-     {* прошла операция. }
-  {$If not defined(NoVCM)}
-   function SaveStateForClone(out theState: IUnknown;
-   aStateType: TvcmStateType): Boolean;
-  {$IfEnd} //not NoVCM
-  {$If not defined(NoVCM)}
-   function LoadCloneState(const aState: IUnknown;
-   aStateType: TvcmStateType): Boolean;
-  {$IfEnd} //not NoVCM
- protected
- // overridden property methods
-   function pm_GetTreeStruct: Il3SimpleTree; override;
-   procedure pm_SetTreeStruct(const aValue: Il3SimpleTree); override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   function COMQueryInterface(const IID: Tl3GUID;
-   out Obj): Tl3HResult; override;
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
-   function NotifyIfNewCurrentEmpty: Boolean; override;
-     {* определяет нужно ли вызывать событие OnCurrentChanged в случае если пришел NewCurrent = -1. }
-   function DoDoProcessCommand(Cmd: Tl3OperationCode): Boolean; override;
-   procedure CallCurrentChanged(aNewCurrent: LongInt;
-     aOldCurrent: LongInt); override;
-   procedure SubscribeTreeStruct(const aTreeStruct: Il3SimpleTree); override;
-   procedure UnsubscribeTreeStruct(const aTreeStruct: Il3SimpleTree); override;
-   procedure MakeTreeStructOnDraw; override;
-     {* вызывается перед отрисовкой, бывает что до этого момента никто _TreeStruct не спросил, хотя сделать его готовы. }
-   function DoOnExpand(Expand: Boolean;
-     const CNode: Il3SimpleNode): Boolean; override;
-     {* если CNode = nil значит выполнили операцию свернуть\развернуть все }
-   procedure DoTreeChanged(const anOldTree: Il3SimpleTree;
-     const aNewTree: Il3SimpleTree); override;
-   procedure SetTreeStructFromHistory(const aTreeStruct: Il3SimpleTree;
-     const aData: TvtOutlinerHystoryData); override;
- public
- // overridden public methods
-   constructor Create(AOwner: TComponent); override;
- protected
- // protected methods
    procedure DoCurrentIndexChanged(aNew: Integer;
-     anOld: Integer);
-    {$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
+    anOld: Integer);
+   {$If NOT Defined(DesignTimeLibrary) AND NOT Defined(NoVCM)}
    function DoLoadState(const aState: IUnknown;
-     aStateType: TvcmStateType;
-     aForClone: Boolean): Boolean; virtual;
-    {$IfEnd} //not DesignTimeLibrary AND not NoVCM
-    {$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
+    aStateType: TvcmStateType;
+    aForClone: Boolean): Boolean; virtual;
+   {$IfEnd} // NOT Defined(DesignTimeLibrary) AND NOT Defined(NoVCM)
+   {$If NOT Defined(DesignTimeLibrary) AND NOT Defined(NoVCM)}
    function DoSaveState(out aState: IUnknown;
-     aStateType: TvcmStateType;
-     aForClone: Boolean): Boolean; virtual;
-    {$IfEnd} //not DesignTimeLibrary AND not NoVCM
+    aStateType: TvcmStateType;
+    aForClone: Boolean): Boolean; virtual;
+   {$IfEnd} // NOT Defined(DesignTimeLibrary) AND NOT Defined(NoVCM)
    function GetSelectedCountForStatusbar: Integer; virtual;
    function IsTreeStructAssigned: Boolean;
    procedure RootChanged(const anOldRoot: Il3SimpleRootNode;
-     const aNewRoot: Il3SimpleRootNode); overload;  virtual;
+    const aNewRoot: Il3SimpleRootNode); overload; virtual;
    procedure RootChanged(const anOldRoot: IeeNode;
-     const aNewRoot: IeeNode); overload;  virtual;
+    const aNewRoot: IeeNode); overload; virtual;
    procedure UpdateStatus;
-     {* при появлении у дерева TreeStruct, TreeView обновляем строку состояния. До правок возникала ситуации когда статусная строка у дерева справшивалась до появления TreeStruct, TreeView (CQ: OIT500021361) }
- public
- // public methods
+    {* при появлении у дерева TreeStruct, TreeView обновляем строку состояния. До правок возникала ситуации когда статусная строка у дерева справшивалась до появления TreeStruct, TreeView (CQ: OIT500021361) }
+   {$If NOT Defined(NoVCM)}
+   function SaveState(out theState: IUnknown;
+    aStateType: TvcmStateType): Boolean;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function LoadState(const theState: IUnknown;
+    aStateType: TvcmStateType): Boolean;
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure GetStatusInfo(out theString: IafwCString;
+    out theNeedProgress: Boolean);
+   procedure Notify(aOperation: Integer;
+    const aNode: Il3SimpleNode);
+    {* прошла операция. }
+   {$If NOT Defined(NoVCM)}
+   function SaveStateForClone(out theState: IUnknown;
+    aStateType: TvcmStateType): Boolean;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function LoadCloneState(const aState: IUnknown;
+    aStateType: TvcmStateType): Boolean;
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+   procedure ClearFields; override;
+   function NotifyIfNewCurrentEmpty: Boolean; override;
+    {* определяет нужно ли вызывать событие OnCurrentChanged в случае если пришел NewCurrent = -1. }
+   function DoDoProcessCommand(Cmd: Tl3OperationCode): Boolean; override;
+   procedure CallCurrentChanged(aNewCurrent: LongInt;
+    aOldCurrent: LongInt); override;
+   function pm_GetTreeStruct: Il3SimpleTree; override;
+   procedure pm_SetTreeStruct(const aValue: Il3SimpleTree); override;
+   procedure SubscribeTreeStruct(const aTreeStruct: Il3SimpleTree); override;
+   procedure UnsubscribeTreeStruct(const aTreeStruct: Il3SimpleTree); override;
+   procedure MakeTreeStructOnDraw; override;
+    {* вызывается перед отрисовкой, бывает что до этого момента никто _TreeStruct не спросил, хотя сделать его готовы. }
+   function DoOnExpand(Expand: Boolean;
+    const CNode: Il3SimpleNode): Boolean; override;
+    {* если CNode = nil значит выполнили операцию свернуть\развернуть все }
+   procedure DoTreeChanged(const anOldTree: Il3SimpleTree;
+    const aNewTree: Il3SimpleTree); override;
+   procedure SetTreeStructFromHistory(const aTreeStruct: Il3SimpleTree;
+    const aData: TvtOutlinerHystoryData); override;
+  public
    procedure MakeItemVisible(aIndex: Integer);
-     {* делает узел видимым, влияет на прокрутку }
- protected
- // protected properties
+    {* делает узел видимым, влияет на прокрутку }
+   constructor Create(AOwner: TComponent); override;
+  protected
    property TreeView: IeeTreeView
-     read pm_GetTreeView;
+    read pm_GetTreeView;
    property LoadingCloneState: Boolean
-     read f_LoadingCloneState;
- public
- // public properties
+    read f_LoadingCloneState;
+  public
    property DblClickOnFolder: Boolean
-     read f_DblClickOnFolder
-     write f_DblClickOnFolder;
-     {* default True }
+    read f_DblClickOnFolder
+    write f_DblClickOnFolder;
+    {* default True }
    property ClearTreeStructOnSaveState: Boolean
-     read f_ClearTreeStructOnSaveState
-     write f_ClearTreeStructOnSaveState;
-     {* default True }
+    read f_ClearTreeStructOnSaveState
+    write f_ClearTreeStructOnSaveState;
+    {* default True }
    property NeedStatus: Boolean
-     read f_NeedStatus
-     write f_NeedStatus;
-     {* default False }
+    read f_NeedStatus
+    write f_NeedStatus;
+    {* default False }
    property OnRootChanged: TeeRootChangedEvent
-     read f_OnRootChanged
-     write f_OnRootChanged;
+    read f_OnRootChanged
+    write f_OnRootChanged;
    property OnFormatStatusInfo: TeeFormatStatusInfo
-     read f_OnFormatStatusInfo
-     write f_OnFormatStatusInfo;
+    read f_OnFormatStatusInfo
+    write f_OnFormatStatusInfo;
    property OnCurrentIndexChanged: TeeCurrentIndexChangedEvent
-     read f_OnCurrentIndexChanged
-     write f_OnCurrentIndexChanged;
+    read f_OnCurrentIndexChanged
+    write f_OnCurrentIndexChanged;
  end;//TeeTreeViewExportPrim
 
  TeeTreeViewShadow = class(Tl3CacheableBase, IeeTree, IeeTreeView, IeeTool)
- private
- // private fields
-   f_TreeView : TeeTreeViewExportPrim;
-   f_UpdateCount : Integer;
- protected
- // realized methods
+  private
+   f_TreeView: TeeTreeViewExportPrim;
+   f_UpdateCount: Integer;
+  protected
    procedure OwnerDead;
-     {* Нотификация о смерти родителя. }
+    {* Нотификация о смерти родителя. }
    function Get_Root: IeeNode;
    procedure Set_Root(const aValue: IeeNode);
    function Get_SelectedCount: Integer;
    function Get_NodeFlags(const aNode: IeeNode): Integer;
-   procedure Set_NodeFlags(const aNode: IeeNode; aValue: Integer);
+   procedure Set_NodeFlags(const aNode: IeeNode;
+    aValue: Integer);
    function Get_FlagsByAbsIndex(anAbsIndex: Integer): Integer;
-   procedure Set_FlagsByAbsIndex(anAbsIndex: Integer; aValue: Integer);
+   procedure Set_FlagsByAbsIndex(anAbsIndex: Integer;
+    aValue: Integer);
    function TestFlagMask(aAbsIndex: LongInt;
     aFlagMask: Integer): Boolean;
    procedure SetFlagMask(aAbsIndex: LongInt;
     aFlagMask: Integer;
-    aMode: TeeSetBitType); overload; 
+    aMode: TeeSetBitType); overload;
    procedure SetFlagMask(const aRNode: IeeNode;
     aFlagMask: Integer;
-    aMode: TeeSetBitType); overload; 
+    aMode: TeeSetBitType); overload;
    procedure ExpandSubDir(const RNode: IeeNode = nil;
     Expand: Boolean = True;
     DeepLevel: Byte = 0);
-     {* развернуть/свернуть узлы }
+    {* развернуть/свернуть узлы }
    function ChangeExpand(const RNode: IeeNode;
     Mode: TeeSetBitType;
     aForceMode: Boolean = False): Boolean;
    function IsChanging: Boolean;
-     {* дерево находится в фазе обновления }
+    {* дерево находится в фазе обновления }
    procedure Changing;
-     {* Сигнатура метода Changing }
    procedure Changed;
-     {* Сигнатура метода Changed }
-   function GetAbsIndex(const aNode: IeeNode): Integer; overload; 
-   function GetAbsIndex(anIndex: Integer): Integer; overload; 
+   function GetAbsIndex(const aNode: IeeNode): Integer; overload;
+   function GetAbsIndex(anIndex: Integer): Integer; overload;
    function Iterate(Action: TeeNodeAction;
     IterMode: Integer = 0;
     const aSubRootNode: IeeNode = nil;
     const aFromNode: IeeNode = nil): IeeNode;
-     {* перебрать все узлы. IterMode см. imExpandOnly etc. }
+    {* перебрать все узлы. IterMode см. imExpandOnly etc. }
    function IterateF(Action: TeeNodeAction;
     IterMode: Integer = 0;
     const aSubRootNode: IeeNode = nil;
     const aFromNode: IeeNode = nil): IeeNode;
-     {* перебрать все узлы и освободить заглушку для Action }
+    {* перебрать все узлы и освободить заглушку для Action }
    function GetNextSelected(const aCurNode: IeeNode): IeeNode;
    procedure ClearSelected;
-     {* Сигнатура метода ClearSelected }
    procedure SetAllFlags(aMode: TeeSetBitType;
     aFlags: Integer);
    function GetNode(anIndex: Integer): IeeNode;
@@ -265,106 +231,109 @@ type
    function GetNodeIndex(const aNode: IeeNode): Integer;
    function GetNodeAbsIndex(const aNode: IeeNode): Integer;
    procedure ExpandAll;
-     {* Сигнатура метода ExpandAll }
    procedure CollapseAll;
-     {* Сигнатура метода CollapseAll }
    function GoToNode(const aNode: IeeNode): LongInt;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aTreeView: TeeTreeViewExportPrim); reintroduce;
    class function Make(aTreeView: TeeTreeViewExportPrim): IeeTreeView; reintroduce;
-     {* Сигнатура фабрики TeeTreeViewShadow.Make }
  end;//TeeTreeViewShadow
 
-
-{$If not defined(DesignTimeLibrary)}
-
- IeeTreeState = interface(IUnknown)
-   ['{59A4C6CC-3B40-4206-B937-E5EB9D68D6FC}']
-   function GetTree: Il3SimpleTree;
-   procedure SetTree(const aValue: Il3SimpleTree;
-     const aData: TvtOutlinerHystoryData);
-   function GetData: TvtOutlinerHystoryData;
+ {$If NOT Defined(DesignTimeLibrary)}
+ IeeTreeState = interface
+  ['{59A4C6CC-3B40-4206-B937-E5EB9D68D6FC}']
+  function GetTree: Il3SimpleTree;
+  procedure SetTree(const aValue: Il3SimpleTree;
+   const aData: TvtOutlinerHystoryData);
+  function GetData: TvtOutlinerHystoryData;
  end;//IeeTreeState
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
 
+ {$If NOT Defined(DesignTimeLibrary)}
  TeeTreeState = class(Tl3CacheableBase, IeeTreeState)
- private
- // private fields
-   f_Tree : Il3SimpleTree;
-   f_Data : TvtOutlinerHystoryData;
- protected
- // realized methods
+  private
+   f_Tree: Il3SimpleTree;
+   f_Data: TvtOutlinerHystoryData;
+  protected
    function GetTree: Il3SimpleTree;
    procedure SetTree(const aValue: Il3SimpleTree;
-      const aData: TvtOutlinerHystoryData);
+    const aData: TvtOutlinerHystoryData);
    function GetData: TvtOutlinerHystoryData;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function COMQueryInterface(const IID: Tl3GUID;
-   out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
- public
- // public methods
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
+  public
    constructor Create(const aTree: Il3SimpleTree;
-     const aData: TvtOutlinerHystoryData); reintroduce;
+    const aData: TvtOutlinerHystoryData); reintroduce;
    class function Make(const aTree: Il3SimpleTree;
-     const aData: TvtOutlinerHystoryData): IeeTreeState; reintroduce;
-     {* Сигнатура фабрики TeeTreeState.Make }
+    const aData: TvtOutlinerHystoryData): IeeTreeState; reintroduce;
  end;//TeeTreeState
-{$IfEnd} //not DesignTimeLibrary
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
 
-//#UC START# *499C0B7B012Eci*
-//#UC END# *499C0B7B012Eci*
-//#UC START# *499C0B7B012Ecit*
-//#UC END# *499C0B7B012Ecit*
+ //#UC START# *499C0B7B012Eci*
+ //#UC END# *499C0B7B012Eci*
+ //#UC START# *499C0B7B012Ecit*
+ //#UC END# *499C0B7B012Ecit*
  TeeTreeViewExport = class(TeeTreeViewExportPrim)
   {* Компонент для экспорта отображения дерева }
-//#UC START# *499C0B7B012Epubl*
+ //#UC START# *499C0B7B012Epubl*
  published
   property OnCountChanged;
   property OnAfterFirstPaint;
   property OnCurrentIndexChanged;
-//#UC END# *499C0B7B012Epubl*
+ //#UC END# *499C0B7B012Epubl*
  end;//TeeTreeViewExport
 
 implementation
 
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  eeNode,
-  afwFacade,
-  Windows,
-  l3ControlsTypes,
-  l3String,
-  nevInterfaces,
-  l3Types
-  {$If not defined(DesignTimeLibrary)}
-  ,
-  evStyleTableSpy
-  {$IfEnd} //not DesignTimeLibrary
-  ,
-  OvcConst,
-  l3InterfacesMisc,
-  l3Tree_TLB,
-  l3Nodes,
-  l3Base
-  ;
+ l3ImplUses
+ , eeNode
+ , afwFacade
+ , Windows
+ , l3ControlsTypes
+ , SysUtils
+ , l3String
+ , nevInterfaces
+ , l3Types
+ {$If NOT Defined(DesignTimeLibrary)}
+ , evStyleTableSpy
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
+ , OvcConst
+ , l3InterfacesMisc
+ , l3Tree_TLB
+ , l3Nodes
+ , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
-// start class TeeTreeViewExportPrim
+type
+ TeeBT2L3BTMap = array [TeeSetBitType] of Tl3SetBitType;
+
+const
+ eeBT2L3BT: TeeBT2L3BTMap = (sbSelect, sbDeselect, sbInvert);
+
+function TeeTreeViewExportPrim.pm_GetTreeView: IeeTreeView;
+//#UC START# *5319ECD7006D_531DB14D03CCget_var*
+//#UC END# *5319ECD7006D_531DB14D03CCget_var*
+begin
+//#UC START# *5319ECD7006D_531DB14D03CCget_impl*
+ if (f_TreeView = nil) then
+ begin
+  f_TreeView := TeeTreeViewShadow.Make(Self);
+  UpdateStatus;
+ end;
+ Result := f_TreeView;
+//#UC END# *5319ECD7006D_531DB14D03CCget_impl*
+end;//TeeTreeViewExportPrim.pm_GetTreeView
 
 procedure TeeTreeViewExportPrim.DoCurrentIndexChanged(aNew: Integer;
-  anOld: Integer);
+ anOld: Integer);
 //#UC START# *5319F25902B0_531DB14D03CC_var*
 //#UC END# *5319F25902B0_531DB14D03CC_var*
 begin
@@ -374,10 +343,10 @@ begin
 //#UC END# *5319F25902B0_531DB14D03CC_impl*
 end;//TeeTreeViewExportPrim.DoCurrentIndexChanged
 
-{$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
+{$If NOT Defined(DesignTimeLibrary) AND NOT Defined(NoVCM)}
 function TeeTreeViewExportPrim.DoLoadState(const aState: IUnknown;
-  aStateType: TvcmStateType;
-  aForClone: Boolean): Boolean;
+ aStateType: TvcmStateType;
+ aForClone: Boolean): Boolean;
 //#UC START# *52DD0F6F0223_531DB14D03CC_var*
 var
  l_Tree: Il3SimpleTree;
@@ -415,12 +384,12 @@ begin
  f_LoadingCloneState := False; 
 //#UC END# *52DD0F6F0223_531DB14D03CC_impl*
 end;//TeeTreeViewExportPrim.DoLoadState
-{$IfEnd} //not DesignTimeLibrary AND not NoVCM
+{$IfEnd} // NOT Defined(DesignTimeLibrary) AND NOT Defined(NoVCM)
 
-{$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
+{$If NOT Defined(DesignTimeLibrary) AND NOT Defined(NoVCM)}
 function TeeTreeViewExportPrim.DoSaveState(out aState: IUnknown;
-  aStateType: TvcmStateType;
-  aForClone: Boolean): Boolean;
+ aStateType: TvcmStateType;
+ aForClone: Boolean): Boolean;
 //#UC START# *52DD0F440276_531DB14D03CC_var*
 //#UC END# *52DD0F440276_531DB14D03CC_var*
 begin
@@ -451,7 +420,7 @@ begin
  end;//case aStateType
 //#UC END# *52DD0F440276_531DB14D03CC_impl*
 end;//TeeTreeViewExportPrim.DoSaveState
-{$IfEnd} //not DesignTimeLibrary AND not NoVCM
+{$IfEnd} // NOT Defined(DesignTimeLibrary) AND NOT Defined(NoVCM)
 
 function TeeTreeViewExportPrim.GetSelectedCountForStatusbar: Integer;
 //#UC START# *51DBCA8C0206_531DB14D03CC_var*
@@ -472,6 +441,7 @@ begin
 end;//TeeTreeViewExportPrim.IsTreeStructAssigned
 
 procedure TeeTreeViewExportPrim.MakeItemVisible(aIndex: Integer);
+ {* делает узел видимым, влияет на прокрутку }
 //#UC START# *5319F2F10189_531DB14D03CC_var*
 //#UC END# *5319F2F10189_531DB14D03CC_var*
 begin
@@ -481,7 +451,7 @@ begin
 end;//TeeTreeViewExportPrim.MakeItemVisible
 
 procedure TeeTreeViewExportPrim.RootChanged(const anOldRoot: Il3SimpleRootNode;
-  const aNewRoot: Il3SimpleRootNode);
+ const aNewRoot: Il3SimpleRootNode);
 //#UC START# *5319F116018F_531DB14D03CC_var*
 //#UC END# *5319F116018F_531DB14D03CC_var*
 begin
@@ -496,7 +466,7 @@ begin
 end;//TeeTreeViewExportPrim.RootChanged
 
 procedure TeeTreeViewExportPrim.RootChanged(const anOldRoot: IeeNode;
-  const aNewRoot: IeeNode);
+ const aNewRoot: IeeNode);
 //#UC START# *5319F17400EC_531DB14D03CC_var*
 //#UC END# *5319F17400EC_531DB14D03CC_var*
 begin
@@ -507,6 +477,7 @@ begin
 end;//TeeTreeViewExportPrim.RootChanged
 
 procedure TeeTreeViewExportPrim.UpdateStatus;
+ {* при появлении у дерева TreeStruct, TreeView обновляем строку состояния. До правок возникала ситуации когда статусная строка у дерева справшивалась до появления TreeStruct, TreeView (CQ: OIT500021361) }
 //#UC START# *5319F2A101E6_531DB14D03CC_var*
 //#UC END# *5319F2A101E6_531DB14D03CC_var*
 begin
@@ -516,20 +487,6 @@ begin
   afw.Application.CurrentMainForm.Status.Update;
 //#UC END# *5319F2A101E6_531DB14D03CC_impl*
 end;//TeeTreeViewExportPrim.UpdateStatus
-
-function TeeTreeViewExportPrim.pm_GetTreeView: IeeTreeView;
-//#UC START# *5319ECD7006D_531DB14D03CCget_var*
-//#UC END# *5319ECD7006D_531DB14D03CCget_var*
-begin
-//#UC START# *5319ECD7006D_531DB14D03CCget_impl*
- if (f_TreeView = nil) then
- begin
-  f_TreeView := TeeTreeViewShadow.Make(Self);
-  UpdateStatus;
- end;
- Result := f_TreeView;
-//#UC END# *5319ECD7006D_531DB14D03CCget_impl*
-end;//TeeTreeViewExportPrim.pm_GetTreeView
 
 procedure TeeTreeViewExportPrim.WMLButtonDblClk(var Msg: TWMLButtonDblClk);
 //#UC START# *531DB6C5003F_531DB14D03CC_var*
@@ -545,9 +502,9 @@ begin
 //#UC END# *531DB6C5003F_531DB14D03CC_impl*
 end;//TeeTreeViewExportPrim.WMLButtonDblClk
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TeeTreeViewExportPrim.SaveState(out theState: IUnknown;
-  aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType): Boolean;
 //#UC START# *4683E75B01D8_531DB14D03CC_var*
 //#UC END# *4683E75B01D8_531DB14D03CC_var*
 begin
@@ -557,11 +514,11 @@ begin
 {$ifend}
 //#UC END# *4683E75B01D8_531DB14D03CC_impl*
 end;//TeeTreeViewExportPrim.SaveState
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TeeTreeViewExportPrim.LoadState(const theState: IUnknown;
-  aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType): Boolean;
 //#UC START# *4683E79D0331_531DB14D03CC_var*
 //#UC END# *4683E79D0331_531DB14D03CC_var*
 begin
@@ -571,10 +528,10 @@ begin
 {$ifend}
 //#UC END# *4683E79D0331_531DB14D03CC_impl*
 end;//TeeTreeViewExportPrim.LoadState
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TeeTreeViewExportPrim.GetStatusInfo(out theString: IafwCString;
-  out theNeedProgress: Boolean);
+ out theNeedProgress: Boolean);
 //#UC START# *475E9466022A_531DB14D03CC_var*
  function lp_IndexInParent: Integer;
  var
@@ -649,7 +606,8 @@ begin
 end;//TeeTreeViewExportPrim.GetStatusInfo
 
 procedure TeeTreeViewExportPrim.Notify(aOperation: Integer;
-  const aNode: Il3SimpleNode);
+ const aNode: Il3SimpleNode);
+ {* прошла операция. }
 //#UC START# *477244190062_531DB14D03CC_var*
 //#UC END# *477244190062_531DB14D03CC_var*
 begin
@@ -659,9 +617,9 @@ begin
 //#UC END# *477244190062_531DB14D03CC_impl*
 end;//TeeTreeViewExportPrim.Notify
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TeeTreeViewExportPrim.SaveStateForClone(out theState: IUnknown;
-  aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType): Boolean;
 //#UC START# *55DC1CFE018D_531DB14D03CC_var*
 //#UC END# *55DC1CFE018D_531DB14D03CC_var*
 begin
@@ -669,11 +627,11 @@ begin
  Result := DoSaveState(theState, aStateType, True);
 //#UC END# *55DC1CFE018D_531DB14D03CC_impl*
 end;//TeeTreeViewExportPrim.SaveStateForClone
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TeeTreeViewExportPrim.LoadCloneState(const aState: IUnknown;
-  aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType): Boolean;
 //#UC START# *55DC1D21005D_531DB14D03CC_var*
 //#UC END# *55DC1D21005D_531DB14D03CC_var*
 begin
@@ -683,9 +641,10 @@ begin
  f_LoadingCloneState := False; 
 //#UC END# *55DC1D21005D_531DB14D03CC_impl*
 end;//TeeTreeViewExportPrim.LoadCloneState
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TeeTreeViewExportPrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_531DB14D03CC_var*
 var
  l_Tool: IeeTool;
@@ -721,7 +680,7 @@ begin
 end;//TeeTreeViewExportPrim.Create
 
 function TeeTreeViewExportPrim.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
 //#UC START# *48C7C4990287_531DB14D03CC_var*
 //#UC END# *48C7C4990287_531DB14D03CC_var*
 begin
@@ -739,7 +698,6 @@ begin
 end;//TeeTreeViewExportPrim.COMQueryInterface
 
 procedure TeeTreeViewExportPrim.ClearFields;
- {-}
 begin
  f_PrevNode := nil;
  f_CurNode := nil;
@@ -748,6 +706,7 @@ begin
 end;//TeeTreeViewExportPrim.ClearFields
 
 function TeeTreeViewExportPrim.NotifyIfNewCurrentEmpty: Boolean;
+ {* определяет нужно ли вызывать событие OnCurrentChanged в случае если пришел NewCurrent = -1. }
 //#UC START# *5151AE2202F5_531DB14D03CC_var*
 {* - определяет нужно ли вызывать событие OnCurrentChanged в случае если пришел NewCurrent = -1. }
 //#UC END# *5151AE2202F5_531DB14D03CC_var*
@@ -780,7 +739,7 @@ begin
 end;//TeeTreeViewExportPrim.DoDoProcessCommand
 
 procedure TeeTreeViewExportPrim.CallCurrentChanged(aNewCurrent: LongInt;
-  aOldCurrent: LongInt);
+ aOldCurrent: LongInt);
 //#UC START# *5152CC6A0355_531DB14D03CC_var*
 //#UC END# *5152CC6A0355_531DB14D03CC_var*
 begin
@@ -869,6 +828,7 @@ begin
 end;//TeeTreeViewExportPrim.UnsubscribeTreeStruct
 
 procedure TeeTreeViewExportPrim.MakeTreeStructOnDraw;
+ {* вызывается перед отрисовкой, бывает что до этого момента никто _TreeStruct не спросил, хотя сделать его готовы. }
 //#UC START# *51629A880103_531DB14D03CC_var*
 {* - вызывается перед отрисовкой, бывает что до этого момента никто TreeStruct не спросил, хотя сделать его готовы. }
 //#UC END# *51629A880103_531DB14D03CC_var*
@@ -880,7 +840,8 @@ begin
 end;//TeeTreeViewExportPrim.MakeTreeStructOnDraw
 
 function TeeTreeViewExportPrim.DoOnExpand(Expand: Boolean;
-  const CNode: Il3SimpleNode): Boolean;
+ const CNode: Il3SimpleNode): Boolean;
+ {* если CNode = nil значит выполнили операцию свернуть\развернуть все }
 //#UC START# *51629C9B00C2_531DB14D03CC_var*
 //#UC END# *51629C9B00C2_531DB14D03CC_var*
 begin
@@ -898,7 +859,7 @@ begin
 end;//TeeTreeViewExportPrim.DoOnExpand
 
 procedure TeeTreeViewExportPrim.DoTreeChanged(const anOldTree: Il3SimpleTree;
-  const aNewTree: Il3SimpleTree);
+ const aNewTree: Il3SimpleTree);
 //#UC START# *51629D5D018A_531DB14D03CC_var*
 //#UC END# *51629D5D018A_531DB14D03CC_var*
 begin
@@ -909,7 +870,7 @@ begin
 end;//TeeTreeViewExportPrim.DoTreeChanged
 
 procedure TeeTreeViewExportPrim.SetTreeStructFromHistory(const aTreeStruct: Il3SimpleTree;
-  const aData: TvtOutlinerHystoryData);
+ const aData: TvtOutlinerHystoryData);
 //#UC START# *51629D8E02C8_531DB14D03CC_var*
 var
  l_OldRoot: Il3SimpleRootNode;
@@ -950,7 +911,6 @@ begin
  end;//f_TreeStruct <> aTreeStruct
 //#UC END# *51629D8E02C8_531DB14D03CC_impl*
 end;//TeeTreeViewExportPrim.SetTreeStructFromHistory
-// start class TeeTreeViewShadow
 
 constructor TeeTreeViewShadow.Create(aTreeView: TeeTreeViewExportPrim);
 //#UC START# *531A0A5E017A_5319FAE701F7_var*
@@ -973,9 +933,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TeeTreeViewShadow.Make
 
 procedure TeeTreeViewShadow.OwnerDead;
+ {* Нотификация о смерти родителя. }
 //#UC START# *46A5D4220369_5319FAE701F7_var*
 //#UC END# *46A5D4220369_5319FAE701F7_var*
 begin
@@ -1058,7 +1019,8 @@ begin
 //#UC END# *531A005002E3_5319FAE701F7get_impl*
 end;//TeeTreeViewShadow.Get_NodeFlags
 
-procedure TeeTreeViewShadow.Set_NodeFlags(const aNode: IeeNode; aValue: Integer);
+procedure TeeTreeViewShadow.Set_NodeFlags(const aNode: IeeNode;
+ aValue: Integer);
 //#UC START# *531A005002E3_5319FAE701F7set_var*
 var
  l_Node: Il3Node;
@@ -1084,7 +1046,8 @@ begin
 //#UC END# *531A007501D2_5319FAE701F7get_impl*
 end;//TeeTreeViewShadow.Get_FlagsByAbsIndex
 
-procedure TeeTreeViewShadow.Set_FlagsByAbsIndex(anAbsIndex: Integer; aValue: Integer);
+procedure TeeTreeViewShadow.Set_FlagsByAbsIndex(anAbsIndex: Integer;
+ aValue: Integer);
 //#UC START# *531A007501D2_5319FAE701F7set_var*
 //#UC END# *531A007501D2_5319FAE701F7set_var*
 begin
@@ -1094,7 +1057,7 @@ begin
 end;//TeeTreeViewShadow.Set_FlagsByAbsIndex
 
 function TeeTreeViewShadow.TestFlagMask(aAbsIndex: LongInt;
-  aFlagMask: Integer): Boolean;
+ aFlagMask: Integer): Boolean;
 //#UC START# *531A00CA0043_5319FAE701F7_var*
 //#UC END# *531A00CA0043_5319FAE701F7_var*
 begin
@@ -1107,8 +1070,8 @@ begin
 end;//TeeTreeViewShadow.TestFlagMask
 
 procedure TeeTreeViewShadow.SetFlagMask(aAbsIndex: LongInt;
-  aFlagMask: Integer;
-  aMode: TeeSetBitType);
+ aFlagMask: Integer;
+ aMode: TeeSetBitType);
 //#UC START# *531A010F00A5_5319FAE701F7_var*
 //#UC END# *531A010F00A5_5319FAE701F7_var*
 begin
@@ -1119,8 +1082,8 @@ begin
 end;//TeeTreeViewShadow.SetFlagMask
 
 procedure TeeTreeViewShadow.SetFlagMask(const aRNode: IeeNode;
-  aFlagMask: Integer;
-  aMode: TeeSetBitType);
+ aFlagMask: Integer;
+ aMode: TeeSetBitType);
 //#UC START# *531A01E70176_5319FAE701F7_var*
 var
  l_Node: Il3Node;
@@ -1138,8 +1101,9 @@ begin
 end;//TeeTreeViewShadow.SetFlagMask
 
 procedure TeeTreeViewShadow.ExpandSubDir(const RNode: IeeNode = nil;
-  Expand: Boolean = True;
-  DeepLevel: Byte = 0);
+ Expand: Boolean = True;
+ DeepLevel: Byte = 0);
+ {* развернуть/свернуть узлы }
 //#UC START# *531A022A023F_5319FAE701F7_var*
 var
  l_Node: Il3Node;
@@ -1166,8 +1130,8 @@ begin
 end;//TeeTreeViewShadow.ExpandSubDir
 
 function TeeTreeViewShadow.ChangeExpand(const RNode: IeeNode;
-  Mode: TeeSetBitType;
-  aForceMode: Boolean = False): Boolean;
+ Mode: TeeSetBitType;
+ aForceMode: Boolean = False): Boolean;
 //#UC START# *531A033D028D_5319FAE701F7_var*
 var
  l_Node: Il3SimpleNode;
@@ -1191,6 +1155,7 @@ begin
 end;//TeeTreeViewShadow.ChangeExpand
 
 function TeeTreeViewShadow.IsChanging: Boolean;
+ {* дерево находится в фазе обновления }
 //#UC START# *531A04C30010_5319FAE701F7_var*
 //#UC END# *531A04C30010_5319FAE701F7_var*
 begin
@@ -1267,9 +1232,10 @@ begin
 end;//TeeTreeViewShadow.GetAbsIndex
 
 function TeeTreeViewShadow.Iterate(Action: TeeNodeAction;
-  IterMode: Integer = 0;
-  const aSubRootNode: IeeNode = nil;
-  const aFromNode: IeeNode = nil): IeeNode;
+ IterMode: Integer = 0;
+ const aSubRootNode: IeeNode = nil;
+ const aFromNode: IeeNode = nil): IeeNode;
+ {* перебрать все узлы. IterMode см. imExpandOnly etc. }
 //#UC START# *531A060301BA_5319FAE701F7_var*
  function l_CheckNode(const aNode: Il3Node): Boolean;
  begin
@@ -1309,9 +1275,10 @@ begin
 end;//TeeTreeViewShadow.Iterate
 
 function TeeTreeViewShadow.IterateF(Action: TeeNodeAction;
-  IterMode: Integer = 0;
-  const aSubRootNode: IeeNode = nil;
-  const aFromNode: IeeNode = nil): IeeNode;
+ IterMode: Integer = 0;
+ const aSubRootNode: IeeNode = nil;
+ const aFromNode: IeeNode = nil): IeeNode;
+ {* перебрать все узлы и освободить заглушку для Action }
 //#UC START# *531A064001BF_5319FAE701F7_var*
 //#UC END# *531A064001BF_5319FAE701F7_var*
 begin
@@ -1370,7 +1337,7 @@ begin
 end;//TeeTreeViewShadow.ClearSelected
 
 procedure TeeTreeViewShadow.SetAllFlags(aMode: TeeSetBitType;
-  aFlags: Integer);
+ aFlags: Integer);
 //#UC START# *531A06B90062_5319FAE701F7_var*
 //#UC END# *531A06B90062_5319FAE701F7_var*
 begin
@@ -1667,6 +1634,7 @@ begin
 end;//TeeTreeViewShadow.GoToNode
 
 procedure TeeTreeViewShadow.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5319FAE701F7_var*
 //#UC END# *479731C50290_5319FAE701F7_var*
 begin
@@ -1675,12 +1643,10 @@ begin
  inherited;
 //#UC END# *479731C50290_5319FAE701F7_impl*
 end;//TeeTreeViewShadow.Cleanup
-{$If not defined(DesignTimeLibrary)}
 
-// start class TeeTreeState
-
+{$If NOT Defined(DesignTimeLibrary)}
 constructor TeeTreeState.Create(const aTree: Il3SimpleTree;
-  const aData: TvtOutlinerHystoryData);
+ const aData: TvtOutlinerHystoryData);
 //#UC START# *531F040903D7_531F03AA0018_var*
 //#UC END# *531F040903D7_531F03AA0018_var*
 begin
@@ -1691,7 +1657,7 @@ begin
 end;//TeeTreeState.Create
 
 class function TeeTreeState.Make(const aTree: Il3SimpleTree;
-  const aData: TvtOutlinerHystoryData): IeeTreeState;
+ const aData: TvtOutlinerHystoryData): IeeTreeState;
 var
  l_Inst : TeeTreeState;
 begin
@@ -1701,7 +1667,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TeeTreeState.Make
 
 function TeeTreeState.GetTree: Il3SimpleTree;
 //#UC START# *531F034B00AA_531F03AA0018_var*
@@ -1713,7 +1679,7 @@ begin
 end;//TeeTreeState.GetTree
 
 procedure TeeTreeState.SetTree(const aValue: Il3SimpleTree;
-  const aData: TvtOutlinerHystoryData);
+ const aData: TvtOutlinerHystoryData);
 //#UC START# *531F036000C7_531F03AA0018_var*
 //#UC END# *531F036000C7_531F03AA0018_var*
 begin
@@ -1733,6 +1699,7 @@ begin
 end;//TeeTreeState.GetData
 
 procedure TeeTreeState.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_531F03AA0018_var*
 //#UC END# *479731C50290_531F03AA0018_var*
 begin
@@ -1743,7 +1710,8 @@ begin
 end;//TeeTreeState.Cleanup
 
 function TeeTreeState.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_531F03AA0018_var*
 //#UC END# *4A60B23E00C3_531F03AA0018_var*
 begin
@@ -1756,20 +1724,19 @@ begin
    Result.SetNoInterface;
 //#UC END# *4A60B23E00C3_531F03AA0018_impl*
 end;//TeeTreeState.COMQueryInterface
-
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 //#UC START# *499C0B7B012Eimpl*
 //#UC END# *499C0B7B012Eimpl*
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TeeTreeViewExportPrim
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TeeTreeViewExportPrim);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TeeTreeViewExport
+ {* Регистрация TeeTreeViewExportPrim }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TeeTreeViewExport);
-{$IfEnd} //not NoScripts
+ {* Регистрация TeeTreeViewExport }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

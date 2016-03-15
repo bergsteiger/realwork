@@ -74,7 +74,7 @@ type
    {$If NOT Defined(NoVCL)}
    function MakeLongProcessVisualizer(const aCaption: IafwCString;
     anAttachWnd: THandle = 0;
-    anInitialTimeout: Cardinal = afw_lpwTimeout;
+    anInitialTimeout: Cardinal = afwInterfaces.afw_lpwTimeout;
     anImageList: TafwCustomImageList = nil;
     anImageIndex: Integer = -1): IafwLongProcessVisualizer;
    {$IfEnd} // NOT Defined(NoVCL)
@@ -399,7 +399,7 @@ end;//TafwApplication.Get_Data
 {$If NOT Defined(NoVCL)}
 function TafwApplication.MakeLongProcessVisualizer(const aCaption: IafwCString;
  anAttachWnd: THandle = 0;
- anInitialTimeout: Cardinal = afw_lpwTimeout;
+ anInitialTimeout: Cardinal = afwInterfaces.afw_lpwTimeout;
  anImageList: TafwCustomImageList = nil;
  anImageIndex: Integer = -1): IafwLongProcessVisualizer;
 //#UC START# *49E85D4A0016_47764DD601C3_var*

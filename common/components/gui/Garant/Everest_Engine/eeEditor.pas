@@ -1,46 +1,33 @@
 unit eeEditor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest Engine"
-// Модуль: "w:/common/components/gui/Garant/Everest_Engine/eeEditor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi For F1::Everest Engine::Editor::TeeEditor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeEditor.pas"
+// Стереотип: "GuiControl"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest_Engine\eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 
 uses
-  eeInterfaces,
-  eeEditorExport,
-  Classes
-  ;
+ l3IntfUses
+ , eeEditorExport
+ , eeInterfaces
+ , Classes
+;
 
 type
-//#UC START# *4952687202A0ci*
-//#UC END# *4952687202A0ci*
-//#UC START# *4952687202A0cit*
-//#UC END# *4952687202A0cit*
+ //#UC START# *4952687202A0ci*
+ //#UC END# *4952687202A0ci*
+ //#UC START# *4952687202A0cit*
+ //#UC END# *4952687202A0cit*
  TeeCustomEditor = class(TeeEditorExport)
- protected
- // property methods
+  protected
    function pm_GetEditor: IeeEditor;
- public
- // overridden public methods
+  public
    constructor Create(AOwner: TComponent); override;
- public
- // public properties
+  public
    property Editor: IeeEditor
-     read pm_GetEditor;
-//#UC START# *4952687202A0publ*
+    read pm_GetEditor;
+ //#UC START# *4952687202A0publ*
     public
     // public events
       property OnBlockChange;
@@ -51,15 +38,15 @@ type
         {-}
       property OnUserCommentsHidden;
         {-}
-//#UC END# *4952687202A0publ*
+ //#UC END# *4952687202A0publ*
  end;//TeeCustomEditor
 
-//#UC START# *495268900201ci*
-//#UC END# *495268900201ci*
-//#UC START# *495268900201cit*
-//#UC END# *495268900201cit*
+ //#UC START# *495268900201ci*
+ //#UC END# *495268900201ci*
+ //#UC START# *495268900201cit*
+ //#UC END# *495268900201cit*
  TeeEditor = class(TeeCustomEditor)
-//#UC START# *495268900201publ*
+ //#UC START# *495268900201publ*
    {* Компонент для импорта редактора. Для конечного использования. }
     published
     // published properties
@@ -123,21 +110,17 @@ type
         {-}
       property OnMakeMacroReplacer;
         {-}
-//#UC END# *495268900201publ*
+ //#UC END# *495268900201publ*
  end;//TeeEditor
 
 implementation
 
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TeeCustomEditor
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 function TeeCustomEditor.pm_GetEditor: IeeEditor;
 //#UC START# *54C231250045_4952687202A0get_var*
@@ -166,13 +149,13 @@ end;//TeeCustomEditor.Create
 //#UC END# *495268900201impl*
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TeeCustomEditor
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TeeCustomEditor);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TeeEditor
+ {* Регистрация TeeCustomEditor }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TeeEditor);
-{$IfEnd} //not NoScripts
+ {* Регистрация TeeEditor }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

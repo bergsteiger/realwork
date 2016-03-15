@@ -1,59 +1,41 @@
 unit eeEditorExportModelPart;
+ {* Часть TeeEditorExport перенесённная на модель }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest Engine"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest_Engine/eeEditorExportModelPart.pas"
-// Начат: 26.02.2010 11:02
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi For F1::Everest Engine::Editor::TeeEditorExportModelPart
-//
-// Часть TeeEditorExport перенесённная на модель
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeEditorExportModelPart.pas"
+// Стереотип: "GuiControl"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest_Engine\eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 
 uses
-  afwInterfaces,
-  Classes,
-  evTunedEditor,
-  eeInterfaces,
-  eeInterfacesEx,
-  nevGUIInterfaces
-  {$If defined(Nemesis)}
-  ,
-  eeDocumentTool
-  {$IfEnd} //Nemesis
-  ,
-  l3IID,
-  evdTypes,
-  l3Interfaces,
-  k2Base,
-  evCustomEditorModelPart,
-  evTypes,
-  nevTools,
-  Windows
-  ;
+ l3IntfUses
+ , evTunedEditor
+ , eeInterfaces
+ , afwInterfaces
+ , nevGUIInterfaces
+ , eeInterfacesEx
+ , nevTools
+ , Windows
+ , evCustomEditorModelPart
+ , evTypes
+ {$If Defined(Nemesis)}
+ , eeDocumentTool
+ {$IfEnd} // Defined(Nemesis)
+ , evdTypes
+ , l3Interfaces
+ , k2Base
+ , l3IID
+ , Classes
+;
 
 type
-
-{$If defined(Nemesis)}
+ {$If Defined(Nemesis)}
  TeeBlock = class(TeeDocumentTool, IeeBlock)
- private
- // private fields
-   f_ID : Integer;
-   f_LayerID : Integer;
- protected
- // realized methods
+  private
+   f_ID: Integer;
+   f_LayerID: Integer;
+  protected
    function Delete: Boolean;
    function Exists: Boolean;
    function Select: Boolean;
@@ -71,186 +53,109 @@ type
    function Get_Document: IeeDocument;
    function Get_ParentBlock: IeeBlock;
    function IsKindOf(aType: Tk2Type): Boolean;
- protected
- // overridden protected methods
    function COMQueryInterface(const IID: Tl3GUID;
-   out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
- public
- // public methods
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
+  public
    constructor Create(const aDocument: IeeDocumentEx;
-     anID: Integer;
-     aLayerID: Integer); reintroduce;
+    anID: Integer;
+    aLayerID: Integer); reintroduce;
    class function Make(const aDocument: IeeDocumentEx;
-     anID: Integer;
-     aLayerID: Integer): IeeBlock; reintroduce;
-     {* Сигнатура фабрики TeeBlock.Make }
+    anID: Integer;
+    aLayerID: Integer): IeeBlock; reintroduce;
  end;//TeeBlock
-{$IfEnd} //Nemesis
+ {$IfEnd} // Defined(Nemesis)
 
- TeeCanSplitParaEvent = procedure (aSender: TObject;
+ TeeCanSplitParaEvent = procedure(aSender: TObject;
   const aPara: IeePara;
   var Allow: Boolean) of object;
 
- TeeBlockChangeEvent = Classes.TNotifyEvent;
+ TeeBlockChangeEvent = TNotifyEvent;
 
- TeeBlockScrollEvent = procedure (aSender: TObject;
+ TeeBlockScrollEvent = procedure(aSender: TObject;
   aDown: Boolean) of object;
 
- TeeEditorExportModelPart = class(TevTunedEditor, IeeEditor, IeeDocument, IeeData, IeeCommands)
+ TeeEditorExportModelPart = class(TevTunedEditor, IeeEditor, IeeDocument, IeeData)
   {* Часть TeeEditorExport перенесённная на модель }
- private
- // private fields
-   f_OnCanSplitPara : TeeCanSplitParaEvent;
-    {* Поле для свойства OnCanSplitPara}
-   f_OnBlockChange : TeeBlockChangeEvent;
-    {* Поле для свойства OnBlockChange}
-   f_OnBlockScroll : TeeBlockScrollEvent;
-    {* Поле для свойства OnBlockScroll}
- protected
- // realized methods
+  private
+   f_OnCanSplitPara: TeeCanSplitParaEvent;
+    {* Поле для свойства OnCanSplitPara }
+   f_OnBlockChange: TeeBlockChangeEvent;
+    {* Поле для свойства OnBlockChange }
+   f_OnBlockScroll: TeeBlockScrollEvent;
+    {* Поле для свойства OnBlockScroll }
+  protected
+   function AsIeeDocumentEx: IeeDocumentEx; virtual; abstract;
    function CanInsertParaOnMove: Boolean;
-     {* Можно ли вставлять параграфы при движении курсора }
+    {* Можно ли вставлять параграфы при движении курсора }
    function IsInReadOnlyPara(const aPara: InevPara;
     NeedDeleteIfReadOnly: Boolean): Boolean;
-     {* Находимся ли в параграфе, в котором запрещено редактирование }
+    {* Находимся ли в параграфе, в котором запрещено редактирование }
    function Get_Block(anID: Integer): IeeBlock;
-   function Get_BlockEx(anID: Integer; aLayerID: Integer): IeeBlock;
+   function Get_BlockEx(anID: Integer;
+    aLayerID: Integer): IeeBlock;
    function Get_Subs: IeeSubList;
    function Get_Markers: IeeSubList;
    function Get_Bookmarks: IeeSubList;
    function Get_Marks: IeeSubList;
    function Get_ExternalHandle: Integer;
    function Get_Document: IeeDocument;
-   procedure Cut;
-     {* Сигнатура метода Cut }
-   procedure Copy;
-     {* Сигнатура метода Copy }
-   procedure Delete;
-     {* Сигнатура метода Delete }
-   function Paste: Boolean;
-   procedure SelectAll;
-     {* Сигнатура метода SelectAll }
-   procedure HideSelection;
-     {* Сигнатура метода HideSelection }
    function GetHotspotOnPoint(const aPt: TPoint;
-     out theHotSpot: IeeHotSpot): Boolean;
+    out theHotSpot: IeeHotSpot): Boolean;
    function CanSplitPara(const aPara: IeePara): Boolean;
-   function Get_Commands: IeeCommands;
    function Get_Data: IeeData;
- protected
- // overridden property methods
    function pm_GetAllowParaType: TevAllowParaTypes; override;
- protected
- // overridden protected methods
    function DoSearchHyperLink(const anOption: TevSearchOptionSetEx): Boolean; override;
- protected
- // protected methods
-   function AsIeeDocumentEx: IeeDocumentEx; virtual; abstract;
- public
- // public methods
+  public
    function MakeHotSpot(const aPt: TafwPoint;
-     const aHotSpot: IevHotSpot;
-     out theHotSpot: IeeHotSpot): Boolean;
- protected
- // protected properties
+    const aHotSpot: IevHotSpot;
+    out theHotSpot: IeeHotSpot): Boolean;
+  protected
    property OnCanSplitPara: TeeCanSplitParaEvent
-     read f_OnCanSplitPara
-     write f_OnCanSplitPara;
+    read f_OnCanSplitPara
+    write f_OnCanSplitPara;
    property OnBlockChange: TeeBlockChangeEvent
-     read f_OnBlockChange
-     write f_OnBlockChange;
+    read f_OnBlockChange
+    write f_OnBlockChange;
    property OnBlockScroll: TeeBlockScrollEvent
-     read f_OnBlockScroll
-     write f_OnBlockScroll;
+    read f_OnBlockScroll
+    write f_OnBlockScroll;
  end;//TeeEditorExportModelPart
 
 implementation
 
 uses
-  l3InterfacesMisc
-  {$If defined(Nemesis)}
-  ,
-  eeSub
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  eePara
-  {$IfEnd} //Nemesis
-  ,
-  l3String,
-  l3Variant,
-  nevNavigation,
-  SysUtils
-  {$If defined(Nemesis)}
-  ,
-  eeHotSpot
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  eeSubList
-  {$IfEnd} //Nemesis
-  
-  {$If defined(evNeedDisp)}
-  ,
-  evStandardActions
-  {$IfEnd} //evNeedDisp
-  ,
-  nevBase
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3ImplUses
+ , nevNavigation
+ , SysUtils
+ {$If Defined(Nemesis)}
+ , eeHotSpot
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , eeSubList
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(evNeedDisp)}
+ , evStandardActions
+ {$IfEnd} // Defined(evNeedDisp)
+ , nevBase
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , l3InterfacesMisc
+ {$If Defined(Nemesis)}
+ , eeSub
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , eePara
+ {$IfEnd} // Defined(Nemesis)
+ , l3String
+ , l3Variant
+;
 
-// start class TeeEditorExportModelPart
-
-function TeeEditorExportModelPart.MakeHotSpot(const aPt: TafwPoint;
-  const aHotSpot: IevHotSpot;
-  out theHotSpot: IeeHotSpot): Boolean;
-//#UC START# *54BFFE5B0166_4B877FE00340_var*
-var
- l_Cursor: InevBasePoint;
- l_Hyperlink: IevHyperlink;
-//#UC END# *54BFFE5B0166_4B877FE00340_var*
-begin
-//#UC START# *54BFFE5B0166_4B877FE00340_impl*
- if Document.AsObject.IsValid then
- begin
-  Result := true;
-  if not Supports(aHotSpot, IevHyperlink, l_Hyperlink) then
-   l_Hyperlink := nil;
-  if GetPtPoint(aPt, l_Cursor) AND (Selection <> nil) then
-   try
-    {$IfDef Nemesis}
-    theHotSpot := TeeHotSpot.Make(l_Cursor.MostInner.Obj^.AsObject,
-                                  Self.AsIeeDocumentEx,
-                                  l_Hyperlink,
-                                  InevSelection(Selection).Contains(l_Cursor));
-    {$Else}
-    theHotSpot := nil;
-    Result := false;
-    {$EndIf}
-   finally
-    l_Cursor := nil;
-   end//try..finally
-  else
-   Result := false; 
- end//Document.IsValid
- else
-  Result := false; 
-//#UC END# *54BFFE5B0166_4B877FE00340_impl*
-end;//TeeEditorExportModelPart.MakeHotSpot
-{$If defined(Nemesis)}
-
-// start class TeeBlock
-
+{$If Defined(Nemesis)}
 constructor TeeBlock.Create(const aDocument: IeeDocumentEx;
-  anID: Integer;
-  aLayerID: Integer);
+ anID: Integer;
+ aLayerID: Integer);
 //#UC START# *54BF89AF0252_54BF88B903AF_var*
 //#UC END# *54BF89AF0252_54BF88B903AF_var*
 begin
@@ -262,8 +167,8 @@ begin
 end;//TeeBlock.Create
 
 class function TeeBlock.Make(const aDocument: IeeDocumentEx;
-  anID: Integer;
-  aLayerID: Integer): IeeBlock;
+ anID: Integer;
+ aLayerID: Integer): IeeBlock;
 var
  l_Inst : TeeBlock;
 begin
@@ -273,7 +178,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TeeBlock.Make
 
 function TeeBlock.Delete: Boolean;
 //#UC START# *548188CE0291_54BF88B903AF_var*
@@ -515,7 +420,8 @@ begin
 end;//TeeBlock.IsKindOf
 
 function TeeBlock.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_54BF88B903AF_var*
 //#UC END# *4A60B23E00C3_54BF88B903AF_var*
 begin
@@ -538,10 +444,47 @@ begin
   Result := inherited COMQueryInterface(IID, Obj);
 //#UC END# *4A60B23E00C3_54BF88B903AF_impl*
 end;//TeeBlock.COMQueryInterface
+{$IfEnd} // Defined(Nemesis)
 
-{$IfEnd} //Nemesis
+function TeeEditorExportModelPart.MakeHotSpot(const aPt: TafwPoint;
+ const aHotSpot: IevHotSpot;
+ out theHotSpot: IeeHotSpot): Boolean;
+//#UC START# *54BFFE5B0166_4B877FE00340_var*
+var
+ l_Cursor: InevBasePoint;
+ l_Hyperlink: IevHyperlink;
+//#UC END# *54BFFE5B0166_4B877FE00340_var*
+begin
+//#UC START# *54BFFE5B0166_4B877FE00340_impl*
+ if Document.AsObject.IsValid then
+ begin
+  Result := true;
+  if not Supports(aHotSpot, IevHyperlink, l_Hyperlink) then
+   l_Hyperlink := nil;
+  if GetPtPoint(aPt, l_Cursor) AND (Selection <> nil) then
+   try
+    {$IfDef Nemesis}
+    theHotSpot := TeeHotSpot.Make(l_Cursor.MostInner.Obj^.AsObject,
+                                  Self.AsIeeDocumentEx,
+                                  l_Hyperlink,
+                                  InevSelection(Selection).Contains(l_Cursor));
+    {$Else}
+    theHotSpot := nil;
+    Result := false;
+    {$EndIf}
+   finally
+    l_Cursor := nil;
+   end//try..finally
+  else
+   Result := false; 
+ end//Document.IsValid
+ else
+  Result := false; 
+//#UC END# *54BFFE5B0166_4B877FE00340_impl*
+end;//TeeEditorExportModelPart.MakeHotSpot
 
 function TeeEditorExportModelPart.CanInsertParaOnMove: Boolean;
+ {* Можно ли вставлять параграфы при движении курсора }
 //#UC START# *4A8C083300C3_4B877FE00340_var*
 //#UC END# *4A8C083300C3_4B877FE00340_var*
 begin
@@ -551,7 +494,8 @@ begin
 end;//TeeEditorExportModelPart.CanInsertParaOnMove
 
 function TeeEditorExportModelPart.IsInReadOnlyPara(const aPara: InevPara;
-  NeedDeleteIfReadOnly: Boolean): Boolean;
+ NeedDeleteIfReadOnly: Boolean): Boolean;
+ {* Находимся ли в параграфе, в котором запрещено редактирование }
 //#UC START# *4A8C24130193_4B877FE00340_var*
 //#UC END# *4A8C24130193_4B877FE00340_var*
 begin
@@ -571,7 +515,8 @@ begin
 //#UC END# *548196F902DF_4B877FE00340get_impl*
 end;//TeeEditorExportModelPart.Get_Block
 
-function TeeEditorExportModelPart.Get_BlockEx(anID: Integer; aLayerID: Integer): IeeBlock;
+function TeeEditorExportModelPart.Get_BlockEx(anID: Integer;
+ aLayerID: Integer): IeeBlock;
 //#UC START# *5481973F00EA_4B877FE00340get_var*
 //#UC END# *5481973F00EA_4B877FE00340get_var*
 begin
@@ -647,70 +592,8 @@ begin
 //#UC END# *5481988203C9_4B877FE00340get_impl*
 end;//TeeEditorExportModelPart.Get_Document
 
-procedure TeeEditorExportModelPart.Cut;
-//#UC START# *548198C00194_4B877FE00340_var*
-//#UC END# *548198C00194_4B877FE00340_var*
-begin
-//#UC START# *548198C00194_4B877FE00340_impl*
- inherited;
-//#UC END# *548198C00194_4B877FE00340_impl*
-end;//TeeEditorExportModelPart.Cut
-
-procedure TeeEditorExportModelPart.Copy;
-//#UC START# *548198CA0185_4B877FE00340_var*
-//#UC END# *548198CA0185_4B877FE00340_var*
-begin
-//#UC START# *548198CA0185_4B877FE00340_impl*
- inherited;
-//#UC END# *548198CA0185_4B877FE00340_impl*
-end;//TeeEditorExportModelPart.Copy
-
-procedure TeeEditorExportModelPart.Delete;
-//#UC START# *548198D20380_4B877FE00340_var*
-//#UC END# *548198D20380_4B877FE00340_var*
-begin
-//#UC START# *548198D20380_4B877FE00340_impl*
- Range.Delete;
-//#UC END# *548198D20380_4B877FE00340_impl*
-end;//TeeEditorExportModelPart.Delete
-
-function TeeEditorExportModelPart.Paste: Boolean;
-//#UC START# *548198D902BA_4B877FE00340_var*
-//#UC END# *548198D902BA_4B877FE00340_var*
-begin
-//#UC START# *548198D902BA_4B877FE00340_impl*
- Result := inherited Paste;
-//#UC END# *548198D902BA_4B877FE00340_impl*
-end;//TeeEditorExportModelPart.Paste
-
-procedure TeeEditorExportModelPart.SelectAll;
-//#UC START# *548198ED0189_4B877FE00340_var*
-//#UC END# *548198ED0189_4B877FE00340_var*
-begin
-//#UC START# *548198ED0189_4B877FE00340_impl*
- {$IfDef evNeedDisp}
- Process(Self, Self, Ord(ev_ccSelectAll), false);
- {$Else  evNeedDisp}
- Select(ev_stDocument);
- {$EndIf evNeedDisp}
-//#UC END# *548198ED0189_4B877FE00340_impl*
-end;//TeeEditorExportModelPart.SelectAll
-
-procedure TeeEditorExportModelPart.HideSelection;
-//#UC START# *548198F403CE_4B877FE00340_var*
-//#UC END# *548198F403CE_4B877FE00340_var*
-begin
-//#UC START# *548198F403CE_4B877FE00340_impl*
- {$IfDef evNeedDisp}
- Process(Self, Self, Ord(ev_ccHideSelection), false);
- {$Else  evNeedDisp}
- InevSelection(Selection).Unselect;
- {$EndIf evNeedDisp}
-//#UC END# *548198F403CE_4B877FE00340_impl*
-end;//TeeEditorExportModelPart.HideSelection
-
 function TeeEditorExportModelPart.GetHotspotOnPoint(const aPt: TPoint;
-  out theHotSpot: IeeHotSpot): Boolean;
+ out theHotSpot: IeeHotSpot): Boolean;
 //#UC START# *54819F7C006B_4B877FE00340_var*
 var
  l_HotSpot: IevHotSpot;
@@ -742,15 +625,6 @@ begin
  Result := l_Result;
 //#UC END# *54819FA40295_4B877FE00340_impl*
 end;//TeeEditorExportModelPart.CanSplitPara
-
-function TeeEditorExportModelPart.Get_Commands: IeeCommands;
-//#UC START# *54819FB9026A_4B877FE00340get_var*
-//#UC END# *54819FB9026A_4B877FE00340get_var*
-begin
-//#UC START# *54819FB9026A_4B877FE00340get_impl*
- Result := Self;
-//#UC END# *54819FB9026A_4B877FE00340get_impl*
-end;//TeeEditorExportModelPart.Get_Commands
 
 function TeeEditorExportModelPart.Get_Data: IeeData;
 //#UC START# *54819FC5013E_4B877FE00340get_var*
@@ -785,9 +659,9 @@ begin
 end;//TeeEditorExportModelPart.DoSearchHyperLink
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TeeEditorExportModelPart
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TeeEditorExportModelPart);
-{$IfEnd} //not NoScripts
+ {* Регистрация TeeEditorExportModelPart }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -70,7 +70,7 @@ type
 
 function TevAddress_C(aDocID: Integer;
  aSubID: Integer;
- aTypeID: Integer = ev_defAddressType;
+ aTypeID: Integer = evdTypes.ev_defAddressType;
  aRevisionID: Integer = 0): TevAddress;
 
 implementation
@@ -81,7 +81,7 @@ uses
 
 function TevAddress_C(aDocID: Integer;
  aSubID: Integer;
- aTypeID: Integer = ev_defAddressType;
+ aTypeID: Integer = evdTypes.ev_defAddressType;
  aRevisionID: Integer = 0): TevAddress;
 //#UC START# *49E604FE0347_48F4940C01C0_var*
 //#UC END# *49E604FE0347_48F4940C01C0_var*

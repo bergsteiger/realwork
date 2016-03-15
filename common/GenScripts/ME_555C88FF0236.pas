@@ -33,7 +33,7 @@ type
   public
    constructor Create(const aDB: Im3DB;
     aDocID: Integer = 0;
-    aDocPart: Tm3DocPartSelector = m3_defDocPart;
+    aDocPart: Tm3DocPartSelector = m3DBInterfaces.m3_defDocPart;
     aLevel: Integer = 0); reintroduce;
   public
    property Part: Im3DBDocumentPart
@@ -57,7 +57,7 @@ uses
 
 constructor Tm3DBFiler.Create(const aDB: Im3DB;
  aDocID: Integer = 0;
- aDocPart: Tm3DocPartSelector = m3_defDocPart;
+ aDocPart: Tm3DocPartSelector = m3DBInterfaces.m3_defDocPart;
  aLevel: Integer = 0);
 //#UC START# *555C8A63011E_555C88FF0236_var*
 //#UC END# *555C8A63011E_555C88FF0236_var*
