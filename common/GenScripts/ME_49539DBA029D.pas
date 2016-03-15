@@ -249,7 +249,7 @@ type
    function FiltrateTOCTree(const aTOC: Il3SimpleTree;
     NeedFiltrate: Boolean = True): Il3SimpleTree;
    procedure ShowWarningPage(SwitchActivity: Boolean;
-    anOffset: TnsWarningSub = NoneWarningSub);
+    anOffset: TnsWarningSub = DocumentAndListInterfaces.cNoneWarningSub);
    function GetVisibleBookmarksCount(const aBookmarks: IeeSubList): Integer;
    function GetVisibleBookmark(const aBookmarks: IeeSubList;
     anIndex: Integer = 0): IeeSub;
@@ -274,7 +274,7 @@ type
    function ExtractSubFromSubPanel(const aTarget: IUnknown): IeeSub;
    procedure OpenPicture(const aPara: IeePara;
     const aPicture: IeePicture;
-    aOpenKind: TvcmMainFormOpenKind = vcm_okInCurrentTab);
+    aOpenKind: TvcmMainFormOpenKind = vcmInterfaces.vcm_okInCurrentTab);
    function LeafParaUnderCursor: IeePara;
    function MakePositionList(aCRType: TlstCRType): IPositionList;
    procedure SetFocusToText;
@@ -340,7 +340,7 @@ type
    function DoProcessExternalOperation(const anOperation: IExternalOperation): Boolean; override;
     {* Обработчик внешней операции }
    procedure GotoPoint(aPointID: Cardinal;
-    aPointType: TDocumentPositionType = Sub); override;
+    aPointType: TDocumentPositionType = bsTypesNew.dptSub); override;
     {* Переход на точку в документе }
    procedure OpenRedactionLocalLink(const aDocument: IDocument;
     aSub: Cardinal;
@@ -482,7 +482,7 @@ type
     {* Информация о документе }
    function Loadable_Load_Execute(const aNode: IeeNode;
     const aData: IUnknown;
-    anOp: TListLogicOperation = LLO_NONE): Boolean;
+    anOp: TListLogicOperation = nsTypes.LLO_NONE): Boolean;
     {* Коллеги, кто может описать этот метод? }
    procedure Loadable_Load(const aParams: IvcmExecuteParamsPrim);
     {* Коллеги, кто может описать этот метод? }
@@ -519,7 +519,7 @@ type
    procedure Selection_FindInDict_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Найти в Толковом словаре }
    function Document_SetPosition_Execute(aPointID: Cardinal;
-    aPointType: TDocumentPositionType = Sub;
+    aPointType: TDocumentPositionType = bsTypesNew.dptSub;
     aUserType: Integer = 0): Boolean;
    procedure Document_SetPosition(const aParams: IvcmExecuteParamsPrim);
    procedure Document_SetActive_Execute(aUserType: Integer);
@@ -1555,7 +1555,7 @@ begin
 end;//TExTextForm.FiltrateTOCTree
 
 procedure TExTextForm.ShowWarningPage(SwitchActivity: Boolean;
- anOffset: TnsWarningSub = NoneWarningSub);
+ anOffset: TnsWarningSub = DocumentAndListInterfaces.cNoneWarningSub);
 //#UC START# *4C3B4CCF0068_49539DBA029D_var*
 
  function lp_NeedOpen: Boolean;
@@ -2142,7 +2142,7 @@ end;//TExTextForm.GoToIntranetPrim
 
 procedure TExTextForm.OpenPicture(const aPara: IeePara;
  const aPicture: IeePicture;
- aOpenKind: TvcmMainFormOpenKind = vcm_okInCurrentTab);
+ aOpenKind: TvcmMainFormOpenKind = vcmInterfaces.vcm_okInCurrentTab);
 //#UC START# *4F6719C001DB_49539DBA029D_var*
 var
  l_Cont  : IvcmContainer;
@@ -3037,7 +3037,7 @@ end;//TExTextForm.Document_GetAttributesFrmAct_Execute
 
 function TExTextForm.Loadable_Load_Execute(const aNode: IeeNode;
  const aData: IUnknown;
- anOp: TListLogicOperation = LLO_NONE): Boolean;
+ anOp: TListLogicOperation = nsTypes.LLO_NONE): Boolean;
  {* Коллеги, кто может описать этот метод? }
 //#UC START# *49895A2102E8_49539DBA029Dexec_var*
 var
@@ -3316,7 +3316,7 @@ begin
 end;//TExTextForm.DoProcessExternalOperation
 
 procedure TExTextForm.GotoPoint(aPointID: Cardinal;
- aPointType: TDocumentPositionType = Sub);
+ aPointType: TDocumentPositionType = bsTypesNew.dptSub);
  {* Переход на точку в документе }
 //#UC START# *4A8164E801AE_49539DBA029D_var*
 var
@@ -3566,7 +3566,7 @@ begin
 end;//TExTextForm.Selection_FindInDict_Execute
 
 function TExTextForm.Document_SetPosition_Execute(aPointID: Cardinal;
- aPointType: TDocumentPositionType = Sub;
+ aPointType: TDocumentPositionType = bsTypesNew.dptSub;
  aUserType: Integer = 0): Boolean;
 //#UC START# *4AE9D38A02DA_49539DBA029Dexec_var*
 //#UC END# *4AE9D38A02DA_49539DBA029Dexec_var*

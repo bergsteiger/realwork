@@ -28,6 +28,9 @@ uses
  , l3TreeInterfaces
  , l3Interfaces
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -99,7 +102,7 @@ type
    procedure Groups_Rename_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Переименовать группу }
    procedure Switcher_BecomeActive_Test(const aParams: IvcmTestParamsPrim);
-   procedure Switcher_BecomeActive_Execute;
+   procedure Switcher_BecomeActive_Execute(const aForm: IvcmEntityForm);
    procedure Switcher_BecomeActive(const aParams: IvcmExecuteParamsPrim);
   public
    property BackgroundPanel: TvtPanel
@@ -370,7 +373,7 @@ begin
 //#UC END# *4AEF3E8C02F5_49EC75B5022Ctest_impl*
 end;//TPrimGroupListForm.Switcher_BecomeActive_Test
 
-procedure TPrimGroupListForm.Switcher_BecomeActive_Execute;
+procedure TPrimGroupListForm.Switcher_BecomeActive_Execute(const aForm: IvcmEntityForm);
 //#UC START# *4AEF3E8C02F5_49EC75B5022Cexec_var*
 //#UC END# *4AEF3E8C02F5_49EC75B5022Cexec_var*
 begin
@@ -381,7 +384,8 @@ end;//TPrimGroupListForm.Switcher_BecomeActive_Execute
 
 procedure TPrimGroupListForm.Switcher_BecomeActive(const aParams: IvcmExecuteParamsPrim);
 begin
- Self.Switcher_BecomeActive_Execute;
+ with (aParams.Data As ISwitcher_BecomeActive_Params) do
+  Self.Switcher_BecomeActive_Execute(Form);
 end;//TPrimGroupListForm.Switcher_BecomeActive
 
 procedure TPrimGroupListForm.TreeViewInvalidate;
