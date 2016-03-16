@@ -150,9 +150,9 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
   public
-   procedure Common_ShowSplitter_Execute;
+   procedure Common_ShowSplitter_Execute(aVisible: Boolean);
    procedure Common_ShowSplitter(const aParams: IvcmExecuteParamsPrim);
-   procedure Common_CheckChildZone_Execute;
+   procedure Common_CheckChildZone_Execute(aToggle: Boolean);
    procedure Common_CheckChildZone(const aParams: IvcmExecuteParamsPrim);
    {$If NOT Defined(NoVCM)}
    procedure Common_OpenNewWindowByUser_Test(const aParams: IvcmTestParamsPrim);
@@ -648,7 +648,7 @@ begin
 //#UC END# *499037820017_4F6B382E00D9_impl*
 end;//TMainPrimForm.CorrectHeight
 
-procedure TMainPrimForm.Common_ShowSplitter_Execute;
+procedure TMainPrimForm.Common_ShowSplitter_Execute(aVisible: Boolean);
 //#UC START# *4AE8744002F3_4F6B382E00D9exec_var*
 //#UC END# *4AE8744002F3_4F6B382E00D9exec_var*
 begin
@@ -662,10 +662,11 @@ end;//TMainPrimForm.Common_ShowSplitter_Execute
 
 procedure TMainPrimForm.Common_ShowSplitter(const aParams: IvcmExecuteParamsPrim);
 begin
- Self.Common_ShowSplitter_Execute;
+ with (aParams.Data As ICommon_ShowSplitter_Params) do
+  Self.Common_ShowSplitter_Execute(Visible);
 end;//TMainPrimForm.Common_ShowSplitter
 
-procedure TMainPrimForm.Common_CheckChildZone_Execute;
+procedure TMainPrimForm.Common_CheckChildZone_Execute(aToggle: Boolean);
 //#UC START# *4AE8777F01A3_4F6B382E00D9exec_var*
 var
  l_IForm: IvcmEntityForm;
@@ -690,7 +691,8 @@ end;//TMainPrimForm.Common_CheckChildZone_Execute
 
 procedure TMainPrimForm.Common_CheckChildZone(const aParams: IvcmExecuteParamsPrim);
 begin
- Self.Common_CheckChildZone_Execute;
+ with (aParams.Data As ICommon_CheckChildZone_Params) do
+  Self.Common_CheckChildZone_Execute(Toggle);
 end;//TMainPrimForm.Common_CheckChildZone
 
 procedure TMainPrimForm.Common_OpenNewWindowByUser_Test(const aParams: IvcmTestParamsPrim);

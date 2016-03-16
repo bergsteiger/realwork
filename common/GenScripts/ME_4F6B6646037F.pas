@@ -78,7 +78,7 @@ type
    {$IfEnd} // NOT Defined(NoVCL)
   public
    procedure AdjustSizeToFixed;
-   procedure Switcher_BecomeActive_Execute;
+   procedure Switcher_BecomeActive_Execute(const aForm: IvcmEntityForm);
    procedure Switcher_BecomeActive(const aParams: IvcmExecuteParamsPrim);
    procedure Switcher_SetFirstPageActive_Execute;
    procedure Switcher_SetFirstPageActive(const aParams: IvcmExecuteParamsPrim);
@@ -404,7 +404,7 @@ begin
 //#UC END# *4F71E3020328_4F6B6646037F_impl*
 end;//TPrimChildForm.ChildZoneTabSheetClick
 
-procedure TPrimChildForm.Switcher_BecomeActive_Execute;
+procedure TPrimChildForm.Switcher_BecomeActive_Execute(const aForm: IvcmEntityForm);
 //#UC START# *4AEF3E8C02F5_4F6B6646037Fexec_var*
 //#UC END# *4AEF3E8C02F5_4F6B6646037Fexec_var*
 begin
@@ -416,7 +416,8 @@ end;//TPrimChildForm.Switcher_BecomeActive_Execute
 
 procedure TPrimChildForm.Switcher_BecomeActive(const aParams: IvcmExecuteParamsPrim);
 begin
- Self.Switcher_BecomeActive_Execute;
+ with (aParams.Data As ISwitcher_BecomeActive_Params) do
+  Self.Switcher_BecomeActive_Execute(Form);
 end;//TPrimChildForm.Switcher_BecomeActive
 
 procedure TPrimChildForm.Switcher_SetFirstPageActive_Execute;
