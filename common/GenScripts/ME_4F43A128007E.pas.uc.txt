@@ -559,6 +559,8 @@ var
    Result := l3Same(aA.AsString, aB.AsString);
   tfw_vtObj:
    Result := aA.AsObject = aB.AsObject;
+  tfw_vtIntf:
+   Result := aA.AsIntf = aB.AsIntf;
   else
   begin
    Result := false;
@@ -733,6 +735,8 @@ var
    Result := not l3Same(aA.AsString, aB.AsString);
   tfw_vtObj:
    Result := aA.AsObject <> aB.AsObject;
+  tfw_vtIntf:
+   Result := aA.AsIntf <> aB.AsIntf;
   else
   begin
    Result := false;
@@ -751,7 +755,10 @@ var
 //#UC START# *E3D187DF3985_1AF5C18788F4_var*
 //#UC END# *E3D187DF3985_1AF5C18788F4_var*
 //#UC START# *E64338F25E47_D110B4F78BD0_impl*
- Result := aWord;
+ if (aWord Is TkwForwardDeclarationHolder) then
+  Result := TkwForwardDeclarationHolder(aWord).Holded
+ else
+  Result := aWord;
 //#UC END# *E64338F25E47_D110B4F78BD0_impl*
 //#UC START# *E64338F25E47_D110B4F78BD0_var*
 //#UC END# *E64338F25E47_D110B4F78BD0_var*

@@ -36,7 +36,8 @@
      {* - контрольная сумма. }
 //#UC END# *5411C56D039Cpubl*
 //#UC START# *5413162303A4*
- m3TOCBuffers := l3NewMemoryChain(m3ClusterSize);
+ if (m3TOCBuffers = nil) then
+  m3TOCBuffers := l3NewMemoryChain(m3ClusterSize);
 //#UC END# *5413162303A4*
 //#UC START# *5413163101BA_5411C58501E2_impl*
  Assert(aHeaderData <> nil);
@@ -293,6 +294,8 @@ var
   Assert(not Self.f_BufferModified);
   f_Manager.Lock;
   try
+   if (m3TOCBuffers = nil) then
+    m3TOCBuffers := l3NewMemoryChain(m3ClusterSize);
    m3TOCBuffers^.AllocItemZ(Pointer(Self.f_Body), f_Manager.ClusterBodySize);
    if (Self.Position <> -1) then
    // - иначе нечего читать, видимо это НОВЫЙ блок, который только начинают писать
