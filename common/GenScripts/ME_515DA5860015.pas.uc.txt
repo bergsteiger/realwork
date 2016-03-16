@@ -2597,7 +2597,7 @@ var
    if AlignTopIndex then
     DropDrawPoints;
 
-   NCur := TreeStruct.GetIndex(l_Node);
+   NCur:=TreeStruct.GetIndex(l_Node);
    if NCur >= 0 then
     InternalSetCurrent(NCur);
   finally
@@ -2649,10 +2649,10 @@ var
   if not Assigned(f_TreeStruct) or Assigned(l_Current) and
     l_Current.IsSame(aNode) then
    Exit;
-  Result := f_TreeStruct.MakeNodeVisible(aNode);
+  Result  := f_TreeStruct.MakeNodeVisible(aNode);
   if Result < 0 then
    Exit;
-  Total := TreeStruct.CountView;
+  Total   := TreeStruct.CountView;
   if IsInChange then
    f_SaveCurrentNode := aNode
   else
